@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join BrainsMingle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #6B3EF5;
+    --purple-light: #7B52F6;
+    --cyan: #00E8A2;
+    --bg: #0F0F1A;
+    --bg-card: #16162A;
+    --bg-card2: #1C1C32;
+    --border: rgba(107, 62, 245, 0.25);
+    --border-subtle: rgba(255,255,255,0.07);
+    --text: #F0EEF8;
+    --text-muted: #9490B8;
+    --text-dim: #5E5A80;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(107,62,245,0.22) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute; bottom: -60px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0,232,162,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-wrap { margin-bottom: 48px; }
+  .logo-wrap img { height: 48px; width: auto; display: block; }
+
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -1.5px;
+    max-width: 1000px;
+    margin-bottom: 24px; color: #fff;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--purple-light), var(--cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 18px; color: var(--text-muted);
+    max-width: 620px; margin-bottom: 48px; line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; margin-bottom: 60px;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: #fff; display: block; }
+  .hero-stat-num em { color: var(--cyan); font-style: normal; }
+  .hero-stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
+  .stat-divider { width: 1px; background: var(--border-subtle); align-self: stretch; }
+
+  /* VIDEO */
+  .video-wrap {
+    position: relative; width: 100%; max-width: 760px; margin: 0 auto;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); background: var(--bg-card);
+    aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  .video-thumb {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1030 0%, #0d1a2e 100%);
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+  }
+  .play-btn {
+    width: 72px; height: 72px; background: var(--purple); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .video-wrap:hover .play-btn { transform: scale(1.08); background: var(--purple-light); }
+  .play-btn svg { width: 28px; height: 28px; margin-left: 4px; }
+  .video-label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+
+  /* SECTIONS */
+  .section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-sm { padding: 60px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 12px; }
+  .section-title { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -0.8px; color: #fff; margin-bottom: 12px; line-height: 1.15; }
+  .section-sub { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* AUDIENCE CARDS — 4 columns desktop, 2 tablet, 1 mobile */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .audience-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit; position: relative; overflow: hidden;
+  }
+  .audience-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--cyan)); opacity: 0; transition: opacity 0.2s;
+  }
+  .audience-card:hover { 
+      border-color: var(--border); 
+      transform: translateY(-3px); 
+      box-shadow: 0 12px 40px rgba(107,62,245,0.18); }
+  .audience-card:hover::before { opacity: 1; }
+  
+.card-purple .card-cta { color: #7B52F6; }
+.card-purple:hover { box-shadow: 0 12px 40px rgba(107,62,245,0.25); }
+.card-purple::before { background: linear-gradient(90deg, #6B3EF5, #7B52F6); opacity: 0; }
+.card-purple:hover::before { opacity: 1; }
+
+.card-coral .card-cta { color: #FF6B6B; }
+.card-coral:hover { box-shadow: 0 12px 40px rgba(255,107,107,0.2); }
+.card-coral::before { background: linear-gradient(90deg, #FF6B6B, #FF9B9B); opacity: 0; }
+.card-coral:hover::before { opacity: 1; }
+
+.card-pink .card-cta { color: #F53E9F; }
+.card-pink:hover { box-shadow: 0 12px 40px rgba(245,62,159,0.2); }
+.card-pink::before { background: linear-gradient(90deg, #F53E9F, #F57EC4); opacity: 0; }
+.card-pink:hover::before { opacity: 1; }
+
+.card-amber .card-cta { color: #F5A623; }
+.card-amber:hover { box-shadow: 0 12px 40px rgba(245,166,35,0.2); }
+.card-amber::before { background: linear-gradient(90deg, #F5A623, #F5C46A); opacity: 0; }
+.card-amber:hover::before { opacity: 1; }
+  .card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .icon-purple { background: rgba(107,62,245,0.18); }
+  .icon-cyan   { background: rgba(0,232,162,0.12); }
+  .icon-pink   { background: rgba(245,62,160,0.12); }
+  .icon-amber  { background: rgba(245,180,62,0.12); }
+
+  .card-title { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.2px; }
+  .card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .card-cta { display: inline-flex; align-items: center; gap: 6px; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--cyan); margin-top: 4px; }
+  .card-cta svg { width: 14px; height: 14px; transition: transform 0.2s; }
+  .audience-card:hover .card-cta svg { transform: translateX(3px); }
+
+  /* CAPABILITIES */
+  .caps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .cap-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .cap-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(107,62,245,0.15); display: flex; align-items: center; justify-content: center; }
+  .cap-icon svg { width: 20px; height: 20px; }
+  .cap-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; }
+  .cap-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+  /* STATS STRIP */
+  .stats-strip { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 40px 48px; display: flex; flex-wrap: nowrap; gap: 0; justify-content: space-around; align-items: center; }
+  .stat-item { text-align: center; padding: 8px 20px; border-right: 1px solid var(--border-subtle); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: #fff; display: block; letter-spacing: -0.5px; }
+  .stat-num span { color: var(--cyan); }
+  .stat-lbl { font-size: 13px; color: var(--text-muted); margin-top: 4px; display: block; }
+
+  /* PROOF */
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .proof-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .proof-num { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 800; color: var(--cyan); letter-spacing: -1px; }
+  .proof-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; }
+  .proof-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .proof-tag { display: inline-block; font-size: 11px; font-weight: 700; color: var(--purple-light); background: rgba(107,62,245,0.12); border-radius: 100px; padding: 4px 10px; align-self: flex-start; }
+
+  /* TESTIMONIAL */
+  .testimonial-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 48px; position: relative; overflow: hidden; }
+  .testimonial-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--purple), var(--cyan)); }
+  .quote-mark { font-family: 'Montserrat', sans-serif; font-size: 80px; line-height: 0.8; color: var(--purple); opacity: 0.4; margin-bottom: 16px; display: block; }
+  .quote-text { font-size: 17px; line-height: 1.75; color: var(--text); direction: rtl; max-width: 760px; }
+  .quote-source { margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+
+  /* HOW IT WORKS */
+  .steps-wrap { display: flex; gap: 0; position: relative; }
+  .steps-wrap::before { content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 1px; background: linear-gradient(90deg, var(--purple), var(--cyan)); opacity: 0.3; z-index: 0; }
+  .step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 0 24px; position: relative; z-index: 1; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--bg-card2); border: 2px solid var(--purple); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: var(--cyan); flex-shrink: 0; }
+  .step-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* COUNTRIES */
+  .countries-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .country-pill { font-size: 13px; color: var(--text-muted); background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 100px; padding: 6px 14px; }
+  .country-pill.top { color: var(--text); border-color: rgba(107,62,245,0.3); background: rgba(107,62,245,0.1); }
+
+  /* BOTTOM CTA */
+  .bottom-cta { background: linear-gradient(135deg, rgba(107,62,245,0.15) 0%, rgba(0,232,162,0.08) 100%); border: 1px solid var(--border); border-radius: 20px; padding: 64px 48px; text-align: center; }
+  .bottom-cta h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; color: #fff; letter-spacing: -1px; margin-bottom: 16px; }
+  .bottom-cta p { font-size: 16px; color: var(--text-muted); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-cards-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+  .cta-btn:hover { transform: translateY(-2px); }
+  
+.cta-purple { background: rgba(107,62,245,0.15); color: #7B52F6; border: 1px solid rgba(107,62,245,0.3); }
+.cta-purple:hover { background: rgba(107,62,245,0.25); }
+
+.cta-coral { background: rgba(255,107,107,0.12); color: #FF6B6B; border: 1px solid rgba(255,107,107,0.3); }
+.cta-coral:hover { background: rgba(255,107,107,0.22); }
+
+.cta-pink { background: rgba(245,62,159,0.12); color: #F53E9F; border: 1px solid rgba(245,62,159,0.3); }
+.cta-pink:hover { background: rgba(245,62,159,0.22); }
+
+.cta-amber { background: rgba(245,166,35,0.12); color: #F5A623; border: 1px solid rgba(245,166,35,0.3); }
+.cta-amber:hover { background: rgba(245,166,35,0.22); }
+
+  /* FOOTER */
+  .footer { border-top: 1px solid var(--border-subtle); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); max-width: 1100px; margin: 0 auto; }
+  .divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .audience-grid { grid-template-columns: repeat(2, 1fr); }
+    .caps-grid { grid-template-columns: 1fr 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .stats-strip { padding: 32px 24px; }
+    .stats-strip { flex-wrap: wrap; }
+.stat-item { flex: 1 1 30%; border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 16px; }
+.stat-item:last-child { border-bottom: none; }
+    .steps-wrap { flex-direction: column; gap: 24px; }
+    .steps-wrap::before { display: none; }
+    .testimonial-wrap { padding: 28px 24px; }
+    .bottom-cta { padding: 40px 24px; }
+  }
+
+  @media (max-width: 560px) {
+    .audience-grid { grid-template-columns: 1fr; }
+    .caps-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    .stat-divider { display: none; }
+    .cta-cards-row { flex-direction: column; align-items: center; }
+    .logo-wrap img { height: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="logo-wrap">
+    <img src="BrainsMingle-White.png" alt="BrainsMingle" />
+  </div>
+
+  <h1>Where serious professionals <span>deliver, connect, and build</span></h1>
+
+  <p class="hero-sub">
+    One platform for live sessions, paid consultations, professional communities, and real face-to-face connection — without stitching together five different tools.
+  </p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">5,700<em>+</em></span>
+      <span class="hero-stat-label">Registered professionals</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">980<em>+</em></span>
+      <span class="hero-stat-label">Sessions hosted</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">5,000<em>+</em></span>
+      <span class="hero-stat-label">Connections made</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">85<em>+</em></span>
+      <span class="hero-stat-label">Countries</span>
+    </div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-thumb">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="video-label">Watch — One platform. Every professional connection that matters.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- AUDIENCE PATHS -->
+<div class="section">
+  <div class="section-label">Find your path</div>
+  <h2 class="section-title">Who are you here as?</h2>
+  <p class="section-sub">Choose your path — each one is built for you.</p>
+
+  <div class="audience-grid">
+
+    <a class="audience-card card-purple" href="join/experts.html">
+      <div class="card-icon icon-purple">🎓</div>
+      <div class="card-title">Expert or Trainer</div>
+      <div class="card-desc">You have expertise, an audience, and something real to teach. Get a full profile, session delivery, booking management, and your own community — all in one place.</div>
+      <div class="card-cta">Join as an Expert <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a class="audience-card card-coral" href="join/communities.html">
+      <div class="card-icon icon-cyan">🏛️</div>
+      <div class="card-title">Community Builder</div>
+      <div class="card-desc">You've built something real — an engaged membership and an established identity. Give it the structured, professional home it deserves.</div>
+      <div class="card-cta">Bring Your Community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a class="audience-card card-pink" href="join/podcasts.html">
+      <div class="card-icon icon-pink">🎙️</div>
+      <div class="card-title">Podcaster or YouTuber</div>
+      <div class="card-desc">Your content is strong — but it lives and dies in one episode. Add a live layer, keep your audience engaged, and reach new professional communities.</div>
+      <div class="card-cta">Explore the Partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+    <a class="audience-card card-amber" href="join/professionals.html">
+      <div class="card-icon icon-amber">🌐</div>
+      <div class="card-title">Professional</div>
+      <div class="card-desc">Learn, connect, and grow with real people. Book sessions with experts, join professional communities, and build your network across industries.</div>
+      <div class="card-cta">Join as a Professional <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </a>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PLATFORM CAPABILITIES -->
+<div class="section">
+  <div class="section-label">Platform capabilities</div>
+  <h2 class="section-title">Everything in one place</h2>
+  <p class="section-sub">No more stitching together Zoom, Calendly, WhatsApp, and a payment tool. It all lives here.</p>
+
+  <div class="caps-grid">
+    <div class="cap-card">
+      <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#6B3EF5" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="cap-title">Live & Recorded Sessions</div>
+      <div class="cap-desc">Host 1:1 consultations, group workshops, and webinars natively. Record and publish — your content keeps working after the session ends.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="cap-title">Community Spaces</div>
+      <div class="cap-desc">Create structured communities with channels, announcements, threaded discussions, and embedded live sessions. Public, private, or invite-only.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#6B3EF5" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="cap-title">Booking & Payments</div>
+      <div class="cap-desc">Let your audience book directly from your profile. Set your pricing, manage availability, and get paid — all in one workflow. No back-and-forth.</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div class="cap-title">Speed Networking</div>
+      <div class="cap-desc">Facilitate structured face-to-face networking with automated matching and timed rotations. Hundreds of real connections in a single event.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- NUMBERS -->
+<div class="section-sm">
+  <div style="text-align:center; margin-bottom: 40px;">
+    <div class="section-label" style="display:inline-block;">By the numbers</div>
+    <h2 class="section-title">Already live. Already working.</h2>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat-item"><span class="stat-num">5,700<span>+</span></span><span class="stat-lbl">Registered professionals</span></div>
+    <div class="stat-item"><span class="stat-num">1,000<span>+</span></span><span class="stat-lbl">Companies represented</span></div>
+    <div class="stat-item"><span class="stat-num">980<span>+</span></span><span class="stat-lbl">Sessions hosted</span></div>
+    <div class="stat-item"><span class="stat-num">80K<span>+</span></span><span class="stat-lbl">Session minutes</span></div>
+    <div class="stat-item"><span class="stat-num">5,000<span>+</span></span><span class="stat-lbl"> Networking Connections</span></div>
+    <div class="stat-item"><span class="stat-num">20<span>+</span></span><span class="stat-lbl">Active communities</span></div>
+  </div>
+
+  <div style="margin-top: 40px; text-align:center;">
+    <p style="font-size:13px; color: var(--text-muted); margin-bottom: 16px;">Professionals from 85+ countries, including</p>
+    <div class="countries-wrap" style="justify-content:center;">
+      <span class="country-pill top">🇪🇬 Egypt</span>
+      <span class="country-pill top">🇸🇦 Saudi Arabia</span>
+      <span class="country-pill top">🇺🇸 United States</span>
+      <span class="country-pill top">🇬🇧 United Kingdom</span>
+      <span class="country-pill top">🇩🇪 Germany</span>
+      <span class="country-pill top">🇨🇦 Canada</span>
+      <span class="country-pill">🇯🇴 Jordan</span>
+      <span class="country-pill">🇫🇮 Finland</span>
+      <span class="country-pill">🇦🇪 UAE</span>
+      <span class="country-pill">🇹🇷 Turkey</span>
+      <span class="country-pill">+ 75 more</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROOF CASES -->
+<div class="section">
+  <div class="section-label">Real results</div>
+  <h2 class="section-title">What happens on BrainsMingle</h2>
+  <p class="section-sub">Real events. Real numbers. Real professionals who showed up and made connections that last.</p>
+
+  <div class="proof-grid">
+    <div class="proof-card">
+      <span class="proof-tag">Speed Networking · Malaysia</span>
+      <div class="proof-num">414</div>
+      <div class="proof-title">Connections in 90 minutes</div>
+      <div class="proof-desc">HasanVC accelerator cohort — 59 founders connected face-to-face in a single structured event. A second cohort produced 378 connections among 57 participants.</div>
+    </div>
+    <div class="proof-card">
+      <span class="proof-tag">Speed Networking · Finland</span>
+      <div class="proof-num">586</div>
+      <div class="proof-title">Co-founder matches in 2 hours</div>
+      <div class="proof-desc">Kiuas accelerator — 57 participants, 586 new connections made in a single 120-minute co-founder matching session.</div>
+    </div>
+    <div class="proof-card">
+      <span class="proof-tag">Community Event · Indonesia</span>
+      <div class="proof-num">800</div>
+      <div class="proof-title">Connections in 45 minutes</div>
+      <div class="proof-desc">192 community members practicing interviews — 800 connections made in 45 minutes. Proof that the platform scales at any size.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TESTIMONIAL -->
+<div class="section-sm">
+  <div class="testimonial-wrap">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">واحدة من أفضل التجارب اللي جربتها على الانترنت بفضل الله! تخيل إنك تقابل خلال ساعتين (بشكل مرئي/صوتي بنظام 1:1) خبرات متنوعة وأنفس طموحة، سواء كانوا رواد أعمال - مهندسين أقدم منك في المجال - شباب في نفس مرحلتك وممكن نفس مجالك - طلاب جامعيين في أول الطريق ممكن تفيدهم - بل وحتى شباب طموح خاض تجارب ملهمة بحق ومشيوا في طرق من قبلك يلهموك بتجربتهم دي! وأكثر من ذلك بكثير...</p>
+    <div class="quote-source">— BrainsMingle member, Speed Networking event</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div style="text-align:center; margin-bottom: 56px;">
+    <div class="section-label" style="display:inline-block;">How it works</div>
+    <h2 class="section-title">Simple. Live. Human.</h2>
+  </div>
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Choose your path</div>
+      <div class="step-desc">Join as an expert, a community, a podcast host, or a professional. Each path has its own onboarding built for your situation.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Show up live</div>
+      <div class="step-desc">Deliver sessions, run events, host networking — face to face, in real time, with real people. No external tools. No broken links.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Build something lasting</div>
+      <div class="step-desc">Your community, your reputation, your income. Everything you create on BrainsMingle keeps working for you long after the session ends.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- BOTTOM CTA -->
+<div class="section">
+  <div class="bottom-cta">
+    <h2>Ready to join?</h2>
+    <p>Find your path and take the first step. Each track has a dedicated page built entirely for you.</p>
+    <div class="cta-cards-row">
+<a class="cta-btn cta-purple" href="join/experts.html">Join as an Expert</a>
+<a class="cta-btn cta-coral" href="join/communities.html">Bring Your Community</a>
+<a class="cta-btn cta-pink" href="join/podcasts.html">Podcast Partnership</a>
+<a class="cta-btn cta-amber" href="join/professionals.html">Join as a Professional</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 BrainsMingle · <a href="https://brainsmingle.com" style="color: var(--purple-light); text-decoration: none;">brainsmingle.com</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainsMingle — GTM Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #6B3EF5;
+  --purple-light: #7B52F6;
+  --purple-dim: rgba(107,62,245,0.15);
+  --cyan: #00E8A2;
+  --cyan-dim: rgba(0,232,162,0.1);
+  --amber: #F5A623;
+  --amber-dim: rgba(245,166,35,0.1);
+  --pink: #F53E9F;
+  --bg: #0F0F1A;
+  --bg-card: #16162A;
+  --bg-card2: #1C1C32;
+  --border: rgba(107,62,245,0.25);
+  --border-subtle: rgba(255,255,255,0.07);
+  --text: #F0EEF8;
+  --text-muted: #9490B8;
+  --text-dim: #5E5A80;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
+
+/* ── INTERNAL BAR ── */
+.internal-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 40px;
+  background: rgba(107,62,245,0.08);
+  border-bottom: 1px solid rgba(107,62,245,0.2);
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.internal-bar img { height: 26px; }
+.internal-badge {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim);
+  display: flex; align-items: center; gap: 6px;
+}
+.internal-badge::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--amber); display: inline-block;
+  box-shadow: 0 0 6px var(--amber);
+}
+
+/* ── SHARED LAYOUT ── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--purple-light); margin-bottom: 10px; display: block;
+}
+.section-title {
+  font-size: clamp(22px, 2.6vw, 34px); font-weight: 800;
+  letter-spacing: -0.8px; color: #fff; margin-bottom: 10px; line-height: 1.15;
+}
+.section-sub {
+  font-size: 15px; color: var(--text-muted); max-width: 640px; line-height: 1.75; margin-bottom: 48px;
+}
+
+hr.divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+/* ── HERO ── */
+.hero {
+  padding: 80px 40px 64px;
+  max-width: 1100px; margin: 0 auto;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--purple-light);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.hero h1 {
+  font-size: clamp(28px, 4vw, 52px); font-weight: 900; letter-spacing: -2px;
+  line-height: 1.05; color: #fff; margin-bottom: 24px; max-width: 780px;
+}
+.hero h1 em {
+  background: linear-gradient(135deg, var(--purple-light), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-style: normal;
+}
+.hero-desc {
+  font-size: 16px; color: var(--text-muted); max-width: 620px; line-height: 1.75; margin-bottom: 32px;
+}
+.hero-meta {
+  display: flex; gap: 32px; flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.hero-stat-num {
+  font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 900; color: #fff;
+}
+.hero-stat-label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ── SECTION 1: CONTEXT ── */
+.context-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;
+}
+.context-narrative {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 20px; padding: 36px;
+  position: relative; overflow: hidden;
+}
+.context-narrative::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+}
+.context-narrative p {
+  font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;
+}
+.context-narrative p:last-child { margin-bottom: 0; }
+.context-narrative strong { color: #fff; }
+.context-narrative-title {
+  font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800;
+  color: #fff; margin-bottom: 16px;
+}
+
+.market-chars { display: flex; flex-direction: column; gap: 14px; }
+.market-char {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 24px 28px;
+  display: flex; gap: 16px; align-items: flex-start;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.market-char:hover { border-color: rgba(107,62,245,0.35); }
+.market-char-num {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  color: var(--purple-light); letter-spacing: 1.5px; flex-shrink: 0; padding-top: 2px;
+}
+.market-char-body {}
+.market-char-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.market-char-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+/* ── SECTION 2: TRACKS ── */
+.tracks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.track-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 18px; padding: 28px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.track-card:hover { border-color: var(--border); transform: translateY(-2px); }
+.track-card.demand {
+  border-color: rgba(0,232,162,0.15);
+  background: linear-gradient(135deg, rgba(0,232,162,0.04) 0%, var(--bg-card) 60%);
+}
+.track-card.demand:hover { border-color: rgba(0,232,162,0.3); }
+.track-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+  background: var(--purple-dim); color: var(--purple-light);
+  margin-bottom: 16px;
+}
+.track-tag.demand-tag {
+  background: var(--cyan-dim); color: var(--cyan);
+}
+.track-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.track-name { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.3px; }
+.track-role { font-size: 13px; color: var(--cyan); font-weight: 700; margin-bottom: 10px; }
+.track-card.demand .track-role { color: var(--cyan); }
+.track-logic { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.track-logic strong { color: var(--text); }
+
+.tracks-flow {
+  margin-top: 20px; padding: 18px 24px;
+  background: var(--bg-card2); border-radius: 12px; border: 1px solid var(--border-subtle);
+  font-size: 13px; color: var(--text-muted); text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+}
+.tracks-flow strong { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; }
+.tracks-flow .arr { color: var(--cyan); font-size: 14px; }
+
+/* ── SECTION 3: DIASPORA ── */
+.diaspora-block {
+  background: linear-gradient(135deg, rgba(107,62,245,0.1) 0%, rgba(0,232,162,0.05) 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px; padding: 48px;
+  position: relative; overflow: hidden;
+}
+.diaspora-block::after {
+  content: 'DIASPORA';
+  position: absolute; right: -20px; top: 20px;
+  font-family: 'Montserrat', sans-serif; font-size: 100px; font-weight: 900;
+  color: rgba(107,62,245,0.05); line-height: 1; pointer-events: none;
+  letter-spacing: -4px;
+}
+.diaspora-intro {
+  font-size: 20px; font-weight: 700; color: #fff; line-height: 1.5;
+  max-width: 680px; margin-bottom: 36px;
+  font-family: 'Montserrat', sans-serif; letter-spacing: -0.3px;
+}
+.diaspora-intro em {
+  background: linear-gradient(135deg, var(--purple-light), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-style: normal;
+}
+.diaspora-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.diaspora-pillar {
+  background: rgba(15,15,26,0.6); border: 1px solid var(--border-subtle);
+  border-radius: 14px; padding: 24px;
+}
+.diaspora-pillar-icon { font-size: 24px; margin-bottom: 10px; }
+.diaspora-pillar-title { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.diaspora-pillar-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+.diaspora-conclusion {
+  margin-top: 24px; padding: 18px 24px;
+  background: rgba(107,62,245,0.08); border-left: 3px solid var(--purple);
+  border-radius: 0 12px 12px 0;
+  font-size: 14px; color: var(--text-muted); line-height: 1.7; font-style: italic;
+}
+.diaspora-conclusion strong { color: #fff; font-style: normal; }
+
+/* ── SECTION 4: THEMATIC LAUNCH ── */
+.verticals-timeline {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+  position: relative; margin-bottom: 40px;
+}
+.verticals-timeline::before {
+  content: ''; position: absolute; top: 32px; left: 8.33%; right: 8.33%;
+  height: 1px; background: linear-gradient(90deg, var(--purple), var(--cyan));
+  z-index: 0;
+}
+.vtl-item {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 6px; position: relative; z-index: 1;
+}
+.vtl-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg-card2); border: 2px solid var(--purple);
+  margin-bottom: 12px; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(107,62,245,0.15);
+  transition: background 0.2s;
+}
+.vtl-item:hover .vtl-dot { background: var(--purple); }
+.vtl-month {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  color: var(--purple-light); letter-spacing: 1px; margin-bottom: 8px;
+}
+.vtl-name {
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  color: #fff; line-height: 1.3;
+}
+.vtl-icon { font-size: 20px; margin-top: 8px; }
+
+.launch-arc {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.arc-step {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 24px;
+  position: relative; overflow: hidden;
+}
+.arc-step::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.arc-step:nth-child(1)::before { background: var(--purple); }
+.arc-step:nth-child(2)::before { background: linear-gradient(90deg, var(--purple), var(--cyan)); }
+.arc-step:nth-child(3)::before { background: var(--cyan); }
+.arc-num {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+}
+.arc-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.arc-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+/* ── SECTION 5: CONTENT ENGINE ── */
+.engine-flow {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 20px; padding: 40px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.engine-node {
+  background: var(--bg-card2); border: 1px solid var(--border-subtle);
+  border-radius: 14px; padding: 16px 22px; text-align: center; min-width: 110px;
+}
+.engine-node-icon { font-size: 22px; margin-bottom: 6px; }
+.engine-node-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: #fff; }
+.engine-node-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.engine-node.highlight {
+  background: var(--purple-dim); border-color: var(--border);
+}
+.engine-node.highlight .engine-node-label { color: var(--purple-light); }
+.engine-arrow { font-size: 18px; color: var(--purple-light); flex-shrink: 0; }
+.engine-platforms {
+  display: flex; flex-direction: column; gap: 6px; background: var(--bg-card2);
+  border: 1px solid var(--border-subtle); border-radius: 14px; padding: 14px 18px;
+}
+.engine-platform { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.engine-platform span { color: #fff; font-weight: 700; }
+.engine-loop {
+  margin-top: 20px; text-align: center;
+  font-size: 13px; color: var(--text-dim); font-style: italic;
+}
+.engine-loop strong { color: var(--cyan); font-style: normal; }
+
+/* ── SECTION 6: SUCCESS ── */
+.success-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.success-item {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 14px; padding: 20px 22px;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.success-item:hover { border-color: rgba(0,232,162,0.25); }
+.success-check {
+  width: 22px; height: 22px; border-radius: 6px;
+  border: 2px solid rgba(0,232,162,0.3); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; margin-top: 1px; background: var(--cyan-dim);
+  color: var(--cyan);
+}
+.success-q { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-style: italic; }
+.success-q strong { color: #fff; font-style: normal; }
+
+/* ── SECTION 7: NOT DOING ── */
+.not-doing-list { display: flex; flex-direction: column; gap: 12px; }
+.not-doing-item {
+  background: rgba(245,62,62,0.04); border: 1px solid rgba(245,62,62,0.15);
+  border-left: 3px solid rgba(245,62,62,0.4);
+  border-radius: 0 14px 14px 0; padding: 20px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.not-icon { font-size: 18px; flex-shrink: 0; padding-top: 1px; }
+.not-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.not-text strong { color: #F87171; }
+
+/* ── SECTION 8: ASSET SUITE ── */
+.asset-intro {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 28px 32px; margin-bottom: 40px;
+  font-size: 14px; color: var(--text-muted); line-height: 1.75;
+}
+.asset-intro strong { color: #fff; }
+
+.asset-block { margin-bottom: 40px; }
+.asset-block-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+}
+.asset-num {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--purple-dim); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 900;
+  color: var(--purple-light); flex-shrink: 0;
+}
+.asset-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #fff; }
+.asset-subtitle { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+
+/* 8.1 Landing Page */
+.url-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.url-table th {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim);
+  padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--border-subtle);
+}
+.url-table td {
+  padding: 14px 16px; border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px; color: var(--text-muted); vertical-align: top;
+}
+.url-table tr:last-child td { border-bottom: none; }
+.url-table tr:hover td { background: rgba(107,62,245,0.04); }
+.url-cell { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; color: var(--purple-light); }
+.audience-tag {
+  display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: 100px;
+  background: var(--purple-dim); color: var(--purple-light);
+}
+
+.lp-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lp-rule-card {
+  border-radius: 14px; padding: 22px 24px;
+}
+.lp-rule-card.must {
+  background: rgba(0,232,162,0.05); border: 1px solid rgba(0,232,162,0.2);
+}
+.lp-rule-card.must-not {
+  background: rgba(245,62,62,0.04); border: 1px solid rgba(245,62,62,0.15);
+}
+.lp-rule-title {
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
+}
+.lp-rule-card.must .lp-rule-title { color: var(--cyan); }
+.lp-rule-card.must-not .lp-rule-title { color: #F87171; }
+.lp-rule-item {
+  display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;
+  font-size: 13px; color: var(--text-muted); line-height: 1.6;
+}
+.lp-rule-item:last-child { margin-bottom: 0; }
+.rule-bullet { flex-shrink: 0; margin-top: 3px; font-size: 14px; }
+
+/* 8.2 Platform Showcase */
+.showcase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.showcase-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 24px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.showcase-card:hover { border-color: var(--border); }
+.showcase-card-num {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+}
+.showcase-card-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.showcase-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+.showcase-card-desc strong { color: var(--text); }
+.showcase-tag {
+  display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: 100px;
+  background: var(--purple-dim); color: var(--purple-light); margin-right: 6px; margin-top: 4px;
+}
+
+/* 8.3 Video Production — Accordion */
+.accordion { display: flex; flex-direction: column; gap: 8px; }
+.acc-item {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.acc-item.open { border-color: var(--border); }
+.acc-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 28px; cursor: pointer; user-select: none;
+}
+.acc-header:hover { background: rgba(107,62,245,0.04); }
+.acc-header-left { display: flex; align-items: center; gap: 16px; }
+.acc-icon { font-size: 22px; }
+.acc-label { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: #fff; }
+.acc-desc { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.acc-chevron {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--purple-dim); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.25s; flex-shrink: 0;
+  color: var(--cyan); font-size: 12px;
+}
+.acc-item.open .acc-chevron { transform: rotate(180deg); }
+.acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.acc-item.open .acc-body { max-height: 2000px; }
+.acc-inner { padding: 0 28px 28px; }
+
+.video-cuts { display: flex; flex-direction: column; gap: 12px; }
+.video-cut {
+  background: var(--bg-card2); border: 1px solid var(--border-subtle);
+  border-radius: 12px; padding: 18px 20px;
+}
+.video-cut-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.video-cut-name { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; color: #fff; }
+.video-cut-duration {
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 100px;
+  background: rgba(107,62,245,0.15); color: var(--purple-light);
+  flex-shrink: 0;
+}
+.video-cut-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 8px; }
+.video-placement {
+  font-size: 11px; color: var(--text-dim);
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.video-placement::before { content: '📍'; flex-shrink: 0; }
+
+.explainer-persona { margin-bottom: 20px; }
+.persona-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+  background: var(--cyan-dim); color: var(--cyan); margin-bottom: 10px;
+}
+.explainer-persona-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.explainer-persona-audience { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; font-style: italic; }
+.feature-list { display: flex; flex-direction: column; gap: 6px; }
+.feature-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--text-muted); line-height: 1.5;
+}
+.feature-bullet { color: var(--purple-light); flex-shrink: 0; font-weight: 700; }
+
+.howto-user { margin-bottom: 20px; }
+.howto-user-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.howto-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.howto-item {
+  background: var(--bg-card2); border-radius: 8px; padding: 10px 14px;
+  font-size: 12px; color: var(--text-muted); display: flex; gap: 8px; align-items: flex-start;
+}
+.howto-item::before { content: '→'; color: var(--text-dim); flex-shrink: 0; }
+
+/* 8.4 Track Documents */
+.trackdoc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.trackdoc-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 18px; padding: 26px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.trackdoc-card:hover { border-color: var(--border); transform: translateY(-2px); }
+.trackdoc-icon { font-size: 28px; margin-bottom: 14px; }
+.trackdoc-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.trackdoc-question {
+  font-size: 13px; color: var(--purple-light); font-weight: 700;
+  font-style: italic; margin-bottom: 14px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle); line-height: 1.5;
+}
+.trackdoc-covers { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
+.trackdoc-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 12px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.55;
+}
+.trackdoc-item::before { content: '·'; color: var(--purple-light); font-weight: 900; flex-shrink: 0; font-size: 16px; line-height: 1.2; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 32px 40px; text-align: center;
+  font-size: 12px; color: var(--text-dim);
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .context-grid { grid-template-columns: 1fr; }
+  .tracks-grid { grid-template-columns: 1fr; }
+  .diaspora-pillars { grid-template-columns: 1fr; }
+  .verticals-timeline { grid-template-columns: repeat(3, 1fr); }
+  .verticals-timeline::before { display: none; }
+  .launch-arc { grid-template-columns: 1fr; }
+  .success-grid { grid-template-columns: 1fr; }
+  .showcase-grid { grid-template-columns: 1fr; }
+  .trackdoc-grid { grid-template-columns: 1fr; }
+  .lp-rules { grid-template-columns: 1fr; }
+  .howto-list { grid-template-columns: 1fr; }
+  .section, .hero { padding-left: 24px; padding-right: 24px; }
+  .internal-bar { padding: 12px 24px; }
+}
+.verticals-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px;
+}
+.vertical-item {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 24px 20px; text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.vertical-item:hover { border-color: var(--border); transform: translateY(-2px); }
+.vertical-item-icon { font-size: 32px; margin-bottom: 12px; }
+.vertical-item-name { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.vertical-item-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.mockup-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 100px;
+  background: var(--purple-dim); border: 1px solid var(--border);
+  color: var(--purple-light); text-decoration: none;
+  white-space: nowrap; transition: background 0.2s, color 0.2s;
+}
+.mockup-btn:hover {
+  background: rgba(107,62,245,0.25); color: #fff;
+}
+  .assets-overview {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin: 0 0 40px;
+}
+.asset-overview-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 18px; padding: 26px 22px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.asset-overview-card:hover { border-color: var(--border); transform: translateY(-2px); }
+.asset-overview-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+}
+.asset-overview-num {
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; color: var(--text-dim); margin-bottom: 12px;
+}
+.asset-overview-icon { font-size: 28px; margin-bottom: 12px; }
+.asset-overview-title {
+  font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800;
+  color: #fff; margin-bottom: 8px;
+}
+.asset-overview-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<!-- INTERNAL BAR -->
+<div class="internal-bar">
+  <img src="BrainsMingle-White.png" alt="BrainsMingle">
+  <div class="internal-badge">Internal Use Only — Confidential</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Strategy &amp; GTM Asset Suite</div>
+  <h1>Go-To-Market Strategy<br><em>Experts &amp; Communities</em></h1>
+  <p class="hero-desc">A full-spectrum activation plan across three supply-side tracks, built around the Egyptian & Arab professional market's structural gap, the diaspora advantage, and a thematic launch engine designed to compound momentum vertically by vertical.</p>
+  <div class="hero-meta">
+    <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Supply & Demand Tracks</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Priority Verticals</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Asset Categories</div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SECTION 1: CONTEXT -->
+<section class="section">
+  <span class="section-label">The Foundation</span>
+  <h2 class="section-title">What We Are Building and Why It Matters Now</h2>
+  <p class="section-sub">The Arab professional world has a specific, unmet version of a global problem. Brainsmingle is the answer that built around the right market at the right moment.</p>
+
+  <div class="context-grid">
+    <div class="context-narrative">
+      <div class="context-narrative-title">Brains Mingle Positioning </div>
+      <p>Brainsmingle is a <strong>video-first professional platform</strong>. The core premise is simple: meaningful professional development happens through human interaction, not content consumption.</p>
+      <p>Most platforms have inverted this — they optimize for passive scrolling, follower counts, and static profiles. Brainsmingle is built around the opposite: <strong>face-to-face sessions, live communities, and structured connections between people who have something real to offer each other.</strong></p>
+      <p>The platform is <strong>live-first but never live-only</strong>. Organizers can record sessions and make them available after the event, so an expert's knowledge keeps working long after the session ends, and a professional who couldn't attend can still access the content on their own schedule.</p>
+      <p>That gap, a single place where expertise can be delivered, communities can be built, and professionals can connect at scale is <strong>where Brainsmingle operates.</strong></p>
+    </div>
+
+    <div class="market-chars">
+      <div class="market-char">
+        <div class="market-char-num">01</div>
+        <div class="market-char-body">
+          <div class="market-char-title">Large & Growing Expert Population</div>
+          <div class="market-char-desc">Credible professionals; consultants, trainers, coaches, advisors who are already active on LinkedIn, already building audiences, but have <strong>no single place</strong> to deliver expertise, manage availability, and sustain community. They are stitching together Zoom, Calendly, WhatsApp, and bank transfers.</div>
+        </div>
+      </div>
+      <div class="market-char">
+        <div class="market-char-num">02</div>
+        <div class="market-char-body">
+          <div class="market-char-title">Communities Exist Everywhere, Live Nowhere</div>
+          <div class="market-char-desc">Every vertical has active Facebook groups, WhatsApp clusters, and LinkedIn networks. These communities have leaders, engaged members, and real value. What they do not have is a <strong>dedicated, structured home</strong> with the tools to grow, engage, and sustain themselves.</div>
+        </div>
+      </div>
+      <div class="market-char">
+        <div class="market-char-num">03</div>
+        <div class="market-char-body">
+          <div class="market-char-title">Relationship-Driven, Trust-First Market</div>
+          <div class="market-char-desc">People make decisions based on <strong>who they trust and who vouches for something</strong>. A prestige-first approach anchoring the platform's identity around credible, respected people from day one, is not just a marketing tactic. It is the correct strategic entry point for this market.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 2: TRACKS -->
+<section class="section">
+  <span class="section-label">The Activation Model</span>
+  <h2 class="section-title">How We Go to Market</h2>
+  <p class="section-sub">Three supply-side tracks activated simultaneously from day one — interdependent, not sequential. Each reinforces the others.</p>
+
+  <div class="tracks-grid">
+    <div class="track-card">
+      <div class="track-tag">Supply Side</div>
+      <div class="track-num">Track 01</div>
+      <div class="track-name">Experts & Thought Leaders</div>
+      <div class="track-role">Distribution channels, their credibility becomes the platform's credibility</div>
+      <div class="track-logic">Credible, high-visibility professionals across each priority vertical. Not necessarily the most famous — the people other professionals <strong>actually follow, respect, and learn from</strong>. Each expert gets full profile setup, session infrastructure, booking management, and the ability to build their own community. When a respected professional runs their first session, they bring their entire network. <br><br>Geographically, this is not limited to the Arab world — Egyptian and Arab professionals in the US, Canada, UK, and Europe are actively targeted from day one.</div>
+    </div>
+
+    <div class="track-card">
+      <div class="track-tag">Supply Side</div>
+      <div class="track-num">Track 02</div>
+      <div class="track-name">Community Managers</div>
+      <div class="track-role">Operational backbone — trained through the BrainsMingle CM Program</div>
+      <div class="track-logic">The <strong>BrainsMingle Community Manager Program</strong> gives selected CMs training, platform support, and a structured path — the best become managers of BrainsMingle's own flagship vertical communities. Targeting existing CMs with track records alongside high-potential aspiring CMs.<br><br>This serves two purposes: it gives operational capacity to run communities across verticals, and creates a cohort of invested people who have a <strong>genuine reason to make the platform succeed</strong>.</div>
+    </div>
+
+    <div class="track-card">
+      <div class="track-tag">Supply Side</div>
+      <div class="track-num">Track 03</div>
+      <div class="track-name">Existing Professional Communities</div>
+      <div class="track-role">Immediate user mass — migrating established communities with real memberships</div>
+      <div class="track-logic">Established communities currently operating across WhatsApp, Facebook Groups, Slack, and Discord with no unified infrastructure. They have something valuable: <strong>existing membership, an established identity, and a leader already doing the work.</strong><br><br>The proposition is not "join our platform." It is: <em style="color: var(--purple-light);">"You already have a community — we are giving you the infrastructure to run it properly."</em> Structured channels, embedded live sessions, member management, and a branded space they own and control.</div>
+    </div>
+
+    <div class="track-card demand">
+      <div class="track-tag demand-tag">Demand Side</div>
+      <div class="track-num">Track 04</div>
+      <div class="track-name">Professionals</div>
+      <div class="track-role">The audience that makes every other track worth joining</div>
+      <div class="track-logic">Professionals arrive primarily through the experts and communities who bring their existing audiences. Every expert who runs a session promotes it to their network. Every community that migrates brings its membership. <strong>The demand side grows as a downstream effect of supply-side activation.</strong><br><br>In parallel, BrainsMingle reaches this audience directly through organic social content, paid acquisition, and the content distribution engine — short-form clips driving new audiences back to the platform continuously.</div>
+    </div>
+  </div>
+
+  <div class="tracks-flow" style="margin-top: 20px;">
+    <strong>Experts & Creators</strong> <span class="arr">→</span> attract <strong>Professionals</strong> <span class="arr">→</span> Communities retain them <span class="arr">→</span> Professionals justify <strong>Experts staying</strong> <span class="arr">→</span> Content keeps working <strong>long after every session</strong>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 3: DIASPORA -->
+<section class="section">
+  <span class="section-label">Strategic Advantage</span>
+  <h2 class="section-title">The Diaspora Advantage</h2>
+  <p class="section-sub">Egyptian and Arab professionals living abroad represent one of the most underleveraged assets available to Brainsmingle at launch.</p>
+
+  <div class="diaspora-block">
+    <div class="diaspora-intro">
+      The diaspora is not a geographic segment.<br>It is a <em>strategic bridge</em> — between Egypt and the world, between regional relevance and international reach.
+    </div>
+    <div class="diaspora-pillars">
+      <div class="diaspora-pillar">
+        <div class="diaspora-pillar-icon">🌐</div>
+        <div class="diaspora-pillar-title">International Credibility</div>
+        <div class="diaspora-pillar-desc">An Egyptian professional who has built their career in London, New York, or Toronto carries a different kind of authority in the Egyptian market. Their presence on the platform elevates its perceived quality in ways that are difficult to manufacture through positioning alone.</div>
+      </div>
+      <div class="diaspora-pillar">
+        <div class="diaspora-pillar-icon">🔗</div>
+        <div class="diaspora-pillar-title">Extended Networks</div>
+        <div class="diaspora-pillar-desc">An Egyptian fintech professional based in London has colleagues, collaborators, and contacts across European and American institutions. When they join Brainsmingle, they organically introduce international experts the platform would not be able to reach through direct outreach alone.</div>
+      </div>
+      <div class="diaspora-pillar">
+        <div class="diaspora-pillar-icon">🤝</div>
+        <div class="diaspora-pillar-title">Personal Motivation</div>
+        <div class="diaspora-pillar-desc">They have a genuine personal motivation to stay connected to the Egyptian and Arab professional ecosystem. Brainsmingle gives them a structured, meaningful way to mentor, deliver sessions, and stay relevant in a market they care about. The relationship is built on mutual value, not a favour.</div>
+      </div>
+    </div>
+    <div class="diaspora-conclusion">
+      This makes the diaspora a strategic bridge — between the experts we can recruit directly and the <strong>broader networks they unlock</strong>. Egypt and the Arab world are the proving ground. The diaspora is how we reach the world from day one.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 4: THEMATIC LAUNCH -->
+<section class="section">
+  <span class="section-label">Execution Rhythm</span>
+  <h2 class="section-title">The Thematic Launch Model</h2>
+  <p class="section-sub">Activation organised around professional verticals — not a broad general launch. Each vertical gets its own flagship moment, building a rolling rhythm of momentum across the year.</p>
+
+  <div class="verticals-grid">
+  <div class="vertical-item">
+    <div class="vertical-item-icon">🤖</div>
+    <div class="vertical-item-name">AI & Tech</div>
+    <div class="vertical-item-desc">Highest-buzz vertical. Sets the intellectual tone of the platform from day one.</div>
+  </div>
+  <div class="vertical-item">
+    <div class="vertical-item-icon">🚀</div>
+    <div class="vertical-item-name">Entrepreneurship</div>
+    <div class="vertical-item-desc">Broadest community base. Entrepreneurs move in overlapping networks — widest organic reach.</div>
+  </div>
+  <div class="vertical-item">
+    <div class="vertical-item-icon">💳</div>
+    <div class="vertical-item-name">Fintech</div>
+    <div class="vertical-item-desc">Strong diaspora presence. Premium audience that reinforces prestige positioning.</div>
+  </div>
+  <div class="vertical-item">
+    <div class="vertical-item-icon">📣</div>
+    <div class="vertical-item-name">Marketing & Creative</div>
+    <div class="vertical-item-desc">The strategic wildcard — cross-pollinates all other verticals and amplifies reach beyond its own audience.</div>
+  </div>
+</div>
+
+  <div class="launch-arc">
+    <div class="arc-step">
+      <div class="arc-num">Step 01</div>
+      <div class="arc-title">Flagship Event</div>
+      <div class="arc-desc">A flagship webinar brings together the experts onboarded in that vertical. A public, high-visibility moment that establishes Brainsmingle's presence in that professional domain. Each expert promotes it to their own network — multi-audience reach from a single event.</div>
+    </div>
+    <div class="arc-step">
+      <div class="arc-num">Step 02</div>
+      <div class="arc-title">Session Calendar</div>
+      <div class="arc-desc">Following the panel, each expert activates their individual session calendar — real bookings, real sessions, real paid and free offerings. This is where the platform's core functionality becomes visible and the value proposition becomes tangible to the audience that just attended.</div>
+    </div>
+    <div class="arc-step">
+      <div class="arc-num">Step 03</div>
+      <div class="arc-title">Standing Community</div>
+      <div class="arc-desc">The vertical's community goes live, seeded by the experts who participated in the panel and managed by the community manager assigned to that vertical. A permanent, active space — not an event that ends. It sustains engagement and keeps momentum building between launches.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 5: CONTENT ENGINE -->
+<section class="section">
+  <span class="section-label">Growth Loop</span>
+  <h2 class="section-title">Content as a Distribution Engine</h2>
+  <p class="section-sub">Every session delivered on Brainsmingle generates content assets. This is not a secondary marketing effort — it is a core part of the growth loop.</p>
+
+  <div class="engine-flow">
+    <div class="engine-node highlight">
+      <div class="engine-node-icon">🎥</div>
+      <div class="engine-node-label">Live Session</div>
+      <div class="engine-node-sub">On Brainsmingle</div>
+    </div>
+    <div class="engine-arrow">→</div>
+    <div class="engine-node">
+      <div class="engine-node-icon">✂️</div>
+      <div class="engine-node-label">Clip & Edit</div>
+      <div class="engine-node-sub">Short-form cuts</div>
+    </div>
+    <div class="engine-arrow">→</div>
+    <div class="engine-platforms">
+      <div class="engine-platform">📸 <span>Instagram</span></div>
+      <div class="engine-platform">🎵 <span>TikTok</span></div>
+      <div class="engine-platform">▶️ <span>YouTube Shorts</span></div>
+      <div class="engine-platform">📘 <span>Facebook</span></div>
+    </div>
+    <div class="engine-arrow">→</div>
+    <div class="engine-node">
+      <div class="engine-node-icon">🌊</div>
+      <div class="engine-node-label">New Audience</div>
+      <div class="engine-node-sub">Inbound discovery</div>
+    </div>
+    <div class="engine-arrow">→</div>
+    <div class="engine-node highlight">
+      <div class="engine-node-icon">🔁</div>
+      <div class="engine-node-label">Back to Platform</div>
+      <div class="engine-node-sub">Next expert / session</div>
+    </div>
+  </div>
+  <div class="engine-loop" style="margin-top: 20px; padding: 16px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-subtle);">
+    The content proves the platform is active and credible. It gives experts a reason to deliver on Brainsmingle — their content keeps working <strong>long after the live session ends</strong>. And it creates a visible, public record of platform quality that attracts the next wave of experts and community members.
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 6: SUCCESS -->
+<section class="section">
+  <span class="section-label">Internal Review Criteria</span>
+  <h2 class="section-title">What Success Looks Like in Phase One</h2>
+  <p class="section-sub">By the end of the first thematic cycle, the internal team should be able to answer yes to all of the following.</p>
+
+  <div class="success-grid">
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Do we have <strong>credible, active experts</strong> across each priority vertical — including at least a meaningful share based outside the Arab world — who have delivered sessions on the platform?</div>
+    </div>
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Do we have <strong>trained, active community managers</strong> running structured communities in each vertical?</div>
+    </div>
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Do we have a <strong>critical mass of existing communities</strong> that have migrated and are actively using the platform as their primary home?</div>
+    </div>
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Is <strong>content from Brainsmingle sessions circulating regularly</strong> across social channels and driving inbound interest?</div>
+    </div>
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Do we have <strong>measurable commercial results</strong> — paid subscriptions, session revenue, or community plan upgrades — that demonstrate the platform is not just active but generating real income?</div>
+    </div>
+    <div class="success-item">
+      <div class="success-check">?</div>
+      <div class="success-q">Do we have a growing base of professionals <strong>actively attending sessions, joining communities, and participating in speed networking</strong> — demonstrating that the demand side is building alongside supply?</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 7: NOT DOING -->
+<section class="section">
+  <span class="section-label">Scope Boundaries</span>
+  <h2 class="section-title">What We Are Not Doing</h2>
+  <p class="section-sub">These are not aspirations deferred to later. They are deliberate exclusions that protect the integrity of the plan.</p>
+
+  <div class="not-doing-list">
+    <div class="not-doing-item">
+      <div class="not-icon">✗</div>
+      <div class="not-text"><strong>We are not chasing user numbers before we have quality.</strong> A platform that looks empty or generic in its early days is harder to recover than one that starts smaller but credible. Volume is a downstream effect of quality, not a substitute for it.</div>
+    </div>
+    <div class="not-doing-item">
+      <div class="not-icon">✗</div>
+      <div class="not-text"><strong>We are not targeting corporate L&amp;D or institutional white-label sales in this phase.</strong> That is a separate product motion with a different sales cycle and a different buyer. Mixing it into this phase creates confusion about what we are and who we are for.</div>
+    </div>
+    <div class="not-doing-item">
+      <div class="not-icon">✗</div>
+      <div class="not-text"><strong>We are not building for passive content consumption.</strong> Every feature decision, every onboarding conversation, every piece of communication should reinforce that this is a platform where things happen live, face to face, between real people.</div>
+    </div>
+    <div class="not-doing-item">
+      <div class="not-icon">✗</div>
+      <div class="not-text"><strong>We are not a live-only platform.</strong> The live session is the anchor experience — but when organizers choose to record, that content extends the platform's value well beyond the event itself, giving professionals on-demand access and experts a growing library of work.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 8: ASSET SUITE -->
+<section class="section">
+  <span class="section-label">Execution</span>
+  <h2 class="section-title">GTM Asset Suite</h2>
+  <p class="section-sub">What we need to prepare before any outreach begins. Four elements that ensure every conversation starts with credibility already established.</p>
+
+  <div class="asset-intro">
+    Before any outreach begins, four elements need to be in place. Together they ensure that <strong>every conversation starts with credibility already established</strong> — not built from scratch in the room. These are not nice-to-haves. They are the conditions under which outreach works.
+  </div>
+<div class="assets-overview">
+  <div class="asset-overview-card">
+    <div class="asset-overview-num">01</div>
+    <div class="asset-overview-icon">🌐</div>
+    <div class="asset-overview-title">Landing Page</div>
+    <div class="asset-overview-desc">The destination every outreach message points to. Audience-specific versions for each track with one clear call to action.</div>
+  </div>
+  <div class="asset-overview-card">
+    <div class="asset-overview-num">02</div>
+    <div class="asset-overview-icon">⭐</div>
+    <div class="asset-overview-title">Platform Showcase</div>
+    <div class="asset-overview-desc">Surface what already exists — featured experts, active communities, proof stories, and live platform numbers.</div>
+  </div>
+  <div class="asset-overview-card">
+    <div class="asset-overview-num">03</div>
+    <div class="asset-overview-icon">🎬</div>
+    <div class="asset-overview-title">Video Production</div>
+    <div class="asset-overview-desc">Three categories: animated promos for brand identity, explainers per user type, and a how-to knowledge base for onboarded users.</div>
+  </div>
+  <div class="asset-overview-card">
+    <div class="asset-overview-num">04</div>
+    <div class="asset-overview-icon">📄</div>
+    <div class="asset-overview-title">Track Documents</div>
+    <div class="asset-overview-desc">Short, designed pitch documents for Experts, Podcasts & Channels, and Communities. Each answers the one question that stands between interest and a yes.</div>
+  </div>
+</div>
+
+<hr class="divider" style="margin: 0 0 40px;">
+  <!-- 8.1 LANDING PAGE -->
+  <div class="asset-block">
+    <div class="asset-block-header">
+      <div class="asset-num">1</div>
+      <div>
+        <div class="asset-title">Landing Page</div>
+        <div class="asset-subtitle">The destination every outreach message points to. Audience-specific versions per track.</div>
+      </div>
+    </div>
+
+    <table class="url-table">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Audience</th>
+          <th>Purpose</th>
+          <th>Mockup</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="url-cell">brainsmingle.com/join</td>
+          <td><span class="audience-tag">All Audiences</span></td>
+          <td>Master page for general sharing, social channels, and mixed-audience contexts</td>
+          <td><a href="join.html" target="_blank" class="mockup-btn">View Mockup →</a></td>
+        </tr>
+        <tr>
+          <td class="url-cell">brainsmingle.com/join/experts</td>
+          <td><span class="audience-tag">Experts</span></td>
+          <td>All expert outreach messages and the Expert pitch document</td>
+          <td><a href="join/experts.html" target="_blank" class="mockup-btn">View Mockup →</a></td>
+        </tr>
+        <tr>
+          <td class="url-cell">brainsmingle.com/join/communities</td>
+          <td><span class="audience-tag">Communities</span></td>
+          <td>All community outreach messages and the Communities pitch document</td>
+          <td><a href="join/communities.html" target="_blank" class="mockup-btn">View Mockup →</a></td>
+        </tr>
+        <tr>
+          <td class="url-cell">brainsmingle.com/join/podcasts</td>
+          <td><span class="audience-tag">Podcasters</span></td>
+          <td>All podcast and channel outreach messages</td>
+          <td><a href="join/podcasts.html" target="_blank" class="mockup-btn">View Mockup →</a></td>
+        </tr>
+        <tr>
+          <td class="url-cell">brainsmingle.com/join/professionals</td>
+          <td><span class="audience-tag">Professionals</span></td>
+          <td>Organic social, paid acquisition, and demand-side growth</td>
+          <td><a href="join/professionals.html" target="_blank" class="mockup-btn">View Mockup →</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="lp-rules">
+      <div class="lp-rule-card must">
+        <div class="lp-rule-title">✓ Must Contain</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✓</span> A strong, specific headline that speaks to the audience's situation — not a tagline, but a line that makes them feel immediately understood</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✓</span> Three to four platform capabilities shown visually — demonstrated through real screenshots or short animated sequences that make the experience tangible</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✓</span> Social proof that reflects what already exists — featured expert names, active community numbers, platform metrics, or recognisable logos</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✓</span> One call to action only — book a call, apply to join, or request a demo. Not three options. One.</div>
+      </div>
+      <div class="lp-rule-card must-not">
+        <div class="lp-rule-title">✗ Must Not Contain</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✗</span> Lengthy feature descriptions — the landing page is a conversion moment, not a brochure</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✗</span> Pricing tables — wrong stage of the conversation</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✗</span> Generic platform overviews that speak to no one at the consideration stage</div>
+        <div class="lp-rule-item"><span class="rule-bullet">✗</span> Multiple calls to action — every element that does not serve the three core goals weakens the page</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin: 0 0 40px;">
+
+  <!-- 8.2 PLATFORM SHOWCASE -->
+  <div class="asset-block">
+    <div class="asset-block-header">
+      <div class="asset-num">2</div>
+      <div>
+        <div class="asset-title">Platform Showcase (Featured Page)</div>
+        <div class="asset-subtitle">Surface what already exists — curate it deliberately and make it visible at every stage of outreach.</div>
+      </div>
+    </div>
+
+    <div class="showcase-grid">
+      <div class="showcase-card">
+        <div class="showcase-card-num">2.1</div>
+        <div class="showcase-card-title">Featured Professionals</div>
+        <div class="showcase-card-desc">A curated selection of the <strong>most credible, recognisable experts</strong> currently active on the platform. These are the names that answer the question every prospect asks before they say yes: <em>who else is already here?</em><br><br>Should span verticals, include a meaningful share of diaspora professionals, and lead with names that carry the most weight. Each featured profile: strong photo, complete bio, visible session history, recognisable credential.</div>
+        <div>
+          <span class="showcase-tag">Spans Verticals</span>
+          <span class="showcase-tag">Diaspora Included</span>
+          <span class="showcase-tag">Dynamic — Grows</span>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <div class="showcase-card-num">2.2</div>
+        <div class="showcase-card-title">Featured Communities</div>
+        <div class="showcase-card-desc">A curated selection of the <strong>most active, engaged communities</strong> currently running on the platform. Demonstrates what a real BrainsMingle community looks like in practice — structured, active, professionally managed.<br><br>When approaching a new community to migrate, being able to say "here is what an active BrainsMingle community looks like today" removes the single biggest hesitation: the fear of moving into something empty or unproven.</div>
+        <div>
+          <span class="showcase-tag">Cross-Vertical</span>
+          <span class="showcase-tag">Real Member Counts</span>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <div class="showcase-card-num">2.3</div>
+        <div class="showcase-card-title">Featured Sessions & Results</div>
+        <div class="showcase-card-desc">The strongest real use cases from the platform, turned into <strong>short structured proof stories</strong>. Each follows a simple arc: who came to the platform, what they needed, what they did on BrainsMingle, and what the result was — in real numbers.<br><br>Sessions attended, connections made, communities grown, revenue earned. Three to five stories across different use cases. Real outcomes, real people, real platform. <strong>This is more than a testimonial.</strong></div>
+        <div>
+          <span class="showcase-tag">Expert Story</span>
+          <span class="showcase-tag">Community Story</span>
+          <span class="showcase-tag">Networking Story</span>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <div class="showcase-card-num">2.4</div>
+        <div class="showcase-card-title">Platform Numbers</div>
+        <div class="showcase-card-desc">A compiled set of key metrics that appear across every outreach asset — the landing page, pitch documents, outreach messages, and the featured showcase page. Updated regularly and treated as a <strong>living proof point</strong>, not a one-time statistic.<br><br>Registered users · Paying clients · Sessions hosted · Total session minutes · Speed networking minutes · Connections made · Companies represented.</div>
+        <div>
+          <span class="showcase-tag">Updated Regularly</span>
+          <span class="showcase-tag">Used Everywhere</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin: 0 0 40px;">
+
+  <!-- 8.3 VIDEO PRODUCTION -->
+  <div class="asset-block">
+    <div class="asset-block-header">
+      <div class="asset-num">3</div>
+      <div>
+        <div class="asset-title">Video Production</div>
+        <div class="asset-subtitle">Three categories, each serving a distinct purpose and a distinct moment in the user journey.</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+
+      <!-- PROMO -->
+      <div class="acc-item" id="acc-promo">
+        <div class="acc-header" onclick="toggleAcc('acc-promo')">
+          <div class="acc-header-left">
+            <div class="acc-icon">🎬</div>
+            <div>
+              <div class="acc-label">Promo Videos (Animated)</div>
+              <div class="acc-desc">Brand-level assets — emotion and identity first, features later. 1 master + 4 track cuts.</div>
+            </div>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <div class="video-cuts">
+              <div class="video-cut">
+                <div class="video-cut-header">
+                  <div class="video-cut-name">Master Promo</div>
+                  <div class="video-cut-duration">~90 sec</div>
+                </div>
+                <div class="video-cut-desc">The flagship piece — foundation everything else is cut from. Opens with the fragmentation problem every professional recognises (consultant stitching 5 tools, community manager spread across platforms, expert building brand across disconnected systems). Moves into BrainsMingle as the answer — not a feature list, a shift in feeling. <strong>One platform. One professional home.</strong> The closing should leave the viewer with a clear sense of identity: this is not for everyone, and that is the point.</div>
+                <div class="video-placement">Landing page above the fold · every first outreach message across all tracks · BrainsMingle social channels at launch</div>
+              </div>
+              <div class="video-cut">
+                <div class="video-cut-header">
+                  <div class="video-cut-name">Expert Cut</div>
+                  <div class="video-cut-duration">~30 sec</div>
+                </div>
+                <div class="video-cut-desc">Hook aimed directly at experts, consultants, trainers, and thought leaders. The opening problem: you have expertise and an audience, but no single place to deliver it, charge for it, and sustain the community around it. Resolution: BrainsMingle gives you the infrastructure so you can just show up. Your profile, sessions, bookings, community — all in one place, all working together.</div>
+                <div class="video-placement">Expert outreach messages · Expert pitch document</div>
+              </div>
+              <div class="video-cut">
+                <div class="video-cut-header">
+                  <div class="video-cut-name">Communities Cut</div>
+                  <div class="video-cut-duration">~30 sec</div>
+                </div>
+                <div class="video-cut-desc">Hook targets community leaders: you have built something real — an engaged membership, an established identity — but it lives across WhatsApp groups, Facebook pages, and disconnected tools. Resolution focuses on what BrainsMingle actually gives a community. Tone acknowledges the work they have already done and positions BrainsMingle as the upgrade their community deserves.</div>
+                <div class="video-placement">Community outreach messages · Communities pitch document</div>
+              </div>
+              <div class="video-cut">
+                <div class="video-cut-header">
+                  <div class="video-cut-name">Podcasts & Channels Cut</div>
+                  <div class="video-cut-duration">~30 sec</div>
+                </div>
+                <div class="video-cut-desc">Hook about reach and collaboration — not migration. Acknowledges what they already have: an audience, a format, a consistent body of work. The problem: their content lives and dies in one episode. BrainsMingle gives it a live layer and a professional community. Closing tone is an invitation, not a pitch.</div>
+                <div class="video-placement">Podcast and channel outreach messages</div>
+              </div>
+              <div class="video-cut">
+                <div class="video-cut-header">
+                  <div class="video-cut-name">Professionals Cut</div>
+                  <div class="video-cut-duration">~30 sec</div>
+                </div>
+                <div class="video-cut-desc">Hook aimed at the demand side. Problem: you know what you want to learn and who you want to learn from — but between LinkedIn noise, generic webinars, and endless content, you have never found one place where the right experts and real conversations actually live. Resolution: BrainsMingle is where serious professionals find experts, join real communities, and connect face to face with peers worth their time.</div>
+                <div class="video-placement">Organic social · paid acquisition · /join/professionals landing page</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLAINERS -->
+      <div class="acc-item" id="acc-explainer">
+        <div class="acc-header" onclick="toggleAcc('acc-explainer')">
+          <div class="acc-header-left">
+            <div class="acc-icon">🖥️</div>
+            <div>
+              <div class="acc-label">Explainer Videos (Screen-based)</div>
+              <div class="acc-desc">Functional assets — show the platform working for a specific user type. Shared at the consideration stage.</div>
+            </div>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <div class="explainer-persona">
+              <div class="persona-tag">Learner Persona</div>
+              <div class="explainer-persona-title">BrainsMingle Connect — For people who come to learn, connect & grow</div>
+              <div class="explainer-persona-audience">Audience: Learners, members, and attendees discovering the platform for the first time</div>
+              <div class="feature-list">
+                <div class="feature-item"><span class="feature-bullet">→</span> Find an expert — Search by topic and see who's available</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Book a session instantly — Pick a time from their live calendar</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Join a video session — One click, no external apps</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Learn in groups — Attend group mentoring or cohort sessions</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Participate in live sessions — Screen share, chat, react, raise hand</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Watch recordings — Access past session recordings anytime</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Join communities — Become part of topic-based or cohort-based groups</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Engage in discussions — Post, reply, and get notified</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Attend speed networking — Get matched and meet multiple people in one event</div>
+              </div>
+            </div>
+            <div class="explainer-persona">
+              <div class="persona-tag">Expert Persona</div>
+              <div class="explainer-persona-title">BrainsMingle Expert — For experts who share knowledge & earn</div>
+              <div class="explainer-persona-audience">Audience: Experts, consultants, trainers, coaches, and thought leaders considering joining as founding experts</div>
+              <div class="feature-list">
+                <div class="feature-item"><span class="feature-bullet">→</span> List my services — Offer 1:1, group, or recurring office hours</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Set my availability — Control when I am bookable</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Get paid for my time — Set prices and receive payments</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Deliver sessions on platform — Run video calls without third-party tools</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Manage my participants — Admit, mute, or remove as needed</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Build my reputation — Collect ratings, reviews, and verification badges</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Re-engage past attendees — Message them and offer follow-ups</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Host networking events — Run speed networking sessions for your community</div>
+              </div>
+            </div>
+            <div class="explainer-persona">
+              <div class="persona-tag">Community Persona</div>
+              <div class="explainer-persona-title">BrainsMingle Communities — For community leaders who build engagement</div>
+              <div class="explainer-persona-audience">Audience: Leaders of existing professional communities invited to migrate, and aspiring CMs considering the CM Program</div>
+              <div class="feature-list">
+                <div class="feature-item"><span class="feature-bullet">→</span> Create a community — Launch a space for any group or topic</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Organize with channels — Structure discussions by topic</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Control access — Set communities to public, private, or invite-only</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Pin announcements — Broadcast important updates</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Run live sessions inside communities — Members join without leaving</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Host speed networking events — Facilitate structured connections at any scale</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> Moderate content — Flag, mute, or remove inappropriate posts</div>
+                <div class="feature-item"><span class="feature-bullet">→</span> See engagement insights — Know who is active and what topics matter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW-TO -->
+      <div class="acc-item" id="acc-howto">
+        <div class="acc-header" onclick="toggleAcc('acc-howto')">
+          <div class="acc-header-left">
+            <div class="acc-icon">📚</div>
+            <div>
+              <div class="acc-label">How-To Series (Knowledge Base)</div>
+              <div class="acc-desc">Self-serve instructional videos for users already on the platform. Screen recordings only. One task per video.</div>
+            </div>
+          </div>
+          <div class="acc-chevron">▼</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+<div class="explainer-persona">
+  <div class="persona-tag">Learner Persona</div>
+  <div class="explainer-persona-title">Connect — For Learners & Members</div>
+  <div class="explainer-persona-audience">Screen recordings only · One specific action per video · Self-serve knowledge base</div>
+  <div class="feature-list">
+    <div class="feature-item"><span class="feature-bullet">→</span> How to find and filter experts by topic</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to book a session from an expert's calendar</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to join a video session</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to access and watch a session recording</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to join a community</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to post and engage in a community discussion</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to register and attend a speed networking event</div>
+  </div>
+</div>
+<div class="explainer-persona">
+  <div class="persona-tag">Expert Persona</div>
+  <div class="explainer-persona-title">Expert — For Experts & Trainers</div>
+  <div class="explainer-persona-audience">Screen recordings only · One specific action per video · Self-serve knowledge base</div>
+  <div class="feature-list">
+    <div class="feature-item"><span class="feature-bullet">→</span> How to set up your expert profile</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to create and list a service</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to set your availability and manage your calendar</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to enable payments and set your pricing</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to host and manage a live session</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to view and manage your bookings</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to set up and run a speed networking event</div>
+  </div>
+</div>
+<div class="explainer-persona">
+  <div class="persona-tag">Community Persona</div>
+  <div class="explainer-persona-title">Communities — For Community Managers</div>
+  <div class="explainer-persona-audience">Screen recordings only · One specific action per video · Self-serve knowledge base</div>
+  <div class="feature-list">
+    <div class="feature-item"><span class="feature-bullet">→</span> How to create and configure a community space</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to set up channels and organise your community</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to manage members, roles, and access settings</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to pin announcements and broadcast updates</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to run a live session inside your community</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to host a speed networking event for your members</div>
+    <div class="feature-item"><span class="feature-bullet">→</span> How to read and interpret your engagement insights</div>
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" style="margin: 0 0 40px;">
+
+  <!-- 8.4 TRACK DOCUMENTS -->
+  <div class="asset-block">
+    <div class="asset-block-header">
+      <div class="asset-num">4</div>
+      <div>
+        <div class="asset-title">Track Documents (Sales Deck)</div>
+        <div class="asset-subtitle">The assets that travel furthest — inside outreach messages, forwarded to colleagues, re-read before a decision is made.</div>
+      </div>
+    </div>
+
+    <div class="trackdoc-grid">
+      <div class="trackdoc-card">
+        <div class="trackdoc-icon">🎤</div>
+        <div class="trackdoc-title">For Experts</div>
+        <div class="trackdoc-question">"What do I get, and what do I have to do?"</div>
+        <div class="trackdoc-covers">Document Covers</div>
+        <div class="trackdoc-item">What BrainsMingle is — one tight paragraph, no feature lists, just positioning</div>
+        <div class="trackdoc-item">What an expert gets — profile setup, priority onboarding, flagship launch involvement, session promotion, social visibility, content distribution</div>
+        <div class="trackdoc-item">What an expert commits to — launch panel participation, minimum 2–3 sessions during launch period, active profile presence</div>
+        <div class="trackdoc-item">What it costs — Free to $49.97/mo, up to 30% off yearly billing, full details at brainsmingle.com/pricing</div>
+        <div class="trackdoc-item">One clear close — a 20-minute conversation to walk through fit and onboarding</div>
+      </div>
+
+      <div class="trackdoc-card">
+        <div class="trackdoc-icon">🎙️</div>
+        <div class="trackdoc-title">For Podcasts & Channels</div>
+        <div class="trackdoc-question">"What does a collaboration actually look like?"</div>
+        <div class="trackdoc-covers">Document Covers</div>
+        <div class="trackdoc-item">Acknowledgment of what they have already built — audience, format, consistent body of work</div>
+        <div class="trackdoc-item">The collaboration format — a live session on BrainsMingle, standalone or live version of a regular episode, promoted to both audiences</div>
+        <div class="trackdoc-item">Time commitment — one session to start, no ongoing obligation until both sides see the value</div>
+        <div class="trackdoc-item">What BrainsMingle delivers — promotes the session, distributes the recording as short-form, handles all live event logistics</div>
+        <div class="trackdoc-item">What the creator gets — new professional audience, a recorded asset they own, a community space for their listeners between episodes</div>
+      </div>
+
+      <div class="trackdoc-card">
+        <div class="trackdoc-icon">🏛️</div>
+        <div class="trackdoc-title">For Communities</div>
+        <div class="trackdoc-question">"Why would I move my community here?"</div>
+        <div class="trackdoc-covers">Document Covers</div>
+        <div class="trackdoc-item">Opens with the problems — the reality of running a serious community on Facebook Groups or WhatsApp today: no structure, no analytics, no monetisation, no professional image</div>
+        <div class="trackdoc-item">What changes on BrainsMingle — structured channels, embedded live sessions, speed networking, engagement analytics, access controls, branded community space</div>
+        <div class="trackdoc-item">Addresses the migration concern directly — BrainsMingle makes it straightforward to bring members across, with active platform team support throughout</div>
+        <div class="trackdoc-item">The community keeps its identity, its leader, and its membership — what it gains is the infrastructure it has never had</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<hr class="divider">
+
+<div class="doc-footer">
+  <p style="margin-bottom: 6px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text-muted);">BRAINSMINGLE</p>
+  <p>Building the Professional Network the World Has Been Waiting For · Internal Use Only</p>
+</div>
+
+<script>
+function toggleAcc(id) {
+  const item = document.getElementById(id);
+  item.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
