@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast & Channel Partnership — BrainsMingle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #6B3EF5;
+    --purple-light: #7B52F6;
+    --purple-glow: rgba(107,62,245,0.35);
+    --cyan: #00E8A2;
+    --pink: #F53E9F;
+    --pink-dim: rgba(245,62,159,0.12);
+    --pink-glow: rgba(245,62,159,0.25);
+    --bg: #0F0F1A;
+    --bg-card: #16162A;
+    --bg-card2: #1C1C32;
+    --border: rgba(107,62,245,0.25);
+    --border-subtle: rgba(255,255,255,0.07);
+    --border-mid: rgba(255,255,255,0.12);
+    --text: #F0EEF8;
+    --text-muted: #9490B8;
+    --text-dim: #5E5A80;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 24px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,62,159,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,62,159,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-glow-top {
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(245,62,159,0.18) 0%, rgba(107,62,245,0.15) 55%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-side {
+    position: absolute; bottom: -100px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse, rgba(107,62,245,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .back-link {
+    position: relative; z-index: 2;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+    color: var(--text-muted); margin-bottom: 40px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+  .back-link svg { width: 14px; height: 14px; }
+
+  .logo-wrap { position: relative; z-index: 2; margin-bottom: 48px; }
+  .logo-wrap img { height: 44px; width: auto; display: block; margin: 0 auto; }
+
+  .hero-badge {
+    position: relative; z-index: 2;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--pink);
+    border: 1px solid rgba(245,62,159,0.3);
+    background: rgba(245,62,159,0.07);
+    border-radius: 100px;
+    padding: 7px 18px; margin-bottom: 28px;
+  }
+
+  .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--pink);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    position: relative; z-index: 2;
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 900; line-height: 1.05;
+    letter-spacing: -2px; max-width: 900px;
+    margin-bottom: 12px; color: #fff;
+  }
+
+  .hero h1 .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    position: relative; z-index: 2;
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--text-muted); max-width: 600px;
+    margin: 20px auto 40px; line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 700; }
+
+  .hero-cta-wrap {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px; background: var(--purple); color: #fff;
+    border-radius: 12px; font-family: 'Montserrat', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.2px;
+    box-shadow: 0 4px 24px var(--purple-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--purple-glow); }
+  .btn-primary svg { width: 16px; height: 16px; }
+
+  .btn-pink {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    background: rgba(245,62,159,0.1); color: var(--pink);
+    border: 1px solid rgba(245,62,159,0.3);
+    border-radius: 12px; font-family: 'Montserrat', sans-serif;
+    font-size: 15px; font-weight: 700;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-pink:hover { transform: translateY(-2px); background: rgba(245,62,159,0.18); }
+  .btn-pink svg { width: 16px; height: 16px; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 28px; background: var(--bg-card2); color: var(--text);
+    border: 1px solid var(--border-mid); border-radius: 12px;
+    font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+  .proof-strip {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; align-items: center;
+  }
+  .proof-item { text-align: center; }
+  .proof-num { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff; display: block; }
+  .proof-num em { color: var(--pink); font-style: normal; }
+  .proof-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.3px; }
+  .proof-div { width: 1px; background: var(--border-subtle); align-self: stretch; min-height: 32px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 88px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-sm { padding: 64px 24px; max-width: 1100px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--purple-light); margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 800; letter-spacing: -1px;
+    color: #fff; line-height: 1.12; margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 17px; color: var(--text-muted);
+    max-width: 540px; line-height: 1.7; margin-bottom: 52px;
+  }
+
+  /* ── WHO THIS IS FOR ── */
+  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .who-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 10px;
+    position: relative; overflow: hidden;
+  }
+  .who-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--purple-light)); opacity: 0.5;
+  }
+  .who-icon { font-size: 28px; margin-bottom: 4px; }
+  .who-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
+  .who-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PROBLEM ── */
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .problem-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 24px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color 0.2s;
+  }
+  .problem-card:hover { border-color: rgba(245,62,159,0.2); }
+
+  .problem-icon {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    background: rgba(245,62,159,0.1);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .problem-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; }
+  .problem-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PARTNERSHIP DETAILS ── */
+  .partnership-wrap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden; position: relative;
+  }
+  .partnership-top-bar { height: 3px; background: linear-gradient(90deg, var(--pink), var(--purple-light)); }
+  .partnership-glow {
+    position: absolute; top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(ellipse, rgba(245,62,159,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .partnership-inner {
+    padding: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+  }
+
+  .partnership-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 20px;
+  }
+
+  .partnership-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 800; letter-spacing: -0.8px;
+    color: #fff; line-height: 1.2; margin-bottom: 16px;
+  }
+
+  .partnership-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 28px; }
+
+  .partnership-details { display: flex; flex-direction: column; gap: 14px; }
+
+  .detail-row {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--bg-card2); border-radius: 12px; padding: 16px 20px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .detail-icon {
+    width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+    background: rgba(245,62,159,0.12);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .detail-icon svg { width: 15px; height: 15px; }
+
+  .detail-body {}
+  .detail-title { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .detail-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── WHAT YOU GET ── */
+  .gets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .get-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .get-card:hover { border-color: var(--border); transform: translateY(-2px); }
+
+  .get-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--pink); opacity: 0.8;
+  }
+  .get-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+  .get-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+
+  /* ── HOW IT WORKS ── */
+  .steps-wrap { display: flex; gap: 0; position: relative; }
+
+  .steps-wrap::before {
+    content: ''; position: absolute;
+    top: 28px; left: 28px; right: 28px; height: 1px;
+    background: linear-gradient(90deg, var(--pink), var(--purple-light));
+    opacity: 0.3; z-index: 0;
+  }
+
+  .step {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    gap: 16px; padding: 0 24px; position: relative; z-index: 1;
+  }
+
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--bg-card2); border: 2px solid var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px; font-weight: 800; color: var(--pink); flex-shrink: 0;
+  }
+
+  .step-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 36px 48px;
+    display: flex; flex-wrap: nowrap; gap: 0;
+    justify-content: space-between; align-items: center;
+  }
+
+  .stat-item {
+    text-align: center; padding: 8px 16px;
+    border-right: 1px solid var(--border-subtle);
+    flex: 1; min-width: 0;
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(18px, 2vw, 30px); font-weight: 800;
+    color: #fff; display: block; letter-spacing: -0.5px;
+  }
+  .stat-num span { color: var(--pink); }
+  .stat-lbl { font-size: clamp(10px, 1.1vw, 13px); color: var(--text-muted); margin-top: 4px; display: block; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, rgba(245,62,159,0.12) 0%, rgba(107,62,245,0.15) 100%);
+    border: 1px solid rgba(245,62,159,0.2);
+    border-radius: 24px; padding: 80px 48px; text-align: center;
+  }
+
+  .final-cta-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,62,159,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta h2 {
+    position: relative;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 900; letter-spacing: -1.5px;
+    color: #fff; line-height: 1.1; margin-bottom: 16px;
+  }
+
+  .final-cta h2 span {
+    background: linear-gradient(135deg, var(--pink), var(--purple-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .final-cta p {
+    position: relative;
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
+    max-width: 480px; margin: 0 auto 40px;
+  }
+
+  .final-cta-btns {
+    position: relative;
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  }
+
+  .final-note { position: relative; margin-top: 20px; font-size: 13px; color: var(--text-dim); }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 32px 24px; text-align: center;
+    font-size: 13px; color: var(--text-dim);
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .problem-grid { grid-template-columns: 1fr 1fr; }
+    .gets-grid { grid-template-columns: 1fr 1fr; }
+    .partnership-inner { grid-template-columns: 1fr; gap: 32px; }
+    .steps-wrap { flex-direction: column; gap: 24px; }
+    .steps-wrap::before { display: none; }
+    .stats-strip { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 30%; border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 16px; }
+    .stat-item:last-child { border-bottom: none; }
+    .final-cta { padding: 56px 28px; }
+    .partnership-inner { padding: 32px 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .who-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .gets-grid { grid-template-columns: 1fr; }
+    .proof-div { display: none; }
+    .hero h1 { letter-spacing: -1px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow-top"></div>
+  <div class="hero-glow-side"></div>
+
+  <a class="back-link" href="../join.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to all paths
+  </a>
+
+  <div class="logo-wrap">
+    <img src="../BrainsMingle-White.png" alt="BrainsMingle" />
+  </div>
+
+  <div class="hero-badge">
+      <span class="badge-dot"></span>
+    Podcasters & YouTubers
+    <span class="badge-dot"></span>
+  </div>
+
+  <h1>
+    You've built the audience.
+    <span class="line2">Now give it a live dimension.</span>
+  </h1>
+
+  <p class="hero-sub">
+    Your content is strong. But it <strong>lives and dies in one episode.</strong> BrainsMingle adds the live layer your audience is already looking for — real conversations, real community, real connection between releases.
+  </p>
+
+  <div class="hero-cta-wrap">
+    <a class="btn-primary" href="#book-call">
+      Explore the partnership
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="btn-ghost" href="#how-it-works">See how it works</a>
+  </div>
+
+  <div class="proof-strip">
+    <div class="proof-item">
+      <span class="proof-num">5,700<em>+</em></span>
+      <span class="proof-label">Professionals on platform</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">980<em>+</em></span>
+      <span class="proof-label">Sessions hosted</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">85<em>+</em></span>
+      <span class="proof-label">Countries</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">1,000<em>+</em></span>
+      <span class="proof-label">Companies represented</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ WHO THIS IS FOR ══ -->
+<div class="section">
+  <div class="eyebrow">Who this is for</div>
+  <h2 class="section-title">For creators who are ready<br>to go beyond the upload</h2>
+  <p class="section-sub">You've already done the hard part — building an audience that trusts you. This is about giving that audience somewhere to go.</p>
+
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">🎙️</div>
+      <div class="who-title">Podcast hosts</div>
+      <div class="who-desc">You have a loyal audience, a consistent format, and a body of work your listeners come back to. You're ready to go beyond the episode — live, real-time, face to face.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🎬</div>
+      <div class="who-title">YouTube creators & educators</div>
+      <div class="who-desc">Your content reaches people. You want to reach them live, keep them engaged between uploads, and turn viewers into a real professional community around what you create.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">✍️</div>
+      <div class="who-title">Newsletter writers & thought leaders</div>
+      <div class="who-desc">You've built trust through content and your readers show up every time. A live layer turns that relationship into something deeper — real conversations with the people who already believe in what you say.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ THE PROBLEM ══ -->
+<div class="section">
+  <div class="eyebrow">What's missing</div>
+  <h2 class="section-title">Great content. No place<br>for it to live.</h2>
+  <p class="section-sub">The problem isn't your content. It's that the relationship with your audience resets every time you publish.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📉</div>
+      <div class="problem-title">Content lives and dies in one upload</div>
+      <div class="problem-desc">No live dimension, no community that stays. Your best work gets a spike of attention and then disappears into the feed.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">👻</div>
+      <div class="problem-title">Engagement is passive</div>
+      <div class="problem-desc">Likes, comments, replies — your audience consumes but rarely connects. There's no real conversation happening between your most engaged listeners.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🔁</div>
+      <div class="problem-title">The relationship resets every episode</div>
+      <div class="problem-desc">You rebuild momentum with every upload. There's no compounding — no home where your audience stays engaged between releases.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🌫️</div>
+      <div class="problem-title">Collaborations that go nowhere</div>
+      <div class="problem-desc">Vague asks, unclear benefits, no follow-through. You've been approached before and it went nowhere. This is different — and we'll show you exactly how.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🗺️</div>
+      <div class="problem-title">No way for your audience to connect</div>
+      <div class="problem-desc">Your listeners want to meet each other — not just consume your content. There's no structured way to make that happen and you're leaving real community value on the table.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📦</div>
+      <div class="problem-title">Content that could go further</div>
+      <div class="problem-desc">Every episode has more in it than one upload. A live session, short-form clips, a community discussion — one piece of content can work in five different ways.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ PARTNERSHIP DETAILS ══ -->
+<div class="section">
+  <div class="partnership-wrap">
+    <div class="partnership-top-bar"></div>
+    <div class="partnership-glow"></div>
+    <div class="partnership-inner">
+      <div>
+        <div class="partnership-tag">
+          <span class="badge-dot"></span>
+          What the partnership looks like
+        </div>
+        <h2 class="partnership-title">Specific. Collaborative.<br>No vague asks.</h2>
+        <p class="partnership-desc">
+          We know you've been approached before for collaborations that went nowhere. That's because most asks are vague — unclear format, unclear benefit, unclear what anyone actually does.<br><br>
+          This is different. Here's exactly what a BrainsMingle partnership looks like from day one.
+        </p>
+        <a class="btn-pink" href="#book-call">
+          Let's talk
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="partnership-details">
+        <div class="detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="detail-body">
+            <div class="detail-title">The format</div>
+            <div class="detail-desc">A live session on BrainsMingle — a standalone event or a live version of a regular episode. Promoted to both audiences simultaneously.</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="detail-body">
+            <div class="detail-title">The time commitment</div>
+            <div class="detail-desc">One session to start. No ongoing obligation until both sides see the value. You're not signing up for a programme — you're trying something that makes sense for both of us.</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="detail-body">
+            <div class="detail-title">What BrainsMingle does</div>
+            <div class="detail-desc">We promote the session across our channels, distribute the recording as short-form content, and handle all the logistics. You show up. We handle everything else.</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="detail-body">
+            <div class="detail-title">What you get</div>
+            <div class="detail-desc">A new professional audience, a recorded asset you own and can repurpose, and a community space where your audience stays engaged between episodes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ WHAT YOU GET ══ -->
+<div class="section">
+  <div class="eyebrow">What you get</div>
+  <h2 class="section-title">One session.<br>Ongoing value.</h2>
+  <p class="section-sub">Every collaboration with BrainsMingle is designed to keep working long after you close the room.</p>
+
+  <div class="gets-grid">
+    <div class="get-card">
+      <div class="get-num">01</div>
+      <div class="get-title">A live layer for your content</div>
+      <div class="get-desc">Host sessions natively on BrainsMingle — no external tools, no broken links. Screen share, chat, react. Your content, live and in front of the right people.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">02</div>
+      <div class="get-title">A new professional audience</div>
+      <div class="get-desc">Promoted simultaneously to your network and BrainsMingle's. One event reaches two audiences. The people in the room are exactly who you want to reach.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">03</div>
+      <div class="get-title">A recorded asset you own</div>
+      <div class="get-desc">Every session is recorded and yours. Publish it, repurpose it, add it to your back catalogue. One live session becomes a permanent piece of content.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">04</div>
+      <div class="get-title">Short-form content distribution</div>
+      <div class="get-desc">BrainsMingle clips your session and pushes it across Instagram, TikTok, YouTube Shorts, and Facebook. Your content keeps working across channels you might not even be on yet.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">05</div>
+      <div class="get-title">A community for your audience</div>
+      <div class="get-desc">A structured space where your listeners and viewers stay connected between episodes — discussing, connecting, and engaging with your work in ways a comment section never could.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">06</div>
+      <div class="get-title">Speed networking for your audience</div>
+      <div class="get-desc">Facilitate real face-to-face connections between your most engaged listeners. Give your audience something no other creator in your space is giving them.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ HOW IT WORKS ══ -->
+<div class="section" id="how-it-works">
+  <div style="text-align:center; margin-bottom: 56px;">
+    <div class="eyebrow" style="display:inline-block;">How it works</div>
+    <h2 class="section-title">Three steps.<br>One session. Lasting impact.</h2>
+  </div>
+
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">One session, your style</div>
+      <div class="step-desc">We agree on a topic and format that fits naturally with what you already do. You show up as yourself. We handle the setup, promotion, and logistics.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Both audiences, one event</div>
+      <div class="step-desc">Your network plus BrainsMingle's professional community — promoted simultaneously. Multi-audience reach from a single live moment.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">The content keeps working</div>
+      <div class="step-desc">Recording published. Clips distributed. Community stays active. One session generates assets and engagement that compounds long after you close the room.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ PROOF NUMBERS ══ -->
+<div class="section-sm">
+  <div style="text-align:center; margin-bottom: 36px;">
+    <div class="eyebrow" style="display:inline-block;">The platform is live</div>
+    <h2 class="section-title">Real sessions. Real audiences.<br>Real engagement.</h2>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-item"><span class="stat-num">5,700<span>+</span></span><span class="stat-lbl">Professionals on platform</span></div>
+    <div class="stat-item"><span class="stat-num">980<span>+</span></span><span class="stat-lbl">Sessions hosted</span></div>
+    <div class="stat-item"><span class="stat-num">85<span>+</span></span><span class="stat-lbl">Countries</span></div>
+    <div class="stat-item"><span class="stat-num">5,000<span>+</span></span><span class="stat-lbl">Connections made</span></div>
+    <div class="stat-item"><span class="stat-num">80K<span>+</span></span><span class="stat-lbl">Session minutes</span></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ FINAL CTA ══ -->
+<div class="section" id="book-call">
+  <div class="final-cta">
+    <div class="final-cta-glow"></div>
+    <h2>Let's talk about what a collaboration<br><span>could look like for you.</span></h2>
+    <p>Book a 20-minute call. We'll walk through what a partnership looks like for your specific format, audience, and goals.</p>
+    <div class="final-cta-btns">
+      <a class="btn-primary" href="#PLACEHOLDER-BOOKING-LINK">
+        Book your 20-minute call
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="../join.html">Explore other paths</a>
+    </div>
+    <p class="final-note">No commitment required. Just a conversation.</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  © 2026 BrainsMingle · <a href="https://brainsmingle.com" style="color: var(--purple-light);">brainsmingle.com</a>
+</footer>
+
+</body>
+</html>

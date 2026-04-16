@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join as a Professional — BrainsMingle</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #6B3EF5;
+    --purple-light: #7B52F6;
+    --purple-glow: rgba(107,62,245,0.25);
+    --amber: #F5A623;
+    --amber-dim: rgba(245,166,35,0.12);
+    --amber-glow: rgba(245,166,35,0.25);
+    --cyan: #00E8A2;
+    --bg: #0F0F1A;
+    --bg-card: #16162A;
+    --bg-card2: #1C1C32;
+    --border: rgba(245,166,35,0.2);
+    --border-purple: rgba(107,62,245,0.25);
+    --border-subtle: rgba(255,255,255,0.07);
+    --border-mid: rgba(255,255,255,0.12);
+    --text: #F0EEF8;
+    --text-muted: #9490B8;
+    --text-dim: #5E5A80;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 24px 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-glow-top {
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(245,166,35,0.2) 0%, rgba(107,62,245,0.12) 55%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-side {
+    position: absolute; bottom: -100px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse, rgba(107,62,245,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .back-link {
+    position: relative; z-index: 2;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+    color: var(--text-muted); margin-bottom: 40px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text); }
+  .back-link svg { width: 14px; height: 14px; }
+
+  .logo-wrap { position: relative; z-index: 2; margin-bottom: 48px; }
+  .logo-wrap img { height: 44px; width: auto; display: block; margin: 0 auto; }
+
+  .hero-badge {
+    position: relative; z-index: 2;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(245,166,35,0.35);
+    background: rgba(245,166,35,0.08);
+    border-radius: 100px;
+    padding: 7px 18px; margin-bottom: 28px;
+  }
+
+  .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--amber);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    position: relative; z-index: 2;
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 900; line-height: 1.05;
+    letter-spacing: -2px; max-width: 820px;
+    margin-bottom: 12px; color: #fff;
+  }
+
+  .hero h1 .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--amber) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    position: relative; z-index: 2;
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--text-muted); max-width: 620px;
+    margin: 20px auto 40px; line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 700; }
+
+  .hero-cta-wrap {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; margin-bottom: 64px;
+  }
+
+  .btn-amber {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px;
+    background: var(--amber); color: #0F0F1A;
+    border-radius: 12px; font-family: 'Montserrat', sans-serif;
+    font-size: 15px; font-weight: 800; letter-spacing: 0.2px;
+    box-shadow: 0 4px 24px var(--amber-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-amber:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--amber-glow); }
+  .btn-amber svg { width: 16px; height: 16px; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 28px; background: var(--bg-card2); color: var(--text);
+    border: 1px solid var(--border-mid); border-radius: 12px;
+    font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px; background: var(--purple); color: #fff;
+    border-radius: 12px; font-family: 'Montserrat', sans-serif;
+    font-size: 15px; font-weight: 700;
+    box-shadow: 0 4px 24px var(--purple-glow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--purple-glow); }
+  .btn-primary svg { width: 16px; height: 16px; }
+
+  .proof-strip {
+    position: relative; z-index: 2;
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; align-items: center;
+  }
+  .proof-item { text-align: center; }
+  .proof-num { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff; display: block; }
+  .proof-num em { color: var(--amber); font-style: normal; }
+  .proof-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.3px; }
+  .proof-div { width: 1px; background: var(--border-subtle); align-self: stretch; min-height: 32px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 88px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-sm { padding: 64px 24px; max-width: 1100px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--amber); opacity: 0.8; margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 800; letter-spacing: -1px;
+    color: #fff; line-height: 1.12; margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 17px; color: var(--text-muted);
+    max-width: 540px; line-height: 1.7; margin-bottom: 52px;
+  }
+
+  /* ── WHO THIS IS FOR ── */
+  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .who-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; flex-direction: column; gap: 10px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .who-card:hover { border-color: rgba(245,166,35,0.25); transform: translateY(-2px); }
+  .who-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--amber), var(--purple-light)); opacity: 0.5;
+  }
+  .who-icon { font-size: 28px; margin-bottom: 4px; }
+  .who-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
+  .who-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── WHY BM ── */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .why-card {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 28px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: rgba(245,166,35,0.2); }
+
+  .why-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: rgba(245,166,35,0.1);
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .why-body {}
+  .why-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .why-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── JOURNEY ── */
+  .journey-wrap {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 20px; overflow: hidden;
+  }
+
+  .journey-top-bar { height: 3px; background: linear-gradient(90deg, var(--amber), var(--purple-light)); }
+
+  .journey-inner { padding: 48px; }
+
+  .journey-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 40px;
+  }
+
+  .journey-step {
+    padding: 20px; display: flex; flex-direction: column; gap: 10px;
+    background: var(--bg-card2); border-radius: 0;
+    position: relative;
+  }
+
+  .journey-step:first-child { border-radius: 12px 0 0 12px; }
+  .journey-step:last-child { border-radius: 0 12px 12px 0; }
+
+  .journey-step-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px; font-weight: 900;
+    color: var(--amber); opacity: 0.3; line-height: 1;
+  }
+
+  .journey-step-icon { font-size: 22px; }
+
+  .journey-step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 700; color: #fff;
+  }
+
+  .journey-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+  /* second row */
+  .journey-grid-2 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 2px;
+  }
+
+  /* ── VERTICALS ── */
+  .verticals-wrap {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+  }
+
+  .vertical-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 600; color: var(--text-muted);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .vertical-pill:hover {
+    border-color: rgba(245,166,35,0.3);
+    color: var(--text);
+    background: rgba(245,166,35,0.06);
+  }
+  .vertical-pill span { font-size: 15px; }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-wrap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 40px 48px;
+    position: relative; overflow: hidden;
+  }
+  .testimonial-wrap::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--amber), var(--purple-light));
+  }
+  .quote-mark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px; line-height: 0.8;
+    color: var(--amber); opacity: 0.3;
+    margin-bottom: 16px; display: block;
+  }
+  .quote-text {
+    font-size: 17px; line-height: 1.75;
+    color: var(--text); direction: rtl;
+    font-family: 'Lato', sans-serif; max-width: 760px;
+  }
+  .quote-source { margin-top: 20px; font-size: 13px; color: var(--text-muted); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: 16px; padding: 36px 48px;
+    display: flex; flex-wrap: nowrap; gap: 0;
+    justify-content: space-between; align-items: center;
+  }
+  .stat-item {
+    text-align: center; padding: 8px 16px;
+    border-right: 1px solid var(--border-subtle);
+    flex: 1; min-width: 0;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(18px, 2vw, 30px); font-weight: 800;
+    color: #fff; display: block; letter-spacing: -0.5px;
+  }
+  .stat-num span { color: var(--amber); }
+  .stat-lbl { font-size: clamp(10px, 1.1vw, 13px); color: var(--text-muted); margin-top: 4px; display: block; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, rgba(245,166,35,0.12) 0%, rgba(107,62,245,0.15) 100%);
+    border: 1px solid rgba(245,166,35,0.2);
+    border-radius: 24px; padding: 80px 48px; text-align: center;
+  }
+  .final-cta-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,166,35,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    position: relative;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 900; letter-spacing: -1.5px;
+    color: #fff; line-height: 1.1; margin-bottom: 16px;
+  }
+  .final-cta h2 span {
+    background: linear-gradient(135deg, var(--amber), var(--purple-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .final-cta p {
+    position: relative;
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
+    max-width: 480px; margin: 0 auto 40px;
+  }
+  .final-cta-btns {
+    position: relative;
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  }
+  .final-note { position: relative; margin-top: 20px; font-size: 13px; color: var(--text-dim); }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 32px 24px; text-align: center;
+    font-size: 13px; color: var(--text-dim);
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr 1fr; }
+    .journey-grid-2 { grid-template-columns: 1fr 1fr; }
+    .journey-step:first-child { border-radius: 12px 0 0 0; }
+    .journey-step:last-child { border-radius: 0 0 12px 0; }
+    .stats-strip { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 30%; border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 16px; }
+    .stat-item:last-child { border-bottom: none; }
+    .final-cta { padding: 56px 28px; }
+    .testimonial-wrap { padding: 28px 24px; }
+    .journey-inner { padding: 32px 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .who-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; }
+    .journey-grid-2 { grid-template-columns: 1fr; }
+    .journey-step:first-child { border-radius: 12px 12px 0 0; }
+    .journey-step:last-child { border-radius: 0 0 12px 12px; }
+    .proof-div { display: none; }
+    .hero h1 { letter-spacing: -1px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow-top"></div>
+  <div class="hero-glow-side"></div>
+
+  <a class="back-link" href="../join.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to all paths
+  </a>
+
+  <div class="logo-wrap">
+    <img src="../BrainsMingle-White.png" alt="BrainsMingle" />
+  </div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Professionals & Learners
+    <span class="badge-dot"></span>
+  </div>
+
+  <h1>
+    Stop consuming.
+    <span class="line2">Start connecting.</span>
+  </h1>
+
+  <p class="hero-sub">
+    BrainsMingle is where professionals go to <strong>learn directly from experts, join communities in their field,</strong> and make the kind of connections that actually move their career forward — face to face, in real time.
+  </p>
+
+  <div class="hero-cta-wrap">
+    <a class="btn-amber" href="https://brainsmingle.com" target="_blank">
+      Join BrainsMingle
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a class="btn-ghost" href="#how-it-works">See how it works</a>
+  </div>
+
+  <div class="proof-strip">
+    <div class="proof-item">
+      <span class="proof-num">5,700<em>+</em></span>
+      <span class="proof-label">Professionals on platform</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">980<em>+</em></span>
+      <span class="proof-label">Sessions hosted</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">5,000<em>+</em></span>
+      <span class="proof-label">Connections made</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <span class="proof-num">85<em>+</em></span>
+      <span class="proof-label">Countries</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══ WHO THIS IS FOR ══ -->
+<div class="section">
+  <div class="eyebrow">Who this is for</div>
+  <h2 class="section-title">For professionals who want<br>more than a profile page</h2>
+  <p class="section-sub">If you're serious about your growth, your network, and your field — BrainsMingle is built for you.</p>
+
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">📚</div>
+      <div class="who-title">Professionals who want to learn</div>
+      <div class="who-desc">You want to go beyond LinkedIn articles and actually book time with the experts in your field. Real sessions, real conversations, real takeaways — not passive content.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🤝</div>
+      <div class="who-title">Professionals who want real connections</div>
+      <div class="who-desc">You want connections that mean something — not follower counts. Speed networking events put you face to face with peers and leaders in your industry in a single session.</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🌐</div>
+      <div class="who-title">Professionals looking for their community</div>
+      <div class="who-desc">You want a structured, serious home for your professional interests — not a Facebook group or a Slack workspace that goes quiet after two weeks.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ WHY BRAINSMINGLE ══ -->
+<div class="section">
+  <div class="eyebrow">Why BrainsMingle</div>
+  <h2 class="section-title">Not more content.<br>Real human interaction.</h2>
+  <p class="section-sub">Every platform is optimising for your attention. BrainsMingle is optimising for your growth.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🚫</div>
+      <div class="why-body">
+        <div class="why-title">Not another content platform</div>
+        <div class="why-desc">No passive scrolling. No algorithm deciding what you see. Every session on BrainsMingle is live, intentional, and led by a real expert who shows up for their audience.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💬</div>
+      <div class="why-body">
+        <div class="why-title">Not another LinkedIn</div>
+        <div class="why-desc">Connections here start face to face. A conversation in a live session or a speed networking event is worth more than a hundred connection requests.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-body">
+        <div class="why-title">Live-first, not live-only</div>
+        <div class="why-desc">Sessions happen live — and when experts choose to record, you can access them on your own schedule. The live session is the anchor. The recording extends the value.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <div class="why-body">
+        <div class="why-title">A genuinely global professional network</div>
+        <div class="why-desc">5,700+ professionals across 85+ countries and 1,000+ companies. The room you walk into on BrainsMingle has people in it you wouldn't find anywhere else.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ HOW IT WORKS ══ -->
+<div class="section" id="how-it-works">
+  <div class="journey-wrap">
+    <div class="journey-top-bar"></div>
+    <div class="journey-inner">
+      <div class="eyebrow">Your journey on the platform</div>
+      <h2 class="section-title" style="margin-bottom: 6px;">Everything you need.<br>One place to go.</h2>
+      <p style="font-size:15px; color: var(--text-muted); max-width: 500px; line-height: 1.7;">From your first session to your most meaningful professional community — here's what BrainsMingle looks like from the inside.</p>
+
+      <div class="journey-grid">
+        <div class="journey-step">
+          <div class="journey-step-num">01</div>
+          <div class="journey-step-icon">🔍</div>
+          <div class="journey-step-title">Find an expert</div>
+          <div class="journey-step-desc">Search by topic, industry, or skill. See who's available and what they offer — 1:1 sessions, group workshops, open office hours.</div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step-num">02</div>
+          <div class="journey-step-icon">📅</div>
+          <div class="journey-step-title">Book instantly</div>
+          <div class="journey-step-desc">Pick a time directly from their live calendar. Confirmed immediately. No back-and-forth, no emails.</div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step-num">03</div>
+          <div class="journey-step-icon">🎥</div>
+          <div class="journey-step-title">Join the session</div>
+          <div class="journey-step-desc">One click. No Zoom links, no app downloads. Screen share, live chat, reactions — everything runs natively inside the platform.</div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step-num">04</div>
+          <div class="journey-step-icon">🎓</div>
+          <div class="journey-step-title">Learn in groups</div>
+          <div class="journey-step-desc">Attend group sessions, cohort programs, and workshops with other professionals at your level — guided by experts who know their field.</div>
+        </div>
+      </div>
+
+      <div class="journey-grid-2">
+        <div class="journey-step">
+          <div class="journey-step-num">05</div>
+          <div class="journey-step-icon">📼</div>
+          <div class="journey-step-title">Watch recordings</div>
+          <div class="journey-step-desc">When experts choose to record, sessions are available to watch anytime. Build your knowledge on your schedule.</div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step-num">06</div>
+          <div class="journey-step-icon">🏛️</div>
+          <div class="journey-step-title">Join a community</div>
+          <div class="journey-step-desc">Find your professional home — structured communities organised by topic, industry, or interest. Public, private, or invite-only.</div>
+        </div>
+        <div class="journey-step">
+          <div class="journey-step-num">07</div>
+          <div class="journey-step-icon">💬</div>
+          <div class="journey-step-title">Engage in discussions</div>
+          <div class="journey-step-desc">Post, reply, ask questions, share what you know. Threaded discussions in a space designed for serious professional conversations.</div>
+        </div>
+        <div class="journey-step" style="border-radius: 0 0 12px 0;">
+          <div class="journey-step-num">08</div>
+          <div class="journey-step-icon">⚡</div>
+          <div class="journey-step-title">Attend speed networking</div>
+          <div class="journey-step-desc">Get matched and meet multiple professionals face to face in one event. Structured, timed, and surprisingly powerful.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ VERTICALS ══ -->
+<div class="section-sm">
+  <div style="text-align:center; margin-bottom: 40px;">
+    <div class="eyebrow" style="display:inline-block;">What's available</div>
+    <h2 class="section-title">Experts and communities<br>across every major vertical</h2>
+    <p class="section-sub" style="margin: 12px auto 0; text-align:center;">Whatever your field, there are experts delivering sessions and communities waiting for you on BrainsMingle.</p>
+  </div>
+
+  <div class="verticals-wrap">
+    <div class="vertical-pill"><span>🤖</span> Artificial Intelligence & Technology</div>
+    <div class="vertical-pill"><span>💳</span> Fintech & Financial Services</div>
+    <div class="vertical-pill"><span>🚀</span> Entrepreneurship & Startups</div>
+    <div class="vertical-pill"><span>🌱</span> Green Economy & Sustainability</div>
+    <div class="vertical-pill"><span>👥</span> HR & Future of Work</div>
+    <div class="vertical-pill"><span>🎯</span> Product Management & Design</div>
+    <div class="vertical-pill"><span>🏥</span> Healthcare & Wellbeing</div>
+    <div class="vertical-pill"><span>📖</span> Education & EdTech</div>
+    <div class="vertical-pill"><span>⚖️</span> Legal & Governance</div>
+    <div class="vertical-pill"><span>📣</span> Marketing & Creative Industries</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ STATS ══ -->
+<div class="section-sm">
+  <div style="text-align:center; margin-bottom: 36px;">
+    <div class="eyebrow" style="display:inline-block;">Already live</div>
+    <h2 class="section-title">A platform that's already working.</h2>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-item"><span class="stat-num">5,700<span>+</span></span><span class="stat-lbl">Registered professionals</span></div>
+    <div class="stat-item"><span class="stat-num">1,000<span>+</span></span><span class="stat-lbl">Companies represented</span></div>
+    <div class="stat-item"><span class="stat-num">980<span>+</span></span><span class="stat-lbl">Sessions hosted</span></div>
+    <div class="stat-item"><span class="stat-num">5,000<span>+</span></span><span class="stat-lbl">Connections made</span></div>
+    <div class="stat-item"><span class="stat-num">85<span>+</span></span><span class="stat-lbl">Countries</span></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ TESTIMONIAL ══ -->
+<div class="section-sm">
+  <div class="testimonial-wrap">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">واحدة من أفضل التجارب اللي جربتها على الانترنت بفضل الله! تخيل إنك تقابل خلال ساعتين (بشكل مرئي/صوتي بنظام 1:1) خبرات متنوعة وأنفس طموحة، سواء كانوا رواد أعمال - مهندسين أقدم منك في المجال - شباب في نفس مرحلتك وممكن نفس مجالك - طلاب جامعيين في أول الطريق ممكن تفيدهم - بل وحتى شباب طموح خاض تجارب ملهمة بحق ومشيوا في طرق من قبلك يلهموك بتجربتهم دي! وأكثر من ذلك بكثير...</p>
+    <div class="quote-source">— BrainsMingle member, Speed Networking event</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══ FINAL CTA ══ -->
+<div class="section">
+  <div class="final-cta">
+    <div class="final-cta-glow"></div>
+    <h2>Your next conversation<br><span>is already waiting.</span></h2>
+    <p>Join BrainsMingle and find the experts, communities, and connections that move your career forward — starting today.</p>
+    <div class="final-cta-btns">
+      <a class="btn-amber" href="https://brainsmingle.com" target="_blank">
+        Join BrainsMingle
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="../join.html">Explore other paths</a>
+    </div>
+    <p class="final-note">Free to join. No credit card required.</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  © 2026 BrainsMingle · <a href="https://brainsmingle.com" style="color: var(--amber); opacity: 0.8;">brainsmingle.com</a>
+</footer>
+
+</body>
+</html>
