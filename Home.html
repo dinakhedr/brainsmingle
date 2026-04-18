@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lato', sans-serif; font-weight: 400; color: #1a1a2e; overflow-x: hidden; font-size: 16px; }
+  .mont { font-family: 'Montserrat', sans-serif; }
+
+  .hero {
+    background: #5B3FE8; color: #fff;
+    padding: 64px 56px 56px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-90px; right:-90px; width:340px; height:340px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .hero::after  { content:''; position:absolute; bottom:-70px; left:-70px; width:260px; height:260px; border-radius:50%; background:rgba(0,255,200,0.08); }
+  .hero h1 { font-family:'Montserrat',sans-serif; font-size:52px; font-weight:900; line-height:1.08; margin-bottom:18px; white-space:nowrap; }
+  .hero h1 span { color:#00FFCC; }
+  .hero p { font-size:19px; font-weight:400; opacity:.88; max-width:640px; margin:0 auto 34px; line-height:1.7; }
+  .hero-tags { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .hero-tag { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#fff; padding:8px 20px; border-radius:20px; font-size:14px; font-weight:700; }
+
+  .section-white  { background:#fff;     padding:60px 56px; }
+  .section-purple { background:#5B3FE8;  padding:60px 56px; color:#fff; }
+  .section-light  { background:#F4F2FF;  padding:60px 56px; }
+  .section-dark   { background:#3B2AC4;  padding:60px 56px; color:#fff; }
+
+  .section-label { font-size:12px; font-weight:900; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:10px; color:#5B3FE8; }
+  .section-purple .section-label,
+  .section-dark   .section-label { color:#00FFCC; }
+  .section-title { font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; margin-bottom:36px; line-height:1.15; }
+  .section-purple .section-title,
+  .section-dark   .section-title { color:#fff; }
+  .section-white  .section-title,
+  .section-light  .section-title { color:#1a1a2e; }
+
+  /* Problem */
+  .problem-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+  .problem-card { background:#F4F2FF; border-radius:14px; padding:24px 22px; border-left:4px solid #5B3FE8; }
+  .problem-icon { width:44px; height:44px; background:#5B3FE8; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .problem-card h3 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:#1a1a2e; margin-bottom:8px; }
+  .problem-card p  { font-size:14px; font-weight:400; color:#555; line-height:1.6; }
+
+  /* Features — 2 per row */
+  .feature-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .feature-card { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:16px; padding:26px 24px; display:flex; flex-direction:column; }
+  .feature-icon { width:52px; height:52px; background:rgba(0,255,204,0.18); border-radius:13px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .feature-card h3 { font-family:'Montserrat',sans-serif; font-size:17px; font-weight:800; color:#fff; margin-bottom:8px; }
+  .feature-card .feature-desc { font-size:14px; font-weight:400; color:rgba(255,255,255,0.85); line-height:1.65; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:14px; }
+  .feature-card ul { list-style:none; margin-bottom:18px; }
+  .feature-card ul li { font-size:14px; font-weight:400; color:rgba(255,255,255,0.8); padding:4px 0 4px 18px; position:relative; line-height:1.55; }
+  .feature-card ul li::before { content:''; position:absolute; left:0; top:12px; width:6px; height:6px; background:#00FFCC; border-radius:50%; }
+  .feature-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15); }
+  .feature-tag { background:rgba(0,255,204,0.12); border:1px solid rgba(0,255,204,0.3); color:#00FFCC; font-size:11px; font-weight:700; letter-spacing:.5px; padding:4px 12px; border-radius:20px; }
+
+  /* Audience */
+  .audience-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+  .audience-card { background:#fff; border-radius:14px; padding:24px 18px; text-align:center; border:1.5px solid #E0DBFF; }
+  .audience-icon-wrap { width:56px; height:56px; background:#5B3FE8; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
+  .audience-card h3 { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; color:#1a1a2e; line-height:1.4; }
+
+  /* Strategic Modes — 3 per row, light bg */
+  .modes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .mode-card { background:#fff; border-radius:14px; padding:26px 22px; border-top:4px solid #5B3FE8; }
+  .mode-icon { width:48px; height:48px; background:#F4F2FF; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .mode-card h3 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#1a1a2e; margin-bottom:9px; }
+  .mode-card p  { font-size:14px; font-weight:400; color:#444; line-height:1.65; }
+
+  /* Outcomes — 3 per row, dark bg */
+  .outcome-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .outcome-card { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:22px 20px; display:flex; gap:16px; align-items:flex-start; }
+  .outcome-icon { width:44px; height:44px; flex-shrink:0; background:rgba(0,255,204,0.15); border-radius:11px; display:flex; align-items:center; justify-content:center; }
+  .outcome-card h4 { font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:#fff; margin-bottom:5px; }
+  .outcome-card p  { font-size:13px; font-weight:400; color:rgba(255,255,255,0.75); line-height:1.6; }
+
+  /* CTA */
+  .cta { background:#5B3FE8; padding:60px 56px; text-align:center; }
+  .cta h2 { font-family:'Montserrat',sans-serif; font-size:38px; font-weight:900; color:#fff; margin-bottom:14px; line-height:1.2; }
+  .cta h2 span { color:#00FFCC; }
+  .cta p { color:rgba(255,255,255,0.82); font-size:17px; font-weight:400; margin-bottom:30px; }
+  .cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary  { background:#00FFCC; color:#1a1a2e; padding:15px 36px; border-radius:30px; font-family:'Montserrat',sans-serif; font-weight:800; font-size:15px; text-decoration:none; display:inline-block; }
+  .btn-secondary{ background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.4); padding:15px 36px; border-radius:30px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; text-decoration:none; display:inline-block; }
+
+  svg.icon   { width:24px; height:24px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  svg.teal   { fill:none; stroke:#00FFCC; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  svg.purple { fill:none; stroke:#5B3FE8; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  @media(max-width:700px){
+    .hero h1 { font-size:28px; white-space:normal; }
+    .section-white,.section-purple,.section-light,.section-dark,.cta { padding:44px 24px; }
+    .section-title { font-size:28px; }
+    .feature-grid,.outcome-grid,.modes-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="mont">BrainsMingle <span>for Educational Institutions</span></h1>
+  <p>The engagement platform built for universities, bootcamps, and professional programs that teach, train, and connect people.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">🎓 Universities</span>
+    <span class="hero-tag">💼 Bootcamps</span>
+    <span class="hero-tag">🤝 Associations</span>
+    <span class="hero-tag">🚀 Accelerators</span>
+  </div>
+</section>
+
+<!-- PROBLEM — white -->
+<section class="section-white">
+  <div class="section-label">The Challenge</div>
+  <div class="section-title mont">The Engagement Gap</div>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Mentoring Underutilized</h3>
+      <p>Students can't easily find or book the right experts at the right time.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Communities Go Dormant</h3>
+      <p>No structured space to keep members engaged between events and sessions.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+      <h3>Alumni Networks Fade</h3>
+      <p>No institutional home — just group chats that lose momentum over time.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h3>Staff Burned Out</h3>
+      <p>Manually managing bookings, reminders, and follow-ups across disconnected tools.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <h3>No Unified Data</h3>
+      <p>Leadership decides without visibility into engagement or program outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM CAPABILITIES — purple -->
+<section class="section-purple">
+  <div class="section-label">Platform Capabilities</div>
+  <div class="section-title mont">Everything in One Place</div>
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Mentoring &amp; Consultation Marketplace</h3>
+      <p class="feature-desc">A structured marketplace where experts, mentors, and advisors list their services and learners discover, book, and attend them in a seamless workflow — all inside one branded environment.</p>
+      <ul>
+        <li>1:1 consultations, group mentoring &amp; recurring office hours</li>
+        <li>Cohort-based mentoring programs</li>
+        <li>Free and paid session formats</li>
+        <li>Availability calendar with automated confirmations</li>
+        <li>Time zone detection for international audiences</li>
+        <li>Rescheduling, cancellation &amp; waitlist management</li>
+        <li>Capacity controls &amp; automated no-show reminders</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Booking</span>
+        <span class="feature-tag">Scheduling</span>
+        <span class="feature-tag">1:1 Sessions</span>
+        <span class="feature-tag">Group Mentoring</span>
+        <span class="feature-tag">Office Hours</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+      <h3>Native Video &amp; Session Delivery</h3>
+      <p class="feature-desc">Every session is delivered within the platform itself — eliminating friction from external tools and keeping the full experience under one roof with no downloads or app switching required.</p>
+      <ul>
+        <li>1:1 calls and small group sessions in-browser</li>
+        <li>Screen sharing and real-time screen annotation</li>
+        <li>In-session chat and participant management</li>
+        <li>Waiting room controls and raise-hand feature</li>
+        <li>Engagement reactions</li>
+        <li>Optional session recording (institution-controlled)</li>
+        <li>Webinar mode with host, panelist &amp; moderator controls</li>
+        <li>Registration-based attendance tracking for large events</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Video Calls</span>
+        <span class="feature-tag">Screen Sharing</span>
+        <span class="feature-tag">Recording</span>
+        <span class="feature-tag">Webinar Mode</span>
+        <span class="feature-tag">No Downloads</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Community System</h3>
+      <p class="feature-desc">Persistent, structured engagement spaces purpose-built for institutional use — far more controllable than informal group chats, and fully owned and moderated by the organization.</p>
+      <ul>
+        <li>Member management with role-based permissions</li>
+        <li>Admin, moderator, and member role levels</li>
+        <li>Topic-based channels for focused discussion</li>
+        <li>Announcements for official communications</li>
+        <li>Threaded posts and discussions</li>
+        <li>Embedded live sessions within communities</li>
+        <li>Private, public, or invite-only access settings</li>
+        <li>Fully searchable, moderated content</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Channels</span>
+        <span class="feature-tag">Moderation</span>
+        <span class="feature-tag">Announcements</span>
+        <span class="feature-tag">Cohorts</span>
+        <span class="feature-tag">Alumni</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+      <h3>Speed Networking Engine</h3>
+      <p class="feature-desc">Facilitates real, face-to-face interaction between members, alumni, and professionals through automated matching and timed rotations — with minimal moderation burden on staff.</p>
+      <ul>
+        <li>Automated random or criteria-based participant matching</li>
+        <li>Timed conversation rotations between participants</li>
+        <li>Moderator controls and full session oversight</li>
+        <li>Scalable from small groups to large events</li>
+        <li>Every participant gets multiple meaningful connections</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Networking</span>
+        <span class="feature-tag">Auto-Matching</span>
+        <span class="feature-tag">Timed Rotations</span>
+        <span class="feature-tag">Events</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <h3>User Profiles &amp; Expert Directory</h3>
+      <p class="feature-desc">Every participant has a rich, searchable profile — turning the platform into a living, browsable directory of expertise, availability, and services that members can self-navigate without any coordinator.</p>
+      <ul>
+        <li>Professional bio, photo &amp; expertise tags</li>
+        <li>Published service listings &amp; live availability calendar</li>
+        <li>Session history and optional ratings &amp; reviews</li>
+        <li>Social and portfolio links (LinkedIn, personal site)</li>
+        <li>Verification badges issued by administrators</li>
+        <li>Filterable by topic, specialty, or keyword</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Expert Directory</span>
+        <span class="feature-tag">Profiles</span>
+        <span class="feature-tag">Ratings</span>
+        <span class="feature-tag">Verification</span>
+        <span class="feature-tag">Search</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon"><svg class="teal" style="width:26px;height:26px;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="23 6 13 16 8 11 1 18"/></svg></div>
+      <h3>Administrative &amp; Insight Tools</h3>
+      <p class="feature-desc">Administrators and program managers get a unified view of everything happening across the platform — from individual session activity to organization-wide engagement patterns and exportable outcome reports.</p>
+      <ul>
+        <li>User management and role assignment</li>
+        <li>Session analytics: bookings, attendance, completion rates</li>
+        <li>Engagement tracking across communities and events</li>
+        <li>Revenue reporting for paid service models</li>
+        <li>Community oversight and content moderation tools</li>
+        <li>Listing approvals and quality control flagging</li>
+        <li>Exportable reports for boards, leadership &amp; accreditation</li>
+      </ul>
+      <div class="feature-tags">
+        <span class="feature-tag">Analytics</span>
+        <span class="feature-tag">Reporting</span>
+        <span class="feature-tag">Moderation</span>
+        <span class="feature-tag">Revenue</span>
+        <span class="feature-tag">Accreditation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHO IT'S FOR — light -->
+<section class="section-light">
+  <div class="section-label">Audience</div>
+  <div class="section-title mont">Built for Your Organization</div>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg></div>
+      <h3>Universities &amp; Higher Ed</h3>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Training Providers &amp; Bootcamps</h3>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Professional Associations</h3>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3>Coaching &amp; Consulting Platforms</h3>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <h3>Corporate L&amp;D Teams</h3>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon-wrap"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <h3>Accelerators &amp; Innovation Hubs</h3>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC MODES — dark (swapped from outcomes) -->
+<section class="section-dark">
+  <div class="section-label">Flexibility</div>
+  <div class="section-title mont">Strategic Platform Modes</div>
+  <div class="modes-grid">
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <h3>Mentorship Hub</h3>
+      <p>Run structured mentor-mentee programs with intelligent matching, milestone tracking, and detailed reporting — giving coordinators full visibility over program health and learner progress.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+      <h3>Consultation Marketplace</h3>
+      <p>Enable learners and members to browse and book advisory or coaching sessions from internal staff and external experts — supporting both free and paid service models with built-in revenue reporting.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Community Platform</h3>
+      <p>Build and sustain persistent, moderated spaces for cohorts, departments, and professional networks — with topic channels, announcements, and embedded live sessions all in one institutional home.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+      <h3>Networking Engine</h3>
+      <p>Facilitate meaningful peer and professional connections at scale through automated speed networking events — removing all manual coordination while delivering high-value outcomes for every participant.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+      <h3>Webinar &amp; Events</h3>
+      <p>Deliver live programming — panels, workshops, and Q&amp;As — with advance registration, moderator tools, host and panelist controls, and automatic recording saved directly to the relevant community space.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg></div>
+      <h3>Alumni Engagement</h3>
+      <p>Keep graduates connected through institution-owned post-program communities, ongoing mentor pipelines, and structured networking — replacing scattered group chats with a purpose-built alumni home.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <h3>Career Advisory</h3>
+      <p>Connect learners with employer partners and alumni mentors in a structured career services layer — enabling bookable advisory sessions, employer engagement, and professional development tracking.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>White-Label EdTech</h3>
+      <p>Deploy the full platform under your own brand — custom domain, colors, logos, and terminology — so every learner experiences a seamless environment that belongs entirely to your institution.</p>
+    </div>
+
+    <div class="mode-card">
+      <div class="mode-icon"><svg class="purple" style="width:24px;height:24px;" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div>
+      <h3>Enterprise Knowledge Network</h3>
+      <p>Support internal professional development, peer knowledge-sharing, and advisory networks for staff and faculty — turning your workforce into a connected, learning community with measurable impact.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT YOU GAIN — light (swapped from strategic modes) -->
+<section class="section-light">
+  <div class="section-label">What You Gain</div>
+  <div class="section-title mont">Measurable Impact</div>
+  <div class="outcome-grid">
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Mentoring Gets Used</h4>
+        <p style="color:#555;">Discoverable marketplace removes friction — learners self-serve bookings instantly without coordinator involvement.</p>
+      </div>
+    </div>
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Active Communities</h4>
+        <p style="color:#555;">Persistent structured spaces keep cohorts engaged long after sessions and events conclude.</p>
+      </div>
+    </div>
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Zero Coordination Overhead</h4>
+        <p style="color:#555;">Automated booking, reminders, and session delivery free staff from manual workflows entirely.</p>
+      </div>
+    </div>
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Data-Backed Decisions</h4>
+        <p style="color:#555;">Real-time analytics exportable for board reports, accreditation submissions, and investor updates.</p>
+      </div>
+    </div>
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Real Professional Networks</h4>
+        <p style="color:#555;">Learners graduate with lasting connections built through structured networking during the program.</p>
+      </div>
+    </div>
+    <div class="outcome-card" style="background:#fff;border:1.5px solid #E0DBFF;">
+      <div class="outcome-icon" style="background:#F4F2FF;">
+        <svg style="width:22px;height:22px;fill:none;stroke:#5B3FE8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div>
+        <h4 style="color:#1a1a2e;">Fully Branded Ownership</h4>
+        <p style="color:#555;">Your domain, colors, and data — always. BrainsMingle never sells or shares institutional data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="mont">One platform.<br><span>Every human connection</span> your organization needs.</h2>
+  <p>Start with a focused pilot in one department. Validate outcomes before a broader commitment.</p>
+  <div class="cta-buttons">
+    <a href="https://www.brainsmingle.com" class="btn-primary">Request a Demo</a>
+    <a href="mailto:partnerships@brainsmingle.com" class="btn-secondary">partnerships@brainsmingle.com</a>
+  </div>
+</section>
+
+</body>
+</html>
