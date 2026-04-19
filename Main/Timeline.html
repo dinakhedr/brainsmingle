@@ -567,8 +567,10 @@ function build(weeks, workstreams, tasks, owners, steps) {
       const wsName = (ws.workstream_name || "").trim();
       const wsTasks = (tasksByWs[wsName] || tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
       const color = ws.bar_color || "gray";
-      const startN = wn(ws.gantt_start_week);
-      const endN   = wn(ws.gantt_end_week);
+      // Derive Gantt range dynamically from tasks — min week_start to max week_end
+      const taskWeekNums = wsTasks.flatMap(t => [wn(t.week_start), wn(t.week_end)]).filter(n => n > 0);
+      const startN = taskWeekNums.length ? Math.min(...taskWeekNums) : wn(ws.gantt_start_week);
+      const endN   = taskWeekNums.length ? Math.max(...taskWeekNums) : wn(ws.gantt_end_week);
       const milestones = wsTasks.filter(t => t.is_milestone === "TRUE" || t.is_milestone === "True");
 
       const lc = document.createElement("div");
