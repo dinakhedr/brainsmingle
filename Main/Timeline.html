@@ -413,7 +413,9 @@ function buildOwnerMap(owners) {
     if (name)    keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
     if (name)    keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
     if (name)    keys.add(name.toLowerCase().split(/\s/)[0]);
-    if (ownerId) keys.add(ownerId.toLowerCase().trim());
+    if (name)    keys.add(name.trim());                      // exact display_name e.g. "Dina"
+    if (ownerId) keys.add(ownerId.trim());                   // exact owner_id e.g. "dina"
+    if (ownerId) keys.add(ownerId.toLowerCase().trim());     // lowercase owner_id
     keys.forEach(k => { if (k) ownerMap[k] = entry; });
   });
 }
@@ -422,11 +424,16 @@ function ownerBadges(str) {
   if (!str) return "";
   return str.split("|").map(o => {
     const raw = o.trim();
-    // Try multiple normalizations to match sheet keys
-    const key1 = raw.toLowerCase().replace(/[\s\/]+/g, "");          // "Platform team" -> "platformteam"
-    const key2 = raw.toLowerCase().replace(/[\s\/\-]+/g, "");       // strip hyphens too
-    const key3 = raw.toLowerCase().split(/\s/)[0];                    // first word only: "platform"
-    const match = ownerMap[key1] || ownerMap[key2] || ownerMap[key3];
+    if (!raw) return "";
+    // Try keys in order of specificity
+    const attempts = [
+      raw,                                          // exact as-is: "dina"
+      raw.toLowerCase(),                            // lowercase: "dina"
+      raw.toLowerCase().replace(/[\s\/\-]+/g,""), // no spaces/slashes: "platformteam"
+      raw.toLowerCase().split(/\s+/)[0],           // first word: "platform"
+    ];
+    let match = null;
+    for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
     const style = match
       ? "background:" + match.bg + ";color:" + match.color + ";"
       : "background:rgba(255,255,255,.08);color:var(--text2);";
@@ -603,7 +610,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
-            <td>${ownerBadges(t.taskowner)}</td>
+            <td>${ownerBadges(t.owner)}</td>
             <td class="deliverable-text">${esc(t.deliverable)}</td>
             <td>${statusBadge(t.status)}</td>
             <td class="notes-text">${formatNotes(t.notes)}</td>`;
