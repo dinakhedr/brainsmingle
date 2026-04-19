@@ -161,31 +161,38 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .milestone-diamond { width:10px; height:10px; background:var(--pink); transform:rotate(45deg); border-radius:2px; }
 .milestone-lbl { font-family:var(--fh); font-size:8px; font-weight:700; color:var(--pink); white-space:nowrap; margin-top:2px; }
 
-/* TASK SUB-ROWS */
-.task-label-cell {
+/* TASK SUB-ROWS — each task is a full-width wrapper row with its own inner grid */
+.task-row-wrapper {
   display:none;
-  align-items:flex-start;
-  padding:12px 12px 12px 18px;
+  grid-column: 1 / -1;
+  /* inner grid matches parent: label col + week cols */
+  display:none;
   border-top:1px solid var(--border2);
-  min-height:0;
-  border-left:3px solid transparent;
 }
-.task-label-cell.open { display:flex; }
-.task-label-cell.row-odd  { background:#15152A; }
-.task-label-cell.row-even { background:#101020; }
+.task-row-wrapper.open { display:grid; }
+.task-row-wrapper.row-odd  { background:#16162C; }
+.task-row-wrapper.row-even { background:#0F0F20; }
+.task-row-wrapper:hover { background:rgba(255,255,255,.025) !important; }
 
-/* Status border colors */
-.task-label-cell.st-ns    { border-left-color:#5A5A88; }
-.task-label-cell.st-ip    { border-left-color:#6B3EF5; }
-.task-label-cell.st-done  { border-left-color:#00B882; }
-.task-label-cell.st-block { border-left-color:#E53E3E; }
+/* Status left border on the label portion */
+.task-row-label {
+  padding:11px 10px 11px 0;
+  display:flex;
+  align-items:flex-start;
+  border-left:3px solid transparent;
+  padding-left:17px;
+}
+.task-row-wrapper.st-ns  .task-row-label { border-left-color:#5A5A88; }
+.task-row-wrapper.st-ip  .task-row-label { border-left-color:#6B3EF5; }
+.task-row-wrapper.st-done .task-row-label { border-left-color:#00B882; }
+.task-row-wrapper.st-block .task-row-label { border-left-color:#E53E3E; }
 
 .task-name {
   font-family:var(--fb);
   font-size:11px;
   color:var(--text);
   line-height:1.5;
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
 .task-owners { display:flex; flex-wrap:wrap; gap:3px; }
 .task-owner-badge {
@@ -198,18 +205,12 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
   white-space:nowrap;
 }
 
-/* Gantt cell for task row */
-.task-bar-cell {
-  display:none;
+/* Gantt cells inside task row wrapper */
+.task-gantt-cell {
+  display:flex;
   align-items:center;
   padding:0 3px;
-  border-top:1px solid var(--border2);
-  min-height:0;
 }
-.task-bar-cell.open      { display:flex; }
-.task-bar-cell.row-odd   { background:#15152A; }
-.task-bar-cell.row-even  { background:#101020; }
-
 .task-bar-inner {
   height:16px;
   width:100%;
@@ -678,41 +679,42 @@ function build(weeks, workstreams, tasks, owners, steps) {
         }
       });
 
-      // Render task sub-rows directly into the grid (hidden until workstream toggled)
+      // Render task sub-rows — each task is a single full-width wrapper with its own inner grid
       wsTasks.forEach((t, ti) => {
-        const statusCls = {
-          "Not Started": "st-ns",
-          "In Progress":  "st-ip",
-          "Done":         "st-done",
-          "Blocked":      "st-block",
-        }[t.status] || "st-ns";
-
+        const statusCls = {"Not Started":"st-ns","In Progress":"st-ip","Done":"st-done","Blocked":"st-block"}[t.status] || "st-ns";
         const taskStartN = wn(t.week_start);
         const taskEndN   = wn(t.week_end);
         const rowCls = ti % 2 === 0 ? "row-odd" : "row-even";
 
+        // Single wrapper div spanning full grid width
+        const wrapper = document.createElement("div");
+        wrapper.className = `task-row-wrapper ${statusCls} ${rowCls}`;
+        wrapper.dataset.ws = wsId;
+        // Match parent grid columns exactly
+        wrapper.style.gridTemplateColumns = gridCols;
+
         // Label cell
-        const tlc = document.createElement("div");
-        tlc.className = `task-label-cell ${statusCls} ${rowCls}`;
-        tlc.dataset.ws = wsId;
-        tlc.innerHTML = `
+        const labelEl = document.createElement("div");
+        labelEl.className = "task-row-label";
+        labelEl.innerHTML = `
           <div style="width:100%">
             <div class="task-name">${esc(t.task)}</div>
             <div class="task-owners">${taskOwnerBadges(t.owner)}</div>
           </div>`;
-        grid.appendChild(tlc);
+        wrapper.appendChild(labelEl);
 
-        // Gantt cells for this task
+        // Gantt cells
         weeks.forEach(wk => {
           const n = wn(wk.week_id);
-          const tbc = document.createElement("div");
-          tbc.className = `task-bar-cell ${rowCls}`;
-          tbc.dataset.ws = wsId;
+          const gc = document.createElement("div");
+          gc.className = "task-gantt-cell";
           if (n >= taskStartN && n <= taskEndN) {
-            tbc.innerHTML = `<div class="task-bar-inner ${color}"></div>`;
+            gc.innerHTML = `<div class="task-bar-inner ${color}"></div>`;
           }
-          grid.appendChild(tbc);
+          wrapper.appendChild(gc);
         });
+
+        grid.appendChild(wrapper);
       });
     });
     container.appendChild(block);
@@ -729,11 +731,10 @@ function makeEl(tag, cls, text) {
 function toggleDetail(wsId) {
   const icon = document.getElementById(`icon-${wsId}`);
   const btn  = document.getElementById(`btn-${wsId}`);
-  // Find all task cells belonging to this workstream
-  const taskCells = document.querySelectorAll(`[data-ws="${wsId}"]`);
-  if (!taskCells.length) return;
-  const isOpen = taskCells[0].classList.contains("open");
-  taskCells.forEach(el => el.classList.toggle("open", !isOpen));
+  const taskRows = document.querySelectorAll(`.task-row-wrapper[data-ws="${wsId}"]`);
+  if (!taskRows.length) return;
+  const isOpen = taskRows[0].classList.contains("open");
+  taskRows.forEach(el => el.classList.toggle("open", !isOpen));
   btn.classList.toggle("open", !isOpen);
   icon.textContent = isOpen ? "▶" : "▼";
 }
