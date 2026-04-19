@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainsMingle — GTM Project Plan</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple:      #6B3EF5;
+  --purple-mid:  #A07AF8;
+  --purple-light:#EDE8FF;
+  --cyan:        #00E8A2;
+  --cyan-dark:   #00B882;
+  --pink:        #F53E9F;
+  --amber:       #F5A623;
+  --blue:        #2870C8;
+  --bg:          #0A0A14;
+  --bg2:         #12121E;
+  --bg3:         #1A1A2A;
+  --bg4:         #22223A;
+  --border:      rgba(255,255,255,0.08);
+  --border2:     rgba(255,255,255,0.15);
+  --text:        #F0F0F8;
+  --text2:       #9898B8;
+  --text3:       #5A5A88;
+  --radius:      8px;
+  --fh:          'Montserrat', sans-serif;
+  --fb:          'Lato', sans-serif;
+}
+
+body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size:14px; line-height:1.6; min-height:100vh; }
+
+/* LOADING */
+#loading {
+  position:fixed; inset:0; background:var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:18px; z-index:999; transition:opacity .4s;
+}
+#loading.hidden { opacity:0; pointer-events:none; }
+.spinner {
+  width:36px; height:36px;
+  border:3px solid var(--border2); border-top-color:var(--purple);
+  border-radius:50%; animation:spin .8s linear infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.loading-text { font-family:var(--fh); font-size:12px; color:var(--text3); letter-spacing:.08em; text-transform:uppercase; }
+
+/* HEADER */
+.header {
+  background:var(--bg2); border-bottom:1px solid var(--border2);
+  padding:20px 40px; display:flex; align-items:center;
+  justify-content:space-between; gap:20px; flex-wrap:wrap;
+}
+.header-left { display:flex; align-items:center; gap:16px; }
+.logo-img { height:38px; width:auto; display:block; }
+.header-sub { font-family:var(--fh); font-size:11px; color:var(--text3); letter-spacing:.06em; text-transform:uppercase; margin-top:3px; }
+.header-right { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.meta-pill { font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid var(--border2); color:var(--text2); }
+.meta-pill.summit { border-color:var(--amber); color:var(--amber); }
+.meta-pill.updated { color:var(--text3); font-weight:400; }
+.refresh-btn {
+  background:var(--bg3); border:1px solid var(--purple-mid); color:var(--purple-mid);
+  font-family:var(--fh); font-size:12px; font-weight:600; padding:6px 16px;
+  border-radius:30px; cursor:pointer; transition: all 0.2s ease;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.refresh-btn:hover { background:rgba(107,62,245,0.2); transform:scale(0.98); }
+.refresh-icon { font-size:14px; }
+
+/* STEPS BAR - clickable */
+.steps-bar { display:flex; gap:8px; padding:12px 40px; background:var(--bg2); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.step-badge {
+  font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px;
+  border-radius:4px; letter-spacing:.03em; cursor:pointer;
+  transition: all 0.2s ease;
+}
+.step-badge:hover { opacity:0.8; transform:translateY(-1px); filter:brightness(1.05); }
+.s1 { background:rgba(107,62,245,.18); color:var(--purple-mid); border:1px solid rgba(107,62,245,.35); }
+.s2 { background:rgba(0,232,162,.10);  color:var(--cyan);       border:1px solid rgba(0,232,162,.28); }
+.s3 { background:rgba(245,166,35,.12); color:var(--amber);      border:1px solid rgba(245,166,35,.30); }
+.s4 { background:rgba(245,62,159,.12); color:var(--pink);       border:1px solid rgba(245,62,159,.30); }
+
+/* MAIN */
+.main { padding:28px 40px; }
+
+/* STATS */
+.stats-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+.stat-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:12px 20px; min-width:130px; }
+.stat-value { font-family:var(--fh); font-size:24px; font-weight:700; line-height:1; }
+.stat-label { font-family:var(--fh); font-size:10px; color:var(--text3); margin-top:5px; text-transform:uppercase; letter-spacing:.05em; }
+
+/* Milestone Cards Row */
+.milestone-section-title {
+  font-family:var(--fh); font-size:13px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--text2); margin:24px 0 12px 0;
+  border-left:3px solid var(--purple); padding-left:12px;
+}
+.milestone-cards-row {
+  display:flex; gap:16px; flex-wrap:wrap; margin-bottom:28px;
+}
+.milestone-card {
+  background:var(--bg2); border-radius:12px; padding:14px 20px;
+  min-width:180px; flex:1; border-left:4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.milestone-card:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+.milestone-card .card-date { font-family:var(--fh); font-size:11px; font-weight:600; letter-spacing:.05em; margin-bottom:6px; }
+.milestone-card .card-title { font-family:var(--fh); font-size:16px; font-weight:700; margin-bottom:4px; }
+.milestone-card .card-step { font-size:10px; color:var(--text3); margin-top:6px; }
+
+/* SECTION HEADER */
+.section-header { display:flex; align-items:center; gap:10px; margin:28px 0 10px; scroll-margin-top: 20px; }
+.section-header:first-of-type { margin-top:0; }
+.section-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.section-title { font-family:var(--fh); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.section-deadline { font-size:11px; color:var(--text3); margin-left:auto; }
+.section-deadline.urgent { color:var(--pink); }
+
+/* TIMELINE */
+.timeline-block { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:3px; }
+.tl-grid { display:grid; gap:1px; background:var(--border); }
+
+.tl-hcell { background:var(--bg3); padding:6px 3px; text-align:center; font-family:var(--fh); font-size:10px; color:var(--text3); line-height:1.3; }
+.tl-hcell.corner { text-align:left; padding-left:12px; }
+.tl-hcell.wk-current { color:var(--purple-mid); background:rgba(107,62,245,0.12) !important; border-bottom:2px solid var(--purple-mid); }
+.tl-hcell.wk-milestone { color:var(--pink); }
+
+.ws-label-cell { background:var(--bg2); display:flex; align-items:stretch; }
+.ws-toggle {
+  display:flex; align-items:center; gap:8px; padding:9px 12px;
+  cursor:pointer; width:100%; background:transparent; border:none;
+  color:var(--text); text-align:left; transition:background .15s;
+}
+.ws-toggle:hover { background:rgba(255,255,255,.03); }
+.ws-icon {
+  width:14px; height:14px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:3px; background:var(--bg4); color:var(--text3);
+  font-size:9px; transition:transform .2s;
+}
+.ws-toggle.open .ws-icon { transform:rotate(90deg); }
+.ws-name { font-family:var(--fh); font-size:12px; font-weight:700; color:var(--text); line-height:1.3; }
+.ws-sub { font-family:var(--fb); font-size:10px; color:var(--text3); display:block; margin-top:1px; }
+
+.tl-cell { background:var(--bg2); min-height:36px; }
+.bar-cell { display:flex; align-items:center; padding:6px 3px; }
+.bar-inner { height:22px; width:100%; border-radius:3px; }
+.bar-inner.purple { background:var(--purple);    opacity:.88; }
+.bar-inner.cyan   { background:var(--cyan-dark); opacity:.88; }
+.bar-inner.blue   { background:var(--blue);      opacity:.88; }
+.bar-inner.pink   { background:var(--pink);      opacity:.82; }
+.bar-inner.amber  { background:var(--amber);     opacity:.88; }
+.bar-inner.gray   { background:var(--bg4); border:1px solid var(--border2); }
+
+.milestone-cell { background:var(--bg2); min-height:36px; display:flex; align-items:center; justify-content:center; }
+.milestone-flag { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.milestone-diamond { width:10px; height:10px; background:var(--pink); transform:rotate(45deg); border-radius:2px; }
+.milestone-lbl { font-family:var(--fh); font-size:8px; font-weight:700; color:var(--pink); white-space:nowrap; margin-top:2px; }
+
+/* TASK SUB-ROWS */
+/* Label cell for task row */
+.task-label-cell {
+  background:var(--bg2);
+  display:none;
+  align-items:center;
+  padding:6px 12px 6px 20px;
+  border-top:1px solid var(--border);
+  min-height:0;
+  border-left:3px solid transparent;
+  transition:border-color .15s;
+}
+.task-label-cell.open { display:flex; }
+
+/* Status border colors */
+.task-label-cell.st-ns    { border-left-color:#5A5A88; }
+.task-label-cell.st-ip    { border-left-color:#6B3EF5; }
+.task-label-cell.st-done  { border-left-color:#00B882; }
+.task-label-cell.st-block { border-left-color:#E53E3E; }
+
+.task-name {
+  font-family:var(--fb);
+  font-size:11px;
+  color:var(--text2);
+  line-height:1.4;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  margin-bottom:3px;
+}
+.task-owners { display:flex; flex-wrap:wrap; gap:3px; }
+.task-owner-badge {
+  display:inline-block;
+  font-family:var(--fh);
+  font-size:9px;
+  font-weight:600;
+  padding:1px 6px;
+  border-radius:2px;
+  white-space:nowrap;
+}
+
+/* Gantt cell for task row */
+.task-bar-cell {
+  background:var(--bg2);
+  display:none;
+  align-items:center;
+  padding:5px 3px;
+  border-top:1px solid var(--border);
+  min-height:0;
+}
+.task-bar-cell.open { display:flex; }
+.task-bar-inner {
+  height:14px;
+  width:100%;
+  border-radius:2px;
+  opacity:.65;
+}
+.task-bar-inner.purple { background:var(--purple); }
+.task-bar-inner.cyan   { background:var(--cyan-dark); }
+.task-bar-inner.blue   { background:var(--blue); }
+.task-bar-inner.pink   { background:var(--pink); }
+.task-bar-inner.amber  { background:var(--amber); }
+.task-bar-inner.gray   { background:var(--bg4); border:1px solid var(--border2); opacity:1; }
+
+.wk-label { font-family:var(--fh); font-size:11px; font-weight:600; color:var(--text2); white-space:nowrap; }
+.wk-dates { font-size:10px; color:var(--text3); display:block; margin-top:2px; }
+
+.owner-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; white-space:nowrap; margin:1px 2px 1px 0; }
+
+.status-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.03em; white-space:nowrap; }
+.st-ns    { background:rgba(255,255,255,.06); color:var(--text3); border:1px solid var(--border); }
+.st-ip    { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
+.st-done  { background:rgba(0,232,162,.12);  color:var(--cyan);       border:1px solid rgba(0,232,162,.25); }
+.st-block { background:rgba(245,62,159,.15); color:var(--pink);       border:1px solid rgba(245,62,159,.3); }
+
+.deliverable-text { color:var(--text2); }
+.notes-text { color:var(--text3); font-size:11px; }
+.dep-tag { display:inline-block; font-size:10px; background:rgba(255,255,255,.05); border:1px solid var(--border); border-radius:3px; padding:1px 6px; color:var(--text3); margin-right:4px; }
+
+/* LEGEND */
+.legend { display:flex; flex-wrap:wrap; gap:16px; padding:18px 40px; border-top:1px solid var(--border); background:var(--bg2); margin-top:8px; }
+.leg-item { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--text3); }
+.leg-bar  { width:20px; height:8px; border-radius:2px; }
+.leg-diamond { width:8px; height:8px; background:var(--pink); transform:rotate(45deg); border-radius:1px; }
+
+/* FOOTER */
+.footer {
+  padding:14px 40px; background:var(--bg); border-top:1px solid var(--border);
+  font-size:11px; color:var(--text3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+}
+
+/* ERROR */
+.error-state { padding:60px 40px; text-align:center; }
+.error-state h3 { font-family:var(--fh); color:var(--pink); margin-bottom:10px; }
+.error-state p { color:var(--text3); font-size:12px; line-height:1.8; }
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading plan data…</div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+
+  <div class="header">
+    <div class="header-left">
+      <img src="logo.png" alt="BrainsMingle" class="logo-img">
+      <div class="header-sub">GTM Project Plan · Apr 2025 → Sep 2025</div>
+    </div>
+    <div class="header-right">
+      <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
+      <span class="meta-pill updated" id="last-updated">—</span>
+    </div>
+  </div>
+
+  <div class="steps-bar" id="stepsBar">
+    <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April</span>
+    <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
+    <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
+    <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Aug 7 </span>
+  </div>
+
+  <div class="main">
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--purple-mid)" id="stat-weeks">20</div>
+        <div class="stat-label">Total Weeks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--cyan)" id="stat-tasks">—</div>
+        <div class="stat-label">Total Tasks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--cyan-dark)" id="stat-done">—</div>
+        <div class="stat-label">Done</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
+        <div class="stat-label">In Progress</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
+        <div class="stat-label">Blocked</div>
+      </div>
+    </div>
+
+    <!-- Milestones Section: Title + 3 Cards -->
+    <div class="milestone-section-title">📌 MILESTONES</div>
+    <div class="milestone-cards-row" id="milestoneCardsRow">
+      <!-- cards injected dynamically but static content also pre-defined; we'll override with dynamic but keep fallback -->
+    </div>
+
+    <div id="plan-container"></div>
+
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — asset prep</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — outreach</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Vertical launch</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div>Content / Step 4</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Summit / demand</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--bg4);border:1px solid var(--border2)"></div>Ongoing ops</div>
+    <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
+    <div style="width:1px;background:var(--border2);margin:0 4px"></div>
+    <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#5A5A88"></div>Not Started</div>
+    <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#6B3EF5"></div>In Progress</div>
+    <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#00B882"></div>Done</div>
+    <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#E53E3E"></div>Blocked</div>
+  </div>
+
+  <div class="footer">
+    <span>BrainsMingle GTM Project Plan · Confidential</span>
+    <span>Data: Google Sheets · <span id="footer-ts"></span></span>
+  </div>
+
+</div><!-- /app -->
+
+<script>
+// ── CONFIG ────────────────────────────────────────────────────────────────
+const PUB_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmP2Z3MbOIkq3pZY-ZLqi7PRiydgNLgtvOSTm8Ww4IcClFgaV5ynLb4L3dw4cvbJoeqtE30fVyjOfg/pub?output=csv";
+const GIDS = {
+  tasks:        "875560662",
+  workstreams:  "982251180",
+  weeks:        "1528344641",
+  owners:       "2136320303",
+  steps:        "541183567"
+};
+
+const STEP_META = {
+  "Step 1": { color:"var(--purple-mid)", dot:"var(--purple)",  deadline:"Deadline: Apr 30", urgent:true  },
+  "Step 2": { color:"var(--cyan)",       dot:"var(--cyan)",    deadline:"May → Jul",        urgent:false },
+  "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:false },
+  "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:false },
+};
+// STEP_LABELS is now built dynamically from the Steps sheet
+let STEP_LABELS = {
+  "Step 1":"Establish Credibility",
+  "Step 2":"Activate the Market",
+  "Step 3":"Own the Moment",
+  "Step 4":"Reveal the Full Picture"
+};
+
+function buildStepLabels(steps) {
+  if (!steps || !steps.length) return;
+  STEP_LABELS = {};
+  steps.forEach(row => {
+    const norm = {};
+    Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+    const step  = norm["step"]  || norm["step_id"] || "";
+    const label = norm["step_label"] || norm["label"] || "";
+    if (step) STEP_LABELS[step] = label;
+  });
+}
+const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
+
+// Milestone card definitions
+const MILESTONE_CARDS = [
+  { title: "Investment Announcement", date: "May 1, 2025", step: "Step 2", colorVar: "var(--cyan)", borderColor: "var(--cyan)" },
+  { title: "Virtual Summit", date: "July 31, 2025", step: "Step 3", colorVar: "var(--amber)", borderColor: "var(--amber)" },
+  { title: "Acquisition Announcement", date: "August 7, 2025", step: "Step 4", colorVar: "var(--pink)", borderColor: "var(--pink)" }
+];
+
+// ── CSV FETCH + PARSE ─────────────────────────────────────────────────────
+async function fetchCSV(gid) {
+  const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for gid=${gid}`);
+  return parseCSV(await res.text());
+}
+
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g,"\n").replace(/\r/g,"\n").split("\n");
+  const headers = splitRow(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const vals = splitRow(line);
+    const obj = {};
+    headers.forEach((h, idx) => { obj[h.trim()] = (vals[idx] || "").trim(); });
+    rows.push(obj);
+  }
+  return rows;
+}
+
+function splitRow(row) {
+  const result = []; let cur = "", inQ = false;
+  for (let i = 0; i < row.length; i++) {
+    const c = row[i];
+    if (c === '"') { if (inQ && row[i+1]==='"') { cur+='"'; i++; } else inQ=!inQ; }
+    else if (c === ',' && !inQ) { result.push(cur); cur=""; }
+    else cur += c;
+  }
+  result.push(cur);
+  return result;
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+function wn(wid) { return parseInt((wid||"W0").replace("W",""), 10); }
+
+function esc(s) {
+  return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+// ownerMap is built at runtime from the Owners sheet
+// key: normalized display_name → { color: hex, bg: hex with alpha }
+let ownerMap = {};
+
+function buildOwnerMap(owners) {
+  ownerMap = {};
+  owners.forEach(row => {
+    // Normalize sheet column names defensively (trim + lowercase)
+    const norm = {};
+    Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+
+    const ownerId   = norm["owner_id"]    || norm["ownerid"]    || "";
+    const name      = norm["display_name"]|| norm["displayname"]|| norm["name"] || "";
+    const hex       = (norm["color_hex"]  || norm["colorhex"]   || norm["color"] || "888888").replace("#","");
+    if (!name && !ownerId) return;
+
+    const r = parseInt(hex.slice(0,2),16) || 136;
+    const g = parseInt(hex.slice(2,4),16) || 136;
+    const b = parseInt(hex.slice(4,6),16) || 136;
+    const entry = {
+      color: "#" + hex,
+      bg:    "rgba(" + r + "," + g + "," + b + ",0.18)",
+      label: name || ownerId,
+    };
+
+    // Register under multiple keys so any variation in Tasks sheet will match:
+    // 1. normalized display_name  e.g. "platformteam"
+    // 2. owner_id as-is           e.g. "platform"
+    // 3. first word of name       e.g. "platform"
+    // 4. full name lowercase      e.g. "platform team"
+    const keys = new Set();
+    if (name)    keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
+    if (name)    keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
+    if (name)    keys.add(name.toLowerCase().split(/\s/)[0]);
+    if (name)    keys.add(name.trim());                      // exact display_name e.g. "Dina"
+    if (ownerId) keys.add(ownerId.trim());                   // exact owner_id e.g. "dina"
+    if (ownerId) keys.add(ownerId.toLowerCase().trim());     // lowercase owner_id
+    keys.forEach(k => { if (k) ownerMap[k] = entry; });
+  });
+}
+
+// Smaller owner badges for task sub-rows
+function taskOwnerBadges(str) {
+  if (!str) return "";
+  return str.split("|").map(o => {
+    const raw = o.trim();
+    if (!raw) return "";
+    const attempts = [raw, raw.toLowerCase(), raw.toLowerCase().replace(/[\s\/\-]+/g,""), raw.toLowerCase().split(/\s+/)[0]];
+    let match = null;
+    for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
+    const style = match
+      ? "background:" + match.bg + ";color:" + match.color + ";"
+      : "background:rgba(255,255,255,.08);color:var(--text2);";
+    return `<span class="task-owner-badge" style="${style}">${esc(raw)}</span>`;
+  }).join("");
+}
+
+function ownerBadges(str) {
+  if (!str) return "";
+  return str.split("|").map(o => {
+    const raw = o.trim();
+    if (!raw) return "";
+    // Try keys in order of specificity
+    const attempts = [
+      raw,                                          // exact as-is: "dina"
+      raw.toLowerCase(),                            // lowercase: "dina"
+      raw.toLowerCase().replace(/[\s\/\-]+/g,""), // no spaces/slashes: "platformteam"
+      raw.toLowerCase().split(/\s+/)[0],           // first word: "platform"
+    ];
+    let match = null;
+    for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
+    const style = match
+      ? "background:" + match.bg + ";color:" + match.color + ";"
+      : "background:rgba(255,255,255,.08);color:var(--text2);";
+    return "<span class=\"owner-badge\" style=\"" + style + "\">" + esc(raw) + "</span>";
+  }).join(" ");
+}
+
+function statusBadge(s) {
+  const cls = {
+    "Not Started":"st-ns","In Progress":"st-ip",
+    "Done":"st-done","Blocked":"st-block"
+  }[s] || "st-ns";
+  return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
+}
+
+function formatNotes(notes) {
+  if (!notes) return "";
+  return esc(notes).replace(/(BLOCKS\s[^<.]+|DEPENDS ON[^<.]+)/g,
+    '<span class="dep-tag">$1</span>');
+}
+
+// Render milestone cards (static but step-colored)
+function renderMilestoneCards() {
+  const container = document.getElementById("milestoneCardsRow");
+  if (!container) return;
+  container.innerHTML = MILESTONE_CARDS.map(card => {
+    let stepColor = "";
+    if (card.step === "Step 2") stepColor = "var(--cyan)";
+    else if (card.step === "Step 3") stepColor = "var(--amber)";
+    else if (card.step === "Step 4") stepColor = "var(--pink)";
+    else stepColor = "var(--purple-mid)";
+    return `
+      <div class="milestone-card" style="border-left-color: ${stepColor};">
+        <div class="card-date" style="color:${stepColor}">📅 ${esc(card.date)}</div>
+        <div class="card-title">${esc(card.title)}</div>
+        <div class="card-step">${card.step.replace("Step ","")} — ${STEP_LABELS[card.step] || ''}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+// ── BUILD TIMELINE ─────────────────────────────────────────────────────────
+let currentWeeksData = []; // store for potential re-navigation
+
+function build(weeks, workstreams, tasks, owners, steps) {
+  buildOwnerMap(owners);
+  buildStepLabels(steps);
+  currentWeeksData = weeks;
+  const totalWk = weeks.length;
+  const LABEL_W = "220px";
+  const gridCols = `${LABEL_W} repeat(${totalWk}, 1fr)`;
+
+  const tasksByWs = {};
+  tasks.forEach(t => {
+    // Join on workstream_name (Tasks sheet no longer has workstream_id)
+    const wsKey = (t.workstream_name || "").trim();
+    if (!tasksByWs[wsKey]) tasksByWs[wsKey] = [];
+    tasksByWs[wsKey].push(t);
+  });
+
+  const wsByStep = {};
+  STEP_ORDER.forEach(s => wsByStep[s] = []);
+  workstreams.forEach(ws => {
+    const s = ws.step || "Step 1";
+    if (!wsByStep[s]) wsByStep[s] = [];
+    wsByStep[s].push(ws);
+  });
+
+  // update stats
+  document.getElementById("stat-tasks").textContent   = tasks.length;
+  document.getElementById("stat-done").textContent    = tasks.filter(t=>t.status==="Done").length;
+  document.getElementById("stat-ip").textContent      = tasks.filter(t=>t.status==="In Progress").length;
+  document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
+  document.getElementById("stat-weeks").textContent   = totalWk;
+
+  const now = new Date();
+  const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+  document.getElementById("last-updated").textContent = `Updated ${ts}`;
+  document.getElementById("footer-ts").textContent = ts;
+  
+  renderMilestoneCards();
+
+  const container = document.getElementById("plan-container");
+  container.innerHTML = "";
+
+  STEP_ORDER.forEach(step => {
+    const wsList = wsByStep[step];
+    if (!wsList || !wsList.length) return;
+    const meta = STEP_META[step] || {};
+
+    // Section header with id for smooth scroll
+    const sh = document.createElement("div");
+    sh.className = "section-header";
+    sh.id = `section-${step.replace(/ /g, "")}`;
+    sh.innerHTML = `
+      <div class="section-dot" style="background:${meta.dot}"></div>
+      <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
+      <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
+    container.appendChild(sh);
+
+    const block = document.createElement("div");
+    block.className = "timeline-block";
+
+    const grid = document.createElement("div");
+    grid.className = "tl-grid";
+    grid.style.gridTemplateColumns = gridCols;
+    block.appendChild(grid);
+
+    // Header row
+    const corner = makeEl("div","tl-hcell corner","Workstream");
+    grid.appendChild(corner);
+    weeks.forEach(wk => {
+      const isCur = wk.is_current === "TRUE";
+      const isMil = wk.is_milestone_week === "TRUE";
+      const h = makeEl("div", "tl-hcell" + (isCur?" wk-current":"") + (isMil?" wk-milestone":""));
+      if (isCur) {
+        h.innerHTML = `
+          <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
+            <span style="font-size:9px;font-weight:700;letter-spacing:.03em">${esc(wk.week_id)}</span>
+            <span style="font-size:8px">${esc(wk.date_start)}</span>
+            <span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin-top:2px"></span>
+          </div>`;
+      } else {
+        h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
+      }
+      grid.appendChild(h);
+    });
+
+    wsList.forEach(ws => {
+      const wsId  = ws.workstream_id;
+      const wsName = (ws.workstream_name || "").trim();
+      const wsTasks = (tasksByWs[wsName] || tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
+      const color = ws.bar_color || "gray";
+      // Derive Gantt range dynamically from tasks — min week_start to max week_end
+      const taskWeekNums = wsTasks.flatMap(t => [wn(t.week_start), wn(t.week_end)]).filter(n => n > 0);
+      const startN = taskWeekNums.length ? Math.min(...taskWeekNums) : wn(ws.gantt_start_week);
+      const endN   = taskWeekNums.length ? Math.max(...taskWeekNums) : wn(ws.gantt_end_week);
+      const milestones = wsTasks.filter(t => t.is_milestone === "TRUE" || t.is_milestone === "True");
+
+      const lc = document.createElement("div");
+      lc.className = "ws-label-cell";
+      const btn = document.createElement("button");
+      btn.className = "ws-toggle";
+      btn.id = `btn-${wsId}`;
+      btn.innerHTML = `
+        <span class="ws-icon" id="icon-${wsId}">▶</span>
+        <span>
+          <span class="ws-name">${esc(ws.workstream_name)}</span>
+          <span class="ws-sub">${wsTasks.length} task${wsTasks.length!==1?"s":""}</span>
+        </span>`;
+      btn.onclick = () => toggleDetail(wsId);
+      lc.appendChild(btn);
+      grid.appendChild(lc);
+
+      weeks.forEach(wk => {
+        const n = wn(wk.week_id);
+        const ms = milestones.find(t => wn(t.week_end) === n);
+        if (ms) {
+          const mc = makeEl("div","milestone-cell tl-cell");
+          mc.innerHTML = `<div class="milestone-flag"><div class="milestone-diamond"></div><div class="milestone-lbl">${esc(ms.milestone_label)}</div></div>`;
+          grid.appendChild(mc);
+        } else if (n >= startN && n <= endN) {
+          const bc = makeEl("div","bar-cell tl-cell");
+          bc.innerHTML = `<div class="bar-inner ${color}"></div>`;
+          grid.appendChild(bc);
+        } else {
+          grid.appendChild(makeEl("div","tl-cell"));
+        }
+      });
+
+      // Render task sub-rows directly into the grid (hidden until workstream toggled)
+      wsTasks.forEach((t, ti) => {
+        const statusCls = {
+          "Not Started": "st-ns",
+          "In Progress":  "st-ip",
+          "Done":         "st-done",
+          "Blocked":      "st-block",
+        }[t.status] || "st-ns";
+
+        const taskStartN = wn(t.week_start);
+        const taskEndN   = wn(t.week_end);
+
+        // Label cell
+        const tlc = document.createElement("div");
+        tlc.className = `task-label-cell ${statusCls}`;
+        tlc.dataset.ws = wsId;
+        tlc.innerHTML = `
+          <div style="width:100%">
+            <div class="task-name">${esc(t.task)}</div>
+            <div class="task-owners">${taskOwnerBadges(t.owner)}</div>
+          </div>`;
+        grid.appendChild(tlc);
+
+        // Gantt cells for this task
+        weeks.forEach(wk => {
+          const n = wn(wk.week_id);
+          const tbc = document.createElement("div");
+          tbc.className = "task-bar-cell";
+          tbc.dataset.ws = wsId;
+          if (n >= taskStartN && n <= taskEndN) {
+            tbc.innerHTML = `<div class="task-bar-inner ${color}"></div>`;
+          }
+          grid.appendChild(tbc);
+        });
+      });
+    });
+    container.appendChild(block);
+  });
+}
+
+function makeEl(tag, cls, text) {
+  const el = document.createElement(tag);
+  if (cls)  el.className = cls;
+  if (text) el.textContent = text;
+  return el;
+}
+
+function toggleDetail(wsId) {
+  const icon = document.getElementById(`icon-${wsId}`);
+  const btn  = document.getElementById(`btn-${wsId}`);
+  // Find all task cells belonging to this workstream
+  const taskCells = document.querySelectorAll(`[data-ws="${wsId}"]`);
+  if (!taskCells.length) return;
+  const isOpen = taskCells[0].classList.contains("open");
+  taskCells.forEach(el => el.classList.toggle("open", !isOpen));
+  btn.classList.toggle("open", !isOpen);
+  icon.textContent = isOpen ? "▶" : "▼";
+}
+
+// smooth scroll to step section
+function scrollToStep(step) {
+  const sectionId = `section-${step.replace(/ /g, "")}`;
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    // fallback: just scroll to plan container
+    document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// ── REFRESH LOGIC ─────────────────────────────────────────────────────────
+async function refreshData() {
+  const loadingDiv = document.getElementById("loading");
+  const appDiv = document.getElementById("app");
+  // show loading overlay temporarily
+  if (loadingDiv) loadingDiv.classList.remove("hidden");
+  if (appDiv) appDiv.style.display = "none";
+  
+  try {
+    const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
+      fetchCSV(GIDS.tasks),
+      fetchCSV(GIDS.workstreams),
+      fetchCSV(GIDS.weeks),
+      fetchCSV(GIDS.owners),
+      fetchCSV(GIDS.steps),
+    ]);
+    build(weeks, workstreams, tasks, owners, steps);
+    if (loadingDiv) loadingDiv.classList.add("hidden");
+    if (appDiv) appDiv.style.display = "block";
+  } catch (err) {
+    if (loadingDiv) {
+      loadingDiv.innerHTML = `
+        <div class="error-state">
+          <h3>⚠ Could not load plan data</h3>
+          <p>Make sure the Google Sheet is published:<br>
+          <strong>File → Share → Publish to web → Publish</strong><br><br>
+          Error: ${esc(err.message)}</p>
+          <button id="retryBtn" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;">Retry</button>
+        </div>`;
+      const retryBtn = document.getElementById("retryBtn");
+      if (retryBtn) retryBtn.onclick = () => location.reload();
+    }
+    console.error(err);
+  }
+}
+
+// ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
+async function init() {
+  try {
+    const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
+      fetchCSV(GIDS.tasks),
+      fetchCSV(GIDS.workstreams),
+      fetchCSV(GIDS.weeks),
+      fetchCSV(GIDS.owners),
+      fetchCSV(GIDS.steps),
+    ]);
+    build(weeks, workstreams, tasks, owners, steps);
+    
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("app").style.display = "block";
+    
+    // Refresh button
+    const refreshBtn = document.getElementById("refreshButton");
+    if (refreshBtn) refreshBtn.addEventListener("click", refreshData);
+    
+    // Step navigation: click on step badges
+    const stepBadges = document.querySelectorAll("#stepsBar .step-badge");
+    stepBadges.forEach(badge => {
+      const stepName = badge.getAttribute("data-step");
+      if (stepName) {
+        badge.addEventListener("click", (e) => {
+          e.preventDefault();
+          scrollToStep(stepName);
+        });
+      }
+    });
+  } catch (err) {
+    document.getElementById("loading").innerHTML = `
+      <div class="error-state">
+        <h3>⚠ Could not load plan data</h3>
+        <p>Make sure the Google Sheet is published:<br>
+        <strong>File → Share → Publish to web → Publish</strong><br><br>
+        Error: ${esc(err.message)}</p>
+      </div>`;
+    console.error(err);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
