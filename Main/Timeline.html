@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BrainsMingle — GTM Project Plan (Dynamic Owners)</title>
+<title>BrainsMingle — GTM Project Plan</title>
 <link rel="icon" type="image/png" href="icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -181,13 +181,8 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .wk-label { font-family:var(--fh); font-size:11px; font-weight:600; color:var(--text2); white-space:nowrap; }
 .wk-dates { font-size:10px; color:var(--text3); display:block; margin-top:2px; }
 
-/* Owner badges: dynamic background based on owner color hex */
-.owner-badge {
-  display:inline-block; font-family:var(--fh); font-size:10px; font-weight:600;
-  padding:2px 8px; border-radius:3px; white-space:nowrap; margin:1px 2px 1px 0;
-  background:rgba(255,255,255,0.08); color:var(--text2);
-  border-left: 2px solid currentColor;
-}
+.owner-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; white-space:nowrap; margin:1px 2px 1px 0; }
+
 .status-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.03em; white-space:nowrap; }
 .st-ns    { background:rgba(255,255,255,.06); color:var(--text3); border:1px solid var(--border); }
 .st-ip    { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
@@ -233,16 +228,17 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
       <div class="header-sub">GTM Project Plan · Apr 2025 → Sep 2025</div>
     </div>
     <div class="header-right">
+      <span class="meta-pill summit">Summit: Jul 31 – Aug 1, 2025</span>
       <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
       <span class="meta-pill updated" id="last-updated">—</span>
     </div>
   </div>
 
   <div class="steps-bar" id="stepsBar">
-    <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · Apr 19 – Apr 30</span>
-    <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market · May – Jul</span>
-    <span class="step-badge s3" data-step="Step 3">Own the Moment · Jul 31 – Aug 1</span>
-    <span class="step-badge s4" data-step="Step 4">Reveal · Aug – Sep</span>
+    <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April</span>
+    <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
+    <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
+    <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Aug 7 </span>
   </div>
 
   <div class="main">
@@ -273,7 +269,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
     <!-- Milestones Section: Title + 3 Cards -->
     <div class="milestone-section-title">📌 MILESTONES</div>
     <div class="milestone-cards-row" id="milestoneCardsRow">
-      <!-- dynamic cards -->
+      <!-- cards injected dynamically but static content also pre-defined; we'll override with dynamic but keep fallback -->
     </div>
 
     <div id="plan-container"></div>
@@ -370,51 +366,38 @@ function esc(s) {
   return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Owner lookup map: id -> { display_name, color_hex }
-let ownerMap = new Map();
+// ownerMap is built at runtime from the Owners sheet
+// key: normalized display_name → { color: hex, bg: hex with alpha }
+let ownerMap = {};
 
-// Function to load owners from sheet and build map
-async function loadOwners() {
-  const ownersData = await fetchCSV(GIDS.owners);
-  ownerMap.clear();
-  ownersData.forEach(row => {
-    const id = (row.owner_id || "").trim().toLowerCase();
-    if (id) {
-      ownerMap.set(id, {
-        displayName: row.display_name || id,
-        colorHex: row.color_hex || "#888888",
-        roleNote: row.role_note || ""
-      });
-    }
+function buildOwnerMap(owners) {
+  ownerMap = {};
+  owners.forEach(row => {
+    const name = (row.display_name || "").trim();
+    const hex  = (row.color_hex  || "888888").replace("#","");
+    if (!name) return;
+    const key = name.toLowerCase().replace(/[\s\/]+/g, "");
+    // Convert hex to rgba for background (18% opacity)
+    const r = parseInt(hex.slice(0,2),16);
+    const g = parseInt(hex.slice(2,4),16);
+    const b = parseInt(hex.slice(4,6),16);
+    ownerMap[key] = {
+      color: `#${hex}`,
+      bg:    `rgba(${r},${g},${b},0.18)`,
+      label: name,
+    };
   });
-  // Also add fallback for any missing but commonly referenced IDs (optional)
-  if (!ownerMap.has("mostafa")) ownerMap.set("mostafa", { displayName:"Mostafa Hassan", colorHex:"#2C9CD4", roleNote:"" });
-  if (!ownerMap.has("management")) ownerMap.set("management", { displayName:"Management", colorHex:"#F29B45", roleNote:"" });
 }
 
-// Generate owner badges using dynamic colors from the sheet
-function ownerBadges(ownerStr) {
-  if (!ownerStr) return "";
-  const parts = ownerStr.split("|");
-  return parts.map(part => {
-    const rawId = part.trim().toLowerCase();
-    const ownerInfo = ownerMap.get(rawId);
-    if (ownerInfo && ownerInfo.colorHex) {
-      // Use the hex color from sheet for background with low opacity and border
-      const hex = ownerInfo.colorHex;
-      // Convert hex to RGB for rgba background (approximate for semi-transparent)
-      let r=0,g=0,b=0;
-      if (hex.startsWith("#")) {
-        r = parseInt(hex.slice(1,3),16);
-        g = parseInt(hex.slice(3,5),16);
-        b = parseInt(hex.slice(5,7),16);
-      }
-      const bgRgba = `rgba(${r}, ${g}, ${b}, 0.18)`;
-      return `<span class="owner-badge" style="background:${bgRgba}; color:${hex}; border-left-color:${hex};">${esc(ownerInfo.displayName)}</span>`;
-    } else {
-      // fallback
-      return `<span class="owner-badge ob-default">${esc(part.trim())}</span>`;
-    }
+function ownerBadges(str) {
+  if (!str) return "";
+  return str.split("|").map(o => {
+    const raw = o.trim();
+    const key = raw.toLowerCase().replace(/[\s\/]+/g, "");
+    const style = ownerMap[key]
+      ? `background:${ownerMap[key].bg};color:${ownerMap[key].color};`
+      : `background:rgba(255,255,255,.08);color:var(--text2);`;
+    return `<span class="owner-badge" style="${style}">${esc(raw)}</span>`;
   }).join(" ");
 }
 
@@ -453,9 +436,10 @@ function renderMilestoneCards() {
 }
 
 // ── BUILD TIMELINE ─────────────────────────────────────────────────────────
-let currentWeeksData = [];
+let currentWeeksData = []; // store for potential re-navigation
 
-function build(weeks, workstreams, tasks) {
+function build(weeks, workstreams, tasks, owners) {
+  buildOwnerMap(owners);
   currentWeeksData = weeks;
   const totalWk = weeks.length;
   const LABEL_W = "220px";
@@ -497,6 +481,7 @@ function build(weeks, workstreams, tasks) {
     if (!wsList || !wsList.length) return;
     const meta = STEP_META[step] || {};
 
+    // Section header with id for smooth scroll
     const sh = document.createElement("div");
     sh.className = "section-header";
     sh.id = `section-${step.replace(/ /g, "")}`;
@@ -581,11 +566,11 @@ function build(weeks, workstreams, tasks) {
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
-            <td>${esc(t.task)}</span></td>
-            <td>${ownerBadges(t.owner)}</span></td>
-            <td class="deliverable-text">${esc(t.deliverable)}</span></td>
-            <td>${statusBadge(t.status)}</span></td>
-            <td class="notes-text">${formatNotes(t.notes)}</span></td>`;
+            <td>${esc(t.task)}</td>
+            <td>${ownerBadges(t.owner)}</td>
+            <td class="deliverable-text">${esc(t.deliverable)}</td>
+            <td>${statusBadge(t.status)}</td>
+            <td class="notes-text">${formatNotes(t.notes)}</td>`;
           tbody.appendChild(tr);
         });
         tbl.appendChild(tbody);
@@ -614,30 +599,34 @@ function toggleDetail(wsId) {
   icon.textContent = open ? "▼" : "▶";
 }
 
+// smooth scroll to step section
 function scrollToStep(step) {
   const sectionId = `section-${step.replace(/ /g, "")}`;
   const element = document.getElementById(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    // fallback: just scroll to plan container
+    document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
   }
 }
 
-// ── REFRESH & INIT ─────────────────────────────────────────────────────
+// ── REFRESH LOGIC ─────────────────────────────────────────────────────────
 async function refreshData() {
   const loadingDiv = document.getElementById("loading");
   const appDiv = document.getElementById("app");
+  // show loading overlay temporarily
   if (loadingDiv) loadingDiv.classList.remove("hidden");
   if (appDiv) appDiv.style.display = "none";
   
   try {
-    // Load owners FIRST so ownerMap is ready
-    await loadOwners();
-    const [tasks, workstreams, weeks] = await Promise.all([
+    const [tasks, workstreams, weeks, owners] = await Promise.all([
       fetchCSV(GIDS.tasks),
       fetchCSV(GIDS.workstreams),
       fetchCSV(GIDS.weeks),
+      fetchCSV(GIDS.owners),
     ]);
-    build(weeks, workstreams, tasks);
+    build(weeks, workstreams, tasks, owners);
     if (loadingDiv) loadingDiv.classList.add("hidden");
     if (appDiv) appDiv.style.display = "block";
   } catch (err) {
@@ -657,22 +646,25 @@ async function refreshData() {
   }
 }
 
+// ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
 async function init() {
   try {
-    await loadOwners();
-    const [tasks, workstreams, weeks] = await Promise.all([
+    const [tasks, workstreams, weeks, owners] = await Promise.all([
       fetchCSV(GIDS.tasks),
       fetchCSV(GIDS.workstreams),
       fetchCSV(GIDS.weeks),
+      fetchCSV(GIDS.owners),
     ]);
-    build(weeks, workstreams, tasks);
+    build(weeks, workstreams, tasks, owners);
     
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("app").style.display = "block";
     
+    // Refresh button
     const refreshBtn = document.getElementById("refreshButton");
     if (refreshBtn) refreshBtn.addEventListener("click", refreshData);
     
+    // Step navigation: click on step badges
     const stepBadges = document.querySelectorAll("#stepsBar .step-badge");
     stepBadges.forEach(badge => {
       const stepName = badge.getAttribute("data-step");
@@ -687,7 +679,8 @@ async function init() {
     document.getElementById("loading").innerHTML = `
       <div class="error-state">
         <h3>⚠ Could not load plan data</h3>
-        <p>Make sure the Google Sheet is published and Owners tab has color_hex column.<br>
+        <p>Make sure the Google Sheet is published:<br>
+        <strong>File → Share → Publish to web → Publish</strong><br><br>
         Error: ${esc(err.message)}</p>
       </div>`;
     console.error(err);
