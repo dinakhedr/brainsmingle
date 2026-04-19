@@ -62,10 +62,23 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .meta-pill { font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid var(--border2); color:var(--text2); }
 .meta-pill.summit { border-color:var(--amber); color:var(--amber); }
 .meta-pill.updated { color:var(--text3); font-weight:400; }
+.refresh-btn {
+  background:var(--bg3); border:1px solid var(--purple-mid); color:var(--purple-mid);
+  font-family:var(--fh); font-size:12px; font-weight:600; padding:6px 16px;
+  border-radius:30px; cursor:pointer; transition: all 0.2s ease;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.refresh-btn:hover { background:rgba(107,62,245,0.2); transform:scale(0.98); }
+.refresh-icon { font-size:14px; }
 
-/* STEPS BAR */
+/* STEPS BAR - clickable */
 .steps-bar { display:flex; gap:8px; padding:12px 40px; background:var(--bg2); border-bottom:1px solid var(--border); flex-wrap:wrap; }
-.step-badge { font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px; border-radius:4px; letter-spacing:.03em; }
+.step-badge {
+  font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px;
+  border-radius:4px; letter-spacing:.03em; cursor:pointer;
+  transition: all 0.2s ease;
+}
+.step-badge:hover { opacity:0.8; transform:translateY(-1px); filter:brightness(1.05); }
 .s1 { background:rgba(107,62,245,.18); color:var(--purple-mid); border:1px solid rgba(107,62,245,.35); }
 .s2 { background:rgba(0,232,162,.10);  color:var(--cyan);       border:1px solid rgba(0,232,162,.28); }
 .s3 { background:rgba(245,166,35,.12); color:var(--amber);      border:1px solid rgba(245,166,35,.30); }
@@ -75,13 +88,32 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .main { padding:28px 40px; }
 
 /* STATS */
-.stats-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
+.stats-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
 .stat-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:12px 20px; min-width:130px; }
 .stat-value { font-family:var(--fh); font-size:24px; font-weight:700; line-height:1; }
 .stat-label { font-family:var(--fh); font-size:10px; color:var(--text3); margin-top:5px; text-transform:uppercase; letter-spacing:.05em; }
 
+/* Milestone Cards Row */
+.milestone-section-title {
+  font-family:var(--fh); font-size:13px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--text2); margin:24px 0 12px 0;
+  border-left:3px solid var(--purple); padding-left:12px;
+}
+.milestone-cards-row {
+  display:flex; gap:16px; flex-wrap:wrap; margin-bottom:28px;
+}
+.milestone-card {
+  background:var(--bg2); border-radius:12px; padding:14px 20px;
+  min-width:180px; flex:1; border-left:4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.milestone-card:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+.milestone-card .card-date { font-family:var(--fh); font-size:11px; font-weight:600; letter-spacing:.05em; margin-bottom:6px; }
+.milestone-card .card-title { font-family:var(--fh); font-size:16px; font-weight:700; margin-bottom:4px; }
+.milestone-card .card-step { font-size:10px; color:var(--text3); margin-top:6px; }
+
 /* SECTION HEADER */
-.section-header { display:flex; align-items:center; gap:10px; margin:28px 0 10px; }
+.section-header { display:flex; align-items:center; gap:10px; margin:28px 0 10px; scroll-margin-top: 20px; }
 .section-header:first-of-type { margin-top:0; }
 .section-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 .section-title { font-family:var(--fh); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
@@ -204,15 +236,16 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
     </div>
     <div class="header-right">
       <span class="meta-pill summit">Summit: Jul 31 – Aug 1, 2025</span>
+      <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
       <span class="meta-pill updated" id="last-updated">—</span>
     </div>
   </div>
 
-  <div class="steps-bar">
-    <span class="step-badge s1">Step 1 — Establish Credibility · Apr 19 – Apr 30</span>
-    <span class="step-badge s2">Step 2 — Activate the Market · May – Jul</span>
-    <span class="step-badge s3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
-    <span class="step-badge s4">Step 4 — Reveal · Aug – Sep</span>
+  <div class="steps-bar" id="stepsBar">
+    <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · Apr 19 – Apr 30</span>
+    <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market · May – Jul</span>
+    <span class="step-badge s3" data-step="Step 3">Own the Moment · Jul 31 – Aug 1</span>
+    <span class="step-badge s4" data-step="Step 4">Reveal · Aug – Sep</span>
   </div>
 
   <div class="main">
@@ -238,10 +271,12 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
         <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
         <div class="stat-label">Blocked</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--amber)">May 1</div>
-        <div class="stat-label">Announcement</div>
-      </div>
+    </div>
+
+    <!-- Milestones Section: Title + 3 Cards -->
+    <div class="milestone-section-title">📌 MILESTONES</div>
+    <div class="milestone-cards-row" id="milestoneCardsRow">
+      <!-- cards injected dynamically but static content also pre-defined; we'll override with dynamic but keep fallback -->
     </div>
 
     <div id="plan-container"></div>
@@ -260,7 +295,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
   <div class="footer">
     <span>BrainsMingle GTM Project Plan · Confidential</span>
-    <span>Data: Google Sheets · refreshes on load · <span id="footer-ts"></span></span>
+    <span>Data: Google Sheets · <span id="footer-ts"></span></span>
   </div>
 
 </div><!-- /app -->
@@ -288,6 +323,13 @@ const STEP_LABELS = {
   "Step 4":"Reveal the Full Picture"
 };
 const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
+
+// Milestone card definitions
+const MILESTONE_CARDS = [
+  { title: "Investment Announcement", date: "May 1, 2025", step: "Step 2", colorVar: "var(--cyan)", borderColor: "var(--cyan)" },
+  { title: "Virtual Summit", date: "July 31, 2025", step: "Step 3", colorVar: "var(--amber)", borderColor: "var(--amber)" },
+  { title: "Acquisition Announcement", date: "August 7, 2025", step: "Step 4", colorVar: "var(--pink)", borderColor: "var(--pink)" }
+];
 
 // ── CSV FETCH + PARSE ─────────────────────────────────────────────────────
 async function fetchCSV(gid) {
@@ -357,13 +399,35 @@ function formatNotes(notes) {
     '<span class="dep-tag">$1</span>');
 }
 
-// ── BUILD ─────────────────────────────────────────────────────────────────
+// Render milestone cards (static but step-colored)
+function renderMilestoneCards() {
+  const container = document.getElementById("milestoneCardsRow");
+  if (!container) return;
+  container.innerHTML = MILESTONE_CARDS.map(card => {
+    let stepColor = "";
+    if (card.step === "Step 2") stepColor = "var(--cyan)";
+    else if (card.step === "Step 3") stepColor = "var(--amber)";
+    else if (card.step === "Step 4") stepColor = "var(--pink)";
+    else stepColor = "var(--purple-mid)";
+    return `
+      <div class="milestone-card" style="border-left-color: ${stepColor};">
+        <div class="card-date" style="color:${stepColor}">📅 ${esc(card.date)}</div>
+        <div class="card-title">${esc(card.title)}</div>
+        <div class="card-step">${card.step.replace("Step ","")} — ${STEP_LABELS[card.step] || ''}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+// ── BUILD TIMELINE ─────────────────────────────────────────────────────────
+let currentWeeksData = []; // store for potential re-navigation
+
 function build(weeks, workstreams, tasks) {
+  currentWeeksData = weeks;
   const totalWk = weeks.length;
   const LABEL_W = "220px";
   const gridCols = `${LABEL_W} repeat(${totalWk}, 1fr)`;
 
-  // indexes
   const tasksByWs = {};
   tasks.forEach(t => {
     if (!tasksByWs[t.workstream_id]) tasksByWs[t.workstream_id] = [];
@@ -378,7 +442,7 @@ function build(weeks, workstreams, tasks) {
     wsByStep[s].push(ws);
   });
 
-  // stats
+  // update stats
   document.getElementById("stat-tasks").textContent   = tasks.length;
   document.getElementById("stat-done").textContent    = tasks.filter(t=>t.status==="Done").length;
   document.getElementById("stat-ip").textContent      = tasks.filter(t=>t.status==="In Progress").length;
@@ -389,6 +453,8 @@ function build(weeks, workstreams, tasks) {
   const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
   document.getElementById("last-updated").textContent = `Updated ${ts}`;
   document.getElementById("footer-ts").textContent = ts;
+  
+  renderMilestoneCards();
 
   const container = document.getElementById("plan-container");
   container.innerHTML = "";
@@ -398,16 +464,16 @@ function build(weeks, workstreams, tasks) {
     if (!wsList || !wsList.length) return;
     const meta = STEP_META[step] || {};
 
-    // Section header
+    // Section header with id for smooth scroll
     const sh = document.createElement("div");
     sh.className = "section-header";
+    sh.id = `section-${step.replace(/ /g, "")}`;
     sh.innerHTML = `
       <div class="section-dot" style="background:${meta.dot}"></div>
       <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
       <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
     container.appendChild(sh);
 
-    // Block + grid
     const block = document.createElement("div");
     block.className = "timeline-block";
 
@@ -427,7 +493,6 @@ function build(weeks, workstreams, tasks) {
       grid.appendChild(h);
     });
 
-    // Workstream rows
     wsList.forEach(ws => {
       const wsId  = ws.workstream_id;
       const wsTasks = (tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
@@ -436,7 +501,6 @@ function build(weeks, workstreams, tasks) {
       const endN   = wn(ws.gantt_end_week);
       const milestones = wsTasks.filter(t => t.is_milestone === "TRUE" || t.is_milestone === "True");
 
-      // label cell
       const lc = document.createElement("div");
       lc.className = "ws-label-cell";
       const btn = document.createElement("button");
@@ -452,7 +516,6 @@ function build(weeks, workstreams, tasks) {
       lc.appendChild(btn);
       grid.appendChild(lc);
 
-      // gantt cells
       weeks.forEach(wk => {
         const n = wn(wk.week_id);
         const ms = milestones.find(t => wn(t.week_end) === n);
@@ -469,7 +532,6 @@ function build(weeks, workstreams, tasks) {
         }
       });
 
-      // detail panel
       const panel = makeEl("div","detail-panel");
       panel.id = `detail-${wsId}`;
       panel.style.gridColumn = "1 / -1";
@@ -479,14 +541,7 @@ function build(weeks, workstreams, tasks) {
       } else {
         const tbl = document.createElement("table");
         tbl.className = "detail-table";
-        tbl.innerHTML = `<thead><tr>
-          <th style="width:110px">Week</th>
-          <th style="width:34%">Task</th>
-          <th style="width:140px">Owner</th>
-          <th style="width:20%">Deliverable</th>
-          <th style="width:100px">Status</th>
-          <th>Notes / Dependencies</th>
-        </tr></thead>`;
+        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:34%">Task</th><th style="width:140px">Owner</th><th style="width:20%">Deliverable</th><th style="width:100px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
         const tbody = document.createElement("tbody");
         wsTasks.forEach(t => {
           const weekRange = t.week_start === t.week_end ? t.week_start : `${t.week_start}–${t.week_end}`;
@@ -506,7 +561,6 @@ function build(weeks, workstreams, tasks) {
       }
       grid.appendChild(panel);
     });
-
     container.appendChild(block);
   });
 }
@@ -528,7 +582,54 @@ function toggleDetail(wsId) {
   icon.textContent = open ? "▼" : "▶";
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────
+// smooth scroll to step section
+function scrollToStep(step) {
+  const sectionId = `section-${step.replace(/ /g, "")}`;
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    // fallback: just scroll to plan container
+    document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// ── REFRESH LOGIC ─────────────────────────────────────────────────────────
+async function refreshData() {
+  const loadingDiv = document.getElementById("loading");
+  const appDiv = document.getElementById("app");
+  // show loading overlay temporarily
+  if (loadingDiv) loadingDiv.classList.remove("hidden");
+  if (appDiv) appDiv.style.display = "none";
+  
+  try {
+    const [tasks, workstreams, weeks, owners] = await Promise.all([
+      fetchCSV(GIDS.tasks),
+      fetchCSV(GIDS.workstreams),
+      fetchCSV(GIDS.weeks),
+      fetchCSV(GIDS.owners),
+    ]);
+    build(weeks, workstreams, tasks);
+    if (loadingDiv) loadingDiv.classList.add("hidden");
+    if (appDiv) appDiv.style.display = "block";
+  } catch (err) {
+    if (loadingDiv) {
+      loadingDiv.innerHTML = `
+        <div class="error-state">
+          <h3>⚠ Could not load plan data</h3>
+          <p>Make sure the Google Sheet is published:<br>
+          <strong>File → Share → Publish to web → Publish</strong><br><br>
+          Error: ${esc(err.message)}</p>
+          <button id="retryBtn" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;">Retry</button>
+        </div>`;
+      const retryBtn = document.getElementById("retryBtn");
+      if (retryBtn) retryBtn.onclick = () => location.reload();
+    }
+    console.error(err);
+  }
+}
+
+// ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
 async function init() {
   try {
     const [tasks, workstreams, weeks, owners] = await Promise.all([
@@ -537,21 +638,33 @@ async function init() {
       fetchCSV(GIDS.weeks),
       fetchCSV(GIDS.owners),
     ]);
-
     build(weeks, workstreams, tasks);
-
+    
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("app").style.display = "block";
-
+    
+    // Refresh button
+    const refreshBtn = document.getElementById("refreshButton");
+    if (refreshBtn) refreshBtn.addEventListener("click", refreshData);
+    
+    // Step navigation: click on step badges
+    const stepBadges = document.querySelectorAll("#stepsBar .step-badge");
+    stepBadges.forEach(badge => {
+      const stepName = badge.getAttribute("data-step");
+      if (stepName) {
+        badge.addEventListener("click", (e) => {
+          e.preventDefault();
+          scrollToStep(stepName);
+        });
+      }
+    });
   } catch (err) {
     document.getElementById("loading").innerHTML = `
       <div class="error-state">
         <h3>⚠ Could not load plan data</h3>
-        <p>
-          Make sure the Google Sheet is published:<br>
-          <strong>File → Share → Publish to web → Publish</strong><br><br>
-          Error: ${esc(err.message)}
-        </p>
+        <p>Make sure the Google Sheet is published:<br>
+        <strong>File → Share → Publish to web → Publish</strong><br><br>
+        Error: ${esc(err.message)}</p>
       </div>`;
     console.error(err);
   }
