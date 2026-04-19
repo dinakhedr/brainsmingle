@@ -126,7 +126,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
 .tl-hcell { background:var(--bg3); padding:6px 3px; text-align:center; font-family:var(--fh); font-size:10px; color:var(--text3); line-height:1.3; }
 .tl-hcell.corner { text-align:left; padding-left:12px; }
-.tl-hcell.wk-current { color:var(--purple-mid); }
+.tl-hcell.wk-current { color:var(--purple-mid); background:rgba(107,62,245,0.12) !important; border-bottom:2px solid var(--purple-mid); }
 .tl-hcell.wk-milestone { color:var(--pink); }
 
 .ws-label-cell { background:var(--bg2); display:flex; align-items:stretch; }
@@ -549,7 +549,16 @@ function build(weeks, workstreams, tasks, owners, steps) {
       const isCur = wk.is_current === "TRUE";
       const isMil = wk.is_milestone_week === "TRUE";
       const h = makeEl("div", "tl-hcell" + (isCur?" wk-current":"") + (isMil?" wk-milestone":""));
-      h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
+      if (isCur) {
+        h.innerHTML = `
+          <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
+            <span style="font-size:9px;font-weight:700;letter-spacing:.03em">${esc(wk.week_id)}</span>
+            <span style="font-size:8px">${esc(wk.date_start)}</span>
+            <span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin-top:2px"></span>
+          </div>`;
+      } else {
+        h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
+      }
       grid.appendChild(h);
     });
 
@@ -602,7 +611,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
       } else {
         const tbl = document.createElement("table");
         tbl.className = "detail-table";
-        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:150px">Owner</th><th style="width:28%">Deliverable</th><th style="width:100px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
+        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:32%">Task</th><th style="width:130px">Owner</th><th style="width:20%">Deliverable</th><th style="width:90px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
         const tbody = document.createElement("tbody");
         wsTasks.forEach(t => {
           const weekRange = t.week_start === t.week_end ? t.week_start : `${t.week_start}–${t.week_end}`;
@@ -610,6 +619,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
+            <td>${esc(t.task)}</td>
             <td>${ownerBadges(t.owner)}</td>
             <td class="deliverable-text">${esc(t.deliverable)}</td>
             <td>${statusBadge(t.status)}</td>
