@@ -299,7 +299,8 @@ const GIDS = {
   tasks:        "875560662",
   workstreams:  "982251180",
   weeks:        "1528344641",
-  owners:       "2136320303"
+  owners:       "2136320303",
+  steps:        "541183567"
 };
 
 const STEP_META = {
@@ -308,12 +309,25 @@ const STEP_META = {
   "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:false },
   "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:false },
 };
-const STEP_LABELS = {
+// STEP_LABELS is now built dynamically from the Steps sheet
+let STEP_LABELS = {
   "Step 1":"Establish Credibility",
   "Step 2":"Activate the Market",
   "Step 3":"Own the Moment",
   "Step 4":"Reveal the Full Picture"
 };
+
+function buildStepLabels(steps) {
+  if (!steps || !steps.length) return;
+  STEP_LABELS = {};
+  steps.forEach(row => {
+    const norm = {};
+    Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+    const step  = norm["step"]  || norm["step_id"] || "";
+    const label = norm["step_label"] || norm["label"] || "";
+    if (step) STEP_LABELS[step] = label;
+  });
+}
 const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
 
 // Milestone card definitions
@@ -372,19 +386,35 @@ let ownerMap = {};
 function buildOwnerMap(owners) {
   ownerMap = {};
   owners.forEach(row => {
-    const name = (row.display_name || "").trim();
-    const hex  = (row.color_hex  || "888888").replace("#","");
-    if (!name) return;
-    const key = name.toLowerCase().replace(/[\s\/]+/g, "");
-    // Convert hex to rgba for background (18% opacity)
-    const r = parseInt(hex.slice(0,2),16);
-    const g = parseInt(hex.slice(2,4),16);
-    const b = parseInt(hex.slice(4,6),16);
-    ownerMap[key] = {
-      color: `#${hex}`,
-      bg:    `rgba(${r},${g},${b},0.18)`,
-      label: name,
+    // Normalize sheet column names defensively (trim + lowercase)
+    const norm = {};
+    Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+
+    const ownerId   = norm["owner_id"]    || norm["ownerid"]    || "";
+    const name      = norm["display_name"]|| norm["displayname"]|| norm["name"] || "";
+    const hex       = (norm["color_hex"]  || norm["colorhex"]   || norm["color"] || "888888").replace("#","");
+    if (!name && !ownerId) return;
+
+    const r = parseInt(hex.slice(0,2),16) || 136;
+    const g = parseInt(hex.slice(2,4),16) || 136;
+    const b = parseInt(hex.slice(4,6),16) || 136;
+    const entry = {
+      color: "#" + hex,
+      bg:    "rgba(" + r + "," + g + "," + b + ",0.18)",
+      label: name || ownerId,
     };
+
+    // Register under multiple keys so any variation in Tasks sheet will match:
+    // 1. normalized display_name  e.g. "platformteam"
+    // 2. owner_id as-is           e.g. "platform"
+    // 3. first word of name       e.g. "platform"
+    // 4. full name lowercase      e.g. "platform team"
+    const keys = new Set();
+    if (name)    keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
+    if (name)    keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
+    if (name)    keys.add(name.toLowerCase().split(/\s/)[0]);
+    if (ownerId) keys.add(ownerId.toLowerCase().trim());
+    keys.forEach(k => { if (k) ownerMap[k] = entry; });
   });
 }
 
@@ -392,11 +422,15 @@ function ownerBadges(str) {
   if (!str) return "";
   return str.split("|").map(o => {
     const raw = o.trim();
-    const key = raw.toLowerCase().replace(/[\s\/]+/g, "");
-    const style = ownerMap[key]
-      ? `background:${ownerMap[key].bg};color:${ownerMap[key].color};`
-      : `background:rgba(255,255,255,.08);color:var(--text2);`;
-    return `<span class="owner-badge" style="${style}">${esc(raw)}</span>`;
+    // Try multiple normalizations to match sheet keys
+    const key1 = raw.toLowerCase().replace(/[\s\/]+/g, "");          // "Platform team" -> "platformteam"
+    const key2 = raw.toLowerCase().replace(/[\s\/\-]+/g, "");       // strip hyphens too
+    const key3 = raw.toLowerCase().split(/\s/)[0];                    // first word only: "platform"
+    const match = ownerMap[key1] || ownerMap[key2] || ownerMap[key3];
+    const style = match
+      ? "background:" + match.bg + ";color:" + match.color + ";"
+      : "background:rgba(255,255,255,.08);color:var(--text2);";
+    return "<span class=\"owner-badge\" style=\"" + style + "\">" + esc(raw) + "</span>";
   }).join(" ");
 }
 
@@ -437,8 +471,9 @@ function renderMilestoneCards() {
 // ── BUILD TIMELINE ─────────────────────────────────────────────────────────
 let currentWeeksData = []; // store for potential re-navigation
 
-function build(weeks, workstreams, tasks, owners) {
+function build(weeks, workstreams, tasks, owners, steps) {
   buildOwnerMap(owners);
+  buildStepLabels(steps);
   currentWeeksData = weeks;
   const totalWk = weeks.length;
   const LABEL_W = "220px";
@@ -446,8 +481,10 @@ function build(weeks, workstreams, tasks, owners) {
 
   const tasksByWs = {};
   tasks.forEach(t => {
-    if (!tasksByWs[t.workstream_id]) tasksByWs[t.workstream_id] = [];
-    tasksByWs[t.workstream_id].push(t);
+    // Join on workstream_name (Tasks sheet no longer has workstream_id)
+    const wsKey = (t.workstream_name || "").trim();
+    if (!tasksByWs[wsKey]) tasksByWs[wsKey] = [];
+    tasksByWs[wsKey].push(t);
   });
 
   const wsByStep = {};
@@ -511,7 +548,8 @@ function build(weeks, workstreams, tasks, owners) {
 
     wsList.forEach(ws => {
       const wsId  = ws.workstream_id;
-      const wsTasks = (tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
+      const wsName = (ws.workstream_name || "").trim();
+      const wsTasks = (tasksByWs[wsName] || tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
       const color = ws.bar_color || "gray";
       const startN = wn(ws.gantt_start_week);
       const endN   = wn(ws.gantt_end_week);
@@ -557,7 +595,7 @@ function build(weeks, workstreams, tasks, owners) {
       } else {
         const tbl = document.createElement("table");
         tbl.className = "detail-table";
-        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:34%">Task</th><th style="width:140px">Owner</th><th style="width:20%">Deliverable</th><th style="width:100px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
+        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:150px">Owner</th><th style="width:28%">Deliverable</th><th style="width:100px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
         const tbody = document.createElement("tbody");
         wsTasks.forEach(t => {
           const weekRange = t.week_start === t.week_end ? t.week_start : `${t.week_start}–${t.week_end}`;
@@ -565,8 +603,7 @@ function build(weeks, workstreams, tasks, owners) {
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
-            <td>${esc(t.task)}</td>
-            <td>${ownerBadges(t.owner)}</td>
+            <td>${ownerBadges(t.taskowner)}</td>
             <td class="deliverable-text">${esc(t.deliverable)}</td>
             <td>${statusBadge(t.status)}</td>
             <td class="notes-text">${formatNotes(t.notes)}</td>`;
@@ -619,13 +656,14 @@ async function refreshData() {
   if (appDiv) appDiv.style.display = "none";
   
   try {
-    const [tasks, workstreams, weeks, owners] = await Promise.all([
+    const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
       fetchCSV(GIDS.tasks),
       fetchCSV(GIDS.workstreams),
       fetchCSV(GIDS.weeks),
       fetchCSV(GIDS.owners),
+      fetchCSV(GIDS.steps),
     ]);
-    build(weeks, workstreams, tasks, owners);
+    build(weeks, workstreams, tasks, owners, steps);
     if (loadingDiv) loadingDiv.classList.add("hidden");
     if (appDiv) appDiv.style.display = "block";
   } catch (err) {
@@ -648,13 +686,14 @@ async function refreshData() {
 // ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
 async function init() {
   try {
-    const [tasks, workstreams, weeks, owners] = await Promise.all([
+    const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
       fetchCSV(GIDS.tasks),
       fetchCSV(GIDS.workstreams),
       fetchCSV(GIDS.weeks),
       fetchCSV(GIDS.owners),
+      fetchCSV(GIDS.steps),
     ]);
-    build(weeks, workstreams, tasks, owners);
+    build(weeks, workstreams, tasks, owners, steps);
     
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("app").style.display = "block";
