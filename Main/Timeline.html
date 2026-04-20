@@ -188,6 +188,9 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .st-ip    { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
 .st-done  { background:rgba(0,232,162,.12);  color:var(--cyan);       border:1px solid rgba(0,232,162,.25); }
 .st-block { background:rgba(245,62,159,.15); color:var(--pink);       border:1px solid rgba(245,62,159,.3); }
+.st-review { background:rgba(245,166,35,.15); color:var(--amber);     border:1px solid rgba(245,166,35,.3); } 
+.st-deployed { background:rgba(0,232,162,.15); color:var(--cyan-dark);  border:1px solid rgba(0,232,162,.3); }
+
 
 .deliverable-text { color:var(--text2); }
 .notes-text { color:var(--text3); font-size:11px; }
@@ -446,8 +449,12 @@ function ownerBadges(str) {
 
 function statusBadge(s) {
   const cls = {
-    "Not Started":"st-ns","In Progress":"st-ip",
-    "Done":"st-done","Blocked":"st-block"
+    "Not Started":"st-ns",
+    "In Progress":"st-ip",
+    "In Review": "st-review",
+    "Deployed": "st-deployed",
+    "Done":"st-done",
+    "Blocked":"st-block"
   }[s] || "st-ns";
   return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
 }
