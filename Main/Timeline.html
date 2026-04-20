@@ -719,6 +719,14 @@ async function init() {
     
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("app").style.display = "block";
+
+    // Full Timeline button
+    const fullTimelineBtn = document.getElementById("fullTimelineButton");
+    if (fullTimelineBtn) {
+      fullTimelineBtn.addEventListener("click", () => {
+        window.location.href = "FullTimeline.html";
+      });
+    }
     
     // Refresh button
     const refreshBtn = document.getElementById("refreshButton");
