@@ -699,7 +699,10 @@ function build(weeks, workstreams, tasks, owners, steps) {
         labelEl.innerHTML = `
           <div style="width:100%">
             <div class="task-name">${esc(t.task)}</div>
-            <div class="task-owners">${taskOwnerBadges(t.owner)}</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap;">
+              <div class="task-owners">${taskOwnerBadges(t.owner)}</div>
+              ${statusBadge(t.status)}
+            </div>
           </div>`;
         wrapper.appendChild(labelEl);
 
