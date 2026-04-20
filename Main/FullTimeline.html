@@ -166,7 +166,6 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
   display:none;
   grid-column: 1 / -1;
   border-top:1px solid var(--border2);
-  border-left:3px solid transparent;
 }
 .task-row-wrapper.open {
   display:grid;
@@ -176,17 +175,17 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .task-row-wrapper.row-even { background:#13132A; }
 .task-row-wrapper:hover { filter:brightness(1.15); }
 
-/* Status left border */
-.task-row-wrapper.st-ns    { border-left-color:#5A5A88; }
-.task-row-wrapper.st-ip    { border-left-color:#6B3EF5; }
-.task-row-wrapper.st-done  { border-left-color:#00B882; }
-.task-row-wrapper.st-block { border-left-color:#E53E3E; }
-
+/* Status left border — on label cell, not wrapper */
 .task-row-label {
-  padding:11px 10px 11px 14px;
+  padding:11px 10px 11px 11px;
   display:flex;
   align-items:flex-start;
+  border-left:3px solid #5A5A88;
 }
+.task-row-wrapper.st-ip    .task-row-label { border-left-color:#6B3EF5; }
+.task-row-wrapper.st-done  .task-row-label { border-left-color:#00B882; }
+.task-row-wrapper.st-block .task-row-label { border-left-color:#E53E3E; }
+.task-row-wrapper.st-ns    .task-row-label { border-left-color:#5A5A88; }
 
 .task-name {
   font-family:var(--fb);
