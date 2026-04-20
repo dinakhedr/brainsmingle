@@ -166,6 +166,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
   display:none;
   grid-column: 1 / -1;
   border-top:1px solid var(--border2);
+  border-left:3px solid transparent;
 }
 .task-row-wrapper.open {
   display:grid;
@@ -175,8 +176,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .task-row-wrapper.row-even { background:#13132A; }
 .task-row-wrapper:hover { filter:brightness(1.15); }
 
-/* Status left border on the wrapper itself */
-.task-row-wrapper { border-left:3px solid transparent; }
+/* Status left border */
 .task-row-wrapper.st-ns    { border-left-color:#5A5A88; }
 .task-row-wrapper.st-ip    { border-left-color:#6B3EF5; }
 .task-row-wrapper.st-done  { border-left-color:#00B882; }
