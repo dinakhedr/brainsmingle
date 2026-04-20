@@ -1,511 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bring Your Community — BrainsMingle</title>
- <!-- Favicon for Chrome / modern browsers -->
 <link rel="icon" type="image/png" href="../icon.png">
-<!-- Optional: fallback for older browsers -->
 <link rel="shortcut icon" href="../icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --purple: #6B3EF5;
-    --purple-light: #7B52F6;
-    --purple-glow: rgba(107,62,245,0.35);
-    --coral: #FF6B6B;
-    --coral-dim: rgba(255,107,107,0.15);
-    --bg: #0F0F1A;
-    --bg-card: #16162A;
-    --bg-card2: #1C1C32;
-    --border: rgba(107,62,245,0.25);
-    --border-subtle: rgba(255,255,255,0.07);
-    --border-mid: rgba(255,255,255,0.12);
-    --text: #F0EEF8;
-    --text-muted: #9490B8;
-    --text-dim: #5E5A80;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
-  a { color: inherit; text-decoration: none; }
-  .divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 100px 24px 80px;
-    overflow: hidden;
-  }
-
-  .hero-bg-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(107,62,245,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(107,62,245,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
-
-  .hero-glow-top {
-    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-    width: 900px; height: 600px;
-    background: radial-gradient(ellipse, rgba(255,107,107,0.18) 0%, rgba(107,62,245,0.18) 50%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-glow-side {
-    position: absolute; bottom: -100px; left: -150px;
-    width: 500px; height: 500px;
-    background: radial-gradient(ellipse, rgba(107,62,245,0.1) 0%, transparent 65%);
-    pointer-events: none;
-  }
-
-  .back-link {
-    position: relative; z-index: 2;
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 600; font-family: 'Montserrat', sans-serif;
-    color: var(--text-muted); margin-bottom: 40px;
-    transition: color 0.2s;
-  }
-  .back-link:hover { color: var(--text); }
-  .back-link svg { width: 14px; height: 14px; }
-
-  .logo-wrap { position: relative; z-index: 2; margin-bottom: 48px; }
-  .logo-wrap img { height: 44px; width: auto; display: block; margin: 0 auto; }
-
-  .hero-badge {
-    position: relative; z-index: 2;
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1.5px; text-transform: uppercase;
-   color: var(--coral);
-    border: 1px solid rgba(255,107,107,0.3);
-    background: rgba(255,107,107,0.07);
-    border-radius: 100px;
-    padding: 7px 18px; margin-bottom: 28px;
-  }
-
-  .badge-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--coral);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.7); }
-  }
-
-  .hero h1 {
-    position: relative; z-index: 2;
-    font-size: clamp(28px, 4vw, 56px);
-    font-weight: 900; line-height: 1.05;
-    letter-spacing: -2px; max-width: 900px;
-    margin-bottom: 12px; color: #fff;
-  }
-
-  .hero h1 .line2 {
-    display: block;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--purple-light) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-
-  .hero-sub {
-    position: relative; z-index: 2;
-    font-size: clamp(16px, 1.8vw, 20px);
-    color: var(--text-muted); max-width: 600px;
-    margin: 20px auto 40px; line-height: 1.7;
-  }
-  .hero-sub strong { color: var(--text); font-weight: 700; }
-
-  .hero-cta-wrap {
-    position: relative; z-index: 2;
-    display: flex; flex-wrap: wrap; gap: 12px;
-    justify-content: center; margin-bottom: 64px;
-  }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 32px; background: var(--purple); color: #fff;
-    border-radius: 12px; font-family: 'Montserrat', sans-serif;
-    font-size: 15px; font-weight: 700; letter-spacing: 0.2px;
-    box-shadow: 0 4px 24px var(--purple-glow);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--purple-glow); }
-  .btn-primary svg { width: 16px; height: 16px; }
-
-  .btn-coral {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 32px;
-    background: rgba(0,232,162,0.12); color: var(--coral);
-    border: 1px solid rgba(0,232,162,0.3);
-    border-radius: 12px; font-family: 'Montserrat', sans-serif;
-    font-size: 15px; font-weight: 700;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .btn-coral:hover { transform: translateY(-2px); background: rgba(0,232,162,0.18); }
-  .btn-coral svg { width: 16px; height: 16px; }
-
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 16px 28px; background: var(--bg-card2); color: var(--text);
-    border: 1px solid var(--border-mid); border-radius: 12px;
-    font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
-
-  .proof-strip {
-    position: relative; z-index: 2;
-    display: flex; flex-wrap: wrap; gap: 32px;
-    justify-content: center; align-items: center;
-  }
-  .proof-item { text-align: center; }
-  .proof-num { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #fff; display: block; }
-  .proof-num em { color: var(--coral); font-style: normal; }
-  .proof-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.3px; }
-  .proof-div { width: 1px; background: var(--border-subtle); align-self: stretch; min-height: 32px; }
-
-  /* ── SECTIONS ── */
-  .section { padding: 88px 24px; max-width: 1100px; margin: 0 auto; }
-  .section-sm { padding: 64px 24px; max-width: 1100px; margin: 0 auto; }
-
-  .eyebrow {
-    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
-    letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--purple-light); margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-size: clamp(28px, 3.2vw, 42px);
-    font-weight: 800; letter-spacing: -1px;
-    color: #fff; line-height: 1.12; margin-bottom: 14px;
-  }
-
-  .section-sub {
-    font-size: 17px; color: var(--text-muted);
-    max-width: 540px; line-height: 1.7; margin-bottom: 52px;
-  }
-
-  /* ── PROBLEM SECTION ── */
-  .problem-wrap {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  }
-
-  .problem-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px; padding: 28px 24px;
-    display: flex; align-items: flex-start; gap: 16px;
-    transition: border-color 0.2s;
-  }
-  .problem-card:hover { border-color: rgba(245,62,62,0.25); }
-
-  .problem-icon {
-    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-    background: rgba(245,62,62,0.1);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-  }
-
-  .problem-text {}
-  .problem-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px;
-  }
-  .problem-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ── WHO THIS IS FOR ── */
-  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-  .who-card {
-    background: var(--bg-card); border: 1px solid var(--border-subtle);
-    border-radius: 16px; padding: 28px 24px;
-    display: flex; flex-direction: column; gap: 10px;
-    position: relative; overflow: hidden;
-  }
-  .who-card::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--coral), var(--purple)); opacity: 0.5;
-  }
-  .who-icon { font-size: 28px; margin-bottom: 4px; }
-  .who-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
-  .who-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ── WHAT CHANGES ── */
-  .changes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-  .change-card {
-    background: var(--bg-card); border: 1px solid var(--border-subtle);
-    border-radius: 16px; padding: 28px 24px;
-    display: flex; flex-direction: column; gap: 12px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .change-card:hover { border-color: var(--border); transform: translateY(-2px); }
-
-  .change-icon {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: rgba(255,107,107,0.1);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .change-icon svg { width: 20px; height: 20px; }
-
-  .change-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: #fff; }
-  .change-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; flex: 1; }
-
-  /* ── MIGRATION CONCERN ── */
-  .migration-wrap {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 20px; overflow: hidden; position: relative;
-  }
-
-  .migration-top-bar { height: 3px; background: linear-gradient(90deg, var(--coral), var(--purple)); }
-
-  .migration-inner {
-    padding: 48px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
-  }
-
-  .migration-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--coral); margin-bottom: 20px;
-  }
-
-  .migration-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(22px, 2.5vw, 32px);
-    font-weight: 800; letter-spacing: -0.8px;
-    color: #fff; line-height: 1.2; margin-bottom: 16px;
-  }
-
-  .migration-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
-
-  .migration-points { display: flex; flex-direction: column; gap: 16px; }
-
-  .migration-point {
-    display: flex; align-items: flex-start; gap: 14px;
-    background: var(--bg-card2); border-radius: 12px; padding: 16px 20px;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .check-icon {
-    width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
-    background: rgba(0,232,162,0.12);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .check-icon svg { width: 14px; height: 14px; }
-
-  .migration-point-text {}
-  .migration-point-title { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
-  .migration-point-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-
-  .migration-glow {
-    position: absolute; bottom: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(ellipse, rgba(0,232,162,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  /* ── PROOF STRIP ── */
-  .stats-strip {
-    background: var(--bg-card); border: 1px solid var(--border-subtle);
-    border-radius: 16px; padding: 36px 48px;
-    display: flex; flex-wrap: nowrap; gap: 0;
-    justify-content: space-between; align-items: center;
-  }
-
-  .stat-item {
-    text-align: center; padding: 8px 16px;
-    border-right: 1px solid var(--border-subtle);
-    flex: 1; min-width: 0;
-  }
-  .stat-item:last-child { border-right: none; }
-
-  .stat-num {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(18px, 2vw, 30px); font-weight: 800;
-    color: #fff; display: block; letter-spacing: -0.5px;
-  }
-  .stat-num span { color: var(--coral); }
-  .stat-lbl { font-size: clamp(10px, 1.1vw, 13px); color: var(--text-muted); margin-top: 4px; display: block; }
-
-  /* ── COMMUNITY ACADEMY ── */
-  .academy-wrap {
-    position: relative; overflow: hidden;
-    background: linear-gradient(135deg, rgba(0,232,162,0.08) 0%, rgba(107,62,245,0.15) 100%);
-    border: 1px solid rgba(0,232,162,0.2);
-    border-radius: 24px; padding: 64px 48px;
-  }
-
-  .academy-glow {
-    position: absolute; top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(ellipse, rgba(0,232,162,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .academy-glow2 {
-    position: absolute; bottom: -80px; left: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(ellipse, rgba(107,62,245,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .academy-inner {
-    position: relative; z-index: 1;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
-  }
-
-  .academy-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px; text-transform: uppercase;
-    color: var(--coral); margin-bottom: 20px;
-    padding: 6px 14px;
-    background: rgba(0,232,162,0.1); border: 1px solid rgba(0,232,162,0.25);
-    border-radius: 100px;
-  }
-
-  .academy-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(26px, 3vw, 40px);
-    font-weight: 900; letter-spacing: -1px;
-    color: #fff; line-height: 1.1; margin-bottom: 16px;
-  }
-
-  .academy-title span {
-    background: linear-gradient(135deg, var(--coral), var(--purple-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-
-  .academy-tagline {
-    font-size: 16px; color: var(--text-muted); line-height: 1.75;
-    margin-bottom: 32px; font-style: italic;
-    border-left: 2px solid var(--coral); padding-left: 16px;
-  }
-
-  .academy-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 32px; }
-
-  .academy-cta-wrap { display: flex; flex-wrap: wrap; gap: 12px; }
-
-  .academy-cards { display: flex; flex-direction: column; gap: 12px; }
-
-  .academy-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px; padding: 20px 24px;
-    display: flex; align-items: flex-start; gap: 14px;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .academy-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(0,232,162,0.2); }
-
-  .academy-card-icon {
-    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
-    background: rgba(0,232,162,0.12);
-    display: flex; align-items: center; justify-content: center; font-size: 16px;
-  }
-
-  .academy-card-body {}
-  .academy-card-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
-  .academy-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
-
-  /* ── FINAL CTA ── */
-  .final-cta {
-    position: relative; overflow: hidden;
-    background: linear-gradient(135deg, rgba(107,62,245,0.18) 0%, rgba(255,107,107,0.08) 100%);
-    border: 1px solid rgba(255,107,107,0.2);
-    border-radius: 24px;
-    padding: 80px 48px; text-align: center;
-  }
-
-  .final-cta-glow {
-    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 400px;
-    background: radial-gradient(ellipse, rgba(107,62,245,0.2) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .final-cta h2 {
-    position: relative;
-    font-size: clamp(30px, 4vw, 52px);
-    font-weight: 900; letter-spacing: -1.5px;
-    color: #fff; line-height: 1.1; margin-bottom: 16px;
-  }
-
-  .final-cta h2 span {
-    background: linear-gradient(135deg, var(--coral), var(--purple-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-
-  .final-cta p {
-    position: relative;
-    font-size: 17px; color: var(--text-muted); line-height: 1.7;
-    max-width: 480px; margin: 0 auto 40px;
-  }
-
-  .final-cta-btns {
-    position: relative;
-    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-  }
-
-  .final-note { position: relative; margin-top: 20px; font-size: 13px; color: var(--text-dim); }
-
-  /* ── FOOTER ── */
-  .footer {
-    border-top: 1px solid var(--border-subtle);
-    padding: 32px 24px; text-align: center;
-    font-size: 13px; color: var(--text-dim);
-    max-width: 1100px; margin: 0 auto;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 960px) {
-    .problem-wrap { grid-template-columns: 1fr; }
-    .who-grid { grid-template-columns: 1fr 1fr; }
-    .changes-grid { grid-template-columns: 1fr 1fr; }
-    .migration-inner { grid-template-columns: 1fr; gap: 32px; }
-    .academy-inner { grid-template-columns: 1fr; gap: 32px; }
-    .stats-strip { flex-wrap: wrap; }
-    .stat-item { flex: 1 1 30%; border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 16px; }
-    .stat-item:last-child { border-bottom: none; }
-    .final-cta { padding: 56px 28px; }
-    .academy-wrap { padding: 40px 28px; }
-    .migration-inner { padding: 32px 24px; }
-  }
-
-  @media (max-width: 600px) {
-    .who-grid { grid-template-columns: 1fr; }
-    .changes-grid { grid-template-columns: 1fr; }
-    .proof-div { display: none; }
-    .hero h1 { letter-spacing: -1px; }
-    .migration-inner { padding: 24px; }
-  }
-</style>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1"  x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+</button>
+
 <!-- ══ HERO ══ -->
-<section class="hero">
+<section class="hero hero--full">
   <div class="hero-bg-grid"></div>
   <div class="hero-glow-top"></div>
   <div class="hero-glow-side"></div>
@@ -520,14 +44,14 @@
   </div>
 
   <div class="hero-badge">
-      <span class="badge-dot"></span>
+    <span class="badge-dot"></span>
     Communities & Networks
     <span class="badge-dot"></span>
   </div>
 
   <h1>
-    You've built something real. 
-   <span class="line2">It deserves better.</span>
+    You've built something real.
+    <span class="line2">It deserves better.</span>
   </h1>
 
   <p class="hero-sub">
@@ -859,8 +383,25 @@
 
 <!-- ══ FOOTER ══ -->
 <footer class="footer">
-  © 2026 BrainsMingle · <a href="https://brainsmingle.com" style="color: var(--purple-light);">brainsmingle.com</a>
+  © 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a>
 </footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('theme-toggle');
+    var html   = document.documentElement;
+
+    // Sync with saved preference (shared with main page)
+    var saved = localStorage.getItem('bm-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+
+    toggle.addEventListener('click', function () {
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('bm-theme', next);
+    });
+  })();
+</script>
 
 </body>
 </html>
