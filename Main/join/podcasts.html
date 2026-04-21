@@ -1,112 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-page="podcasts">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Podcast & Channel Partnership — BrainsMingle</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast &amp; Channel Partnership — BrainsMingle</title>
 <link rel="icon" type="image/png" href="../icon.png">
-<link rel="shortcut icon" href="../icon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<!-- THEME TOGGLE -->
-<button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>
-  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>
-</button>
-
-<!-- ══ HERO ══ -->
-<section class="hero hero--full">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-glow-top"></div>
-  <div class="hero-glow-side"></div>
-
-  <a class="back-link" href="../join.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to all paths
+<header class="page-header">
+  <a class="header-logo" href="../join.html">
+    <img class="logo-dark"  src="../logo-dark.png"  alt="BrainsMingle">
+    <img class="logo-light" src="../logo-light.png" alt="BrainsMingle">
   </a>
-
-  <div class="logo-wrap">
-    <img src="../logo.png" alt="BrainsMingle" />
-  </div>
-
-  <div class="hero-badge">
-    <span class="badge-dot"></span>
-    Podcasters & YouTubers
-    <span class="badge-dot"></span>
-  </div>
-
-  <h1>
-    You've built the audience.
-    <span class="line2">Now give it a live dimension.</span>
-  </h1>
-
-  <p class="hero-sub">
-    Your content is strong. But it <strong>lives and dies in one episode.</strong> BrainsMingle adds the live layer your audience is already looking for — real conversations, real community, real connection between releases.
-  </p>
-
-  <div class="hero-cta-wrap">
-    <a class="btn-primary" href="#book-call">
-      Explore the partnership
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <div class="header-right">
+    <a class="header-back" href="../join.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span>Back to all paths</span>
     </a>
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero hero--full">
+  <div class="hero-bg-grid"></div><div class="hero-glow-top"></div><div class="hero-glow-side"></div>
+  <div class="hero-badge"><span class="badge-dot"></span>Podcasters &amp; YouTubers<span class="badge-dot"></span></div>
+  <h1>You've built the audience.<span class="line2"> Now give it a live dimension.</span></h1>
+  <p class="hero-sub">Your content is strong. But it <strong>lives and dies in one episode.</strong> BrainsMingle adds the live layer your audience is already looking for — real conversations, real community, real connection between releases.</p>
+  <div class="hero-cta-wrap">
+    <a class="btn-primary" href="#book-call">Explore the partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <a class="btn-ghost" href="#how-it-works">See how it works</a>
   </div>
-
   <div class="proof-strip">
-    <div class="proof-item">
-      <span class="proof-num">5,700<em>+</em></span>
-      <span class="proof-label">Professionals on platform</span>
-    </div>
+    <div class="proof-item"><span class="proof-num">5,700<em>+</em></span><span class="proof-label">Professionals on platform</span></div>
     <div class="proof-div"></div>
-    <div class="proof-item">
-      <span class="proof-num">980<em>+</em></span>
-      <span class="proof-label">Sessions hosted</span>
-    </div>
+    <div class="proof-item"><span class="proof-num">980<em>+</em></span><span class="proof-label">Sessions hosted</span></div>
     <div class="proof-div"></div>
-    <div class="proof-item">
-      <span class="proof-num">85<em>+</em></span>
-      <span class="proof-label">Countries</span>
-    </div>
+    <div class="proof-item"><span class="proof-num">85<em>+</em></span><span class="proof-label">Countries</span></div>
     <div class="proof-div"></div>
-    <div class="proof-item">
-      <span class="proof-num">1,000<em>+</em></span>
-      <span class="proof-label">Companies represented</span>
-    </div>
+    <div class="proof-item"><span class="proof-num">1,000<em>+</em></span><span class="proof-label">Companies represented</span></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ══ WHO THIS IS FOR ══ -->
 <div class="section">
   <div class="eyebrow">Who this is for</div>
   <h2 class="section-title">For creators who are ready<br>to go beyond the upload</h2>
   <p class="section-sub">You've already done the hard part — building an audience that trusts you. This is about giving that audience somewhere to go.</p>
-
   <div class="who-grid">
     <div class="who-card">
-      <div class="who-icon">🎙️</div>
+      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
       <div class="who-title">Podcast hosts</div>
       <div class="who-desc">You have a loyal audience, a consistent format, and a body of work your listeners come back to. You're ready to go beyond the episode — live, real-time, face to face.</div>
     </div>
     <div class="who-card">
-      <div class="who-icon">🎬</div>
-      <div class="who-title">YouTube creators & educators</div>
+      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="who-title">YouTube creators &amp; educators</div>
       <div class="who-desc">Your content reaches people. You want to reach them live, keep them engaged between uploads, and turn viewers into a real professional community around what you create.</div>
     </div>
     <div class="who-card">
-      <div class="who-icon">✍️</div>
-      <div class="who-title">Newsletter writers & thought leaders</div>
+      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div class="who-title">Newsletter writers &amp; thought leaders</div>
       <div class="who-desc">You've built trust through content and your readers show up every time. A live layer turns that relationship into something deeper — real conversations with the people who already believe in what you say.</div>
     </div>
   </div>
@@ -114,40 +72,38 @@
 
 <hr class="divider">
 
-<!-- ══ THE PROBLEM ══ -->
 <div class="section">
   <div class="eyebrow">What's missing</div>
   <h2 class="section-title">Great content. No place<br>for it to live.</h2>
   <p class="section-sub">The problem isn't your content. It's that the relationship with your audience resets every time you publish.</p>
-
   <div class="problem-grid">
     <div class="problem-card">
-      <div class="problem-icon">📉</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5 19l-3-7 3-7"/><path d="M19 5l3 7-3 7"/></svg></div>
       <div class="problem-title">Content lives and dies in one upload</div>
       <div class="problem-desc">No live dimension, no community that stays. Your best work gets a spike of attention and then disappears into the feed.</div>
     </div>
     <div class="problem-card">
-      <div class="problem-icon">👻</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
       <div class="problem-title">Engagement is passive</div>
       <div class="problem-desc">Likes, comments, replies — your audience consumes but rarely connects. There's no real conversation happening between your most engaged listeners.</div>
     </div>
     <div class="problem-card">
-      <div class="problem-icon">🔁</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
       <div class="problem-title">The relationship resets every episode</div>
       <div class="problem-desc">You rebuild momentum with every upload. There's no compounding — no home where your audience stays engaged between releases.</div>
     </div>
     <div class="problem-card">
-      <div class="problem-icon">🌫️</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
       <div class="problem-title">Collaborations that go nowhere</div>
       <div class="problem-desc">Vague asks, unclear benefits, no follow-through. You've been approached before and it went nowhere. This is different — and we'll show you exactly how.</div>
     </div>
     <div class="problem-card">
-      <div class="problem-icon">🗺️</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="problem-title">No way for your audience to connect</div>
-      <div class="problem-desc">Your listeners want to meet each other — not just consume your content. There's no structured way to make that happen and you're leaving real community value on the table.</div>
+      <div class="problem-desc">Your listeners want to meet each other — not just consume your content. There's no structured way to make that happen.</div>
     </div>
     <div class="problem-card">
-      <div class="problem-icon">📦</div>
+      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <div class="problem-title">Content that could go further</div>
       <div class="problem-desc">Every episode has more in it than one upload. A live session, short-form clips, a community discussion — one piece of content can work in five different ways.</div>
     </div>
@@ -156,63 +112,32 @@
 
 <hr class="divider">
 
-<!-- ══ PARTNERSHIP DETAILS ══ -->
 <div class="section">
   <div class="partnership-wrap">
-    <div class="partnership-top-bar"></div>
-    <div class="partnership-glow"></div>
+    <div class="partnership-top-bar"></div><div class="partnership-glow"></div>
     <div class="partnership-inner">
       <div>
-        <div class="partnership-tag">
-          <span class="badge-dot"></span>
-          What the partnership looks like
-        </div>
+        <div class="partnership-tag"><span class="badge-dot"></span>What the partnership looks like</div>
         <h2 class="partnership-title">Specific. Collaborative.<br>No vague asks.</h2>
-        <p class="partnership-desc">
-          We know you've been approached before for collaborations that went nowhere. That's because most asks are vague — unclear format, unclear benefit, unclear what anyone actually does.<br><br>
-          This is different. Here's exactly what a BrainsMingle partnership looks like from day one.
-        </p>
-        <a class="btn-pink" href="#book-call">
-          Let's talk
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <p class="partnership-desc">We know you've been approached before for collaborations that went nowhere. That's because most asks are vague — unclear format, unclear benefit, unclear what anyone actually does.<br><br>This is different. Here's exactly what a BrainsMingle partnership looks like from day one.</p>
+        <a class="btn-pink" href="#book-call">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
       <div class="partnership-details">
         <div class="detail-row">
-          <div class="detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div class="detail-body">
-            <div class="detail-title">The format</div>
-            <div class="detail-desc">A live session on BrainsMingle — a standalone event or a live version of a regular episode. Promoted to both audiences simultaneously.</div>
-          </div>
+          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div><div class="detail-title">The format</div><div class="detail-desc">A live session on BrainsMingle — a standalone event or a live version of a regular episode. Promoted to both audiences simultaneously.</div></div>
         </div>
         <div class="detail-row">
-          <div class="detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div class="detail-body">
-            <div class="detail-title">The time commitment</div>
-            <div class="detail-desc">One session to start. No ongoing obligation until both sides see the value. You're not signing up for a programme — you're trying something that makes sense for both of us.</div>
-          </div>
+          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div><div class="detail-title">The time commitment</div><div class="detail-desc">One session to start. No ongoing obligation until both sides see the value. You're not signing up for a programme — you're trying something that makes sense for both of us.</div></div>
         </div>
         <div class="detail-row">
-          <div class="detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="detail-body">
-            <div class="detail-title">What BrainsMingle does</div>
-            <div class="detail-desc">We promote the session across our channels, distribute the recording as short-form content, and handle all the logistics. You show up. We handle everything else.</div>
-          </div>
+          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="detail-title">What BrainsMingle does</div><div class="detail-desc">We promote the session across our channels, distribute the recording as short-form content, and handle all the logistics. You show up. We handle everything else.</div></div>
         </div>
         <div class="detail-row">
-          <div class="detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="detail-body">
-            <div class="detail-title">What you get</div>
-            <div class="detail-desc">A new professional audience, a recorded asset you own and can repurpose, and a community space where your audience stays engaged between episodes.</div>
-          </div>
+          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div><div class="detail-title">What you get</div><div class="detail-desc">A new professional audience, a recorded asset you own and can repurpose, and a community space where your audience stays engaged between episodes.</div></div>
         </div>
       </div>
     </div>
@@ -221,128 +146,66 @@
 
 <hr class="divider">
 
-<!-- ══ WHAT YOU GET ══ -->
 <div class="section">
   <div class="eyebrow">What you get</div>
   <h2 class="section-title">One session.<br>Ongoing value.</h2>
   <p class="section-sub">Every collaboration with BrainsMingle is designed to keep working long after you close the room.</p>
-
   <div class="gets-grid">
-    <div class="get-card">
-      <div class="get-num">01</div>
-      <div class="get-title">A live layer for your content</div>
-      <div class="get-desc">Host sessions natively on BrainsMingle — no external tools, no broken links. Screen share, chat, react. Your content, live and in front of the right people.</div>
-    </div>
-    <div class="get-card">
-      <div class="get-num">02</div>
-      <div class="get-title">A new professional audience</div>
-      <div class="get-desc">Promoted simultaneously to your network and BrainsMingle's. One event reaches two audiences. The people in the room are exactly who you want to reach.</div>
-    </div>
-    <div class="get-card">
-      <div class="get-num">03</div>
-      <div class="get-title">A recorded asset you own</div>
-      <div class="get-desc">Every session is recorded and yours. Publish it, repurpose it, add it to your back catalogue. One live session becomes a permanent piece of content.</div>
-    </div>
-    <div class="get-card">
-      <div class="get-num">04</div>
-      <div class="get-title">Short-form content distribution</div>
-      <div class="get-desc">BrainsMingle clips your session and pushes it across Instagram, TikTok, YouTube Shorts, and Facebook. Your content keeps working across channels you might not even be on yet.</div>
-    </div>
-    <div class="get-card">
-      <div class="get-num">05</div>
-      <div class="get-title">A community for your audience</div>
-      <div class="get-desc">A structured space where your listeners and viewers stay connected between episodes — discussing, connecting, and engaging with your work in ways a comment section never could.</div>
-    </div>
-    <div class="get-card">
-      <div class="get-num">06</div>
-      <div class="get-title">Speed networking for your audience</div>
-      <div class="get-desc">Facilitate real face-to-face connections between your most engaged listeners. Give your audience something no other creator in your space is giving them.</div>
-    </div>
+    <div class="get-card"><div class="get-num">01</div><div class="get-title">A live layer for your content</div><div class="get-desc">Host sessions natively on BrainsMingle — no external tools, no broken links. Screen share, chat, react. Your content, live and in front of the right people.</div></div>
+    <div class="get-card"><div class="get-num">02</div><div class="get-title">A new professional audience</div><div class="get-desc">Promoted simultaneously to your network and BrainsMingle's. One event reaches two audiences. The people in the room are exactly who you want to reach.</div></div>
+    <div class="get-card"><div class="get-num">03</div><div class="get-title">A recorded asset you own</div><div class="get-desc">Every session is recorded and yours. Publish it, repurpose it, add it to your back catalogue. One live session becomes a permanent piece of content.</div></div>
+    <div class="get-card"><div class="get-num">04</div><div class="get-title">Short-form content distribution</div><div class="get-desc">BrainsMingle clips your session and pushes it across Instagram, TikTok, YouTube Shorts, and Facebook. Your content keeps working across channels you might not even be on yet.</div></div>
+    <div class="get-card"><div class="get-num">05</div><div class="get-title">A community for your audience</div><div class="get-desc">A structured space where your listeners and viewers stay connected between episodes — discussing, connecting, and engaging with your work in ways a comment section never could.</div></div>
+    <div class="get-card"><div class="get-num">06</div><div class="get-title">Speed networking for your audience</div><div class="get-desc">Facilitate real face-to-face connections between your most engaged listeners. Give your audience something no other creator in your space is giving them.</div></div>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- ══ HOW IT WORKS ══ -->
 <div class="section" id="how-it-works">
-  <div style="text-align:center; margin-bottom: 56px;">
+  <div style="text-align:center;margin-bottom:56px;">
     <div class="eyebrow" style="display:inline-block;">How it works</div>
     <h2 class="section-title">Three steps.<br>One session. Lasting impact.</h2>
   </div>
-
   <div class="steps-wrap">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-title">One session, your style</div>
-      <div class="step-desc">We agree on a topic and format that fits naturally with what you already do. You show up as yourself. We handle the setup, promotion, and logistics.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-title">Both audiences, one event</div>
-      <div class="step-desc">Your network plus BrainsMingle's professional community — promoted simultaneously. Multi-audience reach from a single live moment.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-title">The content keeps working</div>
-      <div class="step-desc">Recording published. Clips distributed. Community stays active. One session generates assets and engagement that compounds long after you close the room.</div>
-    </div>
+    <div class="step"><div class="step-num">1</div><div class="step-title">One session, your style</div><div class="step-desc">We agree on a topic and format that fits naturally with what you already do. You show up as yourself. We handle the setup, promotion, and logistics.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-title">Both audiences, one event</div><div class="step-desc">Your network plus BrainsMingle's professional community — promoted simultaneously. Multi-audience reach from a single live moment.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-title">The content keeps working</div><div class="step-desc">Recording published. Clips distributed. Community stays active. One session generates assets and engagement that compounds long after you close the room.</div></div>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- ══ PROOF NUMBERS ══ -->
 <div class="section-sm">
-  <div style="text-align:center; margin-bottom: 36px;">
+  <div style="text-align:center;margin-bottom:36px;">
     <div class="eyebrow" style="display:inline-block;">The platform is live</div>
     <h2 class="section-title">Real sessions. Real audiences.<br>Real engagement.</h2>
   </div>
   <div class="stats-strip">
-    <div class="stat-item"><span class="stat-num">5,700<span>+</span></span><span class="stat-lbl">Professionals on platform</span></div>
-    <div class="stat-item"><span class="stat-num">980<span>+</span></span><span class="stat-lbl">Sessions hosted</span></div>
-    <div class="stat-item"><span class="stat-num">85<span>+</span></span><span class="stat-lbl">Countries</span></div>
-    <div class="stat-item"><span class="stat-num">5,000<span>+</span></span><span class="stat-lbl">Connections made</span></div>
-    <div class="stat-item"><span class="stat-num">80K<span>+</span></span><span class="stat-lbl">Session minutes</span></div>
+    <div class="stat-item"><span class="stat-num"><span>5,700+</span></span><span class="stat-lbl">Professionals on platform</span></div>
+    <div class="stat-item"><span class="stat-num"><span>980+</span></span><span class="stat-lbl">Sessions hosted</span></div>
+    <div class="stat-item"><span class="stat-num"><span>85+</span></span><span class="stat-lbl">Countries</span></div>
+    <div class="stat-item"><span class="stat-num"><span>5,000+</span></span><span class="stat-lbl">Connections made</span></div>
+    <div class="stat-item"><span class="stat-num"><span>80K+</span></span><span class="stat-lbl">Session minutes</span></div>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- ══ FINAL CTA ══ -->
 <div class="section" id="book-call">
   <div class="final-cta">
     <div class="final-cta-glow"></div>
     <h2>Let's talk about what a collaboration<br><span>could look like for you.</span></h2>
     <p>Book a 20-minute call. We'll walk through what a partnership looks like for your specific format, audience, and goals.</p>
     <div class="final-cta-btns">
-      <a class="btn-primary" href="#PLACEHOLDER-BOOKING-LINK">
-        Book your 20-minute call
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <a class="btn-primary" href="#PLACEHOLDER-BOOKING-LINK">Book your 20-minute call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a class="btn-ghost" href="../join.html">Explore other paths</a>
     </div>
     <p class="final-note">No commitment required. Just a conversation.</p>
   </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer">
-  © 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a>
-</footer>
-
-<script>
-  (function () {
-    var toggle = document.getElementById('theme-toggle');
-    var html   = document.documentElement;
-    var saved  = localStorage.getItem('bm-theme') || 'dark';
-    html.setAttribute('data-theme', saved);
-    toggle.addEventListener('click', function () {
-      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('bm-theme', next);
-    });
-  })();
-</script>
-
+<footer class="footer">© 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a></footer>
+<script>(function(){var t=document.getElementById('theme-toggle'),h=document.documentElement,s=localStorage.getItem('bm-theme')||'dark';h.setAttribute('data-theme',s);t.addEventListener('click',function(){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('bm-theme',n);});})();</script>
 </body>
 </html>
