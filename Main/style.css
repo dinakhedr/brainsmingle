@@ -862,6 +862,19 @@ a { color: inherit; text-decoration: none; }
 .redir-pink .redir-btn:hover { background: rgba(245,62,159,0.14); }
 .redir-pink:hover { border-color: rgba(245,62,159,0.3); }
 
+/* Purple (Experts) */
+.redir-purple .redir-bar   { background: linear-gradient(90deg, #6B3EF5, #A882FF); }
+.redir-purple .redir-icon  { background: rgba(107,62,245,0.12); color: #7B52F6; }
+.redir-purple .redir-btn   { color: #7B52F6; border-color: rgba(107,62,245,0.35); background: rgba(107,62,245,0.06); }
+.redir-purple .redir-btn:hover { background: rgba(107,62,245,0.14); }
+.redir-purple:hover { border-color: rgba(107,62,245,0.3); }
+
+/* Amber (Professionals) */
+.redir-amber .redir-bar   { background: linear-gradient(90deg, #F5A623, #F7C060); }
+.redir-amber .redir-icon  { background: rgba(245,166,35,0.12); color: #F5A623; }
+.redir-amber .redir-btn   { color: #F5A623; border-color: rgba(245,166,35,0.35); background: rgba(245,166,35,0.06); }
+.redir-amber .redir-btn:hover { background: rgba(245,166,35,0.14); }
+.redir-amber:hover { border-color: rgba(245,166,35,0.3); }
 /* ── Pricing button (replaces text link) ── */
 .pricing-btn {
   display: inline-flex; align-items: center; gap: 8px;
