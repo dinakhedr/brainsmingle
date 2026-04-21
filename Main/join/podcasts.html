@@ -25,14 +25,15 @@
   </div>
 </header>
 
+<!-- ══ HERO ══ -->
 <section class="hero hero--full">
   <div class="hero-bg-grid"></div><div class="hero-glow-top"></div><div class="hero-glow-side"></div>
-  <div class="hero-badge"><span class="badge-dot"></span>Podcasters &amp; YouTubers<span class="badge-dot"></span></div>
-  <h1>You've built the audience.<span class="line2"> Now give it a live dimension.</span></h1>
-  <p class="hero-sub">Your content is strong. But it <strong>lives and dies in one episode.</strong> BrainsMingle adds the live layer your audience is already looking for — real conversations, real community, real connection between releases.</p>
+  <div class="hero-badge"><span class="badge-dot"></span>Creators &amp; Thought Leaders<span class="badge-dot"></span></div>
+  <h1>Your audience is waiting.<span class="line2"> Give them a place to connect.</span></h1>
+  <p class="hero-problem">You create incredible content. But between uploads, your audience disappears. They consume and move on — there's no place for them to stay, discuss, or connect with you live. BrainsMingle adds the live community layer that turns passive listeners into an engaged, lasting community — without rebuilding your tech stack.</p>
   <div class="hero-cta-wrap">
-    <a class="btn-primary" href="#book-call">Explore the partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    <a class="btn-ghost" href="#how-it-works">See how it works</a>
+    <a class="btn-primary" href="https://brainsmingle.com/auth/login" target="_blank">Explore the Partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a class="btn-ghost" href="#journey">How it works</a>
   </div>
   <div class="proof-strip">
     <div class="proof-item"><span class="proof-num">5,700<em>+</em></span><span class="proof-label">Professionals on platform</span></div>
@@ -47,97 +48,370 @@
 
 <hr class="divider">
 
+<!-- ══ WHO THIS IS FOR (TABS) ══ -->
 <div class="section">
   <div class="eyebrow">Who this is for</div>
-  <h2 class="section-title">For creators who are ready<br>to go beyond the upload</h2>
-  <p class="section-sub">You've already done the hard part — building an audience that trusts you. This is about giving that audience somewhere to go.</p>
-  <div class="who-grid">
-    <div class="who-card">
-      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-      <div class="who-title">Podcast hosts</div>
-      <div class="who-desc">You have a loyal audience, a consistent format, and a body of work your listeners come back to. You're ready to go beyond the episode — live, real-time, face to face.</div>
+  <h2 class="section-title">Built for creators who are<br>ready to build a real community</h2>
+  <p class="section-sub">You've already done the hard part — building an audience that trusts you. Now give them a place to stay.</p>
+
+  <div class="ep-tabs">
+
+    <!-- Tab bar -->
+    <div class="ep-tab-bar" role="tablist">
+      <button class="ep-tab ep-tab--purple ep-tab--active" role="tab" onclick="epSwitch('podcast',this)">
+        <span class="ep-tab-icon ep-tab-icon--purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </span>
+        <span>Podcast Host</span>
+      </button>
+      <button class="ep-tab ep-tab--blue" role="tab" onclick="epSwitch('youtuber',this)">
+        <span class="ep-tab-icon ep-tab-icon--blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </span>
+        <span>YouTuber &amp; Video Creator</span>
+      </button>
+      <button class="ep-tab ep-tab--teal" role="tab" onclick="epSwitch('newsletter',this)">
+        <span class="ep-tab-icon ep-tab-icon--teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </span>
+        <span>Newsletter Writer &amp; Thought Leader</span>
+      </button>
     </div>
-    <div class="who-card">
-      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-      <div class="who-title">YouTube creators &amp; educators</div>
-      <div class="who-desc">Your content reaches people. You want to reach them live, keep them engaged between uploads, and turn viewers into a real professional community around what you create.</div>
+
+    <!-- Tab panels -->
+    <div class="ep-tab-panels">
+
+      <!-- Panel 1: Podcast Host -->
+      <div class="ep-pane ep-pane--active ep--purple" id="ep-pane-podcast" role="tabpanel">
+        <div class="ep-pane-bar"></div>
+        <div class="ep-header">
+          <div class="ep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <div class="ep-header-text">
+            <div class="ep-title">Podcast Hosts</div>
+            <div class="ep-tagline">You've built a loyal audience around your show. Now give them a home to connect between episodes.</div>
+          </div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-block-label ep-block-label--muted">Where you are now</div>
+          <p class="ep-desc">Your listeners tune in weekly, but between episodes they scatter across social platforms. There's <strong>no ongoing conversation, no community retention, and the relationship resets with every upload</strong>. You have no single home where your audience can meet each other, attend live recordings, or interact with you in real time.</p>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">What changes when you join</div>
+          <div class="ep-solutions">
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">A permanent community space for your show</div><div class="ep-sol-desc">Live episodes, Q&As, and after‑show discussions all happen inside your BrainsMingle community. Listeners become a real community.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Engagement doesn't end when the episode does</div><div class="ep-sol-desc">Channels, announcements, and embedded live sessions keep the conversation alive 24/7 between releases.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Your episodes fuel a library of content</div><div class="ep-sol-desc">Recordings are clipped and distributed as short‑form content across social platforms. One session. Ongoing reach.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Speed networking for your listeners</div><div class="ep-sol-desc">Run structured face‑to‑face networking events that give your audience a reason to show up and connect with each other.</div></div>
+            </div>
+          </div>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">This is for you if</div>
+          <div class="ep-fits">
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want to deepen listener relationships and turn downloads into community.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You're ready to host live recordings, Q&As, or exclusive after‑show discussions.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want your audience to have a place to belong between episodes.</div>
+          </div>
+          <div class="ep-cta-wrap">
+            <a class="ep-cta-primary" href="https://brainsmingle.com/auth/login" target="_blank">Join as a Podcast Host <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: YouTubers & Video Creators -->
+      <div class="ep-pane ep--blue" id="ep-pane-youtuber" role="tabpanel">
+        <div class="ep-pane-bar"></div>
+        <div class="ep-header">
+          <div class="ep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="ep-header-text">
+            <div class="ep-title">YouTubers &amp; Video Creators</div>
+            <div class="ep-tagline">Your videos reach thousands. Now give your most engaged subscribers a place to connect live.</div>
+          </div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-block-label ep-block-label--muted">Where you are now</div>
+          <p class="ep-desc">Your videos get views and comments, but <strong>engagement is confined to the comment section</strong>. There's no structured way to bring viewers together for live deep‑dives, workshops, or networking. The relationship stays one‑way — you create, they consume.</p>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">What changes when you join</div>
+          <div class="ep-solutions">
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">A dedicated community hub for your channel</div><div class="ep-sol-desc">Your most engaged subscribers gather in one place — not scattered across YouTube comments and social feeds.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Live sessions that extend your content</div><div class="ep-sol-desc">Host live deep‑dives, Q&As, workshops, or exclusive office hours — all natively on the platform.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Your content works across platforms</div><div class="ep-sol-desc">Sessions are automatically clipped into short‑form videos distributed on Instagram, TikTok, YouTube Shorts, and Facebook.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Monetisation beyond ad revenue</div><div class="ep-sol-desc">Offer paid subscriptions, exclusive sessions, or premium communities. You keep 85% of everything you earn.</div></div>
+            </div>
+          </div>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">This is for you if</div>
+          <div class="ep-fits">
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want to add a live, interactive layer to your content.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You're ready to offer exclusive sessions or workshops to your most engaged viewers.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want to build a community around your channel, not just an audience.</div>
+          </div>
+          <div class="ep-cta-wrap">
+            <a class="ep-cta-primary" href="https://brainsmingle.com/auth/login" target="_blank">Join as a Video Creator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Newsletter Writers & Thought Leaders -->
+      <div class="ep-pane ep--teal" id="ep-pane-newsletter" role="tabpanel">
+        <div class="ep-pane-bar"></div>
+        <div class="ep-header">
+          <div class="ep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="ep-header-text">
+            <div class="ep-title">Newsletter Writers &amp; Thought Leaders</div>
+            <div class="ep-tagline">Your writing builds trust. Now give your readers a place to discuss your ideas live.</div>
+          </div>
+        </div>
+        <div class="ep-body">
+          <div class="ep-block-label ep-block-label--muted">Where you are now</div>
+          <p class="ep-desc">Your words move people. But the relationship is one‑way — you publish, they read. <strong>There's no real‑time conversation or community around your ideas</strong>. Your readers want to engage with you and each other, but there's no structured space for it.</p>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">What changes when you join</div>
+          <div class="ep-solutions">
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">A live extension of your newsletter</div><div class="ep-sol-desc">Host subscriber‑only discussions, deep dives on your latest topic, and let readers connect with you in real time.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">A community that stays between issues</div><div class="ep-sol-desc">Channels and discussions keep the conversation alive — your readers don't disappear after they finish reading.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Cohort‑based deep dives</div><div class="ep-sol-desc">Run paid workshops or study groups around your writing. Turn your ideas into interactive learning experiences.</div></div>
+            </div>
+            <div class="ep-solution">
+              <div class="ep-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><div class="ep-sol-title">Networking for your subscribers</div><div class="ep-sol-desc">Speed networking events connect your readers face‑to‑face — giving them value no other newsletter provides.</div></div>
+            </div>
+          </div>
+          <div class="ep-inner-divider"></div>
+          <div class="ep-block-label">This is for you if</div>
+          <div class="ep-fits">
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want to turn your subscriber list into an engaged, paying community.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You're ready to add a live dimension to your thought leadership.</div>
+            <div class="ep-fit"><span class="ep-fit-dot"></span>You want your readers to connect with each other around your ideas.</div>
+          </div>
+          <div class="ep-cta-wrap">
+            <a class="ep-cta-primary" href="https://brainsmingle.com/auth/login" target="_blank">Join as a Thought Leader <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="who-card">
-      <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-      <div class="who-title">Newsletter writers &amp; thought leaders</div>
-      <div class="who-desc">You've built trust through content and your readers show up every time. A live layer turns that relationship into something deeper — real conversations with the people who already believe in what you say.</div>
+
+    <!-- Single soft CTA below all tabs -->
+    <div class="ep-soft-cta">
+      <a href="#book-call">Not sure yet? Book a quick call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
+
+  </div>
+
+  <!-- Redirect cards -->
+  <div class="redirect-cards">
+    <div class="redirect-card redir-coral">
+      <div class="redir-bar"></div>
+      <div class="redir-inner">
+        <div class="redir-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="redir-title">Community Builder?</div>
+        <div class="redir-desc">You lead or manage an existing professional community and want to give it a structured, permanent home.</div>
+        <a class="redir-btn" href="communities.html">See the Community Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+    <div class="redirect-card redir-pink">
+      <div class="redir-bar"></div>
+      <div class="redir-inner">
+        <div class="redir-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="redir-title">Expert or Coach?</div>
+        <div class="redir-desc">You offer professional services, coaching, or consulting and want a seamless way to book, deliver, and get paid.</div>
+        <a class="redir-btn" href="experts.html">See the Expert Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<hr class="divider">
+
+<!-- ══ CREATOR JOURNEY ══ -->
+<div class="section" id="journey">
+  <div class="eyebrow">Your journey on BrainsMingle</div>
+  <h2 class="section-title">From sign-up to thriving<br>community — here's how it works</h2>
+  <p class="section-sub">Six steps. No tech headaches. No scattered tools. Just your content, amplified with a live community layer.</p>
+
+  <div class="journey-timeline">
+
+    <div class="jt-step">
+      <div class="jt-marker">
+        <div class="jt-num">01</div>
+        <div class="jt-line"></div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Set up your creator profile in minutes</div>
+          <div class="jt-desc">Your profile goes live with your bio, session calendar, and community space. No design skills needed. You show up looking professional from day one.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jt-step">
+      <div class="jt-marker">
+        <div class="jt-num">02</div>
+        <div class="jt-line"></div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Get discovered by a new professional audience</div>
+          <div class="jt-desc">BrainsMingle's discovery engine surfaces your profile to professionals actively looking for content like yours. New listeners and viewers find you without extra effort.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jt-step">
+      <div class="jt-marker">
+        <div class="jt-num">03</div>
+        <div class="jt-line"></div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Host your first live session</div>
+          <div class="jt-desc">Choose the format: live episode, Q&A, workshop, or office hours. Promote to your existing audience and BrainsMingle's network simultaneously. Both audiences attend in one place.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jt-step">
+      <div class="jt-marker">
+        <div class="jt-num">04</div>
+        <div class="jt-line"></div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Your community space comes alive</div>
+          <div class="jt-desc">Attendees stay, chat, and network. The community grows between sessions — you're building an asset that compounds, not just one-off events.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jt-step">
+      <div class="jt-marker">
+        <div class="jt-num">05</div>
+        <div class="jt-line"></div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Content keeps working after the room closes</div>
+          <div class="jt-desc">Recordings are published. Short‑form clips are distributed across Instagram, TikTok, YouTube Shorts, and Facebook. One session fuels your content calendar for weeks.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jt-step jt-step--last">
+      <div class="jt-marker">
+        <div class="jt-num">06</div>
+      </div>
+      <div class="jt-content">
+        <div class="jt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="jt-text">
+          <div class="jt-title">Monetisation options unlock</div>
+          <div class="jt-desc">Offer paid subscriptions, exclusive sessions, or premium communities. You keep <strong>85% of everything you earn</strong>. The platform handles payments and payouts automatically.</div>
+          <div class="jt-badge">85% revenue share</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <hr class="divider">
 
+<!-- ══ THE BRAINSMINGLE SOLUTION (CAPABILITIES) ══ -->
 <div class="section">
-  <div class="eyebrow">What's missing</div>
-  <h2 class="section-title">Great content. No place<br>for it to live.</h2>
-  <p class="section-sub">The problem isn't your content. It's that the relationship with your audience resets every time you publish.</p>
-  <div class="problem-grid">
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5 19l-3-7 3-7"/><path d="M19 5l3 7-3 7"/></svg></div>
-      <div class="problem-title">Content lives and dies in one upload</div>
-      <div class="problem-desc">No live dimension, no community that stays. Your best work gets a spike of attention and then disappears into the feed.</div>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <div class="problem-title">Engagement is passive</div>
-      <div class="problem-desc">Likes, comments, replies — your audience consumes but rarely connects. There's no real conversation happening between your most engaged listeners.</div>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-      <div class="problem-title">The relationship resets every episode</div>
-      <div class="problem-desc">You rebuild momentum with every upload. There's no compounding — no home where your audience stays engaged between releases.</div>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-      <div class="problem-title">Collaborations that go nowhere</div>
-      <div class="problem-desc">Vague asks, unclear benefits, no follow-through. You've been approached before and it went nowhere. This is different — and we'll show you exactly how.</div>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="problem-title">No way for your audience to connect</div>
-      <div class="problem-desc">Your listeners want to meet each other — not just consume your content. There's no structured way to make that happen.</div>
-    </div>
-    <div class="problem-card">
-      <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-      <div class="problem-title">Content that could go further</div>
-      <div class="problem-desc">Every episode has more in it than one upload. A live session, short-form clips, a community discussion — one piece of content can work in five different ways.</div>
-    </div>
+  <div class="eyebrow">The BrainsMingle solution</div>
+  <h2 class="section-title">One session.<br>Ongoing community.</h2>
+  <p class="section-sub">Everything you need to turn your content into a living community lives inside BrainsMingle. No scattered tools. No broken links. Just you and your people.</p>
+  <div class="caps-list">
+    <div class="cap-row"><div class="cap-num">01</div><div class="cap-body"><div class="cap-title">Live sessions inside your community space</div><div class="cap-desc">Host live episodes, Q&As, workshops, or office hours. Your audience attends without leaving the platform — screen share, chat, and reactions included.</div></div></div>
+    <div class="cap-row"><div class="cap-num">02</div><div class="cap-body"><div class="cap-title">Your audience stays connected between releases</div><div class="cap-desc">A dedicated community with channels, announcements, and member networking keeps the conversation alive 24/7. No more disappearing between episodes.</div></div></div>
+    <div class="cap-row"><div class="cap-num">03</div><div class="cap-body"><div class="cap-title">Multi‑audience reach from a single event</div><div class="cap-desc">Your session is promoted simultaneously to your network and BrainsMingle's professional community. You grow your reach with every event.</div></div></div>
+    <div class="cap-row"><div class="cap-num">04</div><div class="cap-body"><div class="cap-title">Content that compounds</div><div class="cap-desc">Recordings are automatically clipped into short‑form content and distributed across Instagram, TikTok, YouTube Shorts, and Facebook. One session. Weeks of content.</div></div></div>
+    <div class="cap-row"><div class="cap-num">05</div><div class="cap-body"><div class="cap-title">Speed networking for your audience</div><div class="cap-desc">Run structured face‑to‑face networking events that give your audience a reason to show up and connect with each other — no other creator is offering this.</div></div></div>
+    <div class="cap-row"><div class="cap-num">06</div><div class="cap-body"><div class="cap-title">A profile that reflects your brand</div><div class="cap-desc">Verification badges, ratings, and a professional showcase for your work. Your profile becomes the most credible version of your creator presence online.</div></div></div>
+    <div class="cap-row"><div class="cap-num">07</div><div class="cap-body"><div class="cap-title">Monetisation that works for you</div><div class="cap-desc">Offer paid subscriptions, exclusive sessions, or premium communities. You keep 85% of everything. Payments and payouts are handled automatically.</div></div></div>
+    <div class="cap-row"><div class="cap-num">08</div><div class="cap-body"><div class="cap-title">Passive discovery — new listeners find you</div><div class="cap-desc">The BrainsMingle discovery engine surfaces your profile to professionals actively searching for content in your niche. Growth without constant promotion.</div></div></div>
+    <div class="cap-row"><div class="cap-num">09</div><div class="cap-body"><div class="cap-title">Collaborations that actually happen</div><div class="cap-desc">Partner with other creators in your niche for joint live sessions. Co‑promoted to both audiences. Clear format, clear benefits, no vague asks.</div></div></div>
   </div>
 </div>
 
 <hr class="divider">
 
+<!-- ══ VERTICAL LAUNCH OPPORTUNITY ══ -->
 <div class="section">
-  <div class="partnership-wrap">
-    <div class="partnership-top-bar"></div><div class="partnership-glow"></div>
-    <div class="partnership-inner">
+  <div class="launch-wrap">
+    <div class="launch-top-bar"></div><div class="launch-glow"></div>
+    <div class="launch-inner">
       <div>
-        <div class="partnership-tag"><span class="badge-dot"></span>What the partnership looks like</div>
-        <h2 class="partnership-title">Specific. Collaborative.<br>No vague asks.</h2>
-        <p class="partnership-desc">We know you've been approached before for collaborations that went nowhere. That's because most asks are vague — unclear format, unclear benefit, unclear what anyone actually does.<br><br>This is different. Here's exactly what a BrainsMingle partnership looks like from day one.</p>
-        <a class="btn-pink" href="#book-call">Let's talk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="launch-tag"><span class="badge-dot"></span>Creator Opportunity</div>
+        <h2 class="launch-title">Your niche deserves<br>a launch moment.</h2>
+        <p class="launch-desc">Every month, BrainsMingle activates a new creator vertical with a flagship launch event. We handpick a panel of creators in that niche, promote the event across our audience and yours, and seed a permanent community around that topic.<br><br>Be the creator who leads the conversation — not just another voice in the feed. This is a high‑visibility entry into the platform that no later joiner can replicate.</p>
+        <div style="margin-top: 20px;"></div>
+        <a class="btn-primary" href="#book-call">Find out if your niche is next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-      <div class="partnership-details">
-        <div class="detail-row">
-          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <div><div class="detail-title">The format</div><div class="detail-desc">A live session on BrainsMingle — a standalone event or a live version of a regular episode. Promoted to both audiences simultaneously.</div></div>
+      <div class="launch-steps">
+        <div class="launch-step">
+          <div class="launch-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="launch-step-text"><div class="launch-step-title">The flagship panel</div><div class="launch-step-desc">A live event featuring you and a curated group of peer creators. Each creator promotes to their own network — you all grow together.</div></div>
         </div>
-        <div class="detail-row">
-          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-          <div><div class="detail-title">The time commitment</div><div class="detail-desc">One session to start. No ongoing obligation until both sides see the value. You're not signing up for a programme — you're trying something that makes sense for both of us.</div></div>
+        <div class="launch-step">
+          <div class="launch-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="launch-step-text"><div class="launch-step-title">Your session calendar goes live</div><div class="launch-step-desc">Real sessions. Real engagement. The audience from the panel has a reason to stay and go deeper with you through future live events.</div></div>
         </div>
-        <div class="detail-row">
-          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><div class="detail-title">What BrainsMingle does</div><div class="detail-desc">We promote the session across our channels, distribute the recording as short-form content, and handle all the logistics. You show up. We handle everything else.</div></div>
-        </div>
-        <div class="detail-row">
-          <div class="detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <div><div class="detail-title">What you get</div><div class="detail-desc">A new professional audience, a recorded asset you own and can repurpose, and a community space where your audience stays engaged between episodes.</div></div>
+        <div class="launch-step">
+          <div class="launch-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="launch-step-text"><div class="launch-step-title">Your community stays</div><div class="launch-step-desc">A permanent community for your niche goes live — seeded by the panel, managed by a dedicated community manager.</div></div>
         </div>
       </div>
     </div>
@@ -146,66 +420,49 @@
 
 <hr class="divider">
 
-<div class="section">
-  <div class="eyebrow">What you get</div>
-  <h2 class="section-title">One session.<br>Ongoing value.</h2>
-  <p class="section-sub">Every collaboration with BrainsMingle is designed to keep working long after you close the room.</p>
-  <div class="gets-grid">
-    <div class="get-card"><div class="get-num">01</div><div class="get-title">A live layer for your content</div><div class="get-desc">Host sessions natively on BrainsMingle — no external tools, no broken links. Screen share, chat, react. Your content, live and in front of the right people.</div></div>
-    <div class="get-card"><div class="get-num">02</div><div class="get-title">A new professional audience</div><div class="get-desc">Promoted simultaneously to your network and BrainsMingle's. One event reaches two audiences. The people in the room are exactly who you want to reach.</div></div>
-    <div class="get-card"><div class="get-num">03</div><div class="get-title">A recorded asset you own</div><div class="get-desc">Every session is recorded and yours. Publish it, repurpose it, add it to your back catalogue. One live session becomes a permanent piece of content.</div></div>
-    <div class="get-card"><div class="get-num">04</div><div class="get-title">Short-form content distribution</div><div class="get-desc">BrainsMingle clips your session and pushes it across Instagram, TikTok, YouTube Shorts, and Facebook. Your content keeps working across channels you might not even be on yet.</div></div>
-    <div class="get-card"><div class="get-num">05</div><div class="get-title">A community for your audience</div><div class="get-desc">A structured space where your listeners and viewers stay connected between episodes — discussing, connecting, and engaging with your work in ways a comment section never could.</div></div>
-    <div class="get-card"><div class="get-num">06</div><div class="get-title">Speed networking for your audience</div><div class="get-desc">Facilitate real face-to-face connections between your most engaged listeners. Give your audience something no other creator in your space is giving them.</div></div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<div class="section" id="how-it-works">
-  <div style="text-align:center;margin-bottom:56px;">
-    <div class="eyebrow" style="display:inline-block;">How it works</div>
-    <h2 class="section-title">Three steps.<br>One session. Lasting impact.</h2>
-  </div>
-  <div class="steps-wrap">
-    <div class="step"><div class="step-num">1</div><div class="step-title">One session, your style</div><div class="step-desc">We agree on a topic and format that fits naturally with what you already do. You show up as yourself. We handle the setup, promotion, and logistics.</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-title">Both audiences, one event</div><div class="step-desc">Your network plus BrainsMingle's professional community — promoted simultaneously. Multi-audience reach from a single live moment.</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-title">The content keeps working</div><div class="step-desc">Recording published. Clips distributed. Community stays active. One session generates assets and engagement that compounds long after you close the room.</div></div>
-  </div>
-</div>
-
-<hr class="divider">
-
+<!-- ══ PRICING ══ -->
 <div class="section-sm">
-  <div style="text-align:center;margin-bottom:36px;">
-    <div class="eyebrow" style="display:inline-block;">The platform is live</div>
-    <h2 class="section-title">Real sessions. Real audiences.<br>Real engagement.</h2>
-  </div>
-  <div class="stats-strip">
-    <div class="stat-item"><span class="stat-num"><span>5,700+</span></span><span class="stat-lbl">Professionals on platform</span></div>
-    <div class="stat-item"><span class="stat-num"><span>980+</span></span><span class="stat-lbl">Sessions hosted</span></div>
-    <div class="stat-item"><span class="stat-num"><span>85+</span></span><span class="stat-lbl">Countries</span></div>
-    <div class="stat-item"><span class="stat-num"><span>5,000+</span></span><span class="stat-lbl">Connections made</span></div>
-    <div class="stat-item"><span class="stat-num"><span>80K+</span></span><span class="stat-lbl">Session minutes</span></div>
+  <div class="pricing-wrap">
+    <div class="pricing-left">
+      <span class="pricing-eyebrow">Pricing</span>
+      <div class="pricing-headline">Start free. Scale when you're ready.</div>
+      <div class="pricing-sub">Plans start free — paid plans from <strong>$9.97/month</strong>, with up to 30% off on yearly billing.</div>
+    </div>
+    <a class="pricing-btn" href="https://brainsmingle.com/pricing" target="_blank">See full pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
   </div>
 </div>
 
 <hr class="divider">
 
+<!-- ══ FINAL CTA ══ -->
 <div class="section" id="book-call">
   <div class="final-cta">
     <div class="final-cta-glow"></div>
-    <h2>Let's talk about what a collaboration<br><span>could look like for you.</span></h2>
-    <p>Book a 20-minute call. We'll walk through what a partnership looks like for your specific format, audience, and goals.</p>
+    <h2>Ready to turn your audience<br><span>into a community?</span></h2>
+    <p>Join directly if you're ready. Or book a 20‑minute call and we'll map out how BrainsMingle fits your format and audience.</p>
     <div class="final-cta-btns">
-      <a class="btn-primary" href="#PLACEHOLDER-BOOKING-LINK">Book your 20-minute call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a class="btn-ghost" href="../join.html">Explore other paths</a>
+      <a class="btn-primary" href="https://brainsmingle.com/auth/login" target="_blank">Claim your creator profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a class="btn-ghost" href="#PLACEHOLDER-BOOKING-LINK">Book a quick call</a>
     </div>
-    <p class="final-note">No commitment required. Just a conversation.</p>
+    <p class="final-note" style="margin-top: 32px;">No pressure. Just a conversation to see if we're a fit.</p>
   </div>
 </div>
 
 <footer class="footer">© 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a></footer>
-<script>(function(){var t=document.getElementById('theme-toggle'),h=document.documentElement,s=localStorage.getItem('bm-theme')||'dark';h.setAttribute('data-theme',s);t.addEventListener('click',function(){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('bm-theme',n);});})();</script>
+
+<script>
+(function(){
+  var t=document.getElementById('theme-toggle'),h=document.documentElement,s=localStorage.getItem('bm-theme')||'dark';
+  h.setAttribute('data-theme',s);
+  t.addEventListener('click',function(){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('bm-theme',n);});
+})();
+
+function epSwitch(id, btn) {
+  document.querySelectorAll('.ep-pane').forEach(function(p){ p.classList.remove('ep-pane--active'); });
+  document.querySelectorAll('.ep-tab').forEach(function(b){ b.classList.remove('ep-tab--active'); });
+  document.getElementById('ep-pane-'+id).classList.add('ep-pane--active');
+  btn.classList.add('ep-tab--active');
+}
+</script>
 </body>
 </html>
