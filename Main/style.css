@@ -524,6 +524,46 @@ a { color: inherit; text-decoration: none; }
 .who-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: var(--heading); }
 .who-desc  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
+/* ── QUICK-SCAN PILLS (navigation row above profile panels) ── */
+.ep-nav {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 28px;
+}
+.ep-nav-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 18px 10px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  text-decoration: none; color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.ep-nav-pill:hover,
+.ep-nav-pill:focus {
+  border-color: var(--pa-border);
+  color: var(--text);
+  background: var(--pa-dim);
+  outline: none;
+}
+.ep-nav-icon {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: var(--pa-dim); color: var(--pa);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.ep-nav-pill:hover .ep-nav-icon { background: var(--pa-border); }
+.ep-nav-icon svg { width: 14px; height: 14px; }
+.ep-nav-label { white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .ep-nav { gap: 8px; }
+  .ep-nav-pill { font-size: 12px; padding: 8px 14px 8px 10px; }
+  .ep-nav-icon { width: 24px; height: 24px; }
+  .ep-nav-icon svg { width: 12px; height: 12px; }
+}
+
 /* ── EXPERT PROFILE PANELS (expanded who-this-is-for) ── */
 .expert-profiles { display: flex; flex-direction: column; gap: 2px; }
 
