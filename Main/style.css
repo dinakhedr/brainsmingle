@@ -969,7 +969,7 @@ a { color: inherit; text-decoration: none; }
 .final-cta h2 span { background: linear-gradient(135deg,var(--pa),var(--pa2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .final-cta p    { position: relative; font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 900px; margin: 0 auto 40px; }
 .final-cta-btns { position: relative; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.final-note     { position: relative; margin-top: 20px; font-size: 10px; color: var(--text-dim); }
+.final-note     { position: relative; margin-top: 30px; font-size: 10px; color: var(--text-dim); }
 
 /* ══════════════════════════════════════════════════════
    EXPERTS — unique components
