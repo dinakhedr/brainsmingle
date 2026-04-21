@@ -235,9 +235,68 @@ a { color: inherit; text-decoration: none; }
 .hero-problem {
   position: relative; z-index: 2;
   font-size: clamp(16px,1.8vw,20px); color: var(--text-muted);
-  max-width: 600px; margin: 20px auto 40px; line-height: 1.7;
+  max-width: 680px; margin: 20px auto 8px; line-height: 1.7;
 }
 .hero-problem strong { color: var(--text); font-weight: 700; }
+.hero-problem--line2 {
+  position: relative; z-index: 2;
+  font-size: clamp(15px,1.6vw,18px); font-weight: 600;
+  color: var(--pa); max-width: 680px; margin: 0 auto 40px;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════════════
+   EXPERT JOURNEY TIMELINE
+   ══════════════════════════════════════════════════════ */
+
+.journey-timeline {
+  display: flex; flex-direction: column; gap: 0;
+  max-width: 780px;
+}
+.jt-step { display: flex; gap: 0; align-items: flex-start; }
+.jt-marker { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 48px; }
+.jt-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--pa-dim); color: var(--pa);
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  border: 1px solid var(--pa-border); position: relative; z-index: 1;
+}
+.jt-step--highlight .jt-num {
+  background: var(--pa); color: #fff; border-color: var(--pa);
+  box-shadow: 0 0 0 4px var(--pa-dim);
+}
+.jt-line {
+  width: 1px; flex: 1; min-height: 32px;
+  background: var(--border-subtle); margin: 4px 0;
+}
+.jt-content {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 0 0 36px 20px; flex: 1;
+}
+.jt-step--last .jt-content { padding-bottom: 0; }
+.jt-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: var(--pa-dim); color: var(--pa);
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.jt-step--highlight .jt-icon { background: var(--pa); color: #fff; }
+.jt-icon svg { width: 20px; height: 20px; }
+.jt-text { flex: 1; padding-top: 4px; }
+.jt-title {
+  font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;
+  color: var(--heading); margin-bottom: 8px; letter-spacing: -0.2px;
+}
+.jt-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.jt-desc strong { color: var(--text); font-weight: 700; }
+.jt-badge {
+  display: inline-flex; align-items: center;
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pa); background: var(--pa-dim);
+  border: 1px solid var(--pa-border); border-radius: 100px; padding: 5px 12px;
+}
 
 .hero-stats {
   display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;
@@ -1085,4 +1144,14 @@ a { color: inherit; text-decoration: none; }
   .journey-grid-2{ grid-template-columns: 1fr; }
   .journey-step:first-child { border-radius: 12px 12px 0 0; }
   .journey-step:last-child  { border-radius: 0 0 12px 12px; }
+}
+
+/* Journey timeline responsive */
+@media (max-width: 600px) {
+  .jt-content  { padding: 0 0 28px 14px; gap: 12px; }
+  .jt-icon     { width: 36px; height: 36px; border-radius: 10px; }
+  .jt-icon svg { width: 17px; height: 17px; }
+  .jt-marker   { width: 36px; }
+  .jt-num      { width: 30px; height: 30px; font-size: 10px; }
+  .jt-title    { font-size: 14px; }
 }
