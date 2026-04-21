@@ -525,46 +525,94 @@ a { color: inherit; text-decoration: none; }
 .who-desc  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
 /* ══════════════════════════════════════════════════════
-   QUICK-SCAN PILLS
+   PROFILE TABS
    ══════════════════════════════════════════════════════ */
-.ep-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
 
-.ep-nav-pill {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 9px 16px 9px 10px;
-  background: var(--bg-card); border-radius: 100px;
-  text-decoration: none; color: var(--text-muted);
+/* Wrapper */
+.ep-tabs { margin-bottom: 32px; }
+
+/* Tab bar */
+.ep-tab-bar {
+  display: flex;
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.ep-tab-bar::-webkit-scrollbar { display: none; }
+
+.ep-tab {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 22px;
+  background: transparent; border: none; cursor: pointer;
   font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600;
-  transition: border-color 0.2s, color 0.2s, background 0.2s; outline: none;
+  color: var(--text-muted); white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  position: relative; bottom: -1px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  outline: none;
 }
-.ep-nav-icon {
-  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+.ep-tab:hover { color: var(--text); background: var(--bg-card2); }
+
+.ep-tab-icon {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
 }
-.ep-nav-icon svg { width: 14px; height: 14px; }
-.ep-nav-label { white-space: nowrap; }
+.ep-tab-icon svg { width: 13px; height: 13px; }
 
-/* Per-colour pill variants */
-.ep-nav-pill--purple { border: 1px solid rgba(107,62,245,0.25); }
-.ep-nav-pill--purple:hover,.ep-nav-pill--purple:focus { border-color: rgba(107,62,245,0.5); color: var(--heading); background: rgba(107,62,245,0.08); }
-.ep-nav-icon--purple { background: rgba(107,62,245,0.14); color: #7B52F6; }
-.ep-nav-pill--purple:hover .ep-nav-icon--purple { background: rgba(107,62,245,0.24); }
+/* Per-colour tab active states */
+.ep-tab--purple.ep-tab--active { color: #7B52F6; border-bottom-color: #7B52F6; background: var(--bg-card); }
+.ep-tab--blue.ep-tab--active   { color: #3B6CF5; border-bottom-color: #3B6CF5; background: var(--bg-card); }
+.ep-tab--teal.ep-tab--active   { color: #00B28C; border-bottom-color: #00B28C; background: var(--bg-card); }
 
-.ep-nav-pill--blue { border: 1px solid rgba(59,108,245,0.25); }
-.ep-nav-pill--blue:hover,.ep-nav-pill--blue:focus { border-color: rgba(59,108,245,0.5); color: var(--heading); background: rgba(59,108,245,0.08); }
-.ep-nav-icon--blue { background: rgba(59,108,245,0.14); color: #3B6CF5; }
-.ep-nav-pill--blue:hover .ep-nav-icon--blue { background: rgba(59,108,245,0.24); }
+.ep-tab-icon--purple { background: rgba(107,62,245,0.12); color: #7B52F6; }
+.ep-tab-icon--blue   { background: rgba(59,108,245,0.12);  color: #3B6CF5; }
+.ep-tab-icon--teal   { background: rgba(0,178,140,0.12);   color: #00B28C; }
 
-.ep-nav-pill--teal { border: 1px solid rgba(0,178,140,0.25); }
-.ep-nav-pill--teal:hover,.ep-nav-pill--teal:focus { border-color: rgba(0,178,140,0.5); color: var(--heading); background: rgba(0,178,140,0.08); }
-.ep-nav-icon--teal { background: rgba(0,178,140,0.14); color: #00B28C; }
-.ep-nav-pill--teal:hover .ep-nav-icon--teal { background: rgba(0,178,140,0.24); }
+/* Tab panel area */
+.ep-tab-panels {
+  border: 1px solid var(--border-subtle);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+/* Individual pane — hidden by default */
+.ep-pane {
+  display: none;
+  background: var(--bg-card);
+  animation: ep-fade 0.18s ease;
+}
+.ep-pane--active { display: block; }
+
+@keyframes ep-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Top accent bar inside each pane */
+.ep-pane-bar { height: 3px; }
+.ep--purple .ep-pane-bar { background: linear-gradient(90deg,#6B3EF5,#A882FF); }
+.ep--blue   .ep-pane-bar { background: linear-gradient(90deg,#3B6CF5,#7BA6FF); }
+.ep--teal   .ep-pane-bar { background: linear-gradient(90deg,#00B28C,#5DCAAA); }
+
+/* Soft CTA below tabs */
+.ep-soft-cta {
+  padding: 16px 0 0;
+  text-align: center;
+}
+.ep-soft-cta a {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--text-muted); text-decoration: none;
+  transition: color 0.2s;
+}
+.ep-soft-cta a:hover { color: var(--text); }
+.ep-soft-cta a svg   { width: 13px; height: 13px; }
 
 /* ══════════════════════════════════════════════════════
-   EXPERT PROFILE PANELS
+   EXPERT PROFILE PANELS (anatomy — shared across tabs)
    ══════════════════════════════════════════════════════ */
-.expert-profiles { display: flex; flex-direction: column; gap: 16px; }
+.expert-profiles { display: flex; flex-direction: column; gap: 0; }
 
 .expert-profile {
   background: var(--bg-card);
@@ -767,21 +815,20 @@ a { color: inherit; text-decoration: none; }
 .pricing-btn:hover { background: rgba(107,62,245,0.2); border-color: var(--pa); }
 .pricing-btn svg  { width: 14px; height: 14px; }
 
-/* Responsive */
 @media (max-width: 960px) {
   .ep-header        { padding: 28px 24px 20px; }
   .ep-body          { padding: 0 24px 28px; }
   .redirect-cards   { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .ep-nav-pill      { font-size: 12px; padding: 8px 12px 8px 8px; }
-  .ep-nav-icon      { width: 24px; height: 24px; }
-  .ep-nav-icon svg  { width: 12px; height: 12px; }
+  .ep-tab           { padding: 12px 14px; font-size: 12px; gap: 7px; }
+  .ep-tab-icon      { width: 22px; height: 22px; }
+  .ep-tab-icon svg  { width: 11px; height: 11px; }
   .ep-header        { gap: 14px; padding: 22px 18px 16px; }
   .ep-body          { padding: 0 18px 22px; }
   .ep-title         { font-size: 17px; }
   .redirect-cards   { grid-template-columns: 1fr; }
-  .redir-inner      { padding: 18px 18px; }
+  .redir-inner      { padding: 18px; }
 }
 
 /* What changes */
