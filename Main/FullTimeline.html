@@ -296,28 +296,36 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
   <div class="main">
 
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--purple-mid)" id="stat-weeks">20</div>
-        <div class="stat-label">Total Weeks</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--cyan)" id="stat-tasks">—</div>
-        <div class="stat-label">Total Tasks</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--cyan-dark)" id="stat-done">—</div>
-        <div class="stat-label">Done</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
-        <div class="stat-label">In Progress</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
-        <div class="stat-label">Blocked</div>
-      </div>
-    </div>
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--purple-mid)" id="stat-weeks">20</div>
+    <div class="stat-label">Total Weeks</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--cyan)" id="stat-tasks">—</div>
+    <div class="stat-label">Total Tasks</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
+    <div class="stat-label">In Progress</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--amber)" id="stat-review">—</div>
+    <div class="stat-label">In Review</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--cyan-dark)" id="stat-deployed">—</div>
+    <div class="stat-label">Deployed</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--cyan)" id="stat-done">—</div>
+    <div class="stat-label">Done</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
+    <div class="stat-label">Blocked</div>
+  </div>
+</div>
 
     <!-- Milestones Section: Title + 3 Cards -->
     <div class="milestone-section-title">📌 MILESTONES</div>
@@ -578,11 +586,13 @@ function build(weeks, workstreams, tasks, owners, steps) {
   });
 
   // update stats
-  document.getElementById("stat-tasks").textContent   = tasks.length;
-  document.getElementById("stat-done").textContent    = tasks.filter(t=>t.status==="Done").length;
-  document.getElementById("stat-ip").textContent      = tasks.filter(t=>t.status==="In Progress").length;
-  document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
   document.getElementById("stat-weeks").textContent   = totalWk;
+  document.getElementById("stat-tasks").textContent   = tasks.length;
+  document.getElementById("stat-ip").textContent      = tasks.filter(t=>t.status==="In Progress").length;
+  document.getElementById("stat-review").textContent  = tasks.filter(t=>t.status==="In Review").length;
+  document.getElementById("stat-deployed").textContent= tasks.filter(t=>t.status==="Deployed").length;
+  document.getElementById("stat-done").textContent    = tasks.filter(t=>t.status==="Done").length;
+  document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
   const now = new Date();
   const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
