@@ -692,6 +692,8 @@ a { color: inherit; text-decoration: none; }
   .stat-item { flex: 1 1 30%; border-right: none; border-bottom: 1px solid var(--border-subtle); padding: 16px; }
   .stat-item:last-child { border-bottom: none; }
   .pricing-wrap { flex-direction: column; align-items: flex-start; }
+   .hero-stats {gap: 20px; justify-content: center;}
+  .stat-divider {display: none;}
 }
 @media (max-width: 600px) {
   .page-header { padding: 0 16px; height: 56px; }
@@ -711,6 +713,10 @@ a { color: inherit; text-decoration: none; }
   .launch-inner { padding: 28px 24px; }
   .academy-wrap { padding: 40px 28px; }
   .final-cta { padding: 56px 28px; }
+}
+@media (max-width: 480px) {
+  .hero-stats {flex-direction: column;gap: 12px;}
+  .hero-stat {text-align: center;}
 }
 
 /* FOOTER */
