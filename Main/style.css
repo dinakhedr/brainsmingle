@@ -370,6 +370,15 @@ a { color: inherit; text-decoration: none; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--purple-glow); }
 .btn-primary svg { width: 16px; height: 16px; }
 
+/* Sub‑pages: primary button follows page accent */
+[data-page] .btn-primary {
+  background: var(--pa);
+  box-shadow: 0 4px 24px var(--pa-glow);
+}
+[data-page] .btn-primary:hover {
+  box-shadow: 0 8px 36px var(--pa-glow);
+}
+
 .btn-coral {
   display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
   background: rgba(255,107,107,0.12); color: var(--coral);
