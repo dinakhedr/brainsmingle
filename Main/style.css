@@ -719,3 +719,162 @@ a { color: inherit; text-decoration: none; }
 /* FOOTER */
 .footer { border-top: 1px solid var(--border-subtle); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); max-width: 1100px; margin: 0 auto; }
 .footer a { color: var(--purple-light); }
+
+/* ══════════════════════════════════════════════════════
+   join.html — missing classes (extracted from old CSS)
+   Paste this block at the end of style.css
+   ══════════════════════════════════════════════════════ */
+
+.audience-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:16px }
+
+.audience-card { background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden }
+
+.audience-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity 0.2s }
+
+.audience-card:hover { transform:translateY(-3px) }
+
+.audience-card:hover::before { opacity:1 }
+
+.card-purple::before { background:linear-gradient(90deg,#6B3EF5,#A882FF) }
+
+.card-purple:hover { border-color:rgba(107,62,245,0.35);box-shadow:0 12px 40px rgba(107,62,245,0.22) }
+
+.card-coral::before { background:linear-gradient(90deg,#FF6B6B,#FF9B9B) }
+
+.card-coral:hover { border-color:rgba(255,107,107,0.3);box-shadow:0 12px 40px rgba(255,107,107,0.18) }
+
+.card-pink::before { background:linear-gradient(90deg,#F53E9F,#F57EC4) }
+
+.card-pink:hover { border-color:rgba(245,62,159,0.3);box-shadow:0 12px 40px rgba(245,62,159,0.18) }
+
+.card-amber::before { background:linear-gradient(90deg,#F5A623,#F5C46A) }
+
+.card-amber:hover { border-color:rgba(245,166,35,0.3);box-shadow:0 12px 40px rgba(245,166,35,0.18) }
+
+.card-icon-wrap { width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0 }
+
+.card-purple .card-icon-wrap { background:rgba(107,62,245,0.15);color:var(--purple-light) }
+
+.card-coral .card-icon-wrap { background:rgba(255,107,107,0.12);color:var(--coral) }
+
+.card-pink .card-icon-wrap { background:rgba(245,62,159,0.12);color:var(--pink) }
+
+.card-amber .card-icon-wrap { background:rgba(245,166,35,0.12);color:var(--amber) }
+
+.card-icon-wrap svg { width:22px;height:22px }
+
+.card-title { font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--heading);letter-spacing:-0.2px }
+
+.card-desc { font-size:14px;color:var(--text-muted);line-height:1.6;flex:1 }
+
+.card-cta { display:inline-flex;align-items:center;gap:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;margin-top:4px }
+
+.card-cta svg { width:14px;height:14px;transition:transform 0.2s }
+
+.audience-card:hover .card-cta svg { transform:translateX(3px) }
+
+.card-purple .card-cta { color:var(--purple-light) }
+
+.card-coral .card-cta { color:var(--coral) }
+
+.card-pink .card-cta { color:var(--pink) }
+
+.card-amber .card-cta { color:var(--amber) }
+
+.caps-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:12px }
+
+.cap-card { background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:14px;padding:24px 20px;display:flex;flex-direction:column;gap:10px }
+
+.cap-icon { width:40px;height:40px;border-radius:10px;background:rgba(107,62,245,0.15);display:flex;align-items:center;justify-content:center }
+
+.cap-icon svg { width:20px;height:20px }
+
+.cap-title { font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--heading) }
+
+.cap-desc { font-size:13px;color:var(--text-muted);line-height:1.55 }
+
+.countries-wrap { display:flex;flex-wrap:wrap;gap:8px;margin-top:24px }
+
+.country-pill { font-size:13px;color:var(--text-muted);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:100px;padding:6px 14px }
+
+.country-pill.top { color:var(--text);border-color:rgba(107,62,245,0.3);background:rgba(107,62,245,0.1) }
+
+.proof-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px }
+
+.proof-card { background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px }
+
+.proof-num-lg { font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:var(--cyan);letter-spacing:-1px }
+
+.proof-title { font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--heading) }
+
+.proof-desc { font-size:13px;color:var(--text-muted);line-height:1.6 }
+
+.proof-tag { display:inline-block;font-size:11px;font-weight:700;color:var(--purple-light);background:rgba(107,62,245,0.12);border-radius:100px;padding:4px 10px;align-self:flex-start }
+
+.testimonial-wrap { background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:40px 48px;position:relative;overflow:hidden }
+
+.testimonial-wrap::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pa),var(--pa2)) }
+
+.testimonial-wrap.main::before { background:linear-gradient(90deg,var(--purple),var(--cyan)) }
+
+.quote-mark { font-family:'Montserrat',sans-serif;font-size:80px;line-height:0.8;color:var(--pa);opacity:0.4;margin-bottom:16px;display:block }
+
+.quote-text { font-size:17px;line-height:1.75;color:var(--text);direction:rtl;max-width:760px }
+
+.quote-source { margin-top:20px;font-size:13px;color:var(--text-muted) }
+
+.steps-wrap { display:flex;gap:0;position:relative }
+
+.steps-wrap::before { content:'';position:absolute;top:28px;left:28px;right:28px;height:1px;background:linear-gradient(90deg,var(--purple),var(--cyan));opacity:0.3;z-index:0 }
+
+.step { flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:0 24px;position:relative;z-index:1 }
+
+.step-num { width:56px;height:56px;border-radius:50%;background:var(--bg-card2);border:2px solid var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--cyan);flex-shrink:0 }
+
+.step-title { font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--heading) }
+
+.step-desc { font-size:13px;color:var(--text-muted);line-height:1.6 }
+
+.bottom-cta { background:var(--bottom-cta-bg);border:1px solid var(--border);border-radius:20px;padding:64px 48px;text-align:center }
+
+.bottom-cta h2 { font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--heading);letter-spacing:-1px;margin-bottom:16px }
+
+.bottom-cta p { font-size:16px;color:var(--text-muted);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto }
+
+.cta-cards-row { display:flex;flex-wrap:wrap;gap:12px;justify-content:center }
+
+.cta-btn { display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;transition:transform 0.2s }
+
+.cta-btn:hover { transform:translateY(-2px) }
+
+.cta-purple { background:rgba(107,62,245,0.15);color:var(--purple-light);border:1px solid rgba(107,62,245,0.3) }
+
+.cta-purple:hover { background:rgba(107,62,245,0.25) }
+
+.cta-coral { background:rgba(255,107,107,0.12);color:var(--coral);border:1px solid rgba(255,107,107,0.3) }
+
+.cta-coral:hover { background:rgba(255,107,107,0.22) }
+
+.cta-pink { background:rgba(245,62,159,0.12);color:var(--pink);border:1px solid rgba(245,62,159,0.3) }
+
+.cta-pink:hover { background:rgba(245,62,159,0.22) }
+
+.cta-amber { background:rgba(245,166,35,0.12);color:var(--amber);border:1px solid rgba(245,166,35,0.3) }
+
+.cta-amber:hover { background:rgba(245,166,35,0.22) }
+
+@media (max-width:960px){
+  .audience-grid { grid-template-columns:repeat(2,1fr) }
+  .caps-grid { grid-template-columns:1fr 1fr }
+  .proof-grid { grid-template-columns:1fr }
+  .steps-wrap { flex-direction:column;gap:24px }
+  .steps-wrap::before { display:none }
+  .testimonial-wrap { padding:28px 24px }
+  .bottom-cta { padding:40px 24px }
+}
+
+@media (max-width:600px){
+  .audience-grid { grid-template-columns:1fr }
+  .caps-grid { grid-template-columns:1fr }
+  .cta-cards-row { flex-direction:column;align-items:center }
+}
