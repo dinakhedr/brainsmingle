@@ -396,67 +396,81 @@ function esc(s) {
   return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Parse a date string like "Apr 19" using the CURRENT YEAR (from system clock)
-function parseWeekDate(dateStr) {
+// Convert a month-day string like "Apr 19" to { month, day } (month 0-11)
+function parseMonthDay(dateStr) {
   if (!dateStr) return null;
   const s = dateStr.trim();
-  // try parsing as full date (e.g., "Apr 19, 2026")
-  let d = new Date(s);
-  if (!isNaN(d.getTime())) return d;
-  // otherwise append current year
-  const currentYear = new Date().getFullYear();
-  d = new Date(s + ", " + currentYear);
-  if (!isNaN(d.getTime())) return d;
-  return null;
+  // try parsing as full date (ignores year)
+  const d = new Date(s);
+  if (!isNaN(d.getTime())) {
+    return { month: d.getMonth(), day: d.getDate() };
+  }
+  // fallback: manual parse "Apr 19"
+  const parts = s.split(/\s+/);
+  if (parts.length < 2) return null;
+  const monthMap = { "jan":0,"feb":1,"mar":2,"apr":3,"may":4,"jun":5,"jul":6,"aug":7,"sep":8,"oct":9,"nov":10,"dec":11 };
+  const monthStr = parts[0].toLowerCase().slice(0,3);
+  const month = monthMap[monthStr];
+  if (month === undefined) return null;
+  const day = parseInt(parts[1], 10);
+  if (isNaN(day)) return null;
+  return { month, day };
 }
 
-// Dynamically determine current week index based on today's date
-// Rules: 
-// - If today is inside a week (start <= today <= end) -> that week
-// - If today is between two weeks (after end of week N, before start of week N+1) -> week N
-// - If before first week -> first week
-// - If after last week -> last week
+// Get numeric day-of-year (1-366) ignoring year
+function dayOfYear(month, day) {
+  const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+  let doy = 0;
+  for (let i = 0; i < month; i++) doy += daysInMonth[i];
+  doy += day;
+  return doy;
+}
+
+// Dynamically determine current week using month-day comparison (year-agnostic)
 function getCurrentWeekIndex(weeks) {
   if (!weeks || weeks.length === 0) return -1;
-  const today = new Date();
-  today.setHours(0,0,0,0);
   
-  // Convert each week to date objects (using current year)
+  const today = new Date();
+  const todayDOY = dayOfYear(today.getMonth(), today.getDate());
+  
+  // Convert each week to start/end DOY
   const weekData = weeks.map((wk, idx) => {
-    let start = parseWeekDate(wk.date_start);
-    let end = parseWeekDate(wk.date_end);
-    if (!start || !end) return { idx, start: null, end: null };
-    return { idx, start, end };
-  }).filter(w => w.start && w.end);
+    const startMD = parseMonthDay(wk.date_start);
+    const endMD = parseMonthDay(wk.date_end);
+    if (!startMD || !endMD) return null;
+    const startDOY = dayOfYear(startMD.month, startMD.day);
+    let endDOY = dayOfYear(endMD.month, endMD.day);
+    // If endDOY < startDOY (e.g., crosses year boundary), but our weeks don't – still handle gracefully
+    return { idx, startDOY, endDOY };
+  }).filter(w => w !== null);
   
   if (weekData.length === 0) return -1;
   
-  // Sort by start date just in case
-  weekData.sort((a,b) => a.start - b.start);
+  // Sort by startDOY (assuming weeks are in order)
+  weekData.sort((a,b) => a.startDOY - b.startDOY);
   
-  // Check exact week containment
+  // Check exact containment
   for (let w of weekData) {
-    if (today >= w.start && today <= w.end) return w.idx;
+    if (todayDOY >= w.startDOY && todayDOY <= w.endDOY) return w.idx;
   }
   
-  // If today is before first week's start -> return first week
+  // Before first week
   const first = weekData[0];
-  if (today < first.start) return first.idx;
+  if (todayDOY < first.startDOY) return first.idx;
   
-  // If today is after last week's end -> return last week
+  // After last week
   const last = weekData[weekData.length-1];
-  if (today > last.end) return last.idx;
+  if (todayDOY > last.endDOY) return last.idx;
   
-  // Today is in a gap between weeks: find the week whose end is before today and next week's start after today
+  // Between two weeks – belongs to previous week
   for (let i = 0; i < weekData.length - 1; i++) {
     const curr = weekData[i];
     const next = weekData[i+1];
-    if (today > curr.end && today < next.start) {
-      return curr.idx; // belongs to previous week
+    if (todayDOY > curr.endDOY && todayDOY < next.startDOY) {
+      return curr.idx;
     }
   }
   
-  // fallback: first week
   return first.idx;
 }
 
@@ -547,7 +561,7 @@ function renderMilestoneCards() {
   }).join("");
 }
 
-// ── BUILD TIMELINE (dynamic current week) ────────────────────────────────
+// ── BUILD TIMELINE (dynamic current week, year-agnostic) ────────────────
 let currentWeeksData = [];
 
 function build(weeks, workstreams, tasks, owners, steps) {
@@ -555,7 +569,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
   buildStepLabels(steps);
   currentWeeksData = weeks;
   
-  // --- DYNAMIC CURRENT WEEK (using current year for dates) ---
+  // --- DYNAMIC CURRENT WEEK (month-day comparison) ---
   const currentWeekIndex = getCurrentWeekIndex(weeks);
   
   const totalWk = weeks.length;
