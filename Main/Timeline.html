@@ -129,6 +129,11 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .tl-hcell.wk-current { color:var(--purple-mid); background:rgba(107,62,245,0.12) !important; border-bottom:2px solid var(--purple-mid); }
 .tl-hcell.wk-milestone { color:var(--pink); }
 
+/* current column background (light purple) */
+.current-col-cell {
+  background: rgba(107,62,245,0.08) !important;
+}
+
 .ws-label-cell { background:var(--bg2); display:flex; align-items:stretch; }
 .ws-toggle {
   display:flex; align-items:center; gap:8px; padding:9px 12px;
@@ -282,7 +287,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
     <!-- Milestones Section: Title + 3 Cards -->
     <div class="milestone-section-title">📌 MILESTONES</div>
     <div class="milestone-cards-row" id="milestoneCardsRow">
-      <!-- cards injected dynamically but static content also pre-defined; we'll override with dynamic but keep fallback -->
+      <!-- cards injected dynamically -->
     </div>
 
     <div id="plan-container"></div>
@@ -322,7 +327,6 @@ const STEP_META = {
   "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:false },
   "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:false },
 };
-// STEP_LABELS is now built dynamically from the Steps sheet
 let STEP_LABELS = {
   "Step 1":"Establish Credibility",
   "Step 2":"Activate the Market",
@@ -392,22 +396,78 @@ function esc(s) {
   return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// ownerMap is built at runtime from the Owners sheet
-// key: normalized display_name → { color: hex, bg: hex with alpha }
+// Parse a date string like "Apr 20", "Apr 20, 2025", "May 1 2025"
+function parseWeekDate(dateStr, defaultYear = 2025) {
+  if (!dateStr) return null;
+  const s = dateStr.trim();
+  // try parsing as full date
+  let d = new Date(s);
+  if (!isNaN(d.getTime())) return d;
+  // try adding default year
+  d = new Date(s + ", " + defaultYear);
+  if (!isNaN(d.getTime())) return d;
+  // fallback
+  return null;
+}
+
+// Dynamically determine current week index based on today's date
+// Rules: 
+// - If today is inside a week (start <= today <= end) -> that week
+// - If today is between two weeks (after end of week N, before start of week N+1) -> week N
+// - If before first week -> first week
+// - If after last week -> last week
+function getCurrentWeekIndex(weeks) {
+  if (!weeks || weeks.length === 0) return -1;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  
+  // Convert each week to date objects
+  const weekData = weeks.map((wk, idx) => {
+    let start = parseWeekDate(wk.date_start);
+    let end = parseWeekDate(wk.date_end);
+    if (!start || !end) return { idx, start: null, end: null };
+    return { idx, start, end };
+  }).filter(w => w.start && w.end);
+  
+  if (weekData.length === 0) return -1;
+  
+  // Check exact week containment
+  for (let w of weekData) {
+    if (today >= w.start && today <= w.end) return w.idx;
+  }
+  
+  // If today is before first week's start -> return first week
+  const first = weekData[0];
+  if (today < first.start) return first.idx;
+  
+  // If today is after last week's end -> return last week
+  const last = weekData[weekData.length-1];
+  if (today > last.end) return last.idx;
+  
+  // Today is in a gap between weeks: find the week whose end is before today and next week's start after today
+  for (let i = 0; i < weekData.length - 1; i++) {
+    const curr = weekData[i];
+    const next = weekData[i+1];
+    if (today > curr.end && today < next.start) {
+      return curr.idx; // belongs to previous week
+    }
+  }
+  
+  // fallback: first week
+  return first.idx;
+}
+
 let ownerMap = {};
 
 function buildOwnerMap(owners) {
   ownerMap = {};
   owners.forEach(row => {
-    // Normalize sheet column names defensively (trim + lowercase)
     const norm = {};
     Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
-
     const ownerId   = norm["owner_id"]    || norm["ownerid"]    || "";
     const name      = norm["display_name"]|| norm["displayname"]|| norm["name"] || "";
     const hex       = (norm["color_hex"]  || norm["colorhex"]   || norm["color"] || "888888").replace("#","");
     if (!name && !ownerId) return;
-
     const r = parseInt(hex.slice(0,2),16) || 136;
     const g = parseInt(hex.slice(2,4),16) || 136;
     const b = parseInt(hex.slice(4,6),16) || 136;
@@ -416,19 +476,13 @@ function buildOwnerMap(owners) {
       bg:    "rgba(" + r + "," + g + "," + b + ",0.18)",
       label: name || ownerId,
     };
-
-    // Register under multiple keys so any variation in Tasks sheet will match:
-    // 1. normalized display_name  e.g. "platformteam"
-    // 2. owner_id as-is           e.g. "platform"
-    // 3. first word of name       e.g. "platform"
-    // 4. full name lowercase      e.g. "platform team"
     const keys = new Set();
     if (name)    keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
     if (name)    keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
     if (name)    keys.add(name.toLowerCase().split(/\s/)[0]);
-    if (name)    keys.add(name.trim());                      // exact display_name e.g. "Dina"
-    if (ownerId) keys.add(ownerId.trim());                   // exact owner_id e.g. "dina"
-    if (ownerId) keys.add(ownerId.toLowerCase().trim());     // lowercase owner_id
+    if (name)    keys.add(name.trim());
+    if (ownerId) keys.add(ownerId.trim());
+    if (ownerId) keys.add(ownerId.toLowerCase().trim());
     keys.forEach(k => { if (k) ownerMap[k] = entry; });
   });
 }
@@ -438,12 +492,11 @@ function ownerBadges(str) {
   return str.split("|").map(o => {
     const raw = o.trim();
     if (!raw) return "";
-    // Try keys in order of specificity
     const attempts = [
-      raw,                                          // exact as-is: "dina"
-      raw.toLowerCase(),                            // lowercase: "dina"
-      raw.toLowerCase().replace(/[\s\/\-]+/g,""), // no spaces/slashes: "platformteam"
-      raw.toLowerCase().split(/\s+/)[0],           // first word: "platform"
+      raw,
+      raw.toLowerCase(),
+      raw.toLowerCase().replace(/[\s\/\-]+/g,""),
+      raw.toLowerCase().split(/\s+/)[0],
     ];
     let match = null;
     for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
@@ -472,7 +525,6 @@ function formatNotes(notes) {
     '<span class="dep-tag">$1</span>');
 }
 
-// Render milestone cards (static but step-colored)
 function renderMilestoneCards() {
   const container = document.getElementById("milestoneCardsRow");
   if (!container) return;
@@ -492,20 +544,23 @@ function renderMilestoneCards() {
   }).join("");
 }
 
-// ── BUILD TIMELINE ─────────────────────────────────────────────────────────
-let currentWeeksData = []; // store for potential re-navigation
+// ── BUILD TIMELINE (dynamic current week) ────────────────────────────────
+let currentWeeksData = [];
 
 function build(weeks, workstreams, tasks, owners, steps) {
   buildOwnerMap(owners);
   buildStepLabels(steps);
   currentWeeksData = weeks;
+  
+  // --- DYNAMIC CURRENT WEEK ---
+  const currentWeekIndex = getCurrentWeekIndex(weeks);
+  
   const totalWk = weeks.length;
   const LABEL_W = "220px";
   const gridCols = `${LABEL_W} repeat(${totalWk}, 1fr)`;
 
   const tasksByWs = {};
   tasks.forEach(t => {
-    // Join on workstream_name (Tasks sheet no longer has workstream_id)
     const wsKey = (t.workstream_name || "").trim();
     if (!tasksByWs[wsKey]) tasksByWs[wsKey] = [];
     tasksByWs[wsKey].push(t);
@@ -519,15 +574,14 @@ function build(weeks, workstreams, tasks, owners, steps) {
     wsByStep[s].push(ws);
   });
 
-  // update stats
-  document.getElementById("stat-weeks").textContent   = totalWk;
-  document.getElementById("stat-tasks").textContent   = tasks.length;
-  document.getElementById("stat-ip").textContent      = tasks.filter(t=>t.status==="In Progress").length;
-  document.getElementById("stat-review").textContent  = tasks.filter(t=>t.status==="In Review").length;
-  document.getElementById("stat-deployed").textContent= tasks.filter(t=>t.status==="Deployed").length;
-  document.getElementById("stat-done").textContent    = tasks.filter(t=>t.status==="Done").length;
+  // stats
+  document.getElementById("stat-weeks").textContent = totalWk;
+  document.getElementById("stat-tasks").textContent = tasks.length;
+  document.getElementById("stat-ip").textContent = tasks.filter(t=>t.status==="In Progress").length;
+  document.getElementById("stat-review").textContent = tasks.filter(t=>t.status==="In Review").length;
+  document.getElementById("stat-deployed").textContent = tasks.filter(t=>t.status==="Deployed").length;
+  document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
   document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
-  
 
   const now = new Date();
   const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
@@ -544,7 +598,6 @@ function build(weeks, workstreams, tasks, owners, steps) {
     if (!wsList || !wsList.length) return;
     const meta = STEP_META[step] || {};
 
-    // Section header with id for smooth scroll
     const sh = document.createElement("div");
     sh.className = "section-header";
     sh.id = `section-${step.replace(/ /g, "")}`;
@@ -565,10 +618,10 @@ function build(weeks, workstreams, tasks, owners, steps) {
     // Header row
     const corner = makeEl("div","tl-hcell corner","Workstream");
     grid.appendChild(corner);
-    weeks.forEach(wk => {
-      const isCur = wk.is_current === "TRUE";
+    weeks.forEach((wk, idx) => {
+      const isCur = (idx === currentWeekIndex);
       const isMil = wk.is_milestone_week === "TRUE";
-      const h = makeEl("div", "tl-hcell" + (isCur?" wk-current":"") + (isMil?" wk-milestone":""));
+      const h = makeEl("div", "tl-hcell" + (isCur ? " wk-current" : "") + (isMil ? " wk-milestone" : ""));
       if (isCur) {
         h.innerHTML = `
           <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
@@ -587,7 +640,6 @@ function build(weeks, workstreams, tasks, owners, steps) {
       const wsName = (ws.workstream_name || "").trim();
       const wsTasks = (tasksByWs[wsName] || tasksByWs[wsId] || []).slice().sort((a,b) => wn(a.week_start)-wn(b.week_start));
       const color = ws.bar_color || "gray";
-      // Derive Gantt range dynamically from tasks — min week_start to max week_end
       const taskWeekNums = wsTasks.flatMap(t => [wn(t.week_start), wn(t.week_end)]).filter(n => n > 0);
       const startN = taskWeekNums.length ? Math.min(...taskWeekNums) : wn(ws.gantt_start_week);
       const endN   = taskWeekNums.length ? Math.max(...taskWeekNums) : wn(ws.gantt_end_week);
@@ -608,19 +660,24 @@ function build(weeks, workstreams, tasks, owners, steps) {
       lc.appendChild(btn);
       grid.appendChild(lc);
 
-      weeks.forEach(wk => {
+      weeks.forEach((wk, idx) => {
         const n = wn(wk.week_id);
         const ms = milestones.find(t => wn(t.week_end) === n);
+        const isCurCol = (idx === currentWeekIndex);
         if (ms) {
           const mc = makeEl("div","milestone-cell tl-cell");
+          if (isCurCol) mc.classList.add("current-col-cell");
           mc.innerHTML = `<div class="milestone-flag"><div class="milestone-diamond"></div><div class="milestone-lbl">${esc(ms.milestone_label)}</div></div>`;
           grid.appendChild(mc);
         } else if (n >= startN && n <= endN) {
           const bc = makeEl("div","bar-cell tl-cell");
+          if (isCurCol) bc.classList.add("current-col-cell");
           bc.innerHTML = `<div class="bar-inner ${color}"></div>`;
           grid.appendChild(bc);
         } else {
-          grid.appendChild(makeEl("div","tl-cell"));
+          const emptyCell = makeEl("div","tl-cell");
+          if (isCurCol) emptyCell.classList.add("current-col-cell");
+          grid.appendChild(emptyCell);
         }
       });
 
@@ -674,14 +731,12 @@ function toggleDetail(wsId) {
   icon.textContent = open ? "▼" : "▶";
 }
 
-// smooth scroll to step section
 function scrollToStep(step) {
   const sectionId = `section-${step.replace(/ /g, "")}`;
   const element = document.getElementById(sectionId);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
   } else {
-    // fallback: just scroll to plan container
     document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
   }
 }
@@ -690,7 +745,6 @@ function scrollToStep(step) {
 async function refreshData() {
   const loadingDiv = document.getElementById("loading");
   const appDiv = document.getElementById("app");
-  // show loading overlay temporarily
   if (loadingDiv) loadingDiv.classList.remove("hidden");
   if (appDiv) appDiv.style.display = "none";
   
@@ -722,7 +776,7 @@ async function refreshData() {
   }
 }
 
-// ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────────────
 async function init() {
   try {
     const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
@@ -737,7 +791,6 @@ async function init() {
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("app").style.display = "block";
 
-    // Full Timeline button
     const fullTimelineBtn = document.getElementById("fullTimelineButton");
     if (fullTimelineBtn) {
       fullTimelineBtn.addEventListener("click", () => {
@@ -745,11 +798,9 @@ async function init() {
       });
     }
     
-    // Refresh button
     const refreshBtn = document.getElementById("refreshButton");
     if (refreshBtn) refreshBtn.addEventListener("click", refreshData);
     
-    // Step navigation: click on step badges
     const stepBadges = document.querySelectorAll("#stepsBar .step-badge");
     stepBadges.forEach(badge => {
       const stepName = badge.getAttribute("data-step");
