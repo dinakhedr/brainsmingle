@@ -129,7 +129,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .tl-hcell.wk-current { color:var(--purple-mid); background:rgba(107,62,245,0.12) !important; border-bottom:2px solid var(--purple-mid); }
 .tl-hcell.wk-milestone { color:var(--pink); }
 
-/* current column background (light purple) */
+/* current column background (very light purple) */
 .current-col-cell {
   background: rgba(107,62,245,0.08) !important;
 }
@@ -396,17 +396,17 @@ function esc(s) {
   return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Parse a date string like "Apr 20", "Apr 20, 2025", "May 1 2025"
-function parseWeekDate(dateStr, defaultYear = 2025) {
+// Parse a date string like "Apr 19" using the CURRENT YEAR (from system clock)
+function parseWeekDate(dateStr) {
   if (!dateStr) return null;
   const s = dateStr.trim();
-  // try parsing as full date
+  // try parsing as full date (e.g., "Apr 19, 2026")
   let d = new Date(s);
   if (!isNaN(d.getTime())) return d;
-  // try adding default year
-  d = new Date(s + ", " + defaultYear);
+  // otherwise append current year
+  const currentYear = new Date().getFullYear();
+  d = new Date(s + ", " + currentYear);
   if (!isNaN(d.getTime())) return d;
-  // fallback
   return null;
 }
 
@@ -421,7 +421,7 @@ function getCurrentWeekIndex(weeks) {
   const today = new Date();
   today.setHours(0,0,0,0);
   
-  // Convert each week to date objects
+  // Convert each week to date objects (using current year)
   const weekData = weeks.map((wk, idx) => {
     let start = parseWeekDate(wk.date_start);
     let end = parseWeekDate(wk.date_end);
@@ -430,6 +430,9 @@ function getCurrentWeekIndex(weeks) {
   }).filter(w => w.start && w.end);
   
   if (weekData.length === 0) return -1;
+  
+  // Sort by start date just in case
+  weekData.sort((a,b) => a.start - b.start);
   
   // Check exact week containment
   for (let w of weekData) {
@@ -552,7 +555,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
   buildStepLabels(steps);
   currentWeeksData = weeks;
   
-  // --- DYNAMIC CURRENT WEEK ---
+  // --- DYNAMIC CURRENT WEEK (using current year for dates) ---
   const currentWeekIndex = getCurrentWeekIndex(weeks);
   
   const totalWk = weeks.length;
