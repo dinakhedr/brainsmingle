@@ -57,11 +57,16 @@
         .logo-img { height: 38px; width: auto; display: block; }
         .header-sub { font-family: var(--fh); font-size: 11px; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
         .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .meta-pill {font-family: var(--fh); font-size: 11px; font-weight: 600;padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);}
+        .meta-pill {
+            font-family: var(--fh); font-size: 11px; font-weight: 600;
+            padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);
+        }
         .meta-pill.summit { border-color: var(--amber); color: var(--amber); }
         .meta-pill.updated { color: var(--text3); font-weight: 400; }
-        .meta-pill.live {border-color: var(--cyan-dark); color: var(--cyan);animation: livePulse 2s ease-in-out infinite;}
-        
+        .meta-pill.live {
+            border-color: var(--cyan-dark); color: var(--cyan);
+            animation: livePulse 2s ease-in-out infinite;
+        }
         @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
         .refresh-btn {
             background: var(--bg3); border: 1px solid var(--purple-mid); color: var(--purple-mid);
@@ -101,9 +106,7 @@
         .stat-value { font-family: var(--fh); font-size: 24px; font-weight: 700; line-height: 1; }
         .stat-label { font-family: var(--fh); font-size: 10px; color: var(--text3); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; }
 
-        .section-header {
-            display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; scroll-margin-top: 20px;
-        }
+        .section-header { display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; scroll-margin-top: 20px; }
         .section-header:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .section-title {
@@ -112,7 +115,6 @@
         .section-deadline { font-size: 11px; color: var(--text3); margin-left: auto; }
         .section-deadline.urgent { color: var(--pink); }
 
-        /* Workstream filter */
         .section-filter {
             display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
             background: var(--bg3); border-radius: 6px; padding: 6px 12px;
@@ -136,15 +138,17 @@
         }
         .tl-grid { display: grid; gap: 1px; background: var(--border); min-width: 900px; }
 
+        /* ───── HEADER CELLS (no horizontal sticky, only vertical) ───── */
         .tl-hcell {
             background: var(--bg3); padding: 6px 3px; text-align: center;
             font-family: var(--fh); font-size: 10px; color: var(--text3); line-height: 1.3;
-            position: sticky; top: 0; z-index: 2;
+            position: sticky; top: 0; z-index: 2;   /* only sticks to top */
         }
         .tl-hcell.corner {
             text-align: left; padding-left: 12px; font-weight: 700; font-size: 10px;
             letter-spacing: .06em; text-transform: uppercase; color: var(--text2);
-            background: var(--bg3); position: sticky; left: 0; z-index: 3;
+            background: var(--bg3);
+            position: sticky; top: 0; z-index: 2;   /* same vertical sticky, no left stick */
         }
         .tl-hcell.wk-current {
             color: var(--purple-mid); background: rgba(107, 62, 245, 0.18) !important;
@@ -179,7 +183,6 @@
             font-family: var(--fh); font-weight: 600; font-size: 11px; color: var(--text2);
             letter-spacing: .02em; gap: 6px; padding-left: 12px;
         }
-        /* No dot, just text */
         .task-label-cell.task-desc-cell {
             font-family: var(--fb); font-size: 11px; color: var(--text);
             line-height: 1.4; white-space: normal; word-break: break-word;
@@ -191,9 +194,7 @@
             display: flex; align-items: center; justify-content: center;
             padding: 0 3px; min-height: 38px; border-bottom: 1px solid var(--border);
         }
-        .task-bar-inner {
-            height: 16px; width: 100%; border-radius: 3px; background: transparent;
-        }
+        .task-bar-inner { height: 16px; width: 100%; border-radius: 3px; background: transparent; }
         .task-bar-inner.purple { background: var(--purple); opacity: .82; }
         .task-bar-inner.cyan { background: var(--cyan-dark); opacity: .82; }
         .task-bar-inner.blue { background: var(--blue); opacity: .82; }
@@ -311,14 +312,20 @@
 
     </div>
 
-  <div class="legend">
-    <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Preparation</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach Engine</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Verticals launch</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Virtual Summit</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div> Step 4 - Acquisition & Post-Summit</div>
-    <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
-  </div>
+    <div class="legend">
+        <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Prep</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Vertical Launch</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Summit</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div>Step 4 — Reveal</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--bg4);border:1px solid var(--border2)"></div>Ongoing / Uncategorized</div>
+        <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
+        <div style="width:1px;background:var(--border2);margin:0 4px"></div>
+        <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#5A5A88"></div>Not Started</div>
+        <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#6B3EF5"></div>In Progress</div>
+        <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#00B882"></div>Done / Deployed</div>
+        <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#E53E3E"></div>Blocked</div>
+    </div>
 
     <div class="footer">
         <span>BrainsMingle GTM Project Plan · Confidential</span>
@@ -400,7 +407,6 @@
     function wn(wid) { return parseInt((wid||"W0").replace("W",""), 10); }
     function esc(s) { return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
-    // ── DATE HELPERS FOR CURRENT WEEK ──
     function parseMonthDay(dateStr) {
         if (!dateStr) return null;
         const s = dateStr.trim();
@@ -454,7 +460,6 @@
         return first.idx;
     }
 
-    // ── OWNER MAP ──
     let ownerMap = {};
     function buildOwnerMap(owners) {
         ownerMap = {};
@@ -503,9 +508,6 @@
         return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
     }
 
-    // ── BUILD (with filter and no dot) ──
-    let currentWeeksData = [];
-
     function build(weeks, workstreams, tasks, owners, steps) {
         buildOwnerMap(owners);
         buildStepLabels(steps);
@@ -514,8 +516,9 @@
         const currentWeekIndex = getCurrentWeekIndex(weeks);
         const totalWk = weeks.length;
 
+        // Reduced column widths – Status now comfortably fits
         const COL_WS = "140px";
-        const COL_TASK = "180px";   // slightly reduced
+        const COL_TASK = "170px";
         const COL_OWNER = "105px";
         const COL_STATUS = "80px";
         const gridCols = `${COL_WS} ${COL_TASK} ${COL_OWNER} ${COL_STATUS} repeat(${totalWk}, 1fr)`;
@@ -559,7 +562,6 @@
             if (!wsList || !wsList.length) return;
             const meta = STEP_META[step] || {};
 
-            // Section header
             const sh = document.createElement("div");
             sh.className = "section-header";
             sh.id = `section-${step.replace(/ /g, "")}`;
@@ -569,7 +571,6 @@
                 <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
             container.appendChild(sh);
 
-            // ---- FILTER DROPDOWN ----
             const filterDiv = document.createElement("div");
             filterDiv.className = "section-filter";
             const filterId = `filter-${step.replace(/\s/g,"")}`;
@@ -580,7 +581,6 @@
                 </select>`;
             container.appendChild(filterDiv);
 
-            // Populate filter options
             const selectEl = filterDiv.querySelector("select");
             const seenNames = new Set();
             wsList.forEach(ws => {
@@ -594,7 +594,6 @@
                 }
             });
 
-            // ---- TIMELINE BLOCK ----
             const block = document.createElement("div");
             block.className = "timeline-block";
             const grid = document.createElement("div");
@@ -602,7 +601,7 @@
             grid.style.gridTemplateColumns = gridCols;
             block.appendChild(grid);
 
-            // Header cells
+            // Header cells – no left sticky
             grid.appendChild(makeEl("div","tl-hcell corner","Workstream"));
             grid.appendChild(makeEl("div","tl-hcell corner","Task"));
             grid.appendChild(makeEl("div","tl-hcell corner","Owner"));
@@ -624,7 +623,6 @@
                 grid.appendChild(h);
             });
 
-            // Task rows
             let globalTaskIndex = 0;
             wsList.forEach(ws => {
                 const wsName = (ws.workstream_name || "").trim();
@@ -646,15 +644,13 @@
 
                     const wrapper = document.createElement("div");
                     wrapper.className = `task-row-flat ${statusCls} ${rowParity}`;
-                    wrapper.dataset.wsName = wsName;   // for filtering
+                    wrapper.dataset.wsName = wsName;
 
-                    // Workstream cell (no dot)
                     const wsCell = document.createElement("div");
                     wsCell.className = "task-label-cell ws-name-cell";
                     wsCell.textContent = wsName;
                     wrapper.appendChild(wsCell);
 
-                    // Task cell
                     const taskCell = document.createElement("div");
                     taskCell.className = "task-label-cell task-desc-cell";
                     taskCell.textContent = t.task || "";
@@ -665,19 +661,16 @@
                     }
                     wrapper.appendChild(taskCell);
 
-                    // Owner cell
                     const ownerCell = document.createElement("div");
                     ownerCell.className = "task-label-cell owner-cell";
                     ownerCell.innerHTML = taskOwnerBadges(t.owner);
                     wrapper.appendChild(ownerCell);
 
-                    // Status cell
                     const statusCell = document.createElement("div");
                     statusCell.className = "task-label-cell status-cell";
                     statusCell.innerHTML = statusBadge(t.status);
                     wrapper.appendChild(statusCell);
 
-                    // Gantt cells
                     weeks.forEach((wk, idx) => {
                         const n = wn(wk.week_id);
                         const isCurCol = (idx === currentWeekIndex);
@@ -706,7 +699,6 @@
 
             container.appendChild(block);
 
-            // ---- FILTER LOGIC ----
             selectEl.addEventListener("change", (e) => {
                 const selected = e.target.value;
                 const allRows = block.querySelectorAll(".task-row-flat");
