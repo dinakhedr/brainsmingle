@@ -456,7 +456,7 @@ img { display: block; max-width: 100%; }
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
   font-weight: 900;
-  color: var(--purple);
+  color: var(--cyan);
   display: block;
   line-height: 1;
   margin-bottom: 6px;
@@ -469,7 +469,20 @@ img { display: block; max-width: 100%; }
   letter-spacing: .04em;
   text-transform: uppercase;
 }
+/* Stats strip icons */
+.stat-icon {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
 
+.stat-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--cyan);
+  stroke: currentColor;
+  fill: none;
+}
 /* ── CTA CARDS ROW ───────────────────────────── */
 .bottom-cta { text-align: center; }
 .bottom-cta h2 {
