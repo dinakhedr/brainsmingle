@@ -57,16 +57,11 @@
         .logo-img { height: 38px; width: auto; display: block; }
         .header-sub { font-family: var(--fh); font-size: 11px; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
         .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .meta-pill {
-            font-family: var(--fh); font-size: 11px; font-weight: 600;
-            padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);
-        }
+        .meta-pill {font-family: var(--fh); font-size: 11px; font-weight: 600;padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);}
         .meta-pill.summit { border-color: var(--amber); color: var(--amber); }
         .meta-pill.updated { color: var(--text3); font-weight: 400; }
-        .meta-pill.live {
-            border-color: var(--cyan-dark); color: var(--cyan);
-            animation: livePulse 2s ease-in-out infinite;
-        }
+        .meta-pill.live {border-color: var(--cyan-dark); color: var(--cyan);animation: livePulse 2s ease-in-out infinite;}
+        
         @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
         .refresh-btn {
             background: var(--bg3); border: 1px solid var(--purple-mid); color: var(--purple-mid);
