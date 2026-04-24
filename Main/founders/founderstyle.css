@@ -100,7 +100,7 @@ img { display: block; max-width: 100%; }
   transition: color .2s, background .2s;
 }
 .nav-link:hover { color: var(--text); background: var(--bg3); }
-.nav-link.active { color: var(--cyan); }
+.nav-link.active { color: var(--purple); }
 
 .header-right { display: flex; align-items: center; gap: 10px; }
 
