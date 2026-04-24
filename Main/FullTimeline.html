@@ -116,9 +116,9 @@
         .section-deadline.urgent { color: var(--pink); }
 
         .section-filter {
-            display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
             background: var(--bg3); border-radius: 6px; padding: 6px 12px;
-            border: 1px solid var(--border);
+            border: 1px solid var(--border); flex-wrap: wrap;
         }
         .section-filter label {
             font-family: var(--fh); font-size: 10px; font-weight: 600;
@@ -127,9 +127,15 @@
         .section-filter select {
             background: var(--bg4); border: 1px solid var(--border2); border-radius: 4px;
             color: var(--text); font-family: var(--fb); font-size: 12px; padding: 3px 8px;
-            cursor: pointer; outline: none; min-width: 140px;
+            cursor: pointer; outline: none; min-width: 120px;
         }
         .section-filter select:hover { border-color: var(--purple-mid); }
+        .clear-filters-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border2); border-radius: 4px;
+            color: var(--text3); font-family: var(--fh); font-size: 10px; font-weight: 600;
+            padding: 4px 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .clear-filters-btn:hover { border-color: var(--pink); color: var(--pink); }
 
         .timeline-block {
             background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
@@ -138,17 +144,16 @@
         }
         .tl-grid { display: grid; gap: 1px; background: var(--border); min-width: 900px; }
 
-        /* ───── HEADER CELLS (no horizontal sticky, only vertical) ───── */
         .tl-hcell {
             background: var(--bg3); padding: 6px 3px; text-align: center;
             font-family: var(--fh); font-size: 10px; color: var(--text3); line-height: 1.3;
-            position: sticky; top: 0; z-index: 2;   /* only sticks to top */
+            position: sticky; top: 0; z-index: 2;
         }
         .tl-hcell.corner {
             text-align: left; padding-left: 12px; font-weight: 700; font-size: 10px;
             letter-spacing: .06em; text-transform: uppercase; color: var(--text2);
             background: var(--bg3);
-            position: sticky; top: 0; z-index: 2;   /* same vertical sticky, no left stick */
+            position: sticky; top: 0; z-index: 2;
         }
         .tl-hcell.wk-current {
             color: var(--purple-mid); background: rgba(107, 62, 245, 0.18) !important;
@@ -369,6 +374,7 @@
         });
     }
     const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
+    const STATUS_OPTIONS = ["All","Not Started","In Progress","In Review","Deployed","Done","Blocked"];
 
     async function fetchCSV(gid) {
         const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
@@ -508,6 +514,35 @@
         return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
     }
 
+    // ---- FILTERING HELPERS ----
+    function getOwnerListFromRow(row) {
+        // Extract owner names from data attribute (comma separated)
+        return (row.dataset.ownerNames || '').split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    function applyFilters(gridElement, wsSelect, ownerSelect, statusSelect) {
+        const selectedWS = wsSelect.value;
+        const selectedOwner = ownerSelect.value;
+        const selectedStatus = statusSelect.value;
+        const rows = gridElement.querySelectorAll(".task-row-flat");
+        rows.forEach(row => {
+            let show = true;
+            if (selectedWS !== "All" && row.dataset.wsName !== selectedWS) show = false;
+            if (selectedOwner !== "All" && show) {
+                const owners = getOwnerListFromRow(row);
+                if (!owners.includes(selectedOwner)) show = false;
+            }
+            if (selectedStatus !== "All" && show) {
+                if (row.dataset.status !== selectedStatus) show = false;
+            }
+            row.style.display = show ? "" : "none";
+        });
+    }
+
+    // ── BUILD TIMELINE ──
+    let currentWeeksData = [];
+    let autoRefreshInterval = null;
+
     function build(weeks, workstreams, tasks, owners, steps) {
         buildOwnerMap(owners);
         buildStepLabels(steps);
@@ -516,7 +551,6 @@
         const currentWeekIndex = getCurrentWeekIndex(weeks);
         const totalWk = weeks.length;
 
-        // Reduced column widths – Status now comfortably fits
         const COL_WS = "140px";
         const COL_TASK = "170px";
         const COL_OWNER = "105px";
@@ -562,6 +596,7 @@
             if (!wsList || !wsList.length) return;
             const meta = STEP_META[step] || {};
 
+            // Section header
             const sh = document.createElement("div");
             sh.className = "section-header";
             sh.id = `section-${step.replace(/ /g, "")}`;
@@ -571,29 +606,33 @@
                 <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
             container.appendChild(sh);
 
+            // ---- FILTER ROW ----
             const filterDiv = document.createElement("div");
             filterDiv.className = "section-filter";
-            const filterId = `filter-${step.replace(/\s/g,"")}`;
+            const stepSafe = step.replace(/\s/g,"");
             filterDiv.innerHTML = `
-                <label for="${filterId}">Workstream:</label>
-                <select id="${filterId}">
+                <label>WS:</label>
+                <select id="wsFilter-${stepSafe}">
                     <option value="All">All</option>
-                </select>`;
+                </select>
+                <label>Owner:</label>
+                <select id="ownerFilter-${stepSafe}">
+                    <option value="All">All</option>
+                </select>
+                <label>Status:</label>
+                <select id="statusFilter-${stepSafe}">
+                    ${STATUS_OPTIONS.map(s => `<option value="${s}">${s==="All"?"All":s}</option>`).join('')}
+                </select>
+                <button id="clearFilters-${stepSafe}" class="clear-filters-btn">✕ Clear</button>
+            `;
             container.appendChild(filterDiv);
 
-            const selectEl = filterDiv.querySelector("select");
-            const seenNames = new Set();
-            wsList.forEach(ws => {
-                const name = (ws.workstream_name || "").trim();
-                if (name && !seenNames.has(name)) {
-                    seenNames.add(name);
-                    const opt = document.createElement("option");
-                    opt.value = name;
-                    opt.textContent = name;
-                    selectEl.appendChild(opt);
-                }
-            });
+            const wsSelect = document.getElementById(`wsFilter-${stepSafe}`);
+            const ownerSelect = document.getElementById(`ownerFilter-${stepSafe}`);
+            const statusSelect = document.getElementById(`statusFilter-${stepSafe}`);
+            const clearBtn = document.getElementById(`clearFilters-${stepSafe}`);
 
+            // ---- TIMELINE BLOCK ----
             const block = document.createElement("div");
             block.className = "timeline-block";
             const grid = document.createElement("div");
@@ -601,7 +640,7 @@
             grid.style.gridTemplateColumns = gridCols;
             block.appendChild(grid);
 
-            // Header cells – no left sticky
+            // Header cells
             grid.appendChild(makeEl("div","tl-hcell corner","Workstream"));
             grid.appendChild(makeEl("div","tl-hcell corner","Task"));
             grid.appendChild(makeEl("div","tl-hcell corner","Owner"));
@@ -623,9 +662,14 @@
                 grid.appendChild(h);
             });
 
+            // Collect unique workstream names and owners for this step
+            const wsNamesSet = new Set();
+            const ownerSet = new Set();
             let globalTaskIndex = 0;
+
             wsList.forEach(ws => {
                 const wsName = (ws.workstream_name || "").trim();
+                wsNamesSet.add(wsName);
                 const wsColor = wsColorMap[wsName] || "gray";
                 const wsTasks = (tasksByWs[wsName] || []).slice().sort((a,b)=>wn(a.week_start)-wn(b.week_start));
 
@@ -642,15 +686,24 @@
                     const rowParity = globalTaskIndex % 2 === 0 ? "row-even" : "row-odd";
                     globalTaskIndex++;
 
+                    // Collect owner names for filter
+                    const ownerRaw = t.owner || '';
+                    const ownerNames = ownerRaw.split('|').map(o => o.trim()).filter(Boolean);
+                    ownerNames.forEach(on => ownerSet.add(on));
+
                     const wrapper = document.createElement("div");
                     wrapper.className = `task-row-flat ${statusCls} ${rowParity}`;
                     wrapper.dataset.wsName = wsName;
+                    wrapper.dataset.status = statusKey;
+                    wrapper.dataset.ownerNames = ownerNames.join(',');
 
+                    // Workstream cell
                     const wsCell = document.createElement("div");
                     wsCell.className = "task-label-cell ws-name-cell";
                     wsCell.textContent = wsName;
                     wrapper.appendChild(wsCell);
 
+                    // Task cell
                     const taskCell = document.createElement("div");
                     taskCell.className = "task-label-cell task-desc-cell";
                     taskCell.textContent = t.task || "";
@@ -661,16 +714,19 @@
                     }
                     wrapper.appendChild(taskCell);
 
+                    // Owner cell
                     const ownerCell = document.createElement("div");
                     ownerCell.className = "task-label-cell owner-cell";
                     ownerCell.innerHTML = taskOwnerBadges(t.owner);
                     wrapper.appendChild(ownerCell);
 
+                    // Status cell
                     const statusCell = document.createElement("div");
                     statusCell.className = "task-label-cell status-cell";
                     statusCell.innerHTML = statusBadge(t.status);
                     wrapper.appendChild(statusCell);
 
+                    // Gantt cells
                     weeks.forEach((wk, idx) => {
                         const n = wn(wk.week_id);
                         const isCurCol = (idx === currentWeekIndex);
@@ -690,23 +746,29 @@
                 });
             });
 
-            if (grid.querySelectorAll('.task-row-flat').length === 0) {
-                const emptyMsg = document.createElement("div");
-                emptyMsg.style.cssText = "grid-column:1/-1;padding:16px;font-size:12px;color:var(--text3);text-align:center;background:var(--bg2);";
-                emptyMsg.textContent = "No tasks found for this step.";
-                grid.appendChild(emptyMsg);
-            }
+            // Populate filter dropdowns
+            Array.from(wsNamesSet).sort().forEach(name => {
+                wsSelect.appendChild(new Option(name, name));
+            });
+            Array.from(ownerSet).sort().forEach(name => {
+                ownerSelect.appendChild(new Option(name, name));
+            });
+
+            // Attach filter events
+            const filterHandler = () => applyFilters(grid, wsSelect, ownerSelect, statusSelect);
+            wsSelect.addEventListener("change", filterHandler);
+            ownerSelect.addEventListener("change", filterHandler);
+            statusSelect.addEventListener("change", filterHandler);
+
+            // Clear button
+            clearBtn.addEventListener("click", () => {
+                wsSelect.value = "All";
+                ownerSelect.value = "All";
+                statusSelect.value = "All";
+                filterHandler();
+            });
 
             container.appendChild(block);
-
-            selectEl.addEventListener("change", (e) => {
-                const selected = e.target.value;
-                const allRows = block.querySelectorAll(".task-row-flat");
-                allRows.forEach(row => {
-                    const ws = row.dataset.wsName || "";
-                    row.style.display = (selected === "All" || ws === selected) ? "" : "none";
-                });
-            });
         });
     }
 
@@ -764,12 +826,18 @@
             document.getElementById("loading").classList.add("hidden");
             document.getElementById("app").style.display = "block";
 
+            // Manual refresh button
             document.getElementById("refreshButton").addEventListener("click", refreshData);
 
+            // Step navigation
             document.querySelectorAll("#stepsBar .step-badge").forEach(badge => {
                 const step = badge.getAttribute("data-step");
                 if (step) badge.addEventListener("click", (e) => { e.preventDefault(); scrollToStep(step); });
             });
+
+            // Auto-refresh every 10 minutes
+            if (autoRefreshInterval) clearInterval(autoRefreshInterval);
+            autoRefreshInterval = setInterval(refreshData, 600000);
         } catch (err) {
             document.getElementById("loading").innerHTML = `
                 <div class="error-state">
