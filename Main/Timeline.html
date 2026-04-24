@@ -211,9 +211,14 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
 /* FOOTER */
 .footer {
-  padding:14px 40px; background:var(--bg); border-top:1px solid var(--border);
-  font-size:11px; color:var(--text3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
-}
+            padding: 14px 40px; background: var(--bg); border-top: 1px solid var(--border);
+            font-size: 11px; color: var(--text3); display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px;
+        }
+        
+  .footer .live-indicator { display: inline-flex; align-items: center; gap: 5px; color: var(--cyan); }
+  .footer .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: livePulse 2s ease-in-out infinite; }
+
 
 /* ERROR */
 .error-state { padding:60px 40px; text-align:center; }
@@ -602,9 +607,10 @@ function build(weeks, workstreams, tasks, owners, steps) {
   document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
   document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
-  const now = new Date();
-  const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
-  document.getElementById("last-updated").textContent = `Live · ${ts}`;
+      const now = new Date();
+        const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+        document.getElementById("last-updated").textContent = `Live · ${ts}`;
+        document.getElementById("footer-ts").textContent = ts;
   document.getElementById("footer-ts").textContent = ts;
   
   renderMilestoneCards();
