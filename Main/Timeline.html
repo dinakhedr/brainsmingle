@@ -59,9 +59,11 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .logo-img { height:38px; width:auto; display:block; }
 .header-sub { font-family:var(--fh); font-size:11px; color:var(--text3); letter-spacing:.06em; text-transform:uppercase; margin-top:3px; }
 .header-right { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-.meta-pill { font-family:var(--fh); font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid var(--border2); color:var(--text2); }
-.meta-pill.summit { border-color:var(--amber); color:var(--amber); }
-.meta-pill.updated { color:var(--text3); font-weight:400; }
+.meta-pill {font-family: var(--fh); font-size: 11px; font-weight: 600;padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);}
+.meta-pill.summit { border-color: var(--amber); color: var(--amber); }
+.meta-pill.updated { color: var(--text3); font-weight: 400; }
+.meta-pill.live {border-color: var(--cyan-dark); color: var(--cyan);animation: livePulse 2s ease-in-out infinite;}
+  
 .refresh-btn {
   background:var(--bg3); border:1px solid var(--purple-mid); color:var(--purple-mid);
   font-family:var(--fh); font-size:12px; font-weight:600; padding:6px 16px;
@@ -240,7 +242,7 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
     <span style="font-size:14px; margin-right:4px;">📅</span> Full Timeline
   </button>
       <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
-      <span class="meta-pill updated" id="last-updated">—</span>
+      <span class="meta-pill live" id="last-updated">—</span>
     </div>
   </div>
 
@@ -602,7 +604,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
 
   const now = new Date();
   const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
-  document.getElementById("last-updated").textContent = `Updated ${ts}`;
+  document.getElementById("last-updated").textContent = `Live · ${ts}`;
   document.getElementById("footer-ts").textContent = ts;
   
   renderMilestoneCards();
