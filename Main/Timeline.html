@@ -608,7 +608,7 @@ function build(weeks, workstreams, tasks, owners, steps) {
   document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
       const now = new Date();
-        const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+        const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hour12: true});
         document.getElementById("last-updated").textContent = `Live · ${ts}`;
         document.getElementById("footer-ts").textContent = ts;
   document.getElementById("footer-ts").textContent = ts;
