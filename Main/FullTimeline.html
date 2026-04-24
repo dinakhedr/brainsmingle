@@ -7,13 +7,7 @@
     <link rel="icon" type="image/png" href="icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
             --purple: #6B3EF5;
@@ -38,1272 +32,770 @@
             --fb: 'Lato', sans-serif;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--fb);
-            font-size: 14px;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+        body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 14px; line-height: 1.6; min-height: 100vh; }
 
-        /* LOADING */
         #loading {
-            position: fixed;
-            inset: 0;
-            background: var(--bg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-            z-index: 999;
-            transition: opacity .4s;
+            position: fixed; inset: 0; background: var(--bg);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 18px; z-index: 999; transition: opacity .4s;
         }
-        #loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        #loading.hidden { opacity: 0; pointer-events: none; }
         .spinner {
-            width: 36px;
-            height: 36px;
-            border: 3px solid var(--border2);
-            border-top-color: var(--purple);
-            border-radius: 50%;
-            animation: spin .8s linear infinite;
+            width: 36px; height: 36px;
+            border: 3px solid var(--border2); border-top-color: var(--purple);
+            border-radius: 50%; animation: spin .8s linear infinite;
         }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .loading-text {
-            font-family: var(--fh);
-            font-size: 12px;
-            color: var(--text3);
-            letter-spacing: .08em;
-            text-transform: uppercase;
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { font-family: var(--fh); font-size: 12px; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; }
 
-        /* HEADER */
         .header {
-            background: var(--bg2);
-            border-bottom: 1px solid var(--border2);
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
+            background: var(--bg2); border-bottom: 1px solid var(--border2);
+            padding: 20px 40px; display: flex; align-items: center;
+            justify-content: space-between; gap: 20px; flex-wrap: wrap;
         }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .logo-img {
-            height: 38px;
-            width: auto;
-            display: block;
-        }
-        .header-sub {
-            font-family: var(--fh);
-            font-size: 11px;
-            color: var(--text3);
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            margin-top: 3px;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .logo-img { height: 38px; width: auto; display: block; }
+        .header-sub { font-family: var(--fh); font-size: 11px; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
+        .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         .meta-pill {
-            font-family: var(--fh);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border2);
-            color: var(--text2);
+            font-family: var(--fh); font-size: 11px; font-weight: 600;
+            padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); color: var(--text2);
         }
-        .meta-pill.summit {
-            border-color: var(--amber);
-            color: var(--amber);
-        }
-        .meta-pill.updated {
-            color: var(--text3);
-            font-weight: 400;
-        }
+        .meta-pill.summit { border-color: var(--amber); color: var(--amber); }
+        .meta-pill.updated { color: var(--text3); font-weight: 400; }
         .meta-pill.live {
-            border-color: var(--cyan-dark);
-            color: var(--cyan);
+            border-color: var(--cyan-dark); color: var(--cyan);
             animation: livePulse 2s ease-in-out infinite;
         }
-        @keyframes livePulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.6;
-            }
-        }
+        @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
         .refresh-btn {
-            background: var(--bg3);
-            border: 1px solid var(--purple-mid);
-            color: var(--purple-mid);
-            font-family: var(--fh);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            background: var(--bg3); border: 1px solid var(--purple-mid); color: var(--purple-mid);
+            font-family: var(--fh); font-size: 12px; font-weight: 600; padding: 6px 16px;
+            border-radius: 30px; cursor: pointer; transition: all 0.2s ease;
+            display: inline-flex; align-items: center; gap: 8px;
         }
-        .refresh-btn:hover {
-            background: rgba(107, 62, 245, 0.2);
-            transform: scale(0.98);
-        }
-        .refresh-icon {
-            font-size: 14px;
-        }
+        .refresh-btn:hover { background: rgba(107, 62, 245, 0.2); transform: scale(0.98); }
+        .refresh-icon { font-size: 14px; }
         .nav-btn {
-            background: var(--bg3);
-            border: 1px solid var(--cyan-dark);
-            color: var(--cyan);
-            font-family: var(--fh);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
+            background: var(--bg3); border: 1px solid var(--cyan-dark); color: var(--cyan);
+            font-family: var(--fh); font-size: 12px; font-weight: 600;
+            padding: 6px 16px; border-radius: 30px; cursor: pointer;
+            transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
         }
-        .nav-btn:hover {
-            background: rgba(0, 184, 130, 0.15);
-            transform: scale(0.98);
-        }
+        .nav-btn:hover { background: rgba(0, 184, 130, 0.15); transform: scale(0.98); }
 
-        /* STEPS BAR - clickable */
-        .steps-bar {
-            display: flex;
-            gap: 8px;
-            padding: 12px 40px;
-            background: var(--bg2);
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
-        }
+        .steps-bar { display: flex; gap: 8px; padding: 12px 40px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
         .step-badge {
-            font-family: var(--fh);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 4px;
-            letter-spacing: .03em;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            font-family: var(--fh); font-size: 11px; font-weight: 600; padding: 4px 12px;
+            border-radius: 4px; letter-spacing: .03em; cursor: pointer; transition: all 0.2s ease;
         }
-        .step-badge:hover {
-            opacity: 0.8;
-            transform: translateY(-1px);
-            filter: brightness(1.05);
-        }
-        .s1 {
-            background: rgba(107, 62, 245, .18);
-            color: var(--purple-mid);
-            border: 1px solid rgba(107, 62, 245, .35);
-        }
-        .s2 {
-            background: rgba(0, 232, 162, .10);
-            color: var(--cyan);
-            border: 1px solid rgba(0, 232, 162, .28);
-        }
-        .s3 {
-            background: rgba(245, 166, 35, .12);
-            color: var(--amber);
-            border: 1px solid rgba(245, 166, 35, .30);
-        }
-        .s4 {
-            background: rgba(245, 62, 159, .12);
-            color: var(--pink);
-            border: 1px solid rgba(245, 62, 159, .30);
-        }
+        .step-badge:hover { opacity: 0.8; transform: translateY(-1px); filter: brightness(1.05); }
+        .s1 { background: rgba(107, 62, 245, .18); color: var(--purple-mid); border: 1px solid rgba(107, 62, 245, .35); }
+        .s2 { background: rgba(0, 232, 162, .10); color: var(--cyan); border: 1px solid rgba(0, 232, 162, .28); }
+        .s3 { background: rgba(245, 166, 35, .12); color: var(--amber); border: 1px solid rgba(245, 166, 35, .30); }
+        .s4 { background: rgba(245, 62, 159, .12); color: var(--pink); border: 1px solid rgba(245, 62, 159, .30); }
 
-        /* MAIN */
-        .main {
-            padding: 28px 40px;
-        }
+        .main { padding: 28px 40px; }
 
-        /* STATS */
-        .stats-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
+        .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
         .stat-card {
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 12px 20px;
-            min-width: 130px;
-            transition: border-color 0.2s;
+            background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 12px 20px; min-width: 130px; transition: border-color 0.2s;
         }
-        .stat-card:hover {
-            border-color: var(--border2);
-        }
-        .stat-value {
-            font-family: var(--fh);
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 1;
-        }
-        .stat-label {
-            font-family: var(--fh);
-            font-size: 10px;
-            color: var(--text3);
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: .05em;
-        }
+        .stat-card:hover { border-color: var(--border2); }
+        .stat-value { font-family: var(--fh); font-size: 24px; font-weight: 700; line-height: 1; }
+        .stat-label { font-family: var(--fh); font-size: 10px; color: var(--text3); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; }
 
-        /* SECTION HEADER */
         .section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 28px 0 10px;
-            scroll-margin-top: 20px;
+            display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; scroll-margin-top: 20px;
         }
-        .section-header:first-of-type {
-            margin-top: 0;
-        }
-        .section-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
+        .section-header:first-of-type { margin-top: 0; }
+        .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .section-title {
-            font-family: var(--fh);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase;
+            font-family: var(--fh); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
         }
-        .section-deadline {
-            font-size: 11px;
-            color: var(--text3);
-            margin-left: auto;
-        }
-        .section-deadline.urgent {
-            color: var(--pink);
-        }
+        .section-deadline { font-size: 11px; color: var(--text3); margin-left: auto; }
+        .section-deadline.urgent { color: var(--pink); }
 
-        /* TIMELINE BLOCK */
-        .timeline-block {
-            background: var(--bg2);
+        /* Workstream filter */
+        .section-filter {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+            background: var(--bg3); border-radius: 6px; padding: 6px 12px;
             border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow-x: auto;
-            overflow-y: hidden;
-            margin-bottom: 3px;
+        }
+        .section-filter label {
+            font-family: var(--fh); font-size: 10px; font-weight: 600;
+            color: var(--text3); text-transform: uppercase; letter-spacing: .06em;
+        }
+        .section-filter select {
+            background: var(--bg4); border: 1px solid var(--border2); border-radius: 4px;
+            color: var(--text); font-family: var(--fb); font-size: 12px; padding: 3px 8px;
+            cursor: pointer; outline: none; min-width: 140px;
+        }
+        .section-filter select:hover { border-color: var(--purple-mid); }
+
+        .timeline-block {
+            background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+            overflow-x: auto; overflow-y: hidden; margin-bottom: 3px;
             -webkit-overflow-scrolling: touch;
         }
-        .tl-grid {
-            display: grid;
-            gap: 1px;
-            background: var(--border);
-            min-width: 900px;
-        }
+        .tl-grid { display: grid; gap: 1px; background: var(--border); min-width: 900px; }
 
-        /* HEADER CELLS */
         .tl-hcell {
-            background: var(--bg3);
-            padding: 6px 3px;
-            text-align: center;
-            font-family: var(--fh);
-            font-size: 10px;
-            color: var(--text3);
-            line-height: 1.3;
-            position: sticky;
-            top: 0;
-            z-index: 2;
+            background: var(--bg3); padding: 6px 3px; text-align: center;
+            font-family: var(--fh); font-size: 10px; color: var(--text3); line-height: 1.3;
+            position: sticky; top: 0; z-index: 2;
         }
         .tl-hcell.corner {
-            text-align: left;
-            padding-left: 12px;
-            font-weight: 700;
-            font-size: 10px;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: var(--text2);
-            background: var(--bg3);
-            position: sticky;
-            left: 0;
-            z-index: 3;
+            text-align: left; padding-left: 12px; font-weight: 700; font-size: 10px;
+            letter-spacing: .06em; text-transform: uppercase; color: var(--text2);
+            background: var(--bg3); position: sticky; left: 0; z-index: 3;
         }
         .tl-hcell.wk-current {
-            color: var(--purple-mid);
-            background: rgba(107, 62, 245, 0.18) !important;
+            color: var(--purple-mid); background: rgba(107, 62, 245, 0.18) !important;
             border-bottom: 2px solid var(--purple-mid);
         }
-        .tl-hcell.wk-milestone {
-            color: var(--pink);
-        }
+        .tl-hcell.wk-milestone { color: var(--pink); }
 
-        /* CURRENT WEEK COLUMN HIGHLIGHT */
-        .current-col-cell {
-            background: rgba(107, 62, 245, 0.07) !important;
-        }
+        .current-col-cell { background: rgba(107, 62, 245, 0.07) !important; }
 
-        /* TASK ROW WRAPPER (display:contents for grid participation) */
-        .task-row-flat {
-            display: contents;
-        }
-        .task-row-flat.row-even .task-label-cell {
-            background: #141428;
-        }
-        .task-row-flat.row-odd .task-label-cell {
-            background: var(--bg2);
-        }
-        .task-row-flat.row-even .task-gantt-cell {
-            background: #141428;
-        }
-        .task-row-flat.row-odd .task-gantt-cell {
-            background: var(--bg2);
-        }
-        .task-row-flat:hover .task-label-cell {
-            filter: brightness(1.2);
-        }
-        .task-row-flat:hover .task-gantt-cell {
-            filter: brightness(1.15);
-        }
+        .task-row-flat { display: contents; }
+        .task-row-flat.row-even .task-label-cell { background: #141428; }
+        .task-row-flat.row-odd .task-label-cell { background: var(--bg2); }
+        .task-row-flat.row-even .task-gantt-cell { background: #141428; }
+        .task-row-flat.row-odd .task-gantt-cell { background: var(--bg2); }
+        .task-row-flat:hover .task-label-cell { filter: brightness(1.2); }
+        .task-row-flat:hover .task-gantt-cell { filter: brightness(1.15); }
 
-        /* Status left border on the first label cell (workstream) */
-        .task-row-flat.st-ip .task-label-cell:first-child {
-            border-left: 3px solid #6B3EF5;
-        }
-        .task-row-flat.st-done .task-label-cell:first-child {
-            border-left: 3px solid #00B882;
-        }
-        .task-row-flat.st-block .task-label-cell:first-child {
-            border-left: 3px solid #E53E3E;
-        }
-        .task-row-flat.st-review .task-label-cell:first-child {
-            border-left: 3px solid #F5A623;
-        }
-        .task-row-flat.st-deployed .task-label-cell:first-child {
-            border-left: 3px solid #00B882;
-        }
-        .task-row-flat.st-ns .task-label-cell:first-child {
-            border-left: 3px solid #5A5A88;
-        }
-        .task-row-flat.st-milestone .task-label-cell:first-child {
-            border-left: 3px solid var(--pink);
-        }
+        .task-row-flat.st-ip .task-label-cell:first-child { border-left: 3px solid #6B3EF5; }
+        .task-row-flat.st-done .task-label-cell:first-child { border-left: 3px solid #00B882; }
+        .task-row-flat.st-block .task-label-cell:first-child { border-left: 3px solid #E53E3E; }
+        .task-row-flat.st-review .task-label-cell:first-child { border-left: 3px solid #F5A623; }
+        .task-row-flat.st-deployed .task-label-cell:first-child { border-left: 3px solid #00B882; }
+        .task-row-flat.st-ns .task-label-cell:first-child { border-left: 3px solid #5A5A88; }
+        .task-row-flat.st-milestone .task-label-cell:first-child { border-left: 3px solid var(--pink); }
 
-        /* TASK LABEL CELLS */
         .task-label-cell {
-            padding: 9px 10px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            min-height: 38px;
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
-            white-space: nowrap;
+            padding: 9px 10px; font-size: 12px; display: flex; align-items: center;
+            min-height: 38px; border-bottom: 1px solid var(--border);
+            overflow: hidden; white-space: nowrap;
         }
         .task-label-cell.ws-name-cell {
-            font-family: var(--fh);
-            font-weight: 600;
-            font-size: 11px;
-            color: var(--text2);
-            letter-spacing: .02em;
-            gap: 6px;
+            font-family: var(--fh); font-weight: 600; font-size: 11px; color: var(--text2);
+            letter-spacing: .02em; gap: 6px; padding-left: 12px;
         }
-        .ws-color-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
+        /* No dot, just text */
         .task-label-cell.task-desc-cell {
-            font-family: var(--fb);
-            font-size: 12px;
-            color: var(--text);
-            line-height: 1.4;
-            white-space: normal;
-            word-break: break-word;
+            font-family: var(--fb); font-size: 11px; color: var(--text);
+            line-height: 1.4; white-space: normal; word-break: break-word;
         }
-        .task-label-cell.owner-cell {
-            flex-wrap: wrap;
-            gap: 3px;
-            padding: 6px 8px;
-        }
-        .task-label-cell.status-cell {
-            justify-content: flex-start;
-            padding: 6px 8px;
-        }
+        .task-label-cell.owner-cell { flex-wrap: wrap; gap: 3px; padding: 6px 8px; }
+        .task-label-cell.status-cell { justify-content: flex-start; padding: 6px 8px; }
 
-        /* TASK GANTT CELLS */
         .task-gantt-cell {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 3px;
-            min-height: 38px;
-            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 3px; min-height: 38px; border-bottom: 1px solid var(--border);
         }
         .task-bar-inner {
-            height: 16px;
-            width: 100%;
-            border-radius: 3px;
-            background: transparent;
+            height: 16px; width: 100%; border-radius: 3px; background: transparent;
         }
-        .task-bar-inner.purple {
-            background: var(--purple);
-            opacity: .82;
-        }
-        .task-bar-inner.cyan {
-            background: var(--cyan-dark);
-            opacity: .82;
-        }
-        .task-bar-inner.blue {
-            background: var(--blue);
-            opacity: .82;
-        }
-        .task-bar-inner.pink {
-            background: var(--pink);
-            opacity: .76;
-        }
-        .task-bar-inner.amber {
-            background: var(--amber);
-            opacity: .82;
-        }
-        .task-bar-inner.gray {
-            background: var(--bg4);
-            border: 1px solid var(--border2);
-        }
+        .task-bar-inner.purple { background: var(--purple); opacity: .82; }
+        .task-bar-inner.cyan { background: var(--cyan-dark); opacity: .82; }
+        .task-bar-inner.blue { background: var(--blue); opacity: .82; }
+        .task-bar-inner.pink { background: var(--pink); opacity: .76; }
+        .task-bar-inner.amber { background: var(--amber); opacity: .82; }
+        .task-bar-inner.gray { background: var(--bg4); border: 1px solid var(--border2); }
 
-        /* MILESTONE FLAG IN GANTT */
-        .milestone-flag-sm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
-        }
-        .milestone-diamond-sm {
-            width: 8px;
-            height: 8px;
-            background: var(--pink);
-            transform: rotate(45deg);
-            border-radius: 2px;
-        }
-        .milestone-lbl-sm {
-            font-family: var(--fh);
-            font-size: 7px;
-            font-weight: 700;
-            color: var(--pink);
-            white-space: nowrap;
-            line-height: 1;
-        }
+        .milestone-flag-sm { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+        .milestone-diamond-sm { width: 8px; height: 8px; background: var(--pink); transform: rotate(45deg); border-radius: 2px; }
+        .milestone-lbl-sm { font-family: var(--fh); font-size: 7px; font-weight: 700; color: var(--pink); white-space: nowrap; line-height: 1; }
 
-        /* OWNER & STATUS BADGES */
-        .owner-badge {
-            display: inline-block;
-            font-family: var(--fh);
-            font-size: 10px;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 3px;
-            white-space: nowrap;
-            margin: 1px 2px 1px 0;
-        }
-        .task-owner-badge {
-            display: inline-block;
-            font-family: var(--fh);
-            font-size: 9px;
-            font-weight: 600;
-            padding: 1px 6px;
-            border-radius: 2px;
-            white-space: nowrap;
-        }
-        .status-badge {
-            display: inline-block;
-            font-family: var(--fh);
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 3px;
-            letter-spacing: .03em;
-            white-space: nowrap;
-        }
-        .st-ns {
-            background: rgba(255, 255, 255, .06);
-            color: var(--text3);
-            border: 1px solid var(--border);
-        }
-        .st-ip {
-            background: rgba(107, 62, 245, .2);
-            color: var(--purple-mid);
-            border: 1px solid rgba(107, 62, 245, .3);
-        }
-        .st-done {
-            background: rgba(0, 232, 162, .12);
-            color: var(--cyan);
-            border: 1px solid rgba(0, 232, 162, .25);
-        }
-        .st-block {
-            background: rgba(245, 62, 159, .15);
-            color: var(--pink);
-            border: 1px solid rgba(245, 62, 159, .3);
-        }
-        .st-review {
-            background: rgba(245, 166, 35, .15);
-            color: var(--amber);
-            border: 1px solid rgba(245, 166, 35, .3);
-        }
-        .st-deployed {
-            background: rgba(0, 232, 162, .15);
-            color: var(--cyan-dark);
-            border: 1px solid rgba(0, 232, 162, .3);
-        }
+        .owner-badge { display: inline-block; font-family: var(--fh); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; white-space: nowrap; margin: 1px 2px 1px 0; }
+        .task-owner-badge { display: inline-block; font-family: var(--fh); font-size: 9px; font-weight: 600; padding: 1px 6px; border-radius: 2px; white-space: nowrap; }
+        .status-badge { display: inline-block; font-family: var(--fh); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: .03em; white-space: nowrap; }
+        .st-ns { background: rgba(255,255,255,.06); color: var(--text3); border: 1px solid var(--border); }
+        .st-ip { background: rgba(107,62,245,.2); color: var(--purple-mid); border: 1px solid rgba(107,62,245,.3); }
+        .st-done { background: rgba(0,232,162,.12); color: var(--cyan); border: 1px solid rgba(0,232,162,.25); }
+        .st-block { background: rgba(245,62,159,.15); color: var(--pink); border: 1px solid rgba(245,62,159,.3); }
+        .st-review { background: rgba(245,166,35,.15); color: var(--amber); border: 1px solid rgba(245,166,35,.3); }
+        .st-deployed { background: rgba(0,232,162,.15); color: var(--cyan-dark); border: 1px solid rgba(0,232,162,.3); }
 
-        /* LEGEND */
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 18px 40px;
-            border-top: 1px solid var(--border);
-            background: var(--bg2);
-            margin-top: 8px;
-        }
-        .leg-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            color: var(--text3);
-        }
-        .leg-bar {
-            width: 20px;
-            height: 8px;
-            border-radius: 2px;
-        }
-        .leg-diamond {
-            width: 8px;
-            height: 8px;
-            background: var(--pink);
-            transform: rotate(45deg);
-            border-radius: 1px;
-        }
+        .legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--border); background: var(--bg2); margin-top: 8px; }
+        .leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text3); }
+        .leg-bar { width: 20px; height: 8px; border-radius: 2px; }
+        .leg-diamond { width: 8px; height: 8px; background: var(--pink); transform: rotate(45deg); border-radius: 1px; }
 
-        /* FOOTER */
         .footer {
-            padding: 14px 40px;
-            background: var(--bg);
-            border-top: 1px solid var(--border);
-            font-size: 11px;
-            color: var(--text3);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
+            padding: 14px 40px; background: var(--bg); border-top: 1px solid var(--border);
+            font-size: 11px; color: var(--text3); display: flex; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px;
         }
-        .footer .live-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--cyan);
-        }
-        .footer .live-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--cyan);
-            animation: livePulse 2s ease-in-out infinite;
-        }
+        .footer .live-indicator { display: inline-flex; align-items: center; gap: 5px; color: var(--cyan); }
+        .footer .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: livePulse 2s ease-in-out infinite; }
 
-        /* ERROR */
-        .error-state {
-            padding: 60px 40px;
-            text-align: center;
-        }
-        .error-state h3 {
-            font-family: var(--fh);
-            color: var(--pink);
-            margin-bottom: 10px;
-        }
-        .error-state p {
-            color: var(--text3);
-            font-size: 12px;
-            line-height: 1.8;
-        }
+        .error-state { padding: 60px 40px; text-align: center; }
+        .error-state h3 { font-family: var(--fh); color: var(--pink); margin-bottom: 10px; }
+        .error-state p { color: var(--text3); font-size: 12px; line-height: 1.8; }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .header {
-                padding: 14px 16px;
-                gap: 10px;
-            }
-            .header-sub {
-                font-size: 9px;
-            }
-            .steps-bar {
-                padding: 10px 16px;
-                gap: 4px;
-            }
-            .step-badge {
-                font-size: 10px;
-                padding: 3px 8px;
-            }
-            .main {
-                padding: 16px 12px;
-            }
-            .stats-row {
-                gap: 6px;
-            }
-            .stat-card {
-                min-width: 90px;
-                padding: 10px 14px;
-            }
-            .stat-value {
-                font-size: 18px;
-            }
-            .legend {
-                padding: 14px 16px;
-                gap: 10px;
-            }
-            .footer {
-                padding: 12px 16px;
-                font-size: 10px;
-            }
+            .header { padding: 14px 16px; gap: 10px; }
+            .header-sub { font-size: 9px; }
+            .steps-bar { padding: 10px 16px; gap: 4px; }
+            .step-badge { font-size: 10px; padding: 3px 8px; }
+            .main { padding: 16px 12px; }
+            .stats-row { gap: 6px; }
+            .stat-card { min-width: 90px; padding: 10px 14px; }
+            .stat-value { font-size: 18px; }
+            .legend { padding: 14px 16px; gap: 10px; }
+            .footer { padding: 12px 16px; font-size: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- LOADING -->
-    <div id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Loading plan data…</div>
+<div id="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading plan data…</div>
+</div>
+
+<div id="app" style="display:none">
+
+    <div class="header">
+        <div class="header-left">
+            <img src="logo.png" alt="BrainsMingle" class="logo-img">
+            <div class="header-sub">GTM Full Task Timeline · Apr 2025 → Sep 2025</div>
+        </div>
+        <div class="header-right">
+            <a href="Timeline.html" class="nav-btn"><span style="font-size:14px;">📋</span> Summary View</a>
+            <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
+            <span class="meta-pill live" id="last-updated">—</span>
+        </div>
     </div>
 
-    <!-- APP -->
-    <div id="app" style="display:none">
+    <div class="steps-bar" id="stepsBar">
+        <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April</span>
+        <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
+        <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
+        <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Aug 7</span>
+    </div>
 
-        <div class="header">
-            <div class="header-left">
-                <img src="logo.png" alt="BrainsMingle" class="logo-img">
-                <div class="header-sub">GTM Full Task Timeline · Apr 2025 → Sep 2025</div>
+    <div class="main">
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--purple-mid)" id="stat-weeks">20</div>
+                <div class="stat-label">Total Weeks</div>
             </div>
-            <div class="header-right">
-                <a href="Timeline.html" class="nav-btn">
-                    <span style="font-size:14px;">📋</span> Summary View
-                </a>
-                <button id="refreshButton" class="refresh-btn">
-                    <span class="refresh-icon">⟳</span> Refresh Data
-                </button>
-                <span class="meta-pill live" id="last-updated">—</span>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--cyan)" id="stat-tasks">—</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--amber)" id="stat-review">—</div>
+                <div class="stat-label">In Review</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--cyan-dark)" id="stat-deployed">—</div>
+                <div class="stat-label">Deployed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--cyan)" id="stat-done">—</div>
+                <div class="stat-label">Done</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
+                <div class="stat-label">Blocked</div>
             </div>
         </div>
 
-        <div class="steps-bar" id="stepsBar">
-            <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April</span>
-            <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
-            <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
-            <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Aug 7</span>
-        </div>
+        <div id="plan-container"></div>
 
-        <div class="main">
+    </div>
 
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--purple-mid)" id="stat-weeks">20</div>
-                    <div class="stat-label">Total Weeks</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--cyan)" id="stat-tasks">—</div>
-                    <div class="stat-label">Total Tasks</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
-                    <div class="stat-label">In Progress</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--amber)" id="stat-review">—</div>
-                    <div class="stat-label">In Review</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--cyan-dark)" id="stat-deployed">—</div>
-                    <div class="stat-label">Deployed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--cyan)" id="stat-done">—</div>
-                    <div class="stat-label">Done</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color:var(--pink)" id="stat-blocked">—</div>
-                    <div class="stat-label">Blocked</div>
-                </div>
-            </div>
+  <div class="legend">
+    <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Preparation</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach Engine</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Verticals launch</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Virtual Summit</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div> Step 4 - Acquisition & Post-Summit</div>
+    <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
+  </div>
 
-            <div id="plan-container"></div>
+    <div class="footer">
+        <span>BrainsMingle GTM Project Plan · Confidential</span>
+        <span>Data: Google Sheets · <span class="live-indicator"><span class="live-dot"></span> <span id="footer-ts">—</span></span></span>
+    </div>
 
-        </div>
+</div><!-- /app -->
 
-        <div class="legend">
-            <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Prep</div>
-            <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach</div>
-            <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Vertical Launch</div>
-            <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Summit</div>
-            <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div>Step 4 — Reveal</div>
-            <div class="leg-item"><div class="leg-bar" style="background:var(--bg4);border:1px solid var(--border2)"></div>Ongoing / Uncategorized</div>
-            <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
-            <div style="width:1px;background:var(--border2);margin:0 4px"></div>
-            <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#5A5A88"></div>Not Started</div>
-            <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#6B3EF5"></div>In Progress</div>
-            <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#00B882"></div>Done / Deployed</div>
-            <div class="leg-item"><div style="width:3px;height:14px;border-radius:1px;background:#E53E3E"></div>Blocked</div>
-        </div>
+<script>
+    const PUB_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmP2Z3MbOIkq3pZY-ZLqi7PRiydgNLgtvOSTm8Ww4IcClFgaV5ynLb4L3dw4cvbJoeqtE30fVyjOfg/pub?output=csv";
+    const GIDS = {
+        tasks:        "875560662",
+        workstreams:  "982251180",
+        weeks:        "1528344641",
+        owners:       "2136320303",
+        steps:        "541183567"
+    };
 
-        <div class="footer">
-            <span>BrainsMingle GTM Project Plan · Confidential</span>
-            <span>Data: Google Sheets · <span class="live-indicator"><span class="live-dot"></span> <span id="footer-ts">—</span></span></span>
-        </div>
+    const STEP_META = {
+        "Step 1": { color:"var(--purple-mid)", dot:"var(--purple)",  deadline:"Deadline: Apr 30", urgent:true  },
+        "Step 2": { color:"var(--cyan)",       dot:"var(--cyan)",    deadline:"May → Jul",        urgent:false },
+        "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:false },
+        "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:false },
+    };
+    let STEP_LABELS = {
+        "Step 1":"Establish Credibility",
+        "Step 2":"Activate the Market",
+        "Step 3":"Own the Moment",
+        "Step 4":"Reveal the Full Picture"
+    };
 
-    </div><!-- /app -->
+    function buildStepLabels(steps) {
+        if (!steps || !steps.length) return;
+        STEP_LABELS = {};
+        steps.forEach(row => {
+            const norm = {};
+            Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+            const step  = norm["step"]  || norm["step_id"] || "";
+            const label = norm["step_label"] || norm["label"] || "";
+            if (step) STEP_LABELS[step] = label;
+        });
+    }
+    const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
 
-    <script>
-        // ── CONFIG ────────────────────────────────────────────────────────────────
-        const PUB_BASE =
-            "https://docs.google.com/spreadsheets/d/e/2PACX-1vQmP2Z3MbOIkq3pZY-ZLqi7PRiydgNLgtvOSTm8Ww4IcClFgaV5ynLb4L3dw4cvbJoeqtE30fVyjOfg/pub?output=csv";
-        const GIDS = {
-            tasks: "875560662",
-            workstreams: "982251180",
-            weeks: "1528344641",
-            owners: "2136320303",
-            steps: "541183567"
-        };
+    async function fetchCSV(gid) {
+        const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status} for gid=${gid}`);
+        return parseCSV(await res.text());
+    }
 
-        const STEP_META = {
-            "Step 1": { color: "var(--purple-mid)", dot: "var(--purple)", deadline: "Deadline: Apr 30",
-            urgent: true },
-            "Step 2": { color: "var(--cyan)", dot: "var(--cyan)", deadline: "May → Jul", urgent: false },
-            "Step 3": { color: "var(--amber)", dot: "var(--amber)", deadline: "Summit: Jul 31 – Aug 1",
-            urgent: false },
-            "Step 4": { color: "var(--pink)", dot: "var(--pink)", deadline: "Aug → Sep", urgent: false },
-        };
-        let STEP_LABELS = {
-            "Step 1": "Establish Credibility",
-            "Step 2": "Activate the Market",
-            "Step 3": "Own the Moment",
-            "Step 4": "Reveal the Full Picture"
-        };
-
-        function buildStepLabels(steps) {
-            if (!steps || !steps.length) return;
-            STEP_LABELS = {};
-            steps.forEach(row => {
-                const norm = {};
-                Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k] || "").trim(); });
-                const step = norm["step"] || norm["step_id"] || "";
-                const label = norm["step_label"] || norm["label"] || "";
-                if (step) STEP_LABELS[step] = label;
-            });
+    function parseCSV(text) {
+        const lines = text.replace(/\r\n/g,"\n").replace(/\r/g,"\n").split("\n");
+        const headers = splitRow(lines[0]);
+        const rows = [];
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
+            const vals = splitRow(line);
+            const obj = {};
+            headers.forEach((h, idx) => { obj[h.trim()] = (vals[idx] || "").trim(); });
+            rows.push(obj);
         }
-        const STEP_ORDER = ["Step 1", "Step 2", "Step 3", "Step 4"];
+        return rows;
+    }
 
-        // ── CSV FETCH + PARSE ─────────────────────────────────────────────────────
-        async function fetchCSV(gid) {
-            const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
-            const res = await fetch(url);
-            if (!res.ok) throw new Error(`HTTP ${res.status} for gid=${gid}`);
-            return parseCSV(await res.text());
+    function splitRow(row) {
+        const result = []; let cur = "", inQ = false;
+        for (let i = 0; i < row.length; i++) {
+            const c = row[i];
+            if (c === '"') { if (inQ && row[i+1]==='"') { cur+='"'; i++; } else inQ=!inQ; }
+            else if (c === ',' && !inQ) { result.push(cur); cur=""; }
+            else cur += c;
         }
+        result.push(cur);
+        return result;
+    }
 
-        function parseCSV(text) {
-            const lines = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
-            const headers = splitRow(lines[0]);
-            const rows = [];
-            for (let i = 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (!line) continue;
-                const vals = splitRow(line);
-                const obj = {};
-                headers.forEach((h, idx) => { obj[h.trim()] = (vals[idx] || "").trim(); });
-                rows.push(obj);
-            }
-            return rows;
+    function wn(wid) { return parseInt((wid||"W0").replace("W",""), 10); }
+    function esc(s) { return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+    // ── DATE HELPERS FOR CURRENT WEEK ──
+    function parseMonthDay(dateStr) {
+        if (!dateStr) return null;
+        const s = dateStr.trim();
+        const d = new Date(s);
+        if (!isNaN(d.getTime())) return { month: d.getMonth(), day: d.getDate() };
+        const parts = s.split(/\s+/);
+        if (parts.length < 2) return null;
+        const monthMap = { "jan":0,"feb":1,"mar":2,"apr":3,"may":4,"jun":5,"jul":6,"aug":7,"sep":8,"oct":9,"nov":10,"dec":11 };
+        const monthStr = parts[0].toLowerCase().slice(0,3);
+        const month = monthMap[monthStr];
+        if (month === undefined) return null;
+        const day = parseInt(parts[1], 10);
+        if (isNaN(day)) return null;
+        return { month, day };
+    }
+
+    function dayOfYear(month, day) {
+        const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+        let doy = 0;
+        for (let i = 0; i < month; i++) doy += daysInMonth[i];
+        doy += day;
+        return doy;
+    }
+
+    function getCurrentWeekIndex(weeks) {
+        if (!weeks || weeks.length === 0) return -1;
+        const today = new Date();
+        const todayDOY = dayOfYear(today.getMonth(), today.getDate());
+        const weekData = weeks.map((wk, idx) => {
+            const startMD = parseMonthDay(wk.date_start);
+            const endMD = parseMonthDay(wk.date_end);
+            if (!startMD || !endMD) return null;
+            const startDOY = dayOfYear(startMD.month, startMD.day);
+            let endDOY = dayOfYear(endMD.month, endMD.day);
+            return { idx, startDOY, endDOY };
+        }).filter(w => w !== null);
+        if (weekData.length === 0) return -1;
+        weekData.sort((a,b) => a.startDOY - b.startDOY);
+        for (let w of weekData) {
+            if (todayDOY >= w.startDOY && todayDOY <= w.endDOY) return w.idx;
         }
-
-        function splitRow(row) {
-            const result = [];
-            let cur = "",
-                inQ = false;
-            for (let i = 0; i < row.length; i++) {
-                const c = row[i];
-                if (c === '"') {
-                    if (inQ && row[i + 1] === '"') { cur += '"';
-                        i++; } else inQ = !inQ;
-                } else if (c === ',' && !inQ) { result.push(cur);
-                    cur = ""; } else cur += c;
-            }
-            result.push(cur);
-            return result;
+        const first = weekData[0];
+        if (todayDOY < first.startDOY) return first.idx;
+        const last = weekData[weekData.length-1];
+        if (todayDOY > last.endDOY) return last.idx;
+        for (let i = 0; i < weekData.length - 1; i++) {
+            const curr = weekData[i];
+            const next = weekData[i+1];
+            if (todayDOY > curr.endDOY && todayDOY < next.startDOY) return curr.idx;
         }
+        return first.idx;
+    }
 
-        // ── HELPERS ───────────────────────────────────────────────────────────────
-        function wn(wid) { return parseInt((wid || "W0").replace("W", ""), 10); }
+    // ── OWNER MAP ──
+    let ownerMap = {};
+    function buildOwnerMap(owners) {
+        ownerMap = {};
+        owners.forEach(row => {
+            const norm = {};
+            Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k]||"").trim(); });
+            const ownerId = norm["owner_id"] || norm["ownerid"] || "";
+            const name = norm["display_name"] || norm["displayname"] || norm["name"] || "";
+            const hex = (norm["color_hex"] || norm["colorhex"] || norm["color"] || "888888").replace("#","");
+            if (!name && !ownerId) return;
+            const r = parseInt(hex.slice(0,2),16) || 136;
+            const g = parseInt(hex.slice(2,4),16) || 136;
+            const b = parseInt(hex.slice(4,6),16) || 136;
+            const entry = { color: "#" + hex, bg: "rgba(" + r + "," + g + "," + b + ",0.18)", label: name || ownerId };
+            const keys = new Set();
+            if (name) keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
+            if (name) keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
+            if (name) keys.add(name.toLowerCase().split(/\s/)[0]);
+            if (name) keys.add(name.trim());
+            if (ownerId) keys.add(ownerId.trim());
+            if (ownerId) keys.add(ownerId.toLowerCase().trim());
+            keys.forEach(k => { if (k) ownerMap[k] = entry; });
+        });
+    }
 
-        function esc(s) {
-            return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        }
+    function taskOwnerBadges(str) {
+        if (!str) return "";
+        return str.split("|").map(o => {
+            const raw = o.trim();
+            if (!raw) return "";
+            const attempts = [raw, raw.toLowerCase(), raw.toLowerCase().replace(/[\s\/\-]+/g,""), raw.toLowerCase().split(/\s+/)[0]];
+            let match = null;
+            for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
+            const style = match
+                ? "background:" + match.bg + ";color:" + match.color + ";"
+                : "background:rgba(255,255,255,.08);color:var(--text2);";
+            return `<span class="task-owner-badge" style="${style}">${esc(raw)}</span>`;
+        }).join("");
+    }
 
-        // ── DYNAMIC CURRENT WEEK DETECTION (month-day comparison, year-agnostic) ──
-        function parseMonthDay(dateStr) {
-            if (!dateStr) return null;
-            const s = dateStr.trim();
-            const d = new Date(s);
-            if (!isNaN(d.getTime())) {
-                return { month: d.getMonth(), day: d.getDate() };
-            }
-            const parts = s.split(/\s+/);
-            if (parts.length < 2) return null;
-            const monthMap = { "jan": 0, "feb": 1, "mar": 2, "apr": 3, "may": 4, "jun": 5, "jul": 6, "aug": 7, "sep": 8,
-                "oct": 9, "nov": 10, "dec": 11 };
-            const monthStr = parts[0].toLowerCase().slice(0, 3);
-            const month = monthMap[monthStr];
-            if (month === undefined) return null;
-            const day = parseInt(parts[1], 10);
-            if (isNaN(day)) return null;
-            return { month, day };
-        }
+    function statusBadge(s) {
+        const cls = {
+            "Not Started":"st-ns", "In Progress":"st-ip", "In Review":"st-review",
+            "Deployed":"st-deployed", "Done":"st-done", "Blocked":"st-block"
+        }[s] || "st-ns";
+        return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
+    }
 
-        function dayOfYear(month, day) {
-            const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-            let doy = 0;
-            for (let i = 0; i < month; i++) doy += daysInMonth[i];
-            doy += day;
-            return doy;
-        }
+    // ── BUILD (with filter and no dot) ──
+    let currentWeeksData = [];
 
-        function getCurrentWeekIndex(weeks) {
-            if (!weeks || weeks.length === 0) return -1;
-            const today = new Date();
-            const todayDOY = dayOfYear(today.getMonth(), today.getDate());
-            const weekData = weeks.map((wk, idx) => {
-                const startMD = parseMonthDay(wk.date_start);
-                const endMD = parseMonthDay(wk.date_end);
-                if (!startMD || !endMD) return null;
-                const startDOY = dayOfYear(startMD.month, startMD.day);
-                let endDOY = dayOfYear(endMD.month, endMD.day);
-                return { idx, startDOY, endDOY };
-            }).filter(w => w !== null);
-            if (weekData.length === 0) return -1;
-            weekData.sort((a, b) => a.startDOY - b.startDOY);
-            for (let w of weekData) {
-                if (todayDOY >= w.startDOY && todayDOY <= w.endDOY) return w.idx;
-            }
-            const first = weekData[0];
-            if (todayDOY < first.startDOY) return first.idx;
-            const last = weekData[weekData.length - 1];
-            if (todayDOY > last.endDOY) return last.idx;
-            for (let i = 0; i < weekData.length - 1; i++) {
-                const curr = weekData[i];
-                const next = weekData[i + 1];
-                if (todayDOY > curr.endDOY && todayDOY < next.startDOY) {
-                    return curr.idx;
+    function build(weeks, workstreams, tasks, owners, steps) {
+        buildOwnerMap(owners);
+        buildStepLabels(steps);
+        currentWeeksData = weeks;
+
+        const currentWeekIndex = getCurrentWeekIndex(weeks);
+        const totalWk = weeks.length;
+
+        const COL_WS = "140px";
+        const COL_TASK = "180px";   // slightly reduced
+        const COL_OWNER = "105px";
+        const COL_STATUS = "80px";
+        const gridCols = `${COL_WS} ${COL_TASK} ${COL_OWNER} ${COL_STATUS} repeat(${totalWk}, 1fr)`;
+
+        const wsColorMap = {};
+        workstreams.forEach(ws => { wsColorMap[(ws.workstream_name || "").trim()] = ws.bar_color || "gray"; });
+
+        const tasksByWs = {};
+        tasks.forEach(t => {
+            const wsKey = (t.workstream_name || "").trim();
+            if (!tasksByWs[wsKey]) tasksByWs[wsKey] = [];
+            tasksByWs[wsKey].push(t);
+        });
+
+        const wsByStep = {};
+        STEP_ORDER.forEach(s => wsByStep[s] = []);
+        workstreams.forEach(ws => {
+            const s = ws.step || "Step 1";
+            if (!wsByStep[s]) wsByStep[s] = [];
+            wsByStep[s].push(ws);
+        });
+
+        document.getElementById("stat-weeks").textContent = totalWk;
+        document.getElementById("stat-tasks").textContent = tasks.length;
+        document.getElementById("stat-ip").textContent = tasks.filter(t=>t.status==="In Progress").length;
+        document.getElementById("stat-review").textContent = tasks.filter(t=>t.status==="In Review").length;
+        document.getElementById("stat-deployed").textContent = tasks.filter(t=>t.status==="Deployed").length;
+        document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
+        document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
+
+        const now = new Date();
+        const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+        document.getElementById("last-updated").textContent = `Live · ${ts}`;
+        document.getElementById("footer-ts").textContent = ts;
+
+        const container = document.getElementById("plan-container");
+        container.innerHTML = "";
+
+        STEP_ORDER.forEach(step => {
+            const wsList = wsByStep[step];
+            if (!wsList || !wsList.length) return;
+            const meta = STEP_META[step] || {};
+
+            // Section header
+            const sh = document.createElement("div");
+            sh.className = "section-header";
+            sh.id = `section-${step.replace(/ /g, "")}`;
+            sh.innerHTML = `
+                <div class="section-dot" style="background:${meta.dot}"></div>
+                <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
+                <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
+            container.appendChild(sh);
+
+            // ---- FILTER DROPDOWN ----
+            const filterDiv = document.createElement("div");
+            filterDiv.className = "section-filter";
+            const filterId = `filter-${step.replace(/\s/g,"")}`;
+            filterDiv.innerHTML = `
+                <label for="${filterId}">Workstream:</label>
+                <select id="${filterId}">
+                    <option value="All">All</option>
+                </select>`;
+            container.appendChild(filterDiv);
+
+            // Populate filter options
+            const selectEl = filterDiv.querySelector("select");
+            const seenNames = new Set();
+            wsList.forEach(ws => {
+                const name = (ws.workstream_name || "").trim();
+                if (name && !seenNames.has(name)) {
+                    seenNames.add(name);
+                    const opt = document.createElement("option");
+                    opt.value = name;
+                    opt.textContent = name;
+                    selectEl.appendChild(opt);
                 }
-            }
-            return first.idx;
-        }
-
-        // ── OWNER MAP ──────────────────────────────────────────────────────────────
-        let ownerMap = {};
-
-        function buildOwnerMap(owners) {
-            ownerMap = {};
-            owners.forEach(row => {
-                const norm = {};
-                Object.keys(row).forEach(k => { norm[k.trim().toLowerCase()] = (row[k] || "").trim(); });
-                const ownerId = norm["owner_id"] || norm["ownerid"] || "";
-                const name = norm["display_name"] || norm["displayname"] || norm["name"] || "";
-                const hex = (norm["color_hex"] || norm["colorhex"] || norm["color"] || "888888").replace("#",
-                "");
-                if (!name && !ownerId) return;
-                const r = parseInt(hex.slice(0, 2), 16) || 136;
-                const g = parseInt(hex.slice(2, 4), 16) || 136;
-                const b = parseInt(hex.slice(4, 6), 16) || 136;
-                const entry = {
-                    color: "#" + hex,
-                    bg: "rgba(" + r + "," + g + "," + b + ",0.18)",
-                    label: name || ownerId,
-                };
-                const keys = new Set();
-                if (name) keys.add(name.toLowerCase().replace(/[\s\/]+/g, ""));
-                if (name) keys.add(name.toLowerCase().replace(/[\s\/\-]+/g, ""));
-                if (name) keys.add(name.toLowerCase().split(/\s/)[0]);
-                if (name) keys.add(name.trim());
-                if (ownerId) keys.add(ownerId.trim());
-                if (ownerId) keys.add(ownerId.toLowerCase().trim());
-                keys.forEach(k => { if (k) ownerMap[k] = entry; });
-            });
-        }
-
-        function taskOwnerBadges(str) {
-            if (!str) return "";
-            return str.split("|").map(o => {
-                const raw = o.trim();
-                if (!raw) return "";
-                const attempts = [raw, raw.toLowerCase(), raw.toLowerCase().replace(/[\s\/\-]+/g, ""),
-                    raw.toLowerCase().split(/\s+/)[0]
-                ];
-                let match = null;
-                for (const k of attempts) { if (ownerMap[k]) { match = ownerMap[k]; break; } }
-                const style = match ?
-                    "background:" + match.bg + ";color:" + match.color + ";" :
-                    "background:rgba(255,255,255,.08);color:var(--text2);";
-                return `<span class="task-owner-badge" style="${style}">${esc(raw)}</span>`;
-            }).join("");
-        }
-
-        function statusBadge(s) {
-            const cls = {
-                "Not Started": "st-ns",
-                "In Progress": "st-ip",
-                "In Review": "st-review",
-                "Deployed": "st-deployed",
-                "Done": "st-done",
-                "Blocked": "st-block"
-            } [s] || "st-ns";
-            return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
-        }
-
-        // ── BUILD TIMELINE (1-LEVEL FLAT TASK GRID) ─────────────────────────────
-        let currentWeeksData = [];
-
-        function build(weeks, workstreams, tasks, owners, steps) {
-            buildOwnerMap(owners);
-            buildStepLabels(steps);
-            currentWeeksData = weeks;
-
-            // --- Dynamic current week ---
-            const currentWeekIndex = getCurrentWeekIndex(weeks);
-
-            const totalWk = weeks.length;
-            // Column widths: Workstream | Task | Owner | Status | Week columns...
-            const COL_WS = "140px";
-            const COL_TASK = "210px";
-            const COL_OWNER = "105px";
-            const COL_STATUS = "80px";
-            const gridCols = `${COL_WS} ${COL_TASK} ${COL_OWNER} ${COL_STATUS} repeat(${totalWk}, 1fr)`;
-
-            // Build workstream color map
-            const wsColorMap = {};
-            workstreams.forEach(ws => {
-                wsColorMap[(ws.workstream_name || "").trim()] = ws.bar_color || "gray";
             });
 
-            // Group tasks by workstream_name
-            const tasksByWs = {};
-            tasks.forEach(t => {
-                const wsKey = (t.workstream_name || "").trim();
-                if (!tasksByWs[wsKey]) tasksByWs[wsKey] = [];
-                tasksByWs[wsKey].push(t);
-            });
+            // ---- TIMELINE BLOCK ----
+            const block = document.createElement("div");
+            block.className = "timeline-block";
+            const grid = document.createElement("div");
+            grid.className = "tl-grid";
+            grid.style.gridTemplateColumns = gridCols;
+            block.appendChild(grid);
 
-            // Group workstreams by step
-            const wsByStep = {};
-            STEP_ORDER.forEach(s => wsByStep[s] = []);
-            workstreams.forEach(ws => {
-                const s = ws.step || "Step 1";
-                if (!wsByStep[s]) wsByStep[s] = [];
-                wsByStep[s].push(ws);
-            });
-
-            // Update stats
-            document.getElementById("stat-weeks").textContent = totalWk;
-            document.getElementById("stat-tasks").textContent = tasks.length;
-            document.getElementById("stat-ip").textContent = tasks.filter(t => t.status === "In Progress").length;
-            document.getElementById("stat-review").textContent = tasks.filter(t => t.status === "In Review").length;
-            document.getElementById("stat-deployed").textContent = tasks.filter(t => t.status === "Deployed").length;
-            document.getElementById("stat-done").textContent = tasks.filter(t => t.status === "Done").length;
-            document.getElementById("stat-blocked").textContent = tasks.filter(t => t.status === "Blocked").length;
-
-            const now = new Date();
-            const ts = now.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric",
-            hour: "2-digit", minute: "2-digit" });
-            document.getElementById("last-updated").textContent = `Live · ${ts}`;
-            document.getElementById("footer-ts").textContent = ts;
-
-            const container = document.getElementById("plan-container");
-            container.innerHTML = "";
-
-            STEP_ORDER.forEach(step => {
-                const wsList = wsByStep[step];
-                if (!wsList || !wsList.length) return;
-                const meta = STEP_META[step] || {};
-
-                // Section header
-                const sh = document.createElement("div");
-                sh.className = "section-header";
-                sh.id = `section-${step.replace(/ /g, "")}`;
-                sh.innerHTML = `
-                    <div class="section-dot" style="background:${meta.dot}"></div>
-                    <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
-                    <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
-                container.appendChild(sh);
-
-                const block = document.createElement("div");
-                block.className = "timeline-block";
-
-                const grid = document.createElement("div");
-                grid.className = "tl-grid";
-                grid.style.gridTemplateColumns = gridCols;
-                block.appendChild(grid);
-
-                // --- HEADER ROW ---
-                const cornerWs = makeEl("div", "tl-hcell corner", "Workstream");
-                const cornerTask = makeEl("div", "tl-hcell corner", "Task");
-                const cornerOwner = makeEl("div", "tl-hcell corner", "Owner");
-                const cornerStatus = makeEl("div", "tl-hcell corner", "Status");
-                grid.appendChild(cornerWs);
-                grid.appendChild(cornerTask);
-                grid.appendChild(cornerOwner);
-                grid.appendChild(cornerStatus);
-
-                weeks.forEach((wk, idx) => {
-                    const isCur = (idx === currentWeekIndex);
-                    const isMil = wk.is_milestone_week === "TRUE";
-                    const h = makeEl("div", "tl-hcell" + (isCur ? " wk-current" : "") + (isMil ?
-                        " wk-milestone" : ""));
-                    if (isCur) {
-                        h.innerHTML = `
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
-                                <span style="font-size:9px;font-weight:700;letter-spacing:.03em">${esc(wk.week_id)}</span>
-                                <span style="font-size:8px">${esc(wk.date_start)}</span>
-                                <span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin-top:2px"></span>
-                            </div>`;
-                    } else {
-                        h.innerHTML =
-                            `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
-                    }
-                    grid.appendChild(h);
-                });
-
-                // --- TASK ROWS (flat, 1 per task) ---
-                let globalTaskIndex = 0;
-                wsList.forEach(ws => {
-                    const wsName = (ws.workstream_name || "").trim();
-                    const wsColor = wsColorMap[wsName] || "gray";
-                    const wsTasks = (tasksByWs[wsName] || []).slice().sort((a, b) => wn(a
-                        .week_start) - wn(b.week_start));
-
-                    wsTasks.forEach(t => {
-                        const taskStartN = wn(t.week_start);
-                        const taskEndN = wn(t.week_end);
-                        const isMilestone = t.is_milestone === "TRUE" || t.is_milestone ===
-                            "True";
-                        const statusKey = t.status || "Not Started";
-                        const statusClsMap = {
-                            "Not Started": "st-ns",
-                            "In Progress": "st-ip",
-                            "Done": "st-done",
-                            "Blocked": "st-block",
-                            "In Review": "st-review",
-                            "Deployed": "st-deployed"
-                        };
-                        const statusCls = isMilestone ? "st-milestone" : (statusClsMap[
-                            statusKey] || "st-ns");
-                        const rowParity = globalTaskIndex % 2 === 0 ? "row-even" :
-                            "row-odd";
-                        globalTaskIndex++;
-
-                        // Wrapper with display:contents
-                        const wrapper = document.createElement("div");
-                        wrapper.className = `task-row-flat ${statusCls} ${rowParity}`;
-
-                        // --- Workstream cell ---
-                        const wsCell = document.createElement("div");
-                        wsCell.className = "task-label-cell ws-name-cell";
-                        const colorDot = wsColor !== "gray" ?
-                            `<span class="ws-color-dot" style="background:var(--${wsColor === 'purple' ? 'purple' : wsColor === 'cyan' ? 'cyan-dark' : wsColor === 'blue' ? 'blue' : wsColor === 'pink' ? 'pink' : wsColor === 'amber' ? 'amber' : 'purple-mid'})"></span>` :
-                            `<span class="ws-color-dot" style="background:var(--text3)"></span>`;
-                        wsCell.innerHTML = `${colorDot} ${esc(wsName)}`;
-                        wrapper.appendChild(wsCell);
-
-                        // --- Task cell ---
-                        const taskCell = document.createElement("div");
-                        taskCell.className = "task-label-cell task-desc-cell";
-                        taskCell.textContent = t.task || "";
-                        if (isMilestone && t.milestone_label) {
-                            taskCell.textContent = `🔷 ${t.milestone_label}`;
-                            taskCell.style.fontWeight = "600";
-                            taskCell.style.color = "var(--pink)";
-                        }
-                        wrapper.appendChild(taskCell);
-
-                        // --- Owner cell ---
-                        const ownerCell = document.createElement("div");
-                        ownerCell.className = "task-label-cell owner-cell";
-                        ownerCell.innerHTML = taskOwnerBadges(t.owner);
-                        wrapper.appendChild(ownerCell);
-
-                        // --- Status cell ---
-                        const statusCell = document.createElement("div");
-                        statusCell.className = "task-label-cell status-cell";
-                        statusCell.innerHTML = statusBadge(t.status);
-                        wrapper.appendChild(statusCell);
-
-                        // --- Gantt cells ---
-                        weeks.forEach((wk, idx) => {
-                            const n = wn(wk.week_id);
-                            const isCurCol = (idx === currentWeekIndex);
-                            const gc = document.createElement("div");
-                            gc.className = "task-gantt-cell";
-                            if (isCurCol) gc.classList.add("current-col-cell");
-
-                            if (isMilestone && n === taskEndN) {
-                                // Show diamond at milestone week
-                                gc.innerHTML = `
-                                    <div class="milestone-flag-sm">
-                                        <div class="milestone-diamond-sm"></div>
-                                        <div class="milestone-lbl-sm">${esc(t.milestone_label||"MS")}</div>
-                                    </div>`;
-                            } else if (n >= taskStartN && n <= taskEndN) {
-                                gc.innerHTML =
-                                    `<div class="task-bar-inner ${wsColor}"></div>`;
-                            }
-                            wrapper.appendChild(gc);
-                        });
-
-                        grid.appendChild(wrapper);
-                    });
-                });
-
-                // If no tasks in this step, show a placeholder
-                const allTaskRows = grid.querySelectorAll('.task-row-flat');
-                if (allTaskRows.length === 0) {
-                    const emptyMsg = document.createElement("div");
-                    emptyMsg.style.cssText =
-                        "grid-column:1/-1;padding:16px;font-size:12px;color:var(--text3);text-align:center;background:var(--bg2);";
-                    emptyMsg.textContent = "No tasks found for this step.";
-                    grid.appendChild(emptyMsg);
-                }
-
-                container.appendChild(block);
-            });
-        }
-
-        function makeEl(tag, cls, text) {
-            const el = document.createElement(tag);
-            if (cls) el.className = cls;
-            if (text) el.textContent = text;
-            return el;
-        }
-
-        // ── SCROLL TO STEP ────────────────────────────────────────────────────────
-        function scrollToStep(step) {
-            const sectionId = `section-${step.replace(/ /g, "")}`;
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-            } else {
-                document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
-            }
-        }
-
-        // ── REFRESH LOGIC ─────────────────────────────────────────────────────────
-        async function refreshData() {
-            const loadingDiv = document.getElementById("loading");
-            const appDiv = document.getElementById("app");
-            if (loadingDiv) loadingDiv.classList.remove("hidden");
-            if (appDiv) appDiv.style.display = "none";
-
-            try {
-                const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
-                    fetchCSV(GIDS.tasks),
-                    fetchCSV(GIDS.workstreams),
-                    fetchCSV(GIDS.weeks),
-                    fetchCSV(GIDS.owners),
-                    fetchCSV(GIDS.steps),
-                ]);
-                build(weeks, workstreams, tasks, owners, steps);
-                if (loadingDiv) loadingDiv.classList.add("hidden");
-                if (appDiv) appDiv.style.display = "block";
-            } catch (err) {
-                if (loadingDiv) {
-                    loadingDiv.innerHTML = `
-                        <div class="error-state">
-                            <h3>⚠ Could not load plan data</h3>
-                            <p>Make sure the Google Sheet is published:<br>
-                            <strong>File → Share → Publish to web → Publish</strong><br><br>
-                            Error: ${esc(err.message)}</p>
-                            <button id="retryBtn" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;">Retry</button>
+            // Header cells
+            grid.appendChild(makeEl("div","tl-hcell corner","Workstream"));
+            grid.appendChild(makeEl("div","tl-hcell corner","Task"));
+            grid.appendChild(makeEl("div","tl-hcell corner","Owner"));
+            grid.appendChild(makeEl("div","tl-hcell corner","Status"));
+            weeks.forEach((wk, idx) => {
+                const isCur = (idx === currentWeekIndex);
+                const isMil = wk.is_milestone_week === "TRUE";
+                const h = makeEl("div", "tl-hcell" + (isCur?" wk-current":"") + (isMil?" wk-milestone":""));
+                if (isCur) {
+                    h.innerHTML = `
+                        <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
+                            <span style="font-size:9px;font-weight:700;letter-spacing:.03em">${esc(wk.week_id)}</span>
+                            <span style="font-size:8px">${esc(wk.date_start)}</span>
+                            <span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin-top:2px"></span>
                         </div>`;
-                    const retryBtn = document.getElementById("retryBtn");
-                    if (retryBtn) retryBtn.onclick = () => location.reload();
+                } else {
+                    h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
                 }
-                console.error(err);
-            }
-        }
+                grid.appendChild(h);
+            });
 
-        // ── INIT + EVENT LISTENERS ────────────────────────────────────────────────
-        async function init() {
-            try {
-                const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
-                    fetchCSV(GIDS.tasks),
-                    fetchCSV(GIDS.workstreams),
-                    fetchCSV(GIDS.weeks),
-                    fetchCSV(GIDS.owners),
-                    fetchCSV(GIDS.steps),
-                ]);
-                build(weeks, workstreams, tasks, owners, steps);
+            // Task rows
+            let globalTaskIndex = 0;
+            wsList.forEach(ws => {
+                const wsName = (ws.workstream_name || "").trim();
+                const wsColor = wsColorMap[wsName] || "gray";
+                const wsTasks = (tasksByWs[wsName] || []).slice().sort((a,b)=>wn(a.week_start)-wn(b.week_start));
 
-                document.getElementById("loading").classList.add("hidden");
-                document.getElementById("app").style.display = "block";
+                wsTasks.forEach(t => {
+                    const taskStartN = wn(t.week_start);
+                    const taskEndN   = wn(t.week_end);
+                    const isMilestone = t.is_milestone === "TRUE" || t.is_milestone === "True";
+                    const statusKey = t.status || "Not Started";
+                    const statusClsMap = {
+                        "Not Started":"st-ns","In Progress":"st-ip","Done":"st-done",
+                        "Blocked":"st-block","In Review":"st-review","Deployed":"st-deployed"
+                    };
+                    const statusCls = isMilestone ? "st-milestone" : (statusClsMap[statusKey] || "st-ns");
+                    const rowParity = globalTaskIndex % 2 === 0 ? "row-even" : "row-odd";
+                    globalTaskIndex++;
 
-                // Refresh button
-                const refreshBtn = document.getElementById("refreshButton");
-                if (refreshBtn) refreshBtn.addEventListener("click", refreshData);
+                    const wrapper = document.createElement("div");
+                    wrapper.className = `task-row-flat ${statusCls} ${rowParity}`;
+                    wrapper.dataset.wsName = wsName;   // for filtering
 
-                // Step navigation: click on step badges
-                const stepBadges = document.querySelectorAll("#stepsBar .step-badge");
-                stepBadges.forEach(badge => {
-                    const stepName = badge.getAttribute("data-step");
-                    if (stepName) {
-                        badge.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            scrollToStep(stepName);
-                        });
+                    // Workstream cell (no dot)
+                    const wsCell = document.createElement("div");
+                    wsCell.className = "task-label-cell ws-name-cell";
+                    wsCell.textContent = wsName;
+                    wrapper.appendChild(wsCell);
+
+                    // Task cell
+                    const taskCell = document.createElement("div");
+                    taskCell.className = "task-label-cell task-desc-cell";
+                    taskCell.textContent = t.task || "";
+                    if (isMilestone && t.milestone_label) {
+                        taskCell.textContent = `🔷 ${t.milestone_label}`;
+                        taskCell.style.fontWeight = "600";
+                        taskCell.style.color = "var(--pink)";
                     }
+                    wrapper.appendChild(taskCell);
+
+                    // Owner cell
+                    const ownerCell = document.createElement("div");
+                    ownerCell.className = "task-label-cell owner-cell";
+                    ownerCell.innerHTML = taskOwnerBadges(t.owner);
+                    wrapper.appendChild(ownerCell);
+
+                    // Status cell
+                    const statusCell = document.createElement("div");
+                    statusCell.className = "task-label-cell status-cell";
+                    statusCell.innerHTML = statusBadge(t.status);
+                    wrapper.appendChild(statusCell);
+
+                    // Gantt cells
+                    weeks.forEach((wk, idx) => {
+                        const n = wn(wk.week_id);
+                        const isCurCol = (idx === currentWeekIndex);
+                        const gc = document.createElement("div");
+                        gc.className = "task-gantt-cell";
+                        if (isCurCol) gc.classList.add("current-col-cell");
+
+                        if (isMilestone && n === taskEndN) {
+                            gc.innerHTML = `<div class="milestone-flag-sm"><div class="milestone-diamond-sm"></div><div class="milestone-lbl-sm">${esc(t.milestone_label||"MS")}</div></div>`;
+                        } else if (n >= taskStartN && n <= taskEndN) {
+                            gc.innerHTML = `<div class="task-bar-inner ${wsColor}"></div>`;
+                        }
+                        wrapper.appendChild(gc);
+                    });
+
+                    grid.appendChild(wrapper);
                 });
-            } catch (err) {
-                document.getElementById("loading").innerHTML = `
+            });
+
+            if (grid.querySelectorAll('.task-row-flat').length === 0) {
+                const emptyMsg = document.createElement("div");
+                emptyMsg.style.cssText = "grid-column:1/-1;padding:16px;font-size:12px;color:var(--text3);text-align:center;background:var(--bg2);";
+                emptyMsg.textContent = "No tasks found for this step.";
+                grid.appendChild(emptyMsg);
+            }
+
+            container.appendChild(block);
+
+            // ---- FILTER LOGIC ----
+            selectEl.addEventListener("change", (e) => {
+                const selected = e.target.value;
+                const allRows = block.querySelectorAll(".task-row-flat");
+                allRows.forEach(row => {
+                    const ws = row.dataset.wsName || "";
+                    row.style.display = (selected === "All" || ws === selected) ? "" : "none";
+                });
+            });
+        });
+    }
+
+    function makeEl(tag, cls, text) {
+        const el = document.createElement(tag);
+        if (cls) el.className = cls;
+        if (text) el.textContent = text;
+        return el;
+    }
+
+    function scrollToStep(step) {
+        const sectionId = `section-${step.replace(/ /g, "")}`;
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else document.getElementById("plan-container")?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    async function refreshData() {
+        const loadingDiv = document.getElementById("loading");
+        const appDiv = document.getElementById("app");
+        if (loadingDiv) loadingDiv.classList.remove("hidden");
+        if (appDiv) appDiv.style.display = "none";
+        try {
+            const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
+                fetchCSV(GIDS.tasks), fetchCSV(GIDS.workstreams), fetchCSV(GIDS.weeks),
+                fetchCSV(GIDS.owners), fetchCSV(GIDS.steps)
+            ]);
+            build(weeks, workstreams, tasks, owners, steps);
+            if (loadingDiv) loadingDiv.classList.add("hidden");
+            if (appDiv) appDiv.style.display = "block";
+        } catch (err) {
+            if (loadingDiv) {
+                loadingDiv.innerHTML = `
                     <div class="error-state">
                         <h3>⚠ Could not load plan data</h3>
                         <p>Make sure the Google Sheet is published:<br>
                         <strong>File → Share → Publish to web → Publish</strong><br><br>
                         Error: ${esc(err.message)}</p>
+                        <button id="retryBtn" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;">Retry</button>
                     </div>`;
-                console.error(err);
+                const retryBtn = document.getElementById("retryBtn");
+                if (retryBtn) retryBtn.onclick = () => location.reload();
             }
+            console.error(err);
         }
+    }
 
-        init();
-    </script>
+    async function init() {
+        try {
+            const [tasks, workstreams, weeks, owners, steps] = await Promise.all([
+                fetchCSV(GIDS.tasks), fetchCSV(GIDS.workstreams), fetchCSV(GIDS.weeks),
+                fetchCSV(GIDS.owners), fetchCSV(GIDS.steps)
+            ]);
+            build(weeks, workstreams, tasks, owners, steps);
+            document.getElementById("loading").classList.add("hidden");
+            document.getElementById("app").style.display = "block";
+
+            document.getElementById("refreshButton").addEventListener("click", refreshData);
+
+            document.querySelectorAll("#stepsBar .step-badge").forEach(badge => {
+                const step = badge.getAttribute("data-step");
+                if (step) badge.addEventListener("click", (e) => { e.preventDefault(); scrollToStep(step); });
+            });
+        } catch (err) {
+            document.getElementById("loading").innerHTML = `
+                <div class="error-state">
+                    <h3>⚠ Could not load plan data</h3>
+                    <p>Make sure the Google Sheet is published:<br>
+                    <strong>File → Share → Publish to web → Publish</strong><br><br>
+                    Error: ${esc(err.message)}</p>
+                </div>`;
+            console.error(err);
+        }
+    }
+
+    init();
+</script>
 </body>
 </html>
