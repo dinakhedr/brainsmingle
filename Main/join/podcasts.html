@@ -5,6 +5,160 @@
 <title>Podcast &amp; Channel Partnership — BrainsMingle</title>
 <link rel="icon" type="image/png" href="../icon.png">
 <link rel="stylesheet" href="../style.css">
+<style>
+/* ── FEATURED PODCASTS SECTION ── */
+.fp2-section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+.fp2-title { font-size: clamp(26px,3.2vw,42px); font-weight: 800; letter-spacing: -1px; color: var(--heading); line-height: 1.12; margin-bottom: 14px; }
+.fp2-sub   { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
+
+.fp2-filters {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.fp2-filter {
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid var(--border-subtle);
+  background: transparent; color: var(--text-muted);
+  cursor: pointer; transition: all 0.18s; outline: none;
+}
+.fp2-filter:hover { border-color: var(--border); color: var(--text); }
+.fp2-filter.active { background: var(--pa-dim); color: var(--pa); border-color: var(--pa-border); }
+
+.fp2-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 18px; margin-bottom: 32px;
+}
+
+.fp2-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 28px 20px 20px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.fp2-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--pa), var(--pa2));
+  opacity: 0; transition: opacity 0.2s;
+}
+.fp2-card:hover { border-color: var(--pa-border); transform: translateY(-3px); box-shadow: 0 12px 36px var(--pa-glow); }
+.fp2-card:hover::before { opacity: 1; }
+
+.fp2-logo {
+  width: 72px; height: 72px; border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 14px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800;
+  flex-shrink: 0; transition: border-color 0.2s; background: var(--bg-card2);
+}
+.fp2-card:hover .fp2-logo { border-color: var(--pa-border); }
+.fp2-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+
+.fp2-logo-0 { background: rgba(245,62,159,0.12); color: var(--pink); }
+.fp2-logo-1 { background: rgba(107,62,245,0.12);  color: #7B52F6; }
+.fp2-logo-2 { background: rgba(0,232,162,0.10);   color: #00B882; }
+.fp2-logo-3 { background: rgba(245,166,35,0.10);  color: #c47800; }
+.fp2-logo-4 { background: rgba(255,107,107,0.10); color: var(--coral); }
+.fp2-logo-5 { background: rgba(40,112,200,0.10);  color: #2870C8; }
+[data-theme="light"] .fp2-logo-0 { background: rgba(245,62,159,0.09); }
+[data-theme="light"] .fp2-logo-1 { background: rgba(107,62,245,0.08); }
+[data-theme="light"] .fp2-logo-2 { background: rgba(0,200,140,0.08); color: #007a55; }
+[data-theme="light"] .fp2-logo-3 { background: rgba(245,166,35,0.08); color: #a36200; }
+[data-theme="light"] .fp2-logo-4 { background: rgba(255,107,107,0.08); }
+[data-theme="light"] .fp2-logo-5 { background: rgba(40,112,200,0.08); }
+
+.fp2-name {
+  font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;
+  color: var(--heading); margin-bottom: 5px; line-height: 1.3;
+}
+.fp2-host {
+  font-size: 12px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4;
+}
+.fp2-host a {
+  color: var(--pa); font-weight: 600; text-decoration: none;
+  transition: opacity 0.15s;
+}
+.fp2-host a:hover { opacity: 0.75; }
+
+.fp2-tag {
+  display: inline-block; font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 3px 12px; border-radius: 100px; margin-bottom: 12px;
+  background: var(--pa-dim); color: var(--pa); border: 1px solid var(--pa-border);
+}
+.fp2-tag-ai            { background: rgba(107,62,245,0.10); color: #7B52F6; border-color: rgba(107,62,245,0.22); }
+.fp2-tag-fintech       { background: rgba(0,232,162,0.08);  color: #00B882; border-color: rgba(0,232,162,0.22); }
+[data-theme="light"] .fp2-tag-fintech { color: #007a55; }
+.fp2-tag-entrepreneurship { background: rgba(245,166,35,0.08); color: #c47800; border-color: rgba(245,166,35,0.22); }
+[data-theme="light"] .fp2-tag-entrepreneurship { color: #a36200; }
+.fp2-tag-hr            { background: rgba(40,112,200,0.10); color: #2870C8; border-color: rgba(40,112,200,0.22); }
+.fp2-tag-product       { background: rgba(245,62,159,0.10); color: var(--pink); border-color: rgba(245,62,159,0.22); }
+.fp2-tag-marketing     { background: rgba(255,107,107,0.10); color: var(--coral); border-color: rgba(255,107,107,0.22); }
+.fp2-tag-education     { background: rgba(0,200,140,0.08);  color: #00B882; border-color: rgba(0,200,140,0.22); }
+[data-theme="light"] .fp2-tag-education { color: #007a55; }
+.fp2-tag-healthcare    { background: rgba(107,62,245,0.08); color: #7B52F6; border-color: rgba(107,62,245,0.18); }
+.fp2-tag-legal         { background: rgba(245,166,35,0.08); color: #c47800; border-color: rgba(245,166,35,0.18); }
+[data-theme="light"] .fp2-tag-legal { color: #a36200; }
+.fp2-tag-technology    { background: rgba(107,62,245,0.10); color: #7B52F6; border-color: rgba(107,62,245,0.22); }
+
+.fp2-members {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--text-muted); margin-bottom: 16px;
+}
+.fp2-members svg { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+
+.fp2-card-divider { width: 100%; height: 1px; background: var(--border-subtle); margin-bottom: 14px; }
+
+.fp2-community-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--pa); text-decoration: none; transition: gap 0.2s;
+}
+.fp2-community-link svg { width: 12px; height: 12px; }
+.fp2-community-link:hover { gap: 8px; }
+
+/* Skeleton */
+.fp2-skeleton {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 28px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.fp2-skel-square {
+  width: 72px; height: 72px; border-radius: 16px;
+  background: var(--border-subtle); animation: fp2-shimmer 1.4s ease-in-out infinite;
+}
+.fp2-skel-line {
+  border-radius: 6px; background: var(--border-subtle);
+  animation: fp2-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes fp2-shimmer { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+
+.fp2-empty {
+  grid-column: 1 / -1; text-align: center;
+  padding: 48px 24px; color: var(--text-muted); font-size: 15px;
+}
+
+.fp2-footer-row {
+  display: flex; align-items: center; justify-content: flex-end;
+  padding-top: 24px; border-top: 1px solid var(--border-subtle);
+}
+.fp2-browse-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 10px 22px; border-radius: 10px;
+  color: var(--pa); border: 1px solid var(--pa-border);
+  background: var(--pa-dim); text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.fp2-browse-btn:hover { background: rgba(245,62,159,0.18); border-color: var(--pa); }
+.fp2-browse-btn svg { width: 14px; height: 14px; }
+
+.fp2-card[data-hidden="true"] { display: none; }
+
+@media (max-width: 900px) { .fp2-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .fp2-grid { grid-template-columns: 1fr; } .fp2-section { padding: 60px 24px; } .fp2-footer-row { justify-content: flex-start; } }
+</style>
 </head>
 <body>
 
@@ -30,8 +184,9 @@
   <div class="hero-bg-grid"></div><div class="hero-glow-top"></div><div class="hero-glow-side"></div>
   <div class="hero-badge"><span class="badge-dot"></span>Podcasters &amp; Content Creators<span class="badge-dot"></span></div>
   <h1>Your audience is waiting.<span class="line2"> Give them a place to connect.</span></h1>
-<p class="hero-problem">You create incredible content. But between uploads, <strong>your audience disappears</strong> no place to stay, discuss, or connect live.</p>
-<p class="hero-problem hero-problem--line2">Bring your audience into a live community</p>  <div class="hero-cta-wrap">
+  <p class="hero-problem">You create incredible content. But between uploads, <strong>your audience disappears</strong> no place to stay, discuss, or connect live.</p>
+  <p class="hero-problem hero-problem--line2">Bring your audience into a live community</p>
+  <div class="hero-cta-wrap">
     <a class="btn-primary" href="https://brainsmingle.com/auth/login" target="_blank">Create your creator profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <a class="btn-ghost" href="#journey">How it works</a>
   </div>
@@ -55,7 +210,6 @@
   <p class="section-sub">You've already done the hard part — building an audience that trusts you. Now give them a place to stay.</p>
 
   <div class="who-grid">
-    <!-- Card 1: Podcast Host -->
     <div class="who-card">
       <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
       <div class="who-title">Podcast Hosts</div>
@@ -68,7 +222,6 @@
         <div class="card-check-item"><span class="card-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Speed networking for your listeners</div>
       </div>
     </div>
-    <!-- Card 2: YouTubers & Video Creators -->
     <div class="who-card">
       <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
       <div class="who-title">YouTubers &amp; Video Creators</div>
@@ -81,7 +234,6 @@
         <div class="card-check-item"><span class="card-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Monetisation beyond ad revenue</div>
       </div>
     </div>
-    <!-- Card 3: Newsletter Writers & Thought Leaders -->
     <div class="who-card">
       <div class="who-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
       <div class="who-title">Newsletter Writers &amp; Thought Leaders</div>
@@ -96,7 +248,6 @@
     </div>
   </div>
 
-  <!-- CTA below cards -->
   <div class="who-cta-row">
     <a class="btn-primary" href="https://brainsmingle.com/auth/login" target="_blank">Sign up now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <div class="who-cta-small"><a href="#book-call">Not sure yet? Book a call</a></div>
@@ -149,7 +300,50 @@
 
 <hr class="divider">
 
-<!-- HOW IT WORKS – 6-STEP JOURNEY TIMELINE (id="journey") -->
+<!-- FEATURED PODCASTS & CHANNELS -->
+<div class="fp2-section" id="featured-podcasts">
+  <div class="eyebrow">Already on BrainsMingle</div>
+  <h2 class="fp2-title">Podcasts &amp; channels<br>with a community here</h2>
+  <p class="fp2-sub" style="margin-bottom:32px;">Real creators who have already brought their audience onto the platform and built an active community around their content.</p>
+
+  <div class="fp2-filters" id="fp2-filters">
+    <button class="fp2-filter active" data-vertical="all">All</button>
+  </div>
+
+  <div class="fp2-grid" id="fp2-grid">
+    <div class="fp2-skeleton">
+      <div class="fp2-skel-square"></div>
+      <div class="fp2-skel-line" style="width:60%;height:14px;"></div>
+      <div class="fp2-skel-line" style="width:45%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:38%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+    <div class="fp2-skeleton">
+      <div class="fp2-skel-square"></div>
+      <div class="fp2-skel-line" style="width:55%;height:14px;"></div>
+      <div class="fp2-skel-line" style="width:45%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:38%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+    <div class="fp2-skeleton">
+      <div class="fp2-skel-square"></div>
+      <div class="fp2-skel-line" style="width:65%;height:14px;"></div>
+      <div class="fp2-skel-line" style="width:45%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:38%;height:10px;"></div>
+      <div class="fp2-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+  </div>
+
+  <div class="fp2-footer-row" id="fp2-footer" style="display:none;">
+    <a class="fp2-browse-btn" href="https://brainsmingle.com/explore" target="_blank">
+      Browse all communities <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HOW IT WORKS – 6-STEP JOURNEY TIMELINE -->
 <div class="section" id="journey">
   <div class="eyebrow">Your journey on BrainsMingle</div>
   <h2 class="section-title">From sign-up to thriving<br>community — here's how it works</h2>
@@ -167,7 +361,7 @@
 
 <hr class="divider">
 
-<!-- SPECIAL CARD – Creator Opportunity (with glow) -->
+<!-- SPECIAL CARD – Creator Opportunity -->
 <div class="section">
   <div class="launch-wrap" style="position:relative; overflow:hidden; background: var(--bg-card); border: 1px solid var(--pa-border); border-radius: 20px; box-shadow: 0 8px 32px rgba(245,62,159,0.2);">
     <div class="launch-top-bar"></div>
@@ -191,7 +385,7 @@
 
 <hr class="divider">
 
-<!-- PRICING STRIP (after special card) -->
+<!-- PRICING STRIP -->
 <div class="section-sm">
   <div class="pricing-wrap">
     <div class="pricing-left">
@@ -222,10 +416,175 @@
 <footer class="footer">© 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a></footer>
 
 <script>
+/* ── THEME TOGGLE ── */
 (function(){
   var t=document.getElementById('theme-toggle'),h=document.documentElement,s=localStorage.getItem('bm-theme')||'dark';
   h.setAttribute('data-theme',s);
   t.addEventListener('click',function(){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('bm-theme',n);});
+})();
+
+/* ── FEATURED PODCASTS ── */
+(function(){
+  var SHEET_ID = '1Xxyxyyx0GZHKoiAT1soUJCRyiLVEoPtot_Y5razzsA4';
+  var GID      = '199749173';
+  var CSV_URL  = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + GID;
+
+  var VERTICAL_CLASS = {
+    'ai': 'ai', 'ai & tech': 'ai', 'artificial intelligence': 'ai',
+    'technology': 'technology',
+    'fintech': 'fintech', 'fintech & financial services': 'fintech',
+    'entrepreneurship': 'entrepreneurship', 'entrepreneurship & startups': 'entrepreneurship',
+    'hr': 'hr', 'hr & work': 'hr', 'hr & future of work': 'hr',
+    'product': 'product', 'product management': 'product', 'product management & design': 'product',
+    'marketing': 'marketing', 'marketing & creative': 'marketing',
+    'education': 'education', 'edtech': 'education', 'education & edtech': 'education',
+    'healthcare': 'healthcare', 'healthcare & wellbeing': 'healthcare',
+    'legal': 'legal', 'legal & governance': 'legal',
+  };
+
+  function getVerticalClass(v) {
+    return VERTICAL_CLASS[(v || '').toLowerCase().trim()] || 'ai';
+  }
+
+  function getInitials(name) {
+    var parts = (name || '').trim().split(/\s+/);
+    return parts.length >= 2
+      ? (parts[0][0] + parts[1][0]).toUpperCase()
+      : (parts[0] || '?').substring(0, 2).toUpperCase();
+  }
+
+  function parseCSV(text) {
+    var lines = text.trim().split('\n');
+    if (lines.length < 2) return [];
+    var headers = lines[0].split(',').map(function(h){ return h.replace(/^"|"$/g,'').trim().toLowerCase(); });
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var cells = [], line = lines[i], inQuote = false, cell = '';
+      for (var c = 0; c < line.length; c++) {
+        var ch = line[c];
+        if (ch === '"') { inQuote = !inQuote; }
+        else if (ch === ',' && !inQuote) { cells.push(cell.trim()); cell = ''; }
+        else { cell += ch; }
+      }
+      cells.push(cell.trim());
+      var row = {};
+      headers.forEach(function(h, idx){ row[h] = (cells[idx] || '').replace(/^"|"$/g,'').trim(); });
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function buildCard(row, colorIdx) {
+    var name            = row['podcastname']     || row['name']         || '';
+    var hostName        = row['hostname']        || '';
+    var hostProfileUrl  = row['hostprofileurl']  || row['host profile url'] || row['hostprofileurl'] || '';
+    var communityUrl    = row['communityurl']    || row['community url'] || '';
+    var logoUrl         = row['logourl']         || row['logo url']     || '';
+    var members         = row['members']         || '';
+    var vertical        = row['vertical']        || '';
+
+    var vertClass  = getVerticalClass(vertical);
+    var vertLabel  = vertical || 'Podcast';
+    var initials   = getInitials(name);
+    var colorClass = 'fp2-logo-' + (colorIdx % 6);
+
+    /* Logo */
+    var logoHtml = logoUrl
+      ? '<div class="fp2-logo ' + colorClass + '"><img src="' + logoUrl + '" alt="' + name + '" onerror="this.style.display=\'none\';this.parentElement.textContent=\'' + initials + '\'"></div>'
+      : '<div class="fp2-logo ' + colorClass + '">' + initials + '</div>';
+
+    /* Host — linked if HostProfileURL present, plain text otherwise */
+    var hostHtml = '';
+    if (hostName) {
+      var hostInner = hostProfileUrl
+        ? '<a href="' + hostProfileUrl + '" target="_blank" rel="noopener">' + hostName + '</a>'
+        : hostName;
+      hostHtml = '<div class="fp2-host">by ' + hostInner + '</div>';
+    }
+
+    /* Members */
+    var membersHtml = members
+      ? '<div class="fp2-members"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>' + members + ' members</div>'
+      : '';
+
+    /* Link */
+    var linkHtml = communityUrl
+      ? '<div class="fp2-card-divider"></div><a class="fp2-community-link" href="' + communityUrl + '" target="_blank" rel="noopener">View community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
+      : '';
+
+    var card = document.createElement('div');
+    card.className = 'fp2-card';
+    card.dataset.vertical = vertical.toLowerCase().trim();
+    card.innerHTML = logoHtml
+      + '<div class="fp2-name">' + name + '</div>'
+      + hostHtml
+      + '<span class="fp2-tag fp2-tag-' + vertClass + '">' + vertLabel + '</span>'
+      + membersHtml
+      + linkHtml;
+    return card;
+  }
+
+  function buildFilters(verticals) {
+    var container = document.getElementById('fp2-filters');
+    container.querySelectorAll('[data-vertical]:not([data-vertical="all"])').forEach(function(el){ el.remove(); });
+    verticals.forEach(function(v) {
+      var btn = document.createElement('button');
+      btn.className = 'fp2-filter';
+      btn.dataset.vertical = v.toLowerCase().trim();
+      btn.textContent = v;
+      container.appendChild(btn);
+    });
+    container.style.display = verticals.length > 1 ? 'flex' : 'none';
+    container.addEventListener('click', function(e) {
+      var btn = e.target.closest('.fp2-filter');
+      if (!btn) return;
+      container.querySelectorAll('.fp2-filter').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var selected = btn.dataset.vertical;
+      document.querySelectorAll('#fp2-grid .fp2-card').forEach(function(card) {
+        card.dataset.hidden = (selected === 'all' || card.dataset.vertical === selected) ? 'false' : 'true';
+      });
+    });
+  }
+
+  function render(podcasts) {
+    var grid   = document.getElementById('fp2-grid');
+    var footer = document.getElementById('fp2-footer');
+    grid.innerHTML = '';
+    if (!podcasts || podcasts.length === 0) {
+      grid.innerHTML = '<div class="fp2-empty">No featured podcasts at the moment — check back soon.</div>';
+      footer.style.display = 'none';
+      return;
+    }
+    var verticalSet = {};
+    podcasts.forEach(function(r){ if (r['vertical']) verticalSet[r['vertical']] = true; });
+    buildFilters(Object.keys(verticalSet));
+    podcasts.forEach(function(row, idx){ grid.appendChild(buildCard(row, idx)); });
+    footer.style.display = 'flex';
+  }
+
+  function load() {
+    fetch(CSV_URL)
+      .then(function(res){
+        if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
+        return res.text();
+      })
+      .then(function(csv){
+        var rows = parseCSV(csv);
+        var featured = rows.filter(function(r){
+          var flag = (r['isfeatured'] || r['is featured'] || r['is_featured'] || '').toLowerCase().trim();
+          return flag === 'true' || flag === '1' || flag === 'yes';
+        });
+        render(featured);
+      })
+      .catch(function(err){
+        console.warn('BrainsMingle: could not load featured podcasts —', err);
+        document.getElementById('fp2-grid').innerHTML = '<div class="fp2-empty">Could not load featured podcasts. Please try again later.</div>';
+        document.getElementById('fp2-footer').style.display = 'none';
+      });
+  }
+
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', load) : load();
 })();
 </script>
 </body>
