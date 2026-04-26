@@ -5,6 +5,194 @@
 <title>Join as an Expert — BrainsMingle</title>
 <link rel="icon" type="image/png" href="../icon.png">
 <link rel="stylesheet" href="../style.css">
+<style>
+/* ── FEATURED PROFESSIONALS SECTION ── */
+.fp-section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+
+.fp-header { margin-bottom: 32px; }
+.fp-title  { font-size: clamp(26px,3.2vw,42px); font-weight: 800; letter-spacing: -1px; color: var(--heading); line-height: 1.12; margin-bottom: 14px; }
+.fp-sub    { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
+
+/* Filter pills */
+.fp-filters {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.fp-filter {
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid var(--border-subtle);
+  background: transparent; color: var(--text-muted);
+  cursor: pointer; transition: all 0.18s; outline: none;
+}
+.fp-filter:hover { border-color: var(--border); color: var(--text); }
+.fp-filter.active {
+  background: var(--pa-dim); color: var(--pa);
+  border-color: var(--pa-border);
+}
+
+/* Grid */
+.fp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+/* Card */
+.fp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.fp-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--pa), var(--pa2));
+  opacity: 0; transition: opacity 0.2s;
+}
+.fp-card:hover {
+  border-color: var(--pa-border);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px var(--pa-glow);
+}
+.fp-card:hover::before { opacity: 1; }
+
+/* Avatar */
+.fp-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  margin-bottom: 14px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700;
+  flex-shrink: 0; transition: border-color 0.2s;
+}
+.fp-card:hover .fp-avatar { border-color: var(--pa-border); }
+.fp-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Avatar fallback colors — cycle through brand palette */
+.fp-avatar-0 { background: rgba(107,62,245,0.15); color: var(--pa); }
+.fp-avatar-1 { background: rgba(0,232,162,0.12); color: #00B882; }
+.fp-avatar-2 { background: rgba(245,166,35,0.12); color: #D48A00; }
+.fp-avatar-3 { background: rgba(245,62,159,0.12); color: var(--pink); }
+.fp-avatar-4 { background: rgba(40,112,200,0.12); color: #2870C8; }
+.fp-avatar-5 { background: rgba(255,107,107,0.12); color: var(--coral); }
+
+[data-theme="light"] .fp-avatar-0 { background: rgba(107,62,245,0.10); }
+[data-theme="light"] .fp-avatar-1 { background: rgba(0,200,140,0.10); color: #007a55; }
+[data-theme="light"] .fp-avatar-2 { background: rgba(245,166,35,0.10); color: #a36200; }
+[data-theme="light"] .fp-avatar-3 { background: rgba(245,62,159,0.10); }
+[data-theme="light"] .fp-avatar-4 { background: rgba(40,112,200,0.10); }
+[data-theme="light"] .fp-avatar-5 { background: rgba(255,107,107,0.10); }
+
+.fp-name {
+  font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700;
+  color: var(--heading); margin-bottom: 5px; line-height: 1.3;
+}
+.fp-headline {
+  font-size: 12px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.55;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* Vertical tag */
+.fp-tag {
+  display: inline-block; font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 3px 12px; border-radius: 100px; margin-bottom: 12px;
+  background: var(--pa-dim); color: var(--pa); border: 1px solid var(--pa-border);
+}
+/* Per-vertical tag colours */
+.fp-tag-ai        { background: rgba(107,62,245,0.12); color: var(--pa); border-color: rgba(107,62,245,0.25); }
+.fp-tag-fintech   { background: rgba(0,232,162,0.10); color: #00B882; border-color: rgba(0,232,162,0.25); }
+[data-theme="light"] .fp-tag-fintech { color: #007a55; }
+.fp-tag-entrepreneurship { background: rgba(245,166,35,0.10); color: #c47800; border-color: rgba(245,166,35,0.25); }
+[data-theme="light"] .fp-tag-entrepreneurship { color: #a36200; }
+.fp-tag-hr        { background: rgba(40,112,200,0.10); color: #2870C8; border-color: rgba(40,112,200,0.25); }
+.fp-tag-product   { background: rgba(245,62,159,0.10); color: var(--pink); border-color: rgba(245,62,159,0.25); }
+.fp-tag-marketing { background: rgba(255,107,107,0.10); color: var(--coral); border-color: rgba(255,107,107,0.25); }
+.fp-tag-education { background: rgba(0,200,140,0.10); color: #00B882; border-color: rgba(0,200,140,0.25); }
+.fp-tag-healthcare { background: rgba(107,62,245,0.10); color: var(--pa); border-color: rgba(107,62,245,0.2); }
+.fp-tag-legal     { background: rgba(245,166,35,0.10); color: #c47800; border-color: rgba(245,166,35,0.2); }
+
+/* Followers */
+.fp-followers {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: var(--text-muted); margin-bottom: 16px;
+}
+.fp-followers svg { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+
+/* Divider + link */
+.fp-card-divider {
+  width: 100%; height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: 14px;
+}
+.fp-profile-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--pa); text-decoration: none;
+  transition: gap 0.2s;
+}
+.fp-profile-link svg { width: 12px; height: 12px; }
+.fp-profile-link:hover { gap: 8px; }
+
+/* Loading skeleton */
+.fp-skeleton {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: 16px; padding: 24px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.fp-skel-circle {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--border-subtle); animation: fp-shimmer 1.4s ease-in-out infinite;
+}
+.fp-skel-line {
+  border-radius: 6px; background: var(--border-subtle);
+  animation: fp-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes fp-shimmer {
+  0%,100% { opacity: 0.4; } 50% { opacity: 0.8; }
+}
+
+/* Empty / error state */
+.fp-empty {
+  grid-column: 1 / -1; text-align: center;
+  padding: 48px 24px; color: var(--text-muted); font-size: 15px;
+}
+
+/* Footer row */
+.fp-footer-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 24px; border-top: 1px solid var(--border-subtle);
+}
+.fp-footer-text { font-size: 14px; color: var(--text-muted); }
+.fp-browse-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 10px 22px; border-radius: 10px;
+  color: var(--pa); border: 1px solid var(--pa-border);
+  background: var(--pa-dim); text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.fp-browse-btn:hover { background: rgba(107,62,245,0.22); border-color: var(--pa); }
+.fp-browse-btn svg { width: 14px; height: 14px; }
+
+/* Hidden card (filtered out) */
+.fp-card[data-hidden="true"] { display: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .fp-grid { grid-template-columns: 1fr; }
+  .fp-section { padding: 60px 24px; }
+  .fp-footer-row { flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
 
@@ -150,6 +338,54 @@
 
 <hr class="divider">
 
+<!-- FEATURED PROFESSIONALS -->
+<div class="fp-section" id="featured-professionals">
+  <div class="fp-header">
+    <div class="eyebrow">Who's already here</div>
+    <h2 class="fp-title">Professionals building<br>on BrainsMingle</h2>
+    <p class="fp-sub">Real experts, consultants, and trainers already hosting sessions, growing communities, and earning on the platform.</p>
+  </div>
+
+  <div class="fp-filters" id="fp-filters">
+    <button class="fp-filter active" data-vertical="all">All</button>
+    <!-- Vertical filter buttons injected by JS -->
+  </div>
+
+  <div class="fp-grid" id="fp-grid">
+    <!-- Skeleton placeholders shown while loading -->
+    <div class="fp-skeleton" id="fp-skel-1">
+      <div class="fp-skel-circle"></div>
+      <div class="fp-skel-line" style="width:60%;height:14px;"></div>
+      <div class="fp-skel-line" style="width:80%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:40%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+    <div class="fp-skeleton" id="fp-skel-2">
+      <div class="fp-skel-circle"></div>
+      <div class="fp-skel-line" style="width:55%;height:14px;"></div>
+      <div class="fp-skel-line" style="width:75%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:40%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+    <div class="fp-skeleton" id="fp-skel-3">
+      <div class="fp-skel-circle"></div>
+      <div class="fp-skel-line" style="width:65%;height:14px;"></div>
+      <div class="fp-skel-line" style="width:70%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:40%;height:10px;"></div>
+      <div class="fp-skel-line" style="width:50%;height:10px;"></div>
+    </div>
+  </div>
+
+  <div class="fp-footer-row" id="fp-footer" style="display:none;">
+    <span class="fp-footer-text" id="fp-count-label"></span>
+    <a class="fp-browse-btn" href="https://brainsmingle.com/explore" target="_blank">
+      Browse all experts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<hr class="divider">
+
 <!-- HOW IT WORKS – 6-STEP JOURNEY TIMELINE (id="journey") -->
 <div class="section" id="journey">
   <div class="eyebrow">Your journey on BrainsMingle</div>
@@ -192,7 +428,7 @@
 
 <hr class="divider">
 
-<!-- PRICING STRIP (after special card) -->
+<!-- PRICING STRIP -->
 <div class="section-sm">
   <div class="pricing-wrap">
     <div class="pricing-left">
@@ -223,10 +459,246 @@
 <footer class="footer">© 2026 BrainsMingle · <a href="https://brainsmingle.com">brainsmingle.com</a></footer>
 
 <script>
+/* ── THEME TOGGLE ── */
 (function(){
   var t=document.getElementById('theme-toggle'),h=document.documentElement,s=localStorage.getItem('bm-theme')||'dark';
   h.setAttribute('data-theme',s);
   t.addEventListener('click',function(){var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('bm-theme',n);});
+})();
+
+/* ── FEATURED PROFESSIONALS ── */
+(function(){
+  var SHEET_ID  = '1Xxyxyyx0GZHKoiAT1soUJCRyiLVEoPtot_Y5razzsA4';
+  var GID       = '1558459824';
+  var CSV_URL   = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + GID;
+
+  /* Map vertical string → CSS suffix for fp-tag class */
+  var VERTICAL_CLASS = {
+    'ai':               'ai',
+    'ai & tech':        'ai',
+    'artificial intelligence': 'ai',
+    'fintech':          'fintech',
+    'fintech & financial services': 'fintech',
+    'entrepreneurship': 'entrepreneurship',
+    'entrepreneurship & startups': 'entrepreneurship',
+    'hr':               'hr',
+    'hr & work':        'hr',
+    'hr & future of work': 'hr',
+    'product':          'product',
+    'product management': 'product',
+    'product management & design': 'product',
+    'marketing':        'marketing',
+    'marketing & creative': 'marketing',
+    'education':        'education',
+    'edtech':           'education',
+    'education & edtech': 'education',
+    'healthcare':       'healthcare',
+    'healthcare & wellbeing': 'healthcare',
+    'legal':            'legal',
+    'legal & governance': 'legal',
+  };
+
+  /* Colour index for avatar fallback — cycles 0-5 */
+  var avatarColorIndex = 0;
+
+  function getInitials(name) {
+    var parts = (name || '').trim().split(/\s+/);
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return (parts[0] || '?').substring(0, 2).toUpperCase();
+  }
+
+  function getVerticalClass(vertical) {
+    var key = (vertical || '').toLowerCase().trim();
+    return VERTICAL_CLASS[key] || 'ai';
+  }
+
+  function parseCSV(text) {
+    var lines = text.trim().split('\n');
+    if (lines.length < 2) return [];
+    /* Normalise header keys: lowercase, trim */
+    var headers = lines[0].split(',').map(function(h){ return h.replace(/^"|"$/g,'').trim().toLowerCase(); });
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      /* Simple CSV split — handles quoted commas */
+      var cells = [];
+      var line = lines[i];
+      var inQuote = false, cell = '';
+      for (var c = 0; c < line.length; c++) {
+        var ch = line[c];
+        if (ch === '"') { inQuote = !inQuote; }
+        else if (ch === ',' && !inQuote) { cells.push(cell.trim()); cell = ''; }
+        else { cell += ch; }
+      }
+      cells.push(cell.trim());
+      var row = {};
+      headers.forEach(function(h, idx){ row[h] = (cells[idx] || '').replace(/^"|"$/g,'').trim(); });
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function buildCard(row, colorIdx) {
+    var name       = row['name']       || row['full name'] || '';
+    var headline   = row['headline']   || row['title']     || '';
+    var vertical   = row['vertical']   || '';
+    var followers  = row['followers']  || '';
+    var photoUrl   = row['photourl']   || row['photo url'] || row['photo_url'] || '';
+    var profileUrl = row['profileurl'] || row['profile url'] || row['profile_url'] || row['profilelink'] || '';
+
+    var vertClass  = getVerticalClass(vertical);
+    var vertLabel  = vertical || 'Professional';
+    var initials   = getInitials(name);
+    var colorClass = 'fp-avatar-' + (colorIdx % 6);
+
+    /* Build avatar HTML */
+    var avatarHtml;
+    if (photoUrl) {
+      avatarHtml = '<div class="fp-avatar ' + colorClass + '">'
+        + '<img src="' + photoUrl + '" alt="' + name + '" '
+        + 'onerror="this.style.display=\'none\';this.parentElement.textContent=\'' + initials + '\'">'
+        + '</div>';
+    } else {
+      avatarHtml = '<div class="fp-avatar ' + colorClass + '">' + initials + '</div>';
+    }
+
+    /* Build followers row */
+    var followersHtml = '';
+    if (followers) {
+      followersHtml = '<div class="fp-followers">'
+        + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">'
+        + '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'
+        + '<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+        + followers + ' followers</div>';
+    }
+
+    /* Build profile link */
+    var linkHtml = '';
+    if (profileUrl) {
+      var href = profileUrl.startsWith('http') ? profileUrl : 'https://brainsmingle.com/' + profileUrl;
+      linkHtml = '<div class="fp-card-divider"></div>'
+        + '<a class="fp-profile-link" href="' + href + '" target="_blank" rel="noopener">'
+        + 'View profile '
+        + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+        + '</a>';
+    }
+
+    var card = document.createElement('div');
+    card.className = 'fp-card';
+    card.dataset.vertical = vertical.toLowerCase().trim();
+    card.innerHTML = avatarHtml
+      + '<div class="fp-name">' + name + '</div>'
+      + '<div class="fp-headline">' + headline + '</div>'
+      + '<span class="fp-tag fp-tag-' + vertClass + '">' + vertLabel + '</span>'
+      + followersHtml
+      + linkHtml;
+
+    return card;
+  }
+
+  function buildFilters(verticals) {
+    var container = document.getElementById('fp-filters');
+    /* Remove any previously injected filters (keep "All" button) */
+    var existing = container.querySelectorAll('[data-vertical]:not([data-vertical="all"])');
+    existing.forEach(function(el){ el.remove(); });
+
+    verticals.forEach(function(v) {
+      var btn = document.createElement('button');
+      btn.className = 'fp-filter';
+      btn.dataset.vertical = v.toLowerCase().trim();
+      btn.textContent = v;
+      container.appendChild(btn);
+    });
+
+    /* Hide filter row if only 1 vertical or no verticals */
+    container.style.display = verticals.length > 1 ? 'flex' : 'none';
+
+    /* Click handler */
+    container.addEventListener('click', function(e) {
+      var btn = e.target.closest('.fp-filter');
+      if (!btn) return;
+      container.querySelectorAll('.fp-filter').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var selected = btn.dataset.vertical;
+      var cards = document.querySelectorAll('#fp-grid .fp-card');
+      var visible = 0;
+      cards.forEach(function(card) {
+        var show = selected === 'all' || card.dataset.vertical === selected;
+        card.dataset.hidden = show ? 'false' : 'true';
+        if (show) visible++;
+      });
+      updateCountLabel(visible, selected);
+    });
+  }
+
+  function updateCountLabel(count, vertical) {
+    var label = document.getElementById('fp-count-label');
+    if (!label) return;
+    if (vertical === 'all' || !vertical) {
+      label.textContent = count + ' professional' + (count !== 1 ? 's' : '') + ' on the platform';
+    } else {
+      label.textContent = count + ' professional' + (count !== 1 ? 's' : '') + ' in ' + vertical;
+    }
+  }
+
+  function render(experts) {
+    var grid    = document.getElementById('fp-grid');
+    var footer  = document.getElementById('fp-footer');
+
+    /* Clear skeletons */
+    grid.innerHTML = '';
+
+    if (!experts || experts.length === 0) {
+      grid.innerHTML = '<div class="fp-empty">No featured professionals at the moment — check back soon.</div>';
+      footer.style.display = 'none';
+      return;
+    }
+
+    /* Collect unique verticals */
+    var verticalSet = {};
+    experts.forEach(function(r){ if (r['vertical']) verticalSet[r['vertical']] = true; });
+    var verticals = Object.keys(verticalSet);
+
+    buildFilters(verticals);
+
+    var colorIdx = 0;
+    experts.forEach(function(row) {
+      var card = buildCard(row, colorIdx++);
+      grid.appendChild(card);
+    });
+
+    updateCountLabel(experts.length, 'all');
+    footer.style.display = 'flex';
+  }
+
+  function loadExperts() {
+    fetch(CSV_URL)
+      .then(function(res) {
+        if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
+        return res.text();
+      })
+      .then(function(csv) {
+        var rows = parseCSV(csv);
+        /* Filter to IsFeatured === TRUE (case-insensitive) */
+        var featured = rows.filter(function(r) {
+          var flag = (r['isfeatured'] || r['is featured'] || r['is_featured'] || '').toLowerCase().trim();
+          return flag === 'true' || flag === '1' || flag === 'yes';
+        });
+        render(featured);
+      })
+      .catch(function(err) {
+        console.warn('BrainsMingle: could not load featured professionals —', err);
+        var grid = document.getElementById('fp-grid');
+        grid.innerHTML = '<div class="fp-empty">Could not load featured professionals. Please try again later.</div>';
+        document.getElementById('fp-footer').style.display = 'none';
+      });
+  }
+
+  /* Kick off on DOM ready */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadExperts);
+  } else {
+    loadExperts();
+  }
 })();
 </script>
 </body>
