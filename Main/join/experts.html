@@ -377,7 +377,6 @@
   </div>
 
   <div class="fp-footer-row" id="fp-footer" style="display:none;">
-    <span class="fp-footer-text" id="fp-count-label"></span>
     <a class="fp-browse-btn" href="https://brainsmingle.com/directory" target="_blank">
       Browse all experts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -626,18 +625,7 @@
         card.dataset.hidden = show ? 'false' : 'true';
         if (show) visible++;
       });
-      updateCountLabel(visible, selected);
     });
-  }
-
-  function updateCountLabel(count, vertical) {
-    var label = document.getElementById('fp-count-label');
-    if (!label) return;
-    if (vertical === 'all' || !vertical) {
-      label.textContent = count + ' professional' + (count !== 1 ? 's' : '') + ' on the platform';
-    } else {
-      label.textContent = count + ' professional' + (count !== 1 ? 's' : '') + ' in ' + vertical;
-    }
   }
 
   function render(experts) {
@@ -665,8 +653,6 @@
       var card = buildCard(row, colorIdx++);
       grid.appendChild(card);
     });
-
-    updateCountLabel(experts.length, 'all');
     footer.style.display = 'flex';
   }
 
