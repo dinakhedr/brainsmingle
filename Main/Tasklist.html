@@ -269,7 +269,7 @@ Here's the complete updated HTML with all changes embedded:
             .header { padding: 14px 16px; gap: 10px; }
             .header-sub { font-size: 9px; }
             .steps-bar { padding: 10px 16px; gap: 4px; top: 64px; }
-            .master-filter { padding: 8px 16px; gap: 6px; top: 104px; }
+            .master-filter { padding: 8px 16px; gap: 6px; top: 108px; }
             .step-badge { font-size: 10px; padding: 3px 8px; }
             .main { padding: 16px 12px; }
             .stats-row { gap: 6px; }
@@ -611,7 +611,7 @@ Here's the complete updated HTML with all changes embedded:
             const sh = document.createElement("div");
             sh.className = "section-header";
             sh.id = `section-${step.replace(/ /g, "")}`;
-            sh.style.scrollMarginTop = "160px";
+            sh.style.scrollMarginTop = "180px";
             sh.innerHTML = `
                 <div class="section-dot" style="background:${meta.dot}"></div>
                 <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
