@@ -1,3 +1,6 @@
+Here's the complete updated HTML with all changes embedded:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +88,11 @@
         }
         .nav-btn:hover { background: rgba(0, 184, 130, 0.15); transform: scale(0.98); }
 
-        .steps-bar { display: flex; gap: 8px; padding: 12px 40px; background: var(--bg2); border-bottom: 1px solid var(--border); flex-wrap: wrap; position: sticky; top: 76px; z-index: 99;}
+        .steps-bar { 
+            display: flex; gap: 8px; padding: 12px 40px; background: var(--bg2); 
+            border-bottom: 1px solid var(--border); flex-wrap: wrap; 
+            position: sticky; top: 76px; z-index: 99;
+        }
         .step-badge {
             font-family: var(--fh); font-size: 11px; font-weight: 600; padding: 4px 12px;
             border-radius: 4px; letter-spacing: .03em; cursor: pointer; transition: all 0.2s ease;
@@ -96,7 +103,30 @@
         .s3 { background: rgba(245, 166, 35, .12); color: var(--amber); border: 1px solid rgba(245, 166, 35, .30); }
         .s4 { background: rgba(245, 62, 159, .12); color: var(--pink); border: 1px solid rgba(245, 62, 159, .30); }
 
-        .main { padding: 28px 40px; scroll-margin-top: 140px;}
+        .master-filter {
+            display: flex; align-items: center; gap: 12px; 
+            padding: 8px 40px; background: var(--bg2); 
+            border-bottom: 1px solid var(--border); flex-wrap: wrap;
+            position: sticky; top: 116px; z-index: 98;
+        }
+        .master-filter label {
+            font-family: var(--fh); font-size: 10px; font-weight: 600;
+            color: var(--text3); text-transform: uppercase; letter-spacing: .06em;
+        }
+        .master-filter select {
+            background: var(--bg4); border: 1px solid var(--border2); border-radius: 4px;
+            color: var(--text); font-family: var(--fb); font-size: 12px; padding: 3px 8px;
+            cursor: pointer; outline: none; min-width: 120px;
+        }
+        .master-filter select:hover { border-color: var(--purple-mid); }
+        .clear-filters-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border2); border-radius: 4px;
+            color: var(--text3); font-family: var(--fh); font-size: 10px; font-weight: 600;
+            padding: 4px 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .clear-filters-btn:hover { border-color: var(--pink); color: var(--pink); }
+
+        .main { padding: 28px 40px; }
 
         .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
         .stat-card {
@@ -107,7 +137,7 @@
         .stat-value { font-family: var(--fh); font-size: 24px; font-weight: 700; line-height: 1; }
         .stat-label { font-family: var(--fh); font-size: 10px; color: var(--text3); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; }
 
-        .section-header { display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; scroll-margin-top: 20px; }
+        .section-header { display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; }
         .section-header:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .section-title {
@@ -115,28 +145,6 @@
         }
         .section-deadline { font-size: 11px; color: var(--text3); margin-left: auto; }
         .section-deadline.urgent { color: var(--pink); }
-
-        .section-filter {
-            display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
-            background: var(--bg3); border-radius: 6px; padding: 6px 12px;
-            border: 1px solid var(--border); flex-wrap: wrap;
-        }
-        .section-filter label {
-            font-family: var(--fh); font-size: 10px; font-weight: 600;
-            color: var(--text3); text-transform: uppercase; letter-spacing: .06em;
-        }
-        .section-filter select {
-            background: var(--bg4); border: 1px solid var(--border2); border-radius: 4px;
-            color: var(--text); font-family: var(--fb); font-size: 12px; padding: 3px 8px;
-            cursor: pointer; outline: none; min-width: 120px;
-        }
-        .section-filter select:hover { border-color: var(--purple-mid); }
-        .clear-filters-btn {
-            background: rgba(255,255,255,0.05); border: 1px solid var(--border2); border-radius: 4px;
-            color: var(--text3); font-family: var(--fh); font-size: 10px; font-weight: 600;
-            padding: 4px 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
-        }
-        .clear-filters-btn:hover { border-color: var(--pink); color: var(--pink); }
 
         .timeline-block {
             background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
@@ -172,33 +180,31 @@
         .task-row-flat:hover .task-label-cell { filter: brightness(1.2); }
         .task-row-flat:hover .task-gantt-cell { filter: brightness(1.15); }
 
-        .task-row-flat.st-ip .task-label-cell:first-child { border-left: 3px solid #6B3EF5; }
-        /*.task-row-flat.st-done .task-label-cell:first-child { border-left: 3px solid #00B882; }*/
+        .task-row-flat.st-ip .task-label-cell:first-child { border-left: 3px solid #F5A623; }
         .task-row-flat.st-block .task-label-cell:first-child { border-left: 3px solid #E53E3E; }
-        .task-row-flat.st-review .task-label-cell:first-child { border-left: 3px solid #F5A623; }
-        .task-row-flat.st-deployed .task-label-cell:first-child { border-left: 3px solid #00B882; }
+        .task-row-flat.st-review .task-label-cell:first-child { border-left: 3px solid #6B3EF5; }
         .task-row-flat.st-ns .task-label-cell:first-child { border-left: 3px solid #5A5A88; }
         .task-row-flat.st-milestone .task-label-cell:first-child { border-left: 3px solid var(--pink); }
 
         /* Highlight rows when status is "Done" */
-.task-row-flat.st-done .task-label-cell {
-    background-color: rgba(0, 232, 162, 0.08) !important;
-    border-left: 3px solid #00B882 !important;
-}
+        .task-row-flat.st-done .task-label-cell {
+            background-color: rgba(0, 232, 162, 0.08) !important;
+            border-left: 3px solid #00B882 !important;
+        }
 
-.task-row-flat.st-done .task-gantt-cell {
-    background-color: rgba(0, 232, 162, 0.08) !important;
-}
+        .task-row-flat.st-done .task-gantt-cell {
+            background-color: rgba(0, 232, 162, 0.08) !important;
+        }
 
-.task-row-flat.st-done:hover .task-label-cell {
-    filter: brightness(1.1);
-    background-color: rgba(0, 232, 162, 0.15) !important;
-}
+        .task-row-flat.st-done:hover .task-label-cell {
+            filter: brightness(1.1);
+            background-color: rgba(0, 232, 162, 0.15) !important;
+        }
 
-.task-row-flat.st-done:hover .task-gantt-cell {
-    filter: brightness(1.05);
-    background-color: rgba(0, 232, 162, 0.15) !important;
-}
+        .task-row-flat.st-done:hover .task-gantt-cell {
+            filter: brightness(1.05);
+            background-color: rgba(0, 232, 162, 0.15) !important;
+        }
 
         .task-label-cell {
             padding: 9px 10px; font-size: 12px; display: flex; align-items: center;
@@ -206,10 +212,10 @@
             overflow: hidden; white-space: nowrap;
         }
         .task-label-cell.ws-name-cell {
-    font-family: var(--fh); font-weight: 600; font-size: 11px; color: var(--text2);
-    letter-spacing: .02em; gap: 6px; padding-left: 12px;
-    white-space: normal; word-break: break-word;
-}
+            font-family: var(--fh); font-weight: 600; font-size: 11px; color: var(--text2);
+            letter-spacing: .02em; gap: 6px; padding-left: 12px;
+            white-space: normal; word-break: break-word;
+        }
         .task-label-cell.task-desc-cell {
             font-family: var(--fb); font-size: 11px; color: var(--text);
             line-height: 1.4; white-space: normal; word-break: break-word;
@@ -262,7 +268,8 @@
         @media (max-width: 768px) {
             .header { padding: 14px 16px; gap: 10px; }
             .header-sub { font-size: 9px; }
-            .steps-bar { padding: 10px 16px; gap: 4px; }
+            .steps-bar { padding: 10px 16px; gap: 4px; top: 64px; }
+            .master-filter { padding: 8px 16px; gap: 6px; top: 104px; }
             .step-badge { font-size: 10px; padding: 3px 8px; }
             .main { padding: 16px 12px; }
             .stats-row { gap: 6px; }
@@ -294,12 +301,33 @@
         </div>
     </div>
 
-      <div class="steps-bar" id="stepsBar">
-    <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April-May</span>
-    <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
-    <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
-    <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Mid Aug </span>
-  </div>
+    <div class="steps-bar" id="stepsBar">
+        <span class="step-badge s1" data-step="Step 1">Step 1 — Establish Credibility · April-May</span>
+        <span class="step-badge s2" data-step="Step 2">Step 2 — Activate the Market (GTM) · May – Jul</span>
+        <span class="step-badge s3" data-step="Step 3">Step 3 — Own the Moment · Jul 31 – Aug 1</span>
+        <span class="step-badge s4" data-step="Step 4">Step 4 — Reveal · Mid Aug</span>
+    </div>
+
+    <div class="master-filter" id="masterFilter">
+        <label>WS:</label>
+        <select id="masterWsFilter">
+            <option value="All">All</option>
+        </select>
+        <label>Owner:</label>
+        <select id="masterOwnerFilter">
+            <option value="All">All</option>
+        </select>
+        <label>Status:</label>
+        <select id="masterStatusFilter">
+            <option value="All">All</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="In Review">In Review</option>
+            <option value="Done">Done</option>
+            <option value="Blocked">Blocked</option>
+        </select>
+        <button id="masterClearFilters" class="clear-filters-btn">✕ Clear</button>
+    </div>
 
     <div class="main">
 
@@ -334,14 +362,14 @@
 
     </div>
 
-  <div class="legend">
-    <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Preparation</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach Engine</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Verticals Launch</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Virtual Summit</div>
-    <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div> Step 4 - Acquisition & Post-Summit</div>
-    <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
-  </div>
+    <div class="legend">
+        <div class="leg-item"><div class="leg-bar" style="background:var(--purple)"></div>Step 1 — Asset Preparation</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--cyan-dark)"></div>Step 2 — Outreach Engine</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--blue)"></div>Verticals Launch</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--amber)"></div>Step 3 — Virtual Summit</div>
+        <div class="leg-item"><div class="leg-bar" style="background:var(--pink)"></div>Step 4 - Acquisition & Post-Summit</div>
+        <div class="leg-item"><div class="leg-diamond"></div>Milestone</div>
+    </div>
 
     <div class="footer">
         <span>BrainsMingle GTM Project Plan · Confidential</span>
@@ -360,12 +388,12 @@
         steps:        "541183567"
     };
 
-const STEP_META = {
-  "Step 1": { color:"var(--purple-mid)", dot:"var(--purple)",  deadline:"Apr → May", urgent:true  },
-  "Step 2": { color:"var(--cyan)",       dot:"var(--cyan)",    deadline:"May → Jul",        urgent:true },
-  "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:true },
-  "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:true },
-};
+    const STEP_META = {
+        "Step 1": { color:"var(--purple-mid)", dot:"var(--purple)",  deadline:"Apr → May", urgent:true  },
+        "Step 2": { color:"var(--cyan)",       dot:"var(--cyan)",    deadline:"May → Jul",        urgent:true },
+        "Step 3": { color:"var(--amber)",      dot:"var(--amber)",   deadline:"Summit: Jul 31 – Aug 1", urgent:true },
+        "Step 4": { color:"var(--pink)",       dot:"var(--pink)",    deadline:"Aug → Sep",        urgent:true },
+    };
     let STEP_LABELS = {
         "Step 1":"Establish Credibility",
         "Step 2":"Activate the Market",
@@ -385,7 +413,6 @@ const STEP_META = {
         });
     }
     const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
-    const STATUS_OPTIONS = ["All","Not Started","In Progress","In Review","Done","Blocked"];
 
     async function fetchCSV(gid) {
         const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
@@ -524,31 +551,6 @@ const STEP_META = {
         return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
     }
 
-    // ---- FILTERING HELPERS ----
-    function getOwnerListFromRow(row) {
-        // Extract owner names from data attribute (comma separated)
-        return (row.dataset.ownerNames || '').split(',').map(s => s.trim()).filter(Boolean);
-    }
-
-    function applyFilters(gridElement, wsSelect, ownerSelect, statusSelect) {
-        const selectedWS = wsSelect.value;
-        const selectedOwner = ownerSelect.value;
-        const selectedStatus = statusSelect.value;
-        const rows = gridElement.querySelectorAll(".task-row-flat");
-        rows.forEach(row => {
-            let show = true;
-            if (selectedWS !== "All" && row.dataset.wsName !== selectedWS) show = false;
-            if (selectedOwner !== "All" && show) {
-                const owners = getOwnerListFromRow(row);
-                if (!owners.includes(selectedOwner)) show = false;
-            }
-            if (selectedStatus !== "All" && show) {
-                if (row.dataset.status !== selectedStatus) show = false;
-            }
-            row.style.display = show ? "" : "none";
-        });
-    }
-
     // ── BUILD TIMELINE ──
     let currentWeeksData = [];
     let autoRefreshInterval = null;
@@ -609,38 +611,12 @@ const STEP_META = {
             const sh = document.createElement("div");
             sh.className = "section-header";
             sh.id = `section-${step.replace(/ /g, "")}`;
-            sh.style.scrollMarginTop = "140px";
+            sh.style.scrollMarginTop = "160px";
             sh.innerHTML = `
                 <div class="section-dot" style="background:${meta.dot}"></div>
                 <div class="section-title" style="color:${meta.color}">${step} — ${STEP_LABELS[step]||step}</div>
                 <div class="section-deadline${meta.urgent?" urgent":""}">${meta.deadline||""}</div>`;
             container.appendChild(sh);
-
-            // ---- FILTER ROW ----
-            const filterDiv = document.createElement("div");
-            filterDiv.className = "section-filter";
-            const stepSafe = step.replace(/\s/g,"");
-            filterDiv.innerHTML = `
-                <label>WS:</label>
-                <select id="wsFilter-${stepSafe}">
-                    <option value="All">All</option>
-                </select>
-                <label>Owner:</label>
-                <select id="ownerFilter-${stepSafe}">
-                    <option value="All">All</option>
-                </select>
-                <label>Status:</label>
-                <select id="statusFilter-${stepSafe}">
-                    ${STATUS_OPTIONS.map(s => `<option value="${s}">${s==="All"?"All":s}</option>`).join('')}
-                </select>
-                <button id="clearFilters-${stepSafe}" class="clear-filters-btn">✕ Clear</button>
-            `;
-            container.appendChild(filterDiv);
-
-            const wsSelect = document.getElementById(`wsFilter-${stepSafe}`);
-            const ownerSelect = document.getElementById(`ownerFilter-${stepSafe}`);
-            const statusSelect = document.getElementById(`statusFilter-${stepSafe}`);
-            const clearBtn = document.getElementById(`clearFilters-${stepSafe}`);
 
             // ---- TIMELINE BLOCK ----
             const block = document.createElement("div");
@@ -672,14 +648,10 @@ const STEP_META = {
                 grid.appendChild(h);
             });
 
-            // Collect unique workstream names and owners for this step
-            const wsNamesSet = new Set();
-            const ownerSet = new Set();
             let globalTaskIndex = 0;
 
             wsList.forEach(ws => {
                 const wsName = (ws.workstream_name || "").trim();
-                wsNamesSet.add(wsName);
                 const wsColor = wsColorMap[wsName] || "gray";
                 const wsTasks = (tasksByWs[wsName] || []).slice().sort((a,b)=>wn(a.week_start)-wn(b.week_start));
 
@@ -699,7 +671,6 @@ const STEP_META = {
                     // Collect owner names for filter
                     const ownerRaw = t.owner || '';
                     const ownerNames = ownerRaw.split('|').map(o => o.trim()).filter(Boolean);
-                    ownerNames.forEach(on => ownerSet.add(on));
 
                     const wrapper = document.createElement("div");
                     wrapper.className = `task-row-flat ${statusCls} ${rowParity}`;
@@ -756,29 +727,67 @@ const STEP_META = {
                 });
             });
 
-            // Populate filter dropdowns
-            Array.from(wsNamesSet).sort().forEach(name => {
-                wsSelect.appendChild(new Option(name, name));
-            });
-            Array.from(ownerSet).sort().forEach(name => {
-                ownerSelect.appendChild(new Option(name, name));
-            });
-
-            // Attach filter events
-            const filterHandler = () => applyFilters(grid, wsSelect, ownerSelect, statusSelect);
-            wsSelect.addEventListener("change", filterHandler);
-            ownerSelect.addEventListener("change", filterHandler);
-            statusSelect.addEventListener("change", filterHandler);
-
-            // Clear button
-            clearBtn.addEventListener("click", () => {
-                wsSelect.value = "All";
-                ownerSelect.value = "All";
-                statusSelect.value = "All";
-                filterHandler();
-            });
-
             container.appendChild(block);
+        });
+
+        // ── MASTER FILTER SETUP ──
+        const masterWsSelect = document.getElementById("masterWsFilter");
+        const masterOwnerSelect = document.getElementById("masterOwnerFilter");
+        const masterStatusSelect = document.getElementById("masterStatusFilter");
+        const masterClearBtn = document.getElementById("masterClearFilters");
+
+        // Clear existing options (keep first "All")
+        while (masterWsSelect.options.length > 1) masterWsSelect.remove(1);
+        while (masterOwnerSelect.options.length > 1) masterOwnerSelect.remove(1);
+
+        // Collect all unique workstreams and owners
+        const allWsNames = new Set();
+        const allOwners = new Set();
+        workstreams.forEach(ws => {
+            allWsNames.add((ws.workstream_name || "").trim());
+        });
+        tasks.forEach(t => {
+            const ownerRaw = t.owner || '';
+            ownerRaw.split('|').map(o => o.trim()).filter(Boolean).forEach(on => allOwners.add(on));
+        });
+
+        // Populate master dropdowns
+        Array.from(allWsNames).sort().forEach(name => {
+            masterWsSelect.appendChild(new Option(name, name));
+        });
+        Array.from(allOwners).sort().forEach(name => {
+            masterOwnerSelect.appendChild(new Option(name, name));
+        });
+
+        // Master filter function
+        const masterFilterHandler = () => {
+            const selectedWS = masterWsSelect.value;
+            const selectedOwner = masterOwnerSelect.value;
+            const selectedStatus = masterStatusSelect.value;
+            const allRows = document.querySelectorAll(".task-row-flat");
+            allRows.forEach(row => {
+                let show = true;
+                if (selectedWS !== "All" && row.dataset.wsName !== selectedWS) show = false;
+                if (selectedOwner !== "All" && show) {
+                    const owners = (row.dataset.ownerNames || '').split(',').map(s => s.trim()).filter(Boolean);
+                    if (!owners.includes(selectedOwner)) show = false;
+                }
+                if (selectedStatus !== "All" && show) {
+                    if (row.dataset.status !== selectedStatus) show = false;
+                }
+                row.style.display = show ? "" : "none";
+            });
+        };
+
+        masterWsSelect.addEventListener("change", masterFilterHandler);
+        masterOwnerSelect.addEventListener("change", masterFilterHandler);
+        masterStatusSelect.addEventListener("change", masterFilterHandler);
+
+        masterClearBtn.addEventListener("click", () => {
+            masterWsSelect.value = "All";
+            masterOwnerSelect.value = "All";
+            masterStatusSelect.value = "All";
+            masterFilterHandler();
         });
     }
 
@@ -864,3 +873,4 @@ const STEP_META = {
 </script>
 </body>
 </html>
+```
