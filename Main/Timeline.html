@@ -192,11 +192,18 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
 .status-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.03em; white-space:nowrap; }
 .st-ns    { background:rgba(255,255,255,.06); color:var(--text3); border:1px solid var(--border); }
-.st-ip    { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
+.st-ip    { background:rgba(245,166,35,.15); color:var(--amber);      border:1px solid rgba(245,166,35,.3); }
 .st-done  { background:rgba(0,232,162,.12);  color:var(--cyan);       border:1px solid rgba(0,232,162,.25); }
 .st-block { background:rgba(245,62,159,.15); color:var(--pink);       border:1px solid rgba(245,62,159,.3); }
-.st-review { background:rgba(245,166,35,.15); color:var(--amber);     border:1px solid rgba(245,166,35,.3); } 
-.st-deployed { background:rgba(0,232,162,.15); color:var(--cyan-dark);  border:1px solid rgba(0,232,162,.3); }
+.st-review { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
+  /* Highlight table rows when status is "Done" */
+.detail-table tr:has(.st-done) td {
+  background-color: rgba(0, 232, 162, 0.08) !important;
+}
+
+.detail-table tr:has(.st-done):hover td {
+  background-color: rgba(0, 232, 162, 0.15) !important;
+}
 
 
 .deliverable-text { color:var(--text2); }
@@ -270,16 +277,12 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
     <div class="stat-label">Total Tasks</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value" style="color:var(--purple-mid)" id="stat-ip">—</div>
+    <div class="stat-value" style="color:var(--amber)" id="stat-ip">—</div>
     <div class="stat-label">In Progress</div>
   </div>
   <div class="stat-card">
-    <div class="stat-value" style="color:var(--amber)" id="stat-review">—</div>
+    <div class="stat-value" style="color:var(--purple-mid)" id="stat-review">—</div>
     <div class="stat-label">In Review</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-value" style="color:var(--cyan-dark)" id="stat-deployed">—</div>
-    <div class="stat-label">Deployed</div>
   </div>
   <div class="stat-card">
     <div class="stat-value" style="color:var(--cyan)" id="stat-done">—</div>
@@ -536,7 +539,6 @@ function statusBadge(s) {
     "Not Started":"st-ns",
     "In Progress":"st-ip",
     "In Review": "st-review",
-    "Deployed": "st-deployed",
     "Done":"st-done",
     "Blocked":"st-block"
   }[s] || "st-ns";
@@ -603,7 +605,6 @@ function build(weeks, workstreams, tasks, owners, steps) {
   document.getElementById("stat-tasks").textContent = tasks.length;
   document.getElementById("stat-ip").textContent = tasks.filter(t=>t.status==="In Progress").length;
   document.getElementById("stat-review").textContent = tasks.filter(t=>t.status==="In Review").length;
-  document.getElementById("stat-deployed").textContent = tasks.filter(t=>t.status==="Deployed").length;
   document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
   document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
