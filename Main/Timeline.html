@@ -716,19 +716,17 @@ function build(weeks, workstreams, tasks, owners, steps) {
       } else {
         const tbl = document.createElement("table");
         tbl.className = "detail-table";
-        tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:32%">Task</th><th style="width:130px">Owner</th><th style="width:20%">Deliverable</th><th style="width:90px">Status</th><th>Notes / Dependencies</th></tr></thead>`;
-        const tbody = document.createElement("tbody");
+tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:32%">Task</th><th style="width:130px">Owner</th><th style="width:20%">Deliverable</th><th style="width:90px">Status</th></tr></thead>`;        const tbody = document.createElement("tbody");
         wsTasks.forEach(t => {
           const weekRange = t.week_start === t.week_end ? t.week_start : `${t.week_start}–${t.week_end}`;
           const dateRange = t.date_start === t.date_end ? t.date_start : `${t.date_start} – ${t.date_end}`;
           const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
-            <td>${esc(t.task)}</td>
-            <td>${ownerBadges(t.owner)}</td>
-            <td class="deliverable-text">${esc(t.deliverable)}</td>
-            <td>${statusBadge(t.status)}</td>
-            <td class="notes-text">${formatNotes(t.notes)}</td>`;
+tr.innerHTML = `
+    <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
+    <td>${esc(t.task)}</td>
+    <td>${ownerBadges(t.owner)}</td>
+    <td class="deliverable-text">${esc(t.deliverable)}</td>
+    <td>${statusBadge(t.status)}</td>`;
           tbody.appendChild(tr);
         });
         tbl.appendChild(tbody);
