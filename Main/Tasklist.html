@@ -172,12 +172,32 @@
         .task-row-flat:hover .task-gantt-cell { filter: brightness(1.15); }
 
         .task-row-flat.st-ip .task-label-cell:first-child { border-left: 3px solid #6B3EF5; }
-        .task-row-flat.st-done .task-label-cell:first-child { border-left: 3px solid #00B882; }
+        /*.task-row-flat.st-done .task-label-cell:first-child { border-left: 3px solid #00B882; }*/
         .task-row-flat.st-block .task-label-cell:first-child { border-left: 3px solid #E53E3E; }
         .task-row-flat.st-review .task-label-cell:first-child { border-left: 3px solid #F5A623; }
         .task-row-flat.st-deployed .task-label-cell:first-child { border-left: 3px solid #00B882; }
         .task-row-flat.st-ns .task-label-cell:first-child { border-left: 3px solid #5A5A88; }
         .task-row-flat.st-milestone .task-label-cell:first-child { border-left: 3px solid var(--pink); }
+
+        /* Highlight rows when status is "Done" */
+.task-row-flat.st-done .task-label-cell {
+    background-color: rgba(0, 232, 162, 0.08) !important;
+    border-left: 3px solid #00B882 !important;
+}
+
+.task-row-flat.st-done .task-gantt-cell {
+    background-color: rgba(0, 232, 162, 0.08) !important;
+}
+
+.task-row-flat.st-done:hover .task-label-cell {
+    filter: brightness(1.1);
+    background-color: rgba(0, 232, 162, 0.15) !important;
+}
+
+.task-row-flat.st-done:hover .task-gantt-cell {
+    filter: brightness(1.05);
+    background-color: rgba(0, 232, 162, 0.15) !important;
+}
 
         .task-label-cell {
             padding: 9px 10px; font-size: 12px; display: flex; align-items: center;
