@@ -235,11 +235,10 @@
         .task-owner-badge { display: inline-block; font-family: var(--fh); font-size: 9px; font-weight: 600; padding: 1px 6px; border-radius: 2px; white-space: nowrap; }
         .status-badge { display: inline-block; font-family: var(--fh); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: .03em; white-space: nowrap; }
         .st-ns { background: rgba(255,255,255,.06); color: var(--text3); border: 1px solid var(--border); }
-        .st-ip { background: rgba(107,62,245,.2); color: var(--purple-mid); border: 1px solid rgba(107,62,245,.3); }
+        .st-ip { background: rgba(245,166,35,.15); color: var(--amber); border: 1px solid rgba(245,166,35,.3); }
         .st-done { background: rgba(0,232,162,.12); color: var(--cyan); border: 1px solid rgba(0,232,162,.25); }
         .st-block { background: rgba(245,62,159,.15); color: var(--pink); border: 1px solid rgba(245,62,159,.3); }
-        .st-review { background: rgba(245,166,35,.15); color: var(--amber); border: 1px solid rgba(245,166,35,.3); }
-        .st-deployed { background: rgba(0,232,162,.15); color: var(--cyan-dark); border: 1px solid rgba(0,232,162,.3); }
+        .st-review { background: rgba(107,62,245,.2); color: var(--purple-mid); border: 1px solid rgba(107,62,245,.3); }
 
         .legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--border); background: var(--bg2); margin-top: 8px; }
         .leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text3); }
@@ -320,10 +319,6 @@
                 <div class="stat-label">In Review</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color:var(--cyan-dark)" id="stat-deployed">—</div>
-                <div class="stat-label">Deployed</div>
-            </div>
-            <div class="stat-card">
                 <div class="stat-value" style="color:var(--cyan)" id="stat-done">—</div>
                 <div class="stat-label">Done</div>
             </div>
@@ -388,7 +383,7 @@
         });
     }
     const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
-    const STATUS_OPTIONS = ["All","Not Started","In Progress","In Review","Deployed","Done","Blocked"];
+    const STATUS_OPTIONS = ["All","Not Started","In Progress","In Review","Done","Blocked"];
 
     async function fetchCSV(gid) {
         const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
@@ -522,8 +517,7 @@
 
     function statusBadge(s) {
         const cls = {
-            "Not Started":"st-ns", "In Progress":"st-ip", "In Review":"st-review",
-            "Deployed":"st-deployed", "Done":"st-done", "Blocked":"st-block"
+            "Not Started":"st-ns", "In Progress":"st-ip", "In Review":"st-review", "Done":"st-done", "Blocked":"st-block"
         }[s] || "st-ns";
         return `<span class="status-badge ${cls}">${esc(s||"Not Started")}</span>`;
     }
@@ -593,7 +587,6 @@
         document.getElementById("stat-tasks").textContent = tasks.length;
         document.getElementById("stat-ip").textContent = tasks.filter(t=>t.status==="In Progress").length;
         document.getElementById("stat-review").textContent = tasks.filter(t=>t.status==="In Review").length;
-        document.getElementById("stat-deployed").textContent = tasks.filter(t=>t.status==="Deployed").length;
         document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
         document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
@@ -694,7 +687,7 @@
                     const statusKey = t.status || "Not Started";
                     const statusClsMap = {
                         "Not Started":"st-ns","In Progress":"st-ip","Done":"st-done",
-                        "Blocked":"st-block","In Review":"st-review","Deployed":"st-deployed"
+                        "Blocked":"st-block","In Review":"st-review"
                     };
                     const statusCls = isMilestone ? "st-milestone" : (statusClsMap[statusKey] || "st-ns");
                     const rowParity = globalTaskIndex % 2 === 0 ? "row-even" : "row-odd";
