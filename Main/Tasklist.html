@@ -150,28 +150,70 @@
         }
         .tl-grid { display: grid; gap: 1px; background: var(--border); min-width: 900px; }
 
-        /* Floating sticky grid header */
+        /* ── Sticky floating grid header ── */
         .sticky-grid-header {
             display: none;
             position: sticky;
-            top: 152px;
-            z-index: 50;
+            top: 173px;
+            z-index: 60;
             background: var(--bg);
-            padding: 4px 40px 0;
-            margin-bottom: 0;
+            border-top: 2px solid var(--purple);
+            border-bottom: 1px solid var(--border2);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: auto;
         }
         .sticky-grid-header-inner {
             display: grid;
             gap: 1px;
-            background: var(--border2);
-            border-top: 2px solid var(--purple);
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+            background: var(--border);
+            min-width: 900px;
         }
-        .sticky-grid-header .tl-hcell {
-            position: static !important;
-            top: auto !important;
+        /* individual sticky header cells */
+        .sh-cell {
+            background: var(--bg3);
+            padding: 6px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+        }
+        .sh-label {
+            font-family: var(--fh);
             font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text3);
+            align-items: flex-start;
+            padding-left: 10px;
+        }
+        .sh-wid {
+            font-family: var(--fh);
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text3);
+            display: block;
+        }
+        .sh-date {
+            font-size: 9px;
+            color: var(--text3);
+            display: block;
+        }
+        .sh-cell.sh-current { background: rgba(107,62,245,0.12); }
+        .sh-cell.sh-current .sh-wid,
+        .sh-cell.sh-current .sh-date { color: var(--purple-mid); }
+        .sh-cell.sh-milestone .sh-wid,
+        .sh-cell.sh-milestone .sh-date { color: var(--pink); }
+        .sh-arrow {
+            display: block;
+            width: 0; height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid var(--purple-mid);
+            margin: 1px auto 0;
         }
 
         .tl-hcell {
@@ -823,45 +865,41 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
         const wrapper = document.getElementById("stickyHeader");
         if (!inner || !wrapper) return;
 
-        // Dynamically calculate top offset from actual sticky bar heights
-        const header = document.querySelector(".header");
-        const stepsBar = document.querySelector(".steps-bar");
-        const masterFilter = document.querySelector(".master-filter");
-        const topOffset = (header ? header.offsetHeight : 0)
-                        + (stepsBar ? stepsBar.offsetHeight : 0)
-                        + (masterFilter ? masterFilter.offsetHeight : 0);
-        wrapper.style.top = topOffset + "px";
-
+        // Set exact same grid template as the task grid
         inner.style.gridTemplateColumns = gridCols;
         inner.innerHTML = "";
 
-        // 4 label columns
+        // 4 fixed label columns
         ["WORKSTREAM","TASK","OWNER","STATUS"].forEach(label => {
-            inner.appendChild(makeEl("div","tl-hcell corner", label));
+            const c = document.createElement("div");
+            c.className = "sh-cell sh-label";
+            c.textContent = label;
+            inner.appendChild(c);
         });
 
-        // Week columns
+        // One cell per week
         weeks.forEach(wk => {
-            const isCur = wk.is_current === "TRUE";
-            const isMil = wk.is_milestone_week === "TRUE";
-            const h = makeEl("div","tl-hcell"+(isCur?" wk-current":"")+(isMil?" wk-milestone":""));
-            if (isCur) {
-                h.innerHTML = `<span style="font-size:9px;font-weight:700">${wk.week_id}</span><br><span style="font-size:8px">${wk.date_start}</span><span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin:2px auto 0"></span>`;
-            } else {
-                h.innerHTML = `${wk.week_id}<br><span style="font-size:9px">${wk.date_start}</span>`;
-            }
-            inner.appendChild(h);
+            const isCur  = wk.is_current === "TRUE";
+            const isMil  = wk.is_milestone_week === "TRUE";
+            const c = document.createElement("div");
+            c.className = "sh-cell" + (isCur ? " sh-current" : "") + (isMil ? " sh-milestone" : "");
+            c.innerHTML = `<span class="sh-wid">${wk.week_id}</span><span class="sh-date">${wk.date_start}</span>`
+                        + (isCur ? `<span class="sh-arrow"></span>` : "");
+            inner.appendChild(c);
         });
 
         wrapper.style.display = "block";
 
-        // Recalculate on resize
-        window.addEventListener("resize", () => {
-            const h2 = (document.querySelector(".header")?.offsetHeight||0)
-                     + (document.querySelector(".steps-bar")?.offsetHeight||0)
-                     + (document.querySelector(".master-filter")?.offsetHeight||0);
-            wrapper.style.top = h2 + "px";
-        }, { once: false });
+        // Sync horizontal scroll with first timeline block
+        const firstBlock = document.querySelector(".timeline-block");
+        if (firstBlock) {
+            firstBlock.addEventListener("scroll", () => {
+                wrapper.scrollLeft = firstBlock.scrollLeft;
+            });
+            wrapper.addEventListener("scroll", () => {
+                firstBlock.scrollLeft = wrapper.scrollLeft;
+            });
+        }
     }
 
     function makeEl(tag, cls, text) {
@@ -891,7 +929,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
             build(weeks, workstreams, tasks, owners, steps);
             if (loadingDiv) loadingDiv.classList.add("hidden");
             if (appDiv) appDiv.style.display = "block";
-            setTimeout(() => buildStickyHeader(currentWeeksData, currentGridCols), 60);
+            buildStickyHeader(currentWeeksData, currentGridCols);
         } catch (err) {
             if (loadingDiv) {
                 loadingDiv.innerHTML = `
