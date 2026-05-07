@@ -752,9 +752,9 @@
 Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
     masterWsSelect.appendChild(new Option(name, name));
 });
-        Array.from(allOwners).sort().forEach(name => {
-            masterOwnerSelect.appendChild(new Option(name, name));
-        });
+        Array.from(allOwners).sort((a, b) => a.localeCompare(b)).forEach(name => {
+    masterOwnerSelect.appendChild(new Option(name, name));
+});
 
         // Master filter function
         const masterFilterHandler = () => {
