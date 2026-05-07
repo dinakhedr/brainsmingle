@@ -628,6 +628,7 @@
         currentWeeksData = weeks;
 
         const currentWeekIndex = getCurrentWeekIndex(weeks);
+        window._currentWeekIndex = currentWeekIndex;
         const totalWk = weeks.length;
 
         const COL_WS = "140px";
@@ -860,7 +861,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
     }
 
     // Build floating sticky header mirroring the grid column layout
-    function buildStickyHeader(weeks, gridCols) {
+    function buildStickyHeader(weeks, gridCols, currentWkIdx) {
         const inner = document.getElementById("stickyHeaderInner");
         const wrapper = document.getElementById("stickyHeader");
         if (!inner || !wrapper) return;
@@ -879,7 +880,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
 
         // One cell per week
         weeks.forEach(wk => {
-            const isCur  = wk.is_current === "TRUE";
+            const isCur = (weeks.indexOf(wk) === currentWkIdx);
             const isMil  = wk.is_milestone_week === "TRUE";
             const c = document.createElement("div");
             c.className = "sh-cell" + (isCur ? " sh-current" : "") + (isMil ? " sh-milestone" : "");
@@ -929,7 +930,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
             build(weeks, workstreams, tasks, owners, steps);
             if (loadingDiv) loadingDiv.classList.add("hidden");
             if (appDiv) appDiv.style.display = "block";
-            buildStickyHeader(currentWeeksData, currentGridCols);
+            buildStickyHeader(currentWeeksData, currentGridCols, window._currentWeekIndex);
         } catch (err) {
             if (loadingDiv) {
                 loadingDiv.innerHTML = `
@@ -956,7 +957,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
             build(weeks, workstreams, tasks, owners, steps);
             document.getElementById("loading").classList.add("hidden");
             document.getElementById("app").style.display = "block";
-            buildStickyHeader(currentWeeksData, currentGridCols);
+            buildStickyHeader(currentWeeksData, currentGridCols, window._currentWeekIndex);
 
             // Manual refresh button
             document.getElementById("refreshButton").addEventListener("click", refreshData);
