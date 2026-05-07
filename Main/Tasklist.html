@@ -956,6 +956,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
             build(weeks, workstreams, tasks, owners, steps);
             document.getElementById("loading").classList.add("hidden");
             document.getElementById("app").style.display = "block";
+            buildStickyHeader(currentWeeksData, currentGridCols);
 
             // Manual refresh button
             document.getElementById("refreshButton").addEventListener("click", refreshData);
