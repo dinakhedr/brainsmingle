@@ -134,9 +134,7 @@
         .stat-value { font-family: var(--fh); font-size: 24px; font-weight: 700; line-height: 1; }
         .stat-label { font-family: var(--fh); font-size: 10px; color: var(--text3); margin-top: 5px; text-transform: uppercase; letter-spacing: .05em; }
 
-        .section-header { display: flex; align-items: center; gap: 10px; margin: 28px 0 6px;
-            position: sticky; top: 125px; z-index: 19; background: var(--bg); padding: 4px 0;
-        }
+        .section-header { display: flex; align-items: center; gap: 10px; margin: 28px 0 6px; }
         .section-header:first-of-type { margin-top: 0; }
         .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
         .section-title {
@@ -147,25 +145,43 @@
 
         .timeline-block {
             background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
-            overflow-x: auto; overflow-y: visible; margin-bottom: 3px;
+            overflow-x: auto; overflow-y: hidden; margin-bottom: 3px;
             -webkit-overflow-scrolling: touch;
         }
         .tl-grid { display: grid; gap: 1px; background: var(--border); min-width: 900px; }
 
+        /* Floating sticky grid header */
+        .sticky-grid-header {
+            display: none;
+            position: sticky;
+            top: 170px;
+            z-index: 50;
+            padding: 0 40px;
+            margin-bottom: -2px;
+        }
+        .sticky-grid-header-inner {
+            display: grid;
+            gap: 1px;
+            background: var(--border2);
+            border-radius: 6px 6px 0 0;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+        }
+        .sticky-grid-header .tl-hcell {
+            position: static !important;
+            top: auto !important;
+        }
+
         .tl-hcell {
             background: var(--bg3); padding: 6px 3px; text-align: center;
             font-family: var(--fh); font-size: 10px; color: var(--text3); line-height: 1.3;
-            position: sticky; top: 173px; z-index: 20;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            position: sticky; top: 0; z-index: 2;
         }
         .tl-hcell.corner {
             text-align: left; padding-left: 12px; font-weight: 700; font-size: 10px;
             letter-spacing: .06em; text-transform: uppercase; color: var(--text2);
             background: var(--bg3);
-            position: sticky; top: 173px; z-index: 20;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-        
-            position: sticky; top: 173px; z-index: 21;
+            position: sticky; top: 0; z-index: 2;
         }
         .tl-hcell.wk-current {
             color: var(--purple-mid); background: rgba(107, 62, 245, 0.18) !important;
@@ -361,6 +377,9 @@
             </div>
         </div>
 
+        <div class="sticky-grid-header" id="stickyHeader">
+          <div class="sticky-grid-header-inner" id="stickyHeaderInner"></div>
+        </div>
         <div id="plan-container"></div>
 
     </div>
@@ -556,6 +575,7 @@
 
     // ── BUILD TIMELINE ──
     let currentWeeksData = [];
+    let currentGridCols = '';
     let autoRefreshInterval = null;
 
     function build(weeks, workstreams, tasks, owners, steps) {
@@ -571,6 +591,7 @@
         const COL_OWNER = "105px";
         const COL_STATUS = "100px";
         const gridCols = `${COL_WS} ${COL_TASK} ${COL_OWNER} ${COL_STATUS} repeat(${totalWk}, 1fr)`;
+        currentGridCols = gridCols; // store globally for sticky header
 
         const wsColorMap = {};
         workstreams.forEach(ws => { wsColorMap[(ws.workstream_name || "").trim()] = ws.bar_color || "gray"; });
@@ -794,6 +815,33 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
         });
     }
 
+    // Build floating sticky header mirroring the grid column layout
+    function buildStickyHeader(weeks, gridCols) {
+        const inner = document.getElementById("stickyHeaderInner");
+        const wrapper = document.getElementById("stickyHeader");
+        if (!inner || !wrapper) return;
+        inner.style.gridTemplateColumns = gridCols;
+        inner.innerHTML = "";
+        // Match the 4 label columns
+        ["WORKSTREAM","TASK","OWNER","STATUS"].forEach((label, i) => {
+            const c = makeEl("div","tl-hcell corner", label);
+            inner.appendChild(c);
+        });
+        // Week columns
+        weeks.forEach(wk => {
+            const isCur = wk.is_current === "TRUE";
+            const isMil = wk.is_milestone_week === "TRUE";
+            const h = makeEl("div","tl-hcell"+(isCur?" wk-current":"")+(isMil?" wk-milestone":""));
+            if (isCur) {
+                h.innerHTML = `<span style="font-size:9px;font-weight:700">${wk.week_id}</span><br><span style="font-size:8px">${wk.date_start}</span><span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin:2px auto 0"></span>`;
+            } else {
+                h.innerHTML = `${wk.week_id}<br><span style="font-size:9px">${wk.date_start}</span>`;
+            }
+            inner.appendChild(h);
+        });
+        wrapper.style.display = "block";
+    }
+
     function makeEl(tag, cls, text) {
         const el = document.createElement(tag);
         if (cls) el.className = cls;
@@ -821,6 +869,7 @@ Array.from(allWsNames).sort((a, b) => a.localeCompare(b)).forEach(name => {
             build(weeks, workstreams, tasks, owners, steps);
             if (loadingDiv) loadingDiv.classList.add("hidden");
             if (appDiv) appDiv.style.display = "block";
+            setTimeout(() => buildStickyHeader(currentWeeksData, currentGridCols), 60);
         } catch (err) {
             if (loadingDiv) {
                 loadingDiv.innerHTML = `
