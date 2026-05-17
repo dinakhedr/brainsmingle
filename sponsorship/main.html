@@ -184,71 +184,6 @@ a{color:inherit;text-decoration:none}
 .why-card h3{font-size:17px;font-weight:700;color:var(--heading);margin-bottom:10px}
 .why-card p{font-size:14px;color:var(--text-muted);line-height:1.7}
 
-/* ── AD PLACEMENTS ── */
-.placement-tabs{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap}
-.placement-tab{
-  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-  padding:9px 20px;border-radius:8px;cursor:pointer;border:1px solid var(--border-mid);
-  background:transparent;color:var(--text-muted);transition:all 0.2s;
-}
-.placement-tab.active{background:var(--purple-light);color:#fff;border-color:var(--purple-light)}
-.placement-tab:hover:not(.active){border-color:var(--border);color:var(--text)}
-.tab-content{display:none}
-.tab-content.active{display:block}
-
-.placement-surface{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;
-  overflow:hidden;margin-bottom:24px;
-}
-.placement-surface-header{
-  padding:24px 32px;border-bottom:1px solid var(--border-subtle);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.placement-surface-title{
-  font-size:16px;font-weight:700;color:var(--heading);
-  display:flex;align-items:center;gap:10px;
-}
-.surface-badge{
-  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  padding:3px 10px;border-radius:20px;
-}
-.badge-live{background:rgba(255,107,107,0.15);color:#FF6B6B;border:1px solid rgba(255,107,107,0.3)}
-.badge-sn{background:rgba(0,232,162,0.12);color:#00E8A2;border:1px solid rgba(0,232,162,0.3)}
-.badge-max{
-  font-size:12px;color:var(--text-muted);
-  display:flex;align-items:center;gap:6px;
-}
-.badge-max strong{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:14px}
-
-.placement-table{width:100%;border-collapse:collapse}
-.placement-table th{
-  font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--text-dim);padding:14px 20px;
-  text-align:left;border-bottom:1px solid var(--border-subtle);
-  background:rgba(0,0,0,0.08);
-}
-[data-theme="light"] .placement-table th{background:rgba(0,0,0,0.03)}
-.placement-table td{
-  padding:16px 20px;border-bottom:1px solid var(--border-subtle);
-  font-size:14px;color:var(--text);vertical-align:middle;
-}
-.placement-table tr:last-child td{border-bottom:none}
-.placement-table tr:hover td{background:rgba(107,62,245,0.04)}
-.excl-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:#F5A623;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.25);
-  border-radius:6px;padding:3px 8px;
-}
-.shared-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  color:var(--text-muted);background:var(--bg-card2);border:1px solid var(--border-subtle);
-  border-radius:6px;padding:3px 8px;
-}
-.price-cell{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--heading)}
-.note-cell{font-size:12px;color:var(--text-dim);line-height:1.5}
-
 /* ── AD SLOTS GALLERY ── */
 /* ── AD SLOTS GALLERY ── */
 .adslots-group-label{
@@ -286,269 +221,6 @@ a{color:inherit;text-decoration:none}
 @media(max-width:800px){
   .adslots-grid-3{grid-template-columns:1fr}
 }
-
-/* ── AD SLOTS VISUAL ── */
-.ad-visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:40px}
-.ad-variant-card{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;
-  padding:24px;transition:border-color 0.2s,transform 0.2s;
-}
-.ad-variant-card:hover{border-color:var(--border);transform:translateY(-2px)}
-.ad-variant-tag{
-  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--purple-light);margin-bottom:12px;display:block;
-}
-.ad-variant-name{font-size:15px;font-weight:700;color:var(--heading);margin-bottom:6px}
-.ad-variant-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
-.ad-mock{
-  border-radius:10px;overflow:hidden;border:1px solid var(--border-subtle);
-}
-
-/* Mock: Banner Hero */
-.mock-banner-hero{
-  background:linear-gradient(90deg,rgba(107,62,245,0.15) 0%,rgba(107,62,245,0.05) 100%);
-  padding:12px 16px;display:flex;align-items:center;gap:12px;
-  border-left:3px solid var(--purple-light);
-}
-.mock-sponsor-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim)}
-.mock-logo-pill{
-  background:var(--bg-card2);border:1px solid var(--border-mid);
-  border-radius:6px;padding:4px 10px;font-family:'Montserrat',sans-serif;
-  font-size:11px;font-weight:700;color:var(--text-muted);white-space:nowrap;
-}
-.mock-copy{font-size:12px;color:var(--text);flex:1}
-.mock-cta-btn{
-  background:var(--purple-light);color:#fff;font-size:11px;font-weight:700;
-  border-radius:6px;padding:6px 12px;white-space:nowrap;font-family:'Montserrat',sans-serif;
-}
-
-/* Mock: Header Logo */
-.mock-header{
-  background:var(--bg-card2);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;
-}
-.mock-header-left{display:flex;align-items:center;gap:8px}
-.mock-header-text{font-size:12px;font-weight:600;color:var(--heading)}
-.mock-header-sponsor{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text-dim)}
-
-/* Mock: Native Card */
-.mock-native{padding:16px;background:var(--bg-card2)}
-.mock-native-sponsor-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.mock-native-title{font-size:13px;font-weight:700;color:var(--heading);margin-bottom:6px}
-.mock-native-copy{font-size:11px;color:var(--text-muted);margin-bottom:12px;line-height:1.5}
-.mock-native-cta{font-size:11px;font-weight:700;color:var(--purple-light)}
-
-/* Mock: Lobby Banner */
-.mock-lobby{background:var(--bg-card2);padding:10px 16px;display:flex;align-items:center;gap:10px}
-.mock-lobby-dot{width:8px;height:8px;background:var(--cyan);border-radius:50%;flex-shrink:0}
-.mock-lobby-text{font-size:12px;color:var(--text-muted);flex:1}
-.mock-lobby-brand{font-size:11px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px}
-
-/* Mock: Message Strip */
-.mock-strip{background:rgba(107,62,245,0.08);border-top:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:10px}
-.mock-strip-text{font-size:12px;color:var(--text-muted);flex:1}
-
-/* Mock: Toast */
-.mock-toast{
-  background:var(--bg);border:1px solid var(--border);border-radius:10px;
-  padding:12px 16px;display:flex;align-items:flex-start;gap:10px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.4);max-width:260px;margin:0 auto;
-}
-.mock-toast-content{flex:1}
-.mock-toast-title{font-size:12px;font-weight:700;color:var(--heading);margin-bottom:4px}
-.mock-toast-sub{font-size:11px;color:var(--text-muted)}
-
-/* ── BUNDLES ── */
-.bundles-section{padding:80px 24px;max-width:1100px;margin:0 auto}
-.bundles-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:56px}
-.bundles-intro-text{max-width:500px}
-.bundles-legend{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;
-  padding:20px 24px;display:flex;flex-direction:column;gap:10px;min-width:240px;
-}
-.legend-row{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-muted)}
-.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.legend-dot.starter{background:#00E8A2}
-.legend-dot.premium{background:#7B52F6}
-.legend-dot.exclusive{background:#F0B429}
-
-.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
-.bundle-card{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;
-  overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;
-  position:relative;display:flex;flex-direction:column;
-}
-.bundle-card:hover{transform:translateY(-4px)}
-.bundle-card.featured{border-color:rgba(107,62,245,0.5);box-shadow:0 8px 40px rgba(107,62,245,0.15)}
-.bundle-card.exclusive-card{border-color:rgba(240,180,41,0.4);box-shadow:0 8px 40px rgba(240,180,41,0.1)}
-.bundle-top{padding:28px 28px 24px}
-.bundle-stripe{height:4px;margin:-28px -28px 28px;background:var(--stripe-color)}
-.bundle-card.starter .bundle-stripe{background:linear-gradient(90deg,#00C9A7,#00E8A2)}
-.bundle-card.premium .bundle-stripe{background:linear-gradient(90deg,#6B3EF5,#A882FF)}
-.bundle-card.exclusive-card .bundle-stripe{background:linear-gradient(90deg,#F0B429,#F5A623)}
-.bundle-tier-label{
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:8px;display:block;
-}
-.bundle-card.starter .bundle-tier-label{color:#00E8A2}
-.bundle-card.premium .bundle-tier-label{color:var(--purple-light)}
-.bundle-card.exclusive-card .bundle-tier-label{color:var(--gold)}
-.bundle-name{font-size:22px;font-weight:800;color:var(--heading);margin-bottom:6px;letter-spacing:-0.5px}
-.bundle-tagline{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:24px}
-.bundle-price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
-.bundle-price{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;color:var(--heading);letter-spacing:-1.5px}
-.bundle-price-from{font-size:13px;color:var(--text-dim);margin-bottom:2px}
-.bundle-price-per{font-size:13px;color:var(--text-muted)}
-.bundle-saving{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:var(--cyan);
-  background:rgba(0,232,162,0.08);border:1px solid rgba(0,232,162,0.2);
-  border-radius:6px;padding:3px 8px;margin-bottom:24px;
-}
-.bundle-card.exclusive-card .bundle-saving{color:var(--gold);background:rgba(240,180,41,0.08);border-color:rgba(240,180,41,0.2)}
-.bundle-divider{border:none;border-top:1px solid var(--border-subtle);margin:0 -28px 24px}
-.bundle-features{padding:0 0 0;flex:1}
-.bundle-feature{
-  display:flex;align-items:flex-start;gap:10px;padding:8px 0;
-  font-size:13px;color:var(--text-muted);line-height:1.5;
-}
-.bundle-feature svg{width:16px;height:16px;flex-shrink:0;margin-top:1px}
-.bundle-card.starter .bundle-feature svg{stroke:#00E8A2}
-.bundle-card.premium .bundle-feature svg{stroke:var(--purple-light)}
-.bundle-card.exclusive-card .bundle-feature svg{stroke:var(--gold)}
-.bundle-feature strong{color:var(--text)}
-.bundle-bottom{padding:24px 28px;border-top:1px solid var(--border-subtle);margin-top:auto}
-.bundle-cta{
-  display:block;width:100%;text-align:center;
-  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-  padding:12px 20px;border-radius:10px;cursor:pointer;border:none;
-  transition:transform 0.15s,box-shadow 0.2s;
-}
-.bundle-card.starter .bundle-cta{background:rgba(0,232,162,0.15);color:#00E8A2;border:1px solid rgba(0,232,162,0.3)}
-.bundle-card.starter .bundle-cta:hover{background:rgba(0,232,162,0.25)}
-.bundle-card.premium .bundle-cta{background:var(--purple-light);color:#fff;box-shadow:0 4px 20px var(--purple-glow)}
-.bundle-card.premium .bundle-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--purple-glow)}
-.bundle-card.exclusive-card .bundle-cta{background:var(--gold);color:#1A0F00;box-shadow:0 4px 20px rgba(240,180,41,0.25)}
-.bundle-card.exclusive-card .bundle-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,180,41,0.35)}
-.featured-ribbon{
-  position:absolute;top:16px;right:16px;
-  background:var(--purple-light);color:#fff;
-  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  padding:4px 10px;border-radius:20px;
-}
-.exclusive-ribbon{
-  position:absolute;top:16px;right:16px;
-  background:var(--gold);color:#1A0F00;
-  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  padding:4px 10px;border-radius:20px;
-}
-
-/* ── SESSION SPONSORSHIP (PRODUCT A) ── */
-.session-sponsor-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.session-sponsor-card{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;overflow:hidden;
-  transition:transform 0.2s,border-color 0.2s;
-}
-.session-sponsor-card:hover{transform:translateY(-4px)}
-.session-sponsor-card.tier1{border-color:rgba(0,232,162,0.3)}
-.session-sponsor-card.tier2{border-color:rgba(107,62,245,0.4);box-shadow:0 8px 40px rgba(107,62,245,0.12)}
-.tier-header{padding:28px 28px 20px;position:relative}
-.tier-badge{
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:10px;display:inline-block;padding:3px 10px;border-radius:20px;
-}
-.tier1 .tier-badge{color:#00E8A2;background:rgba(0,232,162,0.1);border:1px solid rgba(0,232,162,0.25)}
-.tier2 .tier-badge{color:var(--purple-light);background:rgba(107,62,245,0.1);border:1px solid rgba(107,62,245,0.25)}
-.tier-name{font-size:21px;font-weight:800;color:var(--heading);margin-bottom:4px;letter-spacing:-0.5px}
-.tier-subtitle{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px}
-.tier-price{
-  font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;
-  color:var(--heading);letter-spacing:-2px;line-height:1;
-}
-.tier-price-label{font-size:13px;color:var(--text-muted);margin-top:6px;margin-bottom:24px}
-.tier-includes{padding:0 28px 28px}
-.tier-includes h4{
-  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--text-dim);margin-bottom:16px;
-}
-.tier-feature{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:13px;color:var(--text-muted);margin-bottom:10px;line-height:1.5;
-}
-.tier-feature svg{width:15px;height:15px;flex-shrink:0;margin-top:2px}
-.tier1 .tier-feature svg{stroke:#00E8A2}
-.tier2 .tier-feature svg{stroke:var(--purple-light)}
-.tier-cta-row{padding:0 28px 28px}
-.tier-cta{
-  display:block;width:100%;text-align:center;
-  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
-  padding:13px 20px;border-radius:10px;cursor:pointer;border:none;transition:all 0.2s;
-}
-.tier1 .tier-cta{background:rgba(0,232,162,0.15);color:#00E8A2;border:1px solid rgba(0,232,162,0.3)}
-.tier1 .tier-cta:hover{background:rgba(0,232,162,0.25)}
-.tier2 .tier-cta{background:var(--purple-light);color:#fff;box-shadow:0 4px 20px var(--purple-glow)}
-.tier2 .tier-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--purple-glow)}
-
-/* ── VOLUME DISCOUNTS ── */
-.volume-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.volume-track{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:28px;
-}
-.volume-track-title{
-  font-size:14px;font-weight:700;color:var(--heading);margin-bottom:20px;
-  display:flex;align-items:center;gap:8px;
-}
-.volume-track-icon{
-  width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-  background:rgba(107,62,245,0.1);border:1px solid var(--border);
-}
-.volume-track-icon svg{width:16px;height:16px;stroke:var(--purple-light)}
-.vol-tier{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 0;border-bottom:1px solid var(--border-subtle);
-}
-.vol-tier:last-child{border-bottom:none}
-.vol-tier-left{font-size:14px;color:var(--text)}
-.vol-sessions{font-size:12px;color:var(--text-dim);margin-top:2px}
-.vol-discount{
-  font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;
-  color:var(--cyan);
-}
-
-/* ── CALCULATOR ── */
-.calc-wrap{
-  background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:24px;overflow:hidden;
-  display:grid;grid-template-columns:1fr 1fr;
-}
-.calc-inputs{padding:40px;border-right:1px solid var(--border-subtle)}
-.calc-result{padding:40px;background:rgba(107,62,245,0.04);display:flex;flex-direction:column;justify-content:space-between}
-.calc-title{font-size:18px;font-weight:700;color:var(--heading);margin-bottom:8px}
-.calc-sub{font-size:13px;color:var(--text-muted);margin-bottom:32px}
-.calc-group{margin-bottom:24px}
-.calc-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;display:block}
-.calc-select{
-  width:100%;background:var(--bg-card2);border:1px solid var(--border-mid);border-radius:10px;
-  padding:12px 16px;font-family:'Lato',sans-serif;font-size:14px;color:var(--text);
-  outline:none;cursor:pointer;transition:border-color 0.2s;appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239490B8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
-  padding-right:40px;
-}
-.calc-select:focus{border-color:var(--purple-light)}
-[data-theme="light"] .calc-select{background-color:var(--bg-card2)}
-.calc-result-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
-.calc-result-price{
-  font-family:'Montserrat',sans-serif;font-size:56px;font-weight:900;
-  color:var(--heading);letter-spacing:-2px;line-height:1;margin-bottom:8px;
-}
-.calc-result-note{font-size:13px;color:var(--text-muted);margin-bottom:32px}
-.calc-breakdown{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:20px}
-.calc-breakdown-title{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
-.calc-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:10px}
-.calc-line:last-child{margin-bottom:0;padding-top:10px;border-top:1px solid var(--border-subtle);font-weight:700;color:var(--heading)}
-.calc-line-label{color:var(--text-muted)}
-.calc-line-val{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--text)}
-.calc-line:last-child .calc-line-val{color:var(--cyan)}
-.calc-cta-wrap{margin-top:auto}
 
 /* ── BASHARSOFT KICKOFF ── */
 .kickoff-banner{
@@ -772,8 +444,133 @@ footer{
 .tier-month .headliner-cta{background:var(--gold);color:#1A0F00;box-shadow:0 4px 20px rgba(240,180,41,0.25)}
 .tier-month .headliner-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,180,41,0.35)}
 @media(max-width:800px){.headliner-grid{grid-template-columns:1fr}}
+
+/* ── IN THE SPOTLIGHT ── */
+.spotlight-how{display:flex;align-items:flex-start;gap:16px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:24px 32px;margin-bottom:8px;flex-wrap:wrap}
+.spotlight-how-step{display:flex;align-items:flex-start;gap:12px;flex:1;min-width:200px}
+.spotlight-how-num{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:var(--purple-light);color:#fff;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.spotlight-how-text{font-size:13px;color:var(--text-muted);line-height:1.6}
+.spotlight-how-text strong{display:block;color:var(--heading);margin-bottom:4px;font-size:14px}
+.spotlight-how-arrow{font-size:20px;color:var(--text-dim);flex-shrink:0}
+.spotlight-surface-label{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:13px;color:var(--text-muted);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:12px 16px;}
+.spotlight-tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.spotlight-tier-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;position:relative}
+.spotlight-tier-card:hover{transform:translateY(-4px)}
+.featured-spotlight{border-color:rgba(107,62,245,0.5);box-shadow:0 8px 40px rgba(107,62,245,0.15)}
+.tier-takeover{border-color:rgba(240,180,41,0.35);box-shadow:0 8px 40px rgba(240,180,41,0.08)}
+.spotlight-tier-stripe{height:4px}
+.tier-flicker .spotlight-tier-stripe{background:linear-gradient(90deg,#00C9A7,#00E8A2)}
+.tier-spotlight .spotlight-tier-stripe{background:linear-gradient(90deg,#6B3EF5,#A882FF)}
+.tier-takeover .spotlight-tier-stripe{background:linear-gradient(90deg,#F0B429,#F5A623)}
+.spotlight-tier-top{padding:24px 24px 0}
+.spotlight-tier-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:8px}
+.tier-flicker .spotlight-tier-label{color:#00E8A2}
+.tier-spotlight .spotlight-tier-label{color:var(--purple-light)}
+.tier-takeover .spotlight-tier-label{color:var(--gold)}
+.spotlight-tier-name{font-size:20px;font-weight:800;color:var(--heading);letter-spacing:-0.5px;margin-bottom:6px}
+.spotlight-tier-tagline{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px}
+.spotlight-tier-what{margin-bottom:20px}
+.spotlight-tier-what-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px}
+.spotlight-tier-slot{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);margin-bottom:7px;line-height:1.4}
+.slot-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.slot-dot.shared{background:var(--cyan)}
+.slot-dot.exclusive{background:var(--purple-light)}
+.slot-dot.takeover{background:var(--gold)}
+.zero-brands{color:var(--gold);font-weight:700}
+.spotlight-tier-pricing{border-top:1px solid var(--border-subtle);padding-top:16px;margin-bottom:0}
+.spotlight-price-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+.spotlight-price{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:var(--heading);letter-spacing:-1px;line-height:1}
+.spotlight-price-sub{font-size:11px;color:var(--text-dim);margin-top:4px}
+.spotlight-tier-cta-row{padding:20px 24px;border-top:1px solid var(--border-subtle);margin-top:20px}
+.spotlight-cta{display:block;width:100%;text-align:center;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:12px 20px;border-radius:10px;cursor:pointer;border:none;transition:all 0.2s}
+.flicker-cta{background:rgba(0,232,162,0.12);color:#00E8A2;border:1px solid rgba(0,232,162,0.3)}
+.flicker-cta:hover{background:rgba(0,232,162,0.22)}
+.spotlight-cta-btn{background:var(--purple-light);color:#fff;box-shadow:0 4px 20px var(--purple-glow)}
+.spotlight-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--purple-glow)}
+.takeover-cta{background:var(--gold);color:#1A0F00;box-shadow:0 4px 20px rgba(240,180,41,0.25)}
+.takeover-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,180,41,0.35)}
+.featured-ribbon{position:absolute;top:16px;right:16px;background:var(--purple-light);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.exclusive-ribbon{position:absolute;top:16px;right:16px;background:var(--gold);color:#1A0F00;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+
+/* ── VOLUME PACKAGES ── */
+.volume-packages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vol-pkg-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:14px;padding:20px;text-align:center;position:relative;transition:border-color 0.2s,transform 0.2s}
+.vol-pkg-card:hover{border-color:var(--border);transform:translateY(-2px)}
+.vol-pkg-best{border-color:rgba(107,62,245,0.4);box-shadow:0 4px 20px rgba(107,62,245,0.1)}
+.vol-pkg-best-label{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--purple-light);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.vol-pkg-num{font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;color:var(--heading);letter-spacing:-2px;line-height:1;margin-bottom:4px}
+.vol-pkg-label{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.vol-pkg-events{font-size:11px;color:var(--text-dim);margin-bottom:10px}
+.vol-pkg-disc{font-size:13px;font-weight:700;color:var(--text-dim)}
+.vol-disc-active{color:var(--cyan)}
+
+/* ── DISCOVERY ── */
+.discovery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+.discovery-slot-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:24px;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s}
+.discovery-slot-card:hover{border-color:var(--border);transform:translateY(-3px)}
+.discovery-premium{border-color:rgba(107,62,245,0.3)}
+.discovery-bundle-card{border-color:rgba(240,180,41,0.35);background:rgba(240,180,41,0.04)}
+.discovery-slot-tier{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
+.discovery-bundle-card .discovery-slot-tier{color:var(--gold)}
+.discovery-slot-name{font-size:18px;font-weight:800;color:var(--heading);margin-bottom:8px;letter-spacing:-0.3px}
+.discovery-slot-desc{font-size:13px;color:var(--text-muted);line-height:1.6;flex:1;margin-bottom:16px}
+.discovery-slot-price{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--heading);letter-spacing:-1px;margin-bottom:16px}
+.discovery-slot-price span{font-size:14px;font-weight:400;color:var(--text-muted)}
+.discovery-slot-cta{display:block;text-align:center;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;padding:10px 16px;border-radius:8px;background:rgba(107,62,245,0.1);color:var(--purple-light);border:1px solid rgba(107,62,245,0.25);transition:all 0.2s}
+.discovery-slot-cta:hover{background:rgba(107,62,245,0.2)}
+.discovery-bundle-cta{background:rgba(240,180,41,0.12);color:var(--gold);border-color:rgba(240,180,41,0.3)}
+.discovery-bundle-cta:hover{background:rgba(240,180,41,0.22)}
+.discovery-volume{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:14px;padding:24px}
+.discovery-volume-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
+.discovery-volume-grid{display:flex;gap:16px}
+.discovery-vol-item{flex:1;text-align:center;padding:16px;background:var(--bg-card2);border:1px solid var(--border-subtle);border-radius:10px}
+.discovery-vol-active{border-color:rgba(0,232,162,0.3)}
+.discovery-vol-months{font-size:14px;font-weight:700;color:var(--heading);margin-bottom:4px}
+.discovery-vol-disc{font-size:13px;color:var(--text-dim);font-weight:600}
+.discovery-vol-active .discovery-vol-disc{color:var(--cyan)}
+
+/* ── CALC PRODUCT TOGGLE ── */
+.calc-product-toggle{display:flex;gap:8px;margin-bottom:28px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:6px;width:fit-content}
+.calc-product-btn{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:10px 24px;border-radius:8px;cursor:pointer;border:none;background:transparent;color:var(--text-muted);transition:all 0.2s}
+.calc-product-btn.active{background:var(--purple-light);color:#fff}
+
+/* ── CALCULATOR ── */
+.calc-wrap{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.calc-inputs{padding:40px;border-right:1px solid var(--border-subtle)}
+.calc-result{padding:40px;background:rgba(107,62,245,0.04);display:flex;flex-direction:column;justify-content:space-between}
+.calc-title{font-size:18px;font-weight:700;color:var(--heading);margin-bottom:8px}
+.calc-sub{font-size:13px;color:var(--text-muted);margin-bottom:32px}
+.calc-group{margin-bottom:24px}
+.calc-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;display:block}
+.calc-select{width:100%;background:var(--bg-card2);border:1px solid var(--border-mid);border-radius:10px;padding:12px 16px;font-family:'Lato',sans-serif;font-size:14px;color:var(--text);outline:none;cursor:pointer;transition:border-color 0.2s;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239490B8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:40px}
+.calc-select:focus{border-color:var(--purple-light)}
+[data-theme="light"] .calc-select{background-color:var(--bg-card2)}
+.calc-result-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.calc-result-price{font-family:'Montserrat',sans-serif;font-size:56px;font-weight:900;color:var(--heading);letter-spacing:-2px;line-height:1;margin-bottom:8px}
+.calc-result-note{font-size:13px;color:var(--text-muted);margin-bottom:32px}
+.calc-breakdown{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:20px}
+.calc-breakdown-title{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
+.calc-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:10px}
+.calc-line:last-child{margin-bottom:0;padding-top:10px;border-top:1px solid var(--border-subtle);font-weight:700;color:var(--heading)}
+.calc-line-label{color:var(--text-muted)}
+.calc-line-val{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--text)}
+.calc-line:last-child .calc-line-val{color:var(--cyan)}
+.calc-cta-wrap{margin-top:auto}
+
+/* ── RESPONSIVE ── */
+@media(max-width:800px){
+  .spotlight-tier-grid,.discovery-grid,.volume-packages-grid{grid-template-columns:1fr}
+  .spotlight-how{flex-direction:column}
+  .spotlight-how-arrow{display:none}
+  .discovery-volume-grid{flex-direction:column}
+  .calc-wrap{grid-template-columns:1fr}
+  .calc-inputs{border-right:none;border-bottom:1px solid var(--border-subtle)}
+}
+
+/* ── Media Icons ── */
+.media-compare-icon{width:48px;height:48px;background:rgba(107,62,245,0.1);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.media-compare-icon svg{width:22px;height:22px}
 </style>
-</head>
 <body>
 
 <!-- HEADER -->
@@ -947,7 +744,7 @@ footer{
 <div id="packages" class="section">
   <div class="section-label section-label-gold">The Headliner</div>
   <h2 class="section-title">Your Event. Your Brand. Your Room.</h2>
-  <p class="product-tagline">Presented by [Your Company]</p>
+  <p class="product-tagline">Own the Stage. Own the Story.</p>
   <p class="section-sub">Most brands spend their budget showing up in other people's conversations. The Headliner flips that. You own the stage, the topic, the speaker, the narrative. BrainsMingle handles everything else. What goes live is yours. What gets recorded stays yours. Forever.</p>
 
   <div class="headliner-grid">
@@ -960,7 +757,7 @@ footer{
         <div class="headliner-name">The Session</div>
         <div class="headliner-tagline">One event. Your brand. Your room. Own the stage on BrainsMingle by bringing your story to a live professional audience.</div>
         <div class="headliner-price-row">
-          <div class="headliner-price">$1,000</div>
+          <div class="headliner-price">$1,500</div>
           <div class="headliner-price-per">/ session</div>
         </div>
         <div class="headliner-price-note">1 branded live event · full exclusivity</div>
@@ -991,7 +788,7 @@ footer{
         </div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Post-event impact report — attendees, engagement, replay views</span>
+          <span>Week post-event impact report for attendees, engagement, replay views</span>
         </div>
       </div>
       <div class="headliner-cta-row">
@@ -1008,7 +805,7 @@ footer{
         <div class="headliner-name">The Week</div>
         <div class="headliner-tagline">Four branded events across one full week. Your brand owns an entire week of professional content on BrainsMingle.</div>
         <div class="headliner-price-row">
-          <div class="headliner-price">$3,000</div>
+          <div class="headliner-price">$4,500</div>
           <div class="headliner-price-per">/ week</div>
         </div>
         <div class="headliner-price-note">4 branded live events · $750 per session</div>
@@ -1021,7 +818,7 @@ footer{
         </div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Your brand owns an entire week of content — consistent narrative, one voice</span>
+          <span>Your brand owns an entire week of content of consistent narrative, one voice</span>
         </div>
         <div class="headliner-benefit-group-label">Promotion</div>
         <div class="headliner-benefit">
@@ -1040,11 +837,15 @@ footer{
         <div class="headliner-benefit-group-label">After the Events</div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>4 recorded events permanently on demand under your brand</span>
+          <span>4 recorded events permanently on demand under your community profile</span>
         </div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Weekly impact report — cumulative reach, engagement, replay views</span>
+          <span>Post-event impact report for attendees, engagement, replay views</span>
+        </div>
+        <div class="headliner-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Community Plan Access for 3 months.</span>
         </div>
       </div>
       <div class="headliner-cta-row">
@@ -1061,7 +862,7 @@ footer{
         <div class="headliner-name">The Month</div>
         <div class="headliner-tagline">Eight branded events across a full month. Your brand defines an entire month of professional content on BrainsMingle.</div>
         <div class="headliner-price-row">
-          <div class="headliner-price">$5,500</div>
+          <div class="headliner-price">$8,000</div>
           <div class="headliner-price-per">/ month</div>
         </div>
         <div class="headliner-price-note">8 branded live events · $687 per session</div>
@@ -1093,15 +894,15 @@ footer{
         <div class="headliner-benefit-group-label">After the Events</div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>8 recorded events permanently on demand under your brand</span>
+          <span>8 recorded events permanently on demand under your community profile</span>
         </div>
         <div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Monthly impact report — full audience insights, reach, replay performance</span>
+          <span>Month post-event impact report for attendees, engagement, replay views</span>
         </div>
-        <div class="headliner-benefit">
+<div class="headliner-benefit">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>First right of renewal at locked rate before next month opens</span>
+          <span>Community Plan Access for 6 months.</span>
         </div>
       </div>
       <div class="headliner-cta-row">
@@ -1114,564 +915,281 @@ footer{
 
 <hr class="divider">
 
-<!-- AD SLOT PLACEMENTS -->
+
+<hr class="divider">
+
+
+<!-- IN THE SPOTLIGHT -->
 <div class="section">
-<div class="section-label section-label-gold">Featured Events</div>
-<h2 class="section-title">In the Spotlight</h2>
-<p class="product-tagline">In the Right Rooms. At the Right Moments.</p>
-  <p class="section-sub">BrainsMingle curates a selection of Featured Events every month, the highest-impact live sessions, speed networking events, and professional gatherings on the calendar. In the Spotlight puts your brand inside those events, on the screens professionals see, across every surface where attention is already locked in. No content to produce. No event to organize. Just your brand, present in the moments that count.</p>
+  <div class="section-label section-label-gold">In the Spotlight</div>
+  <h2 class="section-title">In the Right Rooms. At the Right Moments.</h2>
+  <p class="product-tagline">Your brand in the rooms that matter.</p>
+  <p class="section-sub">BrainsMingle recognize a selection of Featured Events every month, the highest-impact live sessions, speed networking events, and professional gatherings on the calendar. In the Spotlight puts your brand inside those events, on the screens professionals see, across every surface where attention is already locked in. No content to produce. No event to organize. Just your brand, present in the moments that count.</p>
 
-  <!-- Tabs -->
-  <div class="placement-tabs">
-    <button class="placement-tab active" onclick="switchTab('sessions', this)">Live Sessions</button>
-    <button class="placement-tab" onclick="switchTab('networking', this)">Speed Networking</button>
-  </div>
-
-  <!-- Sessions Tab -->
-  <div class="tab-content active" id="tab-sessions">
-    <div class="placement-surface">
-      <div class="placement-surface-header">
-        <div class="placement-surface-title">
-          <span class="surface-badge badge-live">LIVE</span>
-          Session Ad Placements
-        </div>
-        <div class="badge-max">Max per session (fully sold): <strong>$2,025</strong></div>
-      </div>
-      <table class="placement-table">
-        <thead>
-          <tr>
-            <th>Placement</th>
-            <th>Slots</th>
-            <th>Exclusivity</th>
-            <th>Price / Session</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Live Session — Top Banner</strong></td>
-            <td>1</td>
-            <td><span class="excl-badge">★ Exclusive</span></td>
-            <td><span class="price-cell">$300</span></td>
-            <td class="note-cell">Most premium · full session visibility · cannot be missed</td>
-          </tr>
-          <tr>
-            <td><strong>Live Session — Rotating Bottom Banner</strong></td>
-            <td>3</td>
-            <td><span class="shared-badge">Shared (max 3)</span></td>
-            <td><span class="price-cell">$75</span></td>
-            <td class="note-cell">3 rotating slots per session · lower commitment entry</td>
-          </tr>
-          <tr>
-            <td><strong>Session Details Page — Top</strong></td>
-            <td>1</td>
-            <td><span class="excl-badge">★ Exclusive</span></td>
-            <td><span class="price-cell">$600</span></td>
-            <td class="note-cell">Pre-session · high intent audience · captures attendees before they join</td>
-          </tr>
-          <tr>
-            <td><strong>Session Details Page — Bottom</strong></td>
-            <td>3</td>
-            <td><span class="shared-badge">Shared (max 3)</span></td>
-            <td><span class="price-cell">$300</span></td>
-            <td class="note-cell">3 slots on the high-traffic details page</td>
-          </tr>
-        </tbody>
-      </table>
+<div class="section-label" style="margin-bottom:16px;margin-top:40px">How It Works</div>
+  <div class="spotlight-how">
+        <div class="spotlight-how-step">
+      <div class="spotlight-how-num">1</div>
+      <div class="spotlight-how-text"><strong>Choose the event type</strong>Live Sessions or Speed Networking</div>
     </div>
-
-    <!-- Session Ad Variants Visual -->
-    <div class="ad-visual-grid">
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Banner Hero · Top of Page</span>
-        <div class="ad-variant-name">Session Details — Top Banner</div>
-        <div class="ad-variant-desc">Full-width banner appearing at the top of the session details page before the session begins. Maximum pre-session visibility.</div>
-        <div class="ad-mock">
-          <div class="mock-banner-hero">
-            <div>
-              <div class="mock-sponsor-label">Sponsored · Platinum</div>
-              <div class="mock-logo-pill">Your Brand</div>
-            </div>
-            <div class="mock-copy">Your headline message reaches every professional on their way in.</div>
-            <div class="mock-cta-btn">Learn More</div>
-          </div>
-        </div>
-      </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Header Logo · Live Room</span>
-        <div class="ad-variant-name">Live Session — Top Banner</div>
-        <div class="ad-variant-desc">Your logo displayed alongside "Brought to you by" in the live session header. Seen by every attendee from join to end.</div>
-        <div class="ad-mock">
-          <div class="mock-header">
-            <div class="mock-header-left">
-              <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Session Title Here</div>
-            </div>
-            <div class="mock-header-sponsor">
-              <span>Brought to you by</span>
-              <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Your Brand</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Message Strip · Live Overlay</span>
-        <div class="ad-variant-name">Live Session — Rotating Bottom Banner</div>
-        <div class="ad-variant-desc">A strip overlay at the bottom of the live session. Rotates among up to 3 brands. Present throughout the entire session.</div>
-        <div class="ad-mock">
-          <div class="mock-strip">
-            <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Your Brand</div>
-            <div class="mock-strip-text">Your message shown to all live attendees throughout the session.</div>
-          </div>
-        </div>
-      </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Native Card · Sidebar</span>
-        <div class="ad-variant-name">Session Details Page — Bottom</div>
-        <div class="ad-variant-desc">Native card placement in the sidebar of the session details page. Visible to anyone browsing, registering, or reading about the session.</div>
-        <div class="ad-mock">
-          <div class="mock-native">
-            <div class="mock-native-sponsor-row">
-              <div class="mock-logo-pill" style="font-size:10px">Your Brand</div>
-              <div style="font-size:10px;color:var(--text-dim)">Gold Sponsor</div>
-            </div>
-            <div class="mock-native-title">Your headline message here</div>
-            <div class="mock-native-copy">Supporting copy that connects your offering to the professional audience.</div>
-            <div class="mock-native-cta">Learn More →</div>
-          </div>
-        </div>
-      </div>
+    <div class="spotlight-how-arrow">→</div>
+        <div class="spotlight-how-step">
+      <div class="spotlight-how-num">2</div>
+      <div class="spotlight-how-text"><strong>Choose your visibility level</strong>Flicker, Spotlight, or Takeover — how prominently your brand appears in every Featured Event.</div>
+    </div>
+    <div class="spotlight-how-arrow">→</div>
+    <div class="spotlight-how-step">
+      <div class="spotlight-how-num">3</div>
+      <div class="spotlight-how-text"><strong>Choose your volume</strong>Single event or a package of 4, 8, or 16 Events</div>
     </div>
   </div>
 
-  <!-- Speed Networking Tab -->
-  <div class="tab-content" id="tab-networking">
-    <div class="placement-surface">
-      <div class="placement-surface-header">
-        <div class="placement-surface-title">
-          <span class="surface-badge badge-sn">SPEED NETWORKING</span>
-          Speed Networking Ad Placements
+  <div class="section-label" style="margin-bottom:20px;margin-top:48px">Visibility Tiers — Per Featured Event</div>
+
+  <div class="spotlight-surface-label">
+    <span class="surface-badge badge-live">LIVE SESSIONS</span>
+    <span>Event Details Page + Live Video Room · per event unit</span>
+  </div>
+  <div class="spotlight-tier-grid">
+    <div class="spotlight-tier-card tier-flicker">
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Flicker</span>
+        <div class="spotlight-tier-name">Shared Visibility</div>
+        <div class="spotlight-tier-tagline">Rotating bottom banners across both surfaces. Shared with up to 3 brands. The entry point into Featured Events.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Event Page — Rotating Bottom (1 of 3 shared slots)</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Live Room — Rotating Bottom (1 of 3 shared slots)</div>
         </div>
-        <div class="badge-max">Max per event (fully sold): <strong>$900</strong></div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Sessions</div>
+          <div class="spotlight-price">$166</div>
+          <div class="spotlight-price-sub">per event · after 10% bundle discount</div>
+        </div>
       </div>
-      <table class="placement-table">
-        <thead>
-          <tr>
-            <th>Placement</th>
-            <th>Slots</th>
-            <th>Exclusivity</th>
-            <th>Price / Event</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>In-call 1:1 — Top Banner</strong></td>
-            <td>1</td>
-            <td><span class="excl-badge">★ Exclusive</span></td>
-            <td><span class="price-cell">$300</span></td>
-            <td class="note-cell">Most captive placement on the platform · cannot skip · seen during every 1:1 call</td>
-          </tr>
-          <tr>
-            <td><strong>In-call 1:1 — Rotating Bottom Banner</strong></td>
-            <td>3</td>
-            <td><span class="shared-badge">Shared (max 3)</span></td>
-            <td><span class="price-cell">$75</span></td>
-            <td class="note-cell">3 rotating slots · still highly captive — user is focused on connection, not browsing</td>
-          </tr>
-          <tr>
-            <td><strong>Waiting Lobby — Top Banner</strong></td>
-            <td>1</td>
-            <td><span class="excl-badge">★ Exclusive</span></td>
-            <td><span class="price-cell">$150</span></td>
-            <td class="note-cell">Pre-event · high dwell time while professionals wait to be matched</td>
-          </tr>
-          <tr>
-            <td><strong>Waiting Lobby — Rotating Bottom Banner</strong></td>
-            <td>3</td>
-            <td><span class="shared-badge">Shared (max 3)</span></td>
-            <td><span class="price-cell">$75</span></td>
-            <td class="note-cell">3 rotating slots in the pre-event lobby · strong attention during wait time</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta flicker-cta">Get Started →</a></div>
     </div>
 
-    <div class="ad-visual-grid">
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Header Logo · In-call Room</span>
-        <div class="ad-variant-name">In-call 1:1 — Top Banner</div>
-        <div class="ad-variant-desc">Displayed at the top of every 1:1 call during the Speed Networking event. The most captive ad placement on the platform — the professional is fully focused.</div>
-        <div class="ad-mock">
-          <div class="mock-header">
-            <div class="mock-header-left">
-              <div style="width:8px;height:8px;border-radius:50%;background:#00E8A2;flex-shrink:0"></div>
-              <div class="mock-header-text">1:1 Connection — 4:00 remaining</div>
-            </div>
-            <div class="mock-header-sponsor">
-              <span>Sponsored by</span>
-              <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Your Brand</div>
-            </div>
-          </div>
+    <div class="spotlight-tier-card tier-spotlight featured-spotlight">
+      <div class="featured-ribbon">Most Popular</div>
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Spotlight</span>
+        <div class="spotlight-tier-name">Exclusive Top Bars</div>
+        <div class="spotlight-tier-tagline">Exclusive top placement on both surfaces. No competing brand above the fold on either the event page or the live room.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar (exclusive)</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Live Room — Top Bar (exclusive)</div>
+        </div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Sessions</div>
+          <div class="spotlight-price">$675</div>
+          <div class="spotlight-price-sub">per event · after 15% bundle discount</div>
         </div>
       </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Lobby Banner · Pre-event</span>
-        <div class="ad-variant-name">Waiting Lobby — Top Banner</div>
-        <div class="ad-variant-desc">Full-width banner in the waiting lobby before Speed Networking begins. High dwell time as professionals prepare and wait to be matched.</div>
-        <div class="ad-mock">
-          <div class="mock-lobby">
-            <div class="mock-lobby-dot"></div>
-            <div class="mock-lobby-text">Waiting to match you with a professional…</div>
-            <div class="mock-lobby-brand">
-              <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Your Brand</div>
-            </div>
-          </div>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta spotlight-cta-btn">Reserve Your Spot →</a></div>
+    </div>
+
+    <div class="spotlight-tier-card tier-takeover">
+      <div class="exclusive-ribbon">Full Takeover</div>
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Takeover</span>
+        <div class="spotlight-tier-name">Complete Event Ownership</div>
+        <div class="spotlight-tier-tagline">All slots across both surfaces. Zero other brands in this Featured Event — on the page and in the room.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Event Page — All 3 Rotating Bottoms</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Live Room — Top Bar</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Live Room — All 3 Rotating Bottoms</div>
+          <div class="spotlight-tier-slot zero-brands"><span class="slot-dot takeover"></span>No other brands in this event</div>
+        </div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Sessions</div>
+          <div class="spotlight-price">$1,084</div>
+          <div class="spotlight-price-sub">per event · after 20% bundle discount</div>
         </div>
       </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Toast · Floating Notification</span>
-        <div class="ad-variant-name">In-call — Rotating Bottom Banner</div>
-        <div class="ad-variant-desc">A rotating banner at the bottom of the in-call experience. Shared among up to 3 brands per event. Still highly captive — the professional is fully engaged.</div>
-        <div class="ad-mock" style="padding:12px;background:var(--bg-card2)">
-          <div class="mock-toast">
-            <div class="mock-toast-content">
-              <div class="mock-sponsor-label" style="margin-bottom:4px">Sponsored</div>
-              <div class="mock-toast-title">Your Brand</div>
-              <div class="mock-toast-sub">Your headline message for the networking audience.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ad-variant-card">
-        <span class="ad-variant-tag">Inline Compact · In-feed</span>
-        <div class="ad-variant-name">Waiting Lobby — Rotating Bottom</div>
-        <div class="ad-variant-desc">Compact strip rotating between 3 brands in the lobby. Displayed as professionals wait for the networking event to begin.</div>
-        <div class="ad-mock">
-          <div class="mock-strip">
-            <div class="mock-logo-pill" style="font-size:10px;padding:3px 8px">Your Brand</div>
-            <div class="mock-strip-text">Sponsored · Reach the professionals in the room before the networking begins.</div>
-          </div>
-        </div>
-      </div>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta takeover-cta">Own the Event →</a></div>
     </div>
   </div>
+
+  <div class="spotlight-surface-label" style="margin-top:40px">
+    <span class="surface-badge badge-sn">SPEED NETWORKING</span>
+    <span>Event Details Page + 1:1 Live Room · per event unit</span>
+  </div>
+  <div class="spotlight-tier-grid">
+    <div class="spotlight-tier-card tier-flicker">
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Flicker</span>
+        <div class="spotlight-tier-name">Shared Visibility</div>
+        <div class="spotlight-tier-tagline">Rotating bottom banners in the pre-event page and inside every live 1:1 call. Shared with up to 3 brands.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Event Page — Rotating Bottom (1 of 3 shared slots)</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>1:1 Call Room — Rotating Bottom (1 of 3 shared slots)</div>
+        </div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Speed Networking</div>
+          <div class="spotlight-price">$214</div>
+          <div class="spotlight-price-sub">per event · after 15% bundle discount</div>
+        </div>
+      </div>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta flicker-cta">Get Started →</a></div>
+    </div>
+
+    <div class="spotlight-tier-card tier-spotlight featured-spotlight">
+      <div class="featured-ribbon">Most Popular</div>
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Spotlight</span>
+        <div class="spotlight-tier-name">Exclusive Top Bars</div>
+        <div class="spotlight-tier-tagline">Exclusive top bar on the event page and inside every 1:1 call. The most focused audience on the platform.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar (exclusive)</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>1:1 Call Room — Top Bar (exclusive)</div>
+        </div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Speed Networking</div>
+          <div class="spotlight-price">$855</div>
+          <div class="spotlight-price-sub">per event · after 15% bundle discount</div>
+        </div>
+      </div>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta spotlight-cta-btn">Reserve Your Spot →</a></div>
+    </div>
+
+    <div class="spotlight-tier-card tier-takeover">
+      <div class="exclusive-ribbon">Full Takeover</div>
+      <div class="spotlight-tier-stripe"></div>
+      <div class="spotlight-tier-top">
+        <span class="spotlight-tier-label">Takeover</span>
+        <div class="spotlight-tier-name">Complete Event Ownership</div>
+        <div class="spotlight-tier-tagline">All slots on the event page and inside every 1:1 call. Zero other brands in this Speed Networking event.</div>
+        <div class="spotlight-tier-what">
+          <div class="spotlight-tier-what-label">What's Included</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Event Page — All 3 Rotating Bottoms</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>1:1 Call Room — Top Bar</div>
+          <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>1:1 Call Room — All 3 Rotating Bottoms</div>
+          <div class="spotlight-tier-slot zero-brands"><span class="slot-dot takeover"></span>No other brands in this event</div>
+        </div>
+        <div class="spotlight-tier-pricing">
+          <div class="spotlight-price-label">Speed Networking</div>
+          <div class="spotlight-price">$1,381</div>
+          <div class="spotlight-price-sub">per event · after 20% bundle discount</div>
+        </div>
+      </div>
+      <div class="spotlight-tier-cta-row"><a href="#contact" class="spotlight-cta takeover-cta">Own the Event →</a></div>
+    </div>
+  </div>
+
+<div class="section-label" style="margin-bottom:20px;margin-top:48px">Volume Packages — Stack on Top of Bundle Price</div>
+  <p class="section-sub">Volume discounts apply to both Sessions and Speed Networking and can be mixed within a package.</p>
+  <div class="volume-packages-grid">
+    <div class="vol-pkg-card">
+      <div class="vol-pkg-num">1</div>
+      <div class="vol-pkg-label">Single Event</div>
+      <div class="vol-pkg-events">1 event</div>
+      <div class="vol-pkg-disc vol-disc-active">0% off</div>
+    </div>
+    <div class="vol-pkg-card">
+      <div class="vol-pkg-num">4</div>
+      <div class="vol-pkg-label">Package 1</div>
+      <div class="vol-pkg-events">4 events</div>
+      <div class="vol-pkg-disc vol-disc-active">5% off</div>
+    </div>
+    <div class="vol-pkg-card">
+      <div class="vol-pkg-num">8</div>
+      <div class="vol-pkg-label">Package 2</div>
+      <div class="vol-pkg-events">8 events</div>
+      <div class="vol-pkg-disc vol-disc-active">10% off</div>
+    </div>
+    <div class="vol-pkg-card vol-pkg-best">
+      <div class="vol-pkg-best-label">Best Value</div>
+      <div class="vol-pkg-num">16</div>
+      <div class="vol-pkg-label">Package 3</div>
+      <div class="vol-pkg-events">16 events</div>
+      <div class="vol-pkg-disc vol-disc-active">15% off</div>
+    </div>
+  </div>
+  
 </div>
 
 <hr class="divider">
 
-<!-- BUNDLE PACKAGES -->
-<div class="bundles-section">
-  <div class="section-label">Ad Slot Bundles</div>
-  <h2 class="section-title" style="margin-bottom:14px">Bundle and save. More impact, better price.</h2>
-  <div class="bundles-intro">
-    <div class="bundles-intro-text">
-      <p class="section-sub" style="margin-bottom:0">Buy multiple placements together across sessions or Speed Networking events and unlock automatic bundle discounts. Volume multipliers stack on top for even greater savings.</p>
-    </div>
-    <div class="bundles-legend">
-      <div style="font-size:12px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Bundle tiers</div>
-      <div class="legend-row"><div class="legend-dot starter"></div>Starter — Shared bottom slots</div>
-      <div class="legend-row"><div class="legend-dot premium"></div>Premium — Exclusive top placements</div>
-      <div class="legend-row"><div class="legend-dot exclusive"></div>Exclusive — Full inventory, no competing brands</div>
-    </div>
-  </div>
-
-  <!-- Session Bundles -->
-  <div class="section-label" style="margin-bottom:16px">Session Bundles</div>
-  <div class="bundle-grid" style="margin-bottom:56px">
-
-    <div class="bundle-card starter">
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Starter</span>
-        <div class="bundle-name">Shared Visibility</div>
-        <div class="bundle-tagline">Entry-level shared bottom slots across the live session and session details page.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$300</div>
-          <div class="bundle-price-per">/ session</div>
-        </div>
-        <div class="bundle-saving">↓ Save $75 vs buying separately</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Live Session — Rotating Bottom Banner</strong> (1 shared slot)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Session Details Page — Bottom</strong> (1 shared slot)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>20% bundle discount applied</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Shared bottom visibility on both surfaces</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Get Started →</a>
-      </div>
-    </div>
-
-    <div class="bundle-card premium featured">
-      <div class="featured-ribbon">Most Popular</div>
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Premium</span>
-        <div class="bundle-name">Exclusive Tops</div>
-        <div class="bundle-tagline">Exclusive top placement on both surfaces. No competing brand appears above the fold.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$720</div>
-          <div class="bundle-price-per">/ session</div>
-        </div>
-        <div class="bundle-saving">↓ Save $180 vs buying separately</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Live Session — Top Banner</strong> (exclusive)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Session Details Page — Top</strong> (exclusive)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>20% bundle discount applied</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>No competing brand above the fold on either surface</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Reserve This Bundle →</a>
-      </div>
-    </div>
-
-    <div class="bundle-card exclusive-card">
-      <div class="exclusive-ribbon">🔒 Full Takeover</div>
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Exclusive</span>
-        <div class="bundle-name">Full Session Takeover</div>
-        <div class="bundle-tagline">All slots. No other brands on this session — live or on the details page. Complete brand ownership.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$1,823</div>
-          <div class="bundle-price-per">/ session</div>
-        </div>
-        <div class="bundle-saving">↓ Save $202 · 10% off full inventory</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>All live session slots</strong> — top banner + all rotating bottoms</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>All session details page slots</strong> — top + all bottoms</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Zero other brands on this session</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>10% discount applied to full inventory value</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Inquire About Exclusivity →</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Speed Networking Bundles -->
-  <div class="section-label" style="margin-bottom:16px">Speed Networking Bundles</div>
-  <div class="bundle-grid">
-
-    <div class="bundle-card starter">
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Basic</span>
-        <div class="bundle-name">Lobby + In-call Bottom</div>
-        <div class="bundle-tagline">Shared bottom visibility in both the waiting lobby and the live 1:1 call environment.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$120</div>
-          <div class="bundle-price-per">/ event</div>
-        </div>
-        <div class="bundle-saving">↓ Save $30 vs buying separately</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>In-call 1:1 — Rotating Bottom</strong> (1 shared slot)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Waiting Lobby — Rotating Bottom</strong> (1 shared slot)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>20% bundle discount</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Get Started →</a>
-      </div>
-    </div>
-
-    <div class="bundle-card premium featured">
-      <div class="featured-ribbon">Most Popular</div>
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Premium</span>
-        <div class="bundle-name">Exclusive In-call + Lobby</div>
-        <div class="bundle-tagline">Exclusive top placement in both the live 1:1 call and the waiting lobby. No competing brands.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$360</div>
-          <div class="bundle-price-per">/ event</div>
-        </div>
-        <div class="bundle-saving">↓ Save $90 vs buying separately</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>In-call 1:1 — Top Banner</strong> (exclusive)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong>Waiting Lobby — Top Banner</strong> (exclusive)</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>20% bundle discount</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>No other brands in both environments</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Reserve This Bundle →</a>
-      </div>
-    </div>
-
-    <div class="bundle-card exclusive-card">
-      <div class="exclusive-ribbon">🔒 Full Takeover</div>
-      <div class="bundle-top">
-        <div class="bundle-stripe"></div>
-        <span class="bundle-tier-label">Exclusive</span>
-        <div class="bundle-name">Full Event Ownership</div>
-        <div class="bundle-tagline">All slots across in-call and lobby. Zero other brands in this Speed Networking event.</div>
-        <div class="bundle-price-from">From</div>
-        <div class="bundle-price-row">
-          <div class="bundle-price">$810</div>
-          <div class="bundle-price-per">/ event</div>
-        </div>
-        <div class="bundle-saving">↓ Save $90 · 10% off full event inventory</div>
-        <hr class="bundle-divider">
-        <div class="bundle-features">
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>All in-call slots — top + all rotating bottoms</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>All lobby slots — top + all rotating bottoms</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Zero competing brands in the event</span>
-          </div>
-          <div class="bundle-feature">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>10% discount off full event inventory</span>
-          </div>
-        </div>
-      </div>
-      <div class="bundle-bottom">
-        <a href="#contact" class="bundle-cta">Inquire About Exclusivity →</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- VOLUME DISCOUNTS -->
+<!-- DISCOVERY -->
 <div class="section">
-  <div class="section-label">Volume Packages</div>
-  <h2 class="section-title">Commit to more. Pay less per session.</h2>
-  <p class="section-sub">Volume discounts apply on top of bundle pricing when you commit to multiple sessions or events. The more you commit, the sharper the rate.</p>
-  <div class="volume-grid">
+  <div class="section-label section-label-gold">Discovery</div>
+  <h2 class="section-title">Everywhere They Look.</h2>
+  <p class="product-tagline">Your brand across the entire platform.</p>
+  <p class="section-sub">Discovery placements run platform-wide — not tied to a specific event. Your brand appears wherever professionals are browsing, exploring, and discovering on BrainsMingle. Sold per month with volume discounts for longer commitments.</p>
 
-    <div class="volume-track">
-      <div class="volume-track-title">
-        <div class="volume-track-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        </div>
-        Session Volume Packages
+  <div class="discovery-grid">
+    <div class="discovery-slot-card discovery-premium">
+      <div class="discovery-slot-tier">Premium · Fixed</div>
+      <div class="discovery-slot-name">Banner Hero</div>
+      <div class="discovery-slot-desc">Full-width banner at the top of the page. 100% share of voice. The most visible fixed placement on the platform.</div>
+      <div class="discovery-slot-price">$400<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta">Get Started →</a>
+    </div>
+    <div class="discovery-slot-card discovery-premium">
+      <div class="discovery-slot-tier">Premium · Fixed</div>
+      <div class="discovery-slot-name">Native Card</div>
+      <div class="discovery-slot-desc">Rich card with logo, headline, image, and CTA. Appears in the sidebar or feed. Fixed placement — always your brand, never rotating.</div>
+      <div class="discovery-slot-price">$300<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta">Get Started →</a>
+    </div>
+    <div class="discovery-slot-card">
+      <div class="discovery-slot-tier">Fixed · Vertical</div>
+      <div class="discovery-slot-name">Skyscraper</div>
+      <div class="discovery-slot-desc">Persistent vertical sidebar placement. Always visible while professionals browse the platform. Fixed — your brand, always there.</div>
+      <div class="discovery-slot-price">$200<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta">Get Started →</a>
+    </div>
+    <div class="discovery-slot-card">
+      <div class="discovery-slot-tier">Compact · Fixed</div>
+      <div class="discovery-slot-name">Sidebar Tile</div>
+      <div class="discovery-slot-desc">Compact card in the sidebar. Persistent across browsing sessions. Subtle but always present — good for sustained brand awareness.</div>
+      <div class="discovery-slot-price">$150<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta">Get Started →</a>
+    </div>
+    <div class="discovery-slot-card">
+      <div class="discovery-slot-tier">Rotating · Shared</div>
+      <div class="discovery-slot-name">Toast</div>
+      <div class="discovery-slot-desc">Floating notification appearing 3× per session across the platform. Shared format — broad reach at the lowest entry price.</div>
+      <div class="discovery-slot-price">$100<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta">Get Started →</a>
+    </div>
+    <div class="discovery-slot-card discovery-bundle-card">
+      <div class="discovery-slot-tier">Full Bundle</div>
+      <div class="discovery-slot-name">All 5 Formats</div>
+      <div class="discovery-slot-desc">Banner Hero + Native Card + Skyscraper + Sidebar Tile + Toast. Complete platform-wide presence. Every surface, every format, one brand.</div>
+      <div class="discovery-slot-price">$1,150<span>/month</span></div>
+      <a href="#contact" class="discovery-slot-cta discovery-bundle-cta">Own Discovery →</a>
+    </div>
+  </div>
+
+  <div class="discovery-volume">
+    <div class="discovery-volume-title">Monthly Commitment Discounts</div>
+    <div class="discovery-volume-grid">
+      <div class="discovery-vol-item">
+        <div class="discovery-vol-months">1 Month</div>
+        <div class="discovery-vol-disc">Standard Rate</div>
       </div>
-      <div class="vol-tier">
-        <div>
-          <div class="vol-tier-left">Package 1</div>
-          <div class="vol-sessions">4 sessions</div>
-        </div>
-        <div class="vol-discount">10% off</div>
+      <div class="discovery-vol-item discovery-vol-active">
+        <div class="discovery-vol-months">3 Months</div>
+        <div class="discovery-vol-disc">10% off</div>
       </div>
-      <div class="vol-tier">
-        <div>
-          <div class="vol-tier-left">Package 2</div>
-          <div class="vol-sessions">8 sessions</div>
-        </div>
-        <div class="vol-discount">15% off</div>
-      </div>
-      <div class="vol-tier">
-        <div>
-          <div class="vol-tier-left">Package 3</div>
-          <div class="vol-sessions">16 sessions</div>
-        </div>
-        <div class="vol-discount">25% off</div>
+      <div class="discovery-vol-item discovery-vol-active">
+        <div class="discovery-vol-months">6 Months</div>
+        <div class="discovery-vol-disc">20% off</div>
       </div>
     </div>
-
-    <div class="volume-track">
-      <div class="volume-track-title">
-        <div class="volume-track-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        Speed Networking Volume Packages
-      </div>
-      <div class="vol-tier">
-        <div>
-          <div class="vol-tier-left">Package 1</div>
-          <div class="vol-sessions">4 events</div>
-        </div>
-        <div class="vol-discount">10% off</div>
-      </div>
-      <div class="vol-tier">
-        <div>
-          <div class="vol-tier-left">Package 2</div>
-          <div class="vol-sessions">8 events</div>
-        </div>
-        <div class="vol-discount">20% off</div>
-      </div>
-    </div>
-
   </div>
 </div>
 
@@ -1681,74 +1199,56 @@ footer{
 <div id="calculator" class="section">
   <div class="section-label">Price Calculator</div>
   <h2 class="section-title">Build your investment in real time.</h2>
-  <p class="section-sub">Select your product type, bundle, and volume package. The final price updates instantly.</p>
+  <p class="section-sub">Select In the Spotlight or Discovery. Configure your options. The final price updates instantly.</p>
 
-  <div class="calc-wrap">
+  <div class="calc-product-toggle">
+    <button class="calc-product-btn active" id="calc-btn-spotlight" onclick="switchCalc('spotlight')">In the Spotlight</button>
+    <button class="calc-product-btn" id="calc-btn-discovery" onclick="switchCalc('discovery')">Discovery</button>
+  </div>
+
+  <div id="calc-spotlight" class="calc-wrap">
     <div class="calc-inputs">
-      <div class="calc-title">Configure your sponsorship</div>
-      <div class="calc-sub">Bundle and volume discounts are applied automatically.</div>
-
+      <div class="calc-title">In the Spotlight</div>
+      <div class="calc-sub">Bundle and volume discounts applied automatically.</div>
       <div class="calc-group">
-        <label class="calc-label" for="calc-type">Step 1 — Product Type</label>
+        <label class="calc-label" for="calc-type">Step 1 — Event Type</label>
         <select class="calc-select" id="calc-type" onchange="calcUpdate()">
-          <option value="sessions">Sessions</option>
+          <option value="sessions">Live Sessions</option>
           <option value="networking">Speed Networking</option>
         </select>
       </div>
       <div class="calc-group">
-        <label class="calc-label" for="calc-bundle">Step 2 — Bundle Tier</label>
+        <label class="calc-label" for="calc-bundle">Step 2 — Visibility Tier</label>
         <select class="calc-select" id="calc-bundle" onchange="calcUpdate()">
-          <option value="starter">Starter / Basic</option>
-          <option value="premium" selected>Premium</option>
-          <option value="exclusive">Exclusive (Full Takeover)</option>
+          <option value="flicker">Flicker — Shared Bottom Banners</option>
+          <option value="spotlight" selected>Spotlight — Exclusive Top Bars</option>
+          <option value="takeover">Takeover — Full Event Ownership</option>
         </select>
       </div>
       <div class="calc-group">
         <label class="calc-label" for="calc-volume">Step 3 — Volume Package</label>
         <select class="calc-select" id="calc-volume" onchange="calcUpdate()">
-          <option value="0">Single session / event</option>
-          <option value="1" selected>Package 1 (4 sessions/events)</option>
-          <option value="2">Package 2 (8 sessions/events)</option>
-          <option value="3">Package 3 (16 sessions — Sessions only)</option>
+          <option value="0">Single Event — 0% off</option>
+          <option value="1" selected>Package 1 — 4 events · 5% off</option>
+          <option value="2">Package 2 — 8 events · 10% off</option>
+          <option value="3">Package 3 — 16 events · 15% off</option>
         </select>
       </div>
     </div>
-
     <div class="calc-result">
       <div>
         <div class="calc-result-label">Your Investment</div>
-        <div class="calc-result-price" id="calc-total">$2,592</div>
-        <div class="calc-result-note" id="calc-note">Premium sessions bundle · 4 sessions · 10% volume discount</div>
+        <div class="calc-result-price" id="calc-total">$2,422</div>
+        <div class="calc-result-note" id="calc-note">Spotlight · Sessions · 4 events · 5% discount</div>
         <div class="calc-breakdown">
           <div class="calc-breakdown-title">Price Breakdown</div>
-          <div class="calc-line">
-            <span class="calc-line-label">Bundle price per session</span>
-            <span class="calc-line-val" id="calc-bundle-price">$900</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label">Bundle discount</span>
-            <span class="calc-line-val" id="calc-bundle-disc">–20%</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label">After bundle discount</span>
-            <span class="calc-line-val" id="calc-after-bundle">$720</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label">Volume discount</span>
-            <span class="calc-line-val" id="calc-vol-disc">–10%</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label">Price per session/event</span>
-            <span class="calc-line-val" id="calc-per-unit">$648</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label">× Sessions / Events</span>
-            <span class="calc-line-val" id="calc-units">4</span>
-          </div>
-          <div class="calc-line">
-            <span class="calc-line-label" style="font-weight:700">Total Investment</span>
-            <span class="calc-line-val" id="calc-final">$2,592</span>
-          </div>
+          <div class="calc-line"><span class="calc-line-label">Full price per event</span><span class="calc-line-val" id="calc-full-price">$750</span></div>
+          <div class="calc-line"><span class="calc-line-label">Bundle discount</span><span class="calc-line-val" id="calc-bundle-disc">–15%</span></div>
+          <div class="calc-line"><span class="calc-line-label">Bundle price per event</span><span class="calc-line-val" id="calc-bundle-price">$637</span></div>
+          <div class="calc-line"><span class="calc-line-label">Volume discount</span><span class="calc-line-val" id="calc-vol-disc">–5%</span></div>
+          <div class="calc-line"><span class="calc-line-label">Price per event</span><span class="calc-line-val" id="calc-per-unit">$605</span></div>
+          <div class="calc-line"><span class="calc-line-label">× Events</span><span class="calc-line-val" id="calc-units">4</span></div>
+          <div class="calc-line"><span class="calc-line-label" style="font-weight:700">Total Investment</span><span class="calc-line-val" id="calc-final">$2,422</span></div>
         </div>
       </div>
       <div class="calc-cta-wrap" style="margin-top:32px">
@@ -1756,30 +1256,48 @@ footer{
       </div>
     </div>
   </div>
-</div>
 
-<hr class="divider">
-
-<!-- BASHARSOFT KICKOFF -->
-<div class="section">
-  <div class="section-label section-label-gold">The Kickoff Case Study</div>
-  <h2 class="section-title" style="margin-bottom:40px">The BasharSoft Partnership</h2>
-  <div class="kickoff-banner">
-    <div>
-      <div class="kickoff-label">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Live proof of concept
+  <div id="calc-discovery" class="calc-wrap" style="display:none;margin-top:24px">
+    <div class="calc-inputs">
+      <div class="calc-title">Discovery</div>
+      <div class="calc-sub">Monthly commitment discounts applied automatically.</div>
+      <div class="calc-group">
+        <label class="calc-label" for="disc-format">Step 1 — Format</label>
+        <select class="calc-select" id="disc-format" onchange="discUpdate()">
+          <option value="400">Banner Hero — $400/month</option>
+          <option value="300">Native Card — $300/month</option>
+          <option value="200">Skyscraper — $200/month</option>
+          <option value="150">Sidebar Tile — $150/month</option>
+          <option value="100">Toast — $100/month</option>
+          <option value="1150">Full Bundle (all 5 formats) — $1,150/month</option>
+        </select>
       </div>
-      <div class="kickoff-title">BasharSoft — WUZZUF & iCareer<br>are the first sponsorship partners</div>
-      <div class="kickoff-desc">BasharSoft's portfolio brands — WUZZUF and iCareer — sponsored The Golden Hour Speed Networking event and four sessions in the launch week. Not an abstract pitch. A real inventory they bought into. Their logos live on BrainsMingle now — in every session, every replay, every connection made.</div>
+      <div class="calc-group">
+        <label class="calc-label" for="disc-duration">Step 2 — Commitment</label>
+        <select class="calc-select" id="disc-duration" onchange="discUpdate()">
+          <option value="0">1 Month — standard rate</option>
+          <option value="1" selected>3 Months — 10% off</option>
+          <option value="2">6 Months — 20% off</option>
+        </select>
+      </div>
     </div>
-    <div class="kickoff-logos">
-      <div class="kickoff-logo-row">
-        <div class="kickoff-logo-pill">WUZZUF</div>
-        <div class="kickoff-plus">+</div>
-        <div class="kickoff-logo-pill">iCareer</div>
+    <div class="calc-result">
+      <div>
+        <div class="calc-result-label">Your Investment</div>
+        <div class="calc-result-price" id="disc-total">$1,080</div>
+        <div class="calc-result-note" id="disc-note">Banner Hero · 3 months · 10% discount</div>
+        <div class="calc-breakdown">
+          <div class="calc-breakdown-title">Price Breakdown</div>
+          <div class="calc-line"><span class="calc-line-label">Monthly rate</span><span class="calc-line-val" id="disc-monthly">$400</span></div>
+          <div class="calc-line"><span class="calc-line-label">Commitment discount</span><span class="calc-line-val" id="disc-disc">–10%</span></div>
+          <div class="calc-line"><span class="calc-line-label">Discounted monthly rate</span><span class="calc-line-val" id="disc-discounted">$360</span></div>
+          <div class="calc-line"><span class="calc-line-label">× Months</span><span class="calc-line-val" id="disc-months-val">3</span></div>
+          <div class="calc-line"><span class="calc-line-label" style="font-weight:700">Total Investment</span><span class="calc-line-val" id="disc-final">$1,080</span></div>
+        </div>
       </div>
-      <div class="kickoff-note">First official sponsors on BrainsMingle</div>
+      <div class="calc-cta-wrap" style="margin-top:32px">
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center">Book Discovery →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -1788,27 +1306,27 @@ footer{
 
 <!-- WHY BM MEDIA -->
 <div class="section">
-  <div class="section-label">The media case</div>
+  <div class="section-label">The Next Generation of Professional Sponsorship</div>
   <h2 class="section-title">Not an impression. A presence.</h2>
   <p class="section-sub">Sponsoring on BrainsMingle is not the same as buying a banner ad. Here is what makes it fundamentally different.</p>
   <div class="media-compare-grid">
     <div class="media-compare-card">
-      <div class="media-compare-icon">📺</div>
-      <div class="media-compare-label">Traditional Digital Ads</div>
-      <div class="media-compare-title">Scrolled past in 0.3 seconds</div>
-      <div class="media-compare-desc">Banner blindness is real. The professional audience has trained themselves to ignore ads — they're in task mode, not browsing mode. Your budget buys impressions, not attention.</div>
+      <div class="media-compare-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="media-compare-label">Not Another Feed</div>
+      <div class="media-compare-title">They are here by choice</div>
+      <div class="media-compare-desc">BrainsMingle is not a scroll-through platform. Every professional who shows up chose to be here, they registered, they committed, they showed up live. That is a fundamentally different kind of attention. Your brand is not interrupting their browsing. It is part of an experience they actively sought out.</div>
     </div>
     <div class="media-compare-card" style="border-color:rgba(107,62,245,0.3)">
-      <div class="media-compare-icon">⚡</div>
-      <div class="media-compare-label">BrainsMingle Sessions</div>
-      <div class="media-compare-title">Present for the entire experience</div>
-      <div class="media-compare-desc">When a professional joins a BrainsMingle session, they are focused and fully committed for 60+ minutes. They chose to be there. They paid to learn. Your brand is part of that experience — not an interruption to it.</div>
+      <div class="media-compare-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div class="media-compare-label">Featured Events</div>
+      <div class="media-compare-title">Hand-picked. High-stakes</div>
+      <div class="media-compare-desc">Not every session makes the Featured Events calendar. BrainsMingle curates only the highest-impact events, the ones professionals block their calendars for, show up live to, and talk about after. When your brand is inside a Featured Event, it is present at the highest point of professional attention on the platform.</div>
     </div>
     <div class="media-compare-card" style="border-color:rgba(0,232,162,0.3)">
-      <div class="media-compare-icon">♾️</div>
+      <div class="media-compare-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/></svg></div>
       <div class="media-compare-label">Permanent On-Demand Replay</div>
-      <div class="media-compare-title">Your brand never expires</div>
-      <div class="media-compare-desc">Every session is recorded and lives permanently on BrainsMingle. Every replay, every embed, every share — your sponsorship is still there. The session you sponsor today will still be showing your brand two years from now.</div>
+      <div class="media-compare-title">Your brand doesn't have an expiry date</div>
+      <div class="media-compare-desc">Most campaigns end. This one doesn't. Every Featured Event is recorded and lives on BrainsMingle permanently. Every replay, every share, every new professional who discovers it months later your brand is still in the room. One sponsorship. Infinite reach. No end date.</div>
     </div>
   </div>
 </div>
@@ -1834,7 +1352,10 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">BRAINS<span>MINGLE</span></div>
+    <div class="header-logo">
+<img class="logo-dark"  src="logo-dark.png"  alt="BrainsMingle">
+<img class="logo-light" src="logo-light.png" alt="BrainsMingle">
+  </div>
   <div>© 2026 BrainsMingle. All rights reserved.</div>
   <div><a href="https://brainsmingle.com" style="color:var(--purple-light);font-weight:700">brainsmingle.com</a></div>
 </footer>
@@ -1852,27 +1373,41 @@ toggle.addEventListener('click', () => {
   localStorage.setItem('bm-theme', next);
 });
 
-// Tab switch
-function switchTab(tab, el) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.placement-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  el.classList.add('active');
+// Lightbox
+function openLightbox(img, name, tag) {
+  document.getElementById('lightbox-img').src = img;
+  document.getElementById('lightbox-title').textContent = name;
+  document.getElementById('lightbox-tag').textContent = tag;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox')) return;
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Calc product switch
+function switchCalc(type) {
+  document.getElementById('calc-spotlight').style.display = type === 'spotlight' ? 'grid' : 'none';
+  document.getElementById('calc-discovery').style.display  = type === 'discovery'  ? 'grid' : 'none';
+  document.getElementById('calc-btn-spotlight').classList.toggle('active', type === 'spotlight');
+  document.getElementById('calc-btn-discovery').classList.toggle('active',  type === 'discovery');
 }
 
-// Calculator
+// Spotlight calculator
 const sessionBundles = {
-  starter: { label: 'Starter', fullPrice: 375, bundleDisc: 0.20, bundlePrice: 300 },
-  premium: { label: 'Premium', fullPrice: 900, bundleDisc: 0.20, bundlePrice: 720 },
-  exclusive: { label: 'Exclusive', fullPrice: 2025, bundleDisc: 0.10, bundlePrice: 1822.5 }
+  flicker:   { label:'Flicker',   fullPrice:  175, bundleDisc: 0.10 },
+  spotlight: { label:'Spotlight', fullPrice:  750, bundleDisc: 0.15 },
+  takeover:  { label:'Takeover',  fullPrice: 1275, bundleDisc: 0.20 },
 };
 const snBundles = {
-  starter: { label: 'Basic', fullPrice: 150, bundleDisc: 0.20, bundlePrice: 120 },
-  premium: { label: 'Premium', fullPrice: 450, bundleDisc: 0.20, bundlePrice: 360 },
-  exclusive: { label: 'Exclusive', fullPrice: 900, bundleDisc: 0.10, bundlePrice: 810 }
+  flicker:   { label:'Flicker',   fullPrice:  225, bundleDisc: 0.15 },
+  spotlight: { label:'Spotlight', fullPrice:  950, bundleDisc: 0.15 },
+  takeover:  { label:'Takeover',  fullPrice: 1625, bundleDisc: 0.20 },
 };
-const sessionVolume = { 0: { units: 1, disc: 0 }, 1: { units: 4, disc: 0.10 }, 2: { units: 8, disc: 0.15 }, 3: { units: 16, disc: 0.25 } };
-const snVolume = { 0: { units: 1, disc: 0 }, 1: { units: 4, disc: 0.10 }, 2: { units: 8, disc: 0.20 }, 3: { units: 4, disc: 0.10 } };
+const volumePkgs = { 0:{units:1,disc:0}, 1:{units:4,disc:0.05}, 2:{units:8,disc:0.10}, 3:{units:16,disc:0.15} };
 
 function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
 function pct(n) { return n === 0 ? 'None' : '–' + (n * 100) + '%'; }
@@ -1881,36 +1416,53 @@ function calcUpdate() {
   const type = document.getElementById('calc-type').value;
   const bKey = document.getElementById('calc-bundle').value;
   const vKey = document.getElementById('calc-volume').value;
+  const b = type === 'sessions' ? sessionBundles[bKey] : snBundles[bKey];
+  const v = volumePkgs[vKey];
+  const afterBundle = b.fullPrice * (1 - b.bundleDisc);
+  const afterVol    = afterBundle * (1 - v.disc);
+  const total       = afterVol * v.units;
+  document.getElementById('calc-full-price').textContent   = fmt(b.fullPrice);
+  document.getElementById('calc-bundle-disc').textContent  = '–' + (b.bundleDisc * 100) + '%';
+  document.getElementById('calc-bundle-price').textContent = fmt(afterBundle);
+  document.getElementById('calc-vol-disc').textContent     = pct(v.disc);
+  document.getElementById('calc-per-unit').textContent     = fmt(afterVol);
+  document.getElementById('calc-units').textContent        = v.units;
+  document.getElementById('calc-final').textContent        = fmt(total);
+  document.getElementById('calc-total').textContent        = fmt(total);
+  const typeLabel = type === 'sessions' ? 'Sessions' : 'Speed Networking';
+  document.getElementById('calc-note').textContent = `${b.label} · ${typeLabel} · ${v.units} event${v.units>1?'s':''}${v.disc>0?' · '+(v.disc*100)+'% volume discount':''}`;
+}
 
-  // Disable Package 3 for Speed Networking
-  const p3 = document.querySelector('#calc-volume option[value="3"]');
-  if (type === 'networking') { p3.disabled = true; p3.textContent = 'Package 3 (Sessions only)'; }
-  else { p3.disabled = false; p3.textContent = 'Package 3 (16 sessions — Sessions only)'; }
+// Discovery calculator
+const discMonths = { 0:{months:1,disc:0,label:'1 month'}, 1:{months:3,disc:0.10,label:'3 months'}, 2:{months:6,disc:0.20,label:'6 months'} };
+const discFormats = { 400:'Banner Hero', 300:'Native Card', 200:'Skyscraper', 150:'Sidebar Tile', 100:'Toast', 1150:'Full Bundle' };
 
-  const bundles = type === 'sessions' ? sessionBundles : snBundles;
-  const volume = type === 'sessions' ? sessionVolume : snVolume;
-
-  const b = bundles[bKey];
-  const v = vKey === '3' && type === 'networking' ? sessionVolume[1] : volume[vKey];
-
-  const afterBundle = b.bundlePrice;
-  const afterVol = afterBundle * (1 - v.disc);
-  const total = afterVol * v.units;
-
-  document.getElementById('calc-bundle-price').textContent = fmt(b.fullPrice);
-  document.getElementById('calc-bundle-disc').textContent = '–' + (b.bundleDisc * 100) + '%';
-  document.getElementById('calc-after-bundle').textContent = fmt(afterBundle);
-  document.getElementById('calc-vol-disc').textContent = pct(v.disc);
-  document.getElementById('calc-per-unit').textContent = fmt(afterVol);
-  document.getElementById('calc-units').textContent = v.units;
-  document.getElementById('calc-final').textContent = fmt(total);
-  document.getElementById('calc-total').textContent = fmt(total);
-
-  const typeLabel = type === 'sessions' ? 'sessions' : 'events';
-  document.getElementById('calc-note').textContent = `${b.label} ${type === 'sessions' ? 'sessions' : 'Speed Networking'} bundle · ${v.units} ${typeLabel}${v.disc > 0 ? ' · ' + (v.disc * 100) + '% volume discount' : ''}`;
+function discUpdate() {
+  const monthly = parseInt(document.getElementById('disc-format').value);
+  const mKey    = document.getElementById('disc-duration').value;
+  const m       = discMonths[mKey];
+  const discounted = monthly * (1 - m.disc);
+  const total      = discounted * m.months;
+  document.getElementById('disc-monthly').textContent    = fmt(monthly);
+  document.getElementById('disc-disc').textContent       = pct(m.disc);
+  document.getElementById('disc-discounted').textContent = fmt(discounted);
+  document.getElementById('disc-months-val').textContent = m.months;
+  document.getElementById('disc-final').textContent      = fmt(total);
+  document.getElementById('disc-total').textContent      = fmt(total);
+  document.getElementById('disc-note').textContent       = `${discFormats[monthly]||'Format'} · ${m.label}${m.disc>0?' · '+(m.disc*100)+'% discount':''}`;
 }
 
 calcUpdate();
+discUpdate();
+
+// Tab switch
+function switchTab(tab, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.placement-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  el.classList.add('active');
+}
+
 <!-- LIGHTBOX -->
 function openLightbox(img, name, tag) {
   document.getElementById('lightbox-img').src = img;
