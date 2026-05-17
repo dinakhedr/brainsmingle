@@ -583,10 +583,44 @@ footer{
 /* ── Media Icons ── */
 .media-compare-icon{width:48px;height:48px;background:rgba(107,62,245,0.1);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .media-compare-icon svg{width:22px;height:22px}
+
+/* ── PRICES LOADING OVERLAY ── */
+#prices-loading{
+  position:fixed;inset:0;background:var(--bg);z-index:2000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  transition:opacity 0.4s;
+}
+#prices-loading.hidden{opacity:0;pointer-events:none}
+.prices-spinner{
+  width:36px;height:36px;border-radius:50%;
+  border:3px solid rgba(107,62,245,0.2);border-top-color:var(--purple);
+  animation:pricesSpin 0.8s linear infinite;
+}
+@keyframes pricesSpin{to{transform:rotate(360deg)}}
+.prices-loading-text{
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);
+}
+.prices-error{
+  max-width:420px;text-align:center;padding:32px;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+}
+.prices-error h3{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--heading);margin-bottom:12px}
+.prices-error p{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:20px}
+.prices-retry-btn{
+  background:var(--purple-light);color:#fff;border:none;cursor:pointer;
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
+  padding:10px 24px;border-radius:8px;transition:opacity 0.2s;
+}
+.prices-retry-btn:hover{opacity:0.85}
 </style>
 <body>
 
-<!-- HEADER -->
+<!-- PRICES LOADING OVERLAY -->
+<div id="prices-loading">
+  <div class="prices-spinner"></div>
+  <div class="prices-loading-text">Loading prices…</div>
+</div>
 <header class="page-header">
   <div class="header-logo">
 <img class="logo-dark"  src="logo-dark.png"  alt="BrainsMingle">
@@ -1431,7 +1465,8 @@ function switchCalc(type) {
 }
 
 // ── PRICES — loaded live from Google Sheets ⑥ Web Prices ──
-const PRICES_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSNPAdKmm6o4N_Fex4_JoK6vi9-5Tfpu0c0HAk3SoNkfj3uKbTsLGRgIL17ewa-tj7uUVdUOZrksCmN/pub?gid=1370704568&single=true&output=csv';
+const PUB_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSNPAdKmm6o4N_Fex4_JoK6vi9-5Tfpu0c0HAk3SoNkfj3uKbTsLGRgIL17ewa-tj7uUVdUOZrksCmN/pub?output=csv';
+const WEB_PRICES_GID = '1370704568';
 
 // Fallback values (used if fetch fails)
 let headlinerTiers = {
@@ -1470,29 +1505,102 @@ function normDisc(v) { return v > 1 ? v / 100 : v; }
 function pctBadge(v) { return Math.round(normDisc(v) * 100) + '% off'; }
 function pctDisplay(v) { return '–' + Math.round(normDisc(v) * 100) + '%'; }
 
-function parseCsvLine(line) {
-  const cols = [];
-  let cur = '', inQ = false;
-  for (let i = 0; i < line.length; i++) {
-    const c = line[i];
-    if (c === '"') { inQ = !inQ; }
-    else if (c === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
-    else { cur += c; }
-  }
-  cols.push(cur.trim());
-  return cols;
+// ── CSV fetch + parse (Tasklist pattern) ──
+async function fetchCSV(gid) {
+  const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for gid=${gid}`);
+  return parseCSV(await res.text());
 }
 
-function parseCsv(text) {
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n');
+  const headers = splitRow(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const vals = splitRow(line);
+    const obj = {};
+    headers.forEach((h, idx) => { obj[h.trim()] = (vals[idx] || '').trim(); });
+    rows.push(obj);
+  }
+  return rows;
+}
+
+function splitRow(row) {
+  const result = []; let cur = '', inQ = false;
+  for (let i = 0; i < row.length; i++) {
+    const c = row[i];
+    if (c === '"') { if (inQ && row[i+1]==='"') { cur+='"'; i++; } else inQ=!inQ; }
+    else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
+    else cur += c;
+  }
+  result.push(cur);
+  return result;
+}
+
+// Convert rows [{key,value}] → flat {key:value} map
+function rowsToMap(rows) {
   const p = {};
-  text.trim().split('\n').slice(1).forEach(line => {
-    const cols = parseCsvLine(line);
-    const key = cols[0]?.trim().replace(/^"|"$/g, '');
-    const val = cols[1]?.trim().replace(/^"|"$/g, '');
-    if (key && val !== undefined && val !== '') p[key] = val;
+  rows.forEach(row => {
+    const key = (row['key'] || '').trim();
+    const val = (row['value'] || '').trim();
+    if (key && val) p[key] = val;
   });
   return p;
 }
+
+// Refresh button
+document.getElementById('prices-refresh').addEventListener('click', async function() {
+  this.classList.add('spinning');
+  await refreshPrices();
+  setTimeout(() => this.classList.remove('spinning'), 500);
+});
+
+let autoRefreshTimer = null;
+
+async function refreshPrices() {
+  try {
+    const rows = await fetchCSV(WEB_PRICES_GID);
+    const p = rowsToMap(rows);
+    console.log('✅ Prices loaded:', p);
+    applyPrices(p);
+    updatePriceCards();
+    calcUpdate();
+    discUpdate();
+  } catch(e) {
+    console.warn('❌ Prices fetch failed:', e);
+  }
+}
+
+async function initPrices() {
+  const overlay = document.getElementById('prices-loading');
+  try {
+    const rows = await fetchCSV(WEB_PRICES_GID);
+    const p = rowsToMap(rows);
+    console.log('✅ Prices loaded:', p);
+    applyPrices(p);
+  } catch(e) {
+    console.warn('❌ Prices fetch failed, using fallback values.', e);
+    overlay.innerHTML = `
+      <div class="prices-error">
+        <h3>⚠ Could not load prices</h3>
+        <p>Make sure the Google Sheet is published to web.<br>Showing default prices in the meantime.</p>
+        <button class="prices-retry-btn" onclick="location.reload()">Retry</button>
+      </div>`;
+    setTimeout(() => overlay.classList.add('hidden'), 3000);
+  }
+  updatePriceCards();
+  calcUpdate();
+  discUpdate();
+  overlay.classList.add('hidden');
+  // Auto-refresh every 10 minutes
+  if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+  autoRefreshTimer = setInterval(refreshPrices, 600000);
+}
+
+initPrices();
 
 function applyPrices(p) {
   // Strip $ and commas before parsing numbers
@@ -1575,29 +1683,6 @@ function updatePriceCards() {
     if (badge)   badge.textContent   = pctBadge(b.bundleDisc);
   });
 }
-
-async function loadPrices() {
-  try {
-    const res = await fetch(PRICES_CSV);
-    if (!res.ok) throw new Error('fetch failed');
-    const text = await res.text();
-    const parsed = parseCsv(text);
-    console.log('✅ Prices loaded:', parsed);
-    applyPrices(parsed);
-  } catch(e) {
-    console.warn('❌ Prices fetch failed, using fallback values.', e);
-  }
-  updatePriceCards();
-  calcUpdate();
-  discUpdate();
-}
-
-// Refresh button
-document.getElementById('prices-refresh').addEventListener('click', async function() {
-  this.classList.add('spinning');
-  await loadPrices();
-  setTimeout(() => this.classList.remove('spinning'), 500);
-});
 
 function calcUpdate() {
   const type = document.getElementById('calc-type').value;
