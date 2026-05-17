@@ -804,7 +804,7 @@ footer{
       <div class="headliner-stripe"></div>
       <div class="headliner-top">
         <span class="headliner-tier-label">Tier 1</span>
-        <div class="headliner-name">The Session</div>
+        <div class="headliner-name" id="headliner-t1-name">The Session</div>
         <div class="headliner-tagline">One event. Your brand. Your room. Own the stage on BrainsMingle by bringing your story to a live professional audience.</div>
         <div class="headliner-price-row">
           <div class="headliner-price" id="headliner-t1-price">$1,500</div>
@@ -852,7 +852,7 @@ footer{
       <div class="headliner-stripe"></div>
       <div class="headliner-top">
         <span class="headliner-tier-label">Tier 2</span>
-        <div class="headliner-name">The Week</div>
+        <div class="headliner-name" id="headliner-t2-name">The Week</div>
         <div class="headliner-tagline">Four branded events across one full week. Your brand owns an entire week of professional content on BrainsMingle.</div>
         <div class="headliner-price-row">
           <div class="headliner-price" id="headliner-t2-price">$4,500</div>
@@ -909,7 +909,7 @@ footer{
       <div class="headliner-stripe"></div>
       <div class="headliner-top">
         <span class="headliner-tier-label">Tier 3</span>
-        <div class="headliner-name">The Month</div>
+        <div class="headliner-name" id="headliner-t3-name">The Month</div>
         <div class="headliner-tagline">Eight branded events across a full month. Your brand defines an entire month of professional content on BrainsMingle.</div>
         <div class="headliner-price-row">
           <div class="headliner-price" id="headliner-t3-price">$8,000</div>
@@ -1603,38 +1603,43 @@ async function initPrices() {
 initPrices();
 
 function applyPrices(p) {
-  // Strip $ and commas before parsing numbers
-  const n = k => parseFloat((p[k] || '').replace(/[$,]/g, '')) || 0;
+  // Strip $, commas, % before parsing numbers — then normalise % to 0-1 range
+  const raw  = k => (p[k] || '').replace(/[$,%]/g, '').trim();
+  const n    = k => parseFloat(raw(k)) || 0;
+  // Disc values: sheet stores "5%" or "0.05" — normalise both to 0-1
+  const d    = k => { const v = n(k); return v > 1 ? v / 100 : v; };
+
   // Headliner tiers
   ['t1','t2','t3'].forEach(t => {
     if (p[`headliner_${t}_price`]) headlinerTiers[t] = {
-      name:   p[`headliner_${t}_name`]                            || headlinerTiers[t].name,
-      price:  n(`headliner_${t}_price`)                           || headlinerTiers[t].price,
-      events: n(`headliner_${t}_events`)                          || headlinerTiers[t].events,
+      name:   p[`headliner_${t}_name`]   || headlinerTiers[t].name,
+      price:  n(`headliner_${t}_price`)  || headlinerTiers[t].price,
+      events: n(`headliner_${t}_events`) || headlinerTiers[t].events,
     };
   });
+  // Session bundles
   ['flicker','spotlight','takeover'].forEach(t => {
     if (p[`s_${t}_fullPrice`]) sessionBundles[t] = {
-      label:     p[`s_${t}_label`]     || sessionBundles[t].label,
-      fullPrice: n(`s_${t}_fullPrice`) || sessionBundles[t].fullPrice,
-      discPrice: n(`s_${t}_discPrice`) || sessionBundles[t].discPrice,
-      bundleDisc:n(`s_${t}_disc`)      || sessionBundles[t].bundleDisc,
+      label:      p[`s_${t}_label`]      || sessionBundles[t].label,
+      fullPrice:  n(`s_${t}_fullPrice`)  || sessionBundles[t].fullPrice,
+      discPrice:  n(`s_${t}_discPrice`)  || sessionBundles[t].discPrice,
+      bundleDisc: d(`s_${t}_disc`)       || sessionBundles[t].bundleDisc,
     };
   });
   // SN bundles
   ['flicker','spotlight','takeover'].forEach(t => {
     if (p[`sn_${t}_fullPrice`]) snBundles[t] = {
-      label:     p[`sn_${t}_label`]     || snBundles[t].label,
-      fullPrice: n(`sn_${t}_fullPrice`) || snBundles[t].fullPrice,
-      discPrice: n(`sn_${t}_discPrice`) || snBundles[t].discPrice,
-      bundleDisc:n(`sn_${t}_disc`)      || snBundles[t].bundleDisc,
+      label:      p[`sn_${t}_label`]      || snBundles[t].label,
+      fullPrice:  n(`sn_${t}_fullPrice`)  || snBundles[t].fullPrice,
+      discPrice:  n(`sn_${t}_discPrice`)  || snBundles[t].discPrice,
+      bundleDisc: d(`sn_${t}_disc`)       || snBundles[t].bundleDisc,
     };
   });
   // Volume packages
   [0,1,2,3].forEach(i => {
     if (p[`vol_${i}_units`]) volumePkgs[i] = {
       units: n(`vol_${i}_units`),
-      disc:  n(`vol_${i}_disc`),
+      disc:  d(`vol_${i}_disc`),
     };
   });
   // Discovery format prices
@@ -1644,17 +1649,19 @@ function applyPrices(p) {
   [0,1,2].forEach(i => {
     if (p[`disc_dur${i}_months`]) discMonths[i] = {
       months: n(`disc_dur${i}_months`),
-      disc:   n(`disc_dur${i}_disc`),
+      disc:   d(`disc_dur${i}_disc`),
       label:  n(`disc_dur${i}_months`) + ' month' + (n(`disc_dur${i}_months`) > 1 ? 's' : ''),
     };
   });
 }
 
 function updatePriceCards() {
-  // Headliner tier cards
+  // Headliner tier cards — price, events, name
   ['t1','t2','t3'].forEach(t => {
+    const nameEl   = document.getElementById(`headliner-${t}-name`);
     const priceEl  = document.getElementById(`headliner-${t}-price`);
     const eventsEl = document.getElementById(`headliner-${t}-events`);
+    if (nameEl)   nameEl.textContent   = headlinerTiers[t].name;
     if (priceEl)  priceEl.textContent  = fmt(headlinerTiers[t].price);
     if (eventsEl) eventsEl.textContent = headlinerTiers[t].events;
   });
@@ -1682,10 +1689,73 @@ function updatePriceCards() {
     if (disc)    disc.textContent    = fmt(b.discPrice);
     if (badge)   badge.textContent   = pctBadge(b.bundleDisc);
   });
+
+  // ── Rebuild calculator dropdowns with live values ──
+  const bundleSel  = document.getElementById('calc-bundle');
+  const volumeSel  = document.getElementById('calc-volume');
+  const formatSel  = document.getElementById('disc-format');
+  const durSel     = document.getElementById('disc-duration');
+
+  const prevBundle = bundleSel.value;
+  const prevVol    = volumeSel.value;
+  const prevFmt    = formatSel.value;
+  const prevDur    = durSel.value;
+
+  // Bundle dropdown (uses current event type to show correct price)
+  const type = document.getElementById('calc-type').value;
+  const bundles = type === 'sessions' ? sessionBundles : snBundles;
+  bundleSel.innerHTML = [
+    ['flicker',   bundles.flicker],
+    ['spotlight', bundles.spotlight],
+    ['takeover',  bundles.takeover],
+  ].map(([k, b]) =>
+    `<option value="${k}">${b.label} — ${fmt(b.fullPrice)} → ${fmt(b.discPrice)} (${pctBadge(b.bundleDisc)})</option>`
+  ).join('');
+  bundleSel.value = prevBundle;
+
+  // Volume dropdown
+  volumeSel.innerHTML = Object.entries(volumePkgs).map(([k, v]) => {
+    const discPct = Math.round(normDisc(v.disc) * 100);
+    const label = v.units === 1
+      ? `Single Event — ${discPct}% off`
+      : `Package ${k} — ${v.units} events · ${discPct}% off`;
+    return `<option value="${k}">${label}</option>`;
+  }).join('');
+  volumeSel.value = prevVol;
+
+  // Discovery format dropdown
+  const fKeys = ['banner','native','skyscraper','sidebar','toast','bundle'];
+  const fNames = {banner:'Banner Hero',native:'Native Card',skyscraper:'Skyscraper',sidebar:'Sidebar Tile',toast:'Toast',bundle:'Full Bundle (all 5 formats)'};
+  formatSel.innerHTML = fKeys.map(k =>
+    `<option value="${k}">${fNames[k]} — ${fmt(discFormatPrices[k])}/month</option>`
+  ).join('');
+  formatSel.value = prevFmt;
+
+  // Discovery duration dropdown
+  durSel.innerHTML = Object.entries(discMonths).map(([k, m]) => {
+    const discPct = Math.round(normDisc(m.disc) * 100);
+    const label = discPct === 0
+      ? `${m.label} — standard rate`
+      : `${m.label} — ${discPct}% off`;
+    return `<option value="${k}">${label}</option>`;
+  }).join('');
+  durSel.value = prevDur;
 }
 
 function calcUpdate() {
   const type = document.getElementById('calc-type').value;
+  // Rebuild bundle dropdown for the selected type
+  const bundleSel = document.getElementById('calc-bundle');
+  const prevBundle = bundleSel.value;
+  const bundles = type === 'sessions' ? sessionBundles : snBundles;
+  bundleSel.innerHTML = [
+    ['flicker',   bundles.flicker],
+    ['spotlight', bundles.spotlight],
+    ['takeover',  bundles.takeover],
+  ].map(([k, b]) =>
+    `<option value="${k}">${b.label} — ${fmt(b.fullPrice)} → ${fmt(b.discPrice)} (${pctBadge(b.bundleDisc)})</option>`
+  ).join('');
+  if (bundleSel.querySelector(`option[value="${prevBundle}"]`)) bundleSel.value = prevBundle;
   const bKey = document.getElementById('calc-bundle').value;
   const vKey = document.getElementById('calc-volume').value;
   const b = type === 'sessions' ? sessionBundles[bKey] : snBundles[bKey];
