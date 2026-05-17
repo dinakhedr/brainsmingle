@@ -1501,7 +1501,7 @@ function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
 function fmtExact(n) { return '$' + (+n.toFixed(2)).toLocaleString(); }
 function pct(n) { return n === 0 ? 'None' : '–' + Math.round(n * 100) + '%'; }
 // disc values from sheet may be 0.05 or 5 — normalise to 0-1 range then display
-function normDisc(v) { return v > 1 ? v / 100 : v; }
+function normDisc(v) { return v > 0.5 ? v / 100 : v; }
 function pctBadge(v) { return Math.round(normDisc(v) * 100) + '% off'; }
 function pctDisplay(v) { return '–' + Math.round(normDisc(v) * 100) + '%'; }
 
