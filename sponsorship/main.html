@@ -79,6 +79,15 @@ a{color:inherit;text-decoration:none}
 #theme-toggle .icon-moon{display:block}
 [data-theme="light"] #theme-toggle .icon-sun{display:block}
 [data-theme="light"] #theme-toggle .icon-moon{display:none}
+#prices-refresh{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--toggle-bg);border:1px solid var(--toggle-border);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.3s,border-color 0.3s,transform 0.15s;outline:none;
+}
+#prices-refresh:hover{transform:scale(1.08);border-color:var(--cyan)}
+#prices-refresh svg{width:16px;height:16px;stroke:var(--toggle-icon);transition:transform 0.4s}
+#prices-refresh.spinning svg{transform:rotate(360deg)}
 
 /* ── HERO ── */
 .hero{
@@ -456,13 +465,14 @@ footer{
 .spotlight-tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .spotlight-tier-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;position:relative}
 .spotlight-tier-card:hover{transform:translateY(-4px)}
+.spotlight-tier-top{padding:24px 24px 0;flex:1;display:flex;flex-direction:column}
+.spotlight-tier-pricing{border-top:1px solid var(--border-subtle);padding-top:16px;margin-top:auto;margin-bottom:0}
 .featured-spotlight{border-color:rgba(107,62,245,0.5);box-shadow:0 8px 40px rgba(107,62,245,0.15)}
 .tier-takeover{border-color:rgba(240,180,41,0.35);box-shadow:0 8px 40px rgba(240,180,41,0.08)}
 .spotlight-tier-stripe{height:4px}
 .tier-flicker .spotlight-tier-stripe{background:linear-gradient(90deg,#00C9A7,#00E8A2)}
 .tier-spotlight .spotlight-tier-stripe{background:linear-gradient(90deg,#6B3EF5,#A882FF)}
 .tier-takeover .spotlight-tier-stripe{background:linear-gradient(90deg,#F0B429,#F5A623)}
-.spotlight-tier-top{padding:24px 24px 0}
 .spotlight-tier-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:8px}
 .tier-flicker .spotlight-tier-label{color:#00E8A2}
 .tier-spotlight .spotlight-tier-label{color:var(--purple-light)}
@@ -583,6 +593,9 @@ footer{
 <img class="logo-light" src="logo-light.png" alt="BrainsMingle">
   </div>
   <div class="header-right">
+    <button id="prices-refresh" aria-label="Refresh prices" title="Refresh prices from sheet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+    </button>
     <button id="theme-toggle" aria-label="Toggle theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -957,9 +970,7 @@ footer{
     <div class="spotlight-tier-card tier-flicker">
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Flicker</span>
-        <div class="spotlight-tier-name">Shared Visibility</div>
-        <div class="spotlight-tier-tagline">Rotating bottom banners across both surfaces. Shared with up to 3 brands. The entry point into Featured Events.</div>
+        <span class="spotlight-tier-label" id="s-flicker-label">Flicker</span>
         <div class="spotlight-tier-what">
           <div class="spotlight-tier-what-label">What's Included</div>
           <div class="spotlight-tier-slot"><span class="slot-dot shared"></span>Event Page — Rotating Bottom (1 of 3 shared slots)</div>
@@ -982,9 +993,7 @@ footer{
       <div class="featured-ribbon">Most Popular</div>
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Spotlight</span>
-        <div class="spotlight-tier-name">Exclusive Top Bars</div>
-        <div class="spotlight-tier-tagline">Exclusive top placement on both surfaces. No competing brand above the fold on either the event page or the live room.</div>
+        <span class="spotlight-tier-label" id="s-spotlight-label">Spotlight</span>
         <div class="spotlight-tier-what">
           <div class="spotlight-tier-what-label">What's Included</div>
           <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar (exclusive)</div>
@@ -1007,9 +1016,7 @@ footer{
       <div class="exclusive-ribbon">Full Takeover</div>
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Takeover</span>
-        <div class="spotlight-tier-name">Complete Event Ownership</div>
-        <div class="spotlight-tier-tagline">All slots across both surfaces. Zero other brands in this Featured Event — on the page and in the room.</div>
+        <span class="spotlight-tier-label" id="s-takeover-label">Takeover</span>
         <div class="spotlight-tier-what">
           <div class="spotlight-tier-what-label">What's Included</div>
           <div class="spotlight-tier-slot"><span class="slot-dot exclusive"></span>Event Page — Top Bar</div>
@@ -1040,7 +1047,7 @@ footer{
     <div class="spotlight-tier-card tier-flicker">
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Flicker</span>
+        <span class="spotlight-tier-label" id="sn-flicker-label">Flicker</span>
         <div class="spotlight-tier-name">Shared Visibility</div>
         <div class="spotlight-tier-tagline">Rotating bottom banners in the pre-event page and inside every live 1:1 call. Shared with up to 3 brands.</div>
         <div class="spotlight-tier-what">
@@ -1065,7 +1072,7 @@ footer{
       <div class="featured-ribbon">Most Popular</div>
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Spotlight</span>
+        <span class="spotlight-tier-label" id="sn-spotlight-label">Spotlight</span>
         <div class="spotlight-tier-name">Exclusive Top Bars</div>
         <div class="spotlight-tier-tagline">Exclusive top bar on the event page and inside every 1:1 call. The most focused audience on the platform.</div>
         <div class="spotlight-tier-what">
@@ -1090,7 +1097,7 @@ footer{
       <div class="exclusive-ribbon">Full Takeover</div>
       <div class="spotlight-tier-stripe"></div>
       <div class="spotlight-tier-top">
-        <span class="spotlight-tier-label">Takeover</span>
+        <span class="spotlight-tier-label" id="sn-takeover-label">Takeover</span>
         <div class="spotlight-tier-name">Complete Event Ownership</div>
         <div class="spotlight-tier-tagline">All slots on the event page and inside every 1:1 call. Zero other brands in this Speed Networking event.</div>
         <div class="spotlight-tier-what">
@@ -1458,7 +1465,10 @@ let discFormatPrices = { banner:400, native:300, skyscraper:200, sidebar:150, to
 function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
 function fmtExact(n) { return '$' + (+n.toFixed(2)).toLocaleString(); }
 function pct(n) { return n === 0 ? 'None' : '–' + Math.round(n * 100) + '%'; }
-function pctBadge(n) { return Math.round(n * 100) + '% off'; }
+// disc values from sheet may be 0.05 or 5 — normalise to 0-1 range then display
+function normDisc(v) { return v > 1 ? v / 100 : v; }
+function pctBadge(v) { return Math.round(normDisc(v) * 100) + '% off'; }
+function pctDisplay(v) { return '–' + Math.round(normDisc(v) * 100) + '%'; }
 
 function parseCsvLine(line) {
   const cols = [];
@@ -1543,22 +1553,26 @@ function updatePriceCards() {
   // Sessions tier cards
   const sc = {flicker: sessionBundles.flicker, spotlight: sessionBundles.spotlight, takeover: sessionBundles.takeover};
   Object.entries(sc).forEach(([t, b]) => {
-    const full = document.getElementById(`s-${t}-full`);
-    const disc = document.getElementById(`s-${t}-disc`);
-    const badge = document.getElementById(`s-${t}-badge`);
-    if (full)  full.textContent  = fmt(b.fullPrice);
-    if (disc)  disc.textContent  = fmt(b.discPrice);
-    if (badge) badge.textContent = pctBadge(b.bundleDisc);
+    const labelEl = document.getElementById(`s-${t}-label`);
+    const full    = document.getElementById(`s-${t}-full`);
+    const disc    = document.getElementById(`s-${t}-disc`);
+    const badge   = document.getElementById(`s-${t}-badge`);
+    if (labelEl) labelEl.textContent = b.label;
+    if (full)    full.textContent    = fmt(b.fullPrice);
+    if (disc)    disc.textContent    = fmt(b.discPrice);
+    if (badge)   badge.textContent   = pctBadge(b.bundleDisc);
   });
   // SN tier cards
   const sn = {flicker: snBundles.flicker, spotlight: snBundles.spotlight, takeover: snBundles.takeover};
   Object.entries(sn).forEach(([t, b]) => {
-    const full = document.getElementById(`sn-${t}-full`);
-    const disc = document.getElementById(`sn-${t}-disc`);
-    const badge = document.getElementById(`sn-${t}-badge`);
-    if (full)  full.textContent  = fmt(b.fullPrice);
-    if (disc)  disc.textContent  = fmt(b.discPrice);
-    if (badge) badge.textContent = pctBadge(b.bundleDisc);
+    const labelEl = document.getElementById(`sn-${t}-label`);
+    const full    = document.getElementById(`sn-${t}-full`);
+    const disc    = document.getElementById(`sn-${t}-disc`);
+    const badge   = document.getElementById(`sn-${t}-badge`);
+    if (labelEl) labelEl.textContent = b.label;
+    if (full)    full.textContent    = fmt(b.fullPrice);
+    if (disc)    disc.textContent    = fmt(b.discPrice);
+    if (badge)   badge.textContent   = pctBadge(b.bundleDisc);
   });
 }
 
@@ -1578,43 +1592,52 @@ async function loadPrices() {
   discUpdate();
 }
 
+// Refresh button
+document.getElementById('prices-refresh').addEventListener('click', async function() {
+  this.classList.add('spinning');
+  await loadPrices();
+  setTimeout(() => this.classList.remove('spinning'), 500);
+});
+
 function calcUpdate() {
   const type = document.getElementById('calc-type').value;
   const bKey = document.getElementById('calc-bundle').value;
   const vKey = document.getElementById('calc-volume').value;
   const b = type === 'sessions' ? sessionBundles[bKey] : snBundles[bKey];
   const v = volumePkgs[vKey];
-  const afterVol = b.discPrice * (1 - v.disc);
+  const vDisc = normDisc(v.disc);
+  const afterVol = b.discPrice * (1 - vDisc);
   const total    = afterVol * v.units;
   document.getElementById('calc-full-price').textContent   = fmt(b.fullPrice);
-  document.getElementById('calc-bundle-disc').textContent  = '–' + Math.round(b.bundleDisc * 100) + '%';
+  document.getElementById('calc-bundle-disc').textContent  = pctDisplay(b.bundleDisc);
   document.getElementById('calc-bundle-price').textContent = fmt(b.discPrice);
-  document.getElementById('calc-vol-disc').textContent     = pct(v.disc);
+  document.getElementById('calc-vol-disc').textContent     = vDisc === 0 ? 'None' : '–' + Math.round(vDisc * 100) + '%';
   document.getElementById('calc-per-unit').textContent     = fmt(afterVol);
   document.getElementById('calc-units').textContent        = v.units;
   document.getElementById('calc-final').textContent        = fmt(total);
   document.getElementById('calc-total').textContent        = fmt(total);
   const typeLabel = type === 'sessions' ? 'Sessions' : 'Speed Networking';
-  document.getElementById('calc-note').textContent = `${b.label} · ${typeLabel} · ${v.units} event${v.units>1?'s':''}${v.disc>0?' · '+Math.round(v.disc*100)+'% volume discount':''}`;
+  document.getElementById('calc-note').textContent = `${b.label} · ${typeLabel} · ${v.units} event${v.units>1?'s':''}${vDisc>0?' · '+Math.round(vDisc*100)+'% volume discount':''}`;
 }
 
 // Discovery calculator
 const discFormatLabels = { banner:'Banner Hero', native:'Native Card', skyscraper:'Skyscraper', sidebar:'Sidebar Tile', toast:'Toast', bundle:'Full Bundle' };
 
 function discUpdate() {
-  const fKey   = document.getElementById('disc-format').value;
-  const mKey   = document.getElementById('disc-duration').value;
+  const fKey    = document.getElementById('disc-format').value;
+  const mKey    = document.getElementById('disc-duration').value;
   const monthly = discFormatPrices[fKey] || 0;
   const m       = discMonths[mKey];
-  const discounted = monthly * (1 - m.disc);
+  const mDisc   = normDisc(m.disc);
+  const discounted = monthly * (1 - mDisc);
   const total      = discounted * m.months;
   document.getElementById('disc-monthly').textContent    = fmt(monthly);
-  document.getElementById('disc-disc').textContent       = pct(m.disc);
+  document.getElementById('disc-disc').textContent       = mDisc === 0 ? 'None' : '–' + Math.round(mDisc * 100) + '%';
   document.getElementById('disc-discounted').textContent = fmt(discounted);
   document.getElementById('disc-months-val').textContent = m.months;
   document.getElementById('disc-final').textContent      = fmt(total);
   document.getElementById('disc-total').textContent      = fmt(total);
-  document.getElementById('disc-note').textContent       = `${discFormatLabels[fKey]||'Format'} · ${m.label}${m.disc>0?' · '+Math.round(m.disc*100)+'% discount':''}`;
+  document.getElementById('disc-note').textContent       = `${discFormatLabels[fKey]||'Format'} · ${m.label}${mDisc>0?' · '+Math.round(mDisc*100)+'% discount':''}`;
 }
 
 loadPrices();
