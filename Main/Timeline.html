@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BrainsMingle — GTM Project Plan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>BrainsMingle — GTM Project Plan (Dynamic Timeline W1–W24+)</title>
 <link rel="icon" type="image/png" href="icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -122,40 +122,74 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .section-deadline { font-size:11px; color:var(--text3); margin-left:auto; }
 .section-deadline.urgent { color:var(--pink); }
 
-/* TIMELINE */
-.timeline-block { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:3px; }
-.tl-grid { display:grid; gap:1px; background:var(--border); }
+/* TIMELINE BLOCK & SCROLL CONTAINER */
+.timeline-block { 
+  background:var(--bg2); 
+  border:1px solid var(--border); 
+  border-radius:var(--radius); 
+  overflow-x: auto; 
+  overflow-y: visible;
+  margin-bottom:3px;
+  scrollbar-width: thin;
+}
+.tl-grid { 
+  display:grid; 
+  gap:1px; 
+  background:var(--border); 
+  min-width: max-content;
+}
 
-.tl-hcell { background:var(--bg3); padding:6px 3px; text-align:center; font-family:var(--fh); font-size:10px; color:var(--text3); line-height:1.3; }
-.tl-hcell.corner { text-align:left; padding-left:12px; }
-.tl-hcell.wk-current { color:var(--purple-mid); background:rgba(107,62,245,0.12) !important; border-bottom:2px solid var(--purple-mid); }
-.tl-hcell.wk-milestone { color:var(--pink); }
+/* Compact column styling for better display of many weeks (W1–W24+) */
+.tl-hcell { 
+  background:var(--bg3); 
+  padding: 6px 2px; 
+  text-align:center; 
+  font-family:var(--fh); 
+  font-size: 8px; 
+  font-weight: 600;
+  color:var(--text3); 
+  line-height:1.2;
+  word-break: break-word;
+  white-space: normal;
+}
+.tl-hcell.corner { 
+  text-align:left; 
+  padding-left:10px;
+  font-size:10px;
+  font-weight:700;
+}
+.tl-hcell.wk-current { 
+  color:var(--purple-mid); 
+  background:rgba(107,62,245,0.2) !important; 
+  border-bottom:2px solid var(--purple-mid);
+  position: relative;
+}
+.tl-hcell.wk-milestone { color:var(--pink); background:rgba(245,62,159,0.08); }
 
-/* current column background (very light purple) */
 .current-col-cell {
   background: rgba(107,62,245,0.08) !important;
 }
 
 .ws-label-cell { background:var(--bg2); display:flex; align-items:stretch; }
 .ws-toggle {
-  display:flex; align-items:center; gap:8px; padding:9px 12px;
+  display:flex; align-items:center; gap:8px; padding:9px 10px;
   cursor:pointer; width:100%; background:transparent; border:none;
   color:var(--text); text-align:left; transition:background .15s;
 }
 .ws-toggle:hover { background:rgba(255,255,255,.03); }
 .ws-icon {
-  width:14px; height:14px; flex-shrink:0;
+  width:12px; height:12px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
   border-radius:3px; background:var(--bg4); color:var(--text3);
-  font-size:9px; transition:transform .2s;
+  font-size:8px; transition:transform .2s;
 }
 .ws-toggle.open .ws-icon { transform:rotate(90deg); }
 .ws-name { font-family:var(--fh); font-size:12px; font-weight:700; color:var(--text); line-height:1.3; }
-.ws-sub { font-family:var(--fb); font-size:10px; color:var(--text3); display:block; margin-top:1px; }
+.ws-sub { font-family:var(--fb); font-size:9px; color:var(--text3); display:block; margin-top:1px; }
 
-.tl-cell { background:var(--bg2); min-height:36px; }
-.bar-cell { display:flex; align-items:center; padding:6px 3px; }
-.bar-inner { height:22px; width:100%; border-radius:3px; }
+.tl-cell { background:var(--bg2); min-height:32px; }
+.bar-cell { display:flex; align-items:center; padding:4px 2px; }
+.bar-inner { height:18px; width:100%; border-radius:3px; }
 .bar-inner.purple { background:var(--purple);    opacity:.88; }
 .bar-inner.cyan   { background:var(--cyan-dark); opacity:.88; }
 .bar-inner.blue   { background:var(--blue);      opacity:.88; }
@@ -163,10 +197,10 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .bar-inner.amber  { background:var(--amber);     opacity:.88; }
 .bar-inner.gray   { background:var(--bg4); border:1px solid var(--border2); }
 
-.milestone-cell { background:var(--bg2); min-height:36px; display:flex; align-items:center; justify-content:center; }
+.milestone-cell { background:var(--bg2); min-height:32px; display:flex; align-items:center; justify-content:center; }
 .milestone-flag { display:flex; flex-direction:column; align-items:center; gap:2px; }
-.milestone-diamond { width:10px; height:10px; background:var(--pink); transform:rotate(45deg); border-radius:2px; }
-.milestone-lbl { font-family:var(--fh); font-size:8px; font-weight:700; color:var(--pink); white-space:nowrap; margin-top:2px; }
+.milestone-diamond { width:8px; height:8px; background:var(--pink); transform:rotate(45deg); border-radius:1px; }
+.milestone-lbl { font-family:var(--fh); font-size:7px; font-weight:700; color:var(--pink); white-space:nowrap; margin-top:1px; }
 
 /* DETAIL PANEL */
 .detail-panel { display:none; grid-column:1 / -1; background:var(--bg3); border-top:1px solid var(--border); }
@@ -175,36 +209,33 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 .detail-table { width:100%; border-collapse:collapse; }
 .detail-table th {
   font-family:var(--fh); font-size:10px; font-weight:700; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--text3); padding:10px 14px 8px;
+  text-transform:uppercase; color:var(--text3); padding:8px 12px 6px;
   border-bottom:1px solid var(--border); text-align:left; background:var(--bg3);
 }
 .detail-table td {
-  padding:10px 14px; font-size:12px; color:var(--text);
-  border-bottom:1px solid var(--border); vertical-align:top; line-height:1.5;
+  padding:8px 12px; font-size:12px; color:var(--text);
+  border-bottom:1px solid var(--border); vertical-align:top; line-height:1.45;
 }
 .detail-table tr:last-child td { border-bottom:none; }
 .detail-table tr:hover td { background:rgba(255,255,255,.015); }
 
-.wk-label { font-family:var(--fh); font-size:11px; font-weight:600; color:var(--text2); white-space:nowrap; }
-.wk-dates { font-size:10px; color:var(--text3); display:block; margin-top:2px; }
+.wk-label { font-family:var(--fh); font-size:10px; font-weight:600; color:var(--text2); white-space:nowrap; }
+.wk-dates { font-size:9px; color:var(--text3); display:block; margin-top:1px; }
 
-.owner-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; white-space:nowrap; margin:1px 2px 1px 0; }
+.owner-badge { display:inline-block; font-family:var(--fh); font-size:9px; font-weight:600; padding:2px 6px; border-radius:3px; white-space:nowrap; margin:1px 2px 1px 0; }
 
-.status-badge { display:inline-block; font-family:var(--fh); font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:.03em; white-space:nowrap; }
+.status-badge { display:inline-block; font-family:var(--fh); font-size:9px; font-weight:700; padding:2px 6px; border-radius:3px; letter-spacing:.03em; white-space:nowrap; }
 .st-ns    { background:rgba(255,255,255,.06); color:var(--text3); border:1px solid var(--border); }
 .st-ip    { background:rgba(245,166,35,.15); color:var(--amber);      border:1px solid rgba(245,166,35,.3); }
 .st-done  { background:rgba(0,232,162,.12);  color:var(--cyan);       border:1px solid rgba(0,232,162,.25); }
 .st-block { background:rgba(245,62,159,.15); color:var(--pink);       border:1px solid rgba(245,62,159,.3); }
 .st-review { background:rgba(107,62,245,.2);  color:var(--purple-mid); border:1px solid rgba(107,62,245,.3); }
-  /* Highlight table rows when status is "Done" */
 .detail-table tr:has(.st-done) td {
   background-color: rgba(0, 232, 162, 0.08) !important;
 }
-
 .detail-table tr:has(.st-done):hover td {
   background-color: rgba(0, 232, 162, 0.15) !important;
 }
-
 
 .deliverable-text { color:var(--text2); }
 .notes-text { color:var(--text3); font-size:11px; }
@@ -218,14 +249,12 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
 
 /* FOOTER */
 .footer {
-            padding: 14px 40px; background: var(--bg); border-top: 1px solid var(--border);
-            font-size: 11px; color: var(--text3); display: flex; justify-content: space-between;
-            flex-wrap: wrap; gap: 8px;
-        }
-        
-  .footer .live-indicator { display: inline-flex; align-items: center; gap: 5px; color: var(--cyan); }
-  .footer .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: livePulse 2s ease-in-out infinite; }
-
+  padding: 14px 40px; background: var(--bg); border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text3); display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+.footer .live-indicator { display: inline-flex; align-items: center; gap: 5px; color: var(--cyan); }
+.footer .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: livePulse 2s ease-in-out infinite; }
 
 /* ERROR */
 .error-state { padding:60px 40px; text-align:center; }
@@ -247,12 +276,12 @@ body { background:var(--bg); color:var(--text); font-family:var(--fb); font-size
   <div class="header">
     <div class="header-left">
       <img src="logo.png" alt="BrainsMingle" class="logo-img">
-      <div class="header-sub">GTM Project Plan · Apr 2025 → Sep 2025</div>
+      <div class="header-sub">GTM Project Plan · Apr 2025 → Sep 2025 (expanded to W24)</div>
     </div>
     <div class="header-right">
       <button id="fullTimelineButton" class="refresh-btn" style="background:var(--bg3); border-color:var(--cyan-dark); color:var(--cyan);">
-    <span style="font-size:14px; margin-right:4px;">📅</span> Tasks List
-  </button>
+        <span style="font-size:14px; margin-right:4px;">📅</span> Tasks List
+      </button>
       <button id="refreshButton" class="refresh-btn"><span class="refresh-icon">⟳</span> Refresh Data</button>
       <span class="meta-pill live" id="last-updated">—</span>
     </div>
@@ -357,7 +386,7 @@ function buildStepLabels(steps) {
 }
 const STEP_ORDER = ["Step 1","Step 2","Step 3","Step 4"];
 
-// Milestone card definitions
+// Milestone card definitions (keep as is)
 const MILESTONE_CARDS = [
   { title: "Investment Announcement", date: "Mid May, 2026", step: "Step 2", colorVar: "var(--cyan)", borderColor: "var(--cyan)" },
   { title: "Virtual Summit", date: "July 31 - August 1, 2026", step: "Step 3", colorVar: "var(--amber)", borderColor: "var(--amber)" },
@@ -406,16 +435,13 @@ function esc(s) {
   return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-// Convert a month-day string like "Apr 19" to { month, day } (month 0-11)
 function parseMonthDay(dateStr) {
   if (!dateStr) return null;
   const s = dateStr.trim();
-  // try parsing as full date (ignores year)
   const d = new Date(s);
   if (!isNaN(d.getTime())) {
     return { month: d.getMonth(), day: d.getDate() };
   }
-  // fallback: manual parse "Apr 19"
   const parts = s.split(/\s+/);
   if (parts.length < 2) return null;
   const monthMap = { "jan":0,"feb":1,"mar":2,"apr":3,"may":4,"jun":5,"jul":6,"aug":7,"sep":8,"oct":9,"nov":10,"dec":11 };
@@ -427,7 +453,6 @@ function parseMonthDay(dateStr) {
   return { month, day };
 }
 
-// Get numeric day-of-year (1-366) ignoring year
 function dayOfYear(month, day) {
   const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
   let doy = 0;
@@ -436,51 +461,32 @@ function dayOfYear(month, day) {
   return doy;
 }
 
-// Dynamically determine current week using month-day comparison (year-agnostic)
 function getCurrentWeekIndex(weeks) {
   if (!weeks || weeks.length === 0) return -1;
-  
   const today = new Date();
   const todayDOY = dayOfYear(today.getMonth(), today.getDate());
-  
-  // Convert each week to start/end DOY
   const weekData = weeks.map((wk, idx) => {
     const startMD = parseMonthDay(wk.date_start);
     const endMD = parseMonthDay(wk.date_end);
     if (!startMD || !endMD) return null;
     const startDOY = dayOfYear(startMD.month, startMD.day);
     let endDOY = dayOfYear(endMD.month, endMD.day);
-    // If endDOY < startDOY (e.g., crosses year boundary), but our weeks don't – still handle gracefully
     return { idx, startDOY, endDOY };
   }).filter(w => w !== null);
-  
   if (weekData.length === 0) return -1;
-  
-  // Sort by startDOY (assuming weeks are in order)
   weekData.sort((a,b) => a.startDOY - b.startDOY);
-  
-  // Check exact containment
   for (let w of weekData) {
     if (todayDOY >= w.startDOY && todayDOY <= w.endDOY) return w.idx;
   }
-  
-  // Before first week
   const first = weekData[0];
   if (todayDOY < first.startDOY) return first.idx;
-  
-  // After last week
   const last = weekData[weekData.length-1];
   if (todayDOY > last.endDOY) return last.idx;
-  
-  // Between two weeks – belongs to previous week
   for (let i = 0; i < weekData.length - 1; i++) {
     const curr = weekData[i];
     const next = weekData[i+1];
-    if (todayDOY > curr.endDOY && todayDOY < next.startDOY) {
-      return curr.idx;
-    }
+    if (todayDOY > curr.endDOY && todayDOY < next.startDOY) return curr.idx;
   }
-  
   return first.idx;
 }
 
@@ -570,7 +576,7 @@ function renderMilestoneCards() {
   }).join("");
 }
 
-// ── BUILD TIMELINE (dynamic current week, year-agnostic) ────────────────
+// ── BUILD TIMELINE (dynamic weeks, columns shrink with minmax for better fit) ──
 let currentWeeksData = [];
 
 function build(weeks, workstreams, tasks, owners, steps) {
@@ -578,12 +584,10 @@ function build(weeks, workstreams, tasks, owners, steps) {
   buildStepLabels(steps);
   currentWeeksData = weeks;
   
-  // --- DYNAMIC CURRENT WEEK (month-day comparison) ---
-  const currentWeekIndex = getCurrentWeekIndex(weeks);
-  
   const totalWk = weeks.length;
-  const LABEL_W = "220px";
-  const gridCols = `${LABEL_W} repeat(${totalWk}, 1fr)`;
+  const LABEL_W = "200px";
+  // IMPROVEMENT: use minmax(52px, 1fr) to allow columns to shrink and fit up to 24+ weeks gracefully
+  const gridCols = `${LABEL_W} repeat(${totalWk}, minmax(52px, 1fr))`;
 
   const tasksByWs = {};
   tasks.forEach(t => {
@@ -608,16 +612,18 @@ function build(weeks, workstreams, tasks, owners, steps) {
   document.getElementById("stat-done").textContent = tasks.filter(t=>t.status==="Done").length;
   document.getElementById("stat-blocked").textContent = tasks.filter(t=>t.status==="Blocked").length;
 
-      const now = new Date();
-        const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hour12: true});
-        document.getElementById("last-updated").textContent = `Live · ${ts}`;
-        document.getElementById("footer-ts").textContent = ts;
+  const now = new Date();
+  const ts = now.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hour12: true});
+  document.getElementById("last-updated").textContent = `Live · ${ts}`;
   document.getElementById("footer-ts").textContent = ts;
   
   renderMilestoneCards();
 
   const container = document.getElementById("plan-container");
   container.innerHTML = "";
+
+  // Determine current week for highlighting (based on sheet dates)
+  const currentWeekIndex = getCurrentWeekIndex(weeks);
 
   STEP_ORDER.forEach(step => {
     const wsList = wsByStep[step];
@@ -651,12 +657,12 @@ function build(weeks, workstreams, tasks, owners, steps) {
       if (isCur) {
         h.innerHTML = `
           <div style="display:flex;flex-direction:column;align-items:center;gap:1px">
-            <span style="font-size:9px;font-weight:700;letter-spacing:.03em">${esc(wk.week_id)}</span>
-            <span style="font-size:8px">${esc(wk.date_start)}</span>
-            <span style="display:block;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--purple-mid);margin-top:2px"></span>
+            <span style="font-size:8px;font-weight:800;letter-spacing:.02em">${esc(wk.week_id)}</span>
+            <span style="font-size:7px">${esc(wk.date_start)}</span>
+            <span style="display:block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--purple-mid);margin-top:2px"></span>
           </div>`;
       } else {
-        h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:9px">${esc(wk.date_start)}</span>`;
+        h.innerHTML = `${esc(wk.week_id)}<br><span style="font-size:7px">${esc(wk.date_start)}</span>`;
       }
       grid.appendChild(h);
     });
@@ -716,17 +722,18 @@ function build(weeks, workstreams, tasks, owners, steps) {
       } else {
         const tbl = document.createElement("table");
         tbl.className = "detail-table";
-tbl.innerHTML = `<thead><tr><th style="width:110px">Week</th><th style="width:32%">Task</th><th style="width:130px">Owner</th><th style="width:20%">Deliverable</th><th style="width:90px">Status</th></tr></thead>`;        const tbody = document.createElement("tbody");
+        tbl.innerHTML = `<thead><tr><th style="width:100px">Week</th><th style="width:30%">Task</th><th style="width:120px">Owner</th><th style="width:22%">Deliverable</th><th style="width:80px">Status</th></tr></thead>`;
+        const tbody = document.createElement("tbody");
         wsTasks.forEach(t => {
           const weekRange = t.week_start === t.week_end ? t.week_start : `${t.week_start}–${t.week_end}`;
           const dateRange = t.date_start === t.date_end ? t.date_start : `${t.date_start} – ${t.date_end}`;
           const tr = document.createElement("tr");
-tr.innerHTML = `
-    <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
-    <td>${esc(t.task)}</td>
-    <td>${ownerBadges(t.owner)}</td>
-    <td class="deliverable-text">${esc(t.deliverable)}</td>
-    <td>${statusBadge(t.status)}</td>`;
+          tr.innerHTML = `
+            <td><span class="wk-label">${esc(weekRange)}</span><span class="wk-dates">${esc(dateRange)}</span></td>
+            <td>${esc(t.task)}</td>
+            <td>${ownerBadges(t.owner)}</td>
+            <td class="deliverable-text">${esc(t.deliverable)}</td>
+            <td>${statusBadge(t.status)}</td>`;
           tbody.appendChild(tr);
         });
         tbl.appendChild(tbody);
