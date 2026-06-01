@@ -494,110 +494,124 @@
 
 <!-- ══ HOW IT WORKS ══ -->
 <section class="section">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
-    <div>
-      <div class="eyebrow">Getting Started</div>
-      <h2 class="section-title" style="margin-bottom:12px;">From Setup to Active Institution</h2>
-      <p class="section-sub" style="margin-bottom:40px;">Six steps, no tech headaches, full support throughout.</p>
+  <div class="eyebrow">Getting Started</div>
+  <h2 class="section-title">From Setup to Active Institution</h2>
+  <p class="section-sub" style="margin-bottom:56px;">Three steps, no tech headaches, full support throughout.</p>
 
-      <div class="edu-steps">
+  <div style="position:relative;">
 
-        <div class="edu-step">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">01</div>
-            <div class="edu-step-line"></div>
+    <!-- Connector line -->
+    <div style="position:absolute;top:36px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);height:1px;background:linear-gradient(90deg,var(--pa),var(--cyan));opacity:0.3;pointer-events:none;"></div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+      <!-- Step 01 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;">
+        <!-- Number circle -->
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg-card2);border:2px solid var(--pa);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin-bottom:28px;flex-shrink:0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:22px;height:22px;color:var(--pa);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <!-- Card -->
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;padding:32px 28px;width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pa),var(--pa2));"></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pa);">01 — Setup</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--heading);line-height:1.2;">Map Your Institution</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">We walk through your programs, participant flows, current tools, and goals together — no assumptions, no generic setup.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;margin-top:8px;">
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Program & cohort structure review</span>
             </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">Map Your Institution's Structure</div>
-              <p class="edu-step-desc">We walk through your programs, participant flows, and current tools together — no assumptions, no generic setup.</p>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Current tools & pain points audit</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Tailored onboarding plan</span>
             </div>
           </div>
         </div>
-
-        <div class="edu-step">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">02</div>
-            <div class="edu-step-line"></div>
-          </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">Launch Your Branded Space</div>
-              <p class="edu-step-desc">Custom environment ready with cohort channels, calendar, and onboarding materials — under your brand, on your domain.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-step">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">03</div>
-            <div class="edu-step-line"></div>
-          </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">Deliver Your First Live Event</div>
-              <p class="edu-step-desc">Workshop, panel, or networking session — participants join in one click, no downloads, no friction.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-step">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">04</div>
-            <div class="edu-step-line"></div>
-          </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">See Real Analytics</div>
-              <p class="edu-step-desc">Clear dashboards showing who's active, what's resonating, and where engagement drops off — ready to export for leadership.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-step">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">05</div>
-            <div class="edu-step-line"></div>
-          </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">Connect Your Cohort to Experts</div>
-              <p class="edu-step-desc">Participants book 1:1 sessions with your industry partners and mentors directly on the platform — no coordinator in the middle.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-step edu-step--last">
-          <div class="edu-step-marker">
-            <div class="edu-step-num">06</div>
-          </div>
-          <div class="edu-step-content">
-            <div class="edu-step-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="edu-step-text">
-              <div class="edu-step-title">Grow With Ongoing Support</div>
-              <p class="edu-step-desc">Dedicated partnership support, regular check-ins, and continuous platform improvements — we grow with you.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Step 02 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg-card2);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin-bottom:28px;flex-shrink:0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(0,232,162,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2" stroke-linecap="round" style="width:22px;height:22px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;padding:32px 28px;width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--pa));"></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);">02 — Launch</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--heading);line-height:1.2;">Go Live</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Your branded environment is ready — cohort channels, calendar, expert directory, and your first live event or session delivered in one click.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;margin-top:8px;">
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:rgba(0,232,162,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Branded space under your domain</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:rgba(0,232,162,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Cohort channels & member onboarding</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:rgba(0,232,162,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">First live event in one click</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 03 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--bg-card2);border:2px solid var(--pa);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin-bottom:28px;flex-shrink:0;">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:22px;height:22px;color:var(--pa);"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:20px;padding:32px 28px;width:100%;display:flex;flex-direction:column;align-items:center;gap:12px;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pa2),var(--pa));"></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pa);">03 — Grow</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--heading);line-height:1.2;">Measure & Scale</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">Real analytics, expert connections, and a dedicated partnership team — we grow with you across every cohort and every campus.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;width:100%;margin-top:8px;">
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Real-time analytics & reporting</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Industry expert & mentor connections</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+              <div style="width:20px;height:20px;border-radius:6px;background:var(--pa-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:11px;height:11px;color:var(--pa);"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:var(--text-muted);">Dedicated support & check-ins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
