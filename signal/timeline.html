@@ -251,13 +251,13 @@ function updateStats(tasks) {
         else                        c.notstart++;
     });
     document.getElementById("statsRow").innerHTML = `
-        <div class="stat-card"><div class="stat-val" class="stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>`;
+        <div class="stat-card"><div class="stat-val stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>
+        <div class="stat-card"><div class="stat-val stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
+        <div class="stat-card"><div class="stat-val stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
+        <div class="stat-card"><div class="stat-val stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
+        <div class="stat-card"><div class="stat-val stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
+        <div class="stat-card"><div class="stat-val stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
+        <div class="stat-card"><div class="stat-val stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>`;
 }
 
 // ── WS Pills ──────────────────────────────────────────────
