@@ -180,12 +180,12 @@ body {
 
 /* Stat value colours */
 .stat-total   { color:var(--text); }
-.stat-done    { color:#34D399; }
-.stat-inprog  { color:var(--purple-mid); }
-.stat-review  { color:#FCD34D; }
-.stat-live    { color:var(--cyan); }
+.stat-done    { color:#00E8A2; }
+.stat-inprog  { color:#F59E0B; }
+.stat-review  { color:#A07AF8; }
+.stat-live    { color:#3B82F6; }
 .stat-blocked { color:#F87171; }
-.stat-notstart{ color:var(--text3); }
+.stat-notstart{ color:#9898B8; }
 
 /* ── Gantt wrapper ── */
 .gantt-wrap { padding:12px 28px 40px; }
@@ -250,6 +250,7 @@ body {
 .th-day.weekend   { color:var(--text4); background:rgba(0,0,0,.22); }
 .th-day.today     { background:var(--today-tint); color:var(--cyan); }
 .th-day.month-div { border-left:1.5px solid var(--border3); }
+.th-day.signal-day { color:#EC4899; background:rgba(236,72,153,.10); }
 
 /* ── Frozen body cells ── */
 .td-frz {
@@ -258,7 +259,7 @@ body {
   border-right:1px solid var(--border2);
   border-bottom:1px solid var(--border);
   vertical-align:top;
-  /* background set inline — varies by row status */
+  background:var(--bg); /* solid fallback — overridden inline per row status */
 }
 
 /* Last frozen body col */
@@ -327,12 +328,12 @@ body {
   padding:2px 7px; border-radius:3px;
   letter-spacing:.03em; white-space:nowrap; display:inline-block;
 }
-.s-done     { background:rgba(16,185,129,.15); color:#34D399; }
-.s-inprog   { background:rgba(107,62,245,.18); color:var(--purple-mid); }
-.s-review   { background:rgba(245,158,11,.15);  color:#FCD34D; }
-.s-live     { background:rgba(0,232,162,.12);   color:var(--cyan); }
+.s-done     { background:rgba(0,232,162,.12);   color:#00E8A2; }
+.s-inprog   { background:rgba(245,158,11,.15);  color:#F59E0B; }
+.s-review   { background:rgba(160,122,248,.15); color:#A07AF8; }
+.s-live     { background:rgba(59,130,246,.15);  color:#3B82F6; }
 .s-blocked  { background:rgba(239,68,68,.15);   color:#F87171; }
-.s-notstart { background:rgba(255,255,255,.06); color:var(--text3); }
+.s-notstart { background:rgba(255,255,255,.06); color:#9898B8; }
 
 /* ── No results ── */
 .no-results {
