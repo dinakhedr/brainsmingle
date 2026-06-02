@@ -251,13 +251,13 @@ function updateStats(tasks) {
         else                        c.notstart++;
     });
     document.getElementById("statsRow").innerHTML = `
-        <div class="stat-card"><div class="stat-val" style="color:var(--text)">${c.total}</div><div class="stat-lbl">Total</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:#34D399">${c.done}</div><div class="stat-lbl">Done</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:var(--purple-mid)">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:#FCD34D">${c.review}</div><div class="stat-lbl">In Review</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:#00E8A2">${c.live}</div><div class="stat-lbl">Live</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:#F87171">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
-        <div class="stat-card"><div class="stat-val" style="color:var(--text3)">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>`;
+        <div class="stat-card"><div class="stat-val" class="stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>`;
 }
 
 // ── WS Pills ──────────────────────────────────────────────
@@ -325,10 +325,9 @@ function renderTable() {
     const LABELS = ["WORKSTREAM","TASK","OWNER","STATUS"];
     LABELS.forEach((lbl,i) => {
         const th=document.createElement("th");
-        th.className="th-frz th-band";
+        th.className="th-frz th-band"+(i===3?" th-frz-last":"");
         th.style.left=LEFT[i]+"px";
         th.style.width=(i===1?220:i===0?140:i===2?120:100)+"px";
-        if(i===3) th.style.borderRight="2px solid rgba(255,255,255,.20)";
         th.textContent=lbl;
         tr1.appendChild(th);
     });
@@ -345,9 +344,8 @@ function renderTable() {
     const tr2 = document.createElement("tr");
     LABELS.forEach((_,i) => {
         const th=document.createElement("th");
-        th.className="th-frz th-dayrow";
+        th.className="th-frz th-dayrow"+(i===3?" th-frz-last":"");
         th.style.left=LEFT[i]+"px";
-        if(i===3) th.style.borderRight="2px solid rgba(255,255,255,.20)";
         tr2.appendChild(th);
     });
     days.forEach(day => {
@@ -400,8 +398,8 @@ function renderTable() {
 
             // WS cell
             const tdWs = document.createElement("td");
-            tdWs.className="td-frz";
-            tdWs.style.cssText=`left:0;width:140px;color:${ws.color};background:${frozenBg};font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.02em;word-wrap:break-word`;
+            tdWs.className="td-frz td-ws";
+            tdWs.style.cssText=`left:0;width:140px;color:${ws.color};background:${frozenBg}`;
             tdWs.textContent=ws.workstream_name;
             tr.appendChild(tdWs);
 
@@ -421,8 +419,8 @@ function renderTable() {
 
             // Status cell
             const tdSt=document.createElement("td");
-            tdSt.className="td-frz";
-            tdSt.style.cssText=`left:480px;width:100px;background:${frozenBg};border-right:2px solid rgba(255,255,255,.20)`;
+            tdSt.className="td-frz td-frz-last";
+            tdSt.style.cssText=`left:480px;width:100px;background:${frozenBg}`;
             tdSt.innerHTML=`<span class="status-badge ${sm.cls}">${sm.label}</span>`;
             tr.appendChild(tdSt);
 
@@ -565,7 +563,7 @@ async function refreshData() {
     const btn  = document.getElementById("refreshBtn");
     const icon = document.getElementById("refreshIcon");
     btn.disabled=true;
-    icon.style.animation="spin .6s linear infinite";
+    icon.classList.add("spinning");
     try {
         const {tasks,workstreams,weeks,owners} = await loadAllSheets();
         build(tasks, workstreams, weeks, owners);
@@ -574,7 +572,7 @@ async function refreshData() {
         console.error("Refresh failed:", err);
         alert("Refresh failed: "+err.message);
     } finally {
-        icon.style.animation="";
+        icon.classList.remove("spinning");
         btn.disabled=false;
     }
 }
@@ -597,7 +595,7 @@ async function init() {
                 <h3>⚠ Could not load plan data</h3>
                 <p>Make sure the sheet is shared: <strong>Anyone with link → Viewer</strong><br><br>
                 Error: ${esc(err.message)}</p>
-                <button onclick="location.reload()" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;font-family:var(--fh)">Retry</button>
+                <button onclick="location.reload()" class="retry-btn">Retry</button>
             </div>`;
         console.error(err);
     }
