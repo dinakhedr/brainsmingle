@@ -49,12 +49,6 @@
       <option>Live</option><option>Blocked</option>
     </select>
 
-    <span class="filter-label">Priority</span>
-    <select class="filter-select" id="priorityFilter">
-      <option value="">All</option>
-      <option>High</option><option>Medium</option><option>Low</option>
-    </select>
-
     <div class="filter-sep"></div>
 
     <div class="toggle-wrap">
@@ -288,7 +282,7 @@ function buildOwnerFilter() {
     // keep existing options if re-building
     while (sel.options.length > 1) sel.remove(1);
     const owners = new Set();
-    allTasks.forEach(t => { (t.owner||"").split(/[,|]/).forEach(o => { const n=o.trim(); if(n) owners.add(n); }); });
+    allTasks.forEach(t => { (t.owner||t.Owner||"").split(/[,|]/).forEach(o => { const n=o.trim(); if(n) owners.add(n); }); });
     Array.from(owners).sort().forEach(name => {
         const opt = document.createElement("option");
         opt.value = name; opt.textContent = name;
@@ -383,7 +377,7 @@ function renderTable() {
             tr.dataset.wsid     = wsId;
             tr.dataset.status   = sm.label;
             tr.dataset.priority = (task.priority||"").trim();
-            tr.dataset.owner    = (task.owner||"").trim();
+            tr.dataset.owner    = (task.owner||task.Owner||"").trim();
 
             const frozenBg = isDone_||isLive_ ? "rgba(16,185,129,.06)"
                            : isBlk_           ? "rgba(239,68,68,.05)"
@@ -467,7 +461,6 @@ function renderTable() {
 function applyFilters() {
     const ownerVal  = document.getElementById("ownerFilter").value;
     const statusVal = document.getElementById("statusFilter").value;
-    const prioVal   = document.getElementById("priorityFilter").value;
     let vis = 0;
     document.querySelectorAll(".task-row").forEach(row => {
         let show = true;
@@ -481,7 +474,6 @@ function applyFilters() {
             if (!owners.includes(ownerVal)) show=false;
         }
         if (show && statusVal && row.dataset.status !== statusVal) show=false;
-        if (show && prioVal   && row.dataset.priority !== prioVal)  show=false;
         row.style.display = show?"":"none";
         if(show) vis++;
     });
@@ -516,7 +508,7 @@ function wireEvents() {
     document.getElementById("clearFilters").addEventListener("click", () => {
         activeWS.clear();
         document.querySelectorAll(".ws-pill").forEach(p => p.classList.remove("active"));
-        ["ownerFilter","statusFilter","priorityFilter"].forEach(id => { document.getElementById(id).value=""; });
+        ["ownerFilter","statusFilter"].forEach(id => { document.getElementById(id).value=""; });
         hideClosed=false;
         tog.classList.remove("on"); tog.setAttribute("aria-pressed","false");
         applyFilters();
