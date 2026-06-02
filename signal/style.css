@@ -291,7 +291,7 @@ body {
 
 /* Row hover */
 .task-row:hover .td-frz,
-.task-row:hover .td-day { filter:brightness(1.12); }
+.task-row:hover .td-day { background-color: rgba(255,255,255,.04) !important; }
 
 /* ── Day body cells ── */
 .td-day {
