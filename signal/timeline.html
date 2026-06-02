@@ -84,10 +84,9 @@
 </div><!-- /#app -->
 
 <script>
-// ── Config ──────────────────────────────────────────────
-// Uses gviz/tq endpoint — fetches by sheet name, no GID needed
-const SHEET_ID = "1ml8ZQ4kURlqC6icrdagxuZIfIqZdjLdVIvZV6jXZSCY";
-const TASKS_SHEET_NAME = "Tasks";
+// ── Embedded Data ────────────────────────────────────────
+// All data is embedded. Refresh button re-runs build() from same data.
+// To update statuses: edit EMBEDDED_TASKS below, or wire a live fetch once sheet is public.
 
 // Embedded static data — update if sheet structure changes
 const EMBEDDED_WS = [
@@ -108,6 +107,159 @@ const EMBEDDED_WEEKS = [
   {week_label:"W5",start_date:"28-Jun-2026", end_date:"04-Jul-2026"},
   {week_label:"W6",start_date:"05-Jul-2026", end_date:"11-Jul-2026"},
   {week_label:"W7",start_date:"12-Jul-2026", end_date:"17-Jul-2026"}
+];
+
+const EMBEDDED_TASKS = [
+  {task_id:"1",  workstream_id:"WS01",task:"Internal brainstorming session — tracks, format, special activations, ownership",owner:"Dina, Belal, Yousef, M. Amin",status:"Done",       start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"2",  workstream_id:"WS01",task:"Select 5 tracks from the 9 domain options",owner:"Dina",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"3",  workstream_id:"WS01",task:"Define track themes — name, description, target audience per track",owner:"Dina",status:"Not Started",start_date:"04-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"4",  workstream_id:"WS01",task:"Define Day 0 format — number of panels, topics, panel sizes, order of programming",owner:"Dina",status:"Not Started",start_date:"04-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"5",  workstream_id:"WS01",task:"Define Days 1–5 session format — session length, break structure, host requirements",owner:"Dina",status:"Not Started",start_date:"04-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"6",  workstream_id:"WS01",task:"Define Signal Launchpad format — application process, selection criteria, presentation format",owner:"Dina",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"7",  workstream_id:"WS01",task:"Define Signal Talent format — company slots, session structure, networking flow",owner:"Dina",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"8",  workstream_id:"WS01",task:"Build and publish Signal Launchpad application form",owner:"Dina",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"9",  workstream_id:"WS01",task:"Build and publish Signal Talent company registration form",owner:"Dina",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"10", workstream_id:"WS01",task:"Build master agenda — 100 session slots mapped across 5 tracks and 5 days",owner:"Dina",status:"Not Started",start_date:"08-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"11", workstream_id:"WS01",task:"Assign session topics to each slot per track",owner:"Dina",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"12", workstream_id:"WS01",task:"Review and shortlist Signal Launchpad applications — select 10–15 startups",owner:"Dina",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"13", workstream_id:"WS01",task:"Review and shortlist Signal Talent applications — select 20+ companies",owner:"Dina",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"14", workstream_id:"WS01",task:"Assign confirmed speakers to agenda slots",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"15", workstream_id:"WS01",task:"Build Day 0 run of show — panel order, moderators, timing, transitions",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"16", workstream_id:"WS01",task:"Build Days 1–5 run of show — daily schedule per track, activation slots, transitions",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"17", workstream_id:"WS01",task:"Build Speed Networking Day run of show — round structure, timing, host script",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"18", workstream_id:"WS01",task:"Build Signal Launchpad run of show — presenter order, timing, Q&A format",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"19", workstream_id:"WS01",task:"Build Signal Talent run of show — company presentation order, networking flow",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"20", workstream_id:"WS01",task:"Prepare speaker briefing kit — run of show, tech guide, slide template, promotion brief",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"21", workstream_id:"WS01",task:"Send briefing kits to all confirmed speakers and collect acknowledgment",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"22", workstream_id:"WS01",task:"Tech rehearsal with Day 0 speakers — audio, video, screen share, transitions",owner:"",status:"Not Started",start_date:"01-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"23", workstream_id:"WS01",task:"Tech rehearsal with all track session speakers",owner:"",status:"Not Started",start_date:"01-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"24", workstream_id:"WS01",task:"Final agenda lock — no changes after this point",owner:"",status:"Not Started",start_date:"03-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"25", workstream_id:"WS01",task:"Day 0 live delivery — moderate all panels, manage transitions",owner:"",status:"Not Started",start_date:"04-Jul-2026",end_date:"04-Jul-2026",priority:"High"},
+  {task_id:"26", workstream_id:"WS01",task:"Days 1–5 live event monitoring — support speakers and sessions",owner:"",status:"Not Started",start_date:"05-Jul-2026",end_date:"09-Jul-2026",priority:"High"},
+  {task_id:"27", workstream_id:"WS01",task:"Signal Launchpad live delivery and moderation",owner:"",status:"Not Started",start_date:"06-Jul-2026",end_date:"06-Jul-2026",priority:"High"},
+  {task_id:"28", workstream_id:"WS01",task:"Signal Talent live delivery and moderation",owner:"",status:"Not Started",start_date:"08-Jul-2026",end_date:"08-Jul-2026",priority:"High"},
+  {task_id:"29", workstream_id:"WS01",task:"Speed Networking Day full day live moderation",owner:"",status:"Not Started",start_date:"10-Jul-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"30", workstream_id:"WS01",task:"Confirm all 90 sessions recorded in full",owner:"",status:"Not Started",start_date:"10-Jul-2026",end_date:"11-Jul-2026",priority:"Medium"},
+  {task_id:"31", workstream_id:"WS01",task:"Publish all session recordings on platform",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"14-Jul-2026",priority:"Medium"},
+  {task_id:"32", workstream_id:"WS02",task:"Define speaker tiers — Day 0 headliners, track keynotes, track sessions, international quota",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"33", workstream_id:"WS02",task:"Define speaker selection criteria per tier — domain authority, geography, language, audience size",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"34", workstream_id:"WS02",task:"Build Day 0 headliner longlist — 30+ names, international priority",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"35", workstream_id:"WS02",task:"Build track speaker longlist — 50+ names per track across all 5 tracks",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"36", workstream_id:"WS02",task:"Research and verify each speaker — LinkedIn, recent activity, audience size, domain relevance",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"37", workstream_id:"WS02",task:"Prioritize and tier speaker list — A / B / C by importance and likelihood to confirm",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"38", workstream_id:"WS02",task:"Identify mutual connections for warm introductions",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"39", workstream_id:"WS02",task:"Draft speaker outreach message — Day 0 headliners version",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"40", workstream_id:"WS02",task:"Draft speaker outreach message — track session version",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"41", workstream_id:"WS02",task:"Draft speaker outreach message — international speakers version",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"42", workstream_id:"WS02",task:"Internal review and approval of all outreach messages",owner:"",status:"Not Started",start_date:"13-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"43", workstream_id:"WS02",task:"Launch Day 0 headliner outreach — A tier first",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"15-Jun-2026",priority:"High"},
+  {task_id:"44", workstream_id:"WS02",task:"Launch track speaker outreach — A tier first across all 5 tracks",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"45", workstream_id:"WS02",task:"Follow up on Day 0 headliner outreach — 5-day follow up cadence",owner:"",status:"Not Started",start_date:"20-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"46", workstream_id:"WS02",task:"Follow up on track speaker outreach",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"47", workstream_id:"WS02",task:"Launch B tier outreach for any unconfirmed Day 0 slots",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"48", workstream_id:"WS02",task:"Launch B tier outreach for any unconfirmed track slots",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"49", workstream_id:"WS02",task:"Confirm Day 0 headliner lineup — minimum 6 panels confirmed",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"01-Jul-2026",priority:"High"},
+  {task_id:"50", workstream_id:"WS02",task:"Confirm all track session speakers — 90 slots filled",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"51", workstream_id:"WS02",task:"Collect speaker assets — bio, headshot, job title, social handles",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"52", workstream_id:"WS02",task:"Create speaker profile cards for social media promotion",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"53", workstream_id:"WS02",task:"Coordinate speaker scheduling conflicts and time zone alignment",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"54", workstream_id:"WS02",task:"Send calendar invites with platform links to all confirmed speakers",owner:"",status:"Not Started",start_date:"01-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"55", workstream_id:"WS02",task:"Day-before reminder to all speakers — tech check, link, timing",owner:"",status:"Not Started",start_date:"03-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"56", workstream_id:"WS02",task:"Day-of speaker coordination — green room check, on-time confirmation",owner:"",status:"Not Started",start_date:"04-Jul-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"57", workstream_id:"WS02",task:"Post-event thank you and feedback collection from all speakers",owner:"",status:"Not Started",start_date:"11-Jul-2026",end_date:"12-Jul-2026",priority:"Medium"},
+  {task_id:"58", workstream_id:"WS03",task:"Finalize sponsorship tier structure — Main, Gold, Silver, Bronze, Special",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"59", workstream_id:"WS03",task:"Define full benefits per tier — visibility, access, assets, speaking slots",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"60", workstream_id:"WS03",task:"Define sponsorship pricing per tier",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"61", workstream_id:"WS03",task:"Build Signal: AI sponsorship deck",owner:"",status:"Not Started",start_date:"04-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"62", workstream_id:"WS03",task:"Define 200 potential sponsors categorized by industry and tier fit",owner:"",status:"Not Started",start_date:"04-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"63", workstream_id:"WS03",task:"Align with BasharSoft team to identify warm sponsor leads",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"64", workstream_id:"WS03",task:"Draft sponsor outreach message — Main and Gold tier",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"65", workstream_id:"WS03",task:"Draft sponsor outreach message — Silver and Bronze tier",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"66", workstream_id:"WS03",task:"Draft sponsor outreach message — Special Sponsors (Track, Launchpad, Talent, Hackathon)",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"67", workstream_id:"WS03",task:"Launch Main and Gold sponsor outreach",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"68", workstream_id:"WS03",task:"Launch Silver, Bronze and Special sponsor outreach",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"69", workstream_id:"WS03",task:"Follow up on sponsor outreach — 5-day cadence",owner:"",status:"Not Started",start_date:"20-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"70", workstream_id:"WS03",task:"Negotiate and close Main Sponsor",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"71", workstream_id:"WS03",task:"Negotiate and close Gold and Silver Sponsors",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"72", workstream_id:"WS03",task:"Collect sponsor assets — logos, brand guidelines, ad creatives",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"73", workstream_id:"WS03",task:"Integrate sponsor branding across all event touchpoints",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"74", workstream_id:"WS03",task:"Deliver sponsor visibility report post-event",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"17-Jul-2026",priority:"Medium"},
+  {task_id:"75", workstream_id:"WS03",task:"Find 20 partners to co-source sponsorships",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"76", workstream_id:"WS04",task:"Define community partner criteria — minimum 20K members, domain relevance, engagement level",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"77", workstream_id:"WS04",task:"Build list of 50 target community partners — each with 20K+ members",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"78", workstream_id:"WS04",task:"Categorize partner list by domain alignment to Signal: AI tracks",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Medium"},
+  {task_id:"79", workstream_id:"WS04",task:"Define partner value proposition — what they get, what we need",owner:"",status:"Not Started",start_date:"04-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"80", workstream_id:"WS04",task:"Draft community partner outreach message",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"81", workstream_id:"WS04",task:"Align with WUZZUF on Signal: AI co-promotion — define channels, schedule, audience",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"82", workstream_id:"WS04",task:"Align with iCareer on Signal: AI co-promotion",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"83", workstream_id:"WS04",task:"Launch community partner outreach — first 25 partners",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"84", workstream_id:"WS04",task:"Launch community partner outreach — second 25 partners",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"85", workstream_id:"WS04",task:"Follow up and confirm 20 community partners",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"86", workstream_id:"WS04",task:"Onboard confirmed partners — share assets, promotion brief, registration links",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"87", workstream_id:"WS04",task:"Coordinate partner cross-promotion — confirm posting schedule and content",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"88", workstream_id:"WS04",task:"Monitor partner promotion activity during event week",owner:"",status:"Not Started",start_date:"05-Jul-2026",end_date:"10-Jul-2026",priority:"Medium"},
+  {task_id:"89", workstream_id:"WS04",task:"Investigate recruitment side events — align with hiring partners",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"21-Jun-2026",priority:"Medium"},
+  {task_id:"90", workstream_id:"WS04",task:"Create Signal: AI community on BrainsMingle (Miro summit community)",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"91", workstream_id:"WS04",task:"Define auto-enroll flow — direct enroll or waitlist for Signal: AI community",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"92", workstream_id:"WS05",task:"Define Signal: AI visual identity — logo, color palette, typography, event assets",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"93", workstream_id:"WS05",task:"Design Signal: AI landing page — registration, agenda, speakers, partners",owner:"",status:"Not Started",start_date:"04-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"94", workstream_id:"WS05",task:"Develop and publish Signal: AI landing page at signal.brainsmingle.com",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"95", workstream_id:"WS05",task:"Add waitlist sections — be a speaker, be a partner, be a sponsor, sign up",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"96", workstream_id:"WS05",task:"Add My Agenda tab to landing page",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"97", workstream_id:"WS05",task:"Build social media content calendar for Signal: AI — pre, during, post",owner:"",status:"Not Started",start_date:"04-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"98", workstream_id:"WS05",task:"Design social media asset templates — announcement, speaker cards, countdown, recap",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"99", workstream_id:"WS05",task:"Launch Signal: AI announcement — organic and paid social",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"15-Jun-2026",priority:"High"},
+  {task_id:"100",workstream_id:"WS05",task:"Speaker reveal campaign — release confirmed speakers progressively",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"101",workstream_id:"WS05",task:"Launch email marketing — Signal: AI announcement to BM user base",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"15-Jun-2026",priority:"High"},
+  {task_id:"102",workstream_id:"WS05",task:"Email marketing — weekly countdown emails to registered attendees",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"103",workstream_id:"WS05",task:"Plan referral / invite incentive — incentivize users to invite 3 others",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"104",workstream_id:"WS05",task:"Implement invite tracking — track registrations from shared links",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"105",workstream_id:"WS05",task:"Trigger in-platform sharing prompts — encourage attendees to share the event",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"106",workstream_id:"WS05",task:"Design sharable attendance component — social share card for attendees",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"Medium"},
+  {task_id:"107",workstream_id:"WS05",task:"Build daily social recap system — automate or template post-event daily recaps",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"108",workstream_id:"WS05",task:"Post daily social media recaps during event week",owner:"",status:"Not Started",start_date:"05-Jul-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"109",workstream_id:"WS05",task:"Evaluate and plan daily email recaps during event week",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Low"},
+  {task_id:"110",workstream_id:"WS05",task:"Marketing emails — pre-event (announcement, countdown, speaker reveals)",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"111",workstream_id:"WS05",task:"Marketing emails — during event (daily highlights, session reminders)",owner:"",status:"Not Started",start_date:"05-Jul-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"112",workstream_id:"WS05",task:"Marketing emails — post event (thank you, recordings available, next edition teaser)",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"17-Jul-2026",priority:"High"},
+  {task_id:"113",workstream_id:"WS05",task:"Produce required promo videos — teaser, speaker highlights, event trailer",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"114",workstream_id:"WS05",task:"Satellite events — plan and promote pre-event awareness sessions",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"115",workstream_id:"WS06",task:"Define product adjustments needed for Signal: AI scale — stress test requirements",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"116",workstream_id:"WS06",task:"Summit registration flow — build dedicated registration and onboarding flow",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"117",workstream_id:"WS06",task:"Implement transactional emails for Signal: AI — confirmation, reminders, follow-ups",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"118",workstream_id:"WS06",task:"Send calendar invite automation for Day 0 and all session days",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"119",workstream_id:"WS06",task:"Build live dashboard for speakers — session status, attendee count, tech indicators",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"120",workstream_id:"WS06",task:"Show recording button for ended sessions on platform",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"Medium"},
+  {task_id:"121",workstream_id:"WS06",task:"Evaluate adding sessions to Favorites feature",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"14-Jun-2026",priority:"Low"},
+  {task_id:"122",workstream_id:"WS06",task:"Add onboarding flows for key Signal: AI pages",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"123",workstream_id:"WS06",task:"Make event cards and sessions look distinct for hosts vs attendees",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"28-Jun-2026",priority:"Medium"},
+  {task_id:"124",workstream_id:"WS06",task:"Webinar improvements — connection indicator, lower latency, emoji reactions, in-call polls",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"125",workstream_id:"WS06",task:"Add Personal Recaps feature — post-session summary for hosts and attendees",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"126",workstream_id:"WS06",task:"Mobile app readiness — ensure full Signal: AI experience works on mobile",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"28-Jun-2026",priority:"High"},
+  {task_id:"127",workstream_id:"WS06",task:"Platform stress test at Signal: AI scale — multi-track, large attendance, speed networking",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"128",workstream_id:"WS06",task:"Final platform technical rehearsal — full run-through at event scale",owner:"",status:"Not Started",start_date:"01-Jul-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"129",workstream_id:"WS06",task:"Automate social media recap generation post-sessions",owner:"",status:"Not Started",start_date:"22-Jun-2026",end_date:"03-Jul-2026",priority:"Medium"},
+  {task_id:"130",workstream_id:"WS07",task:"Build Signal: AI project plan and Gantt — workstreams, tasks, owners, timeline",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"131",workstream_id:"WS07",task:"Define team roles and ownership across all workstreams",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"03-Jun-2026",priority:"High"},
+  {task_id:"132",workstream_id:"WS07",task:"Set up weekly team sync — agenda, cadence, reporting format",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"07-Jun-2026",priority:"High"},
+  {task_id:"133",workstream_id:"WS07",task:"Define event budget — speakers, production, marketing, tech, contingency",owner:"",status:"Not Started",start_date:"01-Jun-2026",end_date:"14-Jun-2026",priority:"High"},
+  {task_id:"134",workstream_id:"WS07",task:"Set up event registration tracking dashboard",owner:"",status:"Not Started",start_date:"15-Jun-2026",end_date:"21-Jun-2026",priority:"High"},
+  {task_id:"135",workstream_id:"WS07",task:"Weekly KPI review — registrations, speaker confirmations, sponsor pipeline, partner activation",owner:"",status:"Not Started",start_date:"08-Jun-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"136",workstream_id:"WS07",task:"Build Signal: AI ops war room for event week — communication channels, escalation process",owner:"",status:"Not Started",start_date:"29-Jun-2026",end_date:"03-Jul-2026",priority:"High"},
+  {task_id:"137",workstream_id:"WS07",task:"Day 0 full operations — host coordination, tech support, attendee management",owner:"",status:"Not Started",start_date:"04-Jul-2026",end_date:"04-Jul-2026",priority:"High"},
+  {task_id:"138",workstream_id:"WS07",task:"Days 1–5 daily operations — session monitoring, issue resolution, live support",owner:"",status:"Not Started",start_date:"05-Jul-2026",end_date:"09-Jul-2026",priority:"High"},
+  {task_id:"139",workstream_id:"WS07",task:"Speed Networking Day full operations — round management, tech support",owner:"",status:"Not Started",start_date:"10-Jul-2026",end_date:"10-Jul-2026",priority:"High"},
+  {task_id:"140",workstream_id:"WS07",task:"Post-event internal debrief — what worked, what didn't, lessons learned",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"14-Jul-2026",priority:"High"},
+  {task_id:"141",workstream_id:"WS08",task:"Publish all session recordings on platform",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"14-Jul-2026",priority:"High"},
+  {task_id:"142",workstream_id:"WS08",task:"Cut and distribute highlight clips across social channels",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"17-Jul-2026",priority:"High"},
+  {task_id:"143",workstream_id:"WS08",task:"Send post-event email — thank you, recordings link, next edition teaser",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"13-Jul-2026",priority:"High"},
+  {task_id:"144",workstream_id:"WS08",task:"Deliver sponsor visibility and impact report",owner:"",status:"Not Started",start_date:"14-Jul-2026",end_date:"17-Jul-2026",priority:"High"},
+  {task_id:"145",workstream_id:"WS08",task:"Collect attendee feedback — post-event survey",owner:"",status:"Not Started",start_date:"11-Jul-2026",end_date:"14-Jul-2026",priority:"Medium"},
+  {task_id:"146",workstream_id:"WS08",task:"Compile full event metrics report — attendance, sessions, connections, social reach",owner:"",status:"Not Started",start_date:"14-Jul-2026",end_date:"17-Jul-2026",priority:"High"},
+  {task_id:"147",workstream_id:"WS08",task:"Announce Signal Hackathon — open applications, define challenge, set date",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"17-Jul-2026",priority:"Medium"},
+  {task_id:"148",workstream_id:"WS08",task:"Add Personal Recaps for all attendees and hosts",owner:"",status:"Not Started",start_date:"12-Jul-2026",end_date:"14-Jul-2026",priority:"Medium"},
+  {task_id:"149",workstream_id:"WS08",task:"Internal review — Signal: AI learnings and recommendations for Edition 02",owner:"",status:"Not Started",start_date:"15-Jul-2026",end_date:"17-Jul-2026",priority:"Medium"},
+  {task_id:"150",workstream_id:"WS08",task:"Begin planning Signal Edition 02 — domain selection, dates, key upgrades",owner:"",status:"Not Started",start_date:"15-Jul-2026",end_date:"17-Jul-2026",priority:"Low"}
 ];
 
 // Jun 1 – Jul 17 = 47 days
@@ -148,13 +300,7 @@ function isWeekend(d) {
   return day === 0 || day === 6;
 }
 
-async function fetchTasksCSV() {
-  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(TASKS_SHEET_NAME)}&cachebust=${Date.now()}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} fetching Tasks sheet`);
-  const text = await res.text();
-  return parseCSV(text);
-}
+async function fetchTasksCSV() { return EMBEDDED_TASKS; }
 
 function parseCSV(text) {
   const lines = text.trim().split('\n');
@@ -618,62 +764,26 @@ function wireEvents() {
   });
 
   document.getElementById('refreshBtn').addEventListener('click', () => {
-    loadData(true);
+    const icon = document.getElementById('refreshIcon');
+    const btn  = document.getElementById('refreshBtn');
+    btn.classList.add('spinning');
+    setTimeout(() => {
+      build(EMBEDDED_TASKS, EMBEDDED_WS, EMBEDDED_WEEKS);
+      applyFilters();
+      document.getElementById('lastUpdated').textContent =
+        'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+      btn.classList.remove('spinning');
+    }, 400);
   });
 }
 
-// ── Data loading ────────────────────────────────────────
-async function loadData(isRefresh = false) {
-  if (isRefresh) {
-    const btn = document.getElementById('refreshBtn');
-    const icon = document.getElementById('refreshIcon');
-    btn.classList.add('spinning');
-    icon.style.display = 'inline-block';
-  }
-
-  try {
-    const tasks = await fetchTasksCSV();
-        <div class="error-state">
-          <h3>⚠ Could not load plan data</h3>
-          <p>Make sure the Google Sheet is published to web.<br><br>
-          <strong>File → Share → Publish to web → Publish</strong><br><br>
-          Error: ${esc(err.message)}</p>
-          <button onclick="location.reload()" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;font-family:var(--fh)">Retry</button>
-        </div>`;
-    }
-    console.error(err);
-  } finally {
-    if (isRefresh) {
-      const btn = document.getElementById('refreshBtn');
-      btn.classList.remove('spinning');
-    }
-  }
-}
-
 // ── Init ────────────────────────────────────────────────
-async function init() {
-  try {
-    const tasks = await fetchTasksCSV();
-    build(tasks, EMBEDDED_WS, EMBEDDED_WEEKS);
-    wireEvents();
-
-    document.getElementById('loading').classList.add('hidden');
-    document.getElementById('app').style.display = 'block';
-
-    scrollToToday();
-
-    if (autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(() => loadData(true), 600000);
-
-  } catch (err) {
-    document.getElementById('loading').innerHTML = `
-      <div class="error-state">
-        <h3>⚠ Could not load plan data</h3>
-        <p>Make sure the Google Sheet is published.<br><br>Error: ${esc(err.message)}</p>
-        <button onclick="location.reload()" style="margin-top:16px;background:var(--purple);border:none;color:white;padding:6px 18px;border-radius:30px;cursor:pointer;font-family:var(--fh)">Retry</button>
-      </div>`;
-    console.error(err);
-  }
+function init() {
+  build(EMBEDDED_TASKS, EMBEDDED_WS, EMBEDDED_WEEKS);
+  wireEvents();
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('app').style.display = 'block';
+  scrollToToday();
 }
 
 function scrollToToday() {
