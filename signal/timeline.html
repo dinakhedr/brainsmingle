@@ -85,10 +85,9 @@
 
 <script>
 // ── Config ──────────────────────────────────────────────
-const PUB_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSvEz_ZKt_T-x_u2QFAm-Z7RES3WUXNol3MkMxWHyExvza8epHnzAAdNf5SzrxwKq-SWVJ39viHIa3l/pub?output=csv";
-// Tasks fetched live from sheet (gid=0 = first tab).
-// Workstreams & Weeks are embedded below for reliability.
-const GIDS = { tasks: "0" };
+// Uses gviz/tq endpoint — fetches by sheet name, no GID needed
+const SHEET_ID = "1ml8ZQ4kURlqC6icrdagxuZIfIqZdjLdVIvZV6jXZSCY";
+const TASKS_SHEET_NAME = "Tasks";
 
 // Embedded static data — update if sheet structure changes
 const EMBEDDED_WS = [
@@ -149,10 +148,10 @@ function isWeekend(d) {
   return day === 0 || day === 6;
 }
 
-async function fetchCSV(gid) {
-  const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
+async function fetchTasksCSV() {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(TASKS_SHEET_NAME)}&cachebust=${Date.now()}`;
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} gid=${gid}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status} fetching Tasks sheet`);
   const text = await res.text();
   return parseCSV(text);
 }
@@ -633,11 +632,7 @@ async function loadData(isRefresh = false) {
   }
 
   try {
-    const tasks = await fetchCSV(GIDS.tasks);
-    build(tasks, EMBEDDED_WS, EMBEDDED_WEEKS);
-  } catch (err) {
-    if (!isRefresh) {
-      document.getElementById('loading').innerHTML = `
+    const tasks = await fetchTasksCSV();
         <div class="error-state">
           <h3>⚠ Could not load plan data</h3>
           <p>Make sure the Google Sheet is published to web.<br><br>
@@ -658,7 +653,7 @@ async function loadData(isRefresh = false) {
 // ── Init ────────────────────────────────────────────────
 async function init() {
   try {
-    const tasks = await fetchCSV(GIDS.tasks);
+    const tasks = await fetchTasksCSV();
     build(tasks, EMBEDDED_WS, EMBEDDED_WEEKS);
     wireEvents();
 
