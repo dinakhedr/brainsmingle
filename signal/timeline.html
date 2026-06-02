@@ -379,8 +379,8 @@ function renderTable() {
             tr.dataset.priority = (task.priority||"").trim();
             tr.dataset.owner    = (task.owner||task.Owner||"").trim();
 
-            const frozenBg = isDone_||isLive_ ? "rgba(16,185,129,.06)"
-                           : isBlk_           ? "rgba(239,68,68,.05)"
+            const frozenBg = isDone_||isLive_ ? "#0D2B22"
+                           : isBlk_           ? "#2A1018"
                            : "var(--bg)";
             const dayBg    = isDone_||isLive_ ? "rgba(16,185,129,.03)"
                            : isBlk_           ? "rgba(239,68,68,.02)"
