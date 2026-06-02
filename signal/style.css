@@ -270,6 +270,9 @@ body {
   will-change:transform;
   clip-path:inset(0 -1px 0 0);
 }
+.task-row.is-done .td-frz,
+.task-row.is-live .td-frz  { background:#0D2B22; }
+.task-row.is-blocked .td-frz { background:#2A1018; }
 
 /* Last frozen body col */
 .td-frz-last { border-right:2px solid var(--border3) !important; }
