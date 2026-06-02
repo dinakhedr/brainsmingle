@@ -219,7 +219,7 @@ body {
 
 /* Frozen header cells */
 .th-frz {
-  position:sticky; z-index:30;
+  position:sticky; z-index:30; transform:translateZ(0);
   background:var(--bg3);
   border-bottom:1px solid var(--border2);
   border-right:1px solid var(--border2);
@@ -261,7 +261,7 @@ body {
 
 /* ── Frozen body cells ── */
 .td-frz {
-  position:sticky; z-index:10;
+  position:sticky; z-index:10; transform:translateZ(0);
   padding:8px 10px;
   border-right:1px solid var(--border2);
   border-bottom:1px solid var(--border);
