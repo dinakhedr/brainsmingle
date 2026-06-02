@@ -252,9 +252,9 @@ function updateStats(tasks) {
     });
     document.getElementById("statsRow").innerHTML = `
         <div class="stat-card"><div class="stat-val" class="stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>
-        <div class="stat-card"><div class="stat-val" class="stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
         <div class="stat-card"><div class="stat-val" class="stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
         <div class="stat-card"><div class="stat-val" class="stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
+        <div class="stat-card"><div class="stat-val" class="stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
         <div class="stat-card"><div class="stat-val" class="stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
         <div class="stat-card"><div class="stat-val" class="stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
         <div class="stat-card"><div class="stat-val" class="stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>`;
@@ -350,7 +350,9 @@ function renderTable() {
     });
     days.forEach(day => {
         const th=document.createElement("th");
+        const isSignalDay = day.date.getMonth()===6 && day.date.getDate()>=4 && day.date.getDate()<=10;
         let cls="th-day";
+        if(isSignalDay)    cls+=" signal-day";
         if(day.isWeekend)  cls+=" weekend";
         if(day.isToday)    cls+=" today";
         if(day.isMonthDiv) cls+=" month-div";
@@ -524,13 +526,11 @@ function wireEvents() {
     document.getElementById("refreshBtn").addEventListener("click", () => refreshData());
 }
 
-// ── Scroll to today ───────────────────────────────────────
+// ── Scroll to day 1 ───────────────────────────────────────
 function scrollToToday() {
-    const idx = Math.round((TODAY - START_DATE)/86400000);
-    if (idx<0||idx>=TOTAL_DAYS) return;
-    const frozen = 140+220+120+100; // 580
+    // Start at day 1 — no scroll offset
     const scroll = document.getElementById("tableScroll");
-    if (scroll) scroll.scrollLeft = Math.max(0, frozen+(idx*28)-200);
+    if (scroll) scroll.scrollLeft = 0;
 }
 
 // ── Build + render ────────────────────────────────────────
