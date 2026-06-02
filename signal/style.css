@@ -179,7 +179,13 @@ body {
 .stat-lbl { font-family:var(--fh); font-size:9px; color:var(--text3); margin-top:4px; text-transform:uppercase; letter-spacing:.05em; }
 
 /* Stat value colours */
-.stat-total   { color:var(--text); }
+.stat-total                                { color:var(--text); }
+.stat-card:has(.stat-done)     { border-color:#00E8A2; background:rgba(0,232,162,.06); }
+.stat-card:has(.stat-live)     { border-color:#3B82F6; background:rgba(59,130,246,.06); }
+.stat-card:has(.stat-inprog)   { border-color:#F59E0B; background:rgba(245,158,11,.06); }
+.stat-card:has(.stat-review)   { border-color:#A07AF8; background:rgba(160,122,248,.06); }
+.stat-card:has(.stat-blocked)  { border-color:#F87171; background:rgba(239,68,68,.06); }
+.stat-card:has(.stat-notstart) { border-color:#9898B8; background:rgba(152,152,184,.04); }
 .stat-done    { color:#00E8A2; }
 .stat-inprog  { color:#F59E0B; }
 .stat-review  { color:#A07AF8; }
@@ -194,6 +200,7 @@ body {
 .table-scroll {
   overflow-x:auto; overflow-y:visible;
   border:1px solid var(--border2); border-radius:7px;
+  isolation:isolate;
 }
 .table-scroll::-webkit-scrollbar       { height:6px; }
 .table-scroll::-webkit-scrollbar-track { background:var(--bg2); }
