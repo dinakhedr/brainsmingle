@@ -299,8 +299,8 @@ body {
 .owner-empty { font-size:11px; color:var(--text4); font-style:italic; }
 
 /* Row hover */
-.task-row:hover .td-frz,
-.task-row:hover .td-day { background-color: rgba(255,255,255,.04) !important; }
+.task-row:hover .td-frz { background-color:rgba(255,255,255,.04) !important; }
+.task-row:hover .td-day  { background-color:rgba(255,255,255,.03) !important; }
 
 /* ── Day body cells ── */
 .td-day {
@@ -308,7 +308,8 @@ body {
   border-right:1px solid var(--border);
   border-bottom:1px solid var(--border);
   position:relative; vertical-align:middle; padding:0;
-  z-index:0;  /* must be 0 — scrolls behind sticky frozen cols */
+  z-index:0;
+  overflow:hidden;
 }
 .td-day.month-div { border-left:1.5px solid var(--border3); }
 
