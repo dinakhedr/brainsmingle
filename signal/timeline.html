@@ -70,9 +70,9 @@
     <div class="sgh-inner" id="stickyHeaderInner"></div>
   </div>
   <div class="table-scroll" id="tableScroll">
-    <table class="gtable" id="ganttTable"></table>
+    <table class="gtable" id="ganttTable">｜｜DSML｜｜
   </div>
-  <div class="no-results" id="noResults">...</div>
+  <div class="no-results" id="noResults">No tasks match the current filters.</div>
 </div>
 
 </div>
@@ -475,10 +475,10 @@ function buildStickyHeader() {
     const thead = table.querySelector("thead");
     if (!thead) return;
 
-    // Clear previous content
+    // Clear previous clone
     inner.innerHTML = "";
 
-    // Clone thead (once, no RAF needed)
+    // Clone thead
     const cloned = thead.cloneNode(true);
     cloned.querySelectorAll("th").forEach(th => {
         th.style.position = "static";
@@ -492,8 +492,8 @@ function buildStickyHeader() {
     mirrorTable.appendChild(cloned);
     inner.appendChild(mirrorTable);
 
-    // Copy exact column widths from original thead
-    const originalCells = thead.querySelectorAll("tr:first-child th, tr:last-child th");
+    // Copy exact widths from original cells (critical for alignment)
+    const originalCells = thead.querySelectorAll("th");
     const clonedCells   = mirrorTable.querySelectorAll("th");
     originalCells.forEach((cell, idx) => {
         if (clonedCells[idx]) {
@@ -504,13 +504,14 @@ function buildStickyHeader() {
         }
     });
 
-    // Sync horizontal scroll
+    // Sync horizontal scroll between sticky header and main table
     const syncScroll = () => { inner.scrollLeft = scroll.scrollLeft; };
+    scroll.removeEventListener("scroll", syncScroll);
     scroll.addEventListener("scroll", syncScroll);
+    inner.removeEventListener("scroll", syncScroll);
     inner.addEventListener("scroll", () => { scroll.scrollLeft = inner.scrollLeft; });
 
-    // Show/hide based on viewport – no sticky needed, use fixed positioning
-    // Instead of sticky, we toggle visibility via IntersectionObserver
+    // Show sticky header when real thead scrolls out of view
     if (window._stickyObserver) window._stickyObserver.disconnect();
     const observer = new IntersectionObserver(([entry]) => {
         wrapper.style.display = entry.isIntersecting ? "none" : "block";
@@ -519,7 +520,7 @@ function buildStickyHeader() {
     observer.observe(thead);
     window._stickyObserver = observer;
 
-    // Initial check
+    // Initial state
     wrapper.style.display = "none";
 }
 
