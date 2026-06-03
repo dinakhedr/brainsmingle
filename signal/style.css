@@ -101,6 +101,15 @@ body {
 .refresh-icon         { font-size:14px; display:inline-block; }
 .refresh-icon.spinning { animation:spin .6s linear infinite; }
 
+.sheet-btn {
+  background:var(--bg3); border:1px solid var(--border2);
+  color:var(--text2); font-family:var(--fh); font-size:11px; font-weight:600;
+  padding:5px 14px; border-radius:30px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:6px;
+  text-decoration:none; transition:background .2s, border-color .2s;
+}
+.sheet-btn:hover { background:var(--bg4); border-color:var(--border3); color:var(--text); }
+
 /* ── Filter rows ──
    Row 1 top:56  (below header)
    Row 2 top:100 (56 + 44px row1 height) */
