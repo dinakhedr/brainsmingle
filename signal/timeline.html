@@ -532,11 +532,15 @@ function buildStickyHeader() {
 
         mirrorTable.appendChild(cloned);
 
-      // Show/hide when real thead scrolls out of tableScroll viewport
-        stickyObserver = new IntersectionObserver(([entry]) => {
-            wrapper.style.display = entry.isIntersecting ? "none" : "block";
-        }, { threshold: 0, root: scroll });
-        stickyObserver.observe(thead);
+      // Show/hide based on window scroll — when thead top goes above filter rows (144px)
+        const onWindowScroll = () => {
+            const rect = thead.getBoundingClientRect();
+            wrapper.style.display = rect.bottom < 144 ? "block" : "none";
+        };
+        window.addEventListener("scroll", onWindowScroll, { passive: true });
+        // Store for cleanup on refresh
+        if (window._stickyScrollHandler) window.removeEventListener("scroll", window._stickyScrollHandler);
+        window._stickyScrollHandler = onWindowScroll;
     });
 }
 
