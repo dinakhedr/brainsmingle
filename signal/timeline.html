@@ -65,11 +65,11 @@
   <div class="stats-row" id="statsRow"></div>
 
   <!-- Gantt -->
-  <div class="gantt-wrap">
-    <div class="sticky-grid-header" id="stickyHeader">
-      <div class="sgh-inner" id="stickyHeaderInner"></div>
-    </div>
+<div class="gantt-wrap">
     <div class="table-scroll" id="tableScroll">
+      <div class="sticky-grid-header" id="stickyHeader">
+        <div class="sgh-inner" id="stickyHeaderInner"></div>
+      </div>
       <table class="gtable" id="ganttTable"></table>
     </div>
     <div class="no-results" id="noResults">No tasks match the current filters.</div>
@@ -532,16 +532,10 @@ function buildStickyHeader() {
 
         mirrorTable.appendChild(cloned);
 
-        // Sync scroll
-        stickyScrollListener = () => { inner.scrollLeft = scroll.scrollLeft; };
-        scroll.addEventListener("scroll", stickyScrollListener);
-
-        // Show/hide via IntersectionObserver
+      // Show/hide when real thead scrolls out of tableScroll viewport
         stickyObserver = new IntersectionObserver(([entry]) => {
-            const show = !entry.isIntersecting;
-            wrapper.style.display = show ? "block" : "none";
-            if (show) inner.scrollLeft = scroll.scrollLeft;
-        }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
+            wrapper.style.display = entry.isIntersecting ? "none" : "block";
+        }, { threshold: 0, root: scroll });
         stickyObserver.observe(thead);
     });
 }
