@@ -385,10 +385,12 @@ body {
   border-radius: 0 0 4px 4px;
 }
 .sgh-inner {
-  overflow-x: hidden;
+  overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
+  scrollbar-width: none;
 }
+.sgh-inner::-webkit-scrollbar { display: none; }
 .sgh-table {
   border-collapse: collapse;
   table-layout: fixed;
