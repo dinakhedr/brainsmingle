@@ -66,14 +66,14 @@
 
   <!-- Gantt -->
 <div class="gantt-wrap">
-    <div class="table-scroll" id="tableScroll">
-      <div class="sticky-grid-header" id="stickyHeader">
-        <div class="sgh-inner" id="stickyHeaderInner"></div>
-      </div>
-      <table class="gtable" id="ganttTable"></table>
-    </div>
-    <div class="no-results" id="noResults">No tasks match the current filters.</div>
+  <div class="sticky-grid-header" id="stickyHeader">
+    <div class="sgh-inner" id="stickyHeaderInner"></div>
   </div>
+  <div class="table-scroll" id="tableScroll">
+    <table class="gtable" id="ganttTable"></table>
+  </div>
+  <div class="no-results" id="noResults">...</div>
+</div>
 
 </div>
 
@@ -465,83 +465,62 @@ function renderTable() {
   // ── Sticky Header ───────────────────────────────────────────────
 let stickyObserver = null;
 let stickyScrollListener = null;
-
 function buildStickyHeader() {
     const wrapper = document.getElementById("stickyHeader");
     const inner   = document.getElementById("stickyHeaderInner");
     const scroll  = document.getElementById("tableScroll");
     const table   = document.getElementById("ganttTable");
-    if (!wrapper||!inner||!scroll||!table) return;
+    if (!wrapper || !inner || !scroll || !table) return;
 
     const thead = table.querySelector("thead");
     if (!thead) return;
 
-    // Hide on rebuild (refresh)
-    wrapper.style.display = "none";
+    // Clear previous content
+    inner.innerHTML = "";
 
-    // Disconnect previous observer and scroll listener
-    if (stickyObserver) { stickyObserver.disconnect(); stickyObserver = null; }
-    if (stickyScrollListener) { scroll.removeEventListener("scroll", stickyScrollListener); stickyScrollListener = null; }
-
-    // Wait one frame so table is fully rendered and getBoundingClientRect is accurate
-    requestAnimationFrame(() => {
-        inner.innerHTML = "";
-
-        // Clone thead
-        const cloned = thead.cloneNode(true);
-
-        // Strip sticky/transform from cloned cells
-        cloned.querySelectorAll("th").forEach(th => {
-            th.style.position = "static";
-            th.style.transform = "none";
-            th.style.left = "auto";
-        });
-
-        // Build mirror table
-        const mirrorTable = document.createElement("table");
-        mirrorTable.className = "gtable sgh-table";
-        inner.appendChild(mirrorTable);
-
-        // Use measured pixel widths from the actual rendered thead cells
-        // This is DeepSeek fix 1 — eliminates border-collapse drift
-        const originalThs = thead.querySelectorAll("tr:first-child th");
-        const clonedRows  = cloned.querySelectorAll("tr");
-
-        // Apply measured widths to each cloned th in row 1
-        const clonedRow1 = cloned.querySelectorAll("tr:first-child th");
-        originalThs.forEach((th, idx) => {
-            const w = th.getBoundingClientRect().width;
-            if (clonedRow1[idx]) {
-                clonedRow1[idx].style.width    = w + "px";
-                clonedRow1[idx].style.minWidth = w + "px";
-                clonedRow1[idx].style.maxWidth = w + "px";
-            }
-        });
-
-        // Apply measured widths to row 2 th cells too
-        const originalRow2 = thead.querySelectorAll("tr:last-child th");
-        const clonedRow2   = cloned.querySelectorAll("tr:last-child th");
-        originalRow2.forEach((th, idx) => {
-            const w = th.getBoundingClientRect().width;
-            if (clonedRow2[idx]) {
-                clonedRow2[idx].style.width    = w + "px";
-                clonedRow2[idx].style.minWidth = w + "px";
-                clonedRow2[idx].style.maxWidth = w + "px";
-            }
-        });
-
-        mirrorTable.appendChild(cloned);
-
-      // Show/hide based on window scroll — when thead top goes above filter rows (144px)
-        const onWindowScroll = () => {
-            const rect = thead.getBoundingClientRect();
-            wrapper.style.display = rect.bottom < 144 ? "block" : "none";
-        };
-        window.addEventListener("scroll", onWindowScroll, { passive: true });
-        // Store for cleanup on refresh
-        if (window._stickyScrollHandler) window.removeEventListener("scroll", window._stickyScrollHandler);
-        window._stickyScrollHandler = onWindowScroll;
+    // Clone thead (once, no RAF needed)
+    const cloned = thead.cloneNode(true);
+    cloned.querySelectorAll("th").forEach(th => {
+        th.style.position = "static";
+        th.style.transform = "none";
+        th.style.left = "auto";
     });
+
+    // Build mirror table
+    const mirrorTable = document.createElement("table");
+    mirrorTable.className = "gtable sgh-table";
+    mirrorTable.appendChild(cloned);
+    inner.appendChild(mirrorTable);
+
+    // Copy exact column widths from original thead
+    const originalCells = thead.querySelectorAll("tr:first-child th, tr:last-child th");
+    const clonedCells   = mirrorTable.querySelectorAll("th");
+    originalCells.forEach((cell, idx) => {
+        if (clonedCells[idx]) {
+            const w = cell.getBoundingClientRect().width;
+            clonedCells[idx].style.width = `${w}px`;
+            clonedCells[idx].style.minWidth = `${w}px`;
+            clonedCells[idx].style.maxWidth = `${w}px`;
+        }
+    });
+
+    // Sync horizontal scroll
+    const syncScroll = () => { inner.scrollLeft = scroll.scrollLeft; };
+    scroll.addEventListener("scroll", syncScroll);
+    inner.addEventListener("scroll", () => { scroll.scrollLeft = inner.scrollLeft; });
+
+    // Show/hide based on viewport – no sticky needed, use fixed positioning
+    // Instead of sticky, we toggle visibility via IntersectionObserver
+    if (window._stickyObserver) window._stickyObserver.disconnect();
+    const observer = new IntersectionObserver(([entry]) => {
+        wrapper.style.display = entry.isIntersecting ? "none" : "block";
+        if (!entry.isIntersecting) inner.scrollLeft = scroll.scrollLeft;
+    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
+    observer.observe(thead);
+    window._stickyObserver = observer;
+
+    // Initial check
+    wrapper.style.display = "none";
 }
 
  
