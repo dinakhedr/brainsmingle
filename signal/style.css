@@ -194,8 +194,9 @@ body {
 .stat-card:has(.stat-review)   { border-width:.5px; border-color:#A07AF8; background:rgba(160,122,248,.06); }
 .stat-card:has(.stat-blocked)  { border-width:.5px; border-color:#F87171; background:rgba(239,68,68,.06); }
 .stat-card:has(.stat-notstart) { border-width:.5px; border-color:#9898B8; background:rgba(152,152,184,.04); }
+.stat-card:has(.stat-total)    { border-width:.5px; border-color:#9898B8; background:rgba(152,152,184,.04); }
 
-.stat-total   { color:var(--text); }
+.stat-total   { color:#9898B8; }
 .stat-done    { color:#00E8A2; }
 .stat-inprog  { color:#F59E0B; }
 .stat-review  { color:#A07AF8; }
@@ -373,20 +374,21 @@ body {
 .sticky-grid-header {
   display: none;
   position: sticky;
-  top: 144px; /* header 56 + filterRow1 44 + filterRow2 44 */
+  top: 144px;
   z-index: 380;
   background: var(--bg);
   border-top: 2px solid var(--purple);
   border-bottom: 1px solid var(--border2);
   box-shadow: 0 4px 20px rgba(0,0,0,.7);
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
+  overflow: hidden;
   margin: 0 28px;
   border-radius: 0 0 4px 4px;
 }
-.sticky-grid-header::-webkit-scrollbar { display: none; }
-.sgh-inner { width: max-content; }
+.sgh-inner {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+}
 .sgh-table {
   border-collapse: collapse;
   table-layout: fixed;
