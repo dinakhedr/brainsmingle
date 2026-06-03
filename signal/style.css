@@ -392,7 +392,8 @@ body {
 }
 .sgh-inner::-webkit-scrollbar { display: none; }
 .sgh-table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
   width: max-content;
 }
