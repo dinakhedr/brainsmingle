@@ -66,6 +66,9 @@
 
   <!-- Gantt -->
   <div class="gantt-wrap">
+    <div class="sticky-grid-header" id="stickyHeader">
+      <div class="sgh-inner" id="stickyHeaderInner"></div>
+    </div>
     <div class="table-scroll" id="tableScroll">
       <table class="gtable" id="ganttTable"></table>
     </div>
@@ -456,8 +459,45 @@ function renderTable() {
         });
     });
     table.appendChild(tbody);
+  buildStickyHeader();
 }
 
+  // ── Sticky Header ───────────────────────────────────────────────
+ function buildStickyHeader() {
+    const wrapper = document.getElementById("stickyHeader");
+    const inner   = document.getElementById("stickyHeaderInner");
+    const scroll  = document.getElementById("tableScroll");
+    const table   = document.getElementById("ganttTable");
+    if (!wrapper||!inner||!scroll||!table) return;
+
+    // Mirror the thead row 1 (week bands) + row 2 (day numbers)
+    // Clone the entire thead and drop it in
+    const thead = table.querySelector("thead");
+    if (!thead) return;
+    inner.innerHTML = "";
+    const cloned = thead.cloneNode(true);
+    // wrap in a table so it renders correctly
+    const mirrorTable = document.createElement("table");
+    mirrorTable.className = "gtable sgh-table";
+    mirrorTable.appendChild(cloned);
+    inner.appendChild(mirrorTable);
+
+    // Sync horizontal scroll both ways
+    scroll.addEventListener("scroll", () => {
+        wrapper.scrollLeft = scroll.scrollLeft;
+    });
+    wrapper.addEventListener("scroll", () => {
+        scroll.scrollLeft = wrapper.scrollLeft;
+    });
+
+    // Show/hide based on whether the real thead is visible in the viewport
+    const observer = new IntersectionObserver(([entry]) => {
+        wrapper.style.display = entry.isIntersecting ? "none" : "block";
+    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" }); // 144 = header+2 filter rows
+    observer.observe(table.querySelector("thead"));
+}
+
+ 
 // ── Filters ───────────────────────────────────────────────
 function applyFilters() {
     const ownerVal  = document.getElementById("ownerFilter").value;
