@@ -492,7 +492,7 @@ function buildStickyHeader() {
     mirrorTable.appendChild(cloned);
     inner.appendChild(mirrorTable);
 
-    // Copy exact widths from original cells (critical for alignment)
+    // Copy exact widths from original cells
     const originalCells = thead.querySelectorAll("th");
     const clonedCells   = mirrorTable.querySelectorAll("th");
     originalCells.forEach((cell, idx) => {
@@ -511,17 +511,25 @@ function buildStickyHeader() {
     inner.removeEventListener("scroll", syncScroll);
     inner.addEventListener("scroll", () => { scroll.scrollLeft = inner.scrollLeft; });
 
-    // Show sticky header when real thead scrolls out of view
-    if (window._stickyObserver) window._stickyObserver.disconnect();
-    const observer = new IntersectionObserver(([entry]) => {
-        wrapper.style.display = entry.isIntersecting ? "none" : "block";
-        if (!entry.isIntersecting) inner.scrollLeft = scroll.scrollLeft;
-    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
-    observer.observe(thead);
-    window._stickyObserver = observer;
+    // 🟢 NEW: Use window scroll to detect when the real header scrolls out of view
+    const filterRow2 = document.getElementById("filterRow2");
+    const getThreshold = () => {
+        if (filterRow2) return filterRow2.getBoundingClientRect().bottom;
+        return 144; // fallback (56px header + 44px filterRow1 + 44px filterRow2)
+    };
 
-    // Initial state
-    wrapper.style.display = "none";
+    const checkVisibility = () => {
+        const rect = thead.getBoundingClientRect();
+        const threshold = getThreshold();
+        // Show sticky header when the bottom of the thead is above the filter bar
+        const shouldShow = rect.bottom < threshold;
+        wrapper.style.display = shouldShow ? "block" : "none";
+        if (shouldShow) inner.scrollLeft = scroll.scrollLeft;
+    };
+
+    window.removeEventListener("scroll", checkVisibility);
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    checkVisibility(); // initial check
 }
 
  
