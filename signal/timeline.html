@@ -473,35 +473,41 @@ function buildStickyHeader() {
     const thead = table.querySelector("thead");
     if (!thead) return;
 
-    // Clone thead
+    // Clone thead, strip sticky from cloned cells
     inner.innerHTML = "";
     const cloned = thead.cloneNode(true);
-
-    // Remove sticky positioning from all cloned cells so they scroll naturally
     cloned.querySelectorAll("th").forEach(th => {
         th.style.position = "static";
         th.style.transform = "none";
+        th.style.left = "auto";
     });
 
+    // Mirror table with same colgroup
     const mirrorTable = document.createElement("table");
     mirrorTable.className = "gtable sgh-table";
-    mirrorTable.appendChild(cloned);
-
-    // Copy exact colgroup from main table so widths match perfectly
     const colgroup = table.querySelector("colgroup");
-    if (colgroup) mirrorTable.insertBefore(colgroup.cloneNode(true), mirrorTable.firstChild);
-
+    if (colgroup) mirrorTable.appendChild(colgroup.cloneNode(true));
+    mirrorTable.appendChild(cloned);
     inner.appendChild(mirrorTable);
 
-    // Sync scroll: table → sticky header (one-way, header is not interactive)
+    // Sync scroll both ways
+    let syncing = false;
     scroll.addEventListener("scroll", () => {
+        if (syncing) return; syncing = true;
         inner.scrollLeft = scroll.scrollLeft;
+        syncing = false;
+    });
+    inner.addEventListener("scroll", () => {
+        if (syncing) return; syncing = true;
+        scroll.scrollLeft = inner.scrollLeft;
+        syncing = false;
     });
 
-    // Show/hide when real thead leaves viewport
+    // Show/hide via IntersectionObserver on the real thead
     const observer = new IntersectionObserver(([entry]) => {
-        wrapper.style.display = entry.isIntersecting ? "none" : "block";
-        if (!entry.isIntersecting) inner.scrollLeft = scroll.scrollLeft;
+        const show = !entry.isIntersecting;
+        wrapper.style.display = show ? "block" : "none";
+        if (show) inner.scrollLeft = scroll.scrollLeft;
     }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
     observer.observe(thead);
 }
