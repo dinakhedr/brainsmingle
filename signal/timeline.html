@@ -463,6 +463,9 @@ function renderTable() {
 }
 
   // ── Sticky Header ───────────────────────────────────────────────
+let stickyObserver = null;
+let stickyScrollListener = null;
+
 function buildStickyHeader() {
     const wrapper = document.getElementById("stickyHeader");
     const inner   = document.getElementById("stickyHeaderInner");
@@ -473,43 +476,74 @@ function buildStickyHeader() {
     const thead = table.querySelector("thead");
     if (!thead) return;
 
-    // Clone thead, strip sticky from cloned cells
-    inner.innerHTML = "";
-    const cloned = thead.cloneNode(true);
-    cloned.querySelectorAll("th").forEach(th => {
-        th.style.position = "static";
-        th.style.transform = "none";
-        th.style.left = "auto";
-    });
+    // Hide on rebuild (refresh)
+    wrapper.style.display = "none";
 
-    // Mirror table with same colgroup
-    const mirrorTable = document.createElement("table");
-    mirrorTable.className = "gtable sgh-table";
-    const colgroup = table.querySelector("colgroup");
-    if (colgroup) mirrorTable.appendChild(colgroup.cloneNode(true));
-    mirrorTable.appendChild(cloned);
-    inner.appendChild(mirrorTable);
+    // Disconnect previous observer and scroll listener
+    if (stickyObserver) { stickyObserver.disconnect(); stickyObserver = null; }
+    if (stickyScrollListener) { scroll.removeEventListener("scroll", stickyScrollListener); stickyScrollListener = null; }
 
-    // Sync scroll both ways
-    let syncing = false;
-    scroll.addEventListener("scroll", () => {
-        if (syncing) return; syncing = true;
-        inner.scrollLeft = scroll.scrollLeft;
-        syncing = false;
-    });
-    inner.addEventListener("scroll", () => {
-        if (syncing) return; syncing = true;
-        scroll.scrollLeft = inner.scrollLeft;
-        syncing = false;
-    });
+    // Wait one frame so table is fully rendered and getBoundingClientRect is accurate
+    requestAnimationFrame(() => {
+        inner.innerHTML = "";
 
-    // Show/hide via IntersectionObserver on the real thead
-    const observer = new IntersectionObserver(([entry]) => {
-        const show = !entry.isIntersecting;
-        wrapper.style.display = show ? "block" : "none";
-        if (show) inner.scrollLeft = scroll.scrollLeft;
-    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
-    observer.observe(thead);
+        // Clone thead
+        const cloned = thead.cloneNode(true);
+
+        // Strip sticky/transform from cloned cells
+        cloned.querySelectorAll("th").forEach(th => {
+            th.style.position = "static";
+            th.style.transform = "none";
+            th.style.left = "auto";
+        });
+
+        // Build mirror table
+        const mirrorTable = document.createElement("table");
+        mirrorTable.className = "gtable sgh-table";
+        inner.appendChild(mirrorTable);
+
+        // Use measured pixel widths from the actual rendered thead cells
+        // This is DeepSeek fix 1 — eliminates border-collapse drift
+        const originalThs = thead.querySelectorAll("tr:first-child th");
+        const clonedRows  = cloned.querySelectorAll("tr");
+
+        // Apply measured widths to each cloned th in row 1
+        const clonedRow1 = cloned.querySelectorAll("tr:first-child th");
+        originalThs.forEach((th, idx) => {
+            const w = th.getBoundingClientRect().width;
+            if (clonedRow1[idx]) {
+                clonedRow1[idx].style.width    = w + "px";
+                clonedRow1[idx].style.minWidth = w + "px";
+                clonedRow1[idx].style.maxWidth = w + "px";
+            }
+        });
+
+        // Apply measured widths to row 2 th cells too
+        const originalRow2 = thead.querySelectorAll("tr:last-child th");
+        const clonedRow2   = cloned.querySelectorAll("tr:last-child th");
+        originalRow2.forEach((th, idx) => {
+            const w = th.getBoundingClientRect().width;
+            if (clonedRow2[idx]) {
+                clonedRow2[idx].style.width    = w + "px";
+                clonedRow2[idx].style.minWidth = w + "px";
+                clonedRow2[idx].style.maxWidth = w + "px";
+            }
+        });
+
+        mirrorTable.appendChild(cloned);
+
+        // Sync scroll
+        stickyScrollListener = () => { inner.scrollLeft = scroll.scrollLeft; };
+        scroll.addEventListener("scroll", stickyScrollListener);
+
+        // Show/hide via IntersectionObserver
+        stickyObserver = new IntersectionObserver(([entry]) => {
+            const show = !entry.isIntersecting;
+            wrapper.style.display = show ? "block" : "none";
+            if (show) inner.scrollLeft = scroll.scrollLeft;
+        }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
+        stickyObserver.observe(thead);
+    });
 }
 
  
