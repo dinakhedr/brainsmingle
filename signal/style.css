@@ -302,8 +302,14 @@ body {
 .owner-empty { font-size:11px; color:var(--text4); font-style:italic; }
 
 /* Row hover */
-.task-row:hover .td-frz { background-color:rgba(255,255,255,.04) !important; }
-.task-row:hover .td-day  { background-color:rgba(255,255,255,.03) !important; }
+.task-row:hover .td-frz              { background:#1A1A2E !important; }
+.task-row:hover .td-day              { background:#14141F !important; }
+.task-row.is-done:hover .td-frz,
+.task-row.is-live:hover .td-frz      { background:#0F3028 !important; }
+.task-row.is-done:hover .td-day,
+.task-row.is-live:hover .td-day      { background:#0B2420 !important; }
+.task-row.is-blocked:hover .td-frz   { background:#311218 !important; }
+.task-row.is-blocked:hover .td-day   { background:#270E14 !important; }
 
 /* ── Day body cells ── */
 .td-day {
