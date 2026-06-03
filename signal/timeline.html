@@ -304,7 +304,7 @@ function renderTable() {
     // colgroup
     const cg = document.createElement("colgroup");
     // frozen cols: WS=140, Task=220, Owner=120, Status=100  → total 580
-    [140,220,120,100].forEach(w => {
+    [140,160,120,100].forEach(w => {
         const col=document.createElement("col"); col.style.cssText=`width:${w}px;min-width:${w}px`; cg.appendChild(col);
     });
     days.forEach(() => {
@@ -316,7 +316,7 @@ function renderTable() {
 
     // Row 1: frozen headers + week bands
     const tr1 = document.createElement("tr");
-    const LEFT = [0,140,360,480];
+    const LEFT = [0,140,300,420];
     const LABELS = ["WORKSTREAM","TASK","OWNER","STATUS"];
     LABELS.forEach((lbl,i) => {
         const th=document.createElement("th");
@@ -403,21 +403,21 @@ function renderTable() {
             // Task cell
             const tdTask=document.createElement("td");
             tdTask.className="td-frz";
-            tdTask.style.cssText=`left:140px;width:220px;background:${frozenBg}`;
+            tdTask.style.cssText=`left:140px;width:160px;background:${frozenBg}`;
             tdTask.innerHTML=`<div class="task-text">${esc(task.task||"")}</div>`;
             tr.appendChild(tdTask);
 
             // Owner cell
             const tdOwner=document.createElement("td");
             tdOwner.className="td-frz";
-            tdOwner.style.cssText=`left:360px;width:120px;background:${frozenBg}`;
+            tdOwner.style.cssText=`left:300px;width:120px;background:${frozenBg}`;
             tdOwner.innerHTML=ownerBadgesHTML(task.owner);
             tr.appendChild(tdOwner);
 
             // Status cell
             const tdSt=document.createElement("td");
             tdSt.className="td-frz td-frz-last";
-            tdSt.style.cssText=`left:480px;width:100px;background:${frozenBg}`;
+            tdSt.style.cssText=`left:420px;width:100px;background:${frozenBg}`;
             tdSt.innerHTML=`<span class="status-badge ${sm.cls}">${sm.label}</span>`;
             tr.appendChild(tdSt);
 
