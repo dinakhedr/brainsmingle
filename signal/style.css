@@ -372,15 +372,14 @@ body {
 }
 /* ── Sticky floating grid header ── */
 .sticky-grid-header {
-  display: none;
-  position: sticky;
-  top: 0;
+  position: relative;   /* or just remove position: sticky */
   z-index: 50;
   background: var(--bg);
   border-top: 2px solid var(--purple);
   border-bottom: 1px solid var(--border2);
   box-shadow: 0 4px 20px rgba(0,0,0,.7);
   width: max-content;
+  display: none;
 }
 .sgh-inner {
   width: max-content;
