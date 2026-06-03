@@ -463,38 +463,47 @@ function renderTable() {
 }
 
   // ── Sticky Header ───────────────────────────────────────────────
- function buildStickyHeader() {
+function buildStickyHeader() {
     const wrapper = document.getElementById("stickyHeader");
     const inner   = document.getElementById("stickyHeaderInner");
     const scroll  = document.getElementById("tableScroll");
     const table   = document.getElementById("ganttTable");
     if (!wrapper||!inner||!scroll||!table) return;
 
-    // Mirror the thead row 1 (week bands) + row 2 (day numbers)
-    // Clone the entire thead and drop it in
     const thead = table.querySelector("thead");
     if (!thead) return;
+
+    // Clone thead
     inner.innerHTML = "";
     const cloned = thead.cloneNode(true);
-    // wrap in a table so it renders correctly
+
+    // Remove sticky positioning from all cloned cells so they scroll naturally
+    cloned.querySelectorAll("th").forEach(th => {
+        th.style.position = "static";
+        th.style.transform = "none";
+    });
+
     const mirrorTable = document.createElement("table");
     mirrorTable.className = "gtable sgh-table";
     mirrorTable.appendChild(cloned);
+
+    // Copy exact colgroup from main table so widths match perfectly
+    const colgroup = table.querySelector("colgroup");
+    if (colgroup) mirrorTable.insertBefore(colgroup.cloneNode(true), mirrorTable.firstChild);
+
     inner.appendChild(mirrorTable);
 
-    // Sync horizontal scroll both ways
+    // Sync scroll: table → sticky header (one-way, header is not interactive)
     scroll.addEventListener("scroll", () => {
-        wrapper.scrollLeft = scroll.scrollLeft;
-    });
-    wrapper.addEventListener("scroll", () => {
-        scroll.scrollLeft = wrapper.scrollLeft;
+        inner.scrollLeft = scroll.scrollLeft;
     });
 
-    // Show/hide based on whether the real thead is visible in the viewport
+    // Show/hide when real thead leaves viewport
     const observer = new IntersectionObserver(([entry]) => {
         wrapper.style.display = entry.isIntersecting ? "none" : "block";
-    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" }); // 144 = header+2 filter rows
-    observer.observe(table.querySelector("thead"));
+        if (!entry.isIntersecting) inner.scrollLeft = scroll.scrollLeft;
+    }, { threshold: 0, rootMargin: "-144px 0px 0px 0px" });
+    observer.observe(thead);
 }
 
  
