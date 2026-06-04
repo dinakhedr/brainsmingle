@@ -146,7 +146,7 @@ function parseDate(str) {
 }
 
 function dayIndex(d) { return Math.round((d - START_DATE) / 86400000); }
-function isWeekend(d) { const w=d.getDay(); return w===0||w===6; }
+function isWeekend(d) { const w=d.getDay(); return w===5||w===6; }
 
 function buildDays() {
     const days = [];
