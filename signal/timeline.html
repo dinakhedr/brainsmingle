@@ -344,17 +344,18 @@ function renderTable() {
         th.style.left=LEFT[i]+"px";
         tr2.appendChild(th);
     });
-    days.forEach(day => {
-        const th=document.createElement("th");
-        const isSignalDay = day.date.getMonth()===6 && day.date.getDate()>=4 && day.date.getDate()<=10;
-        let cls="th-day";
-        if(isSignalDay)    cls+=" signal-day";
-        if(day.isWeekend)  cls+=" weekend";
-        if(day.isToday)    cls+=" today";
-        if(day.isMonthDiv) cls+=" month-div";
-        th.className=cls; th.textContent=day.num;
-        tr2.appendChild(th);
-    });
+days.forEach(day => {
+    const th=document.createElement("th");
+    const isSignalDay = day.date.getMonth()===6 && day.date.getDate()>=4 && day.date.getDate()<=10;
+    let cls="th-day";
+    if(isSignalDay)        cls+=" signal-day";
+    else if(day.isWeekend) cls+=" weekend";
+    else                   cls+=" weekday";
+    if(day.isToday)    cls+=" today";
+    if(day.isMonthDiv) cls+=" month-div";
+    th.className=cls; th.textContent=day.num;
+    tr2.appendChild(th);
+});
     thead.appendChild(tr2);
     table.appendChild(thead);
 
