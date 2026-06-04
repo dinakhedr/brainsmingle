@@ -246,14 +246,40 @@ function updateStats(tasks) {
         else if (l==="blocked")     c.blocked++;
         else                        c.notstart++;
     });
-    document.getElementById("statsRow").innerHTML = `
-        <div class="stat-card"><div class="stat-val stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>
-        <div class="stat-card"><div class="stat-val stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
-        <div class="stat-card"><div class="stat-val stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
-        <div class="stat-card"><div class="stat-val stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
-        <div class="stat-card"><div class="stat-val stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
-        <div class="stat-card"><div class="stat-val stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
-        <div class="stat-card"><div class="stat-val stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>`;
+document.getElementById("statsRow").innerHTML = `
+        <div class="stat-card" data-filter-status="Not Started"><div class="stat-val stat-notstart">${c.notstart}</div><div class="stat-lbl">Not Started</div></div>
+        <div class="stat-card" data-filter-status="In Progress"><div class="stat-val stat-inprog">${c.inprog}</div><div class="stat-lbl">In Progress</div></div>
+        <div class="stat-card" data-filter-status="In Review"><div class="stat-val stat-review">${c.review}</div><div class="stat-lbl">In Review</div></div>
+        <div class="stat-card" data-filter-status="Done"><div class="stat-val stat-done">${c.done}</div><div class="stat-lbl">Done</div></div>
+        <div class="stat-card" data-filter-status="Live"><div class="stat-val stat-live">${c.live}</div><div class="stat-lbl">Live</div></div>
+        <div class="stat-card" data-filter-status="Blocked"><div class="stat-val stat-blocked">${c.blocked}</div><div class="stat-lbl">Blocked</div></div>
+        <div class="stat-card stat-card-total"><div class="stat-val stat-total">${c.total}</div><div class="stat-lbl">Total</div></div>
+        <button class="clear-stat-btn" id="clearStatBtn">Show All</button>`;
+
+    // Wire card clicks
+    document.querySelectorAll(".stat-card[data-filter-status]").forEach(card => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", () => {
+            const status = card.dataset.filterStatus;
+            // Toggle: if already selected, deselect
+            const sel = document.getElementById("statusFilter");
+            if (sel.value === status) {
+                sel.value = "";
+            } else {
+                sel.value = status;
+            }
+            // Highlight active card
+            document.querySelectorAll(".stat-card[data-filter-status]").forEach(c => c.classList.remove("active"));
+            if (sel.value === status) card.classList.add("active");
+            applyFilters();
+        });
+    });
+
+    document.getElementById("clearStatBtn").addEventListener("click", () => {
+        document.getElementById("statusFilter").value = "";
+        document.querySelectorAll(".stat-card[data-filter-status]").forEach(c => c.classList.remove("active"));
+        applyFilters();
+    });
 }
 
 // ── WS Pills ──────────────────────────────────────────────
