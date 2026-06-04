@@ -124,7 +124,7 @@ function splitRow(row) {
 function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 // ── Date helpers ─────────────────────────────────────────
-const START_DATE = new Date(2026, 5, 1);   // Jun 1
+const START_DATE = new Date(2026, 4, 31);  // May 31
 const END_DATE   = new Date(2026, 6, 17);  // Jul 17
 const TOTAL_DAYS = Math.round((END_DATE - START_DATE) / 86400000) + 1;
 const TODAY      = (() => { const d = new Date(); d.setHours(0,0,0,0); return d; })();
