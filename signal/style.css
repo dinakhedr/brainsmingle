@@ -264,7 +264,8 @@ body {
   padding:3px 2px; text-align:center; height:24px; vertical-align:middle;
   font-family:var(--fh); font-size:9px; font-weight:600; color:var(--text3);
 }
-.th-day.weekend   { color:var(--text4); background:rgba(0,0,0,.22); }
+.th-day.weekend   { color:var(--text3); background:rgba(0,0,0,.22); }
+.th-day.weekday   { color:var(--purple-mid); }
 .th-day.today     { background:var(--today-tint); color:var(--cyan); }
 .th-day.month-div { border-left:1.5px solid var(--border3); }
 .th-day.signal-day { color:#EC4899; background:rgba(236,72,153,.10); }
