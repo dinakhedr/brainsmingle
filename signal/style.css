@@ -204,6 +204,19 @@ body {
 .stat-blocked { color:#F87171; }
 .stat-notstart{ color:#9898B8; }
 
+.stat-card[data-filter-status] { cursor:pointer; transition:transform .15s, box-shadow .15s; }
+.stat-card[data-filter-status]:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.4); }
+.stat-card.active { box-shadow:0 0 0 1.5px currentColor; }
+
+.clear-stat-btn {
+  font-family:var(--fh); font-size:10px; font-weight:600;
+  background:transparent; border:1px solid var(--border2);
+  border-radius:5px; color:var(--text3);
+  padding:3px 10px; cursor:pointer; align-self:center;
+  transition:border-color .2s, color .2s; white-space:nowrap;
+}
+.clear-stat-btn:hover { border-color:var(--purple-mid); color:var(--purple-mid); }
+
 /* ── Gantt wrapper ── */
 .gantt-wrap { padding:12px 28px 40px; }
 
