@@ -372,19 +372,21 @@ body {
 }
 /* ── Sticky floating grid header ── */
 .sticky-grid-header {
-  position: sticky;
-  top: 144px;          /* sits right below the filter bar */
-  z-index: 50;
+  position: fixed;
+  top: 144px;
+  left: 0; right: 0;
+  z-index: 390;
   background: var(--bg);
   border-top: 2px solid var(--purple);
   border-bottom: 1px solid var(--border2);
   box-shadow: 0 4px 20px rgba(0,0,0,.7);
-  width: max-content;
   display: none;
-  margin: 0 28px;      /* match .gantt-wrap padding */
+  overflow: hidden;
 }
 .sgh-inner {
-  width: max-content;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
 }
 .sgh-table {
   border-collapse: separate;
