@@ -703,6 +703,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .slb-gold   { width: 220px; height: 88px; }
 .slb-silver { width: 175px; height: 70px; }
 .slb-bronze { width: 145px; height: 58px; }
+.slb-silver.special { width: 220px; height: auto; padding: 0; }
 
 /* Track sponsors — taller to fit colored label above logo */
 .slb-track {
