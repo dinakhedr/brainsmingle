@@ -70,7 +70,7 @@
       border: 0.5px solid var(--border); background: var(--bg-card);
       transition: border-color 0.25s, transform 0.25s; position: relative;
     }
-    .spk-card:hover { border-color: rgba(107,62,245,0.5); transform: translateY(-4px); }
+    .spk-card:hover { border-color: rgba(232,242,0,0.5); transform: translateY(-4px); }
     .spk-card-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #1a1a2e; }
     .spk-card-photo img {
       width: 100%; height: 100%; object-fit: cover; display: block;
@@ -155,7 +155,7 @@
       font-family: var(--font-body); font-size: 13px; color: var(--text-muted); margin-bottom: 24px;
     }
     .spk-grid-count strong { color: var(--text-secondary); font-weight: 600; }
-    .spk-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .spk-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
     .spk-card.hidden { display: none; }
     .spk-empty {
       display: none; grid-column: 1/-1; text-align: center;
@@ -172,7 +172,7 @@
     }
     .spk-overlay.open { opacity: 1; pointer-events: all; }
     .spk-popup {
-      background: var(--bg-card); border: 0.5px solid rgba(107,62,245,0.3);
+      background: var(--bg-card); border: 0.5px solid rgba(232,242,0,0.3);
       border-radius: var(--radius-xl); width: 100%; max-width: 760px; max-height: 90vh;
       overflow-y: auto; display: grid; grid-template-columns: 220px 1fr;
       position: relative; transform: translateY(16px); transition: transform 0.25s;
@@ -325,23 +325,16 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1200px) {
-      .spk-featured-grid { grid-template-columns: repeat(3, 1fr); }
+      .spk-featured-grid { grid-template-columns: repeat(4, 1fr); }
       .spk-grid { grid-template-columns: repeat(4, 1fr); }
     }
     @media (max-width: 900px) {
-      .spk-featured-grid { grid-template-columns: repeat(2, 1fr); }
+      .spk-featured-grid { grid-template-columns: repeat(3, 1fr); }
       .spk-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
-      .spk-hero, .spk-featured, .spk-filters, .spk-grid-section, .spk-apply { padding-left: 24px; padding-right: 24px; }
       .spk-featured-grid { grid-template-columns: repeat(2, 1fr); }
       .spk-grid { grid-template-columns: repeat(2, 1fr); }
-      .spk-popup { grid-template-columns: 1fr; }
-      .spk-popup-photo-col { border-right: none; border-bottom: 0.5px solid var(--border); }
-      .spk-popup-img { max-width: 140px; aspect-ratio: 1; }
-      .spk-apply-inner { grid-template-columns: 1fr; gap: 48px; }
-      .sp-form-row { grid-template-columns: 1fr; }
-    }
 
   </style>
 </head>
@@ -391,7 +384,7 @@
       <div class="spk-featured-tag">High-profile panels</div>
     </div>
     <div class="spk-featured-grid">
-      <div class="spk-card" onclick="openPopup(1)">
+        <div class="spk-card" data-track="health" data-days="1,3" onclick="openPopup(1)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/1.png" alt="Dr. Layla Hassan" /></div>
         <div class="spk-card-info">
@@ -399,7 +392,7 @@
           <div class="spk-card-title">Chief AI Officer &middot; HealthTech Global</div>
         </div>
       </div>
-      <div class="spk-card" onclick="openPopup(2)">
+      <div class="spk-card" data-track="startup" data-days="1,2" onclick="openPopup(2)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/2.png" alt="Omar Khalil" /></div>
         <div class="spk-card-info">
@@ -407,7 +400,7 @@
           <div class="spk-card-title">Founder &amp; CEO &middot; Nexus AI Ventures</div>
         </div>
       </div>
-      <div class="spk-card" onclick="openPopup(3)">
+      <div class="spk-card" data-track="finance" data-days="1" onclick="openPopup(3)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/3.png" alt="Priya Menon" /></div>
         <div class="spk-card-info">
@@ -415,7 +408,7 @@
           <div class="spk-card-title">Head of Sustainable Finance &middot; Global Green Bank</div>
         </div>
       </div>
-      <div class="spk-card" onclick="openPopup(4)">
+      <div class="spk-card" data-track="sustain" data-days="1,4" onclick="openPopup(4)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/4.png" alt="Dr. James Okafor" /></div>
         <div class="spk-card-info">
@@ -423,7 +416,7 @@
           <div class="spk-card-title">Research Scientist &middot; Climate AI Lab, Stanford</div>
         </div>
       </div>
-      <div class="spk-card" onclick="openPopup(5)">
+      <div class="spk-card" data-track="creative" data-days="1,2" onclick="openPopup(5)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/5.png" alt="Sofia Andrade" /></div>
         <div class="spk-card-info">
@@ -431,7 +424,7 @@
           <div class="spk-card-title">Creative Director &amp; AI Artist &middot; Generative Studios</div>
         </div>
       </div>
-      <div class="spk-card" onclick="openPopup(6)">
+      <div class="spk-card" data-track="startup" data-days="1,5" onclick="openPopup(6)">
         <div class="spk-card-badge">★ Featured</div>
         <div class="spk-card-photo"><img src="speakers/6.png" alt="Tariq Al-Rashidi" /></div>
         <div class="spk-card-info">
@@ -478,8 +471,61 @@
 <section class="spk-grid-section">
   <div class="spk-grid-inner">
     <div class="spk-grid-count">Showing <strong id="grid-count">0</strong> speakers</div>
-    <div class="spk-grid" id="speaker-grid">
+<div class="spk-grid" id="speaker-grid">
 
+      <div class="spk-card" data-track="health" data-days="1,3" onclick="openPopup(1)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/1.png" alt="Dr. Layla Hassan" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Dr. Layla Hassan</div>
+          <div class="spk-card-title">Chief AI Officer &middot; HealthTech Global</div>
+        </div>
+      </div>
+
+      <div class="spk-card" data-track="startup" data-days="1,2" onclick="openPopup(2)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/2.png" alt="Omar Khalil" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Omar Khalil</div>
+          <div class="spk-card-title">Founder &amp; CEO &middot; Nexus AI Ventures</div>
+        </div>
+      </div>
+
+      <div class="spk-card" data-track="finance" data-days="1" onclick="openPopup(3)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/3.png" alt="Priya Menon" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Priya Menon</div>
+          <div class="spk-card-title">Head of Sustainable Finance &middot; Global Green Bank</div>
+        </div>
+      </div>
+
+      <div class="spk-card" data-track="sustain" data-days="1,4" onclick="openPopup(4)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/4.png" alt="Dr. James Okafor" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Dr. James Okafor</div>
+          <div class="spk-card-title">Research Scientist &middot; Climate AI Lab, Stanford</div>
+        </div>
+      </div>
+
+      <div class="spk-card" data-track="creative" data-days="1,2" onclick="openPopup(5)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/5.png" alt="Sofia Andrade" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Sofia Andrade</div>
+          <div class="spk-card-title">Creative Director &amp; AI Artist &middot; Generative Studios</div>
+        </div>
+      </div>
+
+      <div class="spk-card" data-track="startup" data-days="1,5" onclick="openPopup(6)">
+        <div class="spk-card-badge">★ Featured</div>
+        <div class="spk-card-photo"><img src="speakers/6.png" alt="Tariq Al-Rashidi" /></div>
+        <div class="spk-card-info">
+          <div class="spk-card-name">Tariq Al-Rashidi</div>
+          <div class="spk-card-title">Professor of AI Ethics &middot; MIT Media Lab</div>
+        </div>
+      </div>
       <div class="spk-card" data-track="health" data-days="3" onclick="openPopup(7)">
         <div class="spk-card-photo"><img src="speakers/7.png" alt="Amina Diallo" /></div>
         <div class="spk-card-info">
@@ -718,22 +764,22 @@ const TRACKS = {
 };
 
 const SPEAKERS = [
-  { id:1, featured:true, name:"Dr. Layla Hassan", title:"Chief AI Officer", company:"HealthTech Global", track:"health", days:[0,2], photo:"speakers/1.png", bio:"A pioneer in clinical AI deployment across MENA and Europe, Dr. Hassan bridges the gap between research and real-world medical implementation. She has led AI programs in 12 hospital networks and advises the WHO on digital health strategy.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:0,title:"AI in Diagnostics: Where Are We Really?",link:"#"},{day:2,title:"From Research to Clinic: Deploying AI in Hospital Systems",link:"#"}] },
-  { id:2, featured:true, name:"Omar Khalil", title:"Founder & CEO", company:"Nexus AI Ventures", track:"startup", days:[0,1], photo:"speakers/2.png", bio:"Serial founder with two successful AI-native exits. Omar backs and advises the next generation of founders building in emerging markets, with a focus on Cairo, Nairobi, and Karachi. Frequent speaker at Y Combinator and TechCrunch Disrupt.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:0,title:"Building AI-Native Companies from Emerging Markets",link:"#"},{day:1,title:"GTM for AI Startups: What Works in 2026",link:"#"}] },
-  { id:3, featured:true, name:"Priya Menon", title:"Head of Sustainable Finance", company:"Global Green Bank", track:"finance", days:[0], photo:"speakers/3.png", bio:"Leading voice on AI-driven ESG scoring and green bond markets. Priya speaks at the World Economic Forum and COP annually, and has authored two landmark reports on AI’s role in climate finance with the UN Environment Programme.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:0,title:"AI and the Green Finance Revolution",link:"#"}] },
-  { id:4, featured:true, name:"Dr. James Okafor", title:"Research Scientist", company:"Climate AI Lab, Stanford", track:"sustain", days:[0,3], photo:"speakers/4.png", bio:"Working at the intersection of machine learning and climate modeling, Dr. Okafor has published 40+ papers in Nature, Science, and NeurIPS. His models now run inside three national weather agencies.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:0,title:"Machine Learning for Climate Forecasting: A Practitioner’s View",link:"#"},{day:3,title:"Carbon Intelligence: From Satellite Data to Policy Decisions",link:"#"}] },
-  { id:5, featured:true, name:"Sofia Andrade", title:"Creative Director & AI Artist", company:"Generative Studios", track:"creative", days:[0,1], photo:"speakers/5.png", bio:"A pioneer at the crossroads of design and generative AI, Sofia has built visual identities for Fortune 500 brands using AI-native workflows. Her work has been featured at MoMA, Cannes Lions, and the Venice Biennale.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:0,title:"When AI Becomes Your Creative Partner",link:"#"},{day:1,title:"Designing Brand Identity in the Generative Era",link:"#"}] },
-  { id:6, featured:true, name:"Tariq Al-Rashidi", title:"Professor of AI Ethics", company:"MIT Media Lab", track:"startup", days:[0,4], photo:"speakers/6.png", bio:"Leading global researcher on responsible AI development and governance frameworks. Tariq advises the EU AI Act working group and the African Union on national AI strategies. Author of “The Alignment Problem” (2024).", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:0,title:"Ethics by Design: Building AI Systems You Can Trust",link:"#"},{day:4,title:"Regulating AI: What Founders Need to Know Right Now",link:"#"}] },
-  { id:7, featured:false, name:"Amina Diallo", title:"Digital Health Strategist", company:"WHO Digital Health Unit", track:"health", days:[2], photo:"speakers/7.png", bio:"Driving AI adoption in public health systems across 40+ countries. A former practicing physician turned health technologist, Amina has led digital transformation programs for ministries of health on four continents.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:2,title:"AI in Public Health: Lessons from the Field",link:"#"}] },
-  { id:8, featured:false, name:"Amara Osei", title:"Fintech Founder", company:"Algora Capital", track:"finance", days:[1,3], photo:"speakers/8.png", bio:"Built and exited two AI-powered fintech companies with a combined valuation of $400M. Carlos now advises central banks in Latin America and the Middle East on algorithmic regulation and AI-driven credit infrastructure.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Risk Modeling in the Age of LLMs",link:"#"},{day:3,title:"Regulating Algorithmic Finance: A Founder’s Perspective",link:"#"}] },
-  { id:9, featured:false, name:"Yuna Park", title:"Climate Tech Investor", company:"GreenWave Ventures", track:"sustain", days:[2], photo:"speakers/9.png", bio:"Investing in the intersection of AI and clean energy, with a portfolio spanning 14 climate tech companies across MENA, Europe, and Southeast Asia. Yuna leads GreenWave’s AI & Sustainability thesis.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:2,title:"Funding the Green AI Revolution",link:"#"}] },
-  { id:10, featured:false, name:"Darius Mensah", title:"AI Music Producer", company:"SoundForge AI", track:"creative", days:[3], photo:"speakers/10.png", bio:"Using generative models to co-create music with artists globally. Darius works with major labels and independent musicians on AI-native production workflows, and has scored two award-winning films entirely using AI-assisted composition.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:3,title:"Generative Music: Collaboration or Competition?",link:"#"}] },
-  { id:11, featured:false, name:"Rahul Sharma", title:"Head of AI Products", company:"Stripe", track:"finance", days:[4], photo:"speakers/11.png", bio:"Building financial intelligence tools that power 1M+ businesses globally. A former quantitative trader turned product builder, Ines leads Stripe’s AI product division and holds patents on three fraud detection systems.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:4,title:"Intelligent Payments: How AI is Reshaping Commerce",link:"#"}] },
-  { id:12, featured:false, name:"James Carter", title:"AI Researcher", company:"DeepMind", track:"health", days:[4], photo:"speakers/12.png", bio:"Working on protein folding, drug discovery, and AI-assisted genomics at DeepMind. Dr. Soliman was part of the core AlphaFold team. Her current research focuses on AI for rare disease detection in underserved populations.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:4,title:"From AlphaFold to the Clinic: AI’s Impact on Drug Discovery",link:"#"}] },
-  { id:13, featured:false, name:"Kwame Asante", title:"Founder & CEO", company:"EcoSense AI", track:"sustain", days:[4], photo:"speakers/13.png", bio:"Building real-time carbon intelligence platforms for enterprises. Kwame raised $22M to expand AI-driven ESG reporting tools now used by 200+ companies across Africa and Europe. Named Forbes 30 Under 30 Africa 2024.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:4,title:"Real-Time Carbon Intelligence: Making Sustainability Measurable",link:"#"}] },
-  { id:14, featured:false, name:"Lena Vogel", title:"AI Filmmaker", company:"Frame Zero", track:"creative", days:[5], photo:"speakers/14.png", bio:"Making films with AI co-directors. Lena’s debut feature premiered at Sundance and screened at Cannes. She runs Frame Zero, a studio pioneering AI-native cinema production and new storytelling formats in the generative era.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"The AI-Native Film: What Cinema Looks Like Next",link:"#"}] },
-  { id:15, featured:false, name:"Mohamed El-Sayed", title:"Group Partner", company:"Y Combinator", track:"startup", days:[5], photo:"speakers/15.png", bio:"Advising 60+ AI startups on go-to-market strategy and fundraising as a Group Partner at Y Combinator. A two-time founder with exits to Google and Salesforce, Mohamed focuses on AI startups in healthcare and climate.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"GTM for AI Startups: The Playbook That Actually Works",link:"#"}] },
-  { id:16, featured:false, name:"Dr. Wei Chen", title:"Chief Data Scientist", company:"JP Morgan AI Lab", track:"finance", days:[5], photo:"speakers/16.png", bio:"Running AI transformation across global banking operations at JP Morgan. Dr. Chen leads a team of 120 AI engineers specialising in fraud detection and credit risk modeling. PhD in computational finance from Carnegie Mellon.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"Enterprise AI in Banking: Lessons from 5 Years of Deployment",link:"#"}] },
+  { id:1, featured:true, name:"Dr. Layla Hassan", title:"Chief AI Officer", company:"HealthTech Global", track:"health", days:[1,3], photo:"speakers/1.png", bio:"A pioneer in clinical AI deployment across MENA and Europe, Dr. Hassan bridges the gap between research and real-world medical implementation. She has led AI programs in 12 hospital networks and advises the WHO on digital health strategy.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"AI in Diagnostics: Where Are We Really?",link:"#"},{day:3,title:"From Research to Clinic: Deploying AI in Hospital Systems",link:"#"}] },
+  { id:2, featured:true, name:"Omar Khalil", title:"Founder & CEO", company:"Nexus AI Ventures", track:"startup", days:[1,2], photo:"speakers/2.png", bio:"Serial founder with two successful AI-native exits. Omar backs and advises the next generation of founders building in emerging markets, with a focus on Cairo, Nairobi, and Karachi. Frequent speaker at Y Combinator and TechCrunch Disrupt.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Building AI-Native Companies from Emerging Markets",link:"#"},{day:2,title:"GTM for AI Startups: What Works in 2026",link:"#"}] },
+  { id:3, featured:true, name:"Priya Menon", title:"Head of Sustainable Finance", company:"Global Green Bank", track:"finance", days:[1], photo:"speakers/3.png", bio:"Leading voice on AI-driven ESG scoring and green bond markets. Priya speaks at the World Economic Forum and COP annually, and has authored two landmark reports on AI's role in climate finance with the UN Environment Programme.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:1,title:"AI and the Green Finance Revolution",link:"#"}] },
+  { id:4, featured:true, name:"Dr. James Okafor", title:"Research Scientist", company:"Climate AI Lab, Stanford", track:"sustain", days:[1,4], photo:"speakers/4.png", bio:"Working at the intersection of machine learning and climate modeling, Dr. Okafor has published 40+ papers in Nature, Science, and NeurIPS. His models now run inside three national weather agencies.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Machine Learning for Climate Forecasting: A Practitioner's View",link:"#"},{day:4,title:"Carbon Intelligence: From Satellite Data to Policy Decisions",link:"#"}] },
+  { id:5, featured:true, name:"Sofia Andrade", title:"Creative Director & AI Artist", company:"Generative Studios", track:"creative", days:[1,2], photo:"speakers/5.png", bio:"A pioneer at the crossroads of design and generative AI, Sofia has built visual identities for Fortune 500 brands using AI-native workflows. Her work has been featured at MoMA, Cannes Lions, and the Venice Biennale.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"When AI Becomes Your Creative Partner",link:"#"},{day:2,title:"Designing Brand Identity in the Generative Era",link:"#"}] },
+  { id:6, featured:true, name:"Tariq Al-Rashidi", title:"Professor of AI Ethics", company:"MIT Media Lab", track:"startup", days:[1,5], photo:"speakers/6.png", bio:"Leading global researcher on responsible AI development and governance frameworks. Tariq advises the EU AI Act working group and the African Union on national AI strategies. Author of \u201cThe Alignment Problem\u201d (2024).", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Ethics by Design: Building AI Systems You Can Trust",link:"#"},{day:5,title:"Regulating AI: What Founders Need to Know Right Now",link:"#"}] },
+  { id:7, featured:false, name:"Amina Diallo", title:"Digital Health Strategist", company:"WHO Digital Health Unit", track:"health", days:[3], photo:"speakers/7.png", bio:"Driving AI adoption in public health systems across 40+ countries. A former practicing physician turned health technologist, Amina has led digital transformation programs for ministries of health on four continents.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:3,title:"AI in Public Health: Lessons from the Field",link:"#"}] },
+  { id:8, featured:false, name:"Amara Osei", title:"Fintech Founder", company:"Algora Capital", track:"finance", days:[2,4], photo:"speakers/8.png", bio:"Built and exited two AI-powered fintech companies with a combined valuation of $400M. Advises central banks in Latin America and the Middle East on algorithmic regulation and AI-driven credit infrastructure.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:2,title:"Risk Modeling in the Age of LLMs",link:"#"},{day:4,title:"Regulating Algorithmic Finance: A Founder's Perspective",link:"#"}] },
+  { id:9, featured:false, name:"Yuna Park", title:"Climate Tech Investor", company:"GreenWave Ventures", track:"sustain", days:[3], photo:"speakers/9.png", bio:"Investing in the intersection of AI and clean energy, with a portfolio spanning 14 climate tech companies across MENA, Europe, and Southeast Asia. Yuna leads GreenWave's AI & Sustainability thesis.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:3,title:"Funding the Green AI Revolution",link:"#"}] },
+  { id:10, featured:false, name:"Darius Mensah", title:"AI Music Producer", company:"SoundForge AI", track:"creative", days:[4], photo:"speakers/10.png", bio:"Using generative models to co-create music with artists globally. Darius works with major labels and independent musicians on AI-native production workflows, and has scored two award-winning films entirely using AI-assisted composition.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:4,title:"Generative Music: Collaboration or Competition?",link:"#"}] },
+  { id:11, featured:false, name:"Rahul Sharma", title:"Head of AI Products", company:"Stripe", track:"finance", days:[5], photo:"speakers/11.png", bio:"Building financial intelligence tools that power 1M+ businesses globally. A former quantitative trader turned product builder, leads Stripe's AI product division and holds patents on three fraud detection systems.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"Intelligent Payments: How AI is Reshaping Commerce",link:"#"}] },
+  { id:12, featured:false, name:"James Carter", title:"AI Researcher", company:"DeepMind", track:"health", days:[5], photo:"speakers/12.png", bio:"Working on protein folding, drug discovery, and AI-assisted genomics at DeepMind. Part of the core AlphaFold team. Current research focuses on AI for rare disease detection in underserved populations.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:5,title:"From AlphaFold to the Clinic: AI's Impact on Drug Discovery",link:"#"}] },
+  { id:13, featured:false, name:"Kwame Asante", title:"Founder & CEO", company:"EcoSense AI", track:"sustain", days:[5], photo:"speakers/13.png", bio:"Building real-time carbon intelligence platforms for enterprises. Kwame raised $22M to expand AI-driven ESG reporting tools now used by 200+ companies across Africa and Europe. Named Forbes 30 Under 30 Africa 2024.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"Real-Time Carbon Intelligence: Making Sustainability Measurable",link:"#"}] },
+  { id:14, featured:false, name:"Lena Vogel", title:"AI Filmmaker", company:"Frame Zero", track:"creative", days:[6], photo:"speakers/14.png", bio:"Making films with AI co-directors. Lena's debut feature premiered at Sundance and screened at Cannes. She runs Frame Zero, a studio pioneering AI-native cinema production and new storytelling formats in the generative era.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"The AI-Native Film: What Cinema Looks Like Next",link:"#"}] },
+  { id:15, featured:false, name:"Mohamed El-Sayed", title:"Group Partner", company:"Y Combinator", track:"startup", days:[6], photo:"speakers/15.png", bio:"Advising 60+ AI startups on go-to-market strategy and fundraising as a Group Partner at Y Combinator. A two-time founder with exits to Google and Salesforce, Mohamed focuses on AI startups in healthcare and climate.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"GTM for AI Startups: The Playbook That Actually Works",link:"#"}] },
+  { id:16, featured:false, name:"Dr. Wei Chen", title:"Chief Data Scientist", company:"JP Morgan AI Lab", track:"finance", days:[6], photo:"speakers/16.png", bio:"Running AI transformation across global banking operations at JP Morgan. Dr. Chen leads a team of 120 AI engineers specialising in fraud detection and credit risk modeling. PhD in computational finance from Carnegie Mellon.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"Enterprise AI in Banking: Lessons from 5 Years of Deployment",link:"#"}] },
 ];
 
 let activeTrack = "all", activeDay = "all";
