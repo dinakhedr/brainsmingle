@@ -76,7 +76,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--yellow);
   margin-bottom: 16px;
 }
 .section-eyebrow::before {
@@ -84,7 +84,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-block;
   width: 20px;
   height: 1px;
-  background: var(--purple);
+  background: var(--yellow);
 }
 
 .section-title {
