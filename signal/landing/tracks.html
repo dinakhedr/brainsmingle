@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tracks — Signal: AI · July 4–10, 2026</title>
+  <meta name="description" content="Five domains. One week. Real practitioners, live. Explore the Signal: AI tracks." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <style>
+    /* ── Tracks Page Styles ── */
+    .tracks-hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tracks-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(107,62,245,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .tracks-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .tracks-hero-eyebrow span { color: var(--yellow); }
+    .tracks-hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1.05;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+    .tracks-hero-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Track Cards ── */
+    .tracks-list {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .track-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .track-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-2px);
+    }
+
+    /* colored left accent bar */
+    .track-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+    .track-card.health::before   { background: #00D4FF; }
+    .track-card.sustain::before  { background: #00E8A2; }
+    .track-card.finance::before  { background: #F5A623; }
+    .track-card.creative::before { background: #F53E9F; }
+    .track-card.startups::before { background: #E8F200; }
+
+    .track-card-inner {
+      padding: 40px 44px 40px 52px;
+    }
+
+    /* ── Sponsor row at top ── */
+    .track-sponsor-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .track-powered-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .track-sponsor-box {
+      background: var(--bg-section);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 52px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .track-sponsor-box:hover { border-color: var(--border-mid); }
+    .track-sponsor-box img {
+      max-width: 80%;
+      max-height: 70%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .track-sponsor-box:hover img { opacity: 1; }
+
+    /* ── Track number + name ── */
+    .track-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .track-card.health   .track-number { color: #00D4FF; }
+    .track-card.sustain  .track-number { color: #00E8A2; }
+    .track-card.finance  .track-number { color: #F5A623; }
+    .track-card.creative .track-number { color: #F53E9F; }
+    .track-card.startups .track-number { color: #E8F200; }
+
+    .track-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+      line-height: 1.1;
+    }
+
+    .track-quote {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin: 0 0 28px;
+      padding-left: 16px;
+      border-left: 2px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .track-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 40px;
+      margin-bottom: 32px;
+    }
+
+    .track-section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .track-about {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .track-for {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .track-sessions-col { grid-column: 1 / -1; }
+
+    .track-sessions-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 32px;
+    }
+    .track-sessions-list li {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .track-sessions-list li::before {
+      content: '—';
+      opacity: 0.4;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .track-card-footer {
+      border-top: 0.5px solid var(--border);
+      padding: 20px 44px 20px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* ── Bottom CTA ── */
+    .tracks-cta-strip {
+      background: var(--bg-card);
+      border-top: 0.5px solid var(--border);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .tracks-cta-strip h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin: 0 0 8px;
+    }
+    .tracks-cta-strip p {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0 0 28px;
+    }
+
+    @media (max-width: 680px) {
+      .track-card-inner { padding: 28px 24px 28px 32px; }
+      .track-card-footer { padding: 18px 24px 18px 32px; }
+      .track-body { grid-template-columns: 1fr; gap: 20px; }
+      .track-sessions-list { grid-template-columns: 1fr; }
+      .track-sessions-col { grid-column: 1; }
+      .track-name { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a href="home.html" class="nav-logo">
+    <img src="logo.png" alt="Signal: AI" />
+  </a>
+  <div class="nav-links">
+    <a href="home.html#about">About</a>
+    <a href="tracks.html" class="nav-active">Tracks</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="sponsors.html">Sponsors & Partners</a>
+  </div>
+  <div class="nav-actions">
+    <a href="home.html#register" class="btn btn-primary btn-sm">Register to Join the Signal</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="tracks-hero">
+  <div class="tracks-hero-eyebrow">
+    <span>Signal: AI</span>
+    <span style="opacity:0.3;">·</span>
+    JULY 4–10, 2026
+  </div>
+  <h1>The Tracks</h1>
+  <p class="tracks-hero-sub">Five domains. One week. Real practitioners, live.</p>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TRACK CARDS
+══════════════════════════════════════════ -->
+<div class="tracks-list">
+
+  <!-- ── Track 01: Medicine & Health ── -->
+  <div class="track-card health">
+    <div class="track-card-inner">
+      <div class="track-sponsor-row">
+        <span class="track-powered-label">Powered by</span>
+        <div class="track-sponsor-box">
+          <img src="sponsors/track-1.png" alt="Track Sponsor" />
+        </div>
+      </div>
+      <div class="track-number">Track 01</div>
+      <h2 class="track-name">Medicine & Health</h2>
+      <p class="track-quote">"Where AI meets the clinic, the lab, and the policy table."</p>
+      <div class="track-body">
+        <div>
+          <div class="track-section-label">About this track</div>
+          <p class="track-about">From diagnostics and drug discovery to mental health tools and health equity — this track brings together clinicians, researchers, healthtech founders, and policymakers exploring how AI is reshaping every layer of healthcare.</p>
+        </div>
+        <div>
+          <div class="track-section-label">Who it's for</div>
+          <p class="track-for">Doctors, healthcare professionals, healthtech founders, researchers, medical students, and anyone building at the intersection of AI and health.</p>
+        </div>
+        <div class="track-sessions-col">
+          <div class="track-section-label">Sessions cover</div>
+          <ul class="track-sessions-list">
+            <li>AI in diagnostics & medical imaging</li>
+            <li>Drug discovery & genomics</li>
+            <li>Mental health & digital therapeutics</li>
+            <li>Health equity & access</li>
+            <li>Regulatory frameworks & ethics in AI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="track-card-footer">
+      <a href="agenda.html" class="btn btn-outline btn-sm btn-arrow" target="_blank">View Sessions</a>
+    </div>
+  </div>
+
+  <!-- ── Track 02: Sustainability & Climate ── -->
+  <div class="track-card sustain">
+    <div class="track-card-inner">
+      <div class="track-sponsor-row">
+        <span class="track-powered-label">Powered by</span>
+        <div class="track-sponsor-box">
+          <img src="sponsors/track-2.png" alt="Track Sponsor" />
+        </div>
+      </div>
+      <div class="track-number">Track 02</div>
+      <h2 class="track-name">Sustainability & Climate</h2>
+      <p class="track-quote">"AI as a tool for the planet, not just profit."</p>
+      <div class="track-body">
+        <div>
+          <div class="track-section-label">About this track</div>
+          <p class="track-about">From climate modeling and carbon tracking to sustainable agriculture and clean energy — this track explores how AI is being deployed to address the most urgent environmental challenges of our time.</p>
+        </div>
+        <div>
+          <div class="track-section-label">Who it's for</div>
+          <p class="track-for">Climate scientists, sustainability leads, cleantech founders, policymakers, ESG professionals, and environmental researchers.</p>
+        </div>
+        <div class="track-sessions-col">
+          <div class="track-section-label">Sessions cover</div>
+          <ul class="track-sessions-list">
+            <li>AI for climate modeling & prediction</li>
+            <li>Carbon tracking & net-zero tools</li>
+            <li>Clean energy & smart grids</li>
+            <li>Sustainable agriculture & food systems</li>
+            <li>ESG reporting & green finance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="track-card-footer">
+      <a href="agenda.html" class="btn btn-outline btn-sm btn-arrow" target="_blank">View Sessions</a>
+    </div>
+  </div>
+
+  <!-- ── Track 03: Finance ── -->
+  <div class="track-card finance">
+    <div class="track-card-inner">
+      <div class="track-sponsor-row">
+        <span class="track-powered-label">Powered by</span>
+        <div class="track-sponsor-box">
+          <img src="sponsors/track-3.png" alt="Track Sponsor" />
+        </div>
+      </div>
+      <div class="track-number">Track 03</div>
+      <h2 class="track-name">Finance</h2>
+      <p class="track-quote">"The algorithms are already trading. Are you keeping up?"</p>
+      <div class="track-body">
+        <div>
+          <div class="track-section-label">About this track</div>
+          <p class="track-about">From algorithmic trading and fraud detection to embedded finance and DeFi — this track brings together the minds reshaping financial systems with AI, from legacy banks to next-gen fintech.</p>
+        </div>
+        <div>
+          <div class="track-section-label">Who it's for</div>
+          <p class="track-for">Finance professionals, fintech founders, investors, risk managers, economists, and banking executives navigating the AI transition.</p>
+        </div>
+        <div class="track-sessions-col">
+          <div class="track-section-label">Sessions cover</div>
+          <ul class="track-sessions-list">
+            <li>Algorithmic trading & market intelligence</li>
+            <li>Fraud detection & risk modeling</li>
+            <li>AI in lending & credit scoring</li>
+            <li>Embedded finance & open banking</li>
+            <li>DeFi, blockchain & the future of money</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="track-card-footer">
+      <a href="agenda.html" class="btn btn-outline btn-sm btn-arrow" target="_blank">View Sessions</a>
+    </div>
+  </div>
+
+  <!-- ── Track 04: Creative Industries ── -->
+  <div class="track-card creative">
+    <div class="track-card-inner">
+      <div class="track-sponsor-row">
+        <span class="track-powered-label">Powered by</span>
+        <div class="track-sponsor-box">
+          <img src="sponsors/track-4.png" alt="Track Sponsor" />
+        </div>
+      </div>
+      <div class="track-number">Track 04</div>
+      <h2 class="track-name">Creative Industries</h2>
+      <p class="track-quote">"AI didn't kill creativity. It just changed who holds the brush."</p>
+      <div class="track-body">
+        <div>
+          <div class="track-section-label">About this track</div>
+          <p class="track-about">From generative art and music production to content strategy and IP law — this track is for creators, studios, and brands navigating a world where AI is both tool and collaborator.</p>
+        </div>
+        <div>
+          <div class="track-section-label">Who it's for</div>
+          <p class="track-for">Designers, artists, content creators, media professionals, brand strategists, and anyone working at the intersection of creativity and technology.</p>
+        </div>
+        <div class="track-sessions-col">
+          <div class="track-section-label">Sessions cover</div>
+          <ul class="track-sessions-list">
+            <li>Generative art, image & video</li>
+            <li>AI in music production & sound design</li>
+            <li>Content strategy & AI writing tools</li>
+            <li>IP, copyright & creative rights in the AI era</li>
+            <li>Brand building with AI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="track-card-footer">
+      <a href="agenda.html" class="btn btn-outline btn-sm btn-arrow" target="_blank">View Sessions</a>
+    </div>
+  </div>
+
+  <!-- ── Track 05: Startups & Entrepreneurship ── -->
+  <div class="track-card startups">
+    <div class="track-card-inner">
+      <div class="track-sponsor-row">
+        <span class="track-powered-label">Powered by</span>
+        <div class="track-sponsor-box">
+          <img src="sponsors/track-5.png" alt="Track Sponsor" />
+        </div>
+      </div>
+      <div class="track-number">Track 05</div>
+      <h2 class="track-name">Startups & Entrepreneurship</h2>
+      <p class="track-quote">"Build faster. Think bigger. The playbook just got rewritten."</p>
+      <div class="track-body">
+        <div>
+          <div class="track-section-label">About this track</div>
+          <p class="track-about">From fundraising and product development to go-to-market and scaling — this track is the engine room of Signal: AI, built for founders and operators who are shipping AI-native products right now.</p>
+        </div>
+        <div>
+          <div class="track-section-label">Who it's for</div>
+          <p class="track-for">Founders, co-founders, startup operators, VCs, accelerator teams, and product builders at every stage.</p>
+        </div>
+        <div class="track-sessions-col">
+          <div class="track-section-label">Sessions cover</div>
+          <ul class="track-sessions-list">
+            <li>Building AI-native products</li>
+            <li>Fundraising in the AI era</li>
+            <li>Go-to-market for AI startups</li>
+            <li>Hiring & team building with AI tools</li>
+            <li>Scaling from 0 to 1 with AI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="track-card-footer">
+      <a href="agenda.html" class="btn btn-outline btn-sm btn-arrow" target="_blank">View Sessions</a>
+    </div>
+  </div>
+
+</div><!-- /tracks-list -->
+
+
+<!-- ══════════════════════════════════════════
+     BOTTOM CTA
+══════════════════════════════════════════ -->
+<section class="tracks-cta-strip">
+  <h2>Want to sponsor a track?</h2>
+  <p>Put your brand at the center of the conversation that matters to your audience.</p>
+  <a href="sponsors.html" class="btn btn-yellow btn-arrow" target="_blank">Become a Track Sponsor</a>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Signal: AI" />
+      <p class="footer-brand-sub">The global AI activation week. Powered by BrainsMingle.</p>
+      <div class="footer-contact">
+        <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Event</div>
+      <div class="footer-links">
+        <a href="home.html#about">About Signal</a>
+        <a href="tracks.html">The Tracks</a>
+        <a href="agenda.html">Full Agenda</a>
+        <a href="speakers.html">Speakers</a>
+        <a href="speakers.html">Join as Speaker</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Partners</div>
+      <div class="footer-links">
+        <a href="sponsors.html">Become a Sponsor</a>
+        <a href="partners.html">Become a Partner</a>
+        <a href="partners.html">Community Partners</a>
+        <a href="partners.html">Media Partners</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-bottom-text">© 2026 Signal: AI · Powered by BrainsMingle</span>
+    <span class="footer-bottom-text">4 – 10 July 2026 · Global · Virtual</span>
+  </div>
+</footer>
+
+</body>
+</html>
