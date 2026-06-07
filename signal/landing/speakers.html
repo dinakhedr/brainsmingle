@@ -6,344 +6,18 @@
   <title>Speakers — Signal: AI | 4–10 July 2026</title>
   <meta name="description" content="Meet the 100+ experts speaking at Signal: AI — the global AI activation week. 5 tracks. 7 days. Powered by BrainsMingle." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="icon.png" />
-  <style>
-
-    /* ══════════════════════════════════════════
-       SPEAKERS PAGE — local styles only
-       All base vars, buttons, nav, footer, pills,
-       eyebrows, section-title, sp-form come from style.css
-    ══════════════════════════════════════════ */
-
-    /* ── HERO ── */
-    .spk-hero {
-      position: relative; padding: 160px 48px 64px;
-      text-align: center; overflow: hidden;
-    }
-    .spk-hero-glow {
-      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 500px;
-      background: radial-gradient(ellipse, rgba(107,62,245,0.22) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .spk-hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
-    .spk-hero .section-eyebrow { justify-content: center; margin-bottom: 28px; }
-    .spk-hero .section-title   { margin-bottom: 20px; letter-spacing: -0.02em; }
-    .spk-hero .section-title em { font-style: normal; color: var(--yellow); }
-    .spk-hero .section-sub { margin: 0 auto 36px; text-align: center; }
-    .spk-hero-pills {
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px; flex-wrap: wrap;
-}
-.spk-hero-pills .tl-pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-body); font-size: 12px; font-weight: 600;
-  letter-spacing: 0.05em; padding: 6px 14px;
-  border-radius: 20px; border: 0.5px solid;
-}
-.spk-hero-pills .tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-    /* ── FEATURED ── */
-    .spk-featured { padding: 0 48px 72px; }
-    .spk-featured-inner { max-width: var(--max-width); margin: 0 auto; }
-    .spk-featured-head {
-      display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
-    }
-    .spk-featured-eyebrow {
-      font-family: var(--font-body); font-size: 11px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--yellow); white-space: nowrap;
-    }
-    .spk-featured-line { flex: 1; height: 0.5px; background: var(--border-mid); }
-    .spk-featured-tag {
-      font-family: var(--font-body); font-size: 11px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-muted); white-space: nowrap;
-    }
-    .spk-featured-grid {
-      display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
-    }
-
-    /* ── SPEAKER CARD ── */
-    .spk-card {
-      border-radius: var(--radius-lg); overflow: hidden; cursor: pointer;
-      border: 0.5px solid var(--border); background: var(--bg-card);
-      transition: border-color 0.25s, transform 0.25s; position: relative;
-    }
-    .spk-card:hover { border-color: rgba(232,242,0,0.5); transform: translateY(-4px); }
-    .spk-card-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #1a1a2e; }
-    .spk-card-photo img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform 0.4s ease;
-    }
-    .spk-card:hover .spk-card-photo img { transform: scale(1.05); }
-    .spk-card-info { padding: 12px 14px 14px; }
-    .spk-card-name {
-      font-family: var(--font-display); font-size: 13px; font-weight: 700;
-      color: var(--text-primary); margin-bottom: 3px; line-height: 1.2;
-    }
-    .spk-card-title {
-      font-family: var(--font-body); font-size: 11px; color: var(--text-secondary);
-      line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .spk-card-badge {
-      position: absolute; top: 10px; left: 10px; z-index: 2;
-      display: inline-flex; align-items: center;
-      padding: 3px 9px; border-radius: 100px;
-      background: #E8F200; border: 0.5px solid #E8F200;
-      font-family: var(--font-body); font-size: 9px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; color: #0A0A14;;
-      backdrop-filter: blur(6px);
-    }
-
-    /* ── FILTER BAR ── */
-    .spk-filters {
-      position: sticky; top: 64px; z-index: 50;
-      padding: 20px 48px 16px;
-      background: rgba(5,5,15,0.92); backdrop-filter: blur(16px);
-      border-bottom: 0.5px solid var(--border);
-    }
-    .spk-filters-inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .spk-filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .spk-filter-label {
-      font-family: var(--font-body); font-size: 10px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);
-      min-width: 36px;
-    }
-    /* Filter buttons reuse track-pill shape + sizing */
-    .spk-fbtn {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-family: var(--font-body); font-weight: 600; font-size: 11px;
-      letter-spacing: 0.05em; padding: 5px 13px; border-radius: 20px;
-      border: 0.5px solid rgba(255,255,255,0.12);
-      background: transparent; color: var(--text-secondary);
-      cursor: pointer; transition: all 0.18s; white-space: nowrap;
-    }
-    .spk-fbtn .pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-    .spk-fbtn:hover { border-color: rgba(255,255,255,0.25); color: var(--text-primary); background: rgba(255,255,255,0.03); }
-
-    /* All Tracks / All Days default + active */
-    .spk-fbtn.active-all {
-      background: var(--purple-dim); border-color: rgba(107,62,245,0.4); color: #A07BFF;
-    }
-
-    /* Track buttons — colored like tl-pill when active */
-    .spk-fbtn[data-track="health"]         { color: rgba(0,212,255,0.55);   border-color: rgba(0,212,255,0.18);  background: rgba(0,212,255,0.04); }
-    .spk-fbtn[data-track="sustain"]        { color: rgba(0,232,162,0.55);   border-color: rgba(0,232,162,0.18);  background: rgba(0,232,162,0.04); }
-    .spk-fbtn[data-track="finance"]        { color: rgba(245,166,35,0.55);  border-color: rgba(245,166,35,0.18); background: rgba(245,166,35,0.04); }
-    .spk-fbtn[data-track="creative"]       { color: rgba(245,62,159,0.55);  border-color: rgba(245,62,159,0.18); background: rgba(245,62,159,0.04); }
-    .spk-fbtn[data-track="startup"]        { color: rgba(232,242,0,0.55);   border-color: rgba(232,242,0,0.18);  background: rgba(232,242,0,0.04); }
-
-    /* Active track — full color like hero pills */
-    .spk-fbtn[data-track="health"].active   { color: #00D4FF; border-color: rgba(0,212,255,0.35);  background: rgba(0,212,255,0.08); }
-    .spk-fbtn[data-track="sustain"].active  { color: #00E8A2; border-color: rgba(0,232,162,0.35);  background: rgba(0,232,162,0.08); }
-    .spk-fbtn[data-track="finance"].active  { color: #F5A623; border-color: rgba(245,166,35,0.35); background: rgba(245,166,35,0.08); }
-    .spk-fbtn[data-track="creative"].active { color: #F53E9F; border-color: rgba(245,62,159,0.35); background: rgba(245,62,159,0.08); }
-    .spk-fbtn[data-track="startup"].active  { color: #E8F200; border-color: rgba(232,242,0,0.35);  background: rgba(232,242,0,0.08); }
-
-    /* Day buttons */
-    .spk-fbtn[data-day].active {
-      background: rgba(232,242,0,0.08); border-color: rgba(232,242,0,0.35); color: var(--yellow);
-    }
-    /* ── MAIN GRID ── */
-    .spk-grid-section { padding: 48px 48px 100px; }
-    .spk-grid-inner { max-width: var(--max-width); margin: 0 auto; }
-    .spk-grid-count {
-      font-family: var(--font-body); font-size: 13px; color: var(--text-muted); margin-bottom: 24px;
-    }
-    .spk-grid-count strong { color: var(--text-secondary); font-weight: 600; }
-    .spk-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-    .spk-card.hidden { display: none; }
-    .spk-empty {
-      display: none; grid-column: 1/-1; text-align: center;
-      padding: 80px 20px; font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
-    }
-    .spk-empty.visible { display: block; }
-
-    /* ── POPUP ── */
-    .spk-overlay {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(5,5,15,0.85); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center; padding: 24px;
-      opacity: 0; pointer-events: none; transition: opacity 0.25s;
-    }
-    .spk-overlay.open { opacity: 1; pointer-events: all; }
-    .spk-popup {
-      background: var(--bg-card); border: 0.5px solid rgba(232,242,0,0.3);
-      border-radius: var(--radius-xl); width: 100%; max-width: 760px; max-height: 90vh;
-      overflow-y: auto; display: grid; grid-template-columns: 220px 1fr;
-      position: relative; transform: translateY(16px); transition: transform 0.25s;
-    }
-    .spk-overlay.open .spk-popup { transform: translateY(0); }
-    .spk-popup-close {
-      position: absolute; top: 16px; right: 16px;
-      width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(255,255,255,0.07); border: 0.5px solid var(--border-mid);
-      color: var(--text-secondary); font-size: 16px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: background 0.2s; z-index: 10;
-    }
-    .spk-popup-close:hover { background: rgba(255,255,255,0.12); }
-    .spk-popup-photo-col {
-      padding: 28px 20px 28px 28px;
-      display: flex; flex-direction: column; gap: 12px;
-      border-right: 0.5px solid var(--border);
-    }
-    .spk-popup-img {
-      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-lg);
-      overflow: hidden; background: #1a1a2e;
-    }
-    .spk-popup-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    /* Profile link buttons — same field style as sp-form inputs */
-    .spk-popup-link {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: var(--radius-md);
-      border: 0.5px solid var(--border-mid);
-      background: rgba(255,255,255,0.04);
-      font-family: var(--font-body); font-size: 12px; font-weight: 600;
-      color: var(--text-secondary); text-decoration: none; width: 100%;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-    }
-    .spk-popup-link svg { flex-shrink: 0; }
-    .spk-popup-link.bm:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,232,162,0.07); }
-    .spk-popup-link.li:hover { border-color: #4A9ADF; color: #4A9ADF; background: rgba(74,154,223,0.07); }
-    .spk-popup-content { padding: 28px 28px 28px 24px; display: flex; flex-direction: column; gap: 20px; }
-    .spk-popup-name {
-      font-family: var(--font-display); font-size: 22px; font-weight: 800;
-      color: var(--text-primary); letter-spacing: -0.01em; line-height: 1.1;
-      margin-bottom: 5px; padding-right: 40px;
-    }
-    .spk-popup-role {
-      font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.4;
-    }
-    .spk-popup-micro {
-      font-family: var(--font-body); font-size: 10px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px;
-    }
-    .spk-popup-bio {
-      font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.75;
-    }
-    /* Session rows in popup */
-    .spk-session-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 11px 14px; border-radius: var(--radius-md);
-      border: 0.5px solid var(--border); background: rgba(255,255,255,0.02);
-      margin-bottom: 8px; transition: border-color 0.2s;
-    }
-    .spk-session-item:last-child { margin-bottom: 0; }
-    .spk-session-item:hover { border-color: rgba(107,62,245,0.3); }
-    .spk-session-day {
-      flex-shrink: 0; min-width: 44px;
-      font-family: var(--font-body); font-size: 10px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); padding-top: 1px;
-    }
-    .spk-session-title {
-      font-family: var(--font-body); font-size: 12px; font-weight: 600;
-      color: var(--text-primary); line-height: 1.4; flex: 1;
-    }
-    .spk-session-link {
-      flex-shrink: 0; font-size: 11px; color: var(--purple);
-      text-decoration: none; font-weight: 600; padding-top: 1px; transition: color 0.2s;
-    }
-    .spk-session-link:hover { color: var(--cyan); }
-
-   /* ── APPLY SECTION ── */
-    .spk-apply { background: var(--bg-card-2); padding: var(--section-pad); }
-    .sp-contact-inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-      align-items: start;
-    }
-    .sp-contact-left h2 {
-      font-family: var(--font-display); font-size: 38px; font-weight: 900;
-      color: var(--text-primary); line-height: 1.1; margin-bottom: 18px;
-      letter-spacing: -0.02em;
-    }
-    .sp-contact-left h2 em { font-style: normal; color: var(--yellow); }
-    .sp-contact-left p {
-      font-family: var(--font-body); font-size: 15px; color: var(--text-secondary);
-      line-height: 1.7; margin-bottom: 36px;
-    }
-    .sp-contact-meta { display: flex; flex-direction: column; gap: 16px; }
-    .sp-contact-meta-item {
-      display: flex; align-items: center; gap: 12px;
-      font-family: var(--font-body); font-size: 13px; color: var(--text-secondary);
-    }
-    .sp-contact-meta-item a { color: var(--yellow); text-decoration: none; }
-    .sp-contact-meta-item a:hover { text-decoration: underline; }
-    .sp-contact-meta-icon {
-      width: 32px; height: 32px; border-radius: var(--radius-sm);
-      background: rgba(107,62,245,0.15); display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; font-size: 14px;
-    }
-    .sp-form { display: flex; flex-direction: column; gap: 16px; }
-    .sp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .sp-field { display: flex; flex-direction: column; gap: 6px; }
-    .sp-field label {
-      font-family: var(--font-body); font-size: 12px; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted);
-    }
-    .sp-field input,
-    .sp-field select,
-    .sp-field textarea {
-      background: rgba(255,255,255,0.04); border: 0.5px solid var(--border-mid);
-      border-radius: var(--radius-md); padding: 13px 16px;
-      font-family: var(--font-body); font-size: 14px; color: var(--text-primary);
-      outline: none; transition: border-color 0.2s, background 0.2s;
-      -webkit-appearance: none;
-    }
-    .sp-field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 36px; cursor: pointer;
-    }
-    .sp-field select option { background: #0E0E1C; color: #fff; }
-    .sp-field input:focus,
-    .sp-field select:focus,
-    .sp-field textarea:focus {
-      border-color: rgba(107,62,245,0.6); background: rgba(107,62,245,0.06);
-    }
-    .sp-field textarea { resize: vertical; min-height: 100px; }
-    .sp-field input::placeholder,
-    .sp-field textarea::placeholder { color: var(--text-muted); }
-    .sp-form-submit-row {
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    }
-    .sp-form-note {
-      font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .sp-form-success {
-      display: none; background: rgba(0,232,162,0.1);
-      border: 0.5px solid rgba(0,232,162,0.3); border-radius: var(--radius-md);
-      padding: 16px 20px; font-family: var(--font-body); font-size: 14px;
-      color: var(--cyan); text-align: center;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1200px) {
-      .spk-featured-grid { grid-template-columns: repeat(4, 1fr); }
-      .spk-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .spk-featured-grid { grid-template-columns: repeat(3, 1fr); }
-      .spk-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .spk-featured-grid { grid-template-columns: repeat(2, 1fr); }
-      .spk-grid { grid-template-columns: repeat(2, 1fr); }
-
-  </style>
+  <link rel="icon" type="image/png" href="assets/brand/icon.png" />
 </head>
 <body>
 
 
-<!-- NAV -->
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
 <nav class="site-nav">
-  <a href="home.html" class="nav-logo"><img src="logo.png" alt="Signal: AI" /></a>
+  <a href="home.html" class="nav-logo">
+    <img src="assets/brand/logo.png" alt="Signal: AI" />
+  </a>
   <div class="nav-links">
     <a href="home.html#about">About</a>
     <a href="tracks.html">Tracks</a>
@@ -357,25 +31,24 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
 <section class="spk-hero">
   <div class="spk-hero-glow"></div>
   <div class="spk-hero-inner">
     <div class="section-eyebrow">Signal: AI &middot; 4 – 10 July 2026</div>
     <h1 class="section-title">100+ <em>Experts.</em><br>One Signal.</h1>
     <p class="section-sub">Practitioners, founders, researchers, and domain leaders. All in one room, for one week.</p>
-<div class="spk-hero-pills">
-  <span class="tl-pill" style="color:#00D4FF;border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.06);"><span class="tl-dot" style="background:#00D4FF;"></span>AI in Health</span>
-  <span class="tl-pill" style="color:#00E8A2;border-color:rgba(0,232,162,0.3);background:rgba(0,232,162,0.06);"><span class="tl-dot" style="background:#00E8A2;"></span>AI in Sustainability</span>
-  <span class="tl-pill" style="color:#F5A623;border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.06);"><span class="tl-dot" style="background:#F5A623;"></span>AI in Finance</span>
-  <span class="tl-pill" style="color:#F53E9F;border-color:rgba(245,62,159,0.3);background:rgba(245,62,159,0.06);"><span class="tl-dot" style="background:#F53E9F;"></span>AI in Creative</span>
-  <span class="tl-pill" style="color:#E8F200;border-color:rgba(232,242,0,0.3);background:rgba(232,242,0,0.06);"><span class="tl-dot" style="background:#E8F200;"></span>AI in Entrepreneurship</span>
-</div>
+    <!-- track pills — rendered from tracks.js -->
+    <div class="spk-hero-pills" id="spk-hero-pills"></div>
   </div>
 </section>
 
 
-<!-- FEATURED -->
+<!-- ══════════════════════════════════════════
+     FEATURED — rendered from speakers.js
+══════════════════════════════════════════ -->
 <section class="spk-featured">
   <div class="spk-featured-inner">
     <div class="spk-featured-head">
@@ -383,236 +56,59 @@
       <div class="spk-featured-line"></div>
       <div class="spk-featured-tag">High-profile panels</div>
     </div>
-    <div class="spk-featured-grid">
-        <div class="spk-card" data-track="health" data-days="1,3" onclick="openPopup(1)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/1.png" alt="Dr. Layla Hassan" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Dr. Layla Hassan</div>
-          <div class="spk-card-title">Chief AI Officer &middot; HealthTech Global</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="startup" data-days="1,2" onclick="openPopup(2)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/2.png" alt="Omar Khalil" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Omar Khalil</div>
-          <div class="spk-card-title">Founder &amp; CEO &middot; Nexus AI Ventures</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="finance" data-days="1" onclick="openPopup(3)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/3.png" alt="Priya Menon" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Priya Menon</div>
-          <div class="spk-card-title">Head of Sustainable Finance &middot; Global Green Bank</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="sustain" data-days="1,4" onclick="openPopup(4)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/4.png" alt="Dr. James Okafor" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Dr. James Okafor</div>
-          <div class="spk-card-title">Research Scientist &middot; Climate AI Lab, Stanford</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="creative" data-days="1,2" onclick="openPopup(5)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/5.png" alt="Sofia Andrade" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Sofia Andrade</div>
-          <div class="spk-card-title">Creative Director &amp; AI Artist &middot; Generative Studios</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="startup" data-days="1,5" onclick="openPopup(6)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/6.png" alt="Tariq Al-Rashidi" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Tariq Al-Rashidi</div>
-          <div class="spk-card-title">Professor of AI Ethics &middot; MIT Media Lab</div>
-        </div>
-      </div>
-    </div>
+    <div class="spk-featured-grid" id="spk-featured-grid"></div>
   </div>
 </section>
 
 
-<!-- FILTER BAR -->
+<!-- ══════════════════════════════════════════
+     FILTER BAR — track buttons rendered from tracks.js
+══════════════════════════════════════════ -->
 <div class="spk-filters">
   <div class="spk-filters-inner">
     <div class="spk-filter-row" style="margin-bottom:4px;">
       <span class="spk-filter-label">Search</span>
-      <input type="text" id="spk-search" placeholder="Search by name or title..." oninput="renderGrid()" style="flex:1;max-width:340px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border-mid);border-radius:20px;padding:5px 16px;font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-primary);outline:none;transition:border-color 0.2s,background 0.2s;" onfocus="this.style.borderColor='rgba(107,62,245,0.6)';this.style.background='rgba(107,62,245,0.06)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)';this.style.background='rgba(255,255,255,0.04)'" />
+      <input type="text" id="spk-search" placeholder="Search by name or title..."
+             oninput="filterGrid()"
+             style="flex:1;max-width:340px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border-mid);border-radius:20px;padding:5px 16px;font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-primary);outline:none;transition:border-color 0.2s,background 0.2s;"
+             onfocus="this.style.borderColor='rgba(107,62,245,0.6)';this.style.background='rgba(107,62,245,0.06)'"
+             onblur="this.style.borderColor='rgba(255,255,255,0.12)';this.style.background='rgba(255,255,255,0.04)'" />
     </div>
     <div class="spk-filter-row">
       <span class="spk-filter-label">Track</span>
-      <button class="spk-fbtn active-all" data-track="all">All Tracks</button>
-      <button class="spk-fbtn" data-track="health"><span class="pill-dot" style="background:#00D4FF;"></span>Medicine &amp; Health</button>
-      <button class="spk-fbtn" data-track="sustain"><span class="pill-dot" style="background:#00E8A2;"></span>Sustainability</button>
-      <button class="spk-fbtn" data-track="finance"><span class="pill-dot" style="background:#F5A623;"></span>Finance</button>
-      <button class="spk-fbtn" data-track="creative"><span class="pill-dot" style="background:#F53E9F;"></span>Creative Industries</button>
-      <button class="spk-fbtn" data-track="startup"><span class="pill-dot" style="background:#E8F200;"></span>Startups</button>
+      <!-- rendered from tracks.js -->
+      <div id="track-filter-btns" style="display:contents;"></div>
     </div>
     <div class="spk-filter-row">
       <span class="spk-filter-label">Day</span>
-      <button class="spk-fbtn active-all" data-day="all">All Days</button>
-      <button class="spk-fbtn" data-day="1">Day 1</button>
-      <button class="spk-fbtn" data-day="2">Day 2</button>
-      <button class="spk-fbtn" data-day="3">Day 3</button>
-      <button class="spk-fbtn" data-day="4">Day 4</button>
-      <button class="spk-fbtn" data-day="5">Day 5</button>
-      <button class="spk-fbtn" data-day="6">Day 6</button>
+      <button class="spk-fbtn active-all" data-day="all" onclick="setDayFilter('all', this)">All Days</button>
+      <button class="spk-fbtn" data-day="1" onclick="setDayFilter('1', this)">Day 1</button>
+      <button class="spk-fbtn" data-day="2" onclick="setDayFilter('2', this)">Day 2</button>
+      <button class="spk-fbtn" data-day="3" onclick="setDayFilter('3', this)">Day 3</button>
+      <button class="spk-fbtn" data-day="4" onclick="setDayFilter('4', this)">Day 4</button>
+      <button class="spk-fbtn" data-day="5" onclick="setDayFilter('5', this)">Day 5</button>
+      <button class="spk-fbtn" data-day="6" onclick="setDayFilter('6', this)">Day 6</button>
     </div>
   </div>
 </div>
 
 
-<!-- SPEAKER GRID -->
+<!-- ══════════════════════════════════════════
+     SPEAKER GRID — rendered from speakers.js
+══════════════════════════════════════════ -->
 <section class="spk-grid-section">
   <div class="spk-grid-inner">
     <div class="spk-grid-count">Showing <strong id="grid-count">0</strong> speakers</div>
-<div class="spk-grid" id="speaker-grid">
-
-      <div class="spk-card" data-track="health" data-days="1,3" onclick="openPopup(1)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/1.png" alt="Dr. Layla Hassan" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Dr. Layla Hassan</div>
-          <div class="spk-card-title">Chief AI Officer &middot; HealthTech Global</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="startup" data-days="1,2" onclick="openPopup(2)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/2.png" alt="Omar Khalil" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Omar Khalil</div>
-          <div class="spk-card-title">Founder &amp; CEO &middot; Nexus AI Ventures</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="finance" data-days="1" onclick="openPopup(3)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/3.png" alt="Priya Menon" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Priya Menon</div>
-          <div class="spk-card-title">Head of Sustainable Finance &middot; Global Green Bank</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="sustain" data-days="1,4" onclick="openPopup(4)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/4.png" alt="Dr. James Okafor" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Dr. James Okafor</div>
-          <div class="spk-card-title">Research Scientist &middot; Climate AI Lab, Stanford</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="creative" data-days="1,2" onclick="openPopup(5)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/5.png" alt="Sofia Andrade" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Sofia Andrade</div>
-          <div class="spk-card-title">Creative Director &amp; AI Artist &middot; Generative Studios</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="startup" data-days="1,5" onclick="openPopup(6)">
-        <div class="spk-card-badge">★ Featured</div>
-        <div class="spk-card-photo"><img src="speakers/6.png" alt="Tariq Al-Rashidi" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Tariq Al-Rashidi</div>
-          <div class="spk-card-title">Professor of AI Ethics &middot; MIT Media Lab</div>
-        </div>
-      </div>
-      <div class="spk-card" data-track="health" data-days="3" onclick="openPopup(7)">
-        <div class="spk-card-photo"><img src="speakers/7.png" alt="Amina Diallo" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Amina Diallo</div>
-          <div class="spk-card-title">Digital Health Strategist &middot; WHO</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="finance" data-days="2,4" onclick="openPopup(8)">
-        <div class="spk-card-photo"><img src="speakers/8.png" alt="Amara Osei" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Amara Osei</div>
-          <div class="spk-card-title">Fintech Founder &middot; Algora Capital</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="sustain" data-days="3" onclick="openPopup(9)">
-        <div class="spk-card-photo"><img src="speakers/9.png" alt="Yuna Park" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Yuna Park</div>
-          <div class="spk-card-title">Climate Tech Investor &middot; GreenWave Ventures</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="creative" data-days="4" onclick="openPopup(10)">
-        <div class="spk-card-photo"><img src="speakers/10.png" alt="Darius Mensah" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Darius Mensah</div>
-          <div class="spk-card-title">AI Music Producer &middot; SoundForge AI</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="finance" data-days="5" onclick="openPopup(11)">
-        <div class="spk-card-photo"><img src="speakers/11.png" alt="Rahul Sharma" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Rahul Sharma</div>
-          <div class="spk-card-title">Head of AI Products &middot; Stripe</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="health" data-days="5" onclick="openPopup(12)">
-        <div class="spk-card-photo"><img src="speakers/12.png" alt="James Carter" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">James Carter</div>
-          <div class="spk-card-title">AI Researcher &middot; DeepMind</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="sustain" data-days="5" onclick="openPopup(13)">
-        <div class="spk-card-photo"><img src="speakers/13.png" alt="Kwame Asante" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Kwame Asante</div>
-          <div class="spk-card-title">Founder &amp; CEO &middot; EcoSense AI</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="creative" data-days="6" onclick="openPopup(14)">
-        <div class="spk-card-photo"><img src="speakers/14.png" alt="Lena Vogel" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Lena Vogel</div>
-          <div class="spk-card-title">AI Filmmaker &middot; Frame Zero</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="startup" data-days="6" onclick="openPopup(15)">
-        <div class="spk-card-photo"><img src="speakers/15.png" alt="Mohamed El-Sayed" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Mohamed El-Sayed</div>
-          <div class="spk-card-title">Group Partner &middot; Y Combinator</div>
-        </div>
-      </div>
-
-      <div class="spk-card" data-track="finance" data-days="6" onclick="openPopup(16)">
-        <div class="spk-card-photo"><img src="speakers/16.png" alt="Dr. Wei Chen" /></div>
-        <div class="spk-card-info">
-          <div class="spk-card-name">Dr. Wei Chen</div>
-          <div class="spk-card-title">Chief Data Scientist &middot; JP Morgan AI Lab</div>
-        </div>
-      </div>
-
+    <div class="spk-grid" id="speaker-grid">
       <div class="spk-empty" id="spk-empty">No speakers match the selected filters.</div>
     </div>
   </div>
 </section>
 
 
-<!-- POPUP -->
+<!-- ══════════════════════════════════════════
+     POPUP
+══════════════════════════════════════════ -->
 <div class="spk-overlay" id="spk-overlay" onclick="overlayClick(event)">
   <div class="spk-popup">
     <button class="spk-popup-close" onclick="closePopup()">✕</button>
@@ -639,7 +135,9 @@
 </div>
 
 
-<!-- APPLY FORM -->
+<!-- ══════════════════════════════════════════
+     APPLY FORM
+══════════════════════════════════════════ -->
 <section class="spk-apply" id="apply">
   <div class="sp-contact-inner">
     <div class="sp-contact-left">
@@ -686,15 +184,11 @@
             <input type="url" id="a-linkedin" placeholder="linkedin.com/in/yourname" />
           </div>
         </div>
+        <!-- track select — rendered from tracks.js -->
         <div class="sp-field">
           <label for="a-track">Preferred Track *</label>
           <select id="a-track" required>
             <option value="" disabled selected>Select a track</option>
-            <option value="health">AI in Health</option>
-            <option value="sustain">AI in Sustainability</option>
-            <option value="finance">AI in Finance</option>
-            <option value="creative">AI in Creative </option>
-            <option value="startup">AI in Entrepreneurship</option>
           </select>
         </div>
         <div class="sp-field">
@@ -718,14 +212,16 @@
 </section>
 
 
-<!-- FOOTER -->
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="logo.png" alt="Signal: AI" />
+      <img src="assets/brand/logo.png" alt="Signal: AI" />
       <p class="footer-brand-sub">The global AI activation week. Powered by BrainsMingle.</p>
       <div class="footer-contact">
-        <a href="mailto:signal@brainsmingle.com" style="color:var(--yellow);">signal@brainsmingle.com</a>
+        <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a>
       </div>
     </div>
     <div>
@@ -754,90 +250,265 @@
 </footer>
 
 
+<!-- ══════════════════════════════════════════
+     DATA FILES
+══════════════════════════════════════════ -->
+<script src="data/tracks.js"></script>
+<script src="data/agenda.js"></script>
+<script src="data/speakers.js"></script>
+
 <script>
-const TRACKS = {
-  health:   { label: "Medicine &amp; Health",           color: "#00D4FF", cls: "pill-health"   },
-  sustain:  { label: "Sustainability &amp; Climate",     color: "#00E8A2", cls: "pill-sustain"  },
-  finance:  { label: "Finance",                         color: "#F5A623", cls: "pill-finance"  },
-  creative: { label: "Creative Industries",              color: "#F53E9F", cls: "pill-creative" },
-  startup:  { label: "Startups &amp; Entrepreneurship", color: "#E8F200", cls: "pill-startup"  },
-};
+// ─────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────
+let activeTrack = "all";
+let activeDay   = "all";
 
-const SPEAKERS = [
-  { id:1, featured:true, name:"Dr. Layla Hassan", title:"Chief AI Officer", company:"HealthTech Global", track:"health", days:[1,3], photo:"speakers/1.png", bio:"A pioneer in clinical AI deployment across MENA and Europe, Dr. Hassan bridges the gap between research and real-world medical implementation. She has led AI programs in 12 hospital networks and advises the WHO on digital health strategy.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"AI in Diagnostics: Where Are We Really?",link:"#"},{day:3,title:"From Research to Clinic: Deploying AI in Hospital Systems",link:"#"}] },
-  { id:2, featured:true, name:"Omar Khalil", title:"Founder & CEO", company:"Nexus AI Ventures", track:"startup", days:[1,2], photo:"speakers/2.png", bio:"Serial founder with two successful AI-native exits. Omar backs and advises the next generation of founders building in emerging markets, with a focus on Cairo, Nairobi, and Karachi. Frequent speaker at Y Combinator and TechCrunch Disrupt.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Building AI-Native Companies from Emerging Markets",link:"#"},{day:2,title:"GTM for AI Startups: What Works in 2026",link:"#"}] },
-  { id:3, featured:true, name:"Priya Menon", title:"Head of Sustainable Finance", company:"Global Green Bank", track:"finance", days:[1], photo:"speakers/3.png", bio:"Leading voice on AI-driven ESG scoring and green bond markets. Priya speaks at the World Economic Forum and COP annually, and has authored two landmark reports on AI's role in climate finance with the UN Environment Programme.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:1,title:"AI and the Green Finance Revolution",link:"#"}] },
-  { id:4, featured:true, name:"Dr. James Okafor", title:"Research Scientist", company:"Climate AI Lab, Stanford", track:"sustain", days:[1,4], photo:"speakers/4.png", bio:"Working at the intersection of machine learning and climate modeling, Dr. Okafor has published 40+ papers in Nature, Science, and NeurIPS. His models now run inside three national weather agencies.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Machine Learning for Climate Forecasting: A Practitioner's View",link:"#"},{day:4,title:"Carbon Intelligence: From Satellite Data to Policy Decisions",link:"#"}] },
-  { id:5, featured:true, name:"Sofia Andrade", title:"Creative Director & AI Artist", company:"Generative Studios", track:"creative", days:[1,2], photo:"speakers/5.png", bio:"A pioneer at the crossroads of design and generative AI, Sofia has built visual identities for Fortune 500 brands using AI-native workflows. Her work has been featured at MoMA, Cannes Lions, and the Venice Biennale.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"When AI Becomes Your Creative Partner",link:"#"},{day:2,title:"Designing Brand Identity in the Generative Era",link:"#"}] },
-  { id:6, featured:true, name:"Tariq Al-Rashidi", title:"Professor of AI Ethics", company:"MIT Media Lab", track:"startup", days:[1,5], photo:"speakers/6.png", bio:"Leading global researcher on responsible AI development and governance frameworks. Tariq advises the EU AI Act working group and the African Union on national AI strategies. Author of \u201cThe Alignment Problem\u201d (2024).", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:1,title:"Ethics by Design: Building AI Systems You Can Trust",link:"#"},{day:5,title:"Regulating AI: What Founders Need to Know Right Now",link:"#"}] },
-  { id:7, featured:false, name:"Amina Diallo", title:"Digital Health Strategist", company:"WHO Digital Health Unit", track:"health", days:[3], photo:"speakers/7.png", bio:"Driving AI adoption in public health systems across 40+ countries. A former practicing physician turned health technologist, Amina has led digital transformation programs for ministries of health on four continents.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:3,title:"AI in Public Health: Lessons from the Field",link:"#"}] },
-  { id:8, featured:false, name:"Amara Osei", title:"Fintech Founder", company:"Algora Capital", track:"finance", days:[2,4], photo:"speakers/8.png", bio:"Built and exited two AI-powered fintech companies with a combined valuation of $400M. Advises central banks in Latin America and the Middle East on algorithmic regulation and AI-driven credit infrastructure.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:2,title:"Risk Modeling in the Age of LLMs",link:"#"},{day:4,title:"Regulating Algorithmic Finance: A Founder's Perspective",link:"#"}] },
-  { id:9, featured:false, name:"Yuna Park", title:"Climate Tech Investor", company:"GreenWave Ventures", track:"sustain", days:[3], photo:"speakers/9.png", bio:"Investing in the intersection of AI and clean energy, with a portfolio spanning 14 climate tech companies across MENA, Europe, and Southeast Asia. Yuna leads GreenWave's AI & Sustainability thesis.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:3,title:"Funding the Green AI Revolution",link:"#"}] },
-  { id:10, featured:false, name:"Darius Mensah", title:"AI Music Producer", company:"SoundForge AI", track:"creative", days:[4], photo:"speakers/10.png", bio:"Using generative models to co-create music with artists globally. Darius works with major labels and independent musicians on AI-native production workflows, and has scored two award-winning films entirely using AI-assisted composition.", bmProfile:"https://brainsmingle.com", linkedIn:null, sessions:[{day:4,title:"Generative Music: Collaboration or Competition?",link:"#"}] },
-  { id:11, featured:false, name:"Rahul Sharma", title:"Head of AI Products", company:"Stripe", track:"finance", days:[5], photo:"speakers/11.png", bio:"Building financial intelligence tools that power 1M+ businesses globally. A former quantitative trader turned product builder, leads Stripe's AI product division and holds patents on three fraud detection systems.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"Intelligent Payments: How AI is Reshaping Commerce",link:"#"}] },
-  { id:12, featured:false, name:"James Carter", title:"AI Researcher", company:"DeepMind", track:"health", days:[5], photo:"speakers/12.png", bio:"Working on protein folding, drug discovery, and AI-assisted genomics at DeepMind. Part of the core AlphaFold team. Current research focuses on AI for rare disease detection in underserved populations.", bmProfile:null, linkedIn:"https://linkedin.com", sessions:[{day:5,title:"From AlphaFold to the Clinic: AI's Impact on Drug Discovery",link:"#"}] },
-  { id:13, featured:false, name:"Kwame Asante", title:"Founder & CEO", company:"EcoSense AI", track:"sustain", days:[5], photo:"speakers/13.png", bio:"Building real-time carbon intelligence platforms for enterprises. Kwame raised $22M to expand AI-driven ESG reporting tools now used by 200+ companies across Africa and Europe. Named Forbes 30 Under 30 Africa 2024.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:5,title:"Real-Time Carbon Intelligence: Making Sustainability Measurable",link:"#"}] },
-  { id:14, featured:false, name:"Lena Vogel", title:"AI Filmmaker", company:"Frame Zero", track:"creative", days:[6], photo:"speakers/14.png", bio:"Making films with AI co-directors. Lena's debut feature premiered at Sundance and screened at Cannes. She runs Frame Zero, a studio pioneering AI-native cinema production and new storytelling formats in the generative era.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"The AI-Native Film: What Cinema Looks Like Next",link:"#"}] },
-  { id:15, featured:false, name:"Mohamed El-Sayed", title:"Group Partner", company:"Y Combinator", track:"startup", days:[6], photo:"speakers/15.png", bio:"Advising 60+ AI startups on go-to-market strategy and fundraising as a Group Partner at Y Combinator. A two-time founder with exits to Google and Salesforce, Mohamed focuses on AI startups in healthcare and climate.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"GTM for AI Startups: The Playbook That Actually Works",link:"#"}] },
-  { id:16, featured:false, name:"Dr. Wei Chen", title:"Chief Data Scientist", company:"JP Morgan AI Lab", track:"finance", days:[6], photo:"speakers/16.png", bio:"Running AI transformation across global banking operations at JP Morgan. Dr. Chen leads a team of 120 AI engineers specialising in fraud detection and credit risk modeling. PhD in computational finance from Carnegie Mellon.", bmProfile:"https://brainsmingle.com", linkedIn:"https://linkedin.com", sessions:[{day:6,title:"Enterprise AI in Banking: Lessons from 5 Years of Deployment",link:"#"}] },
-];
 
-let activeTrack = "all", activeDay = "all";
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function () {
+  renderHeroPills();
+  renderTrackFilterBtns();
+  renderTrackSelect();
+  renderFeaturedGrid();
+  renderSpeakerGrid();
+});
 
-function renderGrid() {
-  const cards = document.querySelectorAll("#speaker-grid .spk-card");
+
+// ─────────────────────────────────────────
+// HERO PILLS — from tracks.js
+// ─────────────────────────────────────────
+function renderHeroPills() {
+  const el = document.getElementById("spk-hero-pills");
+  if (!el) return;
+  el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <span class="tl-pill"
+          style="color:${t.color};border-color:rgba(${t.accentRgb},0.3);background:rgba(${t.accentRgb},0.06);">
+      <span class="tl-dot" style="background:${t.color};"></span>
+      ${t.shortName}
+    </span>
+  `).join("");
+}
+
+
+// ─────────────────────────────────────────
+// TRACK FILTER BUTTONS — from tracks.js
+// ─────────────────────────────────────────
+function renderTrackFilterBtns() {
+  const el = document.getElementById("track-filter-btns");
+  if (!el) return;
+  let html = `<button class="spk-fbtn active-all" data-track="all" onclick="setTrackFilter('all', this)">All Tracks</button>`;
+  html += SIGNAL_TRACKS.map(t => `
+    <button class="spk-fbtn" data-track="${t.trackNumber}" onclick="setTrackFilter('${t.trackNumber}', this)"
+            style="color:rgba(${t.accentRgb},0.55);border-color:rgba(${t.accentRgb},0.18);background:rgba(${t.accentRgb},0.04);">
+      <span class="pill-dot" style="background:${t.color};"></span>
+      ${t.shortName}
+    </button>
+  `).join("");
+  el.innerHTML = html;
+}
+
+
+// ─────────────────────────────────────────
+// TRACK SELECT (apply form) — from tracks.js
+// ─────────────────────────────────────────
+function renderTrackSelect() {
+  const sel = document.getElementById("a-track");
+  if (!sel) return;
+  SIGNAL_TRACKS.forEach(t => {
+    const opt = document.createElement("option");
+    opt.value       = t.slug;
+    opt.textContent = t.shortName;
+    sel.appendChild(opt);
+  });
+}
+
+
+// ─────────────────────────────────────────
+// SPEAKER CARD HTML
+// ─────────────────────────────────────────
+function speakerCardHtml(speaker, showBadge) {
+  // collect unique track numbers from appearances
+  const trackNums = [...new Set(
+    speaker.appearances.map(a => a.trackNumber).filter(n => n !== null)
+  )];
+  // collect unique days
+  const days = [...new Set(speaker.appearances.map(a => a.day))];
+
+  const badge = showBadge ? `<div class="spk-card-badge">★ Featured</div>` : "";
+
+  return `
+    <div class="spk-card"
+         data-track="${trackNums.join(",") || "opening"}"
+         data-days="${days.join(",")}"
+         onclick="openPopup('${speaker.id}')">
+      ${badge}
+      <div class="spk-card-photo">
+        <img src="${speaker.imagePath}" alt="${speaker.name}" loading="lazy" />
+      </div>
+      <div class="spk-card-info">
+        <div class="spk-card-name">${speaker.name}</div>
+        <div class="spk-card-title">${speaker.title} &middot; ${speaker.company}</div>
+      </div>
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// FEATURED GRID
+// ─────────────────────────────────────────
+function renderFeaturedGrid() {
+  const el = document.getElementById("spk-featured-grid");
+  if (!el) return;
+  const featured = SIGNAL_SPEAKERS.filter(s => s.featured);
+  el.innerHTML = featured.map(s => speakerCardHtml(s, true)).join("");
+}
+
+
+// ─────────────────────────────────────────
+// MAIN SPEAKER GRID
+// ─────────────────────────────────────────
+function renderSpeakerGrid() {
+  const grid = document.getElementById("speaker-grid");
+  if (!grid) return;
+
+  // build all cards before the empty state div
   const empty = document.getElementById("spk-empty");
-  const query = (document.getElementById("spk-search")?.value || "").toLowerCase().trim();
-  let visible = 0;
+  // clear existing cards (keep empty div)
+  grid.querySelectorAll(".spk-card").forEach(c => c.remove());
+
+  // insert cards before empty div
+  SIGNAL_SPEAKERS.forEach(s => {
+    const div = document.createElement("div");
+    div.innerHTML = speakerCardHtml(s, s.featured).trim();
+    const card = div.firstElementChild;
+    grid.insertBefore(card, empty);
+  });
+
+  filterGrid();
+}
+
+
+// ─────────────────────────────────────────
+// FILTER
+// ─────────────────────────────────────────
+function filterGrid() {
+  const cards  = document.querySelectorAll("#speaker-grid .spk-card");
+  const empty  = document.getElementById("spk-empty");
+  const query  = (document.getElementById("spk-search")?.value || "").toLowerCase().trim();
+  let visible  = 0;
+
   cards.forEach(card => {
-    const track    = card.dataset.track;
-    const days     = (card.dataset.days || "").split(",").map(Number);
-    const trackOk  = activeTrack === "all" || track === activeTrack;
-    const dayOk    = activeDay   === "all" || days.includes(parseInt(activeDay));
-    const name     = card.querySelector(".spk-card-name")?.textContent.toLowerCase() || "";
+    const cardTracks = (card.dataset.track || "").split(",");
+    const cardDays   = (card.dataset.days  || "").split(",").map(Number);
+
+    const trackOk  = activeTrack === "all" || cardTracks.includes(String(activeTrack));
+    const dayOk    = activeDay   === "all" || cardDays.includes(parseInt(activeDay));
+    const name     = card.querySelector(".spk-card-name")?.textContent.toLowerCase()  || "";
     const title    = card.querySelector(".spk-card-title")?.textContent.toLowerCase() || "";
     const searchOk = !query || name.includes(query) || title.includes(query);
-    const show     = trackOk && dayOk && searchOk;
+
+    const show = trackOk && dayOk && searchOk;
     card.classList.toggle("hidden", !show);
     if (show) visible++;
   });
+
   document.getElementById("grid-count").textContent = visible;
   empty.classList.toggle("visible", visible === 0);
 }
 
+function setTrackFilter(val, btn) {
+  document.querySelectorAll(".spk-fbtn[data-track]").forEach(b => {
+    b.classList.remove("active", "active-all");
+    // restore dim style for track buttons
+    const t = SIGNAL_TRACKS_BY_NUMBER[b.dataset.track];
+    if (t) {
+      b.style.color       = `rgba(${t.accentRgb},0.55)`;
+      b.style.borderColor = `rgba(${t.accentRgb},0.18)`;
+      b.style.background  = `rgba(${t.accentRgb},0.04)`;
+    } else {
+      b.style.color = ""; b.style.borderColor = ""; b.style.background = "";
+    }
+  });
+  activeTrack = val;
+  btn.classList.add(val === "all" ? "active-all" : "active");
+  if (val !== "all") {
+    const t = SIGNAL_TRACKS_BY_NUMBER[val];
+    if (t) {
+      btn.style.color       = t.color;
+      btn.style.borderColor = `rgba(${t.accentRgb},0.35)`;
+      btn.style.background  = `rgba(${t.accentRgb},0.08)`;
+    }
+  } else {
+    btn.style.color = ""; btn.style.borderColor = ""; btn.style.background = "";
+  }
+  filterGrid();
+}
 
+function setDayFilter(val, btn) {
+  document.querySelectorAll(".spk-fbtn[data-day]").forEach(b => b.classList.remove("active", "active-all"));
+  activeDay = val;
+  btn.classList.add(val === "all" ? "active-all" : "active");
+  filterGrid();
+}
+
+
+// ─────────────────────────────────────────
+// POPUP
+// ─────────────────────────────────────────
 function openPopup(id) {
-  const s = SPEAKERS.find(x => x.id === id); if (!s) return;
-  const t = TRACKS[s.track];
-  document.getElementById("popup-img").src = s.photo;
+  const s = SIGNAL_SPEAKERS_MAP[id];
+  if (!s) return;
+
+  document.getElementById("popup-img").src = s.imagePath;
   document.getElementById("popup-img").alt = s.name;
   document.getElementById("popup-name").textContent = s.name;
-  document.getElementById("popup-role").textContent = s.title + " · " + s.company;
+  document.getElementById("popup-role").textContent = `${s.title} · ${s.company}`;
   document.getElementById("popup-bio").textContent  = s.bio;
-  document.getElementById("popup-track-wrap").innerHTML =
-    `<span class="track-pill ${t.cls}"><span class="pill-dot" style="background:${t.color};"></span>${t.label}</span>`;
+
+  // track pills
+  const trackNums = [...new Set(s.appearances.map(a => a.trackNumber).filter(n => n !== null))];
+  document.getElementById("popup-track-wrap").innerHTML = trackNums.map(n => {
+    const t = SIGNAL_TRACKS_BY_NUMBER[n];
+    if (!t) return "";
+    return `<span class="track-pill track-${n}" style="color:${t.color};border-color:rgba(${t.accentRgb},0.30);background:rgba(${t.accentRgb},0.08);">
+      <span class="pill-dot" style="background:${t.color};"></span>${t.shortName}
+    </span>`;
+  }).join(" ");
+
+  // profile links
   const linksEl = document.getElementById("popup-links");
   linksEl.innerHTML = "";
   if (s.bmProfile) linksEl.innerHTML +=
     `<a href="${s.bmProfile}" target="_blank" class="spk-popup-link bm" style="margin-bottom:8px;">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       View on BrainsMingle</a>`;
-  if (s.linkedIn) linksEl.innerHTML +=
-    `<a href="${s.linkedIn}" target="_blank" class="spk-popup-link li">
+  if (s.linkedin) linksEl.innerHTML +=
+    `<a href="${s.linkedin}" target="_blank" class="spk-popup-link li">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn Profile</a>`;
+
+  // sessions from appearances
   const sw = document.getElementById("popup-sessions-wrap");
   const se = document.getElementById("popup-sessions");
-  if (s.sessions && s.sessions.length) {
+  const appearances = s.appearances.filter(a => a.sessionId);
+  if (appearances.length) {
     sw.style.display = "block";
-    se.innerHTML = s.sessions.map(ss =>
-      `<div class="spk-session-item">
-        <div class="spk-session-day">Day ${ss.day}</div>
-        <div class="spk-session-title">${ss.title}</div>
-        ${ss.link && ss.link !== "#" ? `<a href="${ss.link}" target="_blank" class="spk-session-link">View →</a>` : ""}
-      </div>`
-    ).join("");
-  } else { sw.style.display = "none"; }
+    se.innerHTML = appearances.map(a => {
+      const session = SIGNAL_AGENDA.find(ag => ag.id === a.sessionId);
+      const title   = session && session.title ? session.title : "Session to be announced";
+      return `<div class="spk-session-item">
+        <div class="spk-session-day">Day ${a.day}</div>
+        <div class="spk-session-title">${title}</div>
+      </div>`;
+    }).join("");
+  } else {
+    sw.style.display = "none";
+  }
+
   document.getElementById("spk-overlay").classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -846,39 +517,30 @@ function closePopup() {
   document.getElementById("spk-overlay").classList.remove("open");
   document.body.style.overflow = "";
 }
-function overlayClick(e) { if (e.target === document.getElementById("spk-overlay")) closePopup(); }
+function overlayClick(e) {
+  if (e.target === document.getElementById("spk-overlay")) closePopup();
+}
 document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup(); });
 
-document.querySelectorAll(".spk-fbtn[data-track]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".spk-fbtn[data-track]").forEach(b => b.classList.remove("active","active-all"));
-    activeTrack = btn.dataset.track;
-    btn.classList.add(activeTrack === "all" ? "active-all" : "active");
-    renderGrid();
-  });
-});
-document.querySelectorAll(".spk-fbtn[data-day]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".spk-fbtn[data-day]").forEach(b => b.classList.remove("active","active-all"));
-    activeDay = btn.dataset.day;
-    btn.classList.add(activeDay === "all" ? "active-all" : "active");
-    renderGrid();
-  });
-});
 
+// ─────────────────────────────────────────
+// APPLY FORM
+// ─────────────────────────────────────────
 function submitApply() {
-  if (!document.getElementById("a-name").value.trim() ||
+  if (!document.getElementById("a-name").value.trim()  ||
       !document.getElementById("a-email").value.trim() ||
-      !document.getElementById("a-track").value ||
+      !document.getElementById("a-track").value        ||
       !document.getElementById("a-topic").value.trim()) {
     alert("Please fill in all required fields."); return;
   }
   const f = document.getElementById("apply-form");
   f.style.opacity = "0.5"; f.style.pointerEvents = "none";
-  setTimeout(() => { f.style.display = "none"; document.getElementById("apply-success").style.display = "block"; }, 500);
+  setTimeout(() => {
+    f.style.display = "none";
+    document.getElementById("apply-success").style.display = "block";
+  }, 500);
 }
-
-document.addEventListener("DOMContentLoaded", function() { renderGrid(); });
 </script>
+
 </body>
 </html>
