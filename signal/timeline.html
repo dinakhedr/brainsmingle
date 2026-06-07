@@ -556,6 +556,7 @@ function buildStickyHeader() {
 
         // Show/hide on vertical scroll
         const onScroll = () => {
+            if (!thead.isConnected) return;
             const rect = thead.getBoundingClientRect();
             const show = rect.bottom < 144;
             wrapper.style.display = show ? "block" : "none";
