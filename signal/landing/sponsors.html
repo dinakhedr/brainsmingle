@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Sponsor — Signal: AI | 4–10 July 2026</title>
+  <meta name="description" content="Sponsor Signal: AI — the global AI activation week. 20,000+ expected attendees, 5 tracks, 90+ sessions. 4–10 July 2026." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <style>
+    /* ── SPONSORS PAGE ONLY ── */
+
+    /* Hero */
+    .sp-hero {
+      position: relative;
+      padding: 160px 48px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .sp-hero-glow {
+      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(107,62,245,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sp-hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+    .sp-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 28px;
+    }
+    .sp-hero-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--yellow);
+    }
+    .sp-hero-title {
+      font-family: var(--font-display); font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.05; color: var(--text-primary);
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .sp-hero-title em { font-style: normal; color: var(--yellow); }
+    .sp-hero-sub {
+      font-family: var(--font-body); font-size: 17px; color: var(--text-secondary);
+      line-height: 1.7; margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .sp-hero-cta { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+
+    /* Stats bar */
+    .sp-stats {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+    }
+    
+    .sp-stats-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+    }
+    .sp-stat {
+      padding: 24px 24px 20px; text-align: center;
+      border-right: 0.5px solid var(--border);
+    }
+    .sp-stat:last-child { border-right: none; }
+    .sp-stat-value {
+      font-family: var(--font-display); font-size: 32px; font-weight: 900;
+      color: var(--text-primary); line-height: 1;
+    }
+    .sp-stat-value span { color: var(--cyan); }
+    .sp-stat-label {
+      font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
+      margin-top: 6px; letter-spacing: 0.04em;
+    }
+
+    /* Section common */
+    .sp-section { padding: var(--section-pad); }
+    .sp-section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .sp-section-head { text-align: center; margin-bottom: 60px; }
+    .sp-section-head .section-eyebrow { justify-content: center; }
+    .sp-section-head .section-title { margin-bottom: 14px; }
+    .sp-section-head .section-sub { max-width: 560px; margin: 0 auto; }
+
+    /* Tier cards */
+    .tier-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .tier-card {
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px 28px;
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .tier-card:hover { transform: translateY(-3px); }
+    .tier-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .tier-main::before { background: var(--purple); }
+    .tier-gold::before { background: #F5A623; }
+    .tier-silver::before { background: rgba(255,255,255,0.45); }
+    .tier-bronze::before { background: #CD7F32; }
+
+    .tier-card.tier-main { border-color: rgba(107,62,245,0.35); }
+    .tier-card.tier-gold  { border-color: rgba(245,166,35,0.28); }
+
+    .tier-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-body); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 20px; margin-bottom: 20px; width: fit-content;
+    }
+    .tier-main .tier-badge { background: rgba(107,62,245,0.18); color: #A07BFF; }
+    .tier-gold .tier-badge { background: rgba(245,166,35,0.15); color: #F5A623; }
+    .tier-silver .tier-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+    .tier-bronze .tier-badge { background: rgba(205,127,50,0.15); color: #CD7F32; }
+
+    .tier-price {
+      font-family: var(--font-display); font-size: 36px; font-weight: 900;
+      color: var(--text-primary); line-height: 1; margin-bottom: 4px;
+    }
+    .tier-slots {
+      font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .tier-divider { border: none; border-top: 0.5px solid var(--border); margin-bottom: 20px; }
+    .tier-benefits { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
+    .tier-benefits li {
+      font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary);
+      padding: 8px 0; border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+    }
+    .tier-benefits li:last-child { border-bottom: none; }
+    .tier-benefits li::before {
+      content: '✓'; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+    }
+    .tier-main .tier-benefits li::before { color: var(--purple); }
+    .tier-gold .tier-benefits li::before { color: #F5A623; }
+    .tier-silver .tier-benefits li::before { color: rgba(255,255,255,0.45); }
+    .tier-bronze .tier-benefits li::before { color: #CD7F32; }
+
+    /* Special events */
+    .sp-events-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .sp-event-card {
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .sp-event-card:hover { transform: translateY(-3px); }
+    .sp-event-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; font-size: 18px;
+    }
+    .sp-event-name {
+      font-family: var(--font-display); font-size: 15px; font-weight: 800;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+    .sp-event-desc {
+      font-family: var(--font-body); font-size: 13px; color: var(--text-muted);
+      line-height: 1.55; margin-bottom: 16px; flex: 1;
+    }
+    .sp-event-price {
+      font-family: var(--font-display); font-size: 22px; font-weight: 900;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+    .sp-event-highlight {
+      font-family: var(--font-body); font-size: 12px; color: var(--cyan);
+      margin-bottom: 20px; line-height: 1.4;
+    }
+
+    /* Benefits tabs */
+    .sp-tabs-wrap { max-width: var(--max-width); margin: 0 auto; }
+    .sp-tabs-nav {
+      display: flex; gap: 0; border-bottom: 0.5px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .sp-tab-btn {
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      color: var(--text-muted); padding: 14px 28px; cursor: pointer;
+      border: none; background: none; position: relative;
+      transition: color 0.2s;
+    }
+    .sp-tab-btn.active { color: var(--text-primary); }
+    .sp-tab-btn.active::after {
+      content: ''; position: absolute; bottom: -0.5px; left: 0; right: 0;
+      height: 2px; background: var(--cyan);
+    }
+    .sp-tab-panel { display: none; }
+    .sp-tab-panel.active { display: block; }
+
+    /* Benefits matrix table */
+    .benefits-table-wrap { overflow-x: auto; }
+    .benefits-table {
+      width: 100%; border-collapse: collapse; font-family: var(--font-body);
+    }
+    .benefits-table th {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 12px 16px; text-align: center;
+      border-bottom: 0.5px solid var(--border);
+      white-space: nowrap;
+    }
+    .benefits-table th.col-benefit { text-align: left; min-width: 220px; }
+    .benefits-table th.col-main { color: #A07BFF; }
+    .benefits-table th.col-gold { color: #F5A623; }
+    .benefits-table th.col-silver { color: rgba(255,255,255,0.5); }
+    .benefits-table th.col-bronze { color: #CD7F32; }
+    .benefits-table th.col-track { color: var(--cyan); }
+    .benefits-table th.col-launch { color: var(--track-startup); }
+    .benefits-table th.col-talent { color: var(--track-creative); }
+    .benefits-table th.col-speed { color: var(--track-health); }
+
+    .benefits-table td {
+      padding: 11px 16px; text-align: center; font-size: 13px;
+      border-bottom: 0.5px solid var(--border); color: var(--text-muted);
+    }
+    .benefits-table td.col-benefit { text-align: left; color: var(--text-secondary); font-size: 13px; }
+    .benefits-table td.check { color: var(--cyan); font-weight: 700; font-size: 15px; }
+    .benefits-table td.dash { color: var(--border-mid); }
+    .benefits-table td.val { color: var(--text-primary); font-weight: 700; font-size: 13px; }
+
+    .benefits-cat-row td {
+      font-family: var(--font-display); font-size: 10px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); background: rgba(255,255,255,0.03);
+      padding: 10px 16px; border-bottom: 0.5px solid var(--border);
+    }
+
+    /* Community partner panel */
+    .cp-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .cp-card {
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+    }
+    .cp-card-icon { font-size: 24px; margin-bottom: 14px; }
+    .cp-card-title {
+      font-family: var(--font-display); font-size: 14px; font-weight: 800;
+      color: var(--text-primary); margin-bottom: 8px;
+    }
+    .cp-card-desc {
+      font-family: var(--font-body); font-size: 13px; color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .cp-cta-box {
+      margin-top: 48px; background: rgba(232,242,0,0.05);
+      border: 0.5px solid rgba(232,242,0,0.2);
+      border-radius: var(--radius-lg); padding: 40px;
+      text-align: center;
+    }
+    .cp-cta-box h3 {
+      font-family: var(--font-display); font-size: 22px; font-weight: 800;
+      color: var(--text-primary); margin-bottom: 10px;
+    }
+    .cp-cta-box p {
+      font-family: var(--font-body); font-size: 14px; color: var(--text-secondary);
+      margin-bottom: 24px; line-height: 1.6;
+    }
+    .cp-price {
+      font-family: var(--font-display); font-size: 28px; font-weight: 900;
+      color: var(--yellow); margin-bottom: 6px;
+    }
+    .cp-slots {
+      font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Full benefits note */
+    .benefits-note {
+      margin-top: 40px; text-align: center; padding: 28px;
+      background: rgba(107,62,245,0.07); border: 0.5px solid rgba(107,62,245,0.2);
+      border-radius: var(--radius-lg);
+    }
+    .benefits-note p {
+      font-family: var(--font-body); font-size: 14px; color: var(--text-secondary);
+      margin-bottom: 16px; line-height: 1.6;
+    }
+
+    /* Contact / Form section */
+    .sp-contact { background: var(--bg-card-2); }
+    .sp-contact-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .sp-contact-left h2 {
+      font-family: var(--font-display); font-size: 38px; font-weight: 900;
+      color: var(--text-primary); line-height: 1.1; margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+    .sp-contact-left h2 em { font-style: normal; color: var(--yellow); }
+    .sp-contact-left p {
+      font-family: var(--font-body); font-size: 15px; color: var(--text-secondary);
+      line-height: 1.7; margin-bottom: 36px;
+    }
+    .sp-contact-meta { display: flex; flex-direction: column; gap: 16px; }
+    .sp-contact-meta-item {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-body); font-size: 13px; color: var(--text-secondary);
+    }
+    .sp-contact-meta-item a { color: var(--yellow); text-decoration: none; }
+    .sp-contact-meta-item a:hover { text-decoration: underline; }
+    .sp-contact-meta-icon {
+      width: 32px; height: 32px; border-radius: var(--radius-sm);
+      background: rgba(107,62,245,0.15); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 14px;
+    }
+
+    /* Form */
+    .sp-form { display: flex; flex-direction: column; gap: 16px; }
+    .sp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .sp-field { display: flex; flex-direction: column; gap: 6px; }
+    .sp-field label {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .sp-field input,
+    .sp-field select,
+    .sp-field textarea {
+      background: rgba(255,255,255,0.04); border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-md); padding: 13px 16px;
+      font-family: var(--font-body); font-size: 14px; color: var(--text-primary);
+      outline: none; transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+    }
+    .sp-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 36px; cursor: pointer;
+    }
+    .sp-field select option { background: #0E0E1C; color: #fff; }
+    .sp-field input:focus,
+    .sp-field select:focus,
+    .sp-field textarea:focus {
+      border-color: rgba(107,62,245,0.6); background: rgba(107,62,245,0.06);
+    }
+    .sp-field textarea { resize: vertical; min-height: 100px; }
+    .sp-field input::placeholder,
+    .sp-field textarea::placeholder { color: var(--text-muted); }
+
+    .sp-form-submit-row {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .sp-form-note {
+      font-family: var(--font-body); font-size: 12px; color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .sp-form-success {
+      display: none; background: rgba(0,232,162,0.1);
+      border: 0.5px solid rgba(0,232,162,0.3); border-radius: var(--radius-md);
+      padding: 16px 20px; font-family: var(--font-body); font-size: 14px;
+      color: var(--cyan); text-align: center;
+    }
+
+    /* Urgency strip */
+    .sp-urgency {
+      background: rgba(107,62,245,0.25); padding: 18px 48px;
+      text-align: center; margin-top: -1px;
+    }
+    .sp-urgency p {
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      color: #fff; margin: 0; letter-spacing: 0.02em;
+    }
+    .sp-urgency span { color: var(--yellow); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .tier-grid { grid-template-columns: repeat(2, 1fr); }
+      .sp-events-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .sp-hero { 
+          position: relative;
+          padding: 160px 48px 32px;
+      }
+      .sp-stats-inner { grid-template-columns: repeat(3, 1fr); }
+      .sp-stat:nth-child(4), .sp-stat:nth-child(5) { border-top: 0.5px solid var(--border); }
+      .tier-grid { grid-template-columns: 1fr; }
+      .sp-events-grid { grid-template-columns: 1fr; }
+      .sp-contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .sp-form-row { grid-template-columns: 1fr; }
+      .cp-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="site-nav">
+  <a href="home.html" class="nav-logo">
+    <img src="logo.png" alt="Signal: AI" />
+  </a>
+  <div class="nav-links">
+    <a href="home.html#about">About</a>
+    <a href="home.html#tracks">Tracks</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="sponsors.html" class="active">Sponsors & Partners</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#contact" class="btn btn-primary btn-sm">Become a Sponsor</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══ -->
+<section class="sp-hero">
+  <div class="sp-hero-glow"></div>
+  <div class="sp-hero-inner">
+    <div class="sp-hero-eyebrow">Sponsorship Opportunities</div>
+    <h1 class="sp-hero-title">
+      Put Your Brand at the<br><em>Center of the Signal</em>
+    </h1>
+    <p class="sp-hero-sub">
+      Signal: AI is the global AI activation week — seven days, five tracks, 90+ sessions, and 20,000+ professionals, experts, startups, and decision-makers from 85+ countries. Be where the conversation happens.
+    </p>
+    <div class="sp-hero-cta">
+      <a href="#contact" class="btn btn-yellow btn-arrow">Arrange a Call</a>
+      <a href="#tiers" class="btn btn-outline">View Packages</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STATS ══ -->
+<div class="sp-stats" style="margin-bottom:0;">
+  <div class="sp-stats-inner">
+    <div class="sp-stat">
+      <div class="sp-stat-value">20K<span>+</span></div>
+      <div class="sp-stat-label">Expected Attendees</div>
+    </div>
+    <div class="sp-stat">
+      <div class="sp-stat-value">40<span>+</span></div>
+      <div class="sp-stat-label">Countries</div>
+    </div>
+    <div class="sp-stat">
+      <div class="sp-stat-value">90<span>+</span></div>
+      <div class="sp-stat-label">Sessions</div>
+    </div>
+    <div class="sp-stat">
+      <div class="sp-stat-value">5</div>
+      <div class="sp-stat-label">Parallel Tracks</div>
+    </div>
+    <div class="sp-stat">
+      <div class="sp-stat-value">7</div>
+      <div class="sp-stat-label">Days of Activation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ URGENCY STRIP ══ -->
+<div class="sp-urgency" style="margin-top:0;">
+  <p>⚡ Sponsorship slots are limited</p>
+</div>
+
+<!-- ══ TIER SPONSORS ══ -->
+<section class="sp-section" id="tiers" style="padding-top:48px;">
+  <div class="sp-section-inner">
+    <div class="sp-section-head">
+      <div class="section-eyebrow">Sponsorship Tiers</div>
+      <h2 class="section-title">Choose Your Level of Visibility</h2>
+      <p class="section-sub">All tier sponsors receive branding across the event platform, social media coverage, and speaking opportunities.</p>
+    </div>
+
+    <div class="tier-grid">
+
+      <!-- MAIN -->
+      <div class="tier-card tier-main">
+        <div class="tier-badge">Main Sponsor</div>
+        <div class="tier-price">$10,000</div>
+        <div class="tier-slots">1 slot available</div>
+        <hr class="tier-divider" />
+        <ul class="tier-benefits">
+          <li>Named association — "Signal: AI, presented by [Brand]"</li>
+          <li>Logo on sticky banner across all BrainsMingle pages</li>
+          <li>Top bar placement in all 90+ live session rooms</li>
+          <li>5 speaking slots across preferred tracks</li>
+          <li>Panelist seat at Day 0 Opening</li>
+          <li>Dedicated sponsor spotlight across all social platforms</li>
+          <li>Post-event audience insights report</li>
+        </ul>
+      </div>
+
+      <!-- GOLD -->
+      <div class="tier-card tier-gold">
+        <div class="tier-badge">Gold Sponsor</div>
+        <div class="tier-price">$5,000</div>
+        <div class="tier-slots">2 slots available</div>
+        <hr class="tier-divider" />
+        <ul class="tier-benefits">
+          <li>Medium logo placement — above the fold on Signal website</li>
+          <li>Rotating bottom banner across all session rooms</li>
+          <li>3 speaking slots across preferred tracks</li>
+          <li>Panelist seat at Day 0 Opening</li>
+          <li>Dedicated sponsor spotlight across all social platforms</li>
+          <li>Co-branded content opportunity</li>
+        </ul>
+      </div>
+
+      <!-- SILVER -->
+      <div class="tier-card tier-silver">
+        <div class="tier-badge">Silver Sponsor</div>
+        <div class="tier-price">$2,500</div>
+        <div class="tier-slots">3 slots available</div>
+        <hr class="tier-divider" />
+        <ul class="tier-benefits">
+          <li>Logo in Sponsors section of Signal website</li>
+          <li>Rotating bottom banner on session detail pages</li>
+          <li>2 speaking slots across preferred tracks</li>
+          <li>Panelist seat at Day 0 Opening</li>
+          <li>Shared sponsor spotlight post</li>
+        </ul>
+      </div>
+
+      <!-- BRONZE -->
+      <div class="tier-card tier-bronze">
+        <div class="tier-badge">Bronze Sponsor</div>
+        <div class="tier-price">$1,000</div>
+        <div class="tier-slots">5 slots available</div>
+        <hr class="tier-divider" />
+        <ul class="tier-benefits">
+          <li>Logo in Sponsors section of Signal website</li>
+          <li>1 speaking slot in a preferred track</li>
+          <li>Shared sponsor spotlight post</li>
+          <li>Brand mention in all session openings</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="sp-grid-cta" style="margin-top:36px;text-align:center;">
+      <a href="#contact" class="btn btn-yellow">Arrange a Call →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══ SPECIAL EVENTS ══ -->
+<section class="sp-section" id="events">
+  <div class="sp-section-inner">
+    <div class="sp-section-head">
+      <div class="section-eyebrow">Special Events Sponsorship</div>
+      <h2 class="section-title">Own a Moment in the Signal</h2>
+      <p class="section-sub">Exclusive named associations with Signal's most high-energy activations. One sponsor per event — your brand, front and center.</p>
+    </div>
+
+    <div class="sp-events-grid">
+
+      <div class="sp-event-card">
+        <div class="sp-event-icon" style="background:rgba(107,62,245,0.15);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="#6B3EF5"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="#6B3EF5" opacity="0.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="#6B3EF5" opacity="0.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="#6B3EF5" opacity="0.5"/></svg>
+        </div>
+        <div class="sp-event-name">Track Sponsor</div>
+        <div class="sp-event-desc">Own one of five AI tracks for the full week. Your brand names the track and leads every session within it.</div>
+        <div class="sp-event-price">$3,000</div>
+        <div class="sp-event-highlight">5 slots — 1 per track</div>
+      </div>
+
+      <div class="sp-event-card">
+<div class="sp-event-icon" style="background:rgba(232,242,0,0.10);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C7.239 2 5 4.239 5 7C5 8.929 6.072 10.61 7.667 11.5V13.5C7.667 13.776 7.891 14 8.167 14H11.833C12.109 14 12.333 13.776 12.333 13.5V11.5C13.928 10.61 15 8.929 15 7C15 4.239 12.761 2 10 2Z" fill="#E8F200"/><path d="M8.333 16H11.667M8.833 18H11.167" stroke="#E8F200" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sp-event-name">Signal Launchpad</div>
+        <div class="sp-event-desc">The startup pitch event of the week — where emerging AI ventures meet investors and decision-makers.</div>
+        <div class="sp-event-price">$1,000</div>
+        <div class="sp-event-highlight">1 slot only</div>
+      </div>
+
+      <div class="sp-event-card">
+<div class="sp-event-icon" style="background:rgba(245,62,159,0.12);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5" stroke="#F53E9F" stroke-width="1.8"/><path d="M13 13L17 17" stroke="#F53E9F" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sp-event-name">Signal Talent</div>
+        <div class="sp-event-desc">A dedicated activation connecting AI talent with companies hiring across the globe.</div>
+        <div class="sp-event-price">$1,000</div>
+        <div class="sp-event-highlight">1 slot only</div>
+      </div>
+
+      <div class="sp-event-card">
+<div class="sp-event-icon" style="background:rgba(0,212,255,0.10);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="5.5" cy="5" r="2" stroke="#00D4FF" stroke-width="1.8"/><path d="M2 18C2 15.239 3.567 13 5.5 13C7.433 13 9 15.239 9 18" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/><line x1="5.5" y1="13" x2="5.5" y2="18" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/><circle cx="14.5" cy="5" r="2" stroke="#00D4FF" stroke-width="1.8"/><path d="M11 18C11 15.239 12.567 13 14.5 13C16.433 13 18 15.239 18 18" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/><line x1="14.5" y1="13" x2="14.5" y2="18" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sp-event-name">Speed Networking Day</div>
+        <div class="sp-event-desc">The closing day activation — structured 1:1 speed rounds connecting professionals across all tracks.</div>
+        <div class="sp-event-price">$2,500</div>
+        <div class="sp-event-highlight">1 slot only</div>
+      </div>
+
+    </div>
+    <div style="margin-top:36px;text-align:center;">
+      <a href="#contact" class="btn btn-yellow">Arrange a Call →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══ BENEFITS OVERVIEW (TABBED) ══ -->
+<section class="sp-section" id="benefits">
+  <div class="sp-section-head" style="max-width:var(--max-width);margin:0 auto 48px;">
+    <div class="section-eyebrow">Benefits Overview</div>
+    <h2 class="section-title">What You Get</h2>
+    <p class="section-sub">A snapshot of key benefits by sponsor type.</p>
+  </div>
+  <div class="sp-tabs-wrap">
+    <div class="sp-tabs-nav">
+      <button class="sp-tab-btn active" onclick="switchTab('sponsors', this)">Sponsors</button>
+      <button class="sp-tab-btn" onclick="switchTab('community', this)">Community Partners</button>
+    </div>
+
+    <!-- SPONSORS TAB -->
+    <div class="sp-tab-panel active" id="tab-sponsors">
+      <div class="benefits-table-wrap">
+        <table class="benefits-table">
+          <thead>
+            <tr>
+              <th class="col-benefit">Benefit</th>
+              <th class="col-main">Main<br>$10K</th>
+              <th class="col-gold">Gold<br>$5K</th>
+              <th class="col-silver">Silver<br>$2.5K</th>
+              <th class="col-bronze">Bronze<br>$1K</th>
+              <th class="col-track">Track<br>$3K</th>
+              <th class="col-launch">Launchpad<br>$1K</th>
+              <th class="col-talent">Talent<br>$1K</th>
+              <th class="col-speed">Speed Net.<br>$2.5K</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="benefits-cat-row"><td colspan="9">Branding &amp; Visibility</td></tr>
+            <tr>
+              <td class="col-benefit">Named Association (presented / powered by)</td>
+              <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Logo on Signal Website</td>
+              <td class="val">Large · Top</td><td class="val">Medium · ATF</td><td class="val">Medium</td><td class="val">Small</td>
+              <td class="val">Tracks</td><td class="val">Events</td><td class="val">Events</td><td class="val">Events</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Sticky Banner — All BrainsMingle Pages</td>
+              <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Live Session Room — Top Bar</td>
+              <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Live Session Room — Rotating Banner</td>
+              <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+
+            <tr class="benefits-cat-row"><td colspan="9">Content &amp; Speaking</td></tr>
+            <tr>
+              <td class="col-benefit">Speaking Slots in Preferred Track</td>
+              <td class="val">5</td><td class="val">3</td><td class="val">2</td><td class="val">1</td>
+              <td class="val">Own Track</td><td class="val">Own Event</td><td class="val">Own Event</td><td class="val">Own Event</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Panelist Slot — Day 0 Opening Panels</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Opening Remarks at Sponsored Event</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Brand Mention in All Session Openings</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+            </tr>
+
+            <tr class="benefits-cat-row"><td colspan="9">Social Media &amp; Communications</td></tr>
+            <tr>
+              <td class="col-benefit">Dedicated Sponsor Spotlight Post</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Shared Sponsor Spotlight Post</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Mention in Pre-Event Email Campaign</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Social Mentions During Event Week</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Co-Branded Content Opportunity</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+
+            <tr class="benefits-cat-row"><td colspan="9">Post-Event</td></tr>
+            <tr>
+              <td class="col-benefit">Audience Insights Report</td>
+              <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+            <tr>
+              <td class="col-benefit">Mentioned in Post-Event Press Release</td>
+              <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+              <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="benefits-note">
+        <p>This is a highlights summary. Full placement specs, creative requirements, and additional benefits are covered during your call.</p>
+        <a href="#contact" class="btn btn-yellow">Arrange a Call →</a>
+      </div>
+    </div>
+
+    <!-- COMMUNITY PARTNERS TAB -->
+    <div class="sp-tab-panel" id="tab-community">
+      <div class="cp-grid">
+        <div class="cp-card">
+          <div class="cp-card-icon">📢</div>
+          <div class="cp-card-title">Co-Promote to Your Community</div>
+          <div class="cp-card-desc">Share Signal: AI with your audience and get featured across our channels. Your community gets access; we give you the spotlight.</div>
+        </div>
+        <div class="cp-card">
+          <div class="cp-card-icon">🎙️</div>
+          <div class="cp-card-title">Shared Spotlight Post</div>
+          <div class="cp-card-desc">Your organization featured in a shared Community Partner spotlight across all Signal: AI social platforms.</div>
+        </div>
+        <div class="cp-card">
+          <div class="cp-card-icon">🏠</div>
+          <div class="cp-card-title">Dedicated Community Space</div>
+          <div class="cp-card-desc">A branded channel and rotating banner in the Signal: AI Community Space on BrainsMingle — your members, your room.</div>
+        </div>
+        <div class="cp-card">
+          <div class="cp-card-icon">🎤</div>
+          <div class="cp-card-title">Brand Mention in Session Openings</div>
+          <div class="cp-card-desc">Your organization mentioned in the opening of sessions throughout the event week — heard by every attendee.</div>
+        </div>
+        <div class="cp-card">
+          <div class="cp-card-icon">📬</div>
+          <div class="cp-card-title">Signal Newsletter Feature</div>
+          <div class="cp-card-desc">Included in Signal: AI's pre-event newsletter, reaching registered attendees and subscribers ahead of the event.</div>
+        </div>
+        <div class="cp-card">
+          <div class="cp-card-icon">🌍</div>
+          <div class="cp-card-title">Global Reach</div>
+          <div class="cp-card-desc">Access to a global network of 20,000+ professionals, decision-makers, and AI enthusiasts across 85+ countries.</div>
+        </div>
+      </div>
+
+      <div class="cp-cta-box">
+        <div class="cp-price">$300</div>
+        <div class="cp-slots">Community Partnership</div>
+        <h3>Ready to Partner with Signal: AI?</h3>
+        <p>Community Partners help us grow the Signal and get featured across all platforms in return. Limited spots available — reach out to discuss how we can collaborate.</p>
+        <a href="#contact" class="btn btn-yellow">Get in Touch →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ CONTACT / FORM ══ -->
+<section class="sp-section sp-contact" id="contact">
+  <div class="sp-contact-inner">
+    <div class="sp-contact-left">
+      <h2>Let's Talk.<br><em>Slots Won't Last.</em></h2>
+      <p>Fill in the form and we'll reach out within 24 hours to arrange a call, walk you through the full benefits, and help you find the right fit for your brand.</p>
+      <div class="sp-contact-meta">
+        <div class="sp-contact-meta-item">
+          <div class="sp-contact-meta-icon">📧</div>
+          <div>Sponsors: <a href="mailto:sponsors@brainsmingle.com">sponsors@brainsmingle.com</a></div>
+        </div>
+        <div class="sp-contact-meta-item">
+          <div class="sp-contact-meta-icon">🤝</div>
+          <div>Community Partners: <a href="mailto:partners@brainsmingle.com">partners@brainsmingle.com</a></div>
+        </div>
+        <div class="sp-contact-meta-item">
+          <div class="sp-contact-meta-icon">📅</div>
+          <div>Event dates: 4 – 10 July 2026 · Virtual · Global</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-contact-right">
+      <div class="sp-form" id="sp-form">
+        <div class="sp-form-row">
+          <div class="sp-field">
+            <label for="sp-name">Full Name *</label>
+            <input type="text" id="sp-name" placeholder="Your name" required />
+          </div>
+          <div class="sp-field">
+            <label for="sp-company">Company / Organization *</label>
+            <input type="text" id="sp-company" placeholder="Your company" required />
+          </div>
+        </div>
+        <div class="sp-form-row">
+          <div class="sp-field">
+            <label for="sp-email">Email *</label>
+            <input type="email" id="sp-email" placeholder="you@company.com" required />
+          </div>
+          <div class="sp-field">
+            <label for="sp-phone">Phone *</label>
+            <input type="tel" id="sp-phone" placeholder="+1 000 000 0000" required />
+          </div>
+        </div>
+        <div class="sp-field">
+          <label for="sp-interest">I'm interested in *</label>
+          <select id="sp-interest" required>
+            <option value="" disabled selected>Select sponsorship type</option>
+            <option value="Sponsor">Sponsor (Main / Gold / Silver / Bronze)</option>
+            <option value="Track Sponsor">Track Sponsor</option>
+            <option value="Signal Launchpad">Signal Launchpad</option>
+            <option value="Signal Talent">Signal Talent</option>
+            <option value="Speed Networking Day">Speed Networking Day</option>
+            <option value="Community Partner">Community Partner</option>
+          </select>
+        </div>
+        <div class="sp-field">
+          <label for="sp-message">Message (optional)</label>
+          <textarea id="sp-message" placeholder="Tell us about your brand, goals, or any questions..."></textarea>
+        </div>
+        <div class="sp-form-submit-row">
+          <button class="btn btn-primary" onclick="submitForm()">Request a Call →</button>
+          <span class="sp-form-note">We respond within 24 hours. No spam, ever.</span>
+        </div>
+        <div class="sp-form-success" id="form-success">
+          ✓ Request received! We'll be in touch within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Signal: AI" />
+      <p class="footer-brand-sub">The global AI activation week. Powered by BrainsMingle.</p>
+      <div class="footer-contact">
+        <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Event</div>
+      <div class="footer-links">
+        <a href="home.html#about">About Signal</a>
+        <a href="home.html#tracks">The Tracks</a>
+        <a href="agenda.html">Full Agenda</a>
+        <a href="speakers.html">Speakers</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Partners</div>
+      <div class="footer-links">
+        <a href="sponsors.html">Become a Sponsor</a>
+        <a href="partners.html">Become a Partner</a>
+        <a href="partners.html">Community Partners</a>
+        <a href="partners.html">Media Partners</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-bottom-text">© 2026 Signal: AI · Powered by BrainsMingle</span>
+    <span class="footer-bottom-text">4 – 10 July 2026 · Global · Virtual</span>
+  </div>
+</footer>
+
+
+<script>
+  function switchTab(tabName, btn) {
+    document.querySelectorAll('.sp-tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sp-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function submitForm() {
+    const name = document.getElementById('sp-name').value.trim();
+    const company = document.getElementById('sp-company').value.trim();
+    const email = document.getElementById('sp-email').value.trim();
+    const phone = document.getElementById('sp-phone').value.trim();
+    const interest = document.getElementById('sp-interest').value;
+
+    if (!name || !company || !email || !phone || !interest) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const message = document.getElementById('sp-message').value.trim();
+    const toEmail = interest === 'Community Partner' ? 'partners@brainsmingle.com' : 'sponsors@brainsmingle.com';
+
+    const subject = encodeURIComponent(`Signal: AI Sponsorship Inquiry — ${interest} — ${company}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nInterest: ${interest}\n\nMessage:\n${message || 'No message provided.'}`
+    );
+
+    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

@@ -197,7 +197,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.02em;
   transition: color 0.2s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a:hover, .nav-links a.active { color: var(--yellow); }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
 /* ══════════════════════════════════════════
@@ -346,7 +346,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 20px;
   color: var(--text-secondary);
   letter-spacing: 0.03em;
-  font-style: italic;
   margin-bottom: 36px;
 }
 .hero-cta-group {
@@ -829,7 +828,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 48px; }
 .footer-brand img { height: 70px; margin-bottom: 14px; }
 .footer-brand-sub { font-size: 13px; color: var(--text-muted); line-height: 1.65; max-width: 220px; margin-bottom: 20px; }
-.footer-contact a { font-size: 13px; color: var(--cyan); }
+.footer-contact a { font-size: 13px; color: var(--yellow); }
 .footer-col-title { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { font-size: 14px; color: var(--text-secondary); transition: color 0.2s; }
