@@ -431,17 +431,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .sponsor-logo-box:hover .track-sponsor-inner img { opacity: 1; }
 
 /* Special event sponsor box */
-.slb-special { width: 220px; height: auto; padding: 0; }
+.slb-special { width: 200px; height: 80px; padding: 0; }
 .special-sponsor-inner {
   display: flex; flex-direction: column; align-items: center;
-  justify-content: center; gap: 10px; padding: 14px 12px; width: 100%;
+  justify-content: center; gap: 8px; padding: 12px 16px; width: 100%;
 }
 .special-sponsor-label {
   font-family: 'Montserrat', sans-serif; font-weight: 700;
-  font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase;
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  white-space: nowrap;
 }
 .special-sponsor-inner img {
-  max-width: 85%; height: 36px; object-fit: contain;
+  max-width: 85%; height: 28px; object-fit: contain;
   filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.2s; display: block;
 }
 .sponsor-logo-box:hover .special-sponsor-inner img { opacity: 1; }
