@@ -279,12 +279,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 60px;
 }
 .tl-pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-body); font-size: 12px; font-weight: 600;
-  letter-spacing: 0.05em; padding: 6px 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  letter-spacing: 0.05em; padding: 9px 20px;
   border-radius: 20px; border: 0.5px solid;
 }
-.tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.tl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
 /* ── Agenda session track accents — keyed by trackNumber */
 .ag-session.track-1  { border-left-color: var(--track-1) !important; }
@@ -624,8 +624,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-track-strip {
   display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 8px;
-  padding: 20px 48px 28px;
+  flex-wrap: wrap; gap: 12px;
+  padding: 32px 48px 40px;
   border-top: 0.5px solid var(--border);
   position: relative; z-index: 2;
 }

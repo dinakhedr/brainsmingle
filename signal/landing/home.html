@@ -515,9 +515,9 @@ function renderHeroTrackStrip() {
   const el = document.getElementById("hero-track-strip");
   if (!el) return;
   el.innerHTML = SIGNAL_TRACKS.map(t => `
-    <span class="track-pill track-${t.trackNumber}"
+    <span class="tl-pill"
           style="color:${t.color};border-color:rgba(${t.accentRgb},0.30);background:rgba(${t.accentRgb},0.07);">
-      <span class="pill-dot" style="background:${t.color};"></span>
+      <span class="tl-dot" style="background:${t.color};"></span>
       ${t.shortName}
     </span>
   `).join("");
