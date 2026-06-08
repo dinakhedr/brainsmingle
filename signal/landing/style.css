@@ -146,9 +146,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .powered-by {
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.22em;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.45);
 }
@@ -185,7 +185,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-bottom: 0.5px solid var(--border);
   transition: background 0.3s;
 }
-.nav-logo img { height: 60px; width: auto; }
+.nav-logo img { height: 40px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-family: var(--font-body);
@@ -617,8 +617,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-powered    { margin-bottom: 24px; }
 .hero-tagline {
   font-family: var(--font-body); font-weight: 300;
-  font-size: 20px; color: var(--text-secondary);
+  font-size: 16px; color: var(--text-secondary);
   letter-spacing: 0.03em; margin-bottom: 36px;
+  font-style: italic;
 }
 .hero-cta-group {
   display: flex; align-items: center; gap: 12px; justify-content: center;
