@@ -141,43 +141,63 @@ function renderTrackCards() {
   el.innerHTML = SIGNAL_TRACKS.map(t => {
     const rgb = t.accentRgb;
 
-    // sponsor box — look up track sponsor from sponsors.js
-    const sponsor     = SIGNAL_SPONSORS.find(s => s.tier === "track" && s.trackNumber === t.trackNumber);
-    const sponsorBox  = sponsor
+    // sponsor box — in header
+    const sponsor = SIGNAL_SPONSORS.find(s => s.tier === "track" && s.trackNumber === t.trackNumber);
+    const sponsorBox = sponsor
       ? `<div class="track-sponsor-box"><img src="${sponsor.logoPath}" alt="${sponsor.name}" /></div>`
-      : `<div class="track-sponsor-box" style="opacity:0.3;font-family:var(--font-body);font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.06em;">TBC</div>`;
+      : `<div class="track-sponsor-box" style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:0.06em;font-family:var(--font-body);">TBC</div>`;
 
-    // focus areas as bullet list
-    const focusList = t.focusAreas.map(f => `<li>${f}</li>`).join("");
+    // focus areas — name only (strip anything after " — ")
+    const focusDots = t.focusAreas.map(f => {
+      const name = f.split(" — ")[0].split(" — ")[0];
+      return `
+        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.65);line-height:1.6;">
+          <span style="width:4px;height:4px;border-radius:50%;background:${t.color};flex-shrink:0;"></span>
+          ${name}
+        </div>`;
+    }).join("");
 
-    // target groups as prose
-    const targetText = t.targetGroups.join(", ");
+    // target groups — dot list
+    const targetDots = t.targetGroups.map(g => `
+        <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.65);line-height:1.6;">
+          <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.25);flex-shrink:0;"></span>
+          ${g}
+        </div>`).join("");
 
     return `
-      <div class="track-card" style="background:rgba(${rgb},0.07);border-color:rgba(${rgb},0.25);">
+      <div class="track-card" style="background:rgba(${rgb},0.07);border-color:rgba(${rgb},0.25);border-left:3px solid ${t.color};padding:0;">
 
-        <div class="track-powered-bar"
-             style="background:rgba(${rgb},0.12);border-color:rgba(${rgb},0.2);">
-          <span class="track-powered-label" style="color:${t.color};">Track 0${t.trackNumber}</span>
+        <!-- HEADER — B style -->
+        <div style="background:rgba(${rgb},0.10);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:0.5px solid rgba(${rgb},0.20);">
+          <div>
+            <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:${t.color};margin-bottom:6px;">${t.tagline}</div>
+            <div style="font-family:var(--font-display);font-size:22px;font-weight:900;color:#fff;line-height:1.15;">${t.fullName}</div>
+          </div>
           ${sponsorBox}
         </div>
 
-        <div class="track-card-inner">
-          <h2 class="track-name">${t.fullName}</h2>
-          <p class="track-quote">"${t.tagline}"</p>
+        <!-- BODY — C style two-column -->
+        <div style="padding:24px 28px;">
+          <p style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:24px;">${t.longDescription}</p>
 
-          <div class="track-section-label" style="color:${t.color};">About this track</div>
-          <p class="track-text">${t.longDescription}</p>
-
-          <div class="track-section-label" style="color:${t.color};">Who it's for</div>
-          <p class="track-text">${targetText}</p>
-
-          <div class="track-section-label" style="color:${t.color};">Focus areas</div>
-          <ul class="track-sessions-list">${focusList}</ul>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <div style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:${t.color};margin-bottom:10px;">Focus Areas</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">${focusDots}</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:${t.color};margin-bottom:10px;">Who It's For</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">${targetDots}</div>
+            </div>
+          </div>
         </div>
 
-        <div class="track-card-footer">
-          <a href="agenda.html" class="btn btn-yellow btn-arrow" target="_blank">View Sessions</a>
+        <!-- FOOTER -->
+        <div style="padding:14px 28px;border-top:0.5px solid rgba(${rgb},0.15);">
+          <a href="agenda.html"
+             style="font-family:var(--font-body);font-size:13px;font-weight:700;color:${t.color};text-decoration:none;letter-spacing:0.02em;">
+            View Sessions →
+          </a>
         </div>
 
       </div>
