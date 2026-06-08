@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda — Signal: AI | 4–10 July 2026</title>
+  <meta name="description" content="Full agenda for Signal: AI — 7 days, 5 tracks, 90+ sessions. 4–10 July 2026." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/brand/icon.png" />
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav class="site-nav">
+  <a href="home.html" class="nav-logo">
+    <img src="assets/brand/logo.png" alt="Signal: AI" />
+  </a>
+  <div class="nav-links">
+    <a href="home.html#about">About</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="agenda.html" class="active">Agenda</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="sponsors.html">Sponsors &amp; Partners</a>
+  </div>
+  <div class="nav-actions">
+    <a href="home.html#register" class="btn btn-primary btn-sm">Register to Join the Signal</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="ag-hero">
+  <div class="ag-hero-glow"></div>
+  <div class="ag-hero-inner">
+    <div class="ag-hero-eyebrow">Full Agenda · 4–10 July 2026</div>
+    <h1 class="ag-hero-title">Seven days.<br>Five tracks.<br>One signal.</h1>
+    <p class="ag-hero-sub">90+ sessions, live panels, special activations, and a full-day speed networking closer — all on BrainsMingle.</p>
+
+    <!-- track legend — rendered from tracks.js -->
+    <div class="track-legend" id="track-legend"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DAY TABS — rendered from days.js
+══════════════════════════════════════════ -->
+<div class="ag-tabs-wrap">
+  <div class="ag-tabs" id="ag-tabs"></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     AGENDA BODY — rendered from agenda.js + tracks.js + speakers.js
+══════════════════════════════════════════ -->
+<div class="ag-body" id="ag-body"></div>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/brand/logo.png" alt="Signal: AI" />
+      <p class="footer-brand-sub">The global AI activation week. Powered by BrainsMingle.</p>
+      <div class="footer-contact">
+        <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Event</div>
+      <div class="footer-links">
+        <a href="home.html#about">About Signal</a>
+        <a href="tracks.html">The Tracks</a>
+        <a href="agenda.html">Full Agenda</a>
+        <a href="speakers.html">Speakers</a>
+        <a href="speakers.html">Join as Speaker</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Sponsors</div>
+      <div class="footer-links">
+        <a href="sponsors.html">Become a Sponsor</a>
+        <a href="sponsors.html">Sponsorship Packages</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-bottom-text">© 2026 Signal: AI · Powered by BrainsMingle</span>
+    <span class="footer-bottom-text">4 – 10 July 2026 · Global · Virtual</span>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     DATA FILES
+══════════════════════════════════════════ -->
+<script src="data/tracks.js"></script>
+<script src="data/days.js"></script>
+<script src="data/agenda.js"></script>
+<script src="data/speakers.js"></script>
+
+<script>
+// ─────────────────────────────────────────
+// TAB SWITCHER
+// ─────────────────────────────────────────
+
+function switchDay(domId, tab) {
+  document.querySelectorAll('.ag-day').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.ag-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(domId).classList.add('active');
+  tab.classList.add('active');
+}
+
+
+// ─────────────────────────────────────────
+// TRACK LEGEND
+// ─────────────────────────────────────────
+
+function renderTrackLegend() {
+  const el = document.getElementById('track-legend');
+  if (!el) return;
+  el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <span class="tl-pill"
+          style="color:${t.color};border-color:rgba(${t.accentRgb},0.3);background:rgba(${t.accentRgb},0.06);">
+      <span class="tl-dot" style="background:${t.color};"></span>
+      ${t.shortName}
+    </span>
+  `).join('');
+}
+
+
+// ─────────────────────────────────────────
+// DAY TABS
+// ─────────────────────────────────────────
+
+function renderTabs() {
+  const el = document.getElementById('ag-tabs');
+  if (!el) return;
+  el.innerHTML = SIGNAL_DAYS.map((day, i) => `
+    <div class="ag-tab${i === 0 ? ' active' : ''}"
+         onclick="switchDay('${day.domId}', this)">
+      ${day.tabLabel}
+      <span class="ag-tab-date">${day.tabSublabel}</span>
+    </div>
+  `).join('');
+}
+
+
+// ─────────────────────────────────────────
+// TRACK COLUMN HEADER
+// ─────────────────────────────────────────
+
+function renderTrackHeader() {
+  const timeCol = `<div class="ag-track-col-label time-col"></div>`;
+  const trackCols = SIGNAL_TRACKS.map(t => `
+    <div class="ag-track-col-label"
+         style="color:${t.color};border-color:rgba(${t.accentRgb},0.25);background:rgba(${t.accentRgb},0.06);">
+      ${t.shortName}
+    </div>
+  `).join('');
+  return `<div class="ag-track-header">${timeCol}${trackCols}</div>`;
+}
+
+
+// ─────────────────────────────────────────
+// SESSION CELL
+// ─────────────────────────────────────────
+
+function renderSessionCell(day, slot, trackNumber) {
+  const session = getSessionByCell(day, trackNumber, slot);
+  const track   = SIGNAL_TRACKS_BY_NUMBER[trackNumber];
+  const title   = session && session.title ? session.title : 'Insert session name here';
+
+  // speaker chips
+  let speakerHtml = '';
+  if (session && session.speakerIds && session.speakerIds.length) {
+    speakerHtml = session.speakerIds.map(id => {
+      const spk = SIGNAL_SPEAKERS_MAP[id];
+      if (!spk) return '';
+      return `<span class="speaker-chip">
+        <img class="speaker-chip__photo" src="${spk.imagePath}" alt="${spk.name}" loading="lazy" />
+        <span class="speaker-chip__name">${spk.name}</span>
+      </span>`;
+    }).join('');
+    speakerHtml = `<div class="ag-session-speakers">${speakerHtml}</div>`;
+  } else {
+    speakerHtml = `<div class="ag-session-speaker">Insert Speaker Name</div>`;
+  }
+
+  return `
+    <div class="ag-session track-${trackNumber}">
+      <div class="ag-session-title">${title}</div>
+      ${speakerHtml}
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// TIME ROW (one slot across all 5 tracks)
+// ─────────────────────────────────────────
+
+function renderTimeRow(day, slot, timeLabel) {
+  const cells = SIGNAL_TRACKS.map(t => renderSessionCell(day, slot, t.trackNumber)).join('');
+  return `
+    <div class="ag-time-row">
+      <div class="ag-time-label">${timeLabel}</div>
+      ${cells}
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// DAY 1 — Opening Day panels
+// ─────────────────────────────────────────
+
+function renderDay1() {
+  const day = SIGNAL_DAYS_MAP[1];
+  const slots = [
+    { slot: 1, time: '5:00 PM',  sessionId: 'ses-d1-p1' },
+    { slot: 2, time: '6:00 PM',  sessionId: 'ses-d1-p2' },
+    { slot: 3, time: '7:00 PM',  sessionId: 'ses-d1-p3' },
+    { slot: 4, time: '8:00 PM',  sessionId: 'ses-d1-p4' },
+    { slot: 5, time: '9:00 PM',  sessionId: 'ses-d1-p5' },
+  ];
+
+  const panels = slots.map((s, i) => {
+    const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
+    const title   = session && session.title ? session.title : 'Insert panel name here';
+
+    // speaker chips from speakerIds
+    let metaHtml = 'Moderator: Insert Moderator Name &nbsp;·&nbsp; Panelists: Insert Panelist Names';
+    if (session && session.speakerIds && session.speakerIds.length) {
+      const names = session.speakerIds
+        .map(id => SIGNAL_SPEAKERS_MAP[id] ? SIGNAL_SPEAKERS_MAP[id].name : null)
+        .filter(Boolean);
+      if (names.length) metaHtml = names.join(' &nbsp;·&nbsp; ');
+    }
+
+    return `
+      <div class="ag-panel-row">
+        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-panel">
+          <div class="ag-panel-num">0${i + 1}</div>
+          <div class="ag-panel-content">
+            <div class="ag-panel-title">${title}</div>
+            <div class="ag-panel-meta">${metaHtml}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="ag-day active" id="${day.domId}">
+      <div class="ag-day-header">
+        <div class="ag-day-tag">Day 1 · Opening Day</div>
+        <h2 class="ag-day-title">${day.date}</h2>
+        <p class="ag-day-desc">${day.description}</p>
+      </div>
+      ${panels}
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// TRACK DAYS (days 2–6)
+// ─────────────────────────────────────────
+
+function renderTrackDay(dayNum) {
+  const day      = SIGNAL_DAYS_MAP[dayNum];
+  const slots    = day.special ? [1, 2, 3] : [1, 2, 3, 4];
+  const times    = { 1: '6:00 PM', 2: '7:00 PM', 3: '8:00 PM', 4: '9:00 PM' };
+
+  // day tag text
+  const tagTexts = {
+    2: 'Day 2 · Track Sessions',
+    3: 'Day 3 · Track Sessions + Signal Launchpad',
+    4: 'Day 4 · Track Sessions',
+    5: 'Day 5 · Track Sessions + Signal Talent',
+    6: 'Day 6 · Track Sessions',
+  };
+
+  // day desc text — exact from original
+  const descTexts = {
+    2: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+    3: 'Three session slots across all tracks, closing with Signal Launchpad — the startup showcase activation.',
+    4: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+    5: 'Three session slots across all tracks, closing with Signal Talent — the professional hiring activation.',
+    6: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+  };
+
+  const timeRows = slots.map(s => renderTimeRow(dayNum, s, times[s])).join('');
+
+  // special activation row at 9 PM
+  let specialRow = '';
+  if (day.special === 'launchpad') {
+    specialRow = `
+      <div class="ag-special-merged">
+        <div class="ag-time-label">9:00 PM</div>
+        <div class="ag-special-card ag-special-launchpad">
+          <div>
+            <div class="ag-special-badge">✦ Special Activation</div>
+            <div class="ag-special-name">Signal Launchpad — Startups Showcase</div>
+            <div class="ag-special-meta">All tracks · Open to all attendees</div>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (day.special === 'talent') {
+    specialRow = `
+      <div class="ag-special-merged">
+        <div class="ag-time-label">9:00 PM</div>
+        <div class="ag-special-card ag-special-talent">
+          <div>
+            <div class="ag-special-badge">✦ Special Activation</div>
+            <div class="ag-special-name">Signal Talent — Professional Interviewing</div>
+            <div class="ag-special-meta">All tracks · Open to all attendees</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="ag-day" id="${day.domId}">
+      <div class="ag-day-header">
+        <div class="ag-day-tag">${tagTexts[dayNum]}</div>
+        <h2 class="ag-day-title">${day.date}</h2>
+        <p class="ag-day-desc">${descTexts[dayNum]}</p>
+      </div>
+      ${renderTrackHeader()}
+      ${timeRows}
+      ${specialRow}
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// DAY 7 — Speed Networking
+// ─────────────────────────────────────────
+
+function renderDay7() {
+  const day = SIGNAL_DAYS_MAP[7];
+  return `
+    <div class="ag-day" id="${day.domId}">
+      <div class="ag-day-header">
+        <div class="ag-day-tag">Day 7 · Closing Day</div>
+        <h2 class="ag-day-title">${day.date}</h2>
+        <p class="ag-day-desc">Speed Networking Day — all tracks, open to all attendees.</p>
+      </div>
+      <div class="ag-sn-hero">
+        <div class="ag-sn-label">✦ Full Day Activation · All Tracks · Open to All</div>
+        <div class="ag-sn-title">Speed Networking Day</div>
+        <p class="ag-sn-sub">Structured rounds that connect professionals across all tracks at a scale. Powered by BrainsMingle's Speed Networking engine.</p>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:40px;">
+        <a href="home.html#register" class="btn btn-yellow">Register to Join the Signal</a>
+        <a href="sponsors.html" class="btn btn-outline">Become a Sponsor</a>
+      </div>
+    </div>
+  `;
+}
+
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderTrackLegend();
+  renderTabs();
+
+  const body = document.getElementById('ag-body');
+  body.innerHTML =
+    renderDay1() +
+    renderTrackDay(2) +
+    renderTrackDay(3) +
+    renderTrackDay(4) +
+    renderTrackDay(5) +
+    renderTrackDay(6) +
+    renderDay7();
+});
+</script>
+
+</body>
+</html>
