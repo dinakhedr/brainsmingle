@@ -670,6 +670,9 @@ async function refreshData() {
     const icon = document.getElementById("refreshIcon");
     btn.disabled=true;
     icon.classList.add("spinning");
+    // Hide sticky header during refresh
+    const stickyHeader = document.getElementById("stickyHeader");
+    if (stickyHeader) stickyHeader.style.display="none";
     try {
         const {tasks,workstreams,weeks,owners} = await loadAllSheets();
         build(tasks, workstreams, weeks, owners);
