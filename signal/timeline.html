@@ -592,7 +592,8 @@ function applyFilters() {
         row.style.display = show?"":"none";
         if(show) vis++;
     });
-    document.getElementById("noResults").style.display = vis===0?"block":"none";
+    const noRes = document.getElementById("noResults");
+    if (noRes) noRes.style.display = vis===0?"block":"none";
 }
 
 // ── Wire events ───────────────────────────────────────────
