@@ -1493,4 +1493,261 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .track-card-footer  { padding: 0 24px 24px; }
   .track-powered-bar  { padding: 12px 24px; }
   .track-name         { font-size: 22px; }
+  /* Coming Soon responsive */
+  .cs-main            { padding: 100px 24px 60px; }
+  .cs-headline        { font-size: 38px; }
+  .cs-form-wrap       { padding: 28px 24px; }
+  .cs-form-row        { flex-direction: column; }
+  .cs-submit-btn      { width: 100%; justify-content: center; }
 }
+
+
+/* ============================================================
+   17. Page — Coming Soon
+   ============================================================ */
+
+.cs-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background atmosphere */
+.cs-glow {
+  position: fixed;
+  top: -200px; left: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(107,62,245,0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cs-glow-right {
+  position: fixed;
+  bottom: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,232,162,0.10) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.cs-grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(107,62,245,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,62,245,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layout */
+.cs-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  z-index: 1;
+}
+.cs-inner {
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* ── Eyebrow */
+.cs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 32px;
+}
+.cs-eyebrow-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--yellow);
+  animation: cs-pulse 2s ease-in-out infinite;
+}
+@keyframes cs-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── Frequency bars */
+.cs-freq {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+.cs-bar {
+  width: 3px;
+  border-radius: 2px;
+  animation: cs-freq-anim 1.6s ease-in-out infinite;
+}
+@keyframes cs-freq-anim {
+  0%, 100% { transform: scaleY(1); opacity: 0.7; }
+  50%       { transform: scaleY(0.35); opacity: 0.3; }
+}
+
+/* ── Headline */
+.cs-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 45px;
+  line-height: 1.0;
+  letter-spacing: 0.03em;
+  color: var(--yellow);
+  margin-bottom: 20px;
+}
+
+/* ── Sub */
+.cs-sub {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+/* ── Date pill */
+.cs-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(232,242,0,0.08);
+  border: 0.5px solid rgba(232,242,0,0.25);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 48px;
+}
+.cs-date-pill-sep {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--yellow);
+  opacity: 0.5;
+}
+
+/* ── Waitlist form */
+.cs-form-wrap {
+  background: rgba(14,14,28,0.7);
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-xl);
+  padding: 40px 48px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.cs-form-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+.cs-form-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.cs-email-input {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cs-email-input::placeholder { color: var(--text-muted); }
+.cs-email-input:focus {
+  border-color: var(--purple);
+  background: rgba(107,62,245,0.07);
+}
+.cs-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.cs-submit-btn:hover  { opacity: 0.88; transform: translateY(-1px); }
+.cs-submit-btn:active { transform: translateY(0); }
+
+/* ── Success state */
+.cs-success {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: rgba(0,232,162,0.08);
+  border: 0.5px solid rgba(0,232,162,0.25);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--cyan);
+  margin-top: 16px;
+}
+.cs-success.visible { display: flex; }
+
+/* ── Error state */
+.cs-error {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #F53E9F;
+  margin-top: 10px;
+  text-align: left;
+}
+.cs-error.visible { display: block; }
+
+/* ── Back link */
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-top: 32px;
+  transition: color 0.2s;
+}
+.cs-back:hover { color: var(--text-secondary); }
+.cs-back-arrow { font-size: 15px; }
