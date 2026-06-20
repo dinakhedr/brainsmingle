@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainsMingle vs. The Field</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bm-purple: #6B3EF5;
+    --bm-cyan: #00E8A2;
+    --bm-lime: #e8f200;
+    --bm-pink: #f53e9f;
+    --bm-dark: #0A0A14;
+    --wv-color: #2D7DD2;
+    --ct-color: #FF6B35;
+    --ci-color: #8B5CF6;
+    --white: #FFFFFF;
+    --gray-50: #F8F9FB;
+    --gray-100: #F0F1F5;
+    --gray-200: #E2E4EC;
+    --gray-400: #9299B0;
+    --gray-600: #5A6282;
+    --gray-900: #0A0A14;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--gray-900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-logo { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--bm-purple); }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-size: 12.5px; font-weight: 500; color: var(--gray-600); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--bm-purple); }
+  .nav-badge { font-size: 11px; font-weight: 700; letter-spacing: .5px; background: var(--bm-purple); color: white; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+
+  /* SHARED */
+  .inner { max-width: 1200px; margin: 0 auto; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--gray-400); text-transform: uppercase; margin-bottom: 12px; }
+  .eyebrow.purple { color: var(--bm-purple); display: flex; align-items: center; gap: 10px; }
+  .eyebrow.purple::before { content:''; display:inline-block; width:28px; height:2px; background:var(--bm-purple); }
+  .eyebrow.cyan { color: var(--bm-cyan); }
+  .section-title { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; color: var(--gray-900); margin-bottom: 12px; }
+  .section-title.white { color: white; }
+  .section-sub { font-size: 15px; color: var(--gray-600); line-height: 1.7; max-width: 640px; margin-bottom: 40px; }
+  .divider { height: 1px; background: var(--gray-200); }
+
+  /* HERO */
+  .hero { padding: 80px 60px 60px; }
+  .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--gray-900); margin-bottom: 24px; }
+  .hero h1 span { color: var(--bm-purple); font-size: 0.7em; white-space: nowrap; }
+  .hero-sub { font-size: 17px; color: var(--gray-600); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+  .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid var(--gray-200); }
+  .hero-meta-item { display: flex; flex-direction: column; }
+  .hero-meta-item .label { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--gray-400); text-transform: uppercase; margin-bottom: 4px; }
+  .hero-meta-item .value { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+
+  /* ARC */
+  .arc-strip { background: var(--bm-dark); padding: 64px 60px; }
+  .arc-title { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: white; margin-bottom: 48px; letter-spacing: -0.5px; max-width: 600px; }
+  .arc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .arc-steps::before { content:''; position:absolute; top:28px; left:calc(16.6% + 16px); right:calc(16.6% + 16px); height:2px; background:linear-gradient(90deg, var(--bm-purple), var(--bm-cyan)); }
+  .arc-step { text-align: center; padding: 0 20px; position: relative; }
+  .arc-num { width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-family:'Montserrat',sans-serif; font-size:18px; font-weight:800; position:relative; z-index:1; }
+  .arc-step:nth-child(1) .arc-num { background: var(--bm-purple); color: white; }
+  .arc-step:nth-child(2) .arc-num { background: linear-gradient(135deg, var(--bm-purple), var(--bm-cyan)); color: white; }
+  .arc-step:nth-child(3) .arc-num { background: var(--bm-cyan); color: var(--bm-dark); }
+  .arc-step-label { font-size: 13px; font-weight: 700; color: white; margin-bottom: 8px; }
+  .arc-step-desc { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* PROOF STRIP */
+  .proof-strip { background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); padding: 48px 60px; }
+  .proof-strip-inner { max-width: 1200px; margin: 0 auto; }
+  .proof-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 40px; }
+  .proof-statement { font-size: 18px; font-weight: 700; color: var(--gray-900); line-height: 1.5; }
+  .proof-statement span { color: var(--bm-purple); }
+  .proof-note { font-size: 13.5px; color: var(--gray-600); line-height: 1.7; }
+  .proof-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .proof-stat { background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 18px 16px; text-align: center; }
+  .proof-stat .stat-num { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--bm-purple); line-height: 1; margin-bottom: 6px; }
+  .proof-stat .stat-label { font-size: 11px; color: var(--gray-600); font-weight: 500; line-height: 1.3; }
+
+  /* VERDICT */
+  .verdict-section { padding: 80px 60px; }
+  .verdict-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .verdict-card { background: white; border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 24px; position: relative; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+  .verdict-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .verdict-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; }
+  .vwv::after { background: var(--wv-color); }
+  .vct::after { background: var(--ct-color); }
+  .vci::after { background: var(--ci-color); }
+  .comp-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px; }
+  .comp-name-label { font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--gray-600); display:flex; align-items:center; margin-bottom:10px; }
+  .verdict-title { font-size:17px; font-weight:800; color:var(--gray-900); margin-bottom:8px; line-height:1.2; }
+  .verdict-desc { font-size:13px; color:var(--gray-600); line-height:1.6; }
+
+  /* DEEP DIVE */
+  .deepdive-section { padding: 80px 60px; background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+  .comp-grid { display: flex; flex-direction: column; gap: 20px; }
+  .comp-card { border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; background: white; }
+  .comp-card-header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; padding: 24px 28px; cursor: pointer; user-select: none; transition: background .15s; }
+  .comp-card-header:hover { background: var(--gray-50); }
+  .comp-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; color:white; flex-shrink:0; }
+  .wv .comp-icon { background: var(--wv-color); }
+  .ct .comp-icon { background: var(--ct-color); }
+  .ci .comp-icon { background: var(--ci-color); }
+  .comp-header-name { font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; color:var(--gray-900); margin-bottom:2px; }
+  .comp-header-tagline { font-size:13px; color:var(--gray-600); }
+  .comp-header-right { display:flex; flex-direction:row; align-items:center; gap:14px; }
+  .comp-threat-pill { font-size:11px; font-weight:700; letter-spacing:.5px; padding:5px 12px; border-radius:20px; text-transform:uppercase; white-space:nowrap; }
+  .niche-threat { background:#DCFCE7; color:#16A34A; }
+  .threat-medium { background:#FEF9C3; color:#A16207; }
+  .threat-high { background:#EDE9FE; color:#7C3AED; }
+  .toggle-icon { font-size:22px; color:var(--gray-400); transition:transform .3s; width:24px; height:24px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .comp-card.open .toggle-icon { transform: rotate(45deg); }
+  .comp-card-body { display:none; border-top:1px solid var(--gray-200); padding:32px; background:var(--gray-50); }
+  .comp-card-body.open { display: block; }
+  .comp-body-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+  .comp-body-col h4 { font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--gray-400); text-transform:uppercase; margin-bottom:14px; }
+  .comp-body-col ul { list-style:none; }
+  .comp-body-col ul li { font-size:13.5px; color:var(--gray-900); padding:5px 0; display:flex; align-items:flex-start; gap:8px; border-bottom:1px solid var(--gray-200); }
+  .comp-body-col ul li:last-child { border-bottom:none; }
+  .comp-body-col ul li::before { content:'→'; color:var(--gray-400); flex-shrink:0; margin-top:1px; font-size:12px; }
+  .comp-weakness-row { background:white; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:20px 24px; }
+  .comp-weakness-row h4 { font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--gray-400); text-transform:uppercase; margin-bottom:12px; }
+  .weakness-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .weakness-tag { font-size:12px; font-weight:500; padding:4px 12px; border-radius:20px; background:#FEE2E2; color:#DC2626; }
+
+  /* MATRIX */
+  .matrix-section { padding: 80px 60px; }
+  .matrix-table { width:100%; border-collapse:collapse; background:white; border-radius:var(--radius); overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.06); margin-top: 32px; }
+  .matrix-table th { padding:16px 20px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:white; text-align:center; }
+  .matrix-table th:first-child { text-align:left; color:var(--gray-400); background:white; }
+  .th-wv { background: var(--wv-color); }
+  .th-ct { background: var(--ct-color); }
+  .th-ci { background: var(--ci-color); }
+  .th-bm { background: var(--bm-purple); }
+  .matrix-table td { padding:14px 20px; font-size:13px; color:var(--gray-900); border-bottom:1px solid var(--gray-100); text-align:center; vertical-align:middle; }
+  .matrix-table td:first-child { text-align:left; font-weight:600; color:var(--gray-600); font-size:12.5px; }
+  .matrix-table tr:last-child td { border-bottom:none; }
+  .matrix-table tr:hover td { background:var(--gray-50); }
+  .bm-col { background: rgba(107,62,245,0.04); }
+  .bm-col.win { background: rgba(0,232,162,0.08); }
+  .cell-yes { color:#16A34A; font-weight:700; font-size:16px; }
+  .cell-no { color:#D1D5DB; font-size:16px; }
+  .cell-partial { font-size:11px; font-weight:600; color:#A16207; background:#FEF9C3; padding:3px 8px; border-radius:10px; display:inline-block; }
+  .cell-bm-win { font-size:11px; font-weight:700; color:#059669; background:#DCFCE7; padding:3px 10px; border-radius:10px; display:inline-block; }
+  .cell-text { font-size:11.5px; color:var(--gray-600); font-weight:500; }
+  .row-highlight td:first-child { color:var(--bm-purple); font-weight:700; }
+  .matrix-group-header td { background: var(--gray-100); font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray-400); padding: 10px 20px; text-align: left !important; }
+
+  /* WINS */
+  .wins-section { padding: 80px 60px; background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+  .wins-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:48px; }
+  .win-card { background:white; border:1.5px solid var(--gray-200); border-radius:var(--radius); padding:28px; transition:box-shadow .2s, transform .2s; }
+  .win-card:hover { box-shadow:0 8px 28px rgba(107,62,245,0.10); transform:translateY(-2px); }
+  .win-number { font-family:'Montserrat',sans-serif; font-size:48px; font-weight:800; color:var(--bm-purple); opacity:.15; line-height:1; margin-bottom:12px; }
+  .win-title { font-size:15px; font-weight:700; color:var(--gray-900); margin-bottom:8px; line-height:1.3; }
+  .win-desc { font-size:13px; color:var(--gray-600); line-height:1.6; }
+  .gaps-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .gap-card { background:white; border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:22px 24px; }
+  .gap-card h4 { font-size:14px; font-weight:700; color:var(--gray-900); margin-bottom:6px; }
+  .gap-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+  .gap-label { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#D97706; margin-bottom:8px; }
+
+  /* ORG TYPES */
+  .orgtypes-section { padding: 80px 60px; }
+  .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .org-card { background: white; border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+  .org-card:hover { box-shadow: 0 8px 28px rgba(107,62,245,0.10); transform: translateY(-2px); }
+  .org-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--bm-purple); }
+  .org-icon { width: 32px; height: 32px; margin-bottom: 14px; display: block; }
+  .org-name { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; line-height: 1.3; }
+  .org-audiences { font-size: 11px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 16px; }
+  .org-features { display: flex; flex-wrap: wrap; gap: 6px; }
+.org-feature { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; background: rgba(107,62,245,0.08); color: var(--bm-purple); }
+.org-feature.live { background: rgba(107,62,245,0.08); color: var(--bm-purple); }
+.org-feature.learn { background: rgba(234,88,12,0.10); color: #EA580C; }
+.org-feature.community { background: rgba(45,125,210,0.10); color: #1D5FA8; }
+.org-feature.monetize { background: rgba(0,200,100,0.10); color: #15803D; }
+.org-feature.identity { background: rgba(219,39,119,0.10); color: #DB2777; }
+
+  /* RECS */
+  .recs-section { background: var(--bm-dark); padding: 80px 60px; }
+  .recs-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top: 32px; }
+  .rec-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10); border-radius:var(--radius); padding:28px; }
+  .rec-stage-now { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bm-pink); margin-bottom:10px; }
+  .rec-stage-next { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bm-lime); margin-bottom:10px; }
+  .rec-stage-horizon { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bm-cyan); margin-bottom:10px; }
+  .rec-title { font-size:16px; font-weight:700; color:white; margin-bottom:10px; }
+  .rec-desc { font-size:13px; color:rgba(255,255,255,0.58); line-height:1.6; }
+
+  /* FOOTER */
+  footer { padding:28px 60px; border-top:1px solid var(--gray-200); display:flex; align-items:center; justify-content:space-between; }
+  .f-brand { font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; color:var(--bm-purple); }
+  .f-note { font-size:12px; color:var(--gray-400); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; } .nav-links { display:none; }
+    .hero, .verdict-section, .deepdive-section, .matrix-section, .wins-section, .orgtypes-section, .recs-section, .proof-strip, .arc-strip { padding: 48px 24px; }
+    .proof-intro, .comp-body-grid { grid-template-columns: 1fr; }
+    .proof-stats { grid-template-columns: repeat(3,1fr); }
+    .arc-steps { grid-template-columns: 1fr; gap: 32px; }
+    .arc-steps::before { display: none; }
+    .verdict-cards, .org-grid, .wins-grid, .recs-grid { grid-template-columns: 1fr; }
+    .gaps-grid { grid-template-columns: 1fr; }
+    footer { padding:24px; flex-direction:column; gap:8px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">BrainsMingle · Competitive Intelligence</div>
+  <div class="nav-links">
+    <a href="#proof">Evidence</a>
+    <a href="#competitors">Competitors</a>
+    <a href="#matrix">Matrix</a>
+    <a href="#orgtypes">Org Types</a>
+    <a href="#recommendations">Strategy</a>
+  </div>
+  <span class="nav-badge">June 2026</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="inner">
+    <div class="eyebrow purple">Competitive Analysis · B2B</div>
+    <h1>BrainsMingle vs. <span>Workvivo, Connecteam, and Circle</span></h1>
+    <p class="hero-sub">Three platforms built for institutional buyers from day one. BrainsMingle started with real professionals choosing it voluntarily — then built the enterprise layer on top of proven, battle-tested functionality.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Platforms Analyzed</span>
+        <span class="value">Workvivo · Connecteam · Circle</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Focus</span>
+        <span class="value">B2B White-Label Deployment</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Org Types Covered</span>
+        <span class="value">12 verticals</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Matrix Dimensions</span>
+        <span class="value">14 B2B capability rows</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARC -->
+<div class="arc-strip">
+  <div class="inner">
+    <div class="eyebrow cyan">The BrainsMingle story arc</div>
+    <div class="arc-title">Every feature was proven by real users before any organization deployed it.</div>
+    <div class="arc-steps">
+      <div class="arc-step">
+        <div class="arc-num">1</div>
+        <div class="arc-step-label">Real Users. Real Choice.</div>
+        <div class="arc-step-desc">10K+ professionals joined BrainsMingle voluntarily — not because their employer told them to. Every feature was stress-tested by people who had other options.</div>
+      </div>
+      <div class="arc-step">
+        <div class="arc-num">2</div>
+        <div class="arc-step-label">Functionality Proven in Production</div>
+        <div class="arc-step-desc">Live sessions, speed networking, LMS, booking, payments, instant rooms, community spaces — all live and running before a single white-label contract was signed.</div>
+      </div>
+      <div class="arc-step">
+        <div class="arc-num">3</div>
+        <div class="arc-step-label">Enterprise Layer Built on Top</div>
+        <div class="arc-step-desc">The white-label platform gives any organization the same proven core — configured for their audiences, branded under their name, adaptive to their org type.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip" id="proof">
+  <div class="proof-strip-inner">
+    <div class="proof-intro">
+      <div class="proof-statement">
+        Real professionals use BrainsMingle <span>by choice.</span>
+      </div>
+      <div class="proof-note">
+        This is the structural difference. Workvivo, Connecteam, and Circle were all built top-down for institutional buyers. No organic community ever chose them voluntarily. BrainsMingle's enterprise product is already validated — the proof is in the numbers below.
+      </div>
+    </div>
+    <div class="proof-stats">
+      <div class="proof-stat">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Registered professionals</div>
+      </div>
+      <div class="proof-stat">
+        <div class="stat-num">980+</div>
+        <div class="stat-label">Sessions delivered</div>
+      </div>
+      <div class="proof-stat">
+        <div class="stat-num">5K+</div>
+        <div class="stat-label">Networking connections</div>
+      </div>
+      <div class="proof-stat">
+        <div class="stat-num">100K+</div>
+        <div class="stat-label">Session minutes</div>
+      </div>
+      <div class="proof-stat">
+        <div class="stat-num">1K+</div>
+        <div class="stat-label">Companies represented</div>
+      </div>
+      <div class="proof-stat">
+        <div class="stat-num">85+</div>
+        <div class="stat-label">Countries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VERDICT -->
+<div class="verdict-section" id="competitors">
+  <div class="inner">
+    <div class="eyebrow">One-line verdicts</div>
+    <div class="section-title">The Competition at a Glance</div>
+    <p class="section-sub">All three competitors were built for institutional buyers. None started with voluntary organic adoption. None has BrainsMingle's combination of live delivery, speed networking, Arabic/MENA reach, and white-label flexibility.</p>
+    <div class="verdict-cards">
+      <div class="verdict-card vwv">
+        <div class="comp-name-label"><span class="comp-dot" style="background:var(--wv-color)"></span>Workvivo</div>
+        <div class="verdict-title">The Enterprise Intranet</div>
+        <div class="verdict-desc">An employee experience platform owned by Zoom. Entirely inward-facing, built for HR to keep one company's staff connected. Starts at $20K/yr with a 250-user minimum. No LMS. No speed networking. No expert monetization. BrainsMingle's white-label displaces it at a fraction of the cost — with more capability.</div>
+      </div>
+      <div class="verdict-card vct">
+        <div class="comp-name-label"><span class="comp-dot" style="background:var(--ct-color)"></span>Connecteam</div>
+        <div class="verdict-title">The Frontline Ops App</div>
+        <div class="verdict-desc">A deskless workforce management tool for construction, retail, and hospitality SMBs. Built for time-clocks and scheduling — not knowledge sharing, live sessions, or community. Zero live video. Zero cross-org networking. Relevant only as an L&D competitor for frontline training use cases.</div>
+      </div>
+      <div class="verdict-card vci">
+        <div class="comp-name-label"><span class="comp-dot" style="background:var(--ci-color)"></span>Circle</div>
+        <div class="verdict-title">The Creator Community Hub</div>
+        <div class="verdict-desc">The closest feature overlap — community + courses + live + payments under one brand. But every Circle is a private, single-brand silo. No cross-org networking. No Arabic/MENA. Live rooms cap at 20 participants. Hidden transaction fees push real cost to $340+/mo. Its white-label (Circle Plus) is the most direct B2B competitor.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEEP DIVE -->
+<div class="deepdive-section">
+  <div class="inner">
+    <div class="eyebrow">Competitor profiles</div>
+    <div class="section-title">The Deep Dive</div>
+    <div class="comp-grid">
+
+      <div class="comp-card wv" id="card-wv">
+        <div class="comp-card-header" onclick="toggleCard('wv')">
+          <div class="comp-icon">W</div>
+          <div>
+            <div class="comp-header-name">Workvivo <span style="font-size:13px;font-weight:500;color:var(--gray-400);">by Zoom</span></div>
+            <div class="comp-header-tagline">"The AI-native employee experience platform" — HR, intranet, internal comms</div>
+          </div>
+          <div class="comp-header-right">
+            <div class="comp-threat-pill threat-medium">Direct B2B Competitor</div>
+            <div class="toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="comp-card-body" id="body-wv">
+          <div class="comp-body-grid">
+            <div class="comp-body-col">
+              <h4>What they do</h4>
+              <ul>
+                <li>Social-style activity feed & company news</li>
+                <li>Town-hall livestreams to 15,000+ (broadcast only)</li>
+                <li>Internal spaces & communities (one company)</li>
+                <li>People directory & org chart</li>
+                <li>Events with RSVP</li>
+                <li>Workvivo TV (digital signage)</li>
+                <li>AI assistant + Seer people-intelligence</li>
+                <li>40+ integrations (Slack, Workday, Okta, Zoom)</li>
+                <li>SOC 2 Type 2, ISO 27001, HIPAA-capable</li>
+              </ul>
+            </div>
+            <div class="comp-body-col">
+              <h4>What they don't do</h4>
+              <ul>
+                <li>No 1:1 live sessions or speed networking</li>
+                <li>No LMS — integrates with external tools only</li>
+                <li>No expert booking or consultation model</li>
+                <li>No payments or monetization for users</li>
+                <li>No Arabic-language or MENA positioning</li>
+                <li>No cross-organization networking</li>
+                <li>250-user minimum — inaccessible to SMBs</li>
+                <li>$20K+/yr entry price, sales-gated only</li>
+              </ul>
+            </div>
+          </div>
+          <div class="comp-weakness-row">
+            <h4>Key weaknesses</h4>
+            <div class="weakness-tags">
+              <span class="weakness-tag">$20K+ entry price</span>
+              <span class="weakness-tag">Sales-gated</span>
+              <span class="weakness-tag">250-user minimum</span>
+              <span class="weakness-tag">No LMS</span>
+              <span class="weakness-tag">No monetization</span>
+              <span class="weakness-tag">Internal only</span>
+              <span class="weakness-tag">No speed networking</span>
+              <span class="weakness-tag">Mobile crash reports</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card ct" id="card-ct">
+        <div class="comp-card-header" onclick="toggleCard('ct')">
+          <div class="comp-icon">C</div>
+          <div>
+            <div class="comp-header-name">Connecteam</div>
+            <div class="comp-header-tagline">"Manage your team in one app" — deskless workforce ops for SMBs</div>
+          </div>
+          <div class="comp-header-right">
+            <div class="comp-threat-pill niche-threat">Niche Threat</div>
+            <div class="toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="comp-card-body" id="body-ct">
+          <div class="comp-body-grid">
+            <div class="comp-body-col">
+              <h4>What they do</h4>
+              <ul>
+                <li>GPS time clock, geofencing, scheduling</li>
+                <li>Task management & checklists/forms</li>
+                <li>Group chat, company feed, knowledge base</li>
+                <li>Training courses & quizzes (frontline LMS)</li>
+                <li>PTO tracking & document management</li>
+                <li>Recognition & rewards (badges)</li>
+                <li>Free plan up to 10 users</li>
+                <li>Strong mobile-first experience</li>
+              </ul>
+            </div>
+            <div class="comp-body-col">
+              <h4>What they don't do</h4>
+              <ul>
+                <li>No live video of any kind</li>
+                <li>No cross-company networking</li>
+                <li>No expert booking or monetization</li>
+                <li>No community spaces for external audiences</li>
+                <li>No Arabic-language or MENA positioning</li>
+                <li>No payments — exports only to Gusto/QuickBooks</li>
+                <li>Thin integrations ecosystem</li>
+                <li>Basic reporting depth</li>
+              </ul>
+            </div>
+          </div>
+          <div class="comp-weakness-row">
+            <h4>Key weaknesses</h4>
+            <div class="weakness-tags">
+              <span class="weakness-tag">Confusing multi-hub pricing</span>
+              <span class="weakness-tag">No live video</span>
+              <span class="weakness-tag">Mobile stability issues</span>
+              <span class="weakness-tag">Weak analytics</span>
+              <span class="weakness-tag">Thin integrations</span>
+              <span class="weakness-tag">No payroll</span>
+              <span class="weakness-tag">Frontline only</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card ci" id="card-ci">
+        <div class="comp-card-header" onclick="toggleCard('ci')">
+          <div class="comp-icon">○</div>
+          <div>
+            <div class="comp-header-name">Circle <span style="font-size:13px;font-weight:500;color:var(--gray-400);">circle.so</span></div>
+            <div class="comp-header-tagline">"The complete community platform" — creator communities, courses & monetization</div>
+          </div>
+          <div class="comp-header-right">
+            <div class="comp-threat-pill threat-high">Closest Overlap</div>
+            <div class="toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="comp-card-body" id="body-ci">
+          <div class="comp-body-grid">
+            <div class="comp-body-col">
+              <h4>What they do</h4>
+              <ul>
+                <li>Community spaces with gamification (Circle 3.0)</li>
+                <li>Native courses + drip + cohort delivery</li>
+                <li>Live streams (200 viewers) & live rooms (15–20 participants)</li>
+                <li>Events with RSVP & scheduling</li>
+                <li>Payments via Stripe (memberships, one-time fees)</li>
+                <li>Website builder + booking pages</li>
+                <li>AI Agents & AI Workflows (July 2025)</li>
+                <li>White-label mobile apps (Circle Plus tier)</li>
+              </ul>
+            </div>
+            <div class="comp-body-col">
+              <h4>What they don't do</h4>
+              <ul>
+                <li>No cross-community networking — every Circle is a silo</li>
+                <li>No 1:1 speed networking at scale</li>
+                <li>Live rooms cap at 15–20 (pushes back to Zoom)</li>
+                <li>No Arabic-language or MENA focus</li>
+                <li>No 1:1 expert consultation booking</li>
+                <li>Transaction fees hidden on pricing page (1–2%)</li>
+                <li>Real cost often $340+/mo after add-ons</li>
+                <li>No instant video rooms</li>
+              </ul>
+            </div>
+          </div>
+          <div class="comp-weakness-row">
+            <h4>Key weaknesses</h4>
+            <div class="weakness-tags">
+              <span class="weakness-tag">Hidden transaction fees</span>
+              <span class="weakness-tag">Add-on bloat</span>
+              <span class="weakness-tag">Single-brand silos</span>
+              <span class="weakness-tag">Live rooms limited to 20</span>
+              <span class="weakness-tag">No speed networking</span>
+              <span class="weakness-tag">No Arabic/MENA</span>
+              <span class="weakness-tag">No instant rooms</span>
+              <span class="weakness-tag">Video load failures reported</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MATRIX -->
+<div class="matrix-section" id="matrix">
+  <div class="inner">
+    <div class="eyebrow">B2B capability comparison</div>
+    <div class="section-title">The Capability Matrix</div>
+    <p class="section-sub">Evaluated from the perspective of an organization deploying BrainsMingle as a white-label platform — not a consumer product comparison.</p>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th style="width:24%">Capability</th>
+          <th class="th-wv" style="width:19%">Workvivo</th>
+          <th class="th-ct" style="width:19%">Connecteam</th>
+          <th class="th-ci" style="width:19%">Circle</th>
+          <th class="th-bm" style="width:19%">BrainsMingle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="matrix-group-header"><td colspan="5">Deployment & Branding</td></tr>
+        <tr>
+          <td>White-label deployment</td>
+          <td><span class="cell-yes">✓</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Circle Plus only</span></td>
+          <td class="bm-col win"><span class="cell-bm-win">Yes — per org type</span></td>
+        </tr>
+        <tr>
+          <td>Custom branding</td>
+          <td><span class="cell-yes">✓</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Paid tier only</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Arabic / RTL support</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Pricing accessibility</td>
+          <td><span class="cell-text">$20K+/yr, 250 min</span></td>
+          <td><span class="cell-text">$29–99/mo per hub</span></td>
+          <td><span class="cell-text">$89–419/mo + fees</span></td>
+          <td class="bm-col win"><span class="cell-bm-win">Flexible</span></td>
+        </tr>
+
+        <tr class="matrix-group-header"><td colspan="5">Live Engagement</td></tr>
+        <tr class="row-highlight">
+          <td>⚡ Speed networking (1:1 at scale)</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Live video sessions</td>
+          <td><span class="cell-partial">Broadcast only</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Capped at 20</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Instant video rooms</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Expert booking & scheduling</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Basic booking pages</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+
+        <tr class="matrix-group-header"><td colspan="5">Learning & Community</td></tr>
+        <tr>
+          <td>LMS / Courses</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Frontline training</span></td>
+          <td><span class="cell-partial">Weak certs</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Cohort management</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">Basic</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Community spaces</td>
+          <td><span class="cell-partial">Internal only</span></td>
+          <td><span class="cell-partial">Internal feed</span></td>
+          <td><span class="cell-yes">✓</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Session recording</td>
+          <td><span class="cell-yes">✓</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-yes">✓</span></td>
+          <td class="bm-col"><span class="cell-yes">✓</span></td>
+        </tr>
+
+        <tr class="matrix-group-header"><td colspan="5">Enterprise Readiness</td></tr>
+        <tr>
+          <td>Payments & monetization</td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-no">✕</span></td>
+          <td><span class="cell-partial">+ transaction fees</span></td>
+          <td class="bm-col win"><span class="cell-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>AI features</td>
+          <td><span class="cell-partial">AI assistant + Seer</span></td>
+          <td><span class="cell-no">Minimal</span></td>
+          <td><span class="cell-partial">AI Agents + Workflows</span></td>
+          <td class="bm-col"><span class="cell-partial">In progress</span></td>
+        </tr>
+        <tr>
+          <td>Security compliance</td>
+          <td><span class="cell-yes">SOC 2, ISO 27001</span></td>
+          <td><span class="cell-partial">Basic</span></td>
+          <td><span class="cell-partial">SOC 2</span></td>
+          <td class="bm-col"><span class="cell-partial">Not yet confirmed</span></td>
+        </tr>
+        <tr>
+          <td>Integrations ecosystem</td>
+          <td><span class="cell-partial">40+ apps</span></td>
+          <td><span class="cell-partial">Limited</span></td>
+          <td><span class="cell-yes">Hundreds + API</span></td>
+          <td class="bm-col"><span class="cell-partial">Early stage</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- WINS + GAPS -->
+<div class="wins-section" id="advantages">
+  <div class="inner">
+    <div class="eyebrow">Where BrainsMingle wins</div>
+    <div class="section-title">Uncontested Advantages</div>
+    <div class="wins-grid" style="margin-top:32px;">
+      <div class="win-card">
+        <div class="win-number">01</div>
+        <div class="win-title">Proven Before Deployed</div>
+        <div class="win-desc">No competitor can say their enterprise product was battle-tested by voluntary organic communities first. 10K+ users chose BrainsMingle before any white-label contract existed. That is the structural credibility advantage.</div>
+      </div>
+      <div class="win-card">
+        <div class="win-number">02</div>
+        <div class="win-title">Speed Networking at Scale</div>
+        <div class="win-desc">414 connections in 90 minutes. 586 co-founder matches in 2 hours. 1:1 live video matching across hundreds of people in a single session. No competitor — not even Circle — offers this as a deployable feature.</div>
+      </div>
+      <div class="win-card">
+        <div class="win-number">03</div>
+        <div class="win-title">Instant Video Rooms</div>
+        <div class="win-desc">Create and share a live video room instantly — no scheduling, no setup. Like Google Meet built into the platform. None of the three competitors offer this natively. A direct replacement for Zoom in any org deployment.</div>
+      </div>
+      <div class="win-card">
+        <div class="win-number">04</div>
+        <div class="win-title">Arabic / MENA by Design</div>
+        <div class="win-desc">Not a localization add-on — built into the platform from day one. RTL support, Arabic UI, and BasharSoft distribution through WUZZUF and iCareer. No competitor has planted a flag in this market.</div>
+      </div>
+      <div class="win-card">
+        <div class="win-number">05</div>
+        <div class="win-title">Adaptive to Any Org Type</div>
+        <div class="win-desc">Universities, EdTech companies, professional associations, startups, NGOs, student clubs — one platform core, configured per vertical. Workvivo only serves enterprises. Circle only serves creators. BrainsMingle serves all of them.</div>
+      </div>
+      <div class="win-card" style="background:linear-gradient(135deg,rgba(107,62,245,0.06),rgba(0,232,162,0.06));border-color:rgba(107,62,245,0.2);">
+        <div class="win-number" style="opacity:1;background:linear-gradient(135deg,var(--bm-purple),var(--bm-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">06</div>
+        <div class="win-title">The Complete Stack — Priced Per Need</div>
+       <div class="win-desc">Live sessions + instant rooms + LMS + cohorts + speed networking + booking + payments + community + recording — all in one platform, with pricing customized per need. BrainsMingle adapts to the organization, not the other way around.</div>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:16px; margin-top: 48px;">Gaps to close</div>
+    <div class="gaps-grid">
+      <div class="gap-card">
+        <div class="gap-label">Priority</div>
+        <h4>Security Certifications</h4>
+        <p>Workvivo carries SOC 2 Type 2, ISO 27001, and HIPAA. Enterprise buyers check this before signing. Certification should be on the immediate product roadmap.</p>
+      </div>
+      <div class="gap-card">
+        <div class="gap-label">Priority</div>
+        <h4>Concrete AI Features</h4>
+        <p>Circle ships AI Agents + Workflows. Workvivo has Seer. "AI-driven" as a claim needs specific, demonstrable features to survive enterprise due diligence.</p>
+      </div>
+      <div class="gap-card">
+        <div class="gap-label">Growth</div>
+        <h4>Integrations Ecosystem</h4>
+        <p>Circle has hundreds of integrations + full API. Workvivo has 40+. Priority starter set: Stripe, Calendly, Zoom, Google Calendar, Slack, LMS connectors.</p>
+      </div>
+      <div class="gap-card">
+        <div class="gap-label">Growth</div>
+        <h4>Named Reference Cases</h4>
+        <p>Competitors cite Lululemon, Ryanair, Ali Abdaal. BrainsMingle has real proof points — structure them into one named case per org type vertical.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORG TYPES -->
+<div class="orgtypes-section" id="orgtypes">
+  <div class="inner">
+    <div class="eyebrow">White-label deployments</div>
+    <div class="section-title">12 Org Types BrainsMingle Serves</div>
+<p class="section-sub">Same platform core. Configured per org type. All features below are live on BrainsMingle today.</p>
+
+<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; margin-top:4px;">
+<span class="org-feature live">Live & Video</span>
+<span class="org-feature learn">Learning</span>
+<span class="org-feature community">Community</span>
+<span class="org-feature monetize">Monetization</span>
+<span class="org-feature identity">Identity & Language</span>
+</div>
+<div class="org-grid">
+
+  <div class="org-card">
+<svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/></svg>    <div class="org-name">Universities & Academic Institutions</div>
+    <div class="org-audiences">Students · Academic Staff · Alumni</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+<svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+<div class="org-name">EdTech Companies</div>
+    <div class="org-audiences">Learners · Instructors · Subscribers</div>
+    <div class="org-features">
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>
+    <div class="org-name">Training & L&D Providers</div>
+    <div class="org-audiences">Learners · Trainers · Corporate Clients</div>
+    <div class="org-features">
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M9 21V12h6v9"/><path d="M9 7h.01M15 7h.01"/></svg>
+    <div class="org-name">Professional Associations & Syndicates</div>
+    <div class="org-audiences">Members · Board · Industry Experts</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature identity">Professional Profiles</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M3 21h18M3 9l9-6 9 6v12H3V9z"/><path d="M9 21V12h6v9"/></svg>
+    <div class="org-name">Corporates & Enterprises</div>
+    <div class="org-audiences">Employees · Managers · Leadership</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 17l4-8 4 8M9.5 14h5"/></svg>
+    <div class="org-name">Startups & Scale-ups</div>
+    <div class="org-audiences">Team · Founders · Early Hires</div>
+    <div class="org-features">
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Professional Profiles</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>>
+    <div class="org-name">Accelerators & Startup Ecosystems</div>
+    <div class="org-audiences">Founders · Mentors · Investors · Alumni</div>
+    <div class="org-features">
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Professional Profiles</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="org-name">Government & Public Sector</div>
+    <div class="org-audiences">Staff · Citizens · Training Participants</div>
+    <div class="org-features">
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+    <div class="org-name">Media & Think Tanks</div>
+    <div class="org-audiences">Journalists · Researchers · Audiences</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+    <div class="org-name">Healthcare & Medical Bodies</div>
+    <div class="org-audiences">Practitioners · Patients · Researchers</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div class="org-name">Student & Professional Clubs</div>
+    <div class="org-audiences">Members · Chapter Leaders · Alumni</div>
+    <div class="org-features">
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Professional Profiles</span>
+    </div>
+  </div>
+
+  <div class="org-card">
+    <svg class="org-icon" viewBox="0 0 24 24" fill="none" stroke="var(--bm-purple)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <div class="org-name">NGOs & Social Impact Organizations</div>
+    <div class="org-audiences">Beneficiaries · Staff · Volunteers · Donors</div>
+    <div class="org-features">
+      <span class="org-feature live">Live Sessions</span>
+      <span class="org-feature live">Speed Networking</span>
+      <span class="org-feature live">Instant Rooms</span>
+      <span class="org-feature community">Community Spaces</span>
+      <span class="org-feature community">Events</span>
+      <span class="org-feature learn">LMS</span>
+      <span class="org-feature learn">Session Recording</span>
+      <span class="org-feature monetize">Booking & Payments</span>
+      <span class="org-feature identity">Arabic/RTL</span>
+    </div>
+  </div>
+
+</div>
+  </div>
+</div>
+
+<!-- RECS -->
+<div class="recs-section" id="recommendations">
+  <div class="inner">
+    <div class="eyebrow cyan">Strategic recommendations</div>
+    <div class="section-title white">How to Play the Map</div>
+    <div class="recs-grid">
+
+  <div class="rec-card">
+    <div class="rec-stage-now">Now · Positioning & Narrative</div>
+    <div class="rec-title">Lead with Proven, Not Promised</div>
+    <div class="rec-desc">Open every enterprise conversation with the B2C evidence — 10K+ users, 980+ sessions, 85+ countries. No competitor has this. It reframes BrainsMingle from "startup pitch" to "proven platform seeking enterprise clients."</div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-stage-now">Now · Positioning & Narrative</div>
+    <div class="rec-title">Name Circle as the Only True Comparable</div>
+    <div class="rec-desc">Workvivo is an intranet. Connecteam is an ops tool. Only Circle competes on community + courses + live + payments. Framing it this way makes BrainsMingle's differentiation — speed networking, Arabic, instant rooms, flexible pricing — immediately clear.</div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-stage-next">Next · Pipeline & Proof</div>
+    <div class="rec-title">One Reference Case Per Org Type</div>
+    <div class="rec-desc">Sign and document one client from each high-priority vertical — one university, one EdTech company, one professional association. Named cases with hard numbers close enterprise deals faster than any feature comparison.</div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-stage-next">Next · Pipeline & Proof</div>
+    <div class="rec-title">Beat Circle on Pricing Transparency</div>
+    <div class="rec-desc">Circle's hidden transaction fees (1–2%) and add-on bloat push real cost to $340+/mo. BrainsMingle's flexible, org-adapted pricing is a genuine differentiator — especially when pitching to budget-conscious verticals like clubs, NGOs, and startups.</div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-stage-horizon">Horizon · Enterprise Readiness</div>
+    <div class="rec-title">Close the Enterprise Credibility Gap</div>
+    <div class="rec-desc">Three things enterprise buyers check before signing: SOC 2 certification, API/integrations ecosystem, and concrete AI features. All three should be on the roadmap with public timelines — not just mentioned as "in progress."</div>
+  </div>
+
+  <div class="rec-card" style="border-color:rgba(0,232,162,0.3);background:rgba(0,232,162,0.05);">
+    <div class="rec-stage-horizon" style="color:rgba(0,232,162,0.8);">Horizon · Enterprise Readiness</div>
+    <div class="rec-title">No One Owns What BrainsMingle Owns</div>
+    <div class="rec-desc">Speed networking at scale + instant video rooms + Arabic/MENA by design + adaptive to 12 org types + proven by real users before any enterprise deployment. That combination is unoccupied. Keep it that way.</div>
+  </div>
+
+</div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-brand">BrainsMingle</div>
+  <div class="f-note">Competitive Intelligence · B2B Analysis · June 2026 · For internal use</div>
+</footer>
+
+<script>
+  function toggleCard(id) {
+    const card = document.getElementById('card-' + id);
+    const body = document.getElementById('body-' + id);
+    const isOpen = card.classList.contains('open');
+    ['wv','ct','ci'].forEach(c => {
+      document.getElementById('card-' + c).classList.remove('open');
+      document.getElementById('body-' + c).classList.remove('open');
+    });
+    if (!isOpen) { card.classList.add('open'); body.classList.add('open'); }
+  }
+</script>
+</body>
+</html>
