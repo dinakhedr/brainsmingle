@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal:AI — Identity Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#05050F; color:#fff; font-family:'Lato',sans-serif; padding:48px 40px; }
+
+h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.22em; text-transform:uppercase; color:#00E8A2; margin-bottom:28px; padding-bottom:10px; border-bottom:0.5px solid #1A1A2E; }
+
+section { margin-bottom:64px; }
+
+/* ── LOGO SECTION ── */
+.logo-story {margin-bottom:40px; }
+.logo-story p { font-family:'Lato',sans-serif; font-size:16px; line-height:1.85; color:#8A8AAA; margin-bottom:16px; }
+.logo-story strong { color:#fff; font-weight:700; }
+.logo-story em { color:#E8F200; font-style:normal; }
+
+.logo-subsection-label { font-family:'Lato',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#4A4A6A; margin-bottom:16px; }
+
+.logo-variants { display:flex; gap:48px; flex-wrap:wrap; align-items:flex-start; margin-bottom:48px; }
+.logo-variant { display:flex; flex-direction:column; gap:10px; }
+.logo-variant-label { font-family:'Lato',sans-serif; font-size:9px; letter-spacing:0.16em; color:#4A4A6A; text-transform:uppercase; }
+.logo-swatch { padding:28px 32px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.logo-swatch img { height:48px; width:auto; display:block; }
+.logo-swatch.dark  { background:#05050F; border:0.5px solid #1A1A2E; }
+.logo-swatch.light { background:#ffffff; }
+
+.logo-divider { border:none; border-top:0.5px solid #FFFFFF; margin:36px 0; }
+
+/* ── MOTIF SECTION ── */
+.motif-anatomy { display:flex; gap:48px; flex-wrap:wrap; align-items:flex-start; margin-bottom:32px; }
+.motif-display { display:flex; flex-direction:column; gap:12px; }
+.motif-swatch { padding:40px 48px; border-radius:10px; background:#0E0E1C; display:flex; align-items:center; justify-content:center; }
+.motif-swatch img { height:80px; width:auto; }
+
+.motif-key { display:flex; flex-direction:column; gap:14px; padding-top:8px; }
+.motif-bar-row { display:flex; align-items:center; gap:12px; }
+.motif-bar-swatch { width:10px; border-radius:3px; flex-shrink:0; }
+.motif-bar-desc { font-family:'Lato',sans-serif; font-size:12px; color:#8A8AAA; line-height:1.5; }
+.motif-bar-desc strong { font-weight:700; }
+
+.motif-standalone { display:flex; gap:24px; flex-wrap:wrap; align-items:center; margin-top:24px; }
+.motif-on-bg { padding:24px 28px; border-radius:10px; display:flex; align-items:center; gap:16px; }
+.motif-on-bg img { height:36px; width:auto; }
+.motif-bg-label { font-family:'Lato',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:6px; }
+
+/* ── TRACK SECTION ── */
+.track-grid { display:flex; flex-direction:column; gap:12px; }
+.track-card { border-radius:10px; padding:22px 24px; background:#0E0E1C; position:relative; overflow:hidden; border-left:4px solid transparent; }
+.track-num { font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.18em; color:#4A4A6A; text-transform:uppercase; margin-bottom:8px; }
+.track-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px; letter-spacing:0.02em; line-height:1.2; margin-bottom:6px; }
+.track-tagline { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:10px; opacity:0.7; }
+.track-line { font-family:'Lato',sans-serif; font-size:12px; color:#6A6A8A; line-height:1.7; }
+.track-domains { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.dpill { font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.06em; padding:3px 10px; border-radius:20px; background:#1A1A2E; }
+.track-freq { position:absolute; right:20px; top:50%; transform:translateY(-50%); display:flex; gap:2px; align-items:flex-end; opacity:0.12; }
+.tf { border-radius:2px 2px 0 0; width:3px; display:block; }
+
+/* ── CARD EXAMPLES ── */
+.cards-row { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; }
+
+/* Speaker card */
+.speaker-card {
+  width:340px; border-radius:14px; background:#05050F; overflow:hidden;
+  border:0.5px solid #1A1A2E; position:relative; flex-shrink:0;
+}
+.sc-top { padding:20px 24px 0; display:flex; align-items:center; justify-content:space-between; }
+.sc-logo-group { display:flex; align-items:center; gap:8px; }
+.sc-logo-group img { height:22px; width:auto; }
+.sc-separator { width:0.5px; height:18px; background:#2A2A3E; margin:0 2px; }
+.sc-motif { display:flex; gap:1.5px; align-items:center; }
+.sc-bar { border-radius:1.5px; width:2.5px; display:block; }
+.sc-tier { font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#4A4A6A; }
+
+.sc-photo-area { position:relative; height:220px; margin:20px 24px 0; border-radius:10px; overflow:hidden; background:#0E0E1C; display:flex; align-items:center; justify-content:center; }
+.sc-photo-placeholder { width:100%; height:100%; background:linear-gradient(145deg,#1A1A2E 0%,#0E0E1C 100%); display:flex; align-items:flex-end; justify-content:center; }
+.sc-photo-placeholder svg { opacity:0.15; }
+.sc-track-badge { position:absolute; top:10px; right:10px; padding:4px 10px; border-radius:20px; font-family:'Lato',sans-serif; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; }
+.sc-bg-accent { position:absolute; bottom:0; right:0; width:90px; height:90px; border-radius:90px 0 0 0; opacity:0.18; }
+
+.sc-body { padding:16px 24px 22px; }
+.sc-name { font-family:'Montserrat',sans-serif; font-weight:900; font-size:26px; line-height:1.05; letter-spacing:-0.01em; color:#fff; text-transform:uppercase; margin-bottom:6px; }
+.sc-role { font-family:'Lato',sans-serif; font-size:12px; color:#00E8A2; line-height:1.5; margin-bottom:14px; }
+.sc-date-box { display:inline-block; border:1.5px solid #E8F200; border-radius:8px; padding:6px 14px; margin-bottom:14px; }
+.sc-date { font-family:'Montserrat',sans-serif; font-weight:900; font-size:16px; color:#E8F200; line-height:1; }
+.sc-session { border-left:2.5px solid #6B3EF5; padding-left:10px; margin-bottom:14px; }
+.sc-session-title { font-family:'Lato',sans-serif; font-size:11px; color:#8A8AAA; line-height:1.6; }
+.sc-footer { font-family:'Lato',sans-serif; font-size:10px; color:#4A4A6A; display:flex; align-items:center; gap:6px; }
+.sc-footer-dot { width:2px; height:2px; border-radius:50%; background:#4A4A6A; }
+
+/* Sponsor card */
+.sponsor-card {
+  width:360px; border-radius:14px; overflow:hidden; flex-shrink:0;
+  background:linear-gradient(160deg,#1A1030 0%,#0D0820 60%,#080514 100%);
+  border:0.5px solid #2A1A4E; position:relative;
+}
+.spc-header { padding:24px 28px 16px; display:flex; flex-direction:column; align-items:center; }
+.spc-logo-group { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+.spc-logo-group img { height:26px; width:auto; }
+.spc-sep { width:0.5px; height:22px; background:#2A2A4E; }
+.spc-header-divider { width:100%; height:0.5px; background:linear-gradient(90deg,transparent,#3A2A5E,transparent); margin-top:16px; }
+
+.spc-tier-label { font-family:'Lato',sans-serif; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6A6A8A; margin:20px 28px 10px; text-align:center; }
+.spc-tier-name { font-family:'Montserrat',sans-serif; font-weight:900; font-size:36px; letter-spacing:0.02em; text-align:center; margin:0 28px 20px; }
+
+.spc-logo-box { margin:0 28px 20px; background:rgba(255,255,255,0.96); border-radius:10px; padding:24px; display:flex; align-items:center; justify-content:center; min-height:90px; }
+.spc-logo-box img { max-height:56px; max-width:200px; object-fit:contain; }
+.spc-logo-box-placeholder { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.spc-logo-box-placeholder span { font-family:'Lato',sans-serif; font-size:10px; color:#9A9AAA; letter-spacing:0.1em; }
+
+.spc-tagline { font-family:'Lato',sans-serif; font-size:13px; color:#8A8AAA; text-align:center; margin:0 28px 20px; line-height:1.5; }
+.spc-divider { width:100%; height:0.5px; background:linear-gradient(90deg,transparent,#3A2A5E,transparent); }
+.spc-footer { padding:14px 28px; display:flex; align-items:center; justify-content:space-between; }
+.spc-footer-item { display:flex; align-items:center; gap:6px; }
+.spc-footer-bar { width:3px; height:14px; border-radius:2px; }
+.spc-footer-text { font-family:'Lato',sans-serif; font-size:11px; color:#6A6A8A; }
+
+/* color reference */
+.color-ref { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.citem { display:flex; align-items:center; gap:6px; font-family:'Lato',sans-serif; font-size:11px; color:#4A4A6A; }
+.cdot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+</style>
+</head>
+<body>
+<div style="margin-bottom:64px;">
+<img src="general-logo.png" style="height:56px;width:auto;display:block;">
+  <div style="font-family:'Lato',sans-serif;font-size:15px;letter-spacing:0.22em;text-transform:uppercase;color:#FFFFFF;margin-top:10px;">Brand Identity Reference</div>
+</div>
+<hr class="logo-divider">
+<!-- ══════════════════════════════════════════
+     SECTION 1 — LOGO SYSTEM
+══════════════════════════════════════════ -->
+<section>
+<h2>01 — Signal: AI Logo System</h2>
+
+<!-- THE STORY -->
+<div class="logo-story">
+  <p><strong>SIGNAL BY BRAINSMINGLE</strong> is an event that belongs to <strong>BrainsMingle</strong> not a separate brand. The logo reflects that relationship directly: the BrainsMingle mark anchors the identity on the left, and <em>AI</em> declares the event's domain on the right. Between them sits the <strong>frequency motif</strong> seven bars rising and falling like a live audio waveform, acting as both visual bridge and core metaphor.</p>
+  <p>The frequency motif is the heart of the identity. It is borrowed from the world of signal transmission: the idea that intelligence travels in waves, that knowledge is broadcast, received, and amplified. Signal: AI is that transmission <strong>MENA's largest AI conversation</strong>, compressed into seven days, five tracks, and one frequency that every participant tunes into simultaneously.</p>
+  <p>The three-color gradient of the motif <strong>purple fading inward to cyan, with Signal Yellow crowning the peak bar</strong> maps directly to the brand's emotional logic. Purple is depth and intelligence. Cyan is momentum and clarity. Yellow is the signal peak: the moment where the conversation reaches its highest point. Together, they turn a functional separator into the most expressive element in the lockup.</p>
+  <p>Two logo variants exist for different background contexts. <br>1. The <strong style="color:#00E8A2;">cyan version</strong> leads on dark surfaces — the BrainsMingle mark appears in white and cyan, maximizing contrast and energy. <br>2. The <strong style="color:#6B3EF5;">purple version</strong> leads on light surfaces, the mark shifts to full-color purple, retaining brand recognition without the harshness of pure black.</p>
+</div>
+
+<div style="display:flex; gap:48px; flex-wrap:wrap; align-items:flex-start;">
+
+  <!-- VARIANT 1: CYAN -->
+  <div>
+    <div class="logo-subsection-label"><span style="color:#00E8A2;">Cyan Variant · For dark backgrounds</span></div>
+    <div class="logo-swatch dark">
+      <img src="Signal-AI-Logo-Cyan.png" alt="Signal AI Logo Cyan">
+    </div>
+  </div>
+
+  <!-- VARIANT 2: PURPLE -->
+  <div>
+    <div class="logo-subsection-label"><span style="color:#6B3EF5;">Purple Variant · For light backgrounds</span></div>
+    <div class="logo-swatch light">
+      <img src="Signal-AI-Logo-Purple.png" alt="Signal AI Logo Purple">
+    </div>
+  </div>
+
+</div>
+
+<br><br><br>
+
+<!-- MOTIF STANDALONE -->
+<div class="logo-subsection-label"><span style="color:#e8f200;">Frequency Motif · Standalone asset</span></div>
+<div style="font-family:'Lato',sans-serif;font-size:14px;color:#6A6A8A;line-height:1.7;margin-bottom:24px;">
+  The motif is the identity's most versatile asset. It appears at scale as a background element, cropped as a texture, and at small sizes as a separator between the BrainsMingle mark and "AI." Every bar carries meaning.
+</div>
+<div style="display:flex; gap:48px; align-items:flex-start;">
+
+  <!-- LEFT: motif image -->
+  <div class="motif-swatch" style="flex-shrink:0;">
+    <img src="Logo-Motif.png" alt="Signal AI Frequency Motif">
+  </div>
+
+  <!-- RIGHT: bar details -->
+  <div class="motif-key">
+    <div class="motif-bar-row">
+      <div class="motif-bar-swatch" style="height:10px;background:#6B3EF5;opacity:0.5;"></div>
+      <div class="motif-bar-desc"><strong style="color:#fff;">Bars 1 &amp; 7 — Ghost purple.</strong> The quietest signal. Peripheral awareness — the crowd at the edges of the conversation.</div>
+    </div>
+    <div class="motif-bar-row">
+      <div class="motif-bar-swatch" style="height:14px;background:#6B3EF5;"></div>
+      <div class="motif-bar-desc"><strong style="color:#fff;">Bars 2 &amp; 6 — Full purple.</strong> Depth and intelligence. The thinkers and builders driving the agenda.</div>
+    </div>
+    <div class="motif-bar-row">
+      <div class="motif-bar-swatch" style="height:18px;background:#00E8A2;"></div>
+      <div class="motif-bar-desc"><strong style="color:#fff;">Bars 3 &amp; 5 — Cyan.</strong> Momentum and clarity. The ideas in motion — spreading outward from the center.</div>
+    </div>
+    <div class="motif-bar-row">
+      <div class="motif-bar-swatch" style="height:24px;background:#E8F200;"></div>
+      <div class="motif-bar-desc"><strong style="color:#fff;">Bar 4 — Signal Yellow.</strong> The peak. The moment a conversation becomes a movement.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+<hr class="logo-divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — TRACK IDENTITY SYSTEM
+══════════════════════════════════════════ -->
+<section>
+<h2>02 — Track Identity System · 5 Confirmed Tracks</h2>
+
+<div class="track-grid">
+
+  <!-- Track 1 — L&D -->
+  <div class="track-card" style="border-left-color:#00E8A2;">
+    <div class="track-freq">
+      <div class="tf" style="height:8px;background:#00E8A2;"></div>
+      <div class="tf" style="height:14px;background:#00E8A2;"></div>
+      <div class="tf" style="height:22px;background:#00E8A2;"></div>
+      <div class="tf" style="height:32px;background:#00E8A2;"></div>
+      <div class="tf" style="height:22px;background:#00E8A2;"></div>
+      <div class="tf" style="height:14px;background:#00E8A2;"></div>
+      <div class="tf" style="height:8px;background:#00E8A2;"></div>
+    </div>
+    <div class="track-num">Track 01</div>
+    <div class="track-name" style="color:#00E8A2;">AI in Learning &amp; Development</div>
+    <div class="track-tagline" style="color:#00E8A2;">The Learning Frequency</div>
+    <div class="track-line">Exploring how AI is transforming learning across every context — from classrooms and universities to corporate training rooms and the future of work.</div>
+    <div class="track-domains">
+      <span class="dpill" style="color:#00E8A2;border:0.5px solid rgba(0,232,162,0.2);">Personalized Learning</span>
+      <span class="dpill" style="color:#00E8A2;border:0.5px solid rgba(0,232,162,0.2);">EdTech</span>
+      <span class="dpill" style="color:#00E8A2;border:0.5px solid rgba(0,232,162,0.2);">Corporate L&amp;D</span>
+      <span class="dpill" style="color:#00E8A2;border:0.5px solid rgba(0,232,162,0.2);">Workforce Development</span>
+    </div>
+  </div>
+
+  <!-- Track 2 — Creative -->
+  <div class="track-card" style="border-left-color:#F53E9F;">
+    <div class="track-freq">
+      <div class="tf" style="height:8px;background:#F53E9F;"></div>
+      <div class="tf" style="height:14px;background:#F53E9F;"></div>
+      <div class="tf" style="height:22px;background:#F53E9F;"></div>
+      <div class="tf" style="height:32px;background:#F53E9F;"></div>
+      <div class="tf" style="height:22px;background:#F53E9F;"></div>
+      <div class="tf" style="height:14px;background:#F53E9F;"></div>
+      <div class="tf" style="height:8px;background:#F53E9F;"></div>
+    </div>
+    <div class="track-num">Track 02</div>
+    <div class="track-name" style="color:#F53E9F;">AI in Creative Industries</div>
+    <div class="track-tagline" style="color:#F53E9F;">The Creative Frequency</div>
+    <div class="track-line">Exploring how generative AI is reshaping design, content, media, and entertainment — and what it means for human creativity.</div>
+    <div class="track-domains">
+      <span class="dpill" style="color:#F53E9F;border:0.5px solid rgba(245,62,159,0.2);">Generative AI</span>
+      <span class="dpill" style="color:#F53E9F;border:0.5px solid rgba(245,62,159,0.2);">Design</span>
+      <span class="dpill" style="color:#F53E9F;border:0.5px solid rgba(245,62,159,0.2);">Content Creation</span>
+      <span class="dpill" style="color:#F53E9F;border:0.5px solid rgba(245,62,159,0.2);">Digital Rights</span>
+    </div>
+  </div>
+
+  <!-- Track 3 — Startups -->
+  <div class="track-card" style="border-left-color:#E8F200;">
+    <div class="track-freq">
+      <div class="tf" style="height:8px;background:#E8F200;"></div>
+      <div class="tf" style="height:14px;background:#E8F200;"></div>
+      <div class="tf" style="height:22px;background:#E8F200;"></div>
+      <div class="tf" style="height:32px;background:#E8F200;"></div>
+      <div class="tf" style="height:22px;background:#E8F200;"></div>
+      <div class="tf" style="height:14px;background:#E8F200;"></div>
+      <div class="tf" style="height:8px;background:#E8F200;"></div>
+    </div>
+    <div class="track-num">Track 03</div>
+    <div class="track-name" style="color:#E8F200;">AI in Startups &amp; Entrepreneurship</div>
+    <div class="track-tagline" style="color:#E8F200;">The Builder Frequency</div>
+    <div class="track-line">The definitive track for everyone building, funding, and scaling AI companies — from first idea to generational business.</div>
+    <div class="track-domains">
+      <span class="dpill" style="color:#E8F200;border:0.5px solid rgba(232,242,0,0.2);">AI-Native Companies</span>
+      <span class="dpill" style="color:#E8F200;border:0.5px solid rgba(232,242,0,0.2);">Venture Capital</span>
+      <span class="dpill" style="color:#E8F200;border:0.5px solid rgba(232,242,0,0.2);">GTM Strategy</span>
+      <span class="dpill" style="color:#E8F200;border:0.5px solid rgba(232,242,0,0.2);">Fundraising</span>
+    </div>
+  </div>
+
+  <!-- Track 4 — Business -->
+  <div class="track-card" style="border-left-color:#F5A623;">
+    <div class="track-freq">
+      <div class="tf" style="height:8px;background:#F5A623;"></div>
+      <div class="tf" style="height:14px;background:#F5A623;"></div>
+      <div class="tf" style="height:22px;background:#F5A623;"></div>
+      <div class="tf" style="height:32px;background:#F5A623;"></div>
+      <div class="tf" style="height:22px;background:#F5A623;"></div>
+      <div class="tf" style="height:14px;background:#F5A623;"></div>
+      <div class="tf" style="height:8px;background:#F5A623;"></div>
+    </div>
+    <div class="track-num">Track 04</div>
+    <div class="track-name" style="color:#F5A623;">AI in Business &amp; Enterprise</div>
+    <div class="track-tagline" style="color:#F5A623;">The Enterprise Frequency</div>
+    <div class="track-line">AI is not a technology story — it is a business story. For every leader and professional navigating how AI transforms every business function.</div>
+    <div class="track-domains">
+      <span class="dpill" style="color:#F5A623;border:0.5px solid rgba(245,166,35,0.2);">Sales &amp; Revenue</span>
+      <span class="dpill" style="color:#F5A623;border:0.5px solid rgba(245,166,35,0.2);">Operations</span>
+      <span class="dpill" style="color:#F5A623;border:0.5px solid rgba(245,166,35,0.2);">Business Strategy</span>
+      <span class="dpill" style="color:#F5A623;border:0.5px solid rgba(245,166,35,0.2);">Leadership &amp; Change</span>
+    </div>
+  </div>
+
+  <!-- Track 5 — Tech -->
+  <div class="track-card" style="border-left-color:#00D4FF;">
+    <div class="track-freq">
+      <div class="tf" style="height:8px;background:#00D4FF;"></div>
+      <div class="tf" style="height:14px;background:#00D4FF;"></div>
+      <div class="tf" style="height:22px;background:#00D4FF;"></div>
+      <div class="tf" style="height:32px;background:#00D4FF;"></div>
+      <div class="tf" style="height:22px;background:#00D4FF;"></div>
+      <div class="tf" style="height:14px;background:#00D4FF;"></div>
+      <div class="tf" style="height:8px;background:#00D4FF;"></div>
+    </div>
+    <div class="track-num">Track 05</div>
+    <div class="track-name" style="color:#00D4FF;">AI in Tech &amp; Infrastructure</div>
+    <div class="track-tagline" style="color:#00D4FF;">The Infrastructure Frequency</div>
+    <div class="track-line">The complete story of AI from silicon to software — how the physical infrastructure powering the AI revolution is being built.</div>
+    <div class="track-domains">
+      <span class="dpill" style="color:#00D4FF;border:0.5px solid rgba(0,212,255,0.2);">Chips &amp; Semiconductors</span>
+      <span class="dpill" style="color:#00D4FF;border:0.5px solid rgba(0,212,255,0.2);">LLMs in Production</span>
+      <span class="dpill" style="color:#00D4FF;border:0.5px solid rgba(0,212,255,0.2);">Cybersecurity</span>
+      <span class="dpill" style="color:#00D4FF;border:0.5px solid rgba(0,212,255,0.2);">Data Infrastructure</span>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:24px;">
+  <div style="font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.14em;color:#4A4A6A;text-transform:uppercase;margin-bottom:10px;">Track color reference</div>
+  <div class="color-ref">
+    <div class="citem"><span class="cdot" style="background:#00E8A2;"></span>Track 1 · L&amp;D · Cyan #00E8A2</div>
+    <div class="citem"><span class="cdot" style="background:#F53E9F;"></span>Track 2 · Creative · Pink #F53E9F</div>
+    <div class="citem"><span class="cdot" style="background:#E8F200;"></span>Track 3 · Startups · Signal Yellow #E8F200</div>
+    <div class="citem"><span class="cdot" style="background:#F5A623;"></span>Track 4 · Business · Amber #F5A623</div>
+    <div class="citem"><span class="cdot" style="background:#00D4FF;"></span>Track 5 · Tech · Ice Blue #00D4FF</div>
+  </div>
+</div>
+</section>
+
+<hr class="logo-divider">
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — CARD EXAMPLES
+══════════════════════════════════════════ -->
+<section>
+<h2>03 — Branding in Practice · Speaker &amp; Sponsor Card Examples</h2>
+
+<div style="font-family:'Lato',sans-serif;font-size:14px;color:#6A6A8A;line-height:1.7;margin-bottom:32px;">
+  The cards below demonstrate how the Signal: AI identity system applies to announcement assets. Logo placement, frequency motif integration, track color coding, and typographic hierarchy are shown in context. These are implementation references — the actual Photoshop builds follow the same layer logic.
+</div>
+
+<div class="cards-row">
+
+<!-- SPEAKER CARD EXAMPLE -->
+  <div>
+    <div class="logo-subsection-label" style="margin-bottom:12px;"><span style="color:#e8f200;">Speaker Announcement · 1080×1350px</span></div>
+    
+    <img src="speaker.png" alt="Speaker Card Example" style="height:400px;width:auto;display:block;border-radius:10px;">
+  </div>
+
+  <!-- SPONSOR CARD EXAMPLE -->
+  <div>
+    <div class="logo-subsection-label" style="margin-bottom:12px;"><span style="color:#e8f200;">Sponsor Announcement · 1080×1080px</span></div>
+    <img src="sponsor.png" alt="Gold Sponsor Card Example" style="height:400px;width:auto;display:block;border-radius:10px;">
+  </div>
+
+</div>
+</section>
+
+</body>
+</html>
