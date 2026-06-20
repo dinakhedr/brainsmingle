@@ -49,15 +49,15 @@ section { margin-bottom:64px; }
 .motif-bg-label { font-family:'Lato',sans-serif; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:6px; }
 
 /* ── TRACK SECTION ── */
-.track-grid { display:flex; flex-direction:column; gap:12px; }
-.track-card { border-radius:10px; padding:22px 24px; background:#0E0E1C; position:relative; overflow:hidden; border-left:4px solid transparent; }
+.track-grid { display:flex; flex-direction:row; gap:12px; }
+.track-card { border-radius:10px; padding:22px 24px; background:#0E0E1C; position:relative; overflow:hidden; border-top:4px solid transparent; flex:1; min-width:0; }
 .track-num { font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.18em; color:#4A4A6A; text-transform:uppercase; margin-bottom:8px; }
 .track-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px; letter-spacing:0.02em; line-height:1.2; margin-bottom:6px; }
 .track-tagline { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:10px; opacity:0.7; }
 .track-line { font-family:'Lato',sans-serif; font-size:12px; color:#6A6A8A; line-height:1.7; }
 .track-domains { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
 .dpill { font-family:'Lato',sans-serif; font-size:10px; letter-spacing:0.06em; padding:3px 10px; border-radius:20px; background:#1A1A2E; }
-.track-freq { position:absolute; right:20px; top:50%; transform:translateY(-50%); display:flex; gap:2px; align-items:flex-end; opacity:0.12; }
+.track-freq { position:absolute; bottom:16px; right:16px; display:flex; gap:2px; align-items:flex-end; opacity:0.12; }
 .tf { border-radius:2px 2px 0 0; width:3px; display:block; }
 
 /* ── CARD EXAMPLES ── */
@@ -212,7 +212,7 @@ section { margin-bottom:64px; }
 <div class="track-grid">
 
   <!-- Track 1 — L&D -->
-  <div class="track-card" style="border-left-color:#00E8A2;">
+  <div class="track-card" style="border-top-color:#00E8A2;">
     <div class="track-freq">
       <div class="tf" style="height:8px;background:#00E8A2;"></div>
       <div class="tf" style="height:14px;background:#00E8A2;"></div>
@@ -235,7 +235,7 @@ section { margin-bottom:64px; }
   </div>
 
   <!-- Track 2 — Creative -->
-  <div class="track-card" style="border-left-color:#F53E9F;">
+  <div class="track-card" style="border-top-color:#F53E9F;">
     <div class="track-freq">
       <div class="tf" style="height:8px;background:#F53E9F;"></div>
       <div class="tf" style="height:14px;background:#F53E9F;"></div>
@@ -258,7 +258,7 @@ section { margin-bottom:64px; }
   </div>
 
   <!-- Track 3 — Startups -->
-  <div class="track-card" style="border-left-color:#E8F200;">
+  <div class="track-card" style="border-top-color:#E8F200;">
     <div class="track-freq">
       <div class="tf" style="height:8px;background:#E8F200;"></div>
       <div class="tf" style="height:14px;background:#E8F200;"></div>
@@ -281,7 +281,7 @@ section { margin-bottom:64px; }
   </div>
 
   <!-- Track 4 — Business -->
-  <div class="track-card" style="border-left-color:#F5A623;">
+  <div class="track-card" style="border-top-color:#F5A623;">
     <div class="track-freq">
       <div class="tf" style="height:8px;background:#F5A623;"></div>
       <div class="tf" style="height:14px;background:#F5A623;"></div>
@@ -304,7 +304,7 @@ section { margin-bottom:64px; }
   </div>
 
   <!-- Track 5 — Tech -->
-  <div class="track-card" style="border-left-color:#00D4FF;">
+  <div class="track-card" style="border-top-color:#00D4FF;">
     <div class="track-freq">
       <div class="tf" style="height:8px;background:#00D4FF;"></div>
       <div class="tf" style="height:14px;background:#00D4FF;"></div>
