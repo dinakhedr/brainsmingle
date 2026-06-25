@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda — Signal: AI | 4–10 July 2026</title>
-  <meta name="description" content="Full agenda for Signal: AI — 7 days, 5 tracks, 90+ sessions. 4–10 July 2026." />
+  <title>Full Agenda — Signal: AI 2026 | 7-Day AI Event Schedule</title>
+  <meta name="description" content="Explore the full Signal: AI 2026 agenda. 7 days, 5 parallel AI tracks, 90+ sessions, Signal Launchpad, Signal Talent, and Speed Networking Day." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="assets/brand/icon.png" />
 </head>
@@ -39,7 +39,7 @@
   <div class="ag-hero-inner">
     <div class="ag-hero-eyebrow">Full Agenda · 4–10 July 2026</div>
     <h1 class="ag-hero-title">Seven days.<br>Five tracks.<br>One signal.</h1>
-    <p class="ag-hero-sub">90+ sessions, live panels, special activations, and a full-day speed networking closer — all on BrainsMingle.</p>
+    <p class="ag-hero-sub">7 days, 5 parallel AI tracks, 90+ sessions, Signal Launchpad, Signal Talent, and a full Speed Networking Day — all on BrainsMingle.</p>
 
     <!-- track legend — rendered from tracks.js -->
     <div class="track-legend" id="track-legend"></div>
@@ -262,7 +262,7 @@ function renderDay1() {
   return `
     <div class="ag-day active" id="${day.domId}">
       <div class="ag-day-header">
-        <div class="ag-day-tag">Day 1 · Opening Day</div>
+        <div class="ag-day-tag">Day 1 · Opening Experience</div>
         <h2 class="ag-day-title">${day.date}</h2>
         <p class="ag-day-desc">${day.description}</p>
       </div>
@@ -292,12 +292,12 @@ function renderTrackDay(dayNum) {
 
   // day desc text — exact from original
   const descTexts = {
-    2: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
-    3: 'Three session slots across all tracks, closing with Signal Launchpad — the startup showcase activation.',
-    4: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
-    5: 'Three session slots across all tracks, closing with Signal Talent — the professional hiring activation.',
-    6: 'Five parallel tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
-  };
+  2: 'Five parallel AI tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+  3: 'Three session slots across all tracks, closing with Signal Launchpad — Startup Showcase Activation.',
+  4: 'Five parallel AI tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+  5: 'Three session slots across all tracks, closing with Signal Talent — Professional Hiring Activation.',
+  6: 'Five parallel AI tracks running simultaneously &nbsp;·&nbsp; 6:00 – 10:00 PM',
+};
 
   const timeRows = slots.map(s => renderTimeRow(dayNum, s, times[s])).join('');
 
@@ -310,8 +310,8 @@ function renderTrackDay(dayNum) {
         <div class="ag-special-card ag-special-launchpad">
           <div>
             <div class="ag-special-badge">✦ Special Activation</div>
-            <div class="ag-special-name">Signal Launchpad — Startups Showcase</div>
-            <div class="ag-special-meta">All tracks · Open to all attendees</div>
+            <div class="ag-special-name">Signal Launchpad — Startup Showcase Activation</div>
+<div class="ag-special-meta">Open across all tracks · Open to all attendees</div>
           </div>
         </div>
       </div>
@@ -323,8 +323,8 @@ function renderTrackDay(dayNum) {
         <div class="ag-special-card ag-special-talent">
           <div>
             <div class="ag-special-badge">✦ Special Activation</div>
-            <div class="ag-special-name">Signal Talent — Professional Interviewing</div>
-            <div class="ag-special-meta">All tracks · Open to all attendees</div>
+            <div class="ag-special-name">Signal Talent — Professional Hiring Activation</div>
+<div class="ag-special-meta">Open across all tracks · Open to all attendees</div>
           </div>
         </div>
       </div>
@@ -357,12 +357,12 @@ function renderDay7() {
       <div class="ag-day-header">
         <div class="ag-day-tag">Day 7 · Closing Day</div>
         <h2 class="ag-day-title">${day.date}</h2>
-        <p class="ag-day-desc">Speed Networking Day — all tracks, open to all attendees.</p>
+        <p class="ag-day-desc">A full-day global networking experience connecting participants across all tracks. Designed to transform a week of live sessions and panel discussions into real professional relationships and opportunities.</p>
       </div>
       <div class="ag-sn-hero">
         <div class="ag-sn-label">✦ Full Day Activation · All Tracks · Open to All</div>
         <div class="ag-sn-title">Speed Networking Day</div>
-        <p class="ag-sn-sub">Structured rounds that connect professionals across all tracks at a scale. Powered by BrainsMingle's Speed Networking engine.</p>
+        <p class="ag-sn-sub">Structured networking rounds powered by BrainsMingle's Speed Networking engine, connecting founders, developers, researchers, recruiters, and professionals across the entire AI ecosystem.</p>
       </div>
       <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:40px;">
         <a href="home.html#register" class="btn btn-yellow">Register to Join the Signal</a>
