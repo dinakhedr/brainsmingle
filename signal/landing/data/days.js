@@ -24,7 +24,7 @@ const SIGNAL_DAYS = [
     type          : "opening",               // "opening" | "tracks" | "tracks+activation" | "networking"
     hasTracks     : false,
     special       : null,                    // null | "launchpad" | "talent" | "networking"
-    description   : "A full day of high-profile panels to open the Signal — setting the stage across all five AI verticals.",
+    description   : "A high-impact opening day featuring curated panels across AI's most important domains. This is where the week begins, bringing together leading voices from across all five tracks in a focused, non-parallel format.",
     timeRange     : "Full Day",
     domId         : "day1"
   },
@@ -39,7 +39,7 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel tracks running simultaneously · 6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
     timeRange     : "6:00 – 10:00 PM",
     domId         : "day2"
   },
@@ -54,7 +54,7 @@ const SIGNAL_DAYS = [
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "launchpad",
-    description   : "Five parallel tracks · 6:00 – 9:00 PM, followed by Signal Launchpad at 9:00 PM.",
+    description   : "Three session slots across all tracks, closing with Signal Launchpad — the startup pitch event of the week.",
     timeRange     : "6:00 – 10:00 PM",
     domId         : "day3"
   },
@@ -69,7 +69,7 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel tracks running simultaneously · 6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
     timeRange     : "6:00 – 10:00 PM",
     domId         : "day4"
   },
@@ -84,7 +84,7 @@ const SIGNAL_DAYS = [
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "talent",
-    description   : "Five parallel tracks · 6:00 – 9:00 PM, followed by Signal Talent at 9:00 PM.",
+    description   : "Three session slots across all tracks, closing with Signal Talent — the professional hiring activation.",
     timeRange     : "6:00 – 10:00 PM",
     domId         : "day5"
   },
@@ -99,7 +99,7 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel tracks running simultaneously · 6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
     timeRange     : "6:00 – 10:00 PM",
     domId         : "day6"
   },
@@ -114,7 +114,7 @@ const SIGNAL_DAYS = [
     type          : "networking",
     hasTracks     : false,
     special       : "networking",
-    description   : "Speed Networking Day — all tracks, open to all attendees.",
+    description   : "A full-day global networking experience connecting participants across all tracks. Designed to transform a week of live sessions and panel discussions into real professional relationships and opportunities.",
     timeRange     : "Full Day",
     domId         : "day7"
   }
