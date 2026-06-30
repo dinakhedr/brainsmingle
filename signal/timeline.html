@@ -6,6 +6,12 @@
   <title>Signal: AI Summit — Project Plan</title>
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Inline style for signal day highlighting (in case style.css doesn't have it) */
+    .td-day.signal-day {
+      background: #fce4ec !important; /* light pink */
+    }
+  </style>
 </head>
 <body>
 
@@ -185,6 +191,23 @@ function fmtBand(str) {
     return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();
 }
 
+// ── NEW: Get Summit week range from sheet (reads "Start Day" / "End Day") ──
+function getSummitRange(weeksData) {
+    for (const w of weeksData) {
+        const startStr = w["Start Day"] || w["start_day"] || "";
+        const endStr   = w["End Day"]   || w["end_day"]   || "";
+        if (startStr && endStr) {
+            const start = parseDate(startStr);
+            const end   = parseDate(endStr);
+            if (start && end) {
+                return { start, end };
+            }
+        }
+    }
+    // Fallback (matches your screenshot: 26-Sep-2026 to 02-Oct-2026)
+    return { start: new Date(2026, 8, 26), end: new Date(2026, 9, 2) };
+}
+
 // ── Owner map (same as tasklist.html) ────────────────────
 let ownerMap = {};
 function buildOwnerMap(owners) {
@@ -341,6 +364,9 @@ function buildOwnerFilter() {
 function renderTable() {
     const days  = buildDays();
     const bands = buildWeekBands(days, allWeeks);
+    // ── Get summit range from sheet (dynamic) ──
+    const summitRange = getSummitRange(allWeeks);
+
     const wsMap = {};
     allWS.forEach(w => { wsMap[w.workstream_id] = w; });
 
@@ -381,7 +407,7 @@ function renderTable() {
     });
     thead.appendChild(tr1);
 
-    // Row 2: frozen blanks + day numbers
+    // Row 2: frozen blanks + day numbers (with dynamic summit highlight)
     const tr2 = document.createElement("tr");
     LABELS.forEach((_,i) => {
         const th=document.createElement("th");
@@ -389,18 +415,19 @@ function renderTable() {
         th.style.left=LEFT[i]+"px";
         tr2.appendChild(th);
     });
-days.forEach(day => {
-    const th=document.createElement("th");
-    const isSignalDay = day.date.getMonth()===6 && day.date.getDate()>=4 && day.date.getDate()<=10;
-    let cls="th-day";
-    if(isSignalDay)        cls+=" signal-day";
-    else if(day.isWeekend) cls+=" weekend";
-    else                   cls+=" weekday";
-    if(day.isToday)    cls+=" today";
-    if(day.isMonthDiv) cls+=" month-div";
-    th.className=cls; th.textContent=day.num;
-    tr2.appendChild(th);
-});
+    days.forEach(day => {
+        const th=document.createElement("th");
+        // Dynamic summit check
+        const isSignalDay = summitRange.start && summitRange.end && day.date >= summitRange.start && day.date <= summitRange.end;
+        let cls="th-day";
+        if(isSignalDay)        cls+=" signal-day";
+        else if(day.isWeekend) cls+=" weekend";
+        else                   cls+=" weekday";
+        if(day.isToday)    cls+=" today";
+        if(day.isMonthDiv) cls+=" month-div";
+        th.className=cls; th.textContent=day.num;
+        tr2.appendChild(th);
+    });
     thead.appendChild(tr2);
     table.appendChild(thead);
 
@@ -476,12 +503,26 @@ days.forEach(day => {
             days.forEach(day => {
                 const td=document.createElement("td");
                 let cls="td-day";
-                if(day.isWeekend)  cls+=" weekend";
-                if(day.isMonthDiv) cls+=" month-div";
-                if(day.isToday)    cls+=" today";
+                // Dynamic summit check
+                const isSignalDay = summitRange.start && summitRange.end && day.date >= summitRange.start && day.date <= summitRange.end;
+                if(isSignalDay)      cls+=" signal-day";
+                if(day.isWeekend)    cls+=" weekend";
+                if(day.isMonthDiv)   cls+=" month-div";
+                if(day.isToday)      cls+=" today";
                 td.className=cls;
-                td.style.background = day.isToday ? "var(--today-tint)" : day.isWeekend ? dayWkBg : dayBg;
 
+                // Background priority: today > signal day > weekend > default
+                let bg = dayBg;
+                if (day.isToday) {
+                    bg = "var(--today-tint)";
+                } else if (isSignalDay) {
+                    bg = "#fce4ec"; // light pink – you can change this color
+                } else if (day.isWeekend) {
+                    bg = dayWkBg;
+                }
+                td.style.background = bg;
+
+                // Task bar
                 if(si>=0 && ei>=0 && day.index>=si && day.index<=ei) {
                     const bar=document.createElement("div");
                     let bc="gbar";
