@@ -85,6 +85,13 @@ const GIDS = {
     owners:      "1511747720"
 };
 
+// ── Dynamic date range (will be set by build() from weeks data) ──
+let START_DATE = null;
+let END_DATE   = null;
+let TOTAL_DAYS = 0;
+
+const TODAY      = (() => { const d = new Date(); d.setHours(0,0,0,0); return d; })();
+
 async function fetchCSV(gid) {
     const url = `${PUB_BASE}&gid=${gid}&cachebust=${Date.now()}`;
     const res = await fetch(url);
@@ -124,11 +131,6 @@ function splitRow(row) {
 function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 // ── Date helpers ─────────────────────────────────────────
-const START_DATE = new Date(2026, 4, 31);  // May 31
-const END_DATE   = new Date(2026, 6, 17);  // Jul 17
-const TOTAL_DAYS = Math.round((END_DATE - START_DATE) / 86400000) + 1;
-const TODAY      = (() => { const d = new Date(); d.setHours(0,0,0,0); return d; })();
-
 function parseDate(str) {
     if (!str) return null;
     const s = str.trim();
@@ -232,6 +234,23 @@ let activeWS     = new Set(); // empty = show all
 let hideClosed   = false;
 let allWS = [], allWeeks = [], allTasks = [];
 let autoTimer = null;
+
+// ── Compute date range from weeks data (DYNAMIC FIX) ──
+function computeRangeFromWeeks(weeks) {
+    if (!weeks || weeks.length === 0) return null;
+    let minTs = Infinity, maxTs = -Infinity;
+    weeks.forEach(w => {
+        const s = parseDate(w.start_date || w.week_start);
+        const e = parseDate(w.end_date || w.week_end);
+        if (s) minTs = Math.min(minTs, s.getTime());
+        if (e) maxTs = Math.max(maxTs, e.getTime());
+    });
+    if (!isFinite(minTs) || !isFinite(maxTs)) return null;
+    const start = new Date(minTs);
+    const end = new Date(maxTs);
+    const totalDays = Math.round((end - start) / 86400000) + 1;
+    return { start, end, totalDays };
+}
 
 // ── Stats ─────────────────────────────────────────────────
 function updateStats(tasks) {
@@ -645,6 +664,20 @@ function build(tasks, wsData, weeksData, ownersData) {
     allTasks  = tasks;
     allWS     = wsData;
     allWeeks  = weeksData;
+
+    // ─── DYNAMIC DATE RANGE FROM WEEKS SHEET ───
+    const range = computeRangeFromWeeks(weeksData);
+    if (range) {
+        START_DATE = range.start;
+        END_DATE   = range.end;
+        TOTAL_DAYS = range.totalDays;
+    } else {
+        // Fallback (should never happen if sheet is valid)
+        START_DATE = new Date(2026, 4, 31);
+        END_DATE   = new Date(2026, 6, 17);
+        TOTAL_DAYS = Math.round((END_DATE - START_DATE) / 86400000) + 1;
+    }
+
     buildOwnerMap(ownersData);
     buildWsPills();
     buildOwnerFilter();
