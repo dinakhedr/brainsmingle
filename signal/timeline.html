@@ -7,9 +7,10 @@
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Inline style for signal day highlighting (in case style.css doesn't have it) */
-    .td-day.signal-day {
-      background: #fce4ec !important; /* light pink */
+    /* Pink for header day numbers only */
+    .th-day.signal-day {
+      background: #fce4ec !important;
+      color: #c62828;
     }
   </style>
 </head>
@@ -407,7 +408,7 @@ function renderTable() {
     });
     thead.appendChild(tr1);
 
-    // Row 2: frozen blanks + day numbers (with dynamic summit highlight)
+    // ── Row 2: day numbers with pink highlight on summit days ──
     const tr2 = document.createElement("tr");
     LABELS.forEach((_,i) => {
         const th=document.createElement("th");
@@ -417,7 +418,6 @@ function renderTable() {
     });
     days.forEach(day => {
         const th=document.createElement("th");
-        // Dynamic summit check
         const isSignalDay = summitRange.start && summitRange.end && day.date >= summitRange.start && day.date <= summitRange.end;
         let cls="th-day";
         if(isSignalDay)        cls+=" signal-day";
@@ -431,7 +431,7 @@ function renderTable() {
     thead.appendChild(tr2);
     table.appendChild(thead);
 
-    // Body
+    // ── Body: no pink background, just normal row colours ──
     const tbody = document.createElement("tbody");
     const wsOrder = allWS.map(w=>w.workstream_id);
     const grouped = {};
@@ -442,7 +442,6 @@ function renderTable() {
         const ws = wsMap[wsId]; if(!ws) return;
         (grouped[wsId]||[]).forEach(task => {
             const sm      = statusMeta(task.status);
-            const closed  = isClosed(task.status);
             const isDone_ = (task.status||"").toLowerCase().trim()==="done";
             const isLive_ = (task.status||"").toLowerCase().trim()==="live";
             const isBlk_  = (task.status||"").toLowerCase().trim()==="blocked";
@@ -495,7 +494,7 @@ function renderTable() {
             tdSt.innerHTML=`<span class="status-badge ${sm.cls}">${sm.label}</span>`;
             tr.appendChild(tdSt);
 
-            // Day cells
+            // ── Day cells (no pink background) ──
             const startD=parseDate(task.start_date), endD=parseDate(task.end_date);
             const si = startD ? dayIndex(startD) : -1;
             const ei = endD   ? dayIndex(endD)   : -1;
@@ -503,26 +502,13 @@ function renderTable() {
             days.forEach(day => {
                 const td=document.createElement("td");
                 let cls="td-day";
-                // Dynamic summit check
-                const isSignalDay = summitRange.start && summitRange.end && day.date >= summitRange.start && day.date <= summitRange.end;
-                if(isSignalDay)      cls+=" signal-day";
-                if(day.isWeekend)    cls+=" weekend";
-                if(day.isMonthDiv)   cls+=" month-div";
-                if(day.isToday)      cls+=" today";
+                if(day.isWeekend)  cls+=" weekend";
+                if(day.isMonthDiv) cls+=" month-div";
+                if(day.isToday)    cls+=" today";
                 td.className=cls;
+                td.style.background = day.isToday ? "var(--today-tint)" : day.isWeekend ? dayWkBg : dayBg;
+                // No signal‑day background here – only the header gets pink.
 
-                // Background priority: today > signal day > weekend > default
-                let bg = dayBg;
-                if (day.isToday) {
-                    bg = "var(--today-tint)";
-                } else if (isSignalDay) {
-                    bg = "#fce4ec"; // light pink – you can change this color
-                } else if (day.isWeekend) {
-                    bg = dayWkBg;
-                }
-                td.style.background = bg;
-
-                // Task bar
                 if(si>=0 && ei>=0 && day.index>=si && day.index<=ei) {
                     const bar=document.createElement("div");
                     let bc="gbar";
@@ -544,7 +530,7 @@ function renderTable() {
         });
     });
     table.appendChild(tbody);
-  buildStickyHeader();
+    buildStickyHeader();
 }
 
   // ── Sticky Header ───────────────────────────────────────────────
@@ -730,7 +716,6 @@ function build(tasks, wsData, weeksData, ownersData) {
 
 // ── Data fetch ────────────────────────────────────────────
 async function loadAllSheets() {
-    // Fetch all 4 tabs in parallel, cache-busted
     const [tasks, workstreams, weeks, owners] = await Promise.all([
         fetchCSV(GIDS.tasks),
         fetchCSV(GIDS.workstreams),
@@ -745,7 +730,6 @@ async function refreshData() {
     const icon = document.getElementById("refreshIcon");
     btn.disabled=true;
     icon.classList.add("spinning");
-    // Hide sticky header during refresh
     const stickyHeader = document.getElementById("stickyHeader");
     if (stickyHeader) stickyHeader.style.display="none";
     try {
@@ -769,7 +753,6 @@ async function init() {
         document.getElementById("loading").classList.add("hidden");
         document.getElementById("app").style.display="block";
         scrollToToday();
-        // Auto-refresh every 10 min
         if(autoTimer) clearInterval(autoTimer);
         autoTimer = setInterval(refreshData, 600000);
     } catch(err) {
