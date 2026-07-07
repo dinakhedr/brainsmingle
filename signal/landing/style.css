@@ -967,6 +967,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .ag-special-name  { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; }
 .ag-special-meta  { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); margin-top: 4px; }
 
+/* ── Speed Networking */
+.ag-special-networking { background: rgba(245,62,159,0.10); border: 0.5px solid rgba(245,62,159,0.32); }
+.ag-special-networking::before { background: #F53E9F; }
+.ag-special-networking .ag-special-badge { color: #F87BB9; }
+
 /* ── Panel card (Day 1) */
 .ag-panel-row  { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; align-items: stretch; }
 .ag-panel {
