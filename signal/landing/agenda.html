@@ -217,7 +217,24 @@ function renderTimeRow(day, slot, timeLabel) {
   `;
 }
 
-
+// ─────────────────────────────────────────
+// Daily Speed Networking Row
+// ─────────────────────────────────────────
+function renderNetworkingRow() {
+  return `
+    <div class="ag-special-merged">
+      <div class="ag-time-label">10:00 PM</div>
+      <div class="ag-special-card ag-special-networking">
+        <div>
+          <div class="ag-special-badge">✦ Daily Wrap</div>
+          <div class="ag-special-name">Speed Networking — 1 Hour</div>
+          <div class="ag-special-meta">Open across all tracks · Open to all attendees</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+  
 // ─────────────────────────────────────────
 // DAY 1 — Opening Day panels
 // ─────────────────────────────────────────
@@ -267,6 +284,7 @@ function renderDay1() {
         <p class="ag-day-desc">${day.description}</p>
       </div>
       ${panels}
+      ${renderNetworkingRow()}
     </div>
   `;
 }
@@ -341,6 +359,7 @@ function renderTrackDay(dayNum) {
       ${renderTrackHeader()}
       ${timeRows}
       ${specialRow}
+      ${renderNetworkingRow()}
     </div>
   `;
 }
