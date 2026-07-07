@@ -39,8 +39,8 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
-    timeRange     : "6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 11:00 PM",
+    timeRange     : "6:00 – 11:00 PM",
     domId         : "day2"
   },
   {
@@ -55,7 +55,7 @@ const SIGNAL_DAYS = [
     hasTracks     : true,
     special       : "launchpad",
     description   : "Three session slots across all tracks, closing with Signal Launchpad — the startup pitch event of the week.",
-    timeRange     : "6:00 – 10:00 PM",
+    timeRange     : "6:00 – 11:00 PM",
     domId         : "day3"
   },
   {
@@ -69,8 +69,8 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
-    timeRange     : "6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 11:00 PM",
+    timeRange     : "6:00 – 11:00 PM",
     domId         : "day4"
   },
   {
@@ -85,7 +85,7 @@ const SIGNAL_DAYS = [
     hasTracks     : true,
     special       : "talent",
     description   : "Three session slots across all tracks, closing with Signal Talent — the professional hiring activation.",
-    timeRange     : "6:00 – 10:00 PM",
+    timeRange     : "6:00 – 11:00 PM",
     domId         : "day5"
   },
   {
@@ -99,8 +99,8 @@ const SIGNAL_DAYS = [
     type          : "tracks",
     hasTracks     : true,
     special       : null,
-    description   : "Five parallel AI tracks running simultaneously · 6:00 – 10:00 PM",
-    timeRange     : "6:00 – 10:00 PM",
+    description   : "Five parallel AI tracks running simultaneously · 6:00 – 11:00 PM",
+    timeRange     : "6:00 – 11:00 PM",
     domId         : "day6"
   },
   {
