@@ -12,18 +12,7 @@
 <body>
 
   <!-- Nav -->
-  <nav class="nav">
-    <a href="#" class="nav-brand" id="nav-home">
-      <div class="nav-logo"></div>
-      <span class="nav-name">BrainsMingle Suite</span>
-      <span class="nav-sep">/</span>
-      <span class="nav-label">Knowledge base</span>
-    </a>
-    <div class="nav-links">
-      <a href="#">All articles</a>
-      <a href="#">What's new</a>
-    </div>
-  </nav>
+<div id="kb-nav"></div>
 
   <!-- Hero -->
   <header class="hero">
@@ -57,9 +46,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    Powered by BrainsMingle Suite
-  </footer>
+<div id="kb-footer"></div>
 
   <script src="kb-data.js"></script>
   <script>
@@ -220,5 +207,6 @@
     openFromHash();
     window.addEventListener('hashchange', openFromHash);
   </script>
+  <script src="kb-nav.js"></script>
 </body>
 </html>
