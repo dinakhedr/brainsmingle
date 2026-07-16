@@ -1,25 +1,29 @@
 // ── KB Navigation, Sidebar & Footer ──
-// Include in every article page:
+// Include in every page:
 //   <div id="kb-nav"></div>
-//   ...article content...
+//   ...content...
 //   <div id="kb-footer"></div>
-//   <script src="../kb-data.js"></script>
-//   <script src="../kb-nav.js"></script>
+//   <script src="kb-nav.js"></script>        (root)
+//   <script src="../kb-nav.js"></script>     (article pages)
 
 (function () {
+
+  // Detect if we're at root or in a subfolder
+  const isRoot = !document.querySelector('.article-page');
+  const base = isRoot ? '' : '../';
 
   /* ── 1. Top Nav ── */
   const nav = document.getElementById('kb-nav');
   if (nav) {
     nav.outerHTML = `
     <nav class="nav">
-      <a href="../index.html" class="nav-brand">
-        <img src="../logo.png" alt="BrainsMingle Suite" class="nav-logo">
+      <a href="${base}index.html" class="nav-brand">
+        <img src="${base}logo.png" alt="BrainsMingle Suite" class="nav-logo">
         <span class="nav-sep">/</span>
         <span class="nav-label">Knowledge base</span>
       </a>
       <div class="nav-links">
-        <a href="../index.html">All articles</a>
+        <a href="${base}index.html">All articles</a>
         <a href="https://brainsmingle.com/" target="_blank" rel="noopener noreferrer" style="color: #6B3EF5;">BrainsMingle</a>
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
@@ -78,7 +82,7 @@
         const isActive = article.url === currentPath;
         const activeClass = isActive ? ' active' : '';
         sidebarHTML += `<li class="sidebar-article${activeClass}">`;
-        sidebarHTML += `<a href="../${article.url}">${article.title}</a>`;
+        sidebarHTML += `<a href="${base}${article.url}">${article.title}</a>`;
         sidebarHTML += `</li>`;
       });
     });
@@ -130,7 +134,7 @@
   }
 
   // Scroll active article into view in sidebar
-  const activeItem = sidebar.querySelector('.sidebar-article.active');
+  const activeItem = sidebar ? sidebar.querySelector('.sidebar-article.active') : null;
   if (activeItem) {
     setTimeout(() => {
       activeItem.scrollIntoView({ block: 'center', behavior: 'instant' });

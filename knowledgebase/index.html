@@ -125,11 +125,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.getElementById('back-link').addEventListener('click', showHome);
-    document.getElementById('nav-home').addEventListener('click', (e) => {
-      e.preventDefault();
-      showHome();
-    });
+document.getElementById('back-link').addEventListener('click', showHome);
+
+// Nav-home is injected later by kb-nav.js — use event delegation
+document.addEventListener('click', (e) => {
+  const navHome = e.target.closest('#nav-home');
+  if (navHome) {
+    e.preventDefault();
+    showHome();
+  }
+});
 
     // Live search across all articles
     function buildSearchIndex() {
