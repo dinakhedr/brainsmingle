@@ -30,6 +30,12 @@ const KB_KEYWORDS = {
   "delete community", "remove community", "edit community"
 ],
 
+"communities/manage-community-members.html": [
+  "members", "manage members", "add members", "invite members",
+  "approve", "reject", "pending", "join request", "ban member",
+  "make admin", "make moderator", "assign role", "remove member"
+],
+
 // ── Live Sessions ──
 "live-sessions/schedule-a-live-session.html": [
   "create session", "new session", "event", "webinar", "schedule event",
