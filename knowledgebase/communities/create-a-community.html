@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a community — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#communities">Communities</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Create a community</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Create a community</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Launch a community space for any group or topic. Set the name, description, visibility, and membership rules. You can also enable paid membership with monthly or yearly billing.</p>
+
+            <!-- Open the Communities page -->
+            <section class="article-section">
+                <h2>Open the Communities page</h2>
+
+                <ol class="step-list">
+                    <li>Click <strong>Communities</strong> in the main navigation.</li>
+                    <li>Click <strong>+ Create Community</strong> in the top-right corner.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="images/community_create_01.png" alt="The Communities page showing the Discover and My Communities tabs, a search bar, and the Create Community button in the top-right corner" />
+                    <figcaption>The Communities page with Discover, My Communities tabs, and the Create Community button</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Set up your community -->
+            <section class="article-section">
+                <h2>Set up your community</h2>
+
+                <ol class="step-list">
+                    <li>Enter a <strong>Community Name</strong>. This is required.</li>
+                    <li>Optionally enter a <strong>Description</strong> to explain what your community is about.</li>
+                    <li>Under <strong>Visibility</strong>, select one:
+                        <ul class="option-list">
+                            <li><strong>Private</strong> — invite only. Only people you invite can find and join.</li>
+                            <li><strong>Discoverable</strong> — anyone can find your community and request to join.</li>
+                        </ul>
+                    </li>
+                    <li>Under <strong>How should new members join?</strong>, select one:
+                        <ul class="option-list">
+                            <li><strong>Auto-approve</strong> — anyone can join instantly.</li>
+                            <li><strong>Require approval</strong> — you review each request before members are added.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="images/community_create_02.png" alt="The Create Space dialog showing Community Name, Description, Visibility options (Private and Discoverable), membership join options (Auto-approve and Require approval), and a Paid membership checkbox" />
+                    <figcaption>The Create Space dialog with name, description, visibility, and membership settings</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Add paid membership -->
+            <section class="article-section">
+                <h2>Add paid membership (optional)</h2>
+
+                <ol class="step-list">
+                    <li>Check the <strong>Paid membership</strong> checkbox to charge a monthly subscription fee.</li>
+                    <li>Enter the <strong>Monthly Price</strong> in USD.</li>
+                    <li>Optionally check <strong>Offer yearly billing</strong> to give members a discounted annual option. Enter the <strong>Yearly Price</strong> in USD. The platform automatically displays the savings percentage compared to paying monthly.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="images/community_create_03.png" alt="The Create Space dialog with Paid membership checked, showing a Monthly Price field set to $20 and an Offer yearly billing checkbox" />
+                    <figcaption>Paid membership enabled with a monthly price and the option to offer yearly billing</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="images/community_create_04.png" alt="The Create Space dialog with yearly billing enabled, showing a Monthly Price of $20, a Yearly Price of $200, and a Save 17% label" />
+                    <figcaption>Yearly billing enabled with automatic savings calculation displayed</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Start your community -->
+            <section class="article-section">
+                <h2>Start your community</h2>
+
+                <ol class="step-list">
+                    <li>Review your settings.</li>
+                    <li>Click <strong>Start Community</strong>.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> You can change your community settings at any time after creation, including visibility, membership rules, and pricing.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
