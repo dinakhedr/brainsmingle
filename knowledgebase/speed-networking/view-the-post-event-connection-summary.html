@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View the post-event connection summary — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#speed-networking">Speed networking</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>View the post-event connection summary</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>View the post-event connection summary</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">After a speed networking session ends, every participant receives a connection summary showing the people they met. Use it to follow up, send messages, and grow your professional network.</p>
+
+            <!-- How it works -->
+            <section class="article-section">
+                <h2>How it works</h2>
+
+                <ol class="step-list">
+                    <li>When the speed networking session ends, the platform automatically generates a connection summary for each participant.</li>
+                    <li>The summary lists every person you were matched with during the session, including their name, headline, and profile link.</li>
+                    <li>Click a person's name or profile link to view their full profile and send them a direct message.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Follow up within 24 hours while the conversation is still fresh. Use the direct message feature to continue discussions started during the speed networking session.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Access the summary as an admin -->
+            <section class="article-section">
+                <h2>Access the summary as an admin</h2>
+
+                <ol class="step-list">
+                    <li>Navigate to the room detail page by clicking the room title from your dashboard.</li>
+                    <li>Click the <strong>Discussions</strong> tab to view post-event discussions and connection activity.</li>
+                    <li>Click the <strong>Members</strong> tab to see the full list of participants who attended the session.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> As an admin, use the participant list to measure engagement and plan future networking events based on attendance patterns.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
