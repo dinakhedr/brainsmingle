@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Stripe and receive payouts — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#payments">Payments & Monetization</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Connect Stripe and receive payouts</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Connect Stripe and receive payouts</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Connect your Stripe account to receive payouts for paid consultations, paid rooms, and paid community memberships. Stripe setup is a one‑time process — once verified, payouts are deposited directly to your bank account.</p>
+
+            <!-- Before you get started -->
+            <section class="article-section">
+                <h2>Before you get started</h2>
+                <ul class="prereq-list">
+                    <li>You need an active BrainsMingle account.</li>
+                    <li>You need a bank account in a <a href="https://stripe.com/global" target="_blank">Stripe‑supported country</a>.</li>
+                </ul>
+            </section>
+
+            <!-- Open the My Earnings page -->
+            <section class="article-section">
+                <h2>Open the My Earnings page</h2>
+
+                <ol class="step-list">
+                    <li>Click your avatar or name in the navigation to open your profile.</li>
+                    <li>Click <strong>My Earnings</strong> in the top action bar.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/profile_02.png" alt="The My Earnings dashboard showing Total Earnings, Available for Payout, Pending Payout, and Completed Payouts, with Connect Stripe and Create Paid Room buttons" />
+                    <figcaption>The My Earnings dashboard with the Connect Stripe button</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Connect your Stripe account -->
+            <section class="article-section">
+                <h2>Connect your Stripe account</h2>
+
+                <ol class="step-list">
+                    <li>On the <strong>My Earnings</strong> page, click <strong>Connect Stripe to Receive Payouts</strong>.</li>
+                    <li>In the <strong>Set Up Payouts</strong> modal, select your <strong>Country</strong> (the country where your bank account is located).</li>
+                    <li>Click <strong>Connect Stripe</strong>. To skip this step for now, click <strong>Maybe Later</strong>.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/profile_04.png" alt="The Set Up Payouts modal showing country selection, security information, and Connect Stripe button" />
+                    <figcaption>The Set Up Payouts modal with country selection and Stripe connection details</figcaption>
+                </figure>
+
+                <ol class="step-list" start="4">
+                    <li>You are redirected to Stripe's onboarding page. Enter your <strong>Email address</strong> and <strong>Phone number</strong>, then click <strong>Submit</strong>.</li>
+                    <li>Complete the remaining Stripe verification steps. Once verified, payouts are deposited directly to your bank account.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/profile_05.png" alt="The Stripe onboarding page showing email address and phone number fields with a Submit button" />
+                    <figcaption>The Stripe onboarding page where you enter your email and phone number to complete setup</figcaption>
+                </figure>
+
+                <div class="callout callout-warning">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>Please note:</strong> Stripe setup is a one‑time process. You must complete Stripe verification before you can receive payouts for paid consultations, paid rooms, and paid community memberships.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
