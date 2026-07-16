@@ -507,6 +507,42 @@ color: var(--text-faint);
   color: var(--text-dark);
   margin-bottom: 16px;
 }
+.article-section p {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* Article table */
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.article-table th {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-dark);
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 2px solid var(--border);
+}
+.article-table td {
+  padding: 10px 16px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border);
+}
+.article-table td:not(:first-child),
+.article-table th:not(:first-child) {
+  text-align: center;
+  width: 90px;
+}
+.article-table tbody tr:hover {
+  background: var(--purple-light);
+}
 
 /* Prerequisites list */
 .prereq-list {
