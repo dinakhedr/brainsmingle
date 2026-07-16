@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base — BrainsMingle Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#" class="nav-brand" id="nav-home">
+      <div class="nav-logo"></div>
+      <span class="nav-name">BrainsMingle Suite</span>
+      <span class="nav-sep">/</span>
+      <span class="nav-label">Knowledge base</span>
+    </a>
+    <div class="nav-links">
+      <a href="#">All articles</a>
+      <a href="#">What's new</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>How can we help?</h1>
+    <p>Search guides, tutorials, and troubleshooting articles</p>
+    <div class="search-wrap">
+      <i class="ti ti-search"></i>
+      <input type="text" class="search-input" placeholder="Search for articles..." id="search-input" autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </header>
+
+  <!-- Sections Grid (home view) -->
+  <main class="sections" id="sections-home">
+    <div class="sections-grid" id="sections-grid"></div>
+  </main>
+
+  <!-- Section Detail (drill-down view) -->
+  <div class="section-detail" id="section-detail">
+    <a class="back-link" id="back-link">
+      <i class="ti ti-arrow-left"></i> All topics
+    </a>
+    <div class="detail-header">
+      <div class="card-icon"><i id="detail-icon"></i></div>
+      <div>
+        <div class="detail-title" id="detail-title"></div>
+        <div class="detail-count" id="detail-count"></div>
+      </div>
+    </div>
+    <ul class="article-list" id="article-list"></ul>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Powered by BrainsMingle Suite
+  </footer>
+
+  <script src="kb-data.js"></script>
+  <script>
+    const grid = document.getElementById('sections-grid');
+    const homeView = document.getElementById('sections-home');
+    const detailView = document.getElementById('section-detail');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+
+    // Helper: count all articles across groups
+    function countArticles(section) {
+      return section.groups.reduce((sum, g) => sum + g.articles.length, 0);
+    }
+
+    // Build the card grid from KB_SECTIONS
+    function renderGrid() {
+      grid.innerHTML = '';
+      KB_SECTIONS.forEach((section, idx) => {
+        const count = countArticles(section);
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-icon"><i class="ti ${section.icon}"></i></div>
+          <div class="card-title">${section.title}</div>
+          <div class="card-count">${count} article${count !== 1 ? 's' : ''}</div>
+        `;
+        card.addEventListener('click', () => showDetail(idx));
+        grid.appendChild(card);
+      });
+    }
+
+    // Show section detail with sub-groups
+    function showDetail(idx) {
+      const section = KB_SECTIONS[idx];
+      const count = countArticles(section);
+      document.getElementById('detail-icon').className = `ti ${section.icon}`;
+      document.getElementById('detail-title').textContent = section.title;
+      document.getElementById('detail-count').textContent = `${count} article${count !== 1 ? 's' : ''}`;
+
+      const list = document.getElementById('article-list');
+      list.innerHTML = '';
+
+      section.groups.forEach(group => {
+        // Sub-group label
+        if (group.label) {
+          const labelLi = document.createElement('li');
+          labelLi.className = 'group-label';
+          labelLi.textContent = group.label;
+          list.appendChild(labelLi);
+        }
+
+        // Articles
+        group.articles.forEach(article => {
+          const li = document.createElement('li');
+          li.className = 'article-item';
+          li.innerHTML = `
+            <a href="${article.url}">
+              <i class="ti ti-file-text"></i>
+              <span>${article.title}</span>
+              <i class="ti ti-chevron-right"></i>
+            </a>
+          `;
+          list.appendChild(li);
+        });
+      });
+
+      homeView.style.display = 'none';
+      detailView.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Back to grid
+    function showHome() {
+      detailView.classList.remove('active');
+      homeView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('back-link').addEventListener('click', showHome);
+    document.getElementById('nav-home').addEventListener('click', (e) => {
+      e.preventDefault();
+      showHome();
+    });
+
+    // Live search across all articles
+    function buildSearchIndex() {
+      const index = [];
+      KB_SECTIONS.forEach(section => {
+        section.groups.forEach(group => {
+          group.articles.forEach(article => {
+            index.push({
+              title: article.title,
+              url: article.url,
+              section: section.title,
+              icon: section.icon,
+              sectionId: section.id
+            });
+          });
+        });
+      });
+      return index;
+    }
+
+    const searchIndex = buildSearchIndex();
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (query.length < 2) {
+        searchResults.classList.remove('active');
+        return;
+      }
+
+      const matches = searchIndex.filter(item =>
+        item.title.toLowerCase().includes(query) ||
+        item.section.toLowerCase().includes(query)
+      ).slice(0, 8);
+
+      if (matches.length === 0) {
+        searchResults.innerHTML = `<div class="search-no-results">No articles found for "${searchInput.value.trim()}"</div>`;
+      } else {
+        searchResults.innerHTML = matches.map(m => `
+          <a class="search-result-item" href="${m.url}">
+            <i class="ti ${m.icon} result-icon"></i>
+            <div class="result-text">
+              <div class="result-title">${highlightMatch(m.title, query)}</div>
+              <div class="result-section">${m.section}</div>
+            </div>
+          </a>
+        `).join('');
+      }
+
+      searchResults.classList.add('active');
+    });
+
+    function highlightMatch(text, query) {
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, `<strong style="color: #6B3EF5;">$1</strong>`);
+    }
+
+    // Close search on outside click
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-wrap')) {
+        searchResults.classList.remove('active');
+      }
+    });
+
+    // Init
+    renderGrid();
+
+    // Open section if URL has a hash (e.g. #live-sessions)
+    function openFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const idx = KB_SECTIONS.findIndex(s => s.id === hash);
+        if (idx !== -1) showDetail(idx);
+      }
+    }
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+  </script>
+</body>
+</html>
