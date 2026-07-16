@@ -22,6 +22,11 @@
         <span class="nav-sep">/</span>
         <span class="nav-label">Knowledge base</span>
       </a>
+      ${!isRoot ? `<div class="nav-search-wrap" id="nav-search-wrap">
+        <i class="ti ti-search"></i>
+        <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search articles..." autocomplete="off">
+        <div class="nav-search-results" id="nav-search-results"></div>
+      </div>` : ''}
       <div class="nav-links">
         <a href="${base}index.html">All articles</a>
         <a href="https://brainsmingle.com/" target="_blank" rel="noopener noreferrer" style="color: #6B3EF5;">BrainsMingle</a>
@@ -140,5 +145,60 @@
       activeItem.scrollIntoView({ block: 'center', behavior: 'instant' });
     }, 50);
   }
+/* ── 5. Nav Search (article pages only) ── */
+  const navSearchInput = document.getElementById('nav-search-input');
+  const navSearchResults = document.getElementById('nav-search-results');
+  if (!navSearchInput || typeof KB_SECTIONS === 'undefined') return;
 
+  // Build search index
+  const navSearchIndex = [];
+  KB_SECTIONS.forEach(section => {
+    section.groups.forEach(group => {
+      group.articles.forEach(article => {
+        const keywords = (typeof KB_KEYWORDS !== 'undefined' && KB_KEYWORDS[article.url]) || [];
+        navSearchIndex.push({
+          title: article.title,
+          url: base + article.url,
+          section: section.title,
+          icon: section.icon,
+          keywords: keywords.join(' ').toLowerCase()
+        });
+      });
+    });
+  });
+
+  navSearchInput.addEventListener('input', () => {
+    const query = navSearchInput.value.trim().toLowerCase();
+    if (query.length < 2) {
+      navSearchResults.classList.remove('active');
+      return;
+    }
+
+    const matches = navSearchIndex.filter(item =>
+      item.title.toLowerCase().includes(query) ||
+      item.section.toLowerCase().includes(query) ||
+      item.keywords.includes(query)
+    ).slice(0, 6);
+
+    if (matches.length === 0) {
+      navSearchResults.innerHTML = `<div class="nav-search-empty">No results for "${navSearchInput.value.trim()}"</div>`;
+    } else {
+      navSearchResults.innerHTML = matches.map(m => `
+        <a class="nav-search-item" href="${m.url}">
+          <i class="ti ${m.icon}"></i>
+          <div>
+            <div class="nav-search-title">${m.title}</div>
+            <div class="nav-search-section">${m.section}</div>
+          </div>
+        </a>
+      `).join('');
+    }
+    navSearchResults.classList.add('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search-wrap')) {
+      navSearchResults.classList.remove('active');
+    }
+  });
 })();

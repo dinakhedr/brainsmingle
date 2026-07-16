@@ -76,6 +76,86 @@ body {
   transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--purple); }
+/* ─── NAV SEARCH ─── */
+.nav-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+  margin: 0 24px;
+}
+.nav-search-wrap .ti-search {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+.nav-search-input {
+  width: 100%;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-page);
+  padding: 0 14px 0 36px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.nav-search-input::placeholder { color: #B0B0C0; }
+.nav-search-input:focus {
+  border-color: var(--purple);
+  background: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(107, 62, 245, 0.08);
+}
+.nav-search-results {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 200;
+  display: none;
+}
+.nav-search-results.active { display: block; }
+.nav-search-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.nav-search-item:hover { background: var(--purple-light); }
+.nav-search-item > .ti {
+  font-size: 15px;
+  color: var(--purple);
+  flex-shrink: 0;
+}
+.nav-search-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+.nav-search-section {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 1px;
+}
+.nav-search-empty {
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
 
 /* ─── HERO ─── */
 .hero {
@@ -315,9 +395,8 @@ body {
     border-top: none;
     border-radius: 0 0 var(--radius-md) var(--radius-md);
     padding: 12px 20px;
-    font-size: 13px;
+    font-size: 12px;
     color: #6B5BA0;
-    font-style: italic;
     line-height: 1.5;
 }
 
@@ -773,4 +852,5 @@ color: var(--text-faint);
 
 @media (max-width: 480px) {
   .sections-grid { grid-template-columns: 1fr; }
+  .nav-search-wrap { display: none; }
 }
