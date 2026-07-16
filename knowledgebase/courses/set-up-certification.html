@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set up certification — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#courses-lms">Courses & LMS</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Set up certification</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Set up certification</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Award certificates to members who complete courses or accumulate a minimum number of learning hours. Upload a custom certificate background, set completion thresholds, and let the platform issue certificates automatically.</p>
+
+            <!-- Before you get started -->
+            <section class="article-section">
+                <h2>Before you get started</h2>
+                <ul class="prereq-list">
+                    <li>You must be a community admin or Suite Admin.</li>
+                    <li>Your community must have the <strong>Courses</strong> tab visible. See <a href="../communities/set-up-your-community.html">Set up your community</a> to enable it.</li>
+                </ul>
+            </section>
+
+            <!-- Open certification settings -->
+            <section class="article-section">
+                <h2>Open certification settings</h2>
+
+                <ol class="step-list">
+                    <li>Open your community and click <strong>Courses</strong> in the left sidebar.</li>
+                    <li>Click <strong>Certificate</strong> in the top toolbar.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="images/certificate_01.png" alt="The Courses tab showing New program, New course, Certificate, and Analytics buttons at the top" />
+                    <figcaption>The Courses tab with the Certificate button in the top toolbar</figcaption>
+                </figure>
+
+                <p>The Certification settings dialog has two controls: <strong>Use a custom certificate design</strong> and <strong>Enable certification</strong>.</p>
+
+                <figure class="article-img">
+                    <img src="images/certificate_02.png" alt="The Certification settings dialog showing Certificate Design section with Use a custom certificate design toggle off and Enable certification toggle off" />
+                    <figcaption>Certification settings with both toggles off</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Upload a custom certificate design -->
+            <section class="article-section">
+                <h2>Upload a custom certificate design</h2>
+
+                <ol class="step-list">
+                    <li>Toggle <strong>Use a custom certificate design</strong> on.</li>
+                    <li>Drag your certificate background image into the upload area, or click to browse. The image must be PNG or JPG, landscape A4, approximately 1600×1131 px.</li>
+                    <li>Select the text color:
+                        <ul class="option-list">
+                            <li><strong>Dark text</strong> — for light certificate backgrounds.</li>
+                            <li><strong>Light text</strong> — for dark certificate backgrounds.</li>
+                        </ul>
+                    </li>
+                    <li>Check the <strong>Preview</strong> panel on the right to see where the certificate text appears. The platform automatically places the recipient name, course title, completion date, certificate ID, and verify link.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="images/certificate_03.png" alt="The Certification settings with custom design toggle on, showing an image upload area on the left, Dark text and Light text buttons, and a certificate preview on the right displaying placeholder text for recipient name, course title, completion date, and certificate ID" />
+                    <figcaption>Custom certificate design with upload area, text color options, and preview</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Enable certification and set thresholds -->
+            <section class="article-section">
+                <h2>Enable certification and set thresholds</h2>
+
+                <ol class="step-list">
+                    <li>Toggle <strong>Enable certification</strong> on.</li>
+                    <li>Enter a <strong>Certificate title</strong>.</li>
+                    <li>Set the completion threshold using one or both options:
+                        <ul class="option-list">
+                            <li><strong>Minimum courses completed</strong> — members must complete at least this many courses.</li>
+                            <li><strong>Minimum hours of coursework</strong> — members must accumulate at least this many hours of learning.</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ol>
+
+                <p>Members who meet either threshold receive a certificate automatically.</p>
+
+                <figure class="article-img">
+                    <img src="images/certificate_04.png" alt="The Certification settings with Enable certification toggled on, showing Certificate title field, Minimum courses completed field, an OR separator, and Minimum hours of coursework field" />
+                    <figcaption>Certification thresholds with minimum courses or minimum hours options</figcaption>
+                </figure>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> You can set both thresholds — members who meet either one qualify for the certificate. Use <strong>Minimum courses completed</strong> for structured programs and <strong>Minimum hours of coursework</strong> for self-paced learning paths.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
