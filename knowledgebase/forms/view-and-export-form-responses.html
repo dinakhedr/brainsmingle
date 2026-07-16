@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View and export form responses — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#forms">Forms & Registration</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>View and export form responses</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>View and export form responses</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Review the registration form responses collected from attendees of your video sessions and speed networking rooms. Access all submissions from the room detail page.</p>
+
+            <!-- Before you get started -->
+            <section class="article-section">
+                <h2>Before you get started</h2>
+                <ul class="prereq-list">
+                    <li>You must have enabled a registration form when creating the room. See <a href="create-a-registration-form.html">Create a registration form</a>.</li>
+                    <li>You must have an <strong>Admin</strong> or <strong>Moderator</strong> role.</li>
+                </ul>
+            </section>
+
+            <!-- View form responses -->
+            <section class="article-section">
+                <h2>View form responses</h2>
+
+                <ol class="step-list">
+                    <li>Navigate to the room detail page by clicking the room title from your dashboard.</li>
+                    <li>Click <strong>View form responses</strong> below the room date and time.</li>
+                    <li>The collected registration form responses from attendees are displayed.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/sn_manage_step01.png" alt="The room detail page showing room title, date and time, tags, shareable link bar, and View form responses link" />
+                    <figcaption>The room detail page with the View form responses link below the date and time</figcaption>
+                </figure>
+
+                <div class="callout callout-warning">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>Please note:</strong> The View form responses link only appears if you enabled the registration form when creating the room.
+                    </div>
+                </div>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Review form responses before the event to understand your audience and prepare relevant discussion topics.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
