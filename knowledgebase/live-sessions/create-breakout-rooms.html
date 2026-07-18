@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create breakout rooms — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#live-sessions">Live sessions</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Create breakout rooms</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Create breakout rooms</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Breakout rooms split participants into smaller groups for focused discussions during a live session. Set the number of rooms, choose manual or random assignment, set a duration, and launch — all from the call toolbar.</p>
+
+            <!-- Before you get started -->
+            <section class="article-section">
+                <h2>Before you get started</h2>
+                <ul class="prereq-list">
+                    <li>You must have a <strong>host</strong> or <strong>moderator</strong> role to create breakout rooms.</li>
+                    <li>You must be in an active live session. The Breakout Rooms control is in the call toolbar.</li>
+                    <li>Breakout rooms is a <strong>Beta</strong> feature. Availability may vary.</li>
+                </ul>
+            </section>
+
+            <!-- Create breakout rooms -->
+            <section class="article-section">
+                <h2>Create breakout rooms</h2>
+
+                <ol class="step-list">
+                    <li>Click the <strong>Breakout Rooms</strong> icon in the call toolbar.</li>
+                    <li>The Breakout Rooms panel opens on the right side of the screen.</li>
+                    <li>Click <strong>+ Create Rooms</strong>.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/video-control-05-1.png" alt="The Breakout Rooms panel in its empty state with the Create Rooms button" />
+                    <figcaption>The Breakout Rooms panel in its empty state, with the "+ Create Rooms" button</figcaption>
+                </figure>
+
+                <ol class="step-list" start="4">
+                    <li>Set the <strong>Number of rooms</strong> using the + and − controls.</li>
+                    <li>
+                        Choose an <strong>Assignment method</strong>:
+                        <ul class="option-list">
+                            <li><strong>Manual</strong> — assign participants to rooms yourself.</li>
+                            <li><strong>Random</strong> — the platform distributes participants automatically.</li>
+                        </ul>
+                    </li>
+                    <li>Set the <strong>Duration</strong>: <strong>5 min</strong>, <strong>10 min</strong>, <strong>15 min</strong>, or <strong>Custom</strong>.</li>
+                    <li>Click <strong>Create Rooms</strong>.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/video-control-05-2.png" alt="The Create Breakout Rooms dialog with room count, assignment method, and duration options" />
+                    <figcaption>The Create Breakout Rooms dialog with room count, assignment method, and duration options</figcaption>
+                </figure>
+
+                <div class="callout callout-warning">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>Please note:</strong> When breakout rooms are active, participants leave the main session view and join their assigned room. The host remains in the main session and can broadcast messages to all rooms.
+                    </div>
+                </div>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Use <strong>Manual</strong> assignment when you need specific groupings (e.g., by topic or role). Use <strong>Random</strong> for networking-style breakouts where mixed groups are the goal.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
