@@ -62,7 +62,8 @@ related: [
 "communities/manage-community-members.html",
 "getting-started/understand-roles-and-permissions.html",
 "live-sessions/schedule-a-live-session.html",
-"speed-networking/create-a-speed-networking-room.html"
+"speed-networking/create-a-speed-networking-room.html",
+"communities/customize-navigation-tabs-in-community.html",
 ]
 },
 {
@@ -71,8 +72,27 @@ url: "communities/manage-community-members.html",
 related: [
 "communities/set-up-your-community.html",
 "communities/create-a-community.html",
-"getting-started/understand-roles-and-permissions.html"
+"getting-started/understand-roles-and-permissions.html",
+"communities/customize-navigation-tabs-in-community.html",
 ]
+},
+{
+  title: "Manage channels in community",
+  url: "communities/manage-channels-in-community.html",
+  related: [
+    "communities/set-up-your-community.html",
+    "communities/customize-navigation-tabs-in-community.html",
+    "getting-started/understand-roles-and-permissions.html"
+  ]
+},
+{
+  title: "Customize navigation tabs",
+  url: "communities/customize-navigation-tabs-in-community.html",
+  related: [
+    "communities/set-up-your-community.html",
+    "communities/manage-channels-in-community.html",
+    "communities/manage-community-members.html"
+  ]
 }
 ]
 }
@@ -101,7 +121,8 @@ title: "Start an instant drop-in call",
 url: "live-sessions/start-an-instant-drop-in-call.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
-"live-sessions/use-the-video-call-toolbar.html"
+"live-sessions/use-the-video-call-toolbar.html",
+"live-sessions/create-breakout-rooms.html"
 ]
 },
 {
@@ -109,7 +130,8 @@ title: "Use the video call toolbar",
 url: "live-sessions/use-the-video-call-toolbar.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
-"live-sessions/start-an-instant-drop-in-call.html"
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/create-breakout-rooms.html"
 ]
 },
 {
@@ -117,9 +139,20 @@ title: "Set up a recurring session",
 url: "live-sessions/set-up-a-recurring-session.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
-"speed-networking/set-up-a-recurring-speed-networking-room.html"
+"speed-networking/set-up-a-recurring-speed-networking-room.html",
+"live-sessions/create-breakout-rooms.html",
+"live-sessions/start-an-instant-drop-in-call.html"
 ]
-}
+},
+{
+    title: "Create breakout rooms",
+    url: "live-sessions/create-breakout-rooms.html",
+    related: [
+        "live-sessions/use-the-video-call-toolbar.html",
+        "live-sessions/schedule-a-live-session.html",
+        "live-sessions/start-an-instant-drop-in-call.html"
+    ]
+},
 ]
 }
 ]
@@ -136,14 +169,14 @@ articles: [
 title: "Create a speed networking room",
 url: "speed-networking/create-a-speed-networking-room.html",
 related: [
-"speed-networking/manage-your-speed-networking-room.html",
+"speed-networking/manage-a-speed-networking-room.html",
 "speed-networking/set-up-a-recurring-speed-networking-room.html",
 "forms/create-a-registration-form.html"
 ]
 },
 {
-title: "Manage your speed networking room",
-url: "speed-networking/manage-your-speed-networking-room.html",
+title: "Manage a speed networking room",
+url: "speed-networking/manage-a-speed-networking-room.html",
 related: [
 "speed-networking/create-a-speed-networking-room.html",
 "speed-networking/view-the-post-event-connection-summary.html",
@@ -162,7 +195,7 @@ related: [
 title: "View the post-event connection summary",
 url: "speed-networking/view-the-post-event-connection-summary.html",
 related: [
-"speed-networking/manage-your-speed-networking-room.html",
+"speed-networking/manage-a-speed-networking-room.html",
 "speed-networking/create-a-speed-networking-room.html",
 "getting-started/send-direct-messages.html"
 ]
@@ -260,7 +293,7 @@ title: "View and export form responses",
 url: "forms/view-and-export-form-responses.html",
 related: [
 "forms/create-a-registration-form.html",
-"speed-networking/manage-your-speed-networking-room.html"
+"speed-networking/manage-a-speed-networking-room.html"
 ]
 }
 ]

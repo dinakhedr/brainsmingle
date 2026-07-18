@@ -35,6 +35,16 @@ const KB_KEYWORDS = {
   "approve", "reject", "pending", "join request", "ban member",
   "make admin", "make moderator", "assign role", "remove member"
 ],
+"communities/manage-channels-in-community.html": [
+  "channel", "channels", "create channel", "add channel", "new channel",
+  "general", "announcements", "resources", "announcement only",
+  "admin only", "restrict posting", "default channels"
+],
+"communities/customize-navigation-tabs-in-community.html": [
+  "navigation", "nav", "sidebar", "hide tab", "show tab",
+  "reorder tabs", "tab order", "visibility", "default landing page",
+  "drag", "eye icon", "hidden tab", "customize sidebar"
+],
 
 // ── Live Sessions ──
 "live-sessions/schedule-a-live-session.html": [
@@ -57,6 +67,11 @@ const KB_KEYWORDS = {
   "recurring session", "recurring call", "schedule repeat",
   "regular session", "standing meeting", "office hours"
 ],
+"live-sessions/create-breakout-rooms.html": [
+    "breakout", "breakout rooms", "small groups", "split participants",
+    "group discussion", "manual assignment", "random assignment",
+    "room duration", "create rooms", "focused discussion"
+],
 
 // ── Speed Networking ──
 "speed-networking/create-a-speed-networking-room.html": [
@@ -64,7 +79,7 @@ const KB_KEYWORDS = {
   "pairing", "1-on-1", "one on one", "create event",
   "delete networking", "remove networking"
 ],
-"speed-networking/manage-your-speed-networking-room.html": [
+"speed-networking/manage-speed-networking-room.html": [
   "edit networking", "networking settings", "round duration",
   "manage event", "participants", "matching", "connections",
   "delete room", "remove room", "cancel event"
