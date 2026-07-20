@@ -4,9 +4,9 @@
  * Referenced by: agenda.js, render.js, agenda.html
  *
  * day values: 1–7 (never 0)
- *   day 1 = Opening Day    (Sat 4 Jul)
- *   day 2–6 = Track Days   (Sun 5 – Thu 9 Jul)
- *   day 7 = Speed Networking (Fri 10 Jul)
+ *   day 1 = Opening Day    (Sat 10 Oct)
+ *   day 2–6 = Track Days   (Sun 11 – Thu 9 Oct)
+ *   day 7 = Speed Networking (Fri 16 Oct)
  *
  * Access: SIGNAL_DAYS (array)
  *         SIGNAL_DAYS_MAP (object keyed by day number — for fast lookup)
@@ -18,9 +18,9 @@ const SIGNAL_DAYS = [
     label         : "Day 1",
     displayLabel  : "Opening Day",
     tabLabel      : "Day 1",
-    tabSublabel   : "Sat 4 Jul · Opening",
-    date          : "Saturday, 4 July 2026",
-    dateShort     : "Sat 4 Jul",
+    tabSublabel   : "Sat 10 Oct · Opening",
+    date          : "Saturday, 10 October 2026",
+    dateShort     : "Sat 10 Oct",
     type          : "opening",               // "opening" | "tracks" | "tracks+activation" | "networking"
     hasTracks     : false,
     special       : null,                    // null | "launchpad" | "talent" | "networking"
@@ -33,9 +33,9 @@ const SIGNAL_DAYS = [
     label         : "Day 2",
     displayLabel  : "Day 2",
     tabLabel      : "Day 2",
-    tabSublabel   : "Sun 5 Jul",
-    date          : "Sunday, 5 July 2026",
-    dateShort     : "Sun 5 Jul",
+    tabSublabel   : "Sun 11 Oct",
+    date          : "Sunday, 11 October 2026",
+    dateShort     : "Sun 11 Oct",
     type          : "tracks",
     hasTracks     : true,
     special       : null,
@@ -48,9 +48,9 @@ const SIGNAL_DAYS = [
     label         : "Day 3",
     displayLabel  : "Day 3",
     tabLabel      : "Day 3",
-    tabSublabel   : "Mon 6 Jul · Launchpad",
-    date          : "Monday, 6 July 2026",
-    dateShort     : "Mon 6 Jul",
+    tabSublabel   : "Mon 12 Oct · Launchpad",
+    date          : "Monday, 12 October 2026",
+    dateShort     : "Mon 12 Oct",
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "launchpad",
@@ -63,9 +63,9 @@ const SIGNAL_DAYS = [
     label         : "Day 4",
     displayLabel  : "Day 4",
     tabLabel      : "Day 4",
-    tabSublabel   : "Tue 7 Jul",
-    date          : "Tuesday, 7 July 2026",
-    dateShort     : "Tue 7 Jul",
+    tabSublabel   : "Tue 13 Oct",
+    date          : "Tuesday, 12 October 2026",
+    dateShort     : "Tue 12 Oct",
     type          : "tracks",
     hasTracks     : true,
     special       : null,
@@ -78,9 +78,9 @@ const SIGNAL_DAYS = [
     label         : "Day 5",
     displayLabel  : "Day 5",
     tabLabel      : "Day 5",
-    tabSublabel   : "Wed 8 Jul · Talent",
-    date          : "Wednesday, 8 July 2026",
-    dateShort     : "Wed 8 Jul",
+    tabSublabel   : "Wed 14 Oct · Talent",
+    date          : "Wednesday, 14 October 2026",
+    dateShort     : "Wed 14 Oct",
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "talent",
@@ -93,9 +93,9 @@ const SIGNAL_DAYS = [
     label         : "Day 6",
     displayLabel  : "Day 6",
     tabLabel      : "Day 6",
-    tabSublabel   : "Thu 9 Jul",
-    date          : "Thursday, 9 July 2026",
-    dateShort     : "Thu 9 Jul",
+    tabSublabel   : "Thu 15 Oct",
+    date          : "Thursday, 15 October 2026",
+    dateShort     : "Thu 15 Oct",
     type          : "tracks",
     hasTracks     : true,
     special       : null,
@@ -108,9 +108,9 @@ const SIGNAL_DAYS = [
     label         : "Day 7",
     displayLabel  : "Speed Networking Day",
     tabLabel      : "Day 7",
-    tabSublabel   : "Fri 10 Jul · Networking",
-    date          : "Friday, 10 July 2026",
-    dateShort     : "Fri 10 Jul",
+    tabSublabel   : "Fri 16 Oct · Networking",
+    date          : "Friday, 16 October 2026",
+    dateShort     : "Fri 16 Oct",
     type          : "networking",
     hasTracks     : false,
     special       : "networking",
@@ -127,7 +127,7 @@ const SIGNAL_DAYS = [
  *
  * Usage:
  *   const day = SIGNAL_DAYS_MAP[3];
- *   day.date          // "Monday, 6 July 2026"
+ *   day.date          // "Monday, 6 October 2026"
  *   day.special       // "launchpad"
  *   day.hasTracks     // true
  */
