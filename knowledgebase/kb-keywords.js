@@ -18,6 +18,13 @@ const KB_KEYWORDS = {
   "access control", "who can", "role", "Suite Admin",
   "privileges", "user role"
 ],
+"getting-started/view-your-profile.html": [
+    "view profile", "my profile", "profile page", "about", "bio",
+    "followers", "following", "rooms you manage", "rooms you joined",
+    "professional network", "feedback", "services", "consultation",
+    "invite network", "public profile", "copy profile link",
+    "coupons", "earnings", "profile tabs"
+],
 
 // ── Communities ──
 "communities/create-a-community.html": [
@@ -71,6 +78,16 @@ const KB_KEYWORDS = {
     "breakout", "breakout rooms", "small groups", "split participants",
     "group discussion", "manual assignment", "random assignment",
     "room duration", "create rooms", "focused discussion"
+],
+"live-sessions/host-a-webinar.html": [
+    "webinar", "webinar mode", "host webinar", "livestream", "live stream",
+    "stage", "audience", "broadcast", "start webinar", "webinar control",
+    "250 attendees", "large event", "recording", "record session",
+    "recording visibility", "public recording", "download recording",
+    "delete recording", "delete room", "feedback", "post-call feedback",
+    "star rating", "raise hand", "raised hands", "extend session",
+    "extend meeting", "end webinar", "leave meeting", "enable chat",
+    "disable chat", "participant permissions"
 ],
 
 // ── Speed Networking ──
@@ -145,6 +162,12 @@ const KB_KEYWORDS = {
   "earnings", "revenue", "total earnings", "available payout",
   "pending payout", "completed payouts", "income",
   "earnings dashboard", "my earnings", "payment history"
+],
+"payments/create-and-manage-coupons.html": [
+    "coupon", "coupons", "discount", "discount code", "promo code",
+    "coupon code", "create coupon", "manage coupons", "activate coupon",
+    "deactivate coupon", "delete coupon", "redemption", "max redemptions",
+    "applies to", "coupon usage", "percentage off"
 ],
 
 // ── Forms & Registration ──

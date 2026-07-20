@@ -13,15 +13,28 @@ url: "getting-started/manage-your-profile-settings.html",
 related: [
 "getting-started/send-direct-messages.html",
 "getting-started/understand-roles-and-permissions.html",
-"consultation/manage-your-profile-and-earnings.html"
+"consultation/manage-your-profile-and-earnings.html",
+"getting-started/view-your-profile.html",
+"payments/create-and-manage-coupons.html"
 ]
+},
+{
+    title: "View your profile",
+    url: "getting-started/view-your-profile.html",
+    related: [
+        "getting-started/manage-your-profile-settings.html",
+        "payments/track-your-earnings.html",
+        "payments/create-and-manage-coupons.html",
+        "consultation/set-up-consultation-services.html"
+    ]
 },
 {
 title: "Send direct messages",
 url: "getting-started/send-direct-messages.html",
 related: [
 "getting-started/manage-your-profile-settings.html",
-"speed-networking/view-the-post-event-connection-summary.html"
+"speed-networking/view-the-post-event-connection-summary.html",
+"getting-started/view-your-profile.html"
 ]
 },
 {
@@ -29,7 +42,9 @@ title: "Understand roles and permissions",
 url: "getting-started/understand-roles-and-permissions.html",
 related: [
 "getting-started/manage-your-profile-settings.html",
-"communities/set-up-your-community.html"
+"getting-started/view-your-profile.html",
+"communities/set-up-your-community.html",
+"payments/create-and-manage-coupons.html"
 ]
 }
 ]
@@ -113,7 +128,8 @@ related: [
 "live-sessions/start-an-instant-drop-in-call.html",
 "live-sessions/use-the-video-call-toolbar.html",
 "live-sessions/set-up-a-recurring-session.html",
-"forms/create-a-registration-form.html"
+"forms/create-a-registration-form.html",
+"live-sessions/host-a-webinar.html"
 ]
 },
 {
@@ -122,17 +138,18 @@ url: "live-sessions/start-an-instant-drop-in-call.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
 "live-sessions/use-the-video-call-toolbar.html",
-"live-sessions/create-breakout-rooms.html"
+"live-sessions/create-breakout-rooms.html",
+"live-sessions/host-a-webinar.html"
 ]
 },
 {
-title: "Use the video call toolbar",
-url: "live-sessions/use-the-video-call-toolbar.html",
-related: [
-"live-sessions/schedule-a-live-session.html",
-"live-sessions/start-an-instant-drop-in-call.html",
-"live-sessions/create-breakout-rooms.html"
-]
+    title: "Host a webinar",
+    url: "live-sessions/host-a-webinar.html",
+    related: [
+        "live-sessions/schedule-a-live-session.html",
+        "live-sessions/use-the-video-call-toolbar.html",
+        "live-sessions/create-breakout-rooms.html"
+    ]
 },
 {
 title: "Set up a recurring session",
@@ -141,7 +158,8 @@ related: [
 "live-sessions/schedule-a-live-session.html",
 "speed-networking/set-up-a-recurring-speed-networking-room.html",
 "live-sessions/create-breakout-rooms.html",
-"live-sessions/start-an-instant-drop-in-call.html"
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/host-a-webinar.html"
 ]
 },
 {
@@ -150,9 +168,20 @@ related: [
     related: [
         "live-sessions/use-the-video-call-toolbar.html",
         "live-sessions/schedule-a-live-session.html",
-        "live-sessions/start-an-instant-drop-in-call.html"
+        "live-sessions/start-an-instant-drop-in-call.html",
+        "live-sessions/host-a-webinar.html"
     ]
 },
+{
+title: "Use the video call toolbar",
+url: "live-sessions/use-the-video-call-toolbar.html",
+related: [
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/create-breakout-rooms.html",
+"live-sessions/host-a-webinar.html"
+]
+}
 ]
 }
 ]
@@ -313,7 +342,8 @@ title: "Connect Stripe and receive payouts",
 url: "payments/connect-stripe-and-receive-payouts.html",
 related: [
 "payments/track-your-earnings.html",
-"consultation/manage-your-profile-and-earnings.html"
+"consultation/manage-your-profile-and-earnings.html",
+"payments/create-and-manage-coupons.html"
 ]
 },
 {
@@ -321,7 +351,8 @@ title: "Set up paid membership",
 url: "payments/set-up-paid-membership.html",
 related: [
 "communities/create-a-community.html",
-"payments/connect-stripe-and-receive-payouts.html"
+"payments/connect-stripe-and-receive-payouts.html",
+"payments/create-and-manage-coupons.html"
 ]
 },
 {
@@ -330,7 +361,8 @@ url: "payments/set-up-paid-sessions-and-rooms.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
 "speed-networking/create-a-speed-networking-room.html",
-"payments/connect-stripe-and-receive-payouts.html"
+"payments/connect-stripe-and-receive-payouts.html",
+"payments/create-and-manage-coupons.html"
 ]
 },
 {
@@ -338,9 +370,19 @@ title: "Track your earnings",
 url: "payments/track-your-earnings.html",
 related: [
 "payments/connect-stripe-and-receive-payouts.html",
-"consultation/manage-your-profile-and-earnings.html"
+"consultation/manage-your-profile-and-earnings.html",
+"payments/create-and-manage-coupons.html"
 ]
-}
+},
+{
+    title: "Create and manage coupons",
+    url: "payments/create-and-manage-coupons.html",
+    related: [
+        "payments/track-your-earnings.html",
+        "payments/connect-stripe-and-receive-payouts.html",
+        "getting-started/view-your-profile.html"
+    ]
+},
 ]
 }
 ]
