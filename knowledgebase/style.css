@@ -543,6 +543,15 @@ color: var(--text-faint);
 .article-table tbody tr:hover {
   background: var(--purple-light);
 }
+/* Two-column descriptive tables */
+.article-table.two-col td:not(:first-child),
+.article-table.two-col th:not(:first-child) {
+  text-align: left;
+  width: auto;
+}
+.article-table.two-col td:first-child {
+  width: 100px;
+}
 
 /* Prerequisites list */
 .prereq-list {
