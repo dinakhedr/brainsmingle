@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send bulk emails — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#platform-settings">Platform Settings</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Send bulk emails</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Send bulk emails</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Send personalized emails to multiple recipients at once. Write your subject and content using HTML, add optional tracking tags, and choose to email a custom CSV list or all active users on the platform.</p>
+
+            <!-- Open the Bulk Email page -->
+            <section class="article-section">
+                <h2>Open the Bulk Email page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Bulk Email</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Bulk Email page displays all the fields needed to compose and send a personalized email to multiple recipients.</p>
+
+                <figure class="article-img">
+                    <img src="../images/email_01.png" alt="The Bulk Email page with subject, content, tags, recipients, and CSV upload sections">
+                    <figcaption>The Bulk Email page with subject, content, tags, recipients, and CSV upload sections</figcaption>
+                </figure>
+
+                <p>At the top, a <strong>How it works</strong> box summarizes the process: upload a CSV file with <code>firstName</code> and <code>email</code> columns, use the <code>{{firstName}}</code> placeholder for personalization, and emails are sent individually with a small delay to avoid rate limiting.</p>
+            </section>
+
+            <!-- Write the email subject -->
+            <section class="article-section">
+                <h2>Write the email subject</h2>
+
+                <ol class="step-list">
+                    <li>Under <strong>Email Subject</strong>, enter the subject line for your email.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/email_02.png" alt="The Email Subject field">
+                    <figcaption>The Email Subject field</figcaption>
+                </figure>
+            </section>
+
+            <!-- Write the email content -->
+            <section class="article-section">
+                <h2>Write the email content</h2>
+
+                <ol class="step-list">
+                    <li>Under <strong>Email Content</strong>, enter the body of your email using HTML markup.</li>
+                    <li>Use the <code>{{firstName}}</code> placeholder anywhere in your content to insert each recipient's first name automatically.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/email_03.png" alt="The Email Content field with HTML markup and the {{firstName}} placeholder">
+                    <figcaption>The Email Content field with HTML markup and the {{firstName}} placeholder</figcaption>
+                </figure>
+
+                <p>The content field supports up to 10,000 characters. A character counter is displayed below the field.</p>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Write your email content in HTML. For example, use <code>&lt;div&gt;Hello {{firstName}},&lt;/div&gt;</code> to start with a personalized greeting. The platform renders the HTML in the recipient's inbox.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add tags -->
+            <section class="article-section">
+                <h2>Add tags (optional)</h2>
+
+                <ol class="step-list">
+                    <li>Under <strong>Tags (Optional)</strong>, type a tag name in the input field and press <strong>Enter</strong> or click <strong>Add</strong>.</li>
+                    <li>Repeat to add more tags. You can add up to 5 tags per email.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/email_04.png" alt="The Tags field with input and Add button">
+                    <figcaption>The Tags field with input and Add button</figcaption>
+                </figure>
+
+                <p>Tags are used for Mailgun tracking and analytics. They help you filter and measure email performance in your Mailgun dashboard.</p>
+            </section>
+
+            <!-- Choose recipients -->
+            <section class="article-section">
+                <h2>Choose recipients</h2>
+
+                <p>Under <strong>Recipients</strong>, select one of two options:</p>
+
+                <ol class="step-list" style="list-style: none; padding-left: 0;">
+                    <li>
+                        <ul class="option-list">
+                            <li><strong>Upload CSV</strong> — email a custom list of recipients. Select this option and upload a CSV file containing <code>firstName</code> and <code>email</code> columns.</li>
+                            <li><strong>All active users</strong> — email everyone on the platform. The card shows the total number of recipients (e.g. 44 recipients).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/email_recipient_01.png" alt="The Recipients section with Upload CSV selected and the CSV upload area">
+                    <figcaption>The Recipients section with Upload CSV selected and the CSV upload area</figcaption>
+                </figure>
+
+                <p>When <strong>Upload CSV</strong> is selected, a <strong>CSV Upload</strong> area appears below. Drag your CSV file into the upload area or click to browse. Click <strong>Download example CSV</strong> in the top-right corner of the upload area to get a sample file with the correct column format.</p>
+
+                <figure class="article-img">
+                    <img src="../images/email_recipient_02.png" alt="The Recipients section with All active users selected showing the recipient count">
+                    <figcaption>The Recipients section with All active users selected showing the recipient count</figcaption>
+                </figure>
+            </section>
+
+            <!-- Send the email -->
+            <section class="article-section">
+                <h2>Send the email</h2>
+
+                <ol class="step-list">
+                    <li>Review your subject, content, and recipient selection.</li>
+                    <li>Click <strong>Send Bulk Emails</strong> at the bottom of the page.</li>
+                </ol>
+
+                <p>Emails are sent individually to each recipient with a small delay between sends to avoid rate limiting. Each recipient receives a separate email with their personalized content.</p>
+
+                <div class="callout callout-warning">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>Please note:</strong> Bulk emails cannot be recalled once sent. Double-check your subject, content, and recipient list before clicking Send Bulk Emails.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+</body>
+
+</html>

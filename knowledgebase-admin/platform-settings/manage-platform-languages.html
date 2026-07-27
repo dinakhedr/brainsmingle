@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage platform languages — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#platform-settings">Platform Settings</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage platform languages</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage platform languages</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Choose which languages your platform supports and set a default language. Members can switch between supported languages using the language picker.</p>
+
+            <!-- Open the Languages page -->
+            <section class="article-section">
+                <h2>Open the Languages page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Languages</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Languages page displays a table of all available languages. Each row shows the language name, its native name, and a language code badge (e.g. en, ar, tr).</p>
+
+            </section>
+
+            <!-- Enable or disable languages -->
+            <section class="article-section">
+                <h2>Enable or disable languages</h2>
+
+                <ol class="step-list">
+                    <li>In the <strong>Supported</strong> column, check the box next to each language you want to make available on the platform.</li>
+                    <li>Uncheck a language to remove it from the language picker. Users will no longer be able to select it.</li>
+                    <li>Click <strong>Save</strong> to apply the changes.</li>
+                </ol>
+
+                <p>The available languages are English (en), Arabic العربية (ar), Urdu اردو (ur), Turkish Türkçe (tr), Spanish Español (es), and French Français (fr).</p>
+
+            </section>
+
+            <!-- Set the default language -->
+            <section class="article-section">
+                <h2>Set the default language</h2>
+
+                <ol class="step-list">
+                    <li>In the <strong>Default</strong> column, select the radio button next to the language you want as the default.</li>
+                    <li>Click <strong>Save</strong> to apply.</li>
+                </ol>
+
+                <p>The default language is shown to new visitors whose browser language is not in your supported list. Only one language can be set as the default at a time.</p>
+
+                <figure class="article-img">
+                    <img src="../images/languages_01.png" alt="The Languages page showing a table of six languages with Supported checkboxes all enabled and the Default radio button selected on English, with a Save button at the bottom" />
+                    <figcaption>The Languages page with all six languages supported and English set as default</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
