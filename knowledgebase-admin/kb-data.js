@@ -1,7 +1,7 @@
 const KB_SECTIONS = [
   {
-    id: "users",
-    title: "Users",
+    id: "users-activity",
+    title: "Users & Activity",
     icon: "ti-users",
     groups: [
       {
@@ -9,10 +9,27 @@ const KB_SECTIONS = [
         articles: [
           {
             title: "Manage users",
-            url: "users/manage-users.html",
+            url: "users-activity/manage-users.html",
             related: [
-              "rooms/manage-rooms.html",
-              "host-activity/monitor-host-activity.html"
+              "users-activity/monitor-host-activity.html",
+              "rooms-communities/manage-rooms.html",
+              "content-learning/manage-consultation-settings.html",
+              "platform-settings/view-platform-analytics.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Monitor host activity",
+            url: "users-activity/monitor-host-activity.html",
+            related: [
+              "users-activity/manage-users.html",
+              "rooms-communities/manage-rooms.html",
+              "platform-settings/view-platform-analytics.html",
+              "platform-settings/view-and-manage-feedback.html"
             ]
           }
         ]
@@ -20,8 +37,8 @@ const KB_SECTIONS = [
     ]
   },
   {
-    id: "rooms",
-    title: "Rooms",
+    id: "rooms-communities",
+    title: "Rooms & Communities",
     icon: "ti-door",
     groups: [
       {
@@ -29,91 +46,54 @@ const KB_SECTIONS = [
         articles: [
           {
             title: "Manage rooms",
-            url: "rooms/manage-rooms.html",
+            url: "rooms-communities/manage-rooms.html",
             related: [
-              "users/manage-users.html",
-              "analytics/view-platform-analytics.html"
+              "users-activity/manage-users.html",
+              "rooms-communities/manage-communities.html",
+              "rooms-communities/manage-event-sponsorship.html",
+              "rooms-communities/manage-icebreaker-questions.html"
             ]
           }
         ]
-      }
-    ]
-  },
-  {
-    id: "host-activity",
-    title: "Host Activity",
-    icon: "ti-activity",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "Monitor host activity",
-            url: "host-activity/monitor-host-activity.html",
-            related: [
-              "users/manage-users.html",
-              "rooms/manage-rooms.html",
-              "analytics/view-platform-analytics.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "analytics",
-    title: "Analytics",
-    icon: "ti-chart-bar",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "View platform analytics",
-            url: "analytics/view-platform-analytics.html",
-            related: [
-              "host-activity/monitor-host-activity.html",
-              "users/manage-users.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "consultation",
-    title: "Consultation",
-    icon: "ti-calendar-dollar",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "Manage consultation settings",
-            url: "consultation/manage-consultation-settings.html",
-            related: [
-              "payments/manage-payments.html",
-              "payment-providers/configure-payment-providers.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "communities",
-    title: "Communities",
-    icon: "ti-users-group",
-    groups: [
+      },
       {
         label: null,
         articles: [
           {
             title: "Manage communities",
-            url: "communities/manage-communities.html",
+            url: "rooms-communities/manage-communities.html",
             related: [
-              "users/manage-users.html",
-              "rooms/manage-rooms.html"
+              "users-activity/manage-users.html",
+              "rooms-communities/manage-rooms.html",
+              "content-learning/configure-lms-settings.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Manage event sponsorship",
+            url: "rooms-communities/manage-event-sponsorship.html",
+            related: [
+              "rooms-communities/manage-rooms.html",
+              "payments-billing/manage-payments.html",
+              "platform-settings/view-platform-analytics.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Manage icebreaker questions",
+            url: "rooms-communities/manage-icebreaker-questions.html",
+            related: [
+              "rooms-communities/manage-rooms.html",
+              "rooms-communities/manage-communities.html",
+              "users-activity/manage-users.html"
             ]
           }
         ]
@@ -121,8 +101,8 @@ const KB_SECTIONS = [
     ]
   },
   {
-    id: "payments",
-    title: "Payments",
+    id: "payments-billing",
+    title: "Payments & Billing",
     icon: "ti-credit-card",
     groups: [
       {
@@ -130,30 +110,25 @@ const KB_SECTIONS = [
         articles: [
           {
             title: "Manage payments",
-            url: "payments/manage-payments.html",
+            url: "payments-billing/manage-payments.html",
             related: [
-              "payment-providers/configure-payment-providers.html",
-              "consultation/manage-consultation-settings.html"
+              "payments-billing/configure-payment-providers.html",
+              "content-learning/manage-consultation-settings.html",
+              "users-activity/manage-users.html"
             ]
           }
         ]
-      }
-    ]
-  },
-  {
-    id: "payment-providers",
-    title: "Payment Providers",
-    icon: "ti-building-bank",
-    groups: [
+      },
       {
         label: null,
         articles: [
           {
             title: "Configure payment providers",
-            url: "payment-providers/configure-payment-providers.html",
+            url: "payments-billing/configure-payment-providers.html",
             related: [
-              "payments/manage-payments.html",
-              "configuration/platform-configuration.html"
+              "payments-billing/manage-payments.html",
+              "content-learning/manage-consultation-settings.html",
+              "users-activity/manage-users.html"
             ]
           }
         ]
@@ -161,97 +136,34 @@ const KB_SECTIONS = [
     ]
   },
   {
-    id: "languages",
-    title: "Languages",
-    icon: "ti-language",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "Manage platform languages",
-            url: "languages/manage-platform-languages.html",
-            related: [
-              "configuration/platform-configuration.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "feedback",
-    title: "Feedback",
-    icon: "ti-star",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "View and manage feedback",
-            url: "feedback/view-and-manage-feedback.html",
-            related: [
-              "users/manage-users.html",
-              "rooms/manage-rooms.html",
-              "analytics/view-platform-analytics.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "bulk-email",
-    title: "Bulk Email",
-    icon: "ti-mail",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "Send bulk emails",
-            url: "bulk-email/send-bulk-emails.html",
-            related: [
-              "users/manage-users.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "icebreakers",
-    title: "Icebreakers",
-    icon: "ti-message-chatbot",
-    groups: [
-      {
-        label: null,
-        articles: [
-          {
-            title: "Manage icebreaker questions",
-            url: "icebreakers/manage-icebreaker-questions.html",
-            related: [
-              "rooms/manage-rooms.html",
-              "configuration/platform-configuration.html"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: "lms-settings",
-    title: "LMS Settings",
+    id: "content-learning",
+    title: "Content & Learning",
     icon: "ti-school",
     groups: [
       {
         label: null,
         articles: [
           {
-            title: "Configure LMS settings",
-            url: "lms-settings/configure-lms-settings.html",
+            title: "Manage consultation settings",
+            url: "content-learning/manage-consultation-settings.html",
             related: [
-              "configuration/platform-configuration.html"
+              "users-activity/manage-users.html",
+              "payments-billing/manage-payments.html",
+              "payments-billing/configure-payment-providers.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Configure LMS settings",
+            url: "content-learning/configure-lms-settings.html",
+            related: [
+              "rooms-communities/manage-communities.html",
+              "content-learning/manage-consultation-settings.html",
+              "rooms-communities/manage-rooms.html"
             ]
           }
         ]
@@ -259,20 +171,76 @@ const KB_SECTIONS = [
     ]
   },
   {
-    id: "configuration",
-    title: "Configuration",
+    id: "platform-settings",
+    title: "Platform Settings",
     icon: "ti-settings",
     groups: [
       {
         label: null,
         articles: [
           {
-            title: "Platform configuration",
-            url: "configuration/platform-configuration.html",
+            title: "Manage platform languages",
+            url: "platform-settings/manage-platform-languages.html",
             related: [
-              "languages/manage-platform-languages.html",
-              "payment-providers/configure-payment-providers.html",
-              "lms-settings/configure-lms-settings.html"
+              "platform-settings/manage-social-links.html",
+              "users-activity/manage-users.html",
+              "platform-settings/view-platform-analytics.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "View platform analytics",
+            url: "platform-settings/view-platform-analytics.html",
+            related: [
+              "users-activity/monitor-host-activity.html",
+              "users-activity/manage-users.html",
+              "platform-settings/view-and-manage-feedback.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "View and manage feedback",
+            url: "platform-settings/view-and-manage-feedback.html",
+            related: [
+              "platform-settings/view-platform-analytics.html",
+              "rooms-communities/manage-rooms.html",
+              "users-activity/manage-users.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Send bulk emails",
+            url: "platform-settings/send-bulk-emails.html",
+            related: [
+              "users-activity/manage-users.html",
+              "rooms-communities/manage-communities.html",
+              "platform-settings/manage-platform-languages.html"
+            ]
+          }
+        ]
+      },
+      {
+        label: null,
+        articles: [
+          {
+            title: "Manage social links",
+            url: "platform-settings/manage-social-links.html",
+            related: [
+              "platform-settings/manage-platform-languages.html",
+              "platform-settings/view-platform-analytics.html",
+              "platform-settings/view-and-manage-feedback.html"
             ]
           }
         ]

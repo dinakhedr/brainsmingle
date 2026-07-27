@@ -513,6 +513,12 @@ color: var(--text-faint);
   line-height: 1.7;
   margin-bottom: 16px;
 }
+/* Standalone option-list (not nested in step-list) */
+.article-section > .option-list li {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+}
 
 /* Article table */
 .article-table {
@@ -542,6 +548,15 @@ color: var(--text-faint);
 }
 .article-table tbody tr:hover {
   background: var(--purple-light);
+}
+/* Two-column descriptive tables */
+.article-table.two-col td:not(:first-child),
+.article-table.two-col th:not(:first-child) {
+  text-align: left;
+  width: auto;
+}
+.article-table.two-col td:first-child {
+  width: 100px;
 }
 
 /* Prerequisites list */
