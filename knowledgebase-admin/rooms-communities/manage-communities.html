@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage communities — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#rooms-communities">Rooms & Communities</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage communities</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage communities</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Choose which communities new users automatically join when they sign up. Use auto-enrollment to onboard new signups into specific communities without manual approval.</p>
+
+            <!-- Open the Communities page -->
+            <section class="article-section">
+                <h2>Open the Communities page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Communities</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Communities page lists every community on the platform. Each entry shows the community name, pricing type (Paid or Free), visibility (Public or Private), member count, and an auto-enroll toggle.</p>
+
+                <figure class="article-img">
+                    <img src="../images/communities_01.png" alt="The Communities page showing a description of auto-enrollment, a warning banner about bypassing payment, a search bar, and a list of three communities with toggles for auto-enrollment" />
+                    <figcaption>The Communities page with auto-enrollment toggles</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Enable auto-enrollment -->
+            <section class="article-section">
+                <h2>Enable auto-enrollment</h2>
+
+                <p>When auto-enrollment is enabled for a community, every new user who signs up on the platform is automatically added as an approved member. Existing users are not affected.</p>
+
+                <ol class="step-list">
+                    <li>Find the community you want to auto-enroll users into. Use the <strong>Search communities</strong> bar to filter by name.</li>
+                    <li>Toggle the switch to the <strong>on</strong> position (purple) to enable auto-enrollment.</li>
+                </ol>
+
+                <p>The counter above the search bar updates to show how many communities have auto-enrollment enabled (e.g. "1 of 3 auto-enrolling new users").</p>
+
+                <div class="callout callout-warning">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>Important:</strong> Auto-enrolled users will bypass payment and form registration and join for free. Enabling auto-enrollment on a Paid community means new signups get free access without paying.
+                    </div>
+                </div>
+
+                <figure class="article-img">
+                    <img src="../images/communities_02.png" alt="A closer view of the Communities page showing Apex Academy with auto-enrollment enabled (purple toggle), and IoT Community in MENA and Female Tech Founders with auto-enrollment disabled (grey toggles)" />
+                    <figcaption>Apex Academy has auto-enrollment enabled; the other communities are disabled</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Disable auto-enrollment -->
+            <section class="article-section">
+                <h2>Disable auto-enrollment</h2>
+
+                <ol class="step-list">
+                    <li>Find the community with auto-enrollment enabled.</li>
+                    <li>Toggle the switch to the <strong>off</strong> position (grey) to disable auto-enrollment.</li>
+                </ol>
+
+                <p>New signups will no longer be added to the community automatically. Users who were already auto-enrolled remain as members.</p>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
