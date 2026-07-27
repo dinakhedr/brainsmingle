@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor host activity — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#users-activity">Users & Activity</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Monitor host activity</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Monitor host activity</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Track host show-up rates and room attendance across your platform. Use the Host Activity page to identify no-shows, monitor room status, and keep your event schedule healthy.</p>
+
+            <!-- Open the Host Activity page -->
+            <section class="article-section">
+                <h2>Open the Host Activity page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Host Activity</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Host Activity Monitoring page has two tabs: <strong>Hosts</strong> and <strong>Rooms</strong>. A <strong>Refresh</strong> button in the top-right corner reloads the data on either tab.</p>
+
+            </section>
+
+            <!-- View host statistics -->
+            <section class="article-section">
+                <h2>View host statistics</h2>
+
+                <p>The <strong>Hosts</strong> tab displays a Host Statistics table that tracks each host's attendance record. Each row shows:</p>
+
+                <table class="article-table two-col">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; width: 160px;">Column</th>
+                            <th style="text-align: left;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Host Info</strong></td>
+                            <td>The host's avatar, display name, and email address.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Showed / Total Rooms</strong></td>
+                            <td>The number of rooms the host actually attended out of the total rooms they created (e.g. 1 / 3 means the host showed up for 1 out of 3 scheduled rooms).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Show Up Rate</strong></td>
+                            <td>The host's attendance percentage. Displayed in red when below 100% to flag unreliable hosts.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure class="article-img">
+                    <img src="../images/host_activity_01.png" alt="The Hosts tab showing the Host Statistics table with six hosts listed, their showed versus total rooms ratios, and show-up rate percentages displayed in red" />
+                    <figcaption>The Hosts tab with host show-up rates and attendance ratios</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- View room activity -->
+            <section class="article-section">
+                <h2>View room activity</h2>
+
+                <p>Click the <strong>Rooms</strong> tab to switch to the Room Activity view. This table shows every room on the platform with its current status and host attendance. Each row shows:</p>
+
+                <table class="article-table two-col">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; width: 160px;">Column</th>
+                            <th style="text-align: left;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Room Info</strong></td>
+                            <td>The room title and description preview.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Room Status</strong></td>
+                            <td>The room's current state: <strong>Upcoming</strong> (scheduled), <strong>Past</strong> (ended), or <strong>Live Now</strong> (in session).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Host Info</strong></td>
+                            <td>The host's avatar, name, and email address.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Host Status</strong></td>
+                            <td><strong>Host Present</strong> (green) means the host attended. <strong>Host Missing</strong> (red) means the host did not show up. <strong>Upcoming</strong> (purple) means the room hasn't started yet.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scheduled Time</strong></td>
+                            <td>The date and time the room was scheduled to start.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duration</strong></td>
+                            <td>The planned length of the room in minutes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Attendees</strong></td>
+                            <td>The number of participants who joined the room.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure class="article-img">
+                    <img src="../images/host_activity_02.png" alt="The Rooms tab showing the Room Activity table with columns for Room Info, Room Status, Host Info, Host Status, Scheduled Time, Duration, and Attendees, listing multiple past and upcoming rooms" />
+                    <figcaption>The Rooms tab with room status and host attendance details</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Filter and search rooms -->
+            <section class="article-section">
+                <h2>Filter and search rooms</h2>
+
+                <ol class="step-list">
+                    <li>To filter by status, click the <strong>Filter by Status</strong> dropdown and select one:
+                        <ul class="option-list">
+                            <li><strong>All Status</strong> — shows every room regardless of status.</li>
+                            <li><strong>Live Now</strong> — shows only rooms currently in session.</li>
+                            <li><strong>Upcoming</strong> — shows only rooms scheduled for the future.</li>
+                            <li><strong>Past</strong> — shows only rooms that have already ended.</li>
+                        </ul>
+                    </li>
+                    <li>To find a specific room, type a room title or host name into the <strong>Search</strong> field.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/host_activity_03.png" alt="The Filter by Status dropdown expanded on the Rooms tab showing four options: All Status (selected), Live Now, Upcoming, and Past" />
+                    <figcaption>The status filter dropdown on the Rooms tab</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
