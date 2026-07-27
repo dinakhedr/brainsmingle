@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage payments — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#payments-billing">Payments &amp; Billing</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage payments</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage payments</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">View all payments made on your platform and manage payout requests from hosts and experts. Search and filter transactions by event, organizer, participant, or payment type.</p>
+
+            <!-- Open the Payments page -->
+            <section class="article-section">
+                <h2>Open the Payments page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Payments</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Platform Payments page displays two sections: <strong>All Payments</strong> and <strong>Payout Requests</strong>.</p>
+
+                <figure class="article-img">
+                    <img src="../images/payment_01.png" alt="The Platform Payments page with All Payments search and filter, and the Payout Requests section">
+                    <figcaption>The Platform Payments page with All Payments and Payout Requests sections</figcaption>
+                </figure>
+            </section>
+
+            <!-- All Payments -->
+            <section class="article-section">
+                <h2>View and search payments</h2>
+
+                <p>The <strong>All Payments</strong> section lists every payment transaction on the platform. Use the search and filter controls to find specific records:</p>
+
+                <ol class="step-list">
+                    <li>Type an event name, organizer name, or participant name in the search field.</li>
+                    <li>Click <strong>Search</strong> to filter results.</li>
+                    <li>Use the <strong>All Types</strong> dropdown to filter by payment type.</li>
+                </ol>
+
+                <p>Each payment record shows the transaction details including the event, the parties involved, and the payment amount and status.</p>
+            </section>
+
+            <!-- Payout Requests -->
+            <section class="article-section">
+                <h2>Manage payout requests</h2>
+
+                <p>The <strong>Payout Requests</strong> section shows withdrawal requests submitted by hosts and experts who have earned revenue on the platform.</p>
+
+                <ol class="step-list">
+                    <li>Use the <strong>All Status</strong> dropdown to filter payout requests by status.</li>
+                    <li>Review each request and take the appropriate action.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Hosts and experts must have a connected payment provider (e.g. Stripe) before they can request payouts. See <a href="../payments-billing/configure-payment-providers.html">Configure payment providers</a> for setup details.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
