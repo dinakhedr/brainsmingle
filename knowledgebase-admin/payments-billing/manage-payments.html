@@ -47,8 +47,8 @@
                 <p>The Platform Payments page displays two sections: <strong>All Payments</strong> and <strong>Payout Requests</strong>.</p>
 
                 <figure class="article-img">
-                    <img src="../images/payment_01.png" alt="The Platform Payments page with All Payments search and filter, and the Payout Requests section">
-                    <figcaption>The Platform Payments page with All Payments and Payout Requests sections</figcaption>
+                    <img src="../images/payment_empty.png" alt="The Platform Payments page showing All Payments and Payout Requests sections in their empty state">
+                    <figcaption>The Platform Payments page before any transactions have been recorded</figcaption>
                 </figure>
             </section>
 
@@ -56,15 +56,39 @@
             <section class="article-section">
                 <h2>View and search payments</h2>
 
-                <p>The <strong>All Payments</strong> section lists every payment transaction on the platform. Use the search and filter controls to find specific records:</p>
+                <p>The <strong>All Payments</strong> section lists every payment transaction on the platform. Four summary cards at the top display your <strong>Total Revenue</strong>, <strong>Platform Fees</strong>, <strong>Pending Payouts</strong>, and <strong>Organizer Earnings</strong>.</p>
+
+                <figure class="article-img">
+                    <img src="../images/payments_all.png" alt="All Payments table showing payment records with summary cards for Total Revenue, Platform Fees, Pending Payouts, and Organizer Earnings">
+                    <figcaption>The All Payments table with summary cards and transaction records</figcaption>
+                </figure>
+
+                <p>Each payment record includes:</p>
+
+                <ul class="option-list">
+                    <li><strong>Type</strong> — whether the transaction is from an Event or a Consultation.</li>
+                    <li><strong>Event/Consultation</strong> — the name of the session.</li>
+                    <li><strong>Organizer</strong> — the host who created the session.</li>
+                    <li><strong>Participant</strong> — the attendee who made the payment.</li>
+                    <li><strong>Amount</strong> — the total amount paid.</li>
+                    <li><strong>Platform Fee</strong> — the fee retained by the platform.</li>
+                    <li><strong>Organizer Earnings</strong> — the amount the organizer receives after the platform fee.</li>
+                    <li><strong>Date</strong> — when the payment was made.</li>
+                </ul>
+</section>
+
+            <section class="article-section">
+                <h2>Search and filter payments</h2>
 
                 <ol class="step-list">
-                    <li>Type an event name, organizer name, or participant name in the search field.</li>
-                    <li>Click <strong>Search</strong> to filter results.</li>
-                    <li>Use the <strong>All Types</strong> dropdown to filter by payment type.</li>
+                    <li>Type an event name, organizer name, or participant name in the search field and click <strong>Search</strong>.</li>
+                    <li>Use the <strong>All Types</strong> dropdown to filter by payment type: <strong>Events Only</strong> or <strong>Consultations Only</strong>.</li>
                 </ol>
 
-                <p>Each payment record shows the transaction details including the event, the parties involved, and the payment amount and status.</p>
+                <figure class="article-img">
+                    <img src="../images/payment_types_filter.png" alt="The All Types dropdown expanded showing All Types, Events Only, and Consultations Only filter options">
+                    <figcaption>Filter payments by type using the All Types dropdown</figcaption>
+                </figure>
             </section>
 
             <!-- Payout Requests -->
@@ -73,9 +97,38 @@
 
                 <p>The <strong>Payout Requests</strong> section shows withdrawal requests submitted by hosts and experts who have earned revenue on the platform.</p>
 
+                <figure class="article-img">
+                    <img src="../images/payment_payouts.png" alt="Payout Requests table showing organizer payout requests with status, requested date, processed date, and action buttons">
+                    <figcaption>The Payout Requests table with organizer withdrawal requests</figcaption>
+                </figure>
+
+                <p>Each payout request includes the organizer name, amount, current status, the date requested, and the date processed (if applicable).</p>
+</section>
+
+            <section class="article-section">
+                <h2>Filter by status</h2>
+
+                <p>Use the <strong>All Status</strong> dropdown to filter payout requests by their current status:</p>
+
+                <ul class="option-list">
+                    <li><strong>Pending</strong> — the request is awaiting admin review.</li>
+                    <li><strong>Approved</strong> — the request has been approved and is being processed.</li>
+                    <li><strong>Completed</strong> — the payout has been successfully transferred.</li>
+                    <li><strong>Rejected</strong> — the request was declined by an admin.</li>
+                </ul>
+
+                <figure class="article-img">
+                    <img src="../images/payment_payouts_filter.png" alt="The All Status dropdown expanded showing Pending, Approved, Completed, and Rejected filter options">
+                    <figcaption>Filter payout requests by status</figcaption>
+                </figure>
+</section>
+
+            <section class="article-section">
+                <h2>Approve or reject a request</h2>
+
                 <ol class="step-list">
-                    <li>Use the <strong>All Status</strong> dropdown to filter payout requests by status.</li>
-                    <li>Review each request and take the appropriate action.</li>
+                    <li>Find the payout request you want to review.</li>
+                    <li>Click the <strong>checkmark</strong> button to approve, or the <strong>X</strong> button to reject.</li>
                 </ol>
 
                 <div class="callout callout-tip">
