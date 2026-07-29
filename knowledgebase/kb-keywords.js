@@ -123,6 +123,12 @@ const KB_KEYWORDS = {
   "dashboard", "booking requests", "clients", "withdraw",
   "delete service", "remove service", "edit service"
 ],
+"consultation/manage-consultation-requests-and-bookings.html": [
+  "client requests", "my bookings", "accept request", "decline request",
+  "pending", "incoming booking", "booking status", "consultation request",
+  "accept consultation", "decline consultation", "manage bookings",
+  "sent proposals", "scheduled consultation", "review request"
+],
 
 // ── Courses & LMS ──
 "courses/create-a-program-with-courses-and-lessons.html": [

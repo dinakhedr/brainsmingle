@@ -245,6 +245,7 @@ articles: [
 title: "Set up consultation services",
 url: "consultation/set-up-consultation-services.html",
 related: [
+"consultation/manage-consultation-requests-and-bookings.html",
 "consultation/manage-your-profile-and-earnings.html",
 "payments/connect-stripe-and-receive-payouts.html"
 ]
@@ -254,8 +255,18 @@ title: "Manage your profile and earnings",
 url: "consultation/manage-your-profile-and-earnings.html",
 related: [
 "consultation/set-up-consultation-services.html",
+"consultation/manage-consultation-requests-and-bookings.html",
 "payments/connect-stripe-and-receive-payouts.html",
 "payments/track-your-earnings.html"
+]
+},
+{
+title: "Manage consultation requests and bookings",
+url: "consultation/manage-consultation-requests-and-bookings.html",
+related: [
+"consultation/set-up-consultation-services.html",
+"consultation/manage-your-profile-and-earnings.html",
+"payments/connect-stripe-and-receive-payouts.html"
 ]
 }
 ]
