@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage consultation requests and bookings — BrainsMingle Suite Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+<div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#consultation">Consultation services</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage consultation requests and bookings</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage consultation requests and bookings</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Review incoming booking requests from clients, accept or decline them, and track the status of consultations you've booked with other experts — all from the Consultations page.</p>
+
+            <!-- Before you get started -->
+            <section class="article-section">
+                <h2>Before you get started</h2>
+                <ul class="prereq-list">
+                    <li>To receive client requests, you need at least one active consultation service. See <a href="set-up-consultation-services.html">Set up consultation services</a>.</li>
+                    <li>To book other experts, browse available consultants from the <strong>Discover</strong> tab on the Consultations page.</li>
+                </ul>
+            </section>
+
+            <!-- Review client requests -->
+            <section class="article-section">
+                <h2>Review client requests</h2>
+
+                <p>When a client books one of your consultation services, the request appears in your <strong>Client Requests</strong> tab. You can review the details and accept or decline each request.</p>
+
+                <ol class="step-list">
+                    <li>Click <strong>Consultations</strong> in the top navigation bar.</li>
+                    <li>Click the <strong>Client Requests</strong> tab.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_empty.png" alt="The Client Requests tab showing the empty state with No requests found message" />
+                    <figcaption>The Client Requests tab before any requests are received</figcaption>
+                </figure>
+
+                <p>When clients book your services, their requests appear here with full details.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_list_pending.png" alt="The Client Requests tab showing three incoming consultation requests from different clients, each with service details, scheduled time, client message, and Accept Request and Decline buttons" />
+                    <figcaption>Three incoming consultation requests, all with Pending status</figcaption>
+                </figure>
+
+                <ol class="step-list" start="3">
+                    <li>Each request card shows:
+                        <ul class="option-list">
+                            <li><strong>Client name</strong> and when the request was sent.</li>
+                            <li><strong>Service title</strong>, price, and duration.</li>
+                            <li><strong>Scheduled date and time</strong> in the client's selected timezone.</li>
+                            <li><strong>Message from client</strong> — an optional note the client included when booking.</li>
+                            <li><strong>Status</strong> — Pending until you take action.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+            </section>
+
+            <!-- Accept a request -->
+            <section class="article-section">
+                <h2>Accept a request</h2>
+
+                <ol class="step-list">
+                    <li>On the request card you want to confirm, click <strong>Accept Request</strong>.</li>
+                    <li>In the <strong>Accept Request</strong> modal, review the client name, service title, date, and time.</li>
+                    <li>Under <strong>Your Response</strong>, type a message to the client. This message will be visible to the client.</li>
+                    <li>Click <strong>Accept Request</strong>.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_accept_01.png" alt="The Accept Request modal showing the client name, service title, date and time, a Your Response text field with a confirmation message, and Cancel and Accept Request buttons" />
+                    <figcaption>The Accept Request modal with a response message for the client</figcaption>
+                </figure>
+
+                <p>The request card updates to <strong>Accepted</strong> status. Your response appears below the client's original message, and two new buttons appear: <strong>Go to session page</strong> and <strong>Add to Calendar</strong>.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_accept_02.png" alt="An accepted consultation request card showing Accepted status, the client's original message, your response, and Go to session page and Add to Calendar buttons" />
+                    <figcaption>An accepted request with your response and session actions</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Decline a request -->
+            <section class="article-section">
+                <h2>Decline a request</h2>
+
+                <ol class="step-list">
+                    <li>On the request card you want to turn down, click <strong>Decline</strong>.</li>
+                    <li>In the <strong>Decline Request</strong> modal, review the client name, service title, date, and time.</li>
+                    <li>Under <strong>Your Response</strong>, type a message to the client. This message will be visible to the client.</li>
+                    <li>Click <strong>Decline Request</strong>.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_decline_01.png" alt="The Decline Request modal showing the client name, service title, date and time, a Your Response text field with a decline message, and Cancel and Decline Request buttons" />
+                    <figcaption>The Decline Request modal with a response message for the client</figcaption>
+                </figure>
+
+                <p>The request card updates to <strong>Rejected</strong> status. Your response appears below the client's original message.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_decline_02.png" alt="A rejected consultation request card showing Rejected status, the client's original message, and your decline response" />
+                    <figcaption>A declined request with your response</figcaption>
+                </figure>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Accept or decline requests promptly — clients see the status as Pending until you respond.
+                    </div>
+                </div>
+
+                <p>After accepting or declining requests, the updated list reflects each request's current status.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_requests_list_updated.png" alt="The Client Requests tab showing three requests with mixed statuses: one Pending, one Accepted with Go to session page and Add to Calendar buttons, and one Rejected" />
+                    <figcaption>The updated request list showing Pending, Accepted, and Rejected statuses</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Track your bookings -->
+            <section class="article-section">
+                <h2>Track your bookings</h2>
+
+                <p>When you book a consultation with another expert, the request appears in your <strong>My Bookings</strong> tab so you can track its status. You cannot accept or decline from this tab — the expert responds from their side.</p>
+
+                <ol class="step-list">
+                    <li>Click <strong>Consultations</strong> in the top navigation bar.</li>
+                    <li>Click the <strong>My Bookings</strong> tab.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_bookings_empty.png" alt="The My Bookings tab showing the empty state with No requests found message" />
+                    <figcaption>The My Bookings tab before any bookings are sent</figcaption>
+                </figure>
+
+                <p>When you book consultations with experts, your requests appear here with full details.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_bookings_list_pending.png" alt="The My Bookings tab showing three outgoing consultation requests to different experts, each with service details, scheduled time, your message, and Pending status" />
+                    <figcaption>Three outgoing consultation requests, all with Pending status</figcaption>
+                </figure>
+
+                <ol class="step-list" start="3">
+                    <li>Each booking card shows:
+                        <ul class="option-list">
+                            <li><strong>Expert name</strong> and when the request was sent.</li>
+                            <li><strong>Service title</strong>, price, and duration.</li>
+                            <li><strong>Scheduled date and time</strong> in your selected timezone.</li>
+                            <li><strong>Your message</strong> — the note you included when booking.</li>
+                            <li><strong>Status</strong> — Pending until the expert accepts or declines.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p>When an expert responds, the card updates automatically. Accepted bookings show the expert's response along with <strong>Go to session page</strong> and <strong>Add to Calendar</strong> buttons. Rejected bookings show the expert's response with no further actions.</p>
+
+                <figure class="article-img">
+                    <img src="../images/consultations_bookings_list_updated.png" alt="The My Bookings tab showing three bookings with mixed statuses: one Pending, one Accepted with the expert's response and Go to session page and Add to Calendar buttons, and one Rejected with the expert's decline response" />
+                    <figcaption>The updated bookings list showing Pending, Accepted, and Rejected statuses</figcaption>
+                </figure>
+
+                <div class="callout callout-tip">
+                    <i class="ti ti-bulb"></i>
+                    <div>
+                        <strong>Tip:</strong> Use the timezone selector at the top of the page to view all scheduled times in your preferred timezone.
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+<div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
