@@ -1,0 +1,140 @@
+/* ============================================
+   BrainsMingle Suite — Design Tokens
+   Dark + Light theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap');
+
+/* ---- Dark theme (default) ---- */
+:root,
+[data-theme="dark"] {
+  --bg:            #0A0A14;
+  --bg-alt:        #0E0E1A;
+  --bg-card:       #13131F;
+  --bg-card2:      #1A1A2A;
+  --bg-elevated:   #1F1F30;
+
+  --purple:        #6B3EF5;
+  --purple-dim:    rgba(107, 62, 245, 0.12);
+  --purple-glow:   rgba(107, 62, 245, 0.25);
+  --cyan:          #00E8A2;
+  --cyan-dim:      rgba(0, 232, 162, 0.10);
+  --pink:          #F53E9F;
+  --pink-dim:      rgba(245, 62, 159, 0.10);
+  --amber:         #F5A623;
+  --amber-dim:     rgba(245, 166, 35, 0.10);
+
+  --text:          #FFFFFF;
+  --text-secondary:#B8B8CC;
+  --text-muted:    #7E7E99;
+  --text-faint:    #4A4A66;
+
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-accent: rgba(107, 62, 245, 0.30);
+
+  /* Icon colors per theme */
+  --icon-purple:   #6B3EF5;
+  --icon-cyan:     #00E8A2;
+  --icon-pink:     #F53E9F;
+  --icon-amber:    #F5A623;
+  --icon-red:      #F53E5E;
+  --icon-muted:    #7E7E99;
+  --on-purple:     #FFFFFF;
+  --on-pink:       #FFFFFF;
+  --on-cyan:       #0A0A14;
+  --on-amber:      #0A0A14;
+
+  /* Nav glass */
+  --nav-bg:        rgba(10, 10, 20, 0.85);
+  --mobile-bar-bg: rgba(10, 10, 20, 0.95);
+}
+
+/* ---- Light theme ---- */
+[data-theme="light"] {
+  --bg:            #F7F7FC;
+  --bg-alt:        #EFEFF7;
+  --bg-card:       #FFFFFF;
+  --bg-card2:      #F2F2FA;
+  --bg-elevated:   #E8E8F4;
+
+  --purple:        #5A2EE0;
+  --purple-dim:    rgba(90, 46, 224, 0.08);
+  --purple-glow:   rgba(90, 46, 224, 0.20);
+  --cyan:          #009E6F;
+  --cyan-dim:      rgba(0, 158, 111, 0.08);
+  --pink:          #D42E89;
+  --pink-dim:      rgba(212, 46, 137, 0.08);
+  --amber:         #C07800;
+  --amber-dim:     rgba(192, 120, 0, 0.08);
+
+  --text:          #0A0A14;
+  --text-secondary:#3A3A55;
+  --text-muted:    #6B6B88;
+  --text-faint:    #B0B0CC;
+
+  --border:        rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-accent: rgba(90, 46, 224, 0.20);
+
+  --icon-purple:   #5A2EE0;
+  --icon-cyan:     #009E6F;
+  --icon-pink:     #D42E89;
+  --icon-amber:    #C07800;
+  --icon-red:      #D42E4A;
+  --icon-muted:    #6B6B88;
+  --on-purple:     #FFFFFF;
+  --on-pink:       #FFFFFF;
+  --on-cyan:       #FFFFFF;
+  --on-amber:      #FFFFFF;
+
+  --nav-bg:        rgba(247, 247, 252, 0.90);
+  --mobile-bar-bg: rgba(247, 247, 252, 0.97);
+}
+
+/* ---- Shared / invariant ---- */
+:root {
+  --font-display:  'Montserrat', sans-serif;
+  --font-body:     'Lato', sans-serif;
+
+  --text-xs:       0.75rem;
+  --text-sm:       0.875rem;
+  --text-base:     1rem;
+  --text-lg:       1.125rem;
+  --text-xl:       1.25rem;
+  --text-2xl:      1.5rem;
+  --text-3xl:      2rem;
+  --text-4xl:      2.5rem;
+  --text-5xl:      3.25rem;
+
+  --leading-tight: 1.15;
+  --leading-snug:  1.3;
+  --leading-normal:1.6;
+
+  --space-xs:      4px;
+  --space-sm:      8px;
+  --space-md:      16px;
+  --space-lg:      24px;
+  --space-xl:      32px;
+  --space-2xl:     48px;
+  --space-3xl:     64px;
+  --space-4xl:     96px;
+  --space-5xl:     128px;
+
+  --container-max:    1200px;
+  --container-narrow: 800px;
+  --radius-sm:     6px;
+  --radius-md:     10px;
+  --radius-lg:     16px;
+  --radius-xl:     24px;
+  --radius-pill:   100px;
+
+  --shadow-card:   0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px var(--border);
+  --shadow-glow:   0 0 60px rgba(107, 62, 245, 0.12);
+
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-med:  300ms;
+  
+  --on-accent:     #FFFFFF;
+}
