@@ -32,7 +32,9 @@
             <h1 class="vert-hero__title">Your Founders Deserve Their Own Professional Home</h1>
             <p class="vert-hero__sub">A fully configured professional ecosystem for accelerators, incubators, VC platforms, and innovation hubs. Run cohorts, match founders with mentors, host demo days, deliver curriculum, and build lasting founder communities — all under your identity.</p>
             <div class="vert-hero__cta">
-                <a href="#book-demo" class="btn btn--primary btn--lg">Book a Demo</a>
+                <a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>
+                <a href="#use-cases" class="btn btn--secondary btn--lg">What You Can Do <span data-icon="arrowRight"></span></a>
+                
             </div>
         </div>
     </section>
@@ -153,7 +155,7 @@
     <!-- ============================
      S5: USE CASES — with purple left-border accent
      ============================ -->
-    <section class="vert-usecases vert--purple">
+    <section class="vert-usecases vert--purple" id="use-cases">
         <div class="container">
             <h2 class="heading-lg vert-usecases__headline">What you can do with Startup Suite</h2>
             <p class="vert-usecases__sub">Concrete scenarios, not abstract benefits. Here's how organizations like yours use it every day.</p>
@@ -377,6 +379,7 @@
                 var key = el.getAttribute('data-icon');
                 if (typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
             });
+            
             document.querySelectorAll('[data-illus]').forEach(function(el) {
                 var key = el.getAttribute('data-illus');
                 if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[key]) el.innerHTML = SUITE_ILLUSTRATIONS[key];
