@@ -63,6 +63,10 @@
 }
 .vert-hero__cta {
   margin-top: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 /* Hero background motif — large faded icon */

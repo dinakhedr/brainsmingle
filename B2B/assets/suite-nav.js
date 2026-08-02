@@ -110,7 +110,7 @@ var MENU_INDUSTRIES = [
             '<span class="icon-moon">' + SVG.moon + '</span>' +
             '<span class="icon-sun">' + SVG.sun + '</span>' +
           '</button>' +
-          '<div class="suite-nav__cta"><a href="#book-demo" class="btn btn--primary">Book a Demo</a></div>' +
+          '<div class="suite-nav__cta"><a href="#" class="btn btn--primary" onclick="openDemoModal();return false;">Book a Demo</a></div>' +
         '</div>' +
         '<button class="suite-nav__toggle" id="nav-toggle" aria-label="Menu">' + SVG.menu + '</button>' +
       '</div>';
@@ -219,7 +219,7 @@ var MENU_INDUSTRIES = [
             '<div class="suite-footer__col-links">' +
               '<a href="' + prefix + 'capabilities.html">Capabilities</a>' +
               '<a href="' + prefix + 'partners.html">Partner Program</a>' +
-              '<a href="#book-demo">Book a Demo</a>' +
+              '<a href="#" onclick="openDemoModal();return false;">Book a Demo</a>' +
             '</div>' +
           '</div>' +
 
@@ -238,7 +238,7 @@ var MENU_INDUSTRIES = [
   function buildMobileCTA() {
     var bar = document.getElementById('mobile-cta');
     if (!bar) return;
-    bar.innerHTML = '<a href="#book-demo" class="btn btn--primary btn--lg">Book a Demo</a>';
+    bar.innerHTML = '<a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>';
   }
 
   /* ---- CTA block ---- */
@@ -253,10 +253,164 @@ var MENU_INDUSTRIES = [
       '<div class="container" style="position:relative;z-index:1;">' +
         '<h2 class="cta-block__headline">' + headline + '</h2>' +
         '<p class="cta-block__sub">' + sub + '</p>' +
-        '<a href="#" class="btn btn--primary btn--lg">Book a Demo</a>' +
+        '<a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>' +
         '<p class="cta-block__email">Or reach us at <a href="mailto:suite@brainsmingle.com">suite@brainsmingle.com</a></p>' +
       '</div>';
   }
+  /* ---- Demo Modal ---- */
+  function buildDemoModal() {
+    if (document.getElementById('demo-modal')) return;
+    var div = document.createElement('div');
+    div.className = 'demo-overlay';
+    div.id = 'demo-modal';
+    div.onclick = function (e) { if (e.target === div) closeDemoModal(); };
+    div.innerHTML =
+      '<div class="demo-modal">' +
+        '<button class="demo-modal__close" onclick="closeDemoModal()">✕</button>' +
+        '<span class="eyebrow demo-modal__eyebrow">BrainsMingle Suite</span>' +
+        '<h2 class="demo-modal__title">Book a Demo.<br><em>See Suite in Action.</em></h2>' +
+        '<p class="demo-modal__sub">Tell us about your organization and we\'ll schedule a personalized walkthrough within 48 hours.</p>' +
+
+        '<div id="demo-form-fields">' +
+
+          '<div class="demo-form__row">' +
+            '<div class="demo-form__field">' +
+              '<label for="demo-name">Full Name *</label>' +
+              '<input type="text" id="demo-name" placeholder="Your name" required />' +
+            '</div>' +
+            '<div class="demo-form__field">' +
+              '<label for="demo-title">Job Title *</label>' +
+              '<input type="text" id="demo-title" placeholder="e.g. Program Director" required />' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__row" style="grid-template-columns:1fr;">' +
+            '<div class="demo-form__field demo-form__field--full">' +
+              '<label for="demo-email">Work Email *</label>' +
+              '<input type="email" id="demo-email" placeholder="you@company.com" required />' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__row" style="grid-template-columns:1fr;">' +
+            '<div class="demo-form__field demo-form__field--full">' +
+              '<label for="demo-phone">Phone</label>' +
+              '<div class="demo-form__phone-row">' +
+                '<select id="demo-code">' +
+                  '<option value="+20">🇪🇬 +20</option>' +
+                  '<option value="+966">🇸🇦 +966</option>' +
+                  '<option value="+971">🇦🇪 +971</option>' +
+                  '<option value="+1">🇺🇸 +1</option>' +
+                  '<option value="+44">🇬🇧 +44</option>' +
+                  '<option value="+49">🇩🇪 +49</option>' +
+                  '<option value="+33">🇫🇷 +33</option>' +
+                  '<option value="+91">🇮🇳 +91</option>' +
+                  '<option value="+234">🇳🇬 +234</option>' +
+                  '<option value="+254">🇰🇪 +254</option>' +
+                  '<option value="+212">🇲🇦 +212</option>' +
+                  '<option value="+962">🇯🇴 +962</option>' +
+                  '<option value="+961">🇱🇧 +961</option>' +
+                  '<option value="+974">🇶🇦 +974</option>' +
+                  '<option value="+965">🇰🇼 +965</option>' +
+                  '<option value="+968">🇴🇲 +968</option>' +
+                  '<option value="+973">🇧🇭 +973</option>' +
+                  '<option value="+90">🇹🇷 +90</option>' +
+                  '<option value="+86">🇨🇳 +86</option>' +
+                  '<option value="+81">🇯🇵 +81</option>' +
+                  '<option value="+55">🇧🇷 +55</option>' +
+                  '<option value="+27">🇿🇦 +27</option>' +
+                  '<option value="+61">🇦🇺 +61</option>' +
+                '</select>' +
+                '<input type="tel" id="demo-phone" placeholder="000 000 0000" />' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__row" style="grid-template-columns:1fr;">' +
+            '<div class="demo-form__field demo-form__field--full">' +
+              '<label for="demo-org">Organization Name *</label>' +
+              '<input type="text" id="demo-org" placeholder="Your organization" required />' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__row">' +
+            '<div class="demo-form__field">' +
+              '<label for="demo-type">Organization Type *</label>' +
+              '<select id="demo-type" required>' +
+                '<option value="" disabled selected>Select type</option>' +
+                '<option value="Accelerator / Incubator">Accelerator / Incubator</option>' +
+                '<option value="University / EdTech">University / EdTech</option>' +
+                '<option value="Training Academy">Training Academy</option>' +
+                '<option value="Professional Association">Professional Association</option>' +
+                '<option value="Corporate / Enterprise">Corporate / Enterprise</option>' +
+                '<option value="Creator / Independent Expert">Creator / Independent Expert</option>' +
+                '<option value="Program / Event Organizer">Program / Event Organizer</option>' +
+                '<option value="Other">Other</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="demo-form__field">' +
+              '<label for="demo-size">Team Size *</label>' +
+              '<select id="demo-size" required>' +
+                '<option value="" disabled selected>Select size</option>' +
+                '<option value="1-10">1\u201310</option>' +
+                '<option value="11-50">11\u201350</option>' +
+                '<option value="51-200">51\u2013200</option>' +
+                '<option value="201-1000">201\u20131,000</option>' +
+                '<option value="1000+">1,000+</option>' +
+              '</select>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__row" style="grid-template-columns:1fr;margin-bottom:0;">' +
+            '<div class="demo-form__field demo-form__field--full">' +
+              '<label for="demo-message">What are you looking to build?</label>' +
+              '<textarea id="demo-message" placeholder="e.g. A branded learning hub for our accelerator cohorts with live sessions and mentor booking\u2026"></textarea>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="demo-form__submit">' +
+            '<button class="btn btn--primary" onclick="submitDemoForm()">Book a Demo \u2192</button>' +
+            '<span class="demo-form__note">We\'ll reach out within 48 hours. No spam, ever.</span>' +
+          '</div>' +
+
+        '</div>' +
+
+        '<div class="demo-form__success" id="demo-form-success">' +
+          '<div class="demo-form__success-icon">\u2713</div>' +
+          '<div class="demo-form__success-title">Request received!</div>' +
+          '<div class="demo-form__success-sub">We\'ll reach out within 48 hours to schedule<br>your personalized walkthrough.</div>' +
+        '</div>' +
+
+      '</div>';
+    document.body.appendChild(div);
+  }
+
+  /* Global modal functions */
+  window.openDemoModal = function () {
+    document.getElementById('demo-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeDemoModal = function () {
+    document.getElementById('demo-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.submitDemoForm = function () {
+    var name  = document.getElementById('demo-name').value.trim();
+    var title = document.getElementById('demo-title').value.trim();
+    var email = document.getElementById('demo-email').value.trim();
+    var org   = document.getElementById('demo-org').value.trim();
+    var type  = document.getElementById('demo-type').value;
+    var size  = document.getElementById('demo-size').value;
+    if (!name || !title || !email || !org || !type || !size) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    document.getElementById('demo-form-fields').style.display = 'none';
+    document.getElementById('demo-form-success').style.display = 'block';
+  };
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDemoModal();
+  });
+
   /* ---- Modules grid ---- */
 function buildModules() {
     var grid = document.getElementById('modules-grid');
@@ -324,5 +478,6 @@ function buildModules() {
     buildModules();
     buildVerticals();
     buildCTA();
+    buildDemoModal();
   });
 })();
