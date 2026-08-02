@@ -30,8 +30,8 @@
                 Fully branded, fully configured, fully yours. <br>Live sessions, courses, networking, consultations, and community and more.
             </p>
             <div class="hero__cta-row">
-                <a href="#book-demo" class="btn btn--primary btn--lg">Book a Demo</a>
-                <a href="how-it-works.html" class="btn btn--secondary btn--lg">See How It Works</a>
+                <a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>
+                <a href="#" class="btn btn--secondary btn--lg" id="modules-link">See What's Inside <span data-icon="arrowRight"></a>
             </div>
         </div>
     </section>
@@ -199,7 +199,7 @@
             <div id="modules-grid"></div>
             <div style="text-align:center;margin-top:var(--space-xl);">
                 <a href="#" id="modules-link" class="text-link">See all capabilities
-                    <span class="text-link__arrow"></span>
+                    <span data-icon="arrowRight">
                 </a>
             </div>
         </div>
@@ -485,15 +485,10 @@
                 var key = el.getAttribute('data-icon');
                 if (typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
             });
-            document.querySelectorAll('.content-card__more-arrow').forEach(function(el) {
-                if (typeof SUITE_ICONS !== 'undefined') el.innerHTML = SUITE_ICONS.arrowRightSm;
-            });
-            document.querySelectorAll('.text-link__arrow').forEach(function(el) {
-                if (typeof SUITE_ICONS !== 'undefined') el.innerHTML = SUITE_ICONS.arrowRight;
-            });
+            
             document.querySelectorAll('[data-illus]').forEach(function(el) {
-                var k = el.getAttribute('data-illus');
-                if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[k]) el.innerHTML = SUITE_ILLUSTRATIONS[k];
+                var key = el.getAttribute('data-illus');
+                if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[key]) el.innerHTML = SUITE_ILLUSTRATIONS[key];
             });
         })();
     </script>
