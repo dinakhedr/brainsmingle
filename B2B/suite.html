@@ -172,17 +172,14 @@
                         One place where everything finally connects.
                     </h2>
                     <p class="solution__body">
-                        BrainsMingle Suite brings <strong>everything your business runs on</strong> into <span class="highlight">one place</span> for live sessions and webinars, courses and learning, community and networking, consultations and mentorship, bookings and scheduling, payments and events, all running <strong>entirely under your brand</strong>. Your domain. Your logo. Your colors.
+                        BrainsMingle Suite brings <strong>everything your business runs on</strong> into <strong>one place</strong> for live sessions and webinars, courses and learning, community and networking, consultations and mentorship, bookings and scheduling, payments and events, all running <span class="highlight">entirely under your brand</span>. Your domain. Your logo. Your colors.
                     </p>
                     <p class="solution__body">
-                        <strong>No more switching between tools. No more scattered data.</strong> Every session <span class="highlight">recorded</span>, every booking <span class="highlight">scheduled</span>, every payment <span class="highlight">collected</span>, every connection <span class="highlight">made</span> all in <strong>one connected home</strong>. One login for your team, one experience for your audience, one place where every interaction builds on the last.
+                        <strong>No more switching between tools. No more scattered data.</strong> Every session <strong>recorded</strong>, every booking <strong>scheduled</strong>, every payment <strong>collected</strong>, every connection <strong>made</strong> all in <span class="highlight">one connected platform</span>. One login for your team, one experience for your audience, one place where every interaction builds on the last.
                     </p>
                     <p class="solution__tagline">We don't sell you a tool. We give your business a home.</p>
                 </div>
-                <div class="solution__visual">
-                    <!-- Replace with branded deployment mockup -->
-                    [ Platform UI mockup — branded deployment ]
-                </div>
+                <div class="solution__visual" data-illus="suiteHero"></div>
             </div>
         </div>
     </section>
@@ -480,21 +477,26 @@
     <div id="mobile-cta" class="mobile-cta"></div>
 
     <script src="assets/suite-icons.js"></script>
+    <script src="assets/suite-illustrations.js"></script>
+    <script src="assets/suite-nav.js"></script>
     <script>
         (function() {
             document.querySelectorAll('[data-icon]').forEach(function(el) {
                 var key = el.getAttribute('data-icon');
-                if (SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
+                if (typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
             });
             document.querySelectorAll('.content-card__more-arrow').forEach(function(el) {
-                el.innerHTML = SUITE_ICONS.arrowRightSm;
+                if (typeof SUITE_ICONS !== 'undefined') el.innerHTML = SUITE_ICONS.arrowRightSm;
             });
             document.querySelectorAll('.text-link__arrow').forEach(function(el) {
-                el.innerHTML = SUITE_ICONS.arrowRight;
+                if (typeof SUITE_ICONS !== 'undefined') el.innerHTML = SUITE_ICONS.arrowRight;
+            });
+            document.querySelectorAll('[data-illus]').forEach(function(el) {
+                var k = el.getAttribute('data-illus');
+                if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[k]) el.innerHTML = SUITE_ILLUSTRATIONS[k];
             });
         })();
     </script>
-    <script src="assets/suite-nav.js"></script>
 
 </body>
 
