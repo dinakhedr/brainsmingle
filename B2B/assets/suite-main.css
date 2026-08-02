@@ -132,7 +132,7 @@
   font-weight: 700;
 }
 .solution__body .highlight {
-  color: var(--cyan);
+  color: var(--purple);
   font-weight: 700;
 }
 .solution__tagline {
@@ -142,16 +142,13 @@
   color: var(--cyan);
 }
 .solution__visual {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  height: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-faint);
-  font-size: var(--text-sm);
-  font-family: var(--font-display);
+  overflow: hidden;
+}
+.solution__visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* --- S5: Modules (grid only — cards use .content-card) --- */

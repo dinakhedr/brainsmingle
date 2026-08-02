@@ -494,4 +494,174 @@ eventAnalytics: '<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" c
 <rect x="24" y="286" width="432" height="22" rx="7" fill="rgba(0,232,162,0.08)" stroke="rgba(0,232,162,0.3)" stroke-width="1"/>\
 <text x="240" y="301" font-family="Montserrat, sans-serif" font-size="10" font-weight="700" fill="#00E8A2" text-anchor="middle">Download full report (PDF)</text>\
 </svg>',
+/* ── Suite Hero — 1 ──────────────────────────── */
+suiteHero1: '<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" class="cap-illus">\
+<rect x="0" y="0" width="480" height="320" rx="20" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1"/>\
+\
+<text x="97" y="22" font-family="Montserrat, sans-serif" font-size="8" font-weight="700" fill="#F53E9F" text-anchor="middle" letter-spacing="1.5">WHAT YOU HAVE TODAY</text>\
+<text x="383" y="22" font-family="Montserrat, sans-serif" font-size="8" font-weight="700" fill="#6B3EF5" text-anchor="middle" letter-spacing="1.5">YOUR ECOSYSTEM</text>\
+\
+<rect x="12" y="34" width="170" height="252" rx="14" fill="var(--bg)" stroke="rgba(245,62,159,0.2)" stroke-width="1"/>\
+\
+<rect x="22" y="84" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>\
+\
+<rect x="74" y="84" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>\
+\
+<rect x="126" y="84" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>\
+\
+<rect x="22" y="138" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>\
+\
+<rect x="74" y="138" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>\
+\
+<rect x="126" y="138" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>\
+\
+<rect x="22" y="192" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>\
+\
+<rect x="74" y="192" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>\
+\
+<rect x="126" y="192" width="46" height="46" rx="10" fill="rgba(245,62,159,0.08)" stroke="rgba(245,62,159,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(245,62,159,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>\
+\
+<line x1="234" y1="94" x2="234" y2="134" stroke="var(--border)" stroke-width="1"/>\
+<circle cx="234" cy="160" r="18" fill="rgba(107,62,245,0.1)" stroke="rgba(107,62,245,0.3)" stroke-width="1"/>\
+<path d="M228 160 L238 160 M234 154 L240 160 L234 166" fill="none" stroke="#6B3EF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>\
+<line x1="234" y1="180" x2="234" y2="220" stroke="var(--border)" stroke-width="1"/>\
+<text x="234" y="244" font-family="Montserrat, sans-serif" font-size="9" font-weight="700" fill="#6B3EF5" text-anchor="middle">Replace with one</text>\
+\
+<rect x="298" y="34" width="170" height="252" rx="14" fill="var(--bg)" stroke="rgba(107,62,245,0.3)" stroke-width="1.5"/>\
+<text x="383" y="156" font-family="Montserrat, sans-serif" font-size="14" font-weight="800" fill="var(--text-secondary)" text-anchor="middle" letter-spacing="0.5">BRAINSMINGLE</text>\
+<text x="383" y="176" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" fill="#6B3EF5" text-anchor="middle" letter-spacing="3">SUITE</text>\
+</svg>',
+
+/* ── Suite Hero — 2 ──────────────────────────── */
+suiteHero: '<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" class="cap-illus">\
+<rect x="0" y="0" width="480" height="320" rx="20" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1"/>\
+\
+<text x="97" y="22" font-family="Montserrat, sans-serif" font-size="8" font-weight="700" fill="#EF4444" text-anchor="middle" letter-spacing="1.5">DISCONNECTED TOOLS</text>\
+<text x="383" y="22" font-family="Montserrat, sans-serif" font-size="8" font-weight="700" fill="#6B3EF5" text-anchor="middle" letter-spacing="1.5">YOUR ECOSYSTEM</text>\
+\
+<rect x="12" y="34" width="170" height="252" rx="14" fill="var(--bg)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>\
+\
+<rect x="22" y="84" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>\
+\
+<rect x="74" y="84" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>\
+\
+<rect x="126" y="84" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="97" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>\
+\
+<rect x="22" y="138" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>\
+\
+<rect x="74" y="138" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>\
+\
+<rect x="126" y="138" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="151" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>\
+\
+<rect x="22" y="192" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="35" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>\
+\
+<rect x="74" y="192" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="87" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>\
+\
+<rect x="126" y="192" width="46" height="46" rx="10" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>\
+<svg x="139" y="205" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>\
+\
+<line x1="234" y1="94" x2="234" y2="134" stroke="var(--border)" stroke-width="1"/>\
+<circle cx="234" cy="160" r="18" fill="rgba(107,62,245,0.1)" stroke="rgba(107,62,245,0.3)" stroke-width="1"/>\
+<path d="M228 160 L238 160 M234 154 L240 160 L234 166" fill="none" stroke="#6B3EF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>\
+<line x1="234" y1="180" x2="234" y2="220" stroke="var(--border)" stroke-width="1"/>\
+<text x="234" y="244" font-family="Montserrat, sans-serif" font-size="9" font-weight="700" fill="#6B3EF5" text-anchor="middle">Replace with one</text>\
+\
+<rect x="298" y="34" width="170" height="252" rx="14" fill="var(--bg)" stroke="rgba(107,62,245,0.3)" stroke-width="1.5"/>\
+<text x="383" y="156" font-family="Montserrat, sans-serif" font-size="14" font-weight="800" fill="var(--text-secondary)" text-anchor="middle" letter-spacing="0.5">BRAINSMINGLE</text>\
+<text x="383" y="176" font-family="Montserrat, sans-serif" font-size="11" font-weight="700" fill="#6B3EF5" text-anchor="middle" letter-spacing="3">SUITE</text>\
+</svg>',
+
+/* ── Suite Hero — 3 ──────────────────────────── */
+suiteHero_3: '<svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" class="cap-illus">\
+<rect x="0" y="0" width="480" height="320" rx="16" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1"/>\
+\
+<rect x="14" y="56" width="204" height="208" rx="14" fill="var(--bg)" stroke="rgba(216,90,48,0.2)" stroke-width="0.8"/>\
+\
+<rect x="28" y="76" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="39" y="87" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>\
+\
+<rect x="76" y="76" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="87" y="87" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>\
+\
+<rect x="124" y="76" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="135" y="87" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>\
+\
+<rect x="172" y="76" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="183" y="87" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>\
+\
+<rect x="28" y="126" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="39" y="137" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>\
+\
+<rect x="76" y="126" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="87" y="137" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>\
+\
+<rect x="124" y="126" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="135" y="137" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>\
+\
+<rect x="172" y="126" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="183" y="137" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>\
+\
+<rect x="28" y="176" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="39" y="187" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>\
+\
+<rect x="76" y="176" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="87" y="187" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>\
+\
+<rect x="124" y="176" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="135" y="187" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="rgba(216,90,48,0.5)"/><circle cx="17.5" cy="10.5" r=".5" fill="rgba(216,90,48,0.5)"/><circle cx="6.5" cy="12.5" r=".5" fill="rgba(216,90,48,0.5)"/><circle cx="8.5" cy="7.5" r=".5" fill="rgba(216,90,48,0.5)"/></svg>\
+\
+<rect x="172" y="176" width="42" height="42" rx="10" fill="rgba(216,90,48,0.06)" stroke="rgba(216,90,48,0.15)" stroke-width="0.7"/>\
+<svg x="183" y="187" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(216,90,48,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>\
+\
+<rect x="262" y="62" width="204" height="196" rx="14" fill="var(--bg)" stroke="rgba(107,62,245,0.3)" stroke-width="1"/>\
+<text x="364" y="86" font-family="Montserrat, sans-serif" font-size="9" font-weight="800" fill="var(--text-secondary)" text-anchor="middle" letter-spacing="0.5">BRAINSMINGLE SUITE</text>\
+<rect x="274" y="94" width="180" height="1" fill="rgba(107,62,245,0.1)"/>\
+\
+<svg x="278" y="110" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B3EF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.364 5.636a9 9 0 0 1 0 12.728"/><path d="M5.636 5.636a9 9 0 0 0 0 12.728"/><path d="M15.536 8.464a5 5 0 0 1 0 7.072"/><path d="M8.464 8.464a5 5 0 0 0 0 7.072"/><circle cx="12" cy="12" r="1"/></svg>\
+<text x="298" y="121" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Live Sessions</text>\
+\
+<svg x="374" y="110" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>\
+<text x="394" y="121" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Payments</text>\
+\
+<svg x="278" y="136" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4l3 3-3 3"/><path d="M18 20l3-3-3-3"/><path d="M3 7h3a5 5 0 0 1 5 5 5 5 0 0 0 5 5h4"/><path d="M3 17h3a5 5 0 0 0 5-5 5 5 0 0 1 5-5h4"/></svg>\
+<text x="298" y="147" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Speed Networking</text>\
+\
+<svg x="374" y="136" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F53E9F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>\
+<text x="394" y="147" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Forms</text>\
+\
+<svg x="278" y="162" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F53E9F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>\
+<text x="298" y="173" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Communities</text>\
+\
+<svg x="374" y="162" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>\
+<text x="394" y="173" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Events</text>\
+\
+<svg x="278" y="188" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>\
+<text x="298" y="199" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Courses &amp; LMS</text>\
+\
+<svg x="374" y="188" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B3EF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="#6B3EF5"/><circle cx="17.5" cy="10.5" r=".5" fill="#6B3EF5"/><circle cx="6.5" cy="12.5" r=".5" fill="#6B3EF5"/><circle cx="8.5" cy="7.5" r=".5" fill="#6B3EF5"/></svg>\
+<text x="394" y="199" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Branding</text>\
+\
+<svg x="278" y="214" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B3EF5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M11.051 7.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.867l-1.156-1.152a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z"/></svg>\
+<text x="298" y="225" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Consultations</text>\
+\
+<svg x="374" y="214" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14.639V21"/><path d="M20 10.656V21"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18.463V21"/><path d="M8 14.656V21"/></svg>\
+<text x="394" y="225" font-family="Lato, sans-serif" font-size="8.5" fill="var(--text-muted)">Analytics</text>\
+</svg>',
 };
