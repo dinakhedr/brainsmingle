@@ -484,5 +484,17 @@ function buildModules() {
     buildVerticals();
     buildCTA();
     buildDemoModal();
+    
+    /* Populate vertical hero tag from MENU_INDUSTRIES */
+    var vertTag = document.querySelector('[data-vertical]');
+    if (vertTag) {
+      var vKey = vertTag.getAttribute('data-vertical');
+      var match = MENU_INDUSTRIES.filter(function(item) { return item.key === vKey; })[0];
+      if (match) {
+        vertTag.innerHTML = '<span class="icon icon--' + match.color + '">' + getIcon(match.key) + '</span> ' + match.title;
+      }
+    }
+    
+    
   });
 })();
