@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Community Suite — BrainsMingle Suite</title>
+    <meta name="description" content="A fully configured professional ecosystem for associations, chambers of commerce, chapters, and member networks. Engage members, host conferences, deliver continuing education, run peer networking, and manage renewals — all under your identity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/suite-tokens.css">
+    <link rel="stylesheet" href="../assets/suite-common.css">
+    <link rel="stylesheet" href="../assets/suite-vertical.css">
+    <link rel="stylesheet" href="../assets/suite-partner-block.css">
+</head>
+
+<body>
+
+<!-- Nav -->
+<nav class="suite-nav" id="suite-nav"></nav>
+
+<!-- ═══════════════════════════════════════════
+     S1  HERO
+     ═══════════════════════════════════════════ -->
+<section class="vert-hero vert--amber">
+    <div class="vert-hero__motif" data-icon="community"></div>
+    <div class="glow" style="background:var(--amber);top:18%;left:50%;transform:translateX(-50%);opacity:0.07;width:700px;height:500px;"></div>
+    <div class="container vert-hero__content">
+
+        <div class="vert-hero__tag">
+            <span data-icon="community"></span>
+            Community Suite
+        </div>
+
+        <h1 class="vert-hero__title">Your Members Deserve<br>Their Own Professional Home</h1>
+
+        <p class="vert-hero__sub">
+            A fully configured, fully branded professional ecosystem for associations, chambers, chapters, and member networks.
+            Engage members, host conferences, deliver continuing education, run peer networking events, and manage it all — under your identity.
+        </p>
+
+        <div class="vert-hero__cta">
+                <a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>
+                <a href="#use-cases" class="btn btn--secondary btn--lg">What You Can Do <span data-icon="arrowRight"></span></a>
+                
+            </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S2  CLIENT LOGOS STRIP
+     ═══════════════════════════════════════════ -->
+<section class="vert-logos">
+    <div class="container">
+        <div class="vert-logos__label">Built for organizations like</div>
+        <div class="vert-logos__strip">
+            <span class="vert-logos__item">National Medical Council</span>
+            <span class="vert-logos__item">Chamber of Commerce</span>
+            <span class="vert-logos__item">Bar Association</span>
+            <span class="vert-logos__item">Engineering Society</span>
+            <span class="vert-logos__item">Teachers Union</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S3  WHO IT'S BUILT FOR
+     ═══════════════════════════════════════════ -->
+<section class="vert-audience vert--amber">
+    <div class="container">
+        <h2 class="section-headline vert-audience__headline">Who It's Built For</h2>
+        <div class="vert-audience__grid">
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="community"></span></div>
+                <div class="vert-audience__card-title">Professional Associations</div>
+                <div class="vert-audience__card-desc">Industry bodies, bar associations, medical societies, and engineering councils managing thousands of credentialed members.</div>
+            </div>
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="building"></span></div>
+                <div class="vert-audience__card-title">Chambers of Commerce</div>
+                <div class="vert-audience__card-desc">Regional and national chambers connecting businesses, hosting networking events, and advocating for their members.</div>
+            </div>
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="globe"></span></div>
+                <div class="vert-audience__card-title">Chapters & Regional Networks</div>
+                <div class="vert-audience__card-desc">Local and regional chapters coordinating programming, member engagement, and reporting under a national umbrella.</div>
+            </div>
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="award"></span></div>
+                <div class="vert-audience__card-title">Certification Bodies</div>
+                <div class="vert-audience__card-desc">Organizations issuing credentials, managing CPD requirements, and delivering continuing education to licensed professionals.</div>
+            </div>
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="campus"></span></div>
+                <div class="vert-audience__card-title">Alumni Networks</div>
+                <div class="vert-audience__card-desc">University and program alumni associations running events, mentorship programs, and lifelong member engagement.</div>
+            </div>
+
+            <div class="vert-audience__card">
+                <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="corporate"></span></div>
+                <div class="vert-audience__card-title">Industry Coalitions</div>
+                <div class="vert-audience__card-desc">Cross-sector alliances and trade groups coordinating joint initiatives, research sharing, and member collaboration.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S4  THE PROBLEM
+     ═══════════════════════════════════════════ -->
+<section class="vert-problem vert--amber">
+    <div class="container">
+        <h2 class="section-headline vert-problem__headline">Your Members Are Scattered Across Five Disconnected Tools</h2>
+
+        <div class="vert-problem__grid">
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--amber">
+                    <span data-icon="liveSession"></span>
+                </div>
+                <div class="vert-problem__card-need">Conferences & Events</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--amber">Zoom + Eventbrite</div>
+                <div class="vert-problem__card-breaks">Registration on one tool, sessions on another, recordings lost in shared drives. No unified attendee experience.</div>
+            </div>
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--purple">
+                    <span data-icon="community"></span>
+                </div>
+                <div class="vert-problem__card-need">Member Engagement</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--purple">WhatsApp + Facebook Groups</div>
+                <div class="vert-problem__card-breaks">Conversations happen on third-party channels you don't own. No member directory, no structured discussions, no data.</div>
+            </div>
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--cyan">
+                    <span data-icon="course"></span>
+                </div>
+                <div class="vert-problem__card-need">Continuing Education</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--cyan">Moodle + Google Drive</div>
+                <div class="vert-problem__card-breaks">CPD courses live on a separate LMS. Completion data doesn't connect to membership status or certifications.</div>
+            </div>
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--pink">
+                    <span data-icon="speedNetworking"></span>
+                </div>
+                <div class="vert-problem__card-need">Member Networking</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--pink">LinkedIn + In-Person Only</div>
+                <div class="vert-problem__card-breaks">Networking only happens at annual meetings. Between events, members have no structured way to connect peer-to-peer.</div>
+            </div>
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--amber">
+                    <span data-icon="payment"></span>
+                </div>
+                <div class="vert-problem__card-need">Memberships & Payments</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--amber">Spreadsheets + Payment Links</div>
+                <div class="vert-problem__card-breaks">Membership tiers tracked in spreadsheets. No automated renewals, no integrated invoicing, no real-time revenue visibility.</div>
+            </div>
+
+            <div class="vert-problem__card">
+                <div class="vert-problem__card-icon vert-problem__card-icon--purple">
+                    <span data-icon="analytics"></span>
+                </div>
+                <div class="vert-problem__card-need">Reporting & Analytics</div>
+                <div class="vert-problem__card-tool vert-problem__card-tool--purple">Fragmented Data</div>
+                <div class="vert-problem__card-breaks">Board reports stitched together from six systems. No single view of member engagement, event attendance, or revenue.</div>
+            </div>
+
+        </div>
+
+        <p class="vert-problem__closing">
+            Your members see five different tools. None of them carry your brand.<br>
+            None of them connect. And none of them give you a complete picture of your membership.
+        </p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S5  USE CASES
+     ═══════════════════════════════════════════ -->
+<section class="vert-usecases vert--amber" id="use-cases">
+    <div class="container">
+        <h2 class="section-headline vert-usecases__headline">What You Can Run on Community Suite</h2>
+        <p class="vert-usecases__sub">
+            Real scenarios. Real member impact. All from one branded environment.
+        </p>
+
+        <div class="vert-usecases__grid">
+
+            <!-- UC 1 -->
+            <div class="vert-usecase">
+                <div class="vert-usecase__eyebrow">Annual Conference</div>
+                <h3 class="vert-usecase__title">Run Your Annual Conference Entirely Under Your Brand</h3>
+                <p class="vert-usecase__desc">
+                    Multi-track programming with keynotes, panels, and workshops — all live-streamed through your branded environment. Attendees register, join sessions, network in timed rounds, and access recordings on demand. No Zoom links, no third-party ticketing.
+                </p>
+                <ul class="vert-usecase__highlights">
+                    <li><span data-icon="check"></span> Multi-track session scheduling with speaker management</li>
+                    <li><span data-icon="check"></span> Speed networking rounds between sessions</li>
+                    <li><span data-icon="check"></span> Automatic recording → on-demand library</li>
+                    <li><span data-icon="check"></span> Sponsor visibility and branded session pages</li>
+                </ul>
+            </div>
+
+            <!-- UC 2 -->
+            <div class="vert-usecase">
+                <div class="vert-usecase__eyebrow">Continuing Education</div>
+                <h3 class="vert-usecase__title">Deliver CPD Programs That Track Completion Automatically</h3>
+                <p class="vert-usecase__desc">
+                    Structure continuing education courses by specialty, tier, or requirement. Members enroll, complete modules, and earn certificates — all tracked against their membership profile. No separate LMS login, no manual spreadsheet reconciliation.
+                </p>
+                <ul class="vert-usecase__highlights">
+                    <li><span data-icon="check"></span> Unlimited courses organized by specialty or tier</li>
+                    <li><span data-icon="check"></span> Completion tracking linked to member profiles</li>
+                    <li><span data-icon="check"></span> Native certificates issued on completion</li>
+                    <li><span data-icon="check"></span> Live workshops feed into on-demand course library</li>
+                </ul>
+            </div>
+
+            <!-- UC 3 -->
+            <div class="vert-usecase">
+                <div class="vert-usecase__eyebrow">Member Networking</div>
+                <h3 class="vert-usecase__title">Connect Members Peer-to-Peer Beyond the Annual Meeting</h3>
+                <p class="vert-usecase__desc">
+                    Run quarterly or monthly speed networking events where members are auto-matched in timed video rounds by specialty, region, or interest. Connections persist through professional profiles. Networking doesn't end when the event does.
+                </p>
+                <ul class="vert-usecase__highlights">
+                    <li><span data-icon="check"></span> Auto-matched timed rounds by specialty or interest</li>
+                    <li><span data-icon="check"></span> Persistent connections through member profiles</li>
+                    <li><span data-icon="check"></span> Regional or chapter-specific networking events</li>
+                    <li><span data-icon="check"></span> Post-event analytics: who connected, follow-up rates</li>
+                </ul>
+            </div>
+
+            <!-- UC 4 -->
+            <div class="vert-usecase">
+                <div class="vert-usecase__eyebrow">Member Community</div>
+                <h3 class="vert-usecase__title">Build a Year-Round Member Community Under Your Identity</h3>
+                <p class="vert-usecase__desc">
+                    Topic-based channels for committees, working groups, and special interest areas. Members engage in structured discussions, access shared resources, and stay connected between events — all under your logo, on your domain.
+                </p>
+                <ul class="vert-usecase__highlights">
+                    <li><span data-icon="check"></span> Topic channels for committees and working groups</li>
+                    <li><span data-icon="check"></span> Announcement-only channels for official comms</li>
+                    <li><span data-icon="check"></span> Member directory with professional profiles</li>
+                    <li><span data-icon="check"></span> Admin-controlled membership and role assignment</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S6  CAPABILITIES (6 alternating rows)
+     ═══════════════════════════════════════════ -->
+<section class="vert-capabilities vert--amber">
+    <div class="container">
+        <h2 class="section-headline vert-capabilities__headline">The Capabilities Behind Community Suite</h2>
+        <p class="vert-capabilities__sub">
+            Every module is built in. Every module is connected. What matters changes — the ecosystem underneath is the same.
+        </p>
+
+        <!-- Cap 1: Community & Member Engagement -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="community"></span>
+                    Community & Member Engagement
+                </div>
+                <h3 class="vert-cap__title">Your Member Community, Owned and Operated by You</h3>
+                <p class="vert-cap__desc">
+                    Topic-based channels, member directory, feeds, and admin controls — all under your brand. Members see your identity, not ours. Committees run in private channels. Announcements reach the full membership. Everything is structured, searchable, and yours.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Unlimited topic channels with role-based access</li>
+                    <li><span data-icon="check"></span> Member directory with professional profiles</li>
+                    <li><span data-icon="check"></span> Admin-controlled approval and membership tiers</li>
+                    <li><span data-icon="check"></span> Community-scoped sessions and events</li>
+                </ul>
+                <a href="community.html" class="vert-cap__link">
+                    Explore Communities <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="community"></div>
+        </div>
+
+        <!-- Cap 2: Live Sessions & Conferences -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="liveSession"></span>
+                    Live Sessions & Conferences
+                </div>
+                <h3 class="vert-cap__title">Host Expert Panels, Keynotes, and Workshops Without External Tools</h3>
+                <p class="vert-cap__desc">
+                    HD live sessions in multiple formats — panels, fireside chats, workshops — with attendee engagement tools, automatic recording, and branded session pages. Your annual conference runs entirely inside your ecosystem.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Multiple session formats: panel, workshop, fireside</li>
+                    <li><span data-icon="check"></span> Automatic recording to on-demand library</li>
+                    <li><span data-icon="check"></span> Attendee engagement: polls, Q&A, hand-raise</li>
+                    <li><span data-icon="check"></span> Session analytics and attendance tracking</li>
+                </ul>
+                <a href="live-sessions.html" class="vert-cap__link">
+                    Explore Live Sessions <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="liveSession"></div>
+        </div>
+
+        <!-- Cap 3: Speed Networking -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="speedNetworking"></span>
+                    Speed Networking
+                </div>
+                <h3 class="vert-cap__title">Member-to-Member Connections That Scale Beyond the Annual Meeting</h3>
+                <p class="vert-cap__desc">
+                    Auto-matched timed video rounds where members connect by specialty, region, or interest. Run peer exchange events monthly, quarterly, or as part of your conference programming. Connections persist through professional profiles long after the round ends.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Automatic matching by specialty or interest area</li>
+                    <li><span data-icon="check"></span> Timed rounds with seamless rotation</li>
+                    <li><span data-icon="check"></span> Persistent connections through member profiles</li>
+                    <li><span data-icon="check"></span> Round-level and event-level analytics</li>
+                </ul>
+                <a href="networking.html" class="vert-cap__link">
+                    Explore Speed Networking <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="speedNetworking"></div>
+        </div>
+        
+        <!-- Cap 4: Courses & Continuing Education -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="course"></span>
+                    Courses & LMS
+                </div>
+                <h3 class="vert-cap__title">Continuing Education That Tracks Itself</h3>
+                <p class="vert-cap__desc">
+                    Deliver structured CPD programs, certification prep, and professional development courses — organized by specialty, membership tier, or requirement. Members enroll, complete modules, earn certificates, and their progress is tracked against their profile automatically.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Unlimited courses organized by specialty or tier</li>
+                    <li><span data-icon="check"></span> Cohort gating by membership level or intake</li>
+                    <li><span data-icon="check"></span> Native certificates issued on completion</li>
+                    <li><span data-icon="check"></span> On-demand library from recorded sessions + uploads</li>
+                    <li><span data-icon="check"></span> Progress tracking linked to member profiles</li>
+                </ul>
+                <a href="courses.html" class="vert-cap__link">
+                    Explore Courses & LMS <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="courses"></div>
+        </div>
+
+        <!-- Cap 5: Consultations & Expert Booking -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="consultation"></span>
+                    Consultations & Booking
+                </div>
+                <h3 class="vert-cap__title">Let Members Book Expert Sessions Directly</h3>
+                <p class="vert-cap__desc">
+                    Enable senior members, advisors, or subject-matter experts to offer 1-to-1 or group consultation sessions with availability-based booking. Members browse, book, and pay — all inside your ecosystem. No Calendly links, no external payment flows.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Expert profiles with availability calendars</li>
+                    <li><span data-icon="check"></span> 1-to-1 and group consultation formats</li>
+                    <li><span data-icon="check"></span> Integrated payment collection per session</li>
+                    <li><span data-icon="check"></span> Session history and follow-up tracking</li>
+                    <li><span data-icon="check"></span> Expert earnings dashboard and payouts</li>
+                </ul>
+                <a href="consultations.html" class="vert-cap__link">
+                    Explore Consultations <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="consultation"></div>
+        </div>
+
+        <!-- Cap 6: Analytics & Admin -->
+        <div class="vert-cap">
+            <div class="vert-cap__copy">
+                <div class="vert-cap__badge">
+                    <span data-icon="analytics"></span>
+                    Analytics & Admin
+                </div>
+                <h3 class="vert-cap__title">One Dashboard for Your Entire Membership Operation</h3>
+                <p class="vert-cap__desc">
+                    See member engagement, event attendance, course completion, networking activity, and revenue — all in one place. Generate board reports without stitching together six systems. Bulk email members, manage roles, and track renewals from a single admin panel.
+                </p>
+                <ul class="vert-cap__highlights">
+                    <li><span data-icon="check"></span> Unified engagement dashboard across all modules</li>
+                    <li><span data-icon="check"></span> Event and session attendance reports</li>
+                    <li><span data-icon="check"></span> Course completion and CPD tracking</li>
+                    <li><span data-icon="check"></span> Revenue and membership tier analytics</li>
+                    <li><span data-icon="check"></span> Bulk email and member management tools</li>
+                </ul>
+                <a href="analytics.html" class="vert-cap__link">
+                    Explore Analytics <span data-icon="arrowRight"></span>
+                </a>
+            </div>
+            <div class="vert-cap__visual" data-illus="analytics"></div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S7  DEPLOYMENT STRIP
+     ═══════════════════════════════════════════ -->
+<section class="vert-deploy vert--amber">
+    <div class="container">
+        <h2 class="section-headline vert-deploy__headline">What's Included in Your Community Suite</h2>
+        <p class="vert-deploy__sub">
+            Everything your organization needs to run a complete member experience — configured and deployed under your brand.
+        </p>
+
+        <div class="vert-deploy__checklist">
+            <span class="vert-deploy__check"><span data-icon="check"></span> Custom domain</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Your logo & colors</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Member communities</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Live sessions</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Speed networking</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Courses & LMS</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Member directory</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Payments & memberships</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Forms & registration</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Analytics dashboard</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Arabic & RTL support</span>
+            <span class="vert-deploy__check"><span data-icon="check"></span> Guided onboarding</span>
+        </div>
+
+        <div class="vert-deploy__pillars">
+            <div class="vert-deploy__pillar">
+                <div class="vert-deploy__pillar-num">01</div>
+                <div class="vert-deploy__pillar-title">Get Ready</div>
+                <div class="vert-deploy__pillar-desc">We configure your Suite together — community structure, branding, member tiers, session templates. Ready in two weeks.</div>
+            </div>
+            <div class="vert-deploy__pillar">
+                <div class="vert-deploy__pillar-num">02</div>
+                <div class="vert-deploy__pillar-title">Go Live</div>
+                <div class="vert-deploy__pillar-desc">First members onboarded, first community channels active, first live session hosted. We're with you through launch.</div>
+            </div>
+            <div class="vert-deploy__pillar">
+                <div class="vert-deploy__pillar-num">03</div>
+                <div class="vert-deploy__pillar-title">First Win</div>
+                <div class="vert-deploy__pillar-desc">First measurable outcome — member engagement up, event attendance tracked, CPD completion visible. Expansion starts here.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     S8  PARTNER OPPORTUNITY (shared component)
+     ═══════════════════════════════════════════ -->
+<hr class="vert-partner__divider">
+<section id="partner-block"></section>
+
+<!-- ═══════════════════════════════════════════
+     S9  CTA
+     ═══════════════════════════════════════════ -->
+<section id="book-demo" data-headline="Ready to deploy your Community Suite?" data-sub="Tell us about your organization and your members. We'll show you how Suite brings it all together."></section>
+
+<!-- Footer -->
+<footer class="suite-footer" id="suite-footer"></footer>
+
+<!-- Mobile CTA bar -->
+<div class="mobile-cta" id="mobile-cta"></div>
+
+<!-- Scripts -->
+<script src="../assets/suite-icons.js"></script>
+<script src="../assets/suite-illustrations.js"></script>
+<script src="../assets/suite-nav.js"></script>
+<script src="../assets/suite-partner-block.js"></script>
+
+<!-- Icon + Illustration injection -->
+<script>
+document.querySelectorAll('[data-icon]').forEach(function(el){
+    var k = el.getAttribute('data-icon');
+    if(typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[k]) el.innerHTML = SUITE_ICONS[k];
+});
+document.querySelectorAll('[data-illus]').forEach(function(el){
+    var k = el.getAttribute('data-illus');
+    if(typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[k]) el.innerHTML = SUITE_ILLUSTRATIONS[k];
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultations &amp; Booking — BrainsMingle Suite</title>
+  <meta name="description" content="Expert booking pages, availability management, built-in video calls, and integrated payments — all inside your deployment. Explore the full consultation capability inside BrainsMingle Suite.">
+  <link rel="stylesheet" href="../assets/suite-tokens.css">
+  <link rel="stylesheet" href="../assets/suite-common.css">
+  <link rel="stylesheet" href="../assets/suite-solution.css">
+</head>
+<body>
+
+  <header id="suite-nav" class="suite-nav"></header>
+
+  <!-- ============================
+     HERO
+     ============================ -->
+  <section class="sol-hero sol--purple">
+    <div class="glow" style="background:var(--purple);top:-180px;left:30%;"></div>
+    <div class="container sol-hero__content">
+      <a href="capabilities.html" class="sol-hero__back">
+        <span data-icon="arrowLeft"></span>
+        All Capabilities
+      </a>
+      <div class="sol-hero__icon" data-icon="consultation"></div>
+      <h1 class="sol-hero__title">Consultations &amp; Booking</h1>
+      <p class="sol-hero__headline">Expert access without the tool sprawl.</p>
+      <p class="sol-hero__sub">Booking pages, availability management, video calls, and payment collection — all inside the deployment. Not Calendly plus Stripe plus Zoom stitched together. One integrated consultation environment, under your identity, with nothing to configure externally.</p>
+    </div>
+  </section>
+
+  <!-- ============================
+     OVERVIEW STRIP
+     ============================ -->
+  <section class="sol-overview">
+    <div class="container">
+      <div class="sol-overview__grid">
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--purple" data-icon="calendar"></span>
+          </div>
+          <div class="sol-overview__label">Availability Management</div>
+          <div class="sol-overview__desc">Timezone scheduling with flexible time ranges</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--cyan" data-icon="video"></span>
+          </div>
+          <div class="sol-overview__label">Built-in Video</div>
+          <div class="sol-overview__desc">Native video calls — no external meeting links</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+           <span class="icon icon--pink" data-icon="payment"></span>
+          </div>
+          <div class="sol-overview__label">Integrated Payments</div>
+          <div class="sol-overview__desc">Dual currency pricing with automatic collection</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--amber" data-icon="requestconfig"></span>
+          </div>
+          <div class="sol-overview__label">Request Management</div>
+          <div class="sol-overview__desc">Accept, decline, and track every booking</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+     FEATURE SECTIONS
+     ============================ -->
+  <section class="sol-features sol--purple">
+    <div class="container">
+
+      <!-- F1: Create Consultation Services -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Service Creation</div>
+          <h2 class="sol-feature__title">Define what you offer in one form.</h2>
+          <p class="sol-feature__desc">Create consultation services with a title, description, and duration. Offer them free or set a price — toggle between a complimentary discovery call and a paid deep-dive without creating separate tools or pages. Each service lives on the expert's profile, ready to accept bookings.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Free or paid</strong> — toggle pricing on or off per service. Run a free intro call alongside a paid strategy session.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Flexible duration</strong> — set each service to match its format: 30-minute check-ins, 60-minute deep dives, or custom lengths.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Unlimited services</strong> — create as many service types as your experts need.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/consultation_06.png" alt="The Consultation Services dashboard showing two active services — a free Discovery Call and a paid Career Consultation at $150 — with availability settings configured">
+          <div class="sol-feature__media-caption">Two services created — a free discovery call and a paid consultation</div>
+        </div>
+      </div>
+
+      <!-- F2: Availability Management -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Availability</div>
+          <h2 class="sol-feature__title">Set your hours once. The platform handles the rest.</h2>
+          <p class="sol-feature__desc">Experts set their weekly availability by day and time range, in their own timezone. Add multiple ranges per day to block out breaks. Clients see only the available slots — no back-and-forth scheduling emails, no calendar sync required.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Timezone-aware</strong> — experts set availability in their timezone; clients see times in theirs.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Multiple time ranges</strong> — split a day into morning and afternoon blocks to protect breaks.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Day-by-day control</strong> — toggle each day on or off independently.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media sol-feature__media--compact">
+          <img src="../images/consultation_02-2.png" alt="Availability settings showing Sunday with two time ranges (9 AM to 12 PM and 2 PM to 5 PM) and Monday with one time range">
+          <div class="sol-feature__media-caption">Weekly availability — multiple time ranges per day with timezone selection</div>
+        </div>
+      </div>
+
+      <!-- F3: Visibility & Discovery -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Visibility Control</div>
+          <h2 class="sol-feature__title">Control exactly who finds each service.</h2>
+          <p class="sol-feature__desc">Three visibility levels give experts precise control over who can discover and book their services. Run a public offering alongside a private service reserved for specific clients — from the same dashboard, with no additional setup.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Public</strong> — anyone can find and book the service through search and discovery.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Profile</strong> — only visible on the expert's profile page. Not searchable.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Private</strong> — only accessible via direct link. Shared selectively with specific clients.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media sol-feature__media--compact">
+          <img src="../images/consultation_05.png" alt="The three visibility options for a consultation service: Public, Profile, and Private, each with a description of who can access the service">
+          <div class="sol-feature__media-caption">Three visibility levels — Public, Profile, and Private</div>
+        </div>
+      </div>
+
+      <!-- F4: Dual Currency Pricing -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Pricing</div>
+          <h2 class="sol-feature__title">Price in USD, EGP, or both.</h2>
+          <p class="sol-feature__desc">Set consultation pricing in one currency or two. Clients pay in the currency that fits them — no currency conversion plugins, no regional payment workarounds. The pricing model adapts to your deployment's market without any external configuration.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Dual currency</strong> — USD and EGP pricing on the same service, set independently.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Client-side selection</strong> — the client pays in whichever currency suits them at checkout.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Automatic collection</strong> — payments are processed at booking. No invoices. No chasing.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media sol-feature__media--compact">
+          <img src="../images/consultation_04.png" alt="The New Consultation Service modal showing pricing fields with the free service toggle disabled and a price of $150 USD">
+          <div class="sol-feature__media-caption">Service pricing — set a fee in USD, EGP, or both</div>
+        </div>
+      </div>
+
+      <!-- F5: Request Management -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Booking Requests</div>
+          <h2 class="sol-feature__title">Every request, reviewed and responded to in one place.</h2>
+          <p class="sol-feature__desc">When a client books a consultation, the request appears in the expert's <strong>Client Requests</strong> tab with full details — service, date, time, and the client's message. Accept with a personalized response and the session page is created automatically. Decline with a note and the client is notified instantly.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Accept or decline</strong> — respond to each request with a personal message visible to the client.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Auto-generated session</strong> — accepted requests create a session page and Add to Calendar link.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Status tracking</strong> — Pending, Accepted, and Rejected statuses visible at a glance.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/consultations_requests_list_updated.png" alt="The Client Requests tab showing three requests with mixed statuses: one Pending, one Accepted with Go to session page and Add to Calendar buttons, and one Rejected">
+          <div class="sol-feature__media-caption">Client Requests — Pending, Accepted, and Rejected statuses in one view</div>
+        </div>
+      </div>
+
+      <!-- F6: Booking Tracking -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">My Bookings</div>
+          <h2 class="sol-feature__title">Track every consultation you've booked, too.</h2>
+          <p class="sol-feature__desc">The consultation flow works both ways. When a user books a session with another expert, it appears in their <strong>My Bookings</strong> tab with full details and real-time status updates. Accepted bookings surface session links and calendar integration — no separate tracking tool needed.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Two-way visibility</strong> — experts manage incoming requests; clients track outgoing bookings.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Real-time status</strong> — see the moment an expert accepts or declines your request.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Session access</strong> — accepted bookings link directly to the session page and calendar event.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/consultations_bookings_list_updated.png" alt="The My Bookings tab showing three bookings with mixed statuses: one Pending, one Accepted with session page and calendar links, and one Rejected">
+          <div class="sol-feature__media-caption">My Bookings — track outgoing consultation requests and their statuses</div>
+        </div>
+      </div>
+
+      <!-- F7: Earnings & Payouts -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Earnings &amp; Payouts</div>
+          <h2 class="sol-feature__title">Earn from expertise. Get paid directly.</h2>
+          <p class="sol-feature__desc">Every paid consultation flows into the expert's earnings dashboard — total earnings, available balance, pending payouts, and completed transfers in one view. Connect Stripe once and payouts go directly to the bank account. No manual invoicing. No payment reconciliation.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Earnings dashboard</strong> — Total Earnings, Available for Payout, Pending, and Completed in real time.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>One-time Stripe setup</strong> — connect once, receive payouts automatically to your bank account.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Revenue share</strong> — experts retain 85–90% of every consultation fee.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/profile_02.png" alt="The My Earnings dashboard showing Total Earnings, Available for Payout, Pending Payout, and Completed Payouts, with Connect Stripe and quick action buttons">
+          <div class="sol-feature__media-caption">Earnings dashboard — metrics, Stripe connection, and quick actions</div>
+        </div>
+      </div>
+
+      <!-- F8: Social Sharing -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Promotion</div>
+          <h2 class="sol-feature__title">Share your services where your audience already is.</h2>
+          <p class="sol-feature__desc">Every expert's services page includes built-in share buttons for X, LinkedIn, and a direct link copy. No separate landing page builder. No link-in-bio tool. The consultation profile is the landing page — share it directly from the dashboard.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>One-click sharing</strong> — share to X, LinkedIn, or copy the direct link from the services dashboard.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Profile is the landing page</strong> — clients land on the expert's profile, see services, and book directly.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Public profile link</strong> — copy and share your profile URL anywhere to drive bookings.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/profile_01.png" alt="The profile page showing bio, consultation services, availability settings, and share buttons under the Services tab">
+          <div class="sol-feature__media-caption">Expert profile — services, availability, and social sharing in one page</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+     RELATED CAPABILITIES
+     ============================ -->
+  <section class="sol-related">
+    <div class="container">
+      <h2 class="sol-related__headline">Related capabilities</h2>
+      <div class="sol-related__grid">
+        <a href="live-sessions.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+           <span class="icon icon--purple" data-icon="liveSession"></span>
+          </div>
+          <div class="sol-related__card-title">Live Sessions &amp; Webinars</div>
+          <div class="sol-related__card-desc">Workshops, panels, webinars, and drop-in calls — all recorded and on-demand.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+        <a href="community.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+           <span class="icon icon--pink" data-icon="community"></span>
+          </div>
+          <div class="sol-related__card-title">Communities</div>
+          <div class="sol-related__card-desc">Branded spaces with topic channels, member directories, roles, and admin controls.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+        <a href="networking.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+            <span class="icon icon--amber" data-icon="speedNetworking"></span>
+          </div>
+          <div class="sol-related__card-title">Speed Networking</div>
+          <div class="sol-related__card-desc">Automated matchmaking pairs the right people at the right moment.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+     CTA
+     ============================ -->
+  <section id="book-demo"
+    data-headline="Ready to deploy expert consultations under your brand?"
+    data-sub="Book a demo and we'll show you Consultations & Booking configured for your organization."></section>
+
+  <footer id="suite-footer" class="suite-footer"></footer>
+  <div id="mobile-cta" class="mobile-cta"></div>
+
+  <script src="../assets/suite-icons.js"></script>
+  <script>
+(function () {
+  document.querySelectorAll('[data-icon]').forEach(function (el) {
+    var key = el.getAttribute('data-icon');
+    if (SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
+  });
+})();
+</script>
+
+  <script src="../assets/suite-nav.js"></script>
+</body>
+</html>

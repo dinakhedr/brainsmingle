@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campus Suite — BrainsMingle Suite</title>
+    <meta name="description" content="A fully configured professional ecosystem for universities, EdTech providers, student organizations, and career centers. Deliver courses, host lectures, connect students with alumni, and build lasting campus communities — all under your brand.">
+    <link rel="stylesheet" href="../assets/suite-tokens.css">
+    <link rel="stylesheet" href="../assets/suite-common.css">
+    <link rel="stylesheet" href="../assets/suite-vertical.css">
+    <link rel="stylesheet" href="../assets/suite-partner-block.css">
+</head>
+
+<body>
+
+    <header id="suite-nav" class="suite-nav"></header>
+
+    <!-- ============================
+     S1: HERO — centered, with background motif
+     ============================ -->
+    <section class="vert-hero vert--cyan">
+        <div class="glow" style="background:var(--cyan);top:-180px;left:50%;transform:translateX(-50%);"></div>
+        <div class="glow" style="background:var(--purple);top:60%;left:70%;width:400px;height:400px;opacity:0.06;"></div>
+        <!-- Large faded campus icon as background motif -->
+        <div class="vert-hero__motif" data-icon="campus"></div>
+        <div class="container vert-hero__content">
+            <div class="vert-hero__tag">
+                <span data-icon="campus"></span>
+                Campus Suite
+            </div>
+            <h1 class="vert-hero__title">Your Students Deserve Their Own Professional Home</h1>
+            <p class="vert-hero__sub">A fully configured professional ecosystem for universities, EdTech providers, student organizations, and career centers. Deliver courses, host guest lectures, run career fairs, connect students with alumni, and build lasting campus communities — all under your identity.</p>
+            <div class="vert-hero__cta">
+                <a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>
+                <a href="#use-cases" class="btn btn--secondary btn--lg">What You Can Do <span data-icon="arrowRight"></span></a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S2: CLIENT LOGOS
+     ============================ -->
+    <section class="vert-logos">
+        <div class="container">
+            <div class="vert-logos__label">Trusted by institutions building the next generation of professionals</div>
+            <div class="vert-logos__strip">
+                <span class="vert-logos__item">UNIVERSITY HUB</span>
+                <span class="vert-logos__item">CAMPUS NETWORK</span>
+                <span class="vert-logos__item">EDTECH INSTITUTE</span>
+                <span class="vert-logos__item">CAREER CENTER</span>
+                <span class="vert-logos__item">ALUMNI CONNECT</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S3: WHO IT'S BUILT FOR
+     ============================ -->
+    <section class="vert-audience vert--cyan">
+        <div class="container">
+            <h2 class="heading-lg vert-audience__headline">Built for the Entire Campus Ecosystem</h2>
+            <div class="vert-audience__grid">
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--cyan" data-icon="school"></span></div>
+                    <div class="vert-audience__card-title">Universities</div>
+                    <div class="vert-audience__card-desc">Deliver courses, host faculty sessions, and build student communities under one branded roof.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--purple" data-icon="edtech"></span></div>
+                    <div class="vert-audience__card-title">EdTech Providers</div>
+                    <div class="vert-audience__card-desc">Package structured learning with live instruction, community, and certifications at scale.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--pink" data-icon="community"></span></div>
+                    <div class="vert-audience__card-title">Student Organizations</div>
+                    <div class="vert-audience__card-desc">Run clubs, host events, and keep members engaged beyond campus walls.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="path"></span></div>
+                    <div class="vert-audience__card-title">Career Centers</div>
+                    <div class="vert-audience__card-desc">Connect students with employers through career fairs, workshops, and speed networking.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--cyan" data-icon="campus"></span></div>
+                    <div class="vert-audience__card-title">Alumni Networks</div>
+                    <div class="vert-audience__card-desc">Keep graduates connected, engaged, and giving back through a living professional community.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--purple" data-icon="userpaid"></span></div>
+                    <div class="vert-audience__card-title">Faculty & Departments</div>
+                    <div class="vert-audience__card-desc">Host guest lectures, run seminars, and share recorded content across programs.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S4: THE PROBLEM — with icons and accent colors
+     ============================ -->
+    <section class="vert-problem">
+        <div class="container">
+            <h2 class="heading-lg vert-problem__headline">Your campus runs on too many tools. None of them talk to each other.</h2>
+            <div class="vert-problem__grid">
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--cyan" data-icon="course"></div>
+                    <div class="vert-problem__card-need">Course Delivery</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--cyan">Moodle / Blackboard</div>
+                    <div class="vert-problem__card-breaks">No live interaction, no community layer, no connection to career services. Just files and quizzes.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--purple" data-icon="liveSession"></div>
+                    <div class="vert-problem__card-need">Guest Lectures</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--purple">Zoom / Teams</div>
+                    <div class="vert-problem__card-breaks">No brand presence, no recording library, no attendee data you own. Another generic link.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--pink" data-icon="community"></div>
+                    <div class="vert-problem__card-need">Student Groups</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--pink">WhatsApp / Discord</div>
+                    <div class="vert-problem__card-breaks">No admin controls, no structure, no institutional ownership. Conversations disappear with each graduating class.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--amber" data-icon="speedNetworking"></div>
+                    <div class="vert-problem__card-need">Career Fairs</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--amber">Handshake / Spreadsheets</div>
+                    <div class="vert-problem__card-breaks">Manual scheduling, no live video matching, no post-event connection tracking. One-off and forgettable.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--cyan" data-icon="chat"></div>
+                    <div class="vert-problem__card-need">Advising & Counseling</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--cyan">Email / Calendly</div>
+                    <div class="vert-problem__card-breaks">No integrated video, no booking page, no session history. Manual and invisible.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--purple" data-icon="calendar"></div>
+                    <div class="vert-problem__card-need">Alumni Events</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--purple">Eventbrite / Google Forms</div>
+                    <div class="vert-problem__card-breaks">No community persistence, no networking layer, no ongoing engagement. Register, attend, forget.</div>
+                </div>
+
+            </div>
+            <p class="vert-problem__closing">Every tool you add is a connection you lose. Student engagement stays one-directional. Career outcomes stay unmeasured. You're managing logistics, not building an ecosystem.</p>
+        </div>
+    </section>
+
+    <!-- ============================
+     S5: USE CASES — with cyan left-border accent
+     ============================ -->
+    <section class="vert-usecases vert--cyan" id="use-cases">
+        <div class="container">
+            <h2 class="heading-lg vert-usecases__headline">What you can do with Campus Suite</h2>
+            <p class="vert-usecases__sub">Concrete scenarios, not abstract benefits. Here's how institutions like yours use it every day.</p>
+            <div class="vert-usecases__grid">
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Student Communities</div>
+                    <h3 class="vert-usecase__title">Organized by faculty, program, or interest</h3>
+                    <p class="vert-usecase__desc">Each department, club, or cohort gets its own community space with channels, feeds, and admin controls. Communities persist across semesters, your institutional knowledge compounds instead of disappearing with each graduating class.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Department-specific and club-specific community spaces</li>
+                       <li><span data-icon="check"></span>Admin controls with member approval and role assignment</li>
+                       <li><span data-icon="check"></span>Alumni channel that grows with every graduating class</li>
+                    
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Career Readiness</div>
+                    <h3 class="vert-usecase__title">Speed networking with employers at scale</h3>
+                    <p class="vert-usecase__desc">Run virtual career fairs where students are auto-matched with recruiters and employers in timed 1-to-1 video rounds. Thousands of connections — zero manual coordination. Every connection persists in professional profiles.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Algorithm-driven pairing: student ↔ employer, student ↔ alumni</li>
+                        <li><span data-icon="check"></span>Timed rotations — every participant meets multiple people</li>
+                        <li><span data-icon="check"></span>Runs entirely inside your branded ecosystem</li>
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Faculty Sessions</div>
+                    <h3 class="vert-usecase__title">Guest lectures and seminars under your brand</h3>
+                    <p class="vert-usecase__desc">Host live workshops, guest lectures, and panel discussions with HD streaming. Every session is auto-recorded and added to your on-demand library — building an institutional knowledge base that scales across semesters.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>HD streaming for lectures, panels, and workshops</li>
+                        <li><span data-icon="check"></span>Auto-recorded — every session becomes on-demand content</li>
+                        <li><span data-icon="check"></span>Community-scoped sessions for specific departments or clubs</li>
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Course Delivery</div>
+                    <h3 class="vert-usecase__title">Structured learning with cohort access control</h3>
+                    <p class="vert-usecase__desc">Deliver unlimited courses gated by program, semester, or enrollment. Package recorded lectures alongside uploaded material into a scalable learning library that students access on demand.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Unlimited courses, no per-course fees</li>
+                        <li><span data-icon="check"></span>Live session replays auto-added to on-demand library</li>
+                        <li><span data-icon="check"></span>Completion tracking and progress analytics per cohort</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S6: CAPABILITIES — with inline SVG illustrations
+     ============================ -->
+    <section class="vert-capabilities vert--cyan">
+        <div class="container">
+            <h2 class="heading-lg vert-capabilities__headline">Everything your campus needs. Connected.</h2>
+            <p class="vert-capabilities__sub">The same capability stack that powers every Suite deployment — reframed for the education world.</p>
+
+            <!-- C1: Courses & LMS -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__badge"><span data-icon="course"></span> The backbone of campus learning</div>
+                    <h3 class="vert-cap__title">Courses & LMS</h3>
+                    <p class="vert-cap__desc">Unlimited structured courses delivered under your brand. Gate content by program, semester, or enrollment tier. Package recorded lectures alongside uploaded material. Everything your institution builds becomes a scalable, on-demand learning library.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Unlimited courses — every department, every program, no cap</li>
+                        <li><span data-icon="check"></span>On-demand library — live replays + uploaded content, fully organized</li>
+                        <li><span data-icon="check"></span>Cohort access control — gate content by program or enrollment</li>
+                    </ul>
+                    <a href="courses.html" class="vert-cap__link">Explore Courses &amp; LMS <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="courses"></div>
+            </div>
+
+            <!-- C2: Community -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Community</div>
+                    <h3 class="vert-cap__title">Where your students actually belong.</h3>
+                    <p class="vert-cap__desc">Dedicated spaces for every department, club, cohort, and alumni network. Your community persists across semesters — branded, structured, and alive. Not a group chat that disappears when students graduate.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Unlimited communities by department, club, or interest</li>
+                        <li><span data-icon="check"></span>Admin controls — approve members, assign roles, manage from one dashboard</li>
+                        <li><span data-icon="check"></span>Community-scoped sessions — private events for a single group</li>
+                    </ul>
+                    <a href="community.html" class="vert-cap__link">Explore Communities <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="community"></div>
+            </div>
+
+            <!-- C3: Speed Networking -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__badge"><span data-icon="speedNetworking"></span> The feature no one else has</div>
+                    <h3 class="vert-cap__title">Speed Networking</h3>
+                    <p class="vert-cap__desc">Automated, algorithm-driven 1-to-1 video matching in timed rounds. Run it during career fairs, orientation weeks, or alumni reunions. Match students with employers, alumni, or peers — no competitor does this natively inside a branded deployment.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Student ↔ Employer, Student ↔ Alumni, Peer ↔ Peer</li>
+                        <li><span data-icon="check"></span>Thousands of structured, timed rounds — zero coordination</li>
+                        <li><span data-icon="check"></span>Connections persist in professional profiles after the event</li>
+                    </ul>
+                    <a href="networking.html" class="vert-cap__link">Explore Speed Networking <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="speedNetworking"></div>
+            </div>
+
+            <!-- C4: Live Sessions -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Live Sessions</div>
+                    <h3 class="vert-cap__title">Your lectures. Your brand. No detours.</h3>
+                    <p class="vert-cap__desc">HD streaming for guest lectures, panels, orientation sessions, and career workshops. Instant rooms spin up in seconds. Every session is recorded automatically and added to your on-demand library.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>HD streaming — no external tools, no quality compromise</li>
+                       <li><span data-icon="check"></span>Instant rooms for breakouts or unplanned discussions</li>
+                       <li><span data-icon="check"></span>Automatic recording — every lecture becomes an on-demand asset</li>
+                    </ul>
+                    <a href="live-sessions.html" class="vert-cap__link">Explore Live Sessions <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="liveSession"></div>
+            </div>
+
+            <!-- C5: Consultations & Booking -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Consultations & Booking</div>
+                    <h3 class="vert-cap__title">Career counseling and academic advising, built in.</h3>
+                    <p class="vert-cap__desc">Open a direct channel between students and advisors, career counselors, or alumni mentors. Scheduling, video, and tracking in one flow. Students browse profiles, book sessions, and attend — no Calendly, no email threads.</p>
+                    <ul class="vert-cap__highlights">
+                       <li><span data-icon="check"></span>Advisors set availability, students book directly</li>
+                       <li><span data-icon="check"></span>Integrated video call — no third-party friction</li>
+                       <li><span data-icon="check"></span>Full advisor roster — profile, booking page, video, session history</li>
+                    </ul>
+                    <a href="consultations.html" class="vert-cap__link">Explore Consultations <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="consultation"></div>
+            </div>
+
+            <!-- C6: Analytics -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Analytics</div>
+                    <h3 class="vert-cap__title">See exactly what's working.</h3>
+                    <p class="vert-cap__desc">Not vanity metrics — real engagement data. Know who's active, which sessions drive retention, which advisors students book most. Manage with data, not guesswork.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Student activity — who's engaged, dropping off, or needs re-activation</li>
+                       <li><span data-icon="check"></span>Session performance — attendance, watch time, engagement per session</li>
+                        <li><span data-icon="check"></span>Course completion — progress tracking across programs and semesters</li>
+                    </ul>
+                    <a href="analytics.html" class="vert-cap__link">Explore Analytics <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="analytics"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================
+     S7: DEPLOYMENT STRIP — accent-tinted pills
+     ============================ -->
+    <section class="vert-deploy vert--cyan">
+        <div class="container">
+            <h2 class="heading-lg vert-deploy__headline">A Complete Deployment. Configured for You.</h2>
+            <p class="vert-deploy__sub">We don't hand you a platform and leave. We build your ecosystem with you — then hand you the keys.</p>
+            <div class="vert-deploy__checklist">
+                <span class="vert-deploy__check"><span data-icon="check"></span> Live Sessions &amp; Instant Rooms</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Courses &amp; LMS</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Community Spaces</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Speed Networking</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> 1-to-1 Consultations &amp; Booking</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Payments &amp; Revenue Dashboard</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Analytics &amp; Member Insights</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Arabic / RTL Support</span> 
+                <span class="vert-deploy__check"><span data-icon="check"></span> Forms &amp; Registration</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span> Custom Domain &amp; Branding</span>
+            </div>
+            <div class="vert-deploy__pillars">
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">01</div>
+                    <div class="vert-deploy__pillar-title">Your Branded Home</div>
+                    <div class="vert-deploy__pillar-desc">Custom domain, your logo, your colors. Your students never see BrainsMingle — they see you.</div>
+                </div>
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">02</div>
+                    <div class="vert-deploy__pillar-title">Guided Onboarding</div>
+                    <div class="vert-deploy__pillar-desc">We configure your communities, course structure, and session templates before launch — with you, not for you.</div>
+                </div>
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">03</div>
+                    <div class="vert-deploy__pillar-title">Ongoing Support</div>
+                    <div class="vert-deploy__pillar-desc">Dedicated support from a team that understands your market — not a global ticketing queue.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S8: PARTNER OPPORTUNITY — built by suite-partner-block.js
+     ============================ -->
+    <hr class="vert-partner__divider" style="border:none;border-top:1px solid var(--border);margin:0;">
+    <section id="partner-block"></section>
+
+    <!-- ============================
+     S9: CTA
+     ============================ -->
+    <section id="book-demo" data-headline="Ready to deploy Campus Suite?" data-sub="Tell us what you're building. We'll show you a live deployment configured for your institution, your programs, and your goals."></section>
+
+    <footer id="suite-footer" class="suite-footer"></footer>
+    <div id="mobile-cta" class="mobile-cta"></div>
+
+    <script src="../assets/suite-icons.js"></script>
+    <script src="../assets/suite-illustrations.js"></script>
+    <script>
+        (function() {
+            document.querySelectorAll('[data-icon]').forEach(function(el) {
+                var key = el.getAttribute('data-icon');
+                if (typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
+            });
+            document.querySelectorAll('[data-illus]').forEach(function(el) {
+                var key = el.getAttribute('data-illus');
+                if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[key]) el.innerHTML = SUITE_ILLUSTRATIONS[key];
+            });
+        })();
+    </script>
+    <script src="../assets/suite-partner-block.js"></script>
+    <script src="../assets/suite-nav.js"></script>
+</body>
+
+</html>

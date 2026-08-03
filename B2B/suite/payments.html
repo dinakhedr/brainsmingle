@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payments & Earnings — BrainsMingle Suite</title>
+  <meta name="description" content="Charge for sessions, memberships, and consultations in USD or EGP. Manage coupons, track earnings, and receive payouts through Stripe — all inside BrainsMingle Suite.">
+  <link rel="stylesheet" href="../assets/suite-tokens.css">
+  <link rel="stylesheet" href="../assets/suite-common.css">
+  <link rel="stylesheet" href="../assets/suite-solution.css">
+</head>
+<body>
+
+  <header id="suite-nav" class="suite-nav"></header>
+
+  <!-- ============================
+     HERO
+     ============================ -->
+  <section class="sol-hero sol--amber">
+    <div class="glow" style="background:var(--amber);top:-180px;left:30%;"></div>
+    <div class="container sol-hero__content">
+      <a href="capabilities.html" class="sol-hero__back">
+        <span data-icon="arrowLeft"></span>
+        All Capabilities
+      </a>
+      <div class="sol-hero__icon" data-icon="payment"></div>
+      <h1 class="sol-hero__title">Payments &amp; Earnings</h1>
+      <p class="sol-hero__headline">Earn from every session, membership, and consultation — no third-party payment tools.</p>
+      <p class="sol-hero__sub">Set prices in USD, EGP, or both. Collect payments through Stripe, track your revenue in real time, create targeted discount codes, and receive payouts directly to your bank account. Everything runs inside your branded environment.</p>
+    </div>
+  </section>
+
+  <!-- ============================
+     OVERVIEW STRIP
+     ============================ -->
+  <section class="sol-overview">
+    <div class="container">
+      <div class="sol-overview__grid">
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--amber" data-icon="payment"></span>
+          </div>
+          <div class="sol-overview__label">Dual Currency</div>
+          <div class="sol-overview__desc">Price in USD, EGP, or both at once</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+           <span class="icon icon--purple" data-icon="userpaid"></span>
+          </div>
+          <div class="sol-overview__label">Paid Memberships</div>
+          <div class="sol-overview__desc">Monthly &amp; yearly billing with auto-savings</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--cyan" data-icon="coupon"></span>
+          </div>
+          <div class="sol-overview__label">Native Coupons</div>
+          <div class="sol-overview__desc">Scoped discounts with usage tracking</div>
+        </div>
+        <div class="sol-overview__item">
+          <div class="sol-overview__icon">
+            <span class="icon icon--pink" data-icon="analytics"></span>
+          </div>
+          <div class="sol-overview__label">Earnings Dashboard</div>
+          <div class="sol-overview__desc">Revenue, payouts, and balance at a glance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+     FEATURE SECTIONS
+     ============================ -->
+  <section class="sol-features sol--amber">
+    <div class="container">
+
+      <!-- F1: Paid Sessions & Rooms -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Paid Sessions &amp; Rooms</div>
+          <h2 class="sol-feature__title">Charge for any session with one toggle.</h2>
+          <p class="sol-feature__desc">Set a ticket price when creating a video session or speed networking room. Toggle from Free to Paid, enter your price, and the platform handles payment collection. Attendees pay before they join — you see the net amount after the platform fee.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Dual currency</strong> — set prices in USD, EGP, or both. Attendees pay in the currency that fits them.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Transparent fees</strong> — the net amount you receive per attendee is displayed below the price field.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Video sessions &amp; networking rooms</strong> — the same pricing flow works for both session types.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/video_create_step_06.png" alt="Paid Access enabled showing a price field in USD with the 10% platform fee note">
+          <div class="sol-feature__media-caption">Paid Access enabled — price field with net earnings breakdown</div>
+        </div>
+      </div>
+
+      <!-- F2: Paid Memberships -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Paid Memberships</div>
+          <h2 class="sol-feature__title">Charge a subscription for your community.</h2>
+          <p class="sol-feature__desc">Enable paid membership when creating or editing a community. Set a monthly price, optionally offer a yearly plan at a discount, and the platform handles recurring billing. Members see the savings percentage automatically calculated.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Monthly billing</strong> — set a recurring monthly price in USD.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Yearly billing</strong> — offer an annual option with automatic savings display (e.g., "Save 17%").</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Update anytime</strong> — change pricing from community settings. Existing members keep their current billing cycle until renewal.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/community_create_04.png" alt="The Create Space dialog with yearly billing enabled, showing a Monthly Price of $20, a Yearly Price of $200, and a Save 17% label">
+          <div class="sol-feature__media-caption">Paid membership — monthly and yearly billing with automatic savings calculation</div>
+        </div>
+      </div>
+
+      <!-- F3: Stripe Integration -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Stripe Integration</div>
+          <h2 class="sol-feature__title">Connect once, get paid automatically.</h2>
+          <p class="sol-feature__desc">Link your Stripe account in under two minutes. Select your country, complete Stripe's verification, and you're set. Payouts for paid sessions, consultations, and memberships are deposited directly to your bank account — no manual invoicing, no chasing payments.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>One-time setup</strong> — connect Stripe once from the My Earnings page and you're ready to receive payouts.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Global coverage</strong> — available in all Stripe-supported countries.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Direct deposit</strong> — payouts go straight to your bank account after verification.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media sol-feature__media--compact">
+          <img src="../images/profile_04.png" alt="The Set Up Payouts modal showing country selection, security information, and Connect Stripe button">
+          <div class="sol-feature__media-caption">The Set Up Payouts modal — select your country and connect Stripe</div>
+        </div>
+      </div>
+
+      <!-- F4: Earnings Dashboard -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Earnings Dashboard</div>
+          <h2 class="sol-feature__title">See everything you've earned in one place.</h2>
+          <p class="sol-feature__desc">The My Earnings page shows four real-time metrics: Total Earnings, Available for Payout, Pending Payout, and Completed Payouts. From the same page, create a paid room or offer a consultation — two clicks to start generating revenue.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Four key metrics</strong> — lifetime earnings, available balance, pending payouts, and completed transfers.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Quick actions</strong> — create a paid room or offer a consultation directly from the dashboard.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Payout status</strong> — track exactly where each payout is in the process.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/profile_02.png" alt="The My Earnings dashboard showing Total Earnings, Available for Payout, Pending Payout, and Completed Payouts, with Connect Stripe and Create Paid Room buttons">
+          <div class="sol-feature__media-caption">The My Earnings dashboard — four metrics and quick actions</div>
+        </div>
+      </div>
+
+      <!-- F5: Coupons -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Native Coupons</div>
+          <h2 class="sol-feature__title">Create targeted discounts with full control.</h2>
+          <p class="sol-feature__desc">Build discount codes scoped to specific rooms, consultations, or communities — or apply them across everything. Set a percentage discount, limit redemptions, define start and end dates, and track usage in real time. Activate or deactivate any coupon instantly.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Granular scoping</strong> — apply to all items, all rooms, all consultations, all communities, or pick specific ones.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Date ranges</strong> — set validity windows or leave open for indefinite use.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Usage tracking</strong> — view redemption counts, filter by status and type, and monitor each coupon's performance.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Instant controls</strong> — activate, deactivate, edit, or delete any coupon from the management table.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/coupon_02.png" alt="The Create New Coupon dialog with fields for Coupon Code, Discount Value, Max Redemptions, Applies To, Start Date, and End Date">
+          <div class="sol-feature__media-caption">The coupon builder — code, discount, scope, redemption limits, and validity dates</div>
+        </div>
+      </div>
+
+      <!-- F6: Coupon Management -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Coupon Management</div>
+          <h2 class="sol-feature__title">Search, filter, and manage every coupon.</h2>
+          <p class="sol-feature__desc">All your coupons appear in a single table with code, discount, scope, usage count, expiry, and status. Search by code, filter by status or type, and take action with one click — view usage details, edit settings, or deactivate a coupon without deleting it.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Search &amp; filter</strong> — find coupons by code, active/inactive status, or scope type.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>One-click copy</strong> — copy any coupon code to your clipboard and share it instantly.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Non-destructive controls</strong> — deactivate a coupon to pause it instead of deleting permanently.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/coupon_05.png" alt="The Coupons list showing two coupons with codes, discounts, scope, usage counts, expiry dates, statuses, and action buttons">
+          <div class="sol-feature__media-caption">The coupons management table — status, usage, and quick actions</div>
+        </div>
+      </div>
+
+      <!-- F7: Admin Payment Management (Suite context) -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Admin Controls</div>
+          <h2 class="sol-feature__title">Full visibility over every transaction.</h2>
+          <p class="sol-feature__desc">The admin panel gives your organization a complete view of all payments across the deployment. See total revenue, platform fees, pending payouts, and organizer earnings at a glance. Search by event, organizer, or participant, and filter by payment type.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Revenue summary</strong> — four cards showing Total Revenue, Platform Fees, Pending Payouts, and Organizer Earnings.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Payout management</strong> — approve or reject withdrawal requests from hosts and experts.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Type filtering</strong> — separate event payments from consultation payments with one dropdown.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/payments_all.png" alt="All Payments table showing payment records with summary cards for Total Revenue, Platform Fees, Pending Payouts, and Organizer Earnings">
+          <div class="sol-feature__media-caption">Admin payment dashboard — revenue summary and transaction records</div>
+        </div>
+      </div>
+
+      <!-- F8: Payment Providers (Suite deployment) -->
+      <div class="sol-feature">
+        <div class="sol-feature__copy">
+          <div class="sol-feature__eyebrow">Payment Providers</div>
+          <h2 class="sol-feature__title">Configure Stripe and Paymob for your deployment.</h2>
+          <p class="sol-feature__desc">Suite deployments support two payment providers: Stripe for global card payments and Paymob for local payment methods in the MENA region. Configure API keys, register webhooks, and activate each provider from the admin panel. Secret values are hidden once saved.</p>
+          <ul class="sol-feature__highlights">
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Stripe</strong> — global card payments with webhook event subscriptions and automatic reconciliation.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Paymob</strong> — local MENA payment methods including cards, mobile wallets, and Apple Pay.</span>
+            </li>
+            <li>
+              <span data-icon="check"></span>
+              <span><strong>Secure credentials</strong> — secret keys and HMAC values are masked after first save.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="sol-feature__media">
+          <img src="../images/payment_provider_01.png" alt="The Stripe configuration card showing the Active checkbox, webhook URL, required events, and credential fields">
+          <div class="sol-feature__media-caption">Stripe provider configuration — webhook URL, required events, and credentials</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+     RELATED CAPABILITIES
+     ============================ -->
+  <section class="sol-related">
+    <div class="container">
+      <h2 class="sol-related__headline">Related capabilities</h2>
+      <div class="sol-related__grid">
+        <a href="live-sessions.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+            <span class="icon icon--purple" data-icon="liveSession"></span>
+          </div>
+          <div class="sol-related__card-title">Live Sessions &amp; Webinars</div>
+          <div class="sol-related__card-desc">Charge for scheduled sessions, webinars, and instant calls with built-in ticketing.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+       
+        <a href="community.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+            <span class="icon icon--pink" data-icon="community"></span>
+          </div>
+          <div class="sol-related__card-title">Communities</div>
+          <div class="sol-related__card-desc">Charge for community membership with monthly and yearly subscription billing.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+         <a href="consultations.html" class="sol-related__card">
+          <div class="sol-related__card-icon">
+            <span class="icon icon--purple" data-icon="consultation"></span>
+          </div>
+          <div class="sol-related__card-title">Consultations &amp; Booking</div>
+          <div class="sol-related__card-desc">Expert booking pages with availability, video calls, and payment collection.</div>
+          <span class="sol-related__card-link">Explore <span data-icon="arrowRightSm"></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+     CTA
+     ============================ -->
+  <section id="book-demo"
+    data-headline="Ready to earn from your programs?"
+    data-sub="Book a demo and we'll show you Payments & Earnings configured for your organization."></section>
+
+  <footer id="suite-footer" class="suite-footer"></footer>
+  <div id="mobile-cta" class="mobile-cta"></div>
+
+  <script src="../assets/suite-icons.js"></script>
+  <script>
+(function () {
+  document.querySelectorAll('[data-icon]').forEach(function (el) {
+    var key = el.getAttribute('data-icon');
+    if (SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
+  });
+})();
+</script>
+
+  <script src="../assets/suite-nav.js"></script>
+</body>
+</html>

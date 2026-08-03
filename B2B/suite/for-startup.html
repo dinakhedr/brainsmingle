@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Startup Suite — BrainsMingle Suite</title>
+    <meta name="description" content="A fully configured professional ecosystem for accelerators, incubators, VC platforms, and innovation hubs. Run cohorts, match founders with mentors, host demo days, and build lasting founder communities — all under your brand.">
+    <link rel="stylesheet" href="../assets/suite-tokens.css">
+    <link rel="stylesheet" href="../assets/suite-common.css">
+    <link rel="stylesheet" href="../assets/suite-vertical.css">
+    <link rel="stylesheet" href="../assets/suite-partner-block.css">
+</head>
+
+<body>
+
+    <header id="suite-nav" class="suite-nav"></header>
+
+    <!-- ============================
+     S1: HERO — centered, with background motif
+     ============================ -->
+    <section class="vert-hero vert--purple">
+        <div class="glow" style="background:var(--purple);top:-180px;left:50%;transform:translateX(-50%);"></div>
+        <div class="glow" style="background:var(--cyan);top:60%;left:70%;width:400px;height:400px;opacity:0.06;"></div>
+        <!-- Large faded startup icon as background motif -->
+        <div class="vert-hero__motif" data-icon="startup"></div>
+        <div class="container vert-hero__content">
+            <div class="vert-hero__tag">
+                <span data-icon="startup"></span>
+                Startup Suite
+            </div>
+            <h1 class="vert-hero__title">Your Founders Deserve Their Own Professional Home</h1>
+            <p class="vert-hero__sub">A fully configured professional ecosystem for accelerators, incubators, VC platforms, and innovation hubs. Run cohorts, match founders with mentors, host demo days, deliver curriculum, and build lasting founder communities — all under your identity.</p>
+            <div class="vert-hero__cta">
+                <a href="#" class="btn btn--primary btn--lg" onclick="openDemoModal();return false;">Book a Demo</a>
+                <a href="#use-cases" class="btn btn--secondary btn--lg">What You Can Do <span data-icon="arrowRight"></span></a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S2: CLIENT LOGOS
+     ============================ -->
+    <section class="vert-logos">
+        <div class="container">
+            <div class="vert-logos__label">Trusted by organizations building the next generation of founders</div>
+            <div class="vert-logos__strip">
+                <span class="vert-logos__item">ACCELERATOR CO</span>
+                <span class="vert-logos__item">STARTUP HUB</span>
+                <span class="vert-logos__item">INNOVATION LAB</span>
+                <span class="vert-logos__item">VENTURE PARTNERS</span>
+                <span class="vert-logos__item">FOUNDERS NETWORK</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S3: WHO IT'S BUILT FOR
+     ============================ -->
+    <section class="vert-audience vert--purple">
+        <div class="container">
+            <h2 class="heading-lg vert-audience__headline">Built for the Entire Startup Ecosystem</h2>
+            <div class="vert-audience__grid">
+                
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--purple" data-icon="incubator"></span></div>
+                    <div class="vert-audience__card-title">Incubators</div>
+                    <div class="vert-audience__card-desc">Support early-stage founders with structured learning and community.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--cyan" data-icon="startup"></span></div>
+                    <div class="vert-audience__card-title">Accelerators</div>
+                    <div class="vert-audience__card-desc">Run cohorts, mentor programs, and demo days under one roof.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--pink" data-icon="corporate"></span></div>
+                    <div class="vert-audience__card-title">VC Platforms</div>
+                    <div class="vert-audience__card-desc">Deliver scalable portfolio support beyond capital.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--amber" data-icon="bulb"></span></div>
+                    <div class="vert-audience__card-title">Innovation Hubs</div>
+                    <div class="vert-audience__card-desc">Activate founders, mentors, sponsors, and corporate partners.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--purple" data-icon="campus"></span></div>
+                    <div class="vert-audience__card-title">Entrepreneurship Centers</div>
+                    <div class="vert-audience__card-desc">Connect student founders with mentors and investors.</div>
+                </div>
+                <div class="vert-audience__card">
+                    <div class="vert-audience__card-icon"><span class="icon icon--cyan" data-icon="event"></span></div>
+                    <div class="vert-audience__card-title">Startup Event Organizers</div>
+                    <div class="vert-audience__card-desc">Turn one-off events into ongoing founder ecosystems.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S4: THE PROBLEM — with icons and accent colors
+     ============================ -->
+    <section class="vert-problem">
+        <div class="container">
+            <h2 class="heading-lg vert-problem__headline">Your startup program runs on too many tools. None of them talk to each other.</h2>
+            <div class="vert-problem__grid">
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--purple" data-icon="liveSession"></div>
+                    <div class="vert-problem__card-need">Live Sessions</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--purple">Zoom / Google Meet</div>
+                    <div class="vert-problem__card-breaks">No brand presence, no built-in recording library, no attendee data you own.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--pink" data-icon="community"></div>
+                    <div class="vert-problem__card-need">Community</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--pink">WhatsApp / Circle</div>
+                    <div class="vert-problem__card-breaks">No structure, no admin controls, no cohort separation. Conversations disappear.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--cyan" data-icon="course"></div>
+                    <div class="vert-problem__card-need">Learning</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--cyan">Moodle / Teachable</div>
+                    <div class="vert-problem__card-breaks">Disconnected from your sessions and community. Another login, another silo.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--amber" data-icon="calendar"></div>
+                    <div class="vert-problem__card-need">Scheduling</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--amber">Calendly / Google Cal</div>
+                    <div class="vert-problem__card-breaks">No video built in, no payment, no expert profiles. Just a link.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--purple" data-icon="chat"></div>
+                    <div class="vert-problem__card-need">Consultations</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--purple">WhatsApp / Email</div>
+                    <div class="vert-problem__card-breaks">No tracking, no booking page, no revenue capture. Manual and invisible.</div>
+                </div>
+
+                <div class="vert-problem__card">
+                    <div class="vert-problem__card-icon vert-problem__card-icon--pink" data-icon="speedNetworking"></div>
+                    <div class="vert-problem__card-need">Mentor Matching</div>
+                    <div class="vert-problem__card-tool vert-problem__card-tool--pink">Spreadsheets</div>
+                    <div class="vert-problem__card-breaks">Manual, unscalable, and zero engagement data. Breaks at 20 founders.</div>
+                </div>
+
+            </div>
+            <p class="vert-problem__closing">Every tool you add is a connection you lose. Engagement stays one-directional. Revenue stays capped. You're managing logistics, not building a program.</p>
+        </div>
+    </section>
+
+    <!-- ============================
+     S5: USE CASES — with purple left-border accent
+     ============================ -->
+    <section class="vert-usecases vert--purple" id="use-cases">
+        <div class="container">
+            <h2 class="heading-lg vert-usecases__headline">What you can do with Startup Suite</h2>
+            <p class="vert-usecases__sub">Concrete scenarios, not abstract benefits. Here's how organizations like yours use it every day.</p>
+            <div class="vert-usecases__grid">
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Cohort Management</div>
+                    <h3 class="vert-usecase__title">Run multiple cohorts across intake cycles</h3>
+                    <p class="vert-usecase__desc">Each intake gets its own community space, gated course content, and dedicated sessions. Alumni stay connected in a shared network that persists across cycles.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Cohort-specific communities with admin controls</li>
+                        <li><span data-icon="check"></span>Gated courses by intake or membership tier</li>
+                        <li><span data-icon="check"></span>Alumni channel that grows with every graduating batch
+                        </li>
+                    
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Mentor Office Hours</div>
+                    <h3 class="vert-usecase__title">Booking, video, and payment in one flow</h3>
+                    <p class="vert-usecase__desc">Mentors publish their availability inside your ecosystem. Founders browse profiles, book sessions, and attend — no Calendly, no Zoom links, no email threads.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Expert booking pages with availability management</li>
+                        <li><span data-icon="check"></span>Integrated video call — no external tools</li>
+                        <li><span data-icon="check"></span>Payment collected on-platform with full tracking</li>
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Demo Day Networking</div>
+                    <h3 class="vert-usecase__title">Auto-matched investor rounds at scale</h3>
+                    <p class="vert-usecase__desc">Run speed networking that auto-matches founders with investors, mentors, or fellow founders in timed 1-to-1 video rounds. Thousands of connections — zero manual coordination.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Algorithm-driven pairing: founder ↔ investor, founder ↔ mentor</li>
+                        <li><span data-icon="check"></span>Timed rotations — every participant meets multiple people</li>
+                        <li><span data-icon="check"></span>Runs entirely inside your branded ecosystem</li>
+                    </ul>
+                </div>
+
+                <div class="vert-usecase">
+                    <div class="vert-usecase__eyebrow">Curriculum & LMS</div>
+                    <h3 class="vert-usecase__title">Structured learning with cohort gating</h3>
+                    <p class="vert-usecase__desc">Deliver unlimited courses gated by cohort or intake cycle. Package live replay content alongside uploaded material into a scalable learning library.</p>
+                    <ul class="vert-usecase__highlights">
+                        <li><span data-icon="check"></span>Unlimited courses, no per-course fees</li>
+                        <li><span data-icon="check"></span>Live session replays auto-added to on-demand library</li>
+                        <li><span data-icon="check"></span>Completion tracking and progress analytics per cohort</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S6: CAPABILITIES — with inline SVG illustrations
+     ============================ -->
+    <section class="vert-capabilities vert--purple">
+        <div class="container">
+            <h2 class="heading-lg vert-capabilities__headline">Everything your ecosystem needs. Connected.</h2>
+            <p class="vert-capabilities__sub">The same capability stack that powers every Suite deployment — reframed for the startup world.</p>
+
+            <!-- C1: Speed Networking -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__badge"><span data-icon="speedNetworking"></span> The feature no one else has</div>
+                    <h3 class="vert-cap__title">Speed Networking</h3>
+                    <p class="vert-cap__desc">Automated, algorithm-driven 1-to-1 video matching in timed rounds. Run it during demo days, cohort kickoffs, or standalone networking events. No competitor does this natively inside a branded deployment.</p>
+                    <ul class="vert-cap__highlights">
+                       <li><span data-icon="check"></span>Founder ↔ Mentor, Founder ↔ Investor, Founder ↔ Founder</li>
+                        <li><span data-icon="check"></span>Thousands of structured, timed rounds — zero coordination</li>
+                        <li><span data-icon="check"></span>Connections persist in professional profiles after the event</li>
+                    </ul>
+                    <a href="networking.html" class="vert-cap__link">Explore Speed Networking <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="speedNetworking"></div>
+            </div>
+
+            <!-- C2: Live Sessions -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Live Sessions</div>
+                    <h3 class="vert-cap__title">Your sessions. Your brand. No detours.</h3>
+                    <p class="vert-cap__desc">HD streaming for workshops, panels, demo days, fireside chats, and drop-in office hours. Instant rooms spin up in seconds. Every session is recorded automatically and added to your on-demand library.</p>
+                    <ul class="vert-cap__highlights">
+                       <li><span data-icon="check"></span>HD streaming — no external tools, no quality compromise</li>
+                        <li><span data-icon="check"></span>Instant rooms for breakouts or unplanned conversations</li>
+                        <li><span data-icon="check"></span>Automatic recording — every session becomes an on-demand asset</li>
+                    </ul>
+                    <a href="live-sessions.html" class="vert-cap__link">Explore Live Sessions <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="liveSession"></div>
+            </div>
+
+            <!-- C3: Community -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Community</div>
+                    <h3 class="vert-cap__title">Where your founders actually belong.</h3>
+                    <p class="vert-cap__desc">Dedicated spaces for each cohort, alumni network, and topic channel. Your community persists between programs — branded, structured, and alive. Not a group chat that disappears.</p>
+                    <ul class="vert-cap__highlights">
+                       <li><span data-icon="check"></span>Unlimited communities by cohort, sector, or interest</li>
+                       <li><span data-icon="check"></span>Admin controls — approve members, assign roles, manage from one dashboard</li>
+                        <li><span data-icon="check"></span>Community-scoped sessions — private events for a single group</li>
+                    </ul>
+                    <a href="community.html" class="vert-cap__link">Explore Communities <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="community"></div>
+            </div>
+
+            <!-- C4: Courses & LMS -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Courses & LMS</div>
+                    <h3 class="vert-cap__title">Your knowledge, packaged and scalable.</h3>
+                    <p class="vert-cap__desc">Unlimited structured courses built under your brand. Gate content by cohort or intake cycle. Package live replays alongside uploaded material. Everything your program has built becomes a scalable product.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Unlimited courses — every intake, every discipline, no cap</li>
+                       <li><span data-icon="check"></span>On-demand library — live replays + uploaded content, fully organized</li>
+                        <li><span data-icon="check"></span>Cohort access control — gate content by intake or membership tier</li>
+                    </ul>
+                    <a href="courses.html" class="vert-cap__link">Explore Courses &amp; LMS <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="courses"></div>
+            </div>
+
+            <!-- C5: Consultations & Booking -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Consultations & Booking</div>
+                    <h3 class="vert-cap__title">A premium service tier that pays for itself.</h3>
+                    <p class="vert-cap__desc">Open a private channel between your mentors and your founders. Scheduling, video, and payment in one flow. A retention mechanism and a revenue line at the same time.</p>
+                    <ul class="vert-cap__highlights">
+                       <li><span data-icon="check"></span>Experts set availability, founders book directly</li>
+                        <li><span data-icon="check"></span>Payment collected on-platform — no third-party friction</li>
+                       <li><span data-icon="check"></span>Full expert roster — profile, booking page, video, payment history</li>
+                    </ul>
+                    <a href="consultations.html" class="vert-cap__link">Explore Consultations <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="consultation"></div>
+            </div>
+
+            <!-- C6: Analytics -->
+            <div class="vert-cap">
+                <div class="vert-cap__copy">
+                    <div class="vert-cap__eyebrow">Analytics</div>
+                    <h3 class="vert-cap__title">See exactly what's working.</h3>
+                    <p class="vert-cap__desc">Not vanity metrics — real engagement data. Know who's active, which sessions drive retention, which experts your founders book most. Manage with data, not guesswork.</p>
+                    <ul class="vert-cap__highlights">
+                        <li><span data-icon="check"></span>Founder activity — who's engaged, dropping off, or needs re-activation</li>
+                       <li><span data-icon="check"></span>Session performance — attendance, watch time, engagement per session</li>
+                       <li><span data-icon="check"></span>Revenue tracking — bookings, course fees, consultation revenue</li>
+                    </ul>
+                    <a href="analytics.html" class="vert-cap__link">Explore Analytics <span data-icon="arrowRightSm"></span></a>
+                </div>
+                <div class="vert-cap__visual" data-illus="analytics"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================
+     S7: DEPLOYMENT STRIP — accent-tinted pills
+     ============================ -->
+    <section class="vert-deploy vert--purple">
+        <div class="container">
+            <h2 class="heading-lg vert-deploy__headline">A Complete Deployment. Configured for You.</h2>
+            <p class="vert-deploy__sub">We don't hand you a platform and leave. We build your ecosystem with you — then hand you the keys.</p>
+            <div class="vert-deploy__checklist">
+                <span class="vert-deploy__check"><span data-icon="check"></span>Live Sessions &amp; Instant Rooms</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>Courses &amp; LMS</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>Community Spaces</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>Speed Networking</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>1-to-1 Consultations &amp; Booking</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>Payments &amp; Revenue Dashboard</span>
+               <span class="vert-deploy__check"><span data-icon="check"></span>Analytics &amp; Member Insights</span>
+                <span class="vert-deploy__check"><span data-icon="check"></span>Arabic / RTL Support</span> 
+                <span class="vert-deploy__check"><span data-icon="check"></span>Forms &amp; Registration</span>
+               <span class="vert-deploy__check"><span data-icon="check"></span>Custom Domain &amp; Branding</span>
+            </div>
+            <div class="vert-deploy__pillars">
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">01</div>
+                    <div class="vert-deploy__pillar-title">Your Branded Home</div>
+                    <div class="vert-deploy__pillar-desc">Custom domain, your logo, your colors. Your founders never see BrainsMingle — they see you.</div>
+                </div>
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">02</div>
+                    <div class="vert-deploy__pillar-title">Guided Onboarding</div>
+                    <div class="vert-deploy__pillar-desc">We configure your communities, session templates, and course structure before launch — with you, not for you.</div>
+                </div>
+                <div class="vert-deploy__pillar">
+                    <div class="vert-deploy__pillar-num">03</div>
+                    <div class="vert-deploy__pillar-title">Ongoing Support</div>
+                    <div class="vert-deploy__pillar-desc">Dedicated support from a team that understands your market — not a global ticketing queue.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+     S8: PARTNER OPPORTUNITY — built by suite-partner-block.js
+     ============================ -->
+    <hr class="vert-partner__divider" style="border:none;border-top:1px solid var(--border);margin:0;">
+    <section id="partner-block"></section>
+
+    <!-- ============================
+     S9: CTA
+     ============================ -->
+    <section id="book-demo" data-headline="Ready to deploy Startup Suite?" data-sub="Tell us what you're building. We'll show you a live deployment configured for your ecosystem, your workflow, and your goals."></section>
+
+    <footer id="suite-footer" class="suite-footer"></footer>
+    <div id="mobile-cta" class="mobile-cta"></div>
+
+    <script src="../assets/suite-icons.js"></script>
+    <script src="../assets/suite-illustrations.js"></script>
+    <script>
+        (function() {
+            document.querySelectorAll('[data-icon]').forEach(function(el) {
+                var key = el.getAttribute('data-icon');
+                if (typeof SUITE_ICONS !== 'undefined' && SUITE_ICONS[key]) el.innerHTML = SUITE_ICONS[key];
+            });
+            
+            document.querySelectorAll('[data-illus]').forEach(function(el) {
+                var key = el.getAttribute('data-illus');
+                if (typeof SUITE_ILLUSTRATIONS !== 'undefined' && SUITE_ILLUSTRATIONS[key]) el.innerHTML = SUITE_ILLUSTRATIONS[key];
+            });
+        })();
+    </script>
+    <script src="../assets/suite-partner-block.js"></script>
+    <script src="../assets/suite-nav.js"></script>
+</body>
+
+</html>
