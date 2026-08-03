@@ -50,14 +50,19 @@ var MENU_SOLUTIONS = [
   ];
 
 var MENU_INDUSTRIES = [
-    { key: 'startup',     title: 'Startup Suite',     desc: 'Accelerators and innovation programs',  href: 'startup-suite.html',       color: 'purple' },
-    { key: 'campus',      title: 'Campus Suite',      desc: 'Universities and alumni networks',      href: 'campus-suite.html',        color: 'cyan' },
-    { key: 'mic',     title: 'Creator Suite',     desc: 'Content creators and online educators', href: 'creator-suite.html',       color: 'pink' },
-    { key: 'form',     title: 'Program Suite',     desc: 'NGOs, foundations, and funded programs', href: 'program-suite.html',       color: 'amber' },
-    { key: 'corporate',   title: 'Workplace Suite',   desc: 'Workplace learning and team collaboration',  href: 'workplace-suite.html',     color: 'purple' },
-    { key: 'course',   title: 'Training Suite',     desc: 'Training companies and coaches',        href: 'training-suite.html',       color: 'cyan' },
-    { key: 'event',title: 'Event Suite',      desc: 'Event organizers and conference hosts',        href: 'event-suite.html',        color: 'pink' },
-    { key: 'community', title: 'Community Suite',  desc: 'Associations, chapters, and member networks',   href: 'community-suite.html',  color: 'amber' }
+    { key: 'startup',     title: 'For Startup',     desc: 'Accelerators and innovation programs',  href: 'for-startup.html',       color: 'purple' },
+    { key: 'campus',      title: 'For Campus',      desc: 'Universities and alumni networks',      href: 'for-campus.html',        color: 'cyan' },
+    
+    { key: 'mic',     title: 'For Creator',     desc: 'Content creators and online educators', href: 'for-creator.html',       color: 'pink' },
+    
+    { key: 'form',     title: 'For Program',     desc: 'NGOs, foundations, and funded programs', href: 'for-program.html',       color: 'amber' },
+    
+    { key: 'corporate',   title: 'For Workplace',   desc: 'Workplace learning and team collaboration',  href: 'for-workplace.html',     color: 'purple' },
+    
+    { key: 'course',   title: 'For Training',     desc: 'Training companies and coaches',        href: 'for-training.html',       color: 'cyan' },
+    
+    { key: 'event',title: 'For Event',      desc: 'Event organizers and conference hosts',        href: 'for-event.html',        color: 'pink' },
+    { key: 'community', title: 'For Community',  desc: 'Associations, chapters, and member networks',   href: 'for-community.html',  color: 'amber' }
   ];
 
   function getIcon(key) {
@@ -95,7 +100,7 @@ var MENU_INDUSTRIES = [
         '<a href="' + (isMain ? 'suite.html' : '../suite.html') + '" class="suite-nav__logo">BrainsMingle <span>Suite</span></a>' +
         '<ul class="suite-nav__links" id="nav-links">' +
           '<li class="suite-nav__dropdown" id="dd-industries">' +
-            '<a href="' + (isMain ? 'suite.html#verticals' : '../suite.html#verticals') + '" class="suite-nav__dd-trigger">By Industry ' + SVG_CHEVRON + '</a>' +
+            '<a href="' + (isMain ? 'suite.html#verticals' : '../suite.html#verticals') + '" class="suite-nav__dd-trigger">Built For ' + SVG_CHEVRON + '</a>' +
             buildMegaPanel(MENU_INDUSTRIES, 'industries') +
           '</li>' +
           '<li class="suite-nav__dropdown" id="dd-solutions">' +
@@ -207,9 +212,9 @@ var MENU_INDUSTRIES = [
             '<div class="suite-footer__col-links">' + solLinks + '</div>' +
           '</div>' +
 
-          /* By Industry column */
+          /* Built For column */
           '<div>' +
-            '<div class="suite-footer__col-title">By Industry</div>' +
+            '<div class="suite-footer__col-title">Built For</div>' +
             '<div class="suite-footer__col-links">' + indLinks + '</div>' +
           '</div>' +
 
