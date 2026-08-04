@@ -1,5 +1,5 @@
 /**
- * sponsors.js — Signal: AI
+ * sponsors.js — AI Summit 2026
  * All sponsor and community partner objects.
  *
  * Logo paths use the same pattern as sponsors.html:
@@ -59,13 +59,13 @@ const SIGNAL_SPONSOR_TIERS = {
     color    : null               // inherits from trackNumber via SIGNAL_TRACKS_BY_NUMBER
   },
   launchpad: {
-    label    : "Signal Launchpad Sponsor",
+    label    : "AI Summit Launchpad Sponsor",
     slots    : 1,
     cssClass : "tier-launchpad",
     color    : "#6B3EF5"
   },
   talent: {
-    label    : "Signal Talent Sponsor",
+    label    : "AI Summit Talent Sponsor",
     slots    : 1,
     cssClass : "tier-talent",
     color    : "#00E8A2"

@@ -19,7 +19,7 @@ const SIGNAL_TRACKS = [
     accentRgb        : "0, 232, 162",
     cssClass         : "track-ld",
     trackClass       : "track-1",
-    tagline          : "The Learning Frequency",
+    tagline          : "The Learning",
     shortDescription : "Exploring how AI is transforming learning across every context — from classrooms and universities to corporate training rooms and the future of work.",
     longDescription  : "For educators, L&D professionals, and EdTech innovators working at the intersection of learning and technology. This track looks at how AI is transforming education and workforce development, from adaptive learning systems to large-scale upskilling in organizations preparing for the future of work.",
 focusAreas       : [
@@ -54,7 +54,7 @@ focusAreas       : [
     accentRgb        : "245, 62, 159",
     cssClass         : "track-creative",
     trackClass       : "track-2",
-    tagline          : "The Creative Frequency",
+    tagline          : "The Creative",
     shortDescription : "Exploring how generative AI is reshaping design, content, media, and entertainment — and what it means for human creativity.",
     longDescription  : "For creative professionals working with design, content, and media in an AI-driven world. This track explores how AI is transforming creative production, from generative tools to new workflows that are changing how content is imagined, built, and distributed.",
     focusAreas       : [
@@ -88,7 +88,7 @@ focusAreas       : [
     accentRgb        : "232, 242, 0",
     cssClass         : "track-startups",
     trackClass       : "track-3",
-    tagline          : "The Builder Frequency",
+    tagline          : "The Builder",
     shortDescription : "The definitive track for everyone building, funding, and scaling AI companies — from first idea to generational business.",
     longDescription  : "For entrepreneurs and investors navigating the AI startup ecosystem. This track focuses on how AI is changing entrepreneurship, from faster product cycles and leaner teams to new venture capital trends and evolving go-to-market strategies.",
     focusAreas       : [
@@ -122,7 +122,7 @@ focusAreas       : [
     accentRgb        : "245, 166, 35",
     cssClass         : "track-business",
     trackClass       : "track-4",
-    tagline          : "The Enterprise Frequency",
+    tagline          : "The Enterprise",
     shortDescription : "AI is not a technology story — it is a business story. For every leader and professional navigating how AI transforms every business function.",
     longDescription  : "For executives and professionals leading AI adoption inside organizations. This track examines how AI is reshaping business functions, decision-making, and workforce structures, and how companies are adapting to an AI-driven economy.",
     focusAreas       : [
@@ -156,7 +156,7 @@ focusAreas       : [
     accentRgb        : "0, 212, 255",
     cssClass         : "track-tech",
     trackClass       : "track-5",
-    tagline          : "The Infrastructure Frequency",
+    tagline          : "The Infrastructure",
     shortDescription : "The complete story of AI from silicon to software — how the physical infrastructure powering the AI revolution is being built.",
     longDescription  : "For technical professionals working on the systems behind AI. This track covers how AI is transforming infrastructure, engineering workflows, and system design, including deployment, scaling, security, and the future of software development in an AI-first world.",
     focusAreas       : [

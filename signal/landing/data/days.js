@@ -1,11 +1,11 @@
 /**
- * days.js — Signal: AI
+ * days.js — AI Summit 2026
  * Single source of truth for all 7 event days.
  * Referenced by: agenda.js, render.js, agenda.html
  *
  * day values: 1–7 (never 0)
  *   day 1 = Opening Day    (Sat 10 Oct)
- *   day 2–6 = Track Days   (Sun 11 – Thu 9 Oct)
+ *   day 2–6 = Track Days   (Sun 11 – Thu 15 Oct)
  *   day 7 = Speed Networking (Fri 16 Oct)
  *
  * Access: SIGNAL_DAYS (array)
@@ -54,7 +54,7 @@ const SIGNAL_DAYS = [
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "launchpad",
-    description   : "Three session slots across all tracks, closing with Signal Launchpad — the startup pitch event of the week.",
+    description   : "Three session slots across all tracks, closing with AI Summit Launchpad, the startup pitch event of the week.",
     timeRange     : "6:00 – 11:00 PM",
     domId         : "day3"
   },
@@ -64,8 +64,8 @@ const SIGNAL_DAYS = [
     displayLabel  : "Day 4",
     tabLabel      : "Day 4",
     tabSublabel   : "Tue 13 Oct",
-    date          : "Tuesday, 12 October 2026",
-    dateShort     : "Tue 12 Oct",
+    date          : "Tuesday, 13 October 2026",
+    dateShort     : "Tue 13 Oct",
     type          : "tracks",
     hasTracks     : true,
     special       : null,
@@ -84,7 +84,7 @@ const SIGNAL_DAYS = [
     type          : "tracks+activation",
     hasTracks     : true,
     special       : "talent",
-    description   : "Three session slots across all tracks, closing with Signal Talent — the professional hiring activation.",
+    description   : "Three session slots across all tracks, closing with AI Summit Talent, the professional hiring activation.",
     timeRange     : "6:00 – 11:00 PM",
     domId         : "day5"
   },
