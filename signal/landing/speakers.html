@@ -1,546 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speakers — Signal: AI 2026 | 100+ AI Experts Live</title>
-  <meta name="description" content="Meet 100+ leading AI experts, founders, and researchers at Signal: AI 2026. A global 7-day event of live sessions across 5 AI tracks." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="assets/brand/icon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speakers | AI Summit 2026</title>
+    <meta name="description" content="Meet the AI practitioners, founders, and researchers speaking at AI Summit 2026. A global seven day event of live sessions across five AI tracks." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
+
 <body>
 
-
-<!-- ══════════════════════════════════════════
-     NAV
+    <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
 ══════════════════════════════════════════ -->
-<nav class="site-nav">
-  <a href="home.html" class="nav-logo">
-    <img src="assets/brand/logo-header.png" alt="Signal: AI" />
-  </a>
-  <div class="nav-links">
-    <a href="home.html">About</a>
-    <a href="tracks.html">Tracks</a>
-    <a href="agenda.html">Agenda</a>
-    <a href="speakers.html" class="active">Speakers</a>
-    <a href="sponsors.html">Sponsors &amp; Partners</a>
-  </div>
-  <div class="nav-actions">
-    <a href="https://brainsmingle.com" class="btn btn-primary btn-sm">Register to Join the Signal</a>
-  </div>
-</nav>
+    <div id="site-header"></div>
 
 
-<!-- ══════════════════════════════════════════
+    <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-<section class="spk-hero">
-  <div class="spk-hero-glow"></div>
-  <div class="spk-hero-inner">
-    <div class="section-eyebrow">Signal: AI &middot; 4 – 10 July 2026</div>
-    <h1 class="section-title">100+ <em>AI Experts.</em><br>One Live Global Stage.</h1>
-   <p class="section-sub">Practitioners, founders, researchers, and industry leaders coming together for a week of live AI conversations, insights, and real-world expertise.</p>
-    <!-- track pills — rendered from tracks.js -->
-    <div class="spk-hero-pills" id="spk-hero-pills"></div>
-  </div>
-</section>
+    <section class="spk-hero">
+        <div class="spk-hero-glow"></div>
+        <div class="spk-hero-inner">
+            <div class="section-eyebrow">AI Summit 2026 · 10 – 16 October</div>
+            <h1 class="section-title">100+ <em>AI Experts.</em><br>One Live Global Stage.</h1>
+            <p class="section-sub">Practitioners, founders, researchers, and industry leaders coming together for a week of live AI conversations, insights, and real-world expertise.</p>
+
+            <!-- track pills — rendered from data/tracks.js -->
+            <div class="spk-hero-pills" id="spk-hero-pills"></div>
+        </div>
+    </section>
 
 
-<!-- ══════════════════════════════════════════
-     FEATURED — rendered from speakers.js
+    <!-- ══════════════════════════════════════════
+     FEATURED — rendered from data/speakers.js
 ══════════════════════════════════════════ -->
-<section class="spk-featured">
-  <div class="spk-featured-inner">
-    <div class="spk-featured-head">
-      <div class="spk-featured-eyebrow">★ Opening Day Spotlight &middot; 4 July 2026</div>
-      <div class="spk-featured-line"></div>
-      <div class="spk-featured-tag">High-Profile Panels</div>
-    </div>
-    <div class="spk-featured-grid" id="spk-featured-grid"></div>
-  </div>
-</section>
+    <section class="spk-featured">
+        <div class="spk-featured-inner">
+            <div class="spk-featured-head">
+                <div class="spk-featured-eyebrow" id="spk-featured-eyebrow"></div>
+                <div class="spk-featured-line"></div>
+                <div class="spk-featured-tag">High-Profile Panels</div>
+            </div>
+            <div class="spk-featured-grid" id="spk-featured-grid"></div>
+        </div>
+    </section>
 
 
-<!-- ══════════════════════════════════════════
-     FILTER BAR — track buttons rendered from tracks.js
+    <!-- ══════════════════════════════════════════
+     FILTER BAR — rendered from tracks.js and days.js
 ══════════════════════════════════════════ -->
-<div class="spk-filters">
-  <div class="spk-filters-inner">
-    <div class="spk-filter-row" style="margin-bottom:4px;">
-      <span class="spk-filter-label">Search</span>
-      <input type="text" id="spk-search" placeholder="Search by name or title..."
-             oninput="filterGrid()"
-             style="flex:1;max-width:340px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border-mid);border-radius:20px;padding:5px 16px;font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-primary);outline:none;transition:border-color 0.2s,background 0.2s;"
-             onfocus="this.style.borderColor='rgba(107,62,245,0.6)';this.style.background='rgba(107,62,245,0.06)'"
-             onblur="this.style.borderColor='rgba(255,255,255,0.12)';this.style.background='rgba(255,255,255,0.04)'" />
+    <div class="spk-filters">
+        <div class="spk-filters-inner">
+            <div class="spk-filter-row spk-filter-row--search">
+                <span class="spk-filter-label">Search</span>
+                <input type="text" id="spk-search" class="spk-search"
+                       placeholder="Search by name or title" oninput="filterGrid()"
+                       aria-label="Search speakers" />
+            </div>
+            <div class="spk-filter-row">
+                <span class="spk-filter-label">Track</span>
+                <div class="spk-filter-group" id="track-filter-btns"></div>
+            </div>
+            <div class="spk-filter-row">
+                <span class="spk-filter-label">Day</span>
+                <div class="spk-filter-group" id="day-filter-btns"></div>
+            </div>
+        </div>
     </div>
-    <div class="spk-filter-row">
-      <span class="spk-filter-label">Track</span>
-      <!-- rendered from tracks.js -->
-      <div id="track-filter-btns" style="display:contents;"></div>
-    </div>
-    <div class="spk-filter-row">
-      <span class="spk-filter-label">Day</span>
-      <button class="spk-fbtn active-all" data-day="all" onclick="setDayFilter('all', this)">All Days</button>
-      <button class="spk-fbtn" data-day="1" onclick="setDayFilter('1', this)">Day 1</button>
-      <button class="spk-fbtn" data-day="2" onclick="setDayFilter('2', this)">Day 2</button>
-      <button class="spk-fbtn" data-day="3" onclick="setDayFilter('3', this)">Day 3</button>
-      <button class="spk-fbtn" data-day="4" onclick="setDayFilter('4', this)">Day 4</button>
-      <button class="spk-fbtn" data-day="5" onclick="setDayFilter('5', this)">Day 5</button>
-      <button class="spk-fbtn" data-day="6" onclick="setDayFilter('6', this)">Day 6</button>
-    </div>
-  </div>
-</div>
 
 
-<!-- ══════════════════════════════════════════
-     SPEAKER GRID — rendered from speakers.js
+    <!-- ══════════════════════════════════════════
+     SPEAKER GRID — rendered from data/speakers.js
 ══════════════════════════════════════════ -->
-<section class="spk-grid-section">
-  <div class="spk-grid-inner">
-    <div class="spk-grid-count">Showing <strong id="grid-count">0</strong> speakers</div>
-    <div class="spk-grid" id="speaker-grid">
-      <div class="spk-empty" id="spk-empty">No speakers match the selected filters.</div>
-    </div>
-  </div>
-</section>
+    <section class="spk-grid-section">
+        <div class="spk-grid-inner">
+            <div class="spk-grid-count">Showing <strong id="grid-count">0</strong> speakers</div>
+            <div class="spk-grid" id="speaker-grid">
+                <div class="spk-empty" id="spk-empty">No speakers match the selected filters.</div>
+            </div>
+        </div>
+    </section>
 
 
-<!-- ══════════════════════════════════════════
-     POPUP
+    <!-- ══════════════════════════════════════════
+     SPEAKER POPUP
 ══════════════════════════════════════════ -->
-<div class="spk-overlay" id="spk-overlay" onclick="overlayClick(event)">
-  <div class="spk-popup">
-    <button class="spk-popup-close" onclick="closePopup()">✕</button>
-    <div class="spk-popup-photo-col">
-      <div class="spk-popup-img"><img id="popup-img" src="" alt="" /></div>
-      <div id="popup-links"></div>
+    <div class="spk-overlay" id="spk-overlay" onclick="if(event.target===this)closePopup()">
+        <div class="spk-popup">
+            <button class="spk-popup-close" onclick="closePopup()" aria-label="Close">&#10005;</button>
+            <div class="spk-popup-photo-col">
+                <div class="spk-popup-img"><img id="popup-img" src="" alt="" /></div>
+                <div class="spk-popup-links" id="popup-links"></div>
+            </div>
+            <div class="spk-popup-content">
+                <div>
+                    <div class="spk-popup-name" id="popup-name"></div>
+                    <div class="spk-popup-role" id="popup-role"></div>
+                    <div class="spk-popup-tracks" id="popup-track-wrap"></div>
+                </div>
+                <div>
+                    <div class="spk-popup-micro">About</div>
+                    <div class="spk-popup-bio" id="popup-bio"></div>
+                </div>
+                <div id="popup-sessions-wrap">
+                    <div class="spk-popup-micro">Sessions</div>
+                    <div id="popup-sessions"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="spk-popup-content">
-      <div>
-        <div class="spk-popup-name" id="popup-name"></div>
-        <div class="spk-popup-role" id="popup-role"></div>
-        <div style="margin-top:10px;" id="popup-track-wrap"></div>
-      </div>
-      <div>
-        <div class="spk-popup-micro">About</div>
-        <div class="spk-popup-bio" id="popup-bio"></div>
-      </div>
-      <div id="popup-sessions-wrap">
-        <div class="spk-popup-micro">Sessions</div>
-        <div id="popup-sessions"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
-<!-- ══════════════════════════════════════════
-     APPLY FORM
+    <!-- ══════════════════════════════════════════
+     APPLY TO SPEAK
 ══════════════════════════════════════════ -->
-<section class="spk-apply" id="apply">
-  <div class="sp-contact-inner">
-    <div class="sp-contact-left">
-      <h2>Want to Speak<br>at <em>Signal: AI?</em></h2>
-      <p>We are building a lineup of active practitioners, researchers, founders, and domain experts who bring real-world experience and insight to the stage. If you are shaping work in AI, or know someone who is, we invite you to apply.</p>
-      <div class="sp-contact-meta">
-        <div class="sp-contact-meta-item">
-          <div class="sp-contact-meta-icon">🎙️</div>
-          <div>Speaker enquiries: <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a></div>
+    <section class="spk-apply" id="apply">
+        <div class="sp-contact-inner">
+            <div class="sp-contact-left">
+                <h2>Want to Speak<br>at <em>AI Summit?</em></h2>
+                <p>We are building a lineup of active practitioners, researchers, founders, and domain experts who bring real-world experience and insight to the stage. If you are shaping work in AI, or know someone who is, we invite you to apply.</p>
+                <div class="sp-contact-meta">
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="mic"></span></div>
+                        <div>Speaker enquiries: <a href="mailto:speakers@brainsmingle.com">speakers@brainsmingle.com</a></div>
+                    </div>
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="calendar"></span></div>
+                        <div>Event: 10 – 16 October 2026 · Virtual · Global</div>
+                    </div>
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="globe"></span></div>
+                        <div>All sessions delivered live on BrainsMingle</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-contact-right">
+                <div class="sp-form" id="apply-form">
+                    <div class="sp-form-row">
+                        <div class="sp-field">
+                            <label for="a-name">Full Name *</label>
+                            <input type="text" id="a-name" placeholder="Your name" required />
+                        </div>
+                        <div class="sp-field">
+                            <label for="a-org">Title &amp; Organisation *</label>
+                            <input type="text" id="a-org" placeholder="CEO at Acme / PhD, MIT" required />
+                        </div>
+                    </div>
+                    <div class="sp-form-row">
+                        <div class="sp-field">
+                            <label for="a-email">Email *</label>
+                            <input type="email" id="a-email" placeholder="you@company.com" required />
+                        </div>
+                        <div class="sp-field">
+                            <label for="a-phone">Phone</label>
+                            <input type="tel" id="a-phone" placeholder="+20 000 000 0000" />
+                        </div>
+                        <div class="sp-field">
+                            <label for="a-linkedin">LinkedIn Profile</label>
+                            <input type="url" id="a-linkedin" placeholder="linkedin.com/in/yourname" />
+                        </div>
+                    </div>
+                    <div class="sp-field">
+                        <label for="a-track">Preferred Track *</label>
+                        <select id="a-track" required>
+                            <option value="" disabled selected>Select a track</option>
+                        </select>
+                    </div>
+                    <div class="sp-field">
+                        <label for="a-topic">Proposed Topic / Talk Title *</label>
+                        <input type="text" id="a-topic" placeholder="What would you like to speak about?" required />
+                    </div>
+                    <div class="sp-field">
+                        <label for="a-bio">Brief Bio (optional)</label>
+                        <textarea id="a-bio" placeholder="Tell us about your work and why this topic matters"></textarea>
+                    </div>
+                    <div class="sp-form-submit-row">
+                        <button class="btn btn-primary btn-arrow" onclick="submitApply()">Apply to Speak</button>
+                        <span class="sp-form-note">We review all applications and respond within 5 business days.</span>
+                    </div>
+                </div>
+                <div class="sp-form-success" id="apply-success">
+                    <span data-icon="check"></span>
+                    Application received. Our team will review your submission and get in touch soon.
+                </div>
+            </div>
         </div>
-        <div class="sp-contact-meta-item">
-          <div class="sp-contact-meta-icon">📅</div>
-          <div>Event: 4 – 10 July 2026 &middot; Virtual &middot; Global</div>
-        </div>
-        <div class="sp-contact-meta-item">
-          <div class="sp-contact-meta-icon">🌍</div>
-          <div>All sessions delivered live on BrainsMingle</div>
-        </div>
-      </div>
-    </div>
-    <div class="sp-contact-right">
-      <div class="sp-form" id="apply-form">
-        <div class="sp-form-row">
-          <div class="sp-field">
-            <label for="a-name">Full Name *</label>
-            <input type="text" id="a-name" placeholder="Your name" required />
-          </div>
-          <div class="sp-field">
-            <label for="a-org">Title &amp; Organisation *</label>
-            <input type="text" id="a-org" placeholder="CEO at Acme / PhD, MIT" required />
-          </div>
-        </div>
-        <div class="sp-form-row">
-          <div class="sp-field">
-            <label for="a-email">Email *</label>
-            <input type="email" id="a-email" placeholder="you@company.com" required />
-          </div>
-          <div class="sp-field">
-            <label for="a-phone">Phone *</label>
-            <input type="tel" id="a-phone" placeholder="+1 000 000 0000" required />
-          </div>
-          <div class="sp-field">
-            <label for="a-linkedin">LinkedIn Profile</label>
-            <input type="url" id="a-linkedin" placeholder="linkedin.com/in/yourname" />
-          </div>
-        </div>
-        <!-- track select — rendered from tracks.js -->
-        <div class="sp-field">
-          <label for="a-track">Preferred Track *</label>
-          <select id="a-track" required>
-            <option value="" disabled selected>Select a track</option>
-          </select>
-        </div>
-        <div class="sp-field">
-          <label for="a-topic">Proposed Topic / Talk Title *</label>
-          <input type="text" id="a-topic" placeholder="What would you like to speak about?" required />
-        </div>
-        <div class="sp-field">
-          <label for="a-bio">Brief Bio (optional)</label>
-          <textarea id="a-bio" placeholder="Tell us about your work and why this topic matters..."></textarea>
-        </div>
-        <div class="sp-form-submit-row">
-          <button class="btn btn-primary" onclick="submitApply()">Apply to Speak →</button>
-          <span class="sp-form-note">We review all applications and respond within 5 business days.</span>
-        </div>
-        <div class="sp-form-success" id="apply-success">
-          ✓ Application received. Our team will review your submission and get in touch soon.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- ══════════════════════════════════════════
-     FOOTER
+    <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
 ══════════════════════════════════════════ -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="assets/brand/logo-footer.png" alt="Signal: AI" />
-      <p class="footer-brand-sub">The global AI activation week. Powered by BrainsMingle.</p>
-      <div class="footer-contact">
-        <a href="mailto:signal@brainsmingle.com">signal@brainsmingle.com</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Event</div>
-      <div class="footer-links">
-        <a href="home.html#about">About Signal</a>
-        <a href="tracks.html">The Tracks</a>
-        <a href="agenda.html">Full Agenda</a>
-        <a href="speakers.html">Speakers</a>
-        <a href="#apply">Join as Speaker</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Partners</div>
-      <div class="footer-links">
-        <a href="sponsors.html">Become a Sponsor</a>
-        <a href="sponsors.html#contact">Community Partners</a>
-        <a href="sponsors.html#contact">Media Partners</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-bottom-text">&copy; 2026 Signal: AI &middot; Powered by BrainsMingle</span>
-    <span class="footer-bottom-text">4 – 10 July 2026 &middot; Global &middot; Virtual</span>
-  </div>
-</footer>
+    <div id="site-footer"></div>
 
 
-<!-- ══════════════════════════════════════════
-     DATA FILES
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → days → agenda → speakers → icons → modals
+
+     No "speaker" modal here: the apply form is already on the page, so the
+     footer link scrolls to it instead of opening a duplicate form.
 ══════════════════════════════════════════ -->
-<script src="data/tracks.js"></script>
-<script src="data/agenda.js"></script>
-<script src="data/speakers.js"></script>
+    <script>
+        var MODAL_LINK_OVERRIDES = { "speaker-modal": "#apply" };
+    </script>
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/days.js"></script>
+    <script src="data/agenda.js"></script>
+    <script src="data/speakers.js"></script>
+    <script src="data/icons.js"></script>
+    <script>
+        var MODAL_IDS = ["registration", "sponsor"];
+    </script>
+    <script src="data/modals.js"></script>
 
-<script>
-// ─────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────
-let activeTrack = "all";
-let activeDay   = "all";
+    <script>
+        /* ─────────────────────────────────────────
+           PAGE CONFIG
+           ───────────────────────────────────────── */
+
+        // Maps trackNumber to a key in data/icons.js
+        var SPK_TRACK_ICON_KEYS = {
+            1: "trackLd",
+            2: "trackCreative",
+            3: "trackStartups",
+            4: "trackBusiness",
+            5: "trackTech"
+        };
+
+        var SPK_APPLY_EMAIL = "speakers@brainsmingle.com";
+        var SPK_PLACEHOLDER_SESSION = "Session to be announced";
 
 
-// ─────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", function () {
-  renderHeroPills();
-  renderTrackFilterBtns();
-  renderTrackSelect();
-  renderFeaturedGrid();
-  renderSpeakerGrid();
-});
+        /* ─────────────────────────────────────────
+           STATE
+           ───────────────────────────────────────── */
+        let activeTrack = "all";
+        let activeDay   = "all";
 
 
-// ─────────────────────────────────────────
-// HERO PILLS — from tracks.js
-// ─────────────────────────────────────────
-function renderHeroPills() {
-  const el = document.getElementById("spk-hero-pills");
-  if (!el) return;
-  el.innerHTML = SIGNAL_TRACKS.map(t => `
-    <span class="tl-pill"
-          style="color:${t.color};border-color:rgba(${t.accentRgb},0.3);background:rgba(${t.accentRgb},0.06);">
-      <span class="tl-dot" style="background:${t.color};"></span>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderHeroPills();
+            renderFeaturedEyebrow();
+            renderTrackFilters();
+            renderDayFilters();
+            renderTrackSelect();
+            renderFeaturedGrid();
+            renderSpeakerGrid();
+        });
+
+
+        /* ─────────────────────────────────────────
+           HERO PILLS — colour from the .track-N class
+           ───────────────────────────────────────── */
+        function renderHeroPills() {
+            const el = document.getElementById("spk-hero-pills");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <span class="tl-pill track-${t.trackNumber}">
+      <span class="tl-icon">${_spkIcon(SPK_TRACK_ICON_KEYS[t.trackNumber])}</span>
       ${t.shortName}
     </span>
   `).join("");
-}
+        }
 
 
-// ─────────────────────────────────────────
-// TRACK FILTER BUTTONS — from tracks.js
-// ─────────────────────────────────────────
-function renderTrackFilterBtns() {
-  const el = document.getElementById("track-filter-btns");
-  if (!el) return;
-  let html = `<button class="spk-fbtn active-all" data-track="all" onclick="setTrackFilter('all', this)">All Tracks</button>`;
-  html += SIGNAL_TRACKS.map(t => `
-    <button class="spk-fbtn" data-track="${t.trackNumber}" onclick="setTrackFilter('${t.trackNumber}', this)"
-            style="color:rgba(${t.accentRgb},0.55);border-color:rgba(${t.accentRgb},0.18);background:rgba(${t.accentRgb},0.04);">
-      <span class="pill-dot" style="background:${t.color};"></span>
-      ${t.shortName}
-    </button>
-  `).join("");
-  el.innerHTML = html;
-}
+        /* ─────────────────────────────────────────
+           FEATURED HEADING — date from data/days.js
+           ───────────────────────────────────────── */
+        function renderFeaturedEyebrow() {
+            const el = document.getElementById("spk-featured-eyebrow");
+            if (!el) return;
+            const day1 = (typeof SIGNAL_DAYS_MAP !== "undefined") ? SIGNAL_DAYS_MAP[1] : null;
+            el.innerHTML = `
+    <span class="spk-eyebrow-icon">${_spkIcon("activation")}</span>
+    Opening Day Spotlight${day1 ? " · " + day1.dateShort : ""}`;
+        }
 
 
-// ─────────────────────────────────────────
-// TRACK SELECT (apply form) — from tracks.js
-// ─────────────────────────────────────────
-function renderTrackSelect() {
-  const sel = document.getElementById("a-track");
-  if (!sel) return;
-  SIGNAL_TRACKS.forEach(t => {
-    const opt = document.createElement("option");
-    opt.value       = t.slug;
-    opt.textContent = t.shortName;
-    sel.appendChild(opt);
-  });
-}
+        /* ─────────────────────────────────────────
+           FILTER BUTTONS
+           ───────────────────────────────────────── */
+        function renderTrackFilters() {
+            const el = document.getElementById("track-filter-btns");
+            if (!el) return;
+
+            el.innerHTML =
+                `<button class="spk-fbtn active-all" data-track="all" onclick="setTrackFilter('all', this)">All Tracks</button>` +
+                SIGNAL_TRACKS.map(t => `
+      <button class="spk-fbtn track-${t.trackNumber}" data-track="${t.trackNumber}"
+              onclick="setTrackFilter('${t.trackNumber}', this)">
+        <span class="tl-icon">${_spkIcon(SPK_TRACK_ICON_KEYS[t.trackNumber])}</span>
+        ${t.shortName}
+      </button>`).join("");
+        }
+
+        // Only days that actually have speakers get a button.
+        function renderDayFilters() {
+            const el = document.getElementById("day-filter-btns");
+            if (!el) return;
+
+            const days = SIGNAL_DAYS.filter(d => getSpeakersByDay(d.day).length > 0);
+
+            el.innerHTML =
+                `<button class="spk-fbtn active-all" data-day="all" onclick="setDayFilter('all', this)">All Days</button>` +
+                days.map(d => `
+      <button class="spk-fbtn" data-day="${d.day}" onclick="setDayFilter('${d.day}', this)">${d.tabLabel}</button>`).join("");
+        }
+
+        function renderTrackSelect() {
+            const sel = document.getElementById("a-track");
+            if (!sel) return;
+            SIGNAL_TRACKS.forEach(t => {
+                const opt = document.createElement("option");
+                opt.value = t.slug;
+                opt.textContent = t.shortName;
+                sel.appendChild(opt);
+            });
+        }
 
 
-// ─────────────────────────────────────────
-// SPEAKER CARD HTML
-// ─────────────────────────────────────────
-function speakerCardHtml(speaker, showBadge) {
-  // collect unique track numbers from appearances
-  const trackNums = [...new Set(
-    speaker.appearances.map(a => a.trackNumber).filter(n => n !== null)
-  )];
-  // collect unique days
-  const days = [...new Set(speaker.appearances.map(a => a.day))];
+        /* ─────────────────────────────────────────
+           SPEAKER CARDS
+           ───────────────────────────────────────── */
+        function speakerCardHtml(speaker, showBadge) {
+            const trackNums = getSpeakerTrackNumbers(speaker);
+            const days = [...new Set(speaker.appearances.map(a => a.day))];
 
-  const badge = showBadge ? `<div class="spk-card-badge">★ Featured</div>` : "";
+            const badge = showBadge
+                ? `<div class="spk-card-badge"><span class="spk-badge-icon">${_spkIcon("activation")}</span>Featured</div>`
+                : "";
 
-  return `
+            const photo = speaker.imagePath
+                ? `<img src="${speaker.imagePath}" alt="${speaker.name}" loading="lazy" />`
+                : `<div class="spk-card-initials">${_initials(speaker.name)}</div>`;
+
+            return `
     <div class="spk-card"
          data-track="${trackNums.join(",") || "opening"}"
          data-days="${days.join(",")}"
          onclick="openPopup('${speaker.id}')">
       ${badge}
-      <div class="spk-card-photo">
-        <img src="${speaker.imagePath}" alt="${speaker.name}" loading="lazy" />
-      </div>
+      <div class="spk-card-photo">${photo}</div>
       <div class="spk-card-info">
         <div class="spk-card-name">${speaker.name}</div>
-        <div class="spk-card-title">${speaker.title} &middot; ${speaker.company}</div>
+        <div class="spk-card-title">${speaker.title}${speaker.company ? " · " + speaker.company : ""}</div>
       </div>
-    </div>
-  `;
-}
+    </div>`;
+        }
+
+        function renderFeaturedGrid() {
+            const el = document.getElementById("spk-featured-grid");
+            if (!el) return;
+            el.innerHTML = getFeaturedSpeakers().map(s => speakerCardHtml(s, true)).join("");
+        }
+
+        function renderSpeakerGrid() {
+            const grid = document.getElementById("speaker-grid");
+            if (!grid) return;
+
+            const empty = document.getElementById("spk-empty");
+            grid.querySelectorAll(".spk-card").forEach(c => c.remove());
+
+            SIGNAL_SPEAKERS.forEach(s => {
+                const holder = document.createElement("div");
+                holder.innerHTML = speakerCardHtml(s, s.featured).trim();
+                grid.insertBefore(holder.firstElementChild, empty);
+            });
+
+            filterGrid();
+        }
 
 
-// ─────────────────────────────────────────
-// FEATURED GRID
-// ─────────────────────────────────────────
-function renderFeaturedGrid() {
-  const el = document.getElementById("spk-featured-grid");
-  if (!el) return;
-  const featured = SIGNAL_SPEAKERS.filter(s => s.featured);
-  el.innerHTML = featured.map(s => speakerCardHtml(s, true)).join("");
-}
+        /* ─────────────────────────────────────────
+           FILTERING
+           ───────────────────────────────────────── */
+        function filterGrid() {
+            const cards = document.querySelectorAll("#speaker-grid .spk-card");
+            const empty = document.getElementById("spk-empty");
+            const query = (document.getElementById("spk-search")?.value || "").toLowerCase().trim();
+            let visible = 0;
+
+            cards.forEach(card => {
+                const cardTracks = (card.dataset.track || "").split(",");
+                const cardDays   = (card.dataset.days || "").split(",").map(Number);
+
+                const trackOk  = activeTrack === "all" || cardTracks.includes(String(activeTrack));
+                const dayOk    = activeDay === "all" || cardDays.includes(parseInt(activeDay, 10));
+                const name     = card.querySelector(".spk-card-name")?.textContent.toLowerCase() || "";
+                const title    = card.querySelector(".spk-card-title")?.textContent.toLowerCase() || "";
+                const searchOk = !query || name.includes(query) || title.includes(query);
+
+                const show = trackOk && dayOk && searchOk;
+                card.classList.toggle("hidden", !show);
+                if (show) visible++;
+            });
+
+            document.getElementById("grid-count").textContent = visible;
+            empty.classList.toggle("visible", visible === 0);
+        }
+
+        // Active state is a class only. Colour comes from .track-N in the CSS.
+        function setTrackFilter(val, btn) {
+            document.querySelectorAll(".spk-fbtn[data-track]").forEach(b => b.classList.remove("active", "active-all"));
+            activeTrack = val;
+            btn.classList.add(val === "all" ? "active-all" : "active");
+            filterGrid();
+        }
+
+        function setDayFilter(val, btn) {
+            document.querySelectorAll(".spk-fbtn[data-day]").forEach(b => b.classList.remove("active", "active-all"));
+            activeDay = val;
+            btn.classList.add(val === "all" ? "active-all" : "active");
+            filterGrid();
+        }
 
 
-// ─────────────────────────────────────────
-// MAIN SPEAKER GRID
-// ─────────────────────────────────────────
-function renderSpeakerGrid() {
-  const grid = document.getElementById("speaker-grid");
-  if (!grid) return;
+        /* ─────────────────────────────────────────
+           POPUP
+           ───────────────────────────────────────── */
+        function openPopup(id) {
+            const s = SIGNAL_SPEAKERS_MAP[id];
+            if (!s) return;
 
-  // build all cards before the empty state div
-  const empty = document.getElementById("spk-empty");
-  // clear existing cards (keep empty div)
-  grid.querySelectorAll(".spk-card").forEach(c => c.remove());
+            const img = document.getElementById("popup-img");
+            img.src = s.imagePath || "";
+            img.alt = s.name;
 
-  // insert cards before empty div
-  SIGNAL_SPEAKERS.forEach(s => {
-    const div = document.createElement("div");
-    div.innerHTML = speakerCardHtml(s, s.featured).trim();
-    const card = div.firstElementChild;
-    grid.insertBefore(card, empty);
-  });
+            document.getElementById("popup-name").textContent = s.name;
+            document.getElementById("popup-role").textContent = s.title + (s.company ? " · " + s.company : "");
+            document.getElementById("popup-bio").textContent  = s.bio || "";
 
-  filterGrid();
-}
+            // Track pills — .track-pill.track-N is already styled in the CSS
+            document.getElementById("popup-track-wrap").innerHTML =
+                getSpeakerTrackNumbers(s).map(n => {
+                    const t = SIGNAL_TRACKS_BY_NUMBER[n];
+                    return t ? `<span class="track-pill track-${n}"><span class="tl-icon">${_spkIcon(SPK_TRACK_ICON_KEYS[n])}</span>${t.shortName}</span>` : "";
+                }).join("");
 
+            // Profile links, icons from data/icons.js
+            const links = [];
+            if (s.bmProfile) links.push(
+                `<a class="spk-popup-link bm" href="${s.bmProfile}" target="_blank" rel="noopener">
+           ${_spkIcon("brainsmingle")} View on BrainsMingle
+         </a>`);
+            if (s.linkedin) links.push(
+                `<a class="spk-popup-link li" href="${s.linkedin}" target="_blank" rel="noopener">
+           ${_spkIcon("linkedin")} LinkedIn Profile
+         </a>`);
+            document.getElementById("popup-links").innerHTML = links.join("");
 
-// ─────────────────────────────────────────
-// FILTER
-// ─────────────────────────────────────────
-function filterGrid() {
-  const cards  = document.querySelectorAll("#speaker-grid .spk-card");
-  const empty  = document.getElementById("spk-empty");
-  const query  = (document.getElementById("spk-search")?.value || "").toLowerCase().trim();
-  let visible  = 0;
+            // Sessions from appearances
+            const wrap = document.getElementById("popup-sessions-wrap");
+            const list = document.getElementById("popup-sessions");
+            const appearances = s.appearances.filter(a => a.sessionId);
 
-  cards.forEach(card => {
-    const cardTracks = (card.dataset.track || "").split(",");
-    const cardDays   = (card.dataset.days  || "").split(",").map(Number);
-
-    const trackOk  = activeTrack === "all" || cardTracks.includes(String(activeTrack));
-    const dayOk    = activeDay   === "all" || cardDays.includes(parseInt(activeDay));
-    const name     = card.querySelector(".spk-card-name")?.textContent.toLowerCase()  || "";
-    const title    = card.querySelector(".spk-card-title")?.textContent.toLowerCase() || "";
-    const searchOk = !query || name.includes(query) || title.includes(query);
-
-    const show = trackOk && dayOk && searchOk;
-    card.classList.toggle("hidden", !show);
-    if (show) visible++;
-  });
-
-  document.getElementById("grid-count").textContent = visible;
-  empty.classList.toggle("visible", visible === 0);
-}
-
-function setTrackFilter(val, btn) {
-  document.querySelectorAll(".spk-fbtn[data-track]").forEach(b => {
-    b.classList.remove("active", "active-all");
-    // restore dim style for track buttons
-    const t = SIGNAL_TRACKS_BY_NUMBER[b.dataset.track];
-    if (t) {
-      b.style.color       = `rgba(${t.accentRgb},0.55)`;
-      b.style.borderColor = `rgba(${t.accentRgb},0.18)`;
-      b.style.background  = `rgba(${t.accentRgb},0.04)`;
-    } else {
-      b.style.color = ""; b.style.borderColor = ""; b.style.background = "";
-    }
-  });
-  activeTrack = val;
-  btn.classList.add(val === "all" ? "active-all" : "active");
-  if (val !== "all") {
-    const t = SIGNAL_TRACKS_BY_NUMBER[val];
-    if (t) {
-      btn.style.color       = t.color;
-      btn.style.borderColor = `rgba(${t.accentRgb},0.35)`;
-      btn.style.background  = `rgba(${t.accentRgb},0.08)`;
-    }
-  } else {
-    btn.style.color = ""; btn.style.borderColor = ""; btn.style.background = "";
-  }
-  filterGrid();
-}
-
-function setDayFilter(val, btn) {
-  document.querySelectorAll(".spk-fbtn[data-day]").forEach(b => b.classList.remove("active", "active-all"));
-  activeDay = val;
-  btn.classList.add(val === "all" ? "active-all" : "active");
-  filterGrid();
-}
-
-
-// ─────────────────────────────────────────
-// POPUP
-// ─────────────────────────────────────────
-function openPopup(id) {
-  const s = SIGNAL_SPEAKERS_MAP[id];
-  if (!s) return;
-
-  document.getElementById("popup-img").src = s.imagePath;
-  document.getElementById("popup-img").alt = s.name;
-  document.getElementById("popup-name").textContent = s.name;
-  document.getElementById("popup-role").textContent = `${s.title} · ${s.company}`;
-  document.getElementById("popup-bio").textContent  = s.bio;
-
-  // track pills
-  const trackNums = [...new Set(s.appearances.map(a => a.trackNumber).filter(n => n !== null))];
-  document.getElementById("popup-track-wrap").innerHTML = trackNums.map(n => {
-    const t = SIGNAL_TRACKS_BY_NUMBER[n];
-    if (!t) return "";
-    return `<span class="track-pill track-${n}" style="color:${t.color};border-color:rgba(${t.accentRgb},0.30);background:rgba(${t.accentRgb},0.08);">
-      <span class="pill-dot" style="background:${t.color};"></span>${t.shortName}
-    </span>`;
-  }).join(" ");
-
-  // profile links
-  const linksEl = document.getElementById("popup-links");
-  linksEl.innerHTML = "";
-  if (s.bmProfile) linksEl.innerHTML +=
-    `<a href="${s.bmProfile}" target="_blank" class="spk-popup-link bm" style="margin-bottom:8px;">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      View on BrainsMingle</a>`;
-  if (s.linkedin) linksEl.innerHTML +=
-    `<a href="${s.linkedin}" target="_blank" class="spk-popup-link li">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      LinkedIn Profile</a>`;
-
-  // sessions from appearances
-  const sw = document.getElementById("popup-sessions-wrap");
-  const se = document.getElementById("popup-sessions");
-  const appearances = s.appearances.filter(a => a.sessionId);
-  if (appearances.length) {
-    sw.style.display = "block";
-    se.innerHTML = appearances.map(a => {
-      const session = SIGNAL_AGENDA.find(ag => ag.id === a.sessionId);
-      const title   = session && session.title ? session.title : "Session to be announced";
-      return `<div class="spk-session-item">
+            wrap.classList.toggle("is-hidden", appearances.length === 0);
+            list.innerHTML = appearances.map(a => {
+                const session = SIGNAL_AGENDA.find(ag => ag.id === a.sessionId);
+                const title = (session && session.title) ? session.title : SPK_PLACEHOLDER_SESSION;
+                return `
+      <div class="spk-session-item">
         <div class="spk-session-day">Day ${a.day}</div>
         <div class="spk-session-title">${title}</div>
       </div>`;
-    }).join("");
-  } else {
-    sw.style.display = "none";
-  }
+            }).join("");
 
-  document.getElementById("spk-overlay").classList.add("open");
-  document.body.style.overflow = "hidden";
-}
+            document.getElementById("spk-overlay").classList.add("open");
+            document.body.classList.add("modal-open");
+        }
 
-function closePopup() {
-  document.getElementById("spk-overlay").classList.remove("open");
-  document.body.style.overflow = "";
-}
-function overlayClick(e) {
-  if (e.target === document.getElementById("spk-overlay")) closePopup();
-}
-document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup(); });
+        function closePopup() {
+            document.getElementById("spk-overlay").classList.remove("open");
+            document.body.classList.remove("modal-open");
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closePopup();
+        });
 
 
-// ─────────────────────────────────────────
-// APPLY FORM
-// ─────────────────────────────────────────
-function submitApply() {
-  if (!document.getElementById("a-name").value.trim()  ||
-      !document.getElementById("a-email").value.trim() ||
-      !document.getElementById("a-track").value        ||
-      !document.getElementById("a-topic").value.trim()) {
-    alert("Please fill in all required fields."); return;
-  }
-  const f = document.getElementById("apply-form");
-  f.style.opacity = "0.5"; f.style.pointerEvents = "none";
-  setTimeout(() => {
-    f.style.display = "none";
-    document.getElementById("apply-success").style.display = "block";
-  }, 500);
-}
-</script>
+        /* ─────────────────────────────────────────
+           APPLY FORM
+           Same destination and message shape as the
+           speaker modal in data/modals.js.
+           ───────────────────────────────────────── */
+        function submitApply() {
+            const val = id => (document.getElementById(id).value || "").trim();
+
+            const name  = val("a-name");
+            const org   = val("a-org");
+            const email = val("a-email");
+            const track = document.getElementById("a-track").value;
+            const topic = val("a-topic");
+
+            if (!name || !org || !email || !track || !topic) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            const subject = encodeURIComponent("AI Summit Speaker Application: " + name + " · " + track);
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nTitle & Organisation: " + org +
+                "\nEmail: " + email +
+                "\nPhone: " + (val("a-phone") || "Not provided") +
+                "\nLinkedIn: " + (val("a-linkedin") || "Not provided") +
+                "\nTrack: " + track +
+                "\n\nProposed Topic:\n" + topic +
+                "\n\nBio:\n" + (val("a-bio") || "Not provided")
+            );
+
+            window.location.href = "mailto:" + SPK_APPLY_EMAIL + "?subject=" + subject + "&body=" + body;
+
+            const form = document.getElementById("apply-form");
+            form.classList.add("is-submitting");
+            setTimeout(function () {
+                form.classList.add("is-hidden");
+                document.getElementById("apply-success").classList.add("is-visible");
+            }, 500);
+        }
+
+
+        /* ─────────────────────────────────────────
+           HELPERS
+           ───────────────────────────────────────── */
+
+        // SVG comes straight from data/icons.js so it is in the markup
+        // before the icon injector runs.
+        function _spkIcon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
+        }
+
+        function _initials(name) {
+            return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
+        }
+    </script>
 
 </body>
+
 </html>
