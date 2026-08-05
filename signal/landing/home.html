@@ -208,7 +208,7 @@
                     <span class="section-eyebrow">The Agenda</span>
                     <h2 class="agenda-preview__title">Seven days.<br>Every format.</h2>
                 </div>
-                <a href="agenda.html" data-page="agenda" class="agenda-preview__link">View Full Agenda →</a>
+                <a href="agenda.html" data-page="agenda" class="agenda-preview__link">View Full Agenda</a>
             </div>
 
             <div class="agenda-preview__days">
@@ -267,7 +267,7 @@
                 </div>
                 <div class="speakers-preview__aside">
                     <p class="speakers-preview__lead">Practitioners, founders and researchers sharing what they actually know. Not keynotes, real conversations in front of a global room.</p>
-                    <a href="speakers.html" data-page="speakers" class="speakers-preview__link">See All Speakers →</a>
+                    <a href="speakers.html" data-page="speakers" class="speakers-preview__link">See All Speakers</a>
                 </div>
             </div>
 
@@ -416,7 +416,7 @@
         <span class="track-strip__name">${t.fullName}</span>
         <span class="track-strip__desc">${t.shortDescription}</span>
       </span>
-      <span class="track-strip__arrow" aria-hidden="true">→</span>
+      <span class="track-strip__arrow" aria-hidden="true">${_icon("arrowRight")}</span>
     </a>`).join("");
 
             // Strips render after layout.js, so re-apply the live/soon gate
@@ -469,6 +469,11 @@
       ${t.shortName}
     </span>
   `).join("");
+        }
+        // SVG straight from data/icons.js, so it is in the markup before
+        // the icon injector runs. An unknown key renders nothing.
+        function _icon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
         }
     </script>
 

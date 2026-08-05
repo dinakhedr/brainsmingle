@@ -62,6 +62,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 :root {
   /* ── Backgrounds */
   --bg:           #05050F;
+  --bg-alt:       #0D0A1F;
   --bg-card:      #0E0E1C;
   --bg-card-2:    #111120;
 
@@ -848,7 +849,8 @@ body.modal-open { overflow: hidden; }
 /* ── Close button */
 .modal-close {
   position: absolute; top: 16px; right: 18px;
-  font-size: 18px; color: rgba(255,255,255,0.35);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; color: rgba(255,255,255,0.35);
   background: none; border: none; cursor: pointer;
   transition: color 0.15s; line-height: 1;
 }
@@ -1892,6 +1894,7 @@ body.modal-open { overflow: hidden; }
   font-family: var(--font-body); font-size: 12px; font-weight: 700;
   color: var(--track-color); white-space: nowrap; transition: opacity 0.2s;
 }
+.tr-card__link::after { content: ' →'; }
 .tr-card__link:hover { opacity: 0.75; }
 
 /* The card you jumped to from the legend */
@@ -2410,7 +2413,6 @@ body.modal-open { overflow: hidden; }
   transition: color 0.2s;
 }
 .cs-back:hover { color: var(--text-secondary); }
-.cs-back-arrow { font-size: 15px; }
 
 
 /* ============================================================
@@ -2429,6 +2431,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] {
   /* Surfaces */
   --bg:           #FFFFFF;
+  --bg-alt:       #F6F4FC;
   --bg-card:      #FFFFFF;
   --bg-card-2:    #FAFAFC;
 
@@ -3002,8 +3005,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   color: var(--text-secondary);
 }
 .track-strip__arrow {
-  font-family: var(--font-body);
-  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center;
   color: var(--track-color); flex-shrink: 0;
   transition: transform 0.2s;
 }
@@ -3125,6 +3127,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   color: var(--accent); white-space: nowrap;
   transition: opacity 0.2s;
 }
+.agenda-preview__link::after { content: ' →'; }
 .agenda-preview__link:hover { opacity: 0.75; }
 
 
@@ -3251,11 +3254,12 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   color: var(--text-secondary);
 }
 .speakers-preview__link {
-  font-family: var(--font-body);
+font-family: var(--font-body);
   font-size: 14px; font-weight: 700;
   color: var(--accent); white-space: nowrap;
   transition: opacity 0.2s;
 }
+.speakers-preview__link::after { content: ' →'; }
 .speakers-preview__link:hover { opacity: 0.75; }
 
 .speakers-preview__foot {
@@ -4186,4 +4190,25 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   .sp-col-row { gap: 14px; }
   .sp-col-row--track,
   .sp-col-row--special { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ============================================================
+   36. ALTERNATING SECTION BACKGROUNDS
+
+   Every other content section sits on --bg-alt, a slight
+   purple lift off the page background in both themes. The
+   hero and the closing CTA are excluded: they carry their own
+   gradient band and are the bookends of the rhythm.
+
+   Home order: intro, tracks, audience, agenda, speakers,
+   sponsors. Alt lands on tracks, agenda and sponsors.
+   ============================================================ */
+
+.tracks-preview,
+.agenda-preview,
+.sponsors-preview,
+.spk-filters,
+.spk-grid-wrap,
+.sp-wall {
+  background: var(--bg-alt);
 }
