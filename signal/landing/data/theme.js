@@ -31,6 +31,10 @@
 
    To add a pairing, copy an entry in SITE_FONTS and give it the
    family names plus the weights you need.
+
+   A pairing may also carry a "mono" for overlines and small
+   labels. It is optional: pairings without one leave --font-mono
+   at its CSS fallback.
    ============================================================ */
 
 
@@ -44,7 +48,7 @@ var THEME_KEY = "aisummit-theme";
 
 /* ── 2. FONTS ─────────────────────────────────────────────── */
 
-var FONT_SET = "montserratInter";      // any key in SITE_FONTS below
+var FONT_SET = "montserratInterMono";  // any key in SITE_FONTS below
 
 var SITE_FONTS = {
 
@@ -94,7 +98,7 @@ var SITE_FONTS = {
                "Manrope:wght@400;500;600;700;800"]
   },
   
-  /* Montserrat headlines with a neutral, highly legible body */
+ /* Montserrat headlines with a neutral, highly legible body */
   montserratInter: {
     display : "Montserrat",
     body    : "Inter",
@@ -102,6 +106,29 @@ var SITE_FONTS = {
                "Inter:wght@400;500;600;700"]
   },
 
+  /* ── Pairings carrying a mono for overlines and small labels.
+        Both are on the BrainsMingle system, which specifies Inter
+        and JetBrains Mono. The difference is whether headlines
+        stay on the event's own display face or move to Inter. ── */
+
+  /* A · Fully on-system. One family plus the mono. */
+  interMono: {
+    display : "Inter",
+    body    : "Inter",
+    mono    : "JetBrains Mono",
+    families: ["Inter:wght@400;500;600;700;800;900",
+               "JetBrains+Mono:wght@400;500;600"]
+  },
+
+  /* B · Event display face, on-system body and labels. */
+  montserratInterMono: {
+    display : "Montserrat",
+    body    : "Inter",
+    mono    : "JetBrains Mono",
+    families: ["Montserrat:wght@400;600;700;800;900",
+               "Inter:wght@400;500;600;700",
+               "JetBrains+Mono:wght@400;500;600"]
+  },
 };
 
 
@@ -212,6 +239,12 @@ function applyFonts() {
   root.style.setProperty("--font-display", "'" + f.display + "', sans-serif");
   root.style.setProperty("--font-head",    "'" + f.display + "', sans-serif");
   root.style.setProperty("--font-body",    "'" + f.body    + "', sans-serif");
+
+  // Optional third role. Pairings without a mono simply leave the
+  // token alone, so the CSS fallback applies and nothing breaks.
+  if (f.mono) {
+    root.style.setProperty("--font-mono", "'" + f.mono + "', ui-monospace, monospace");
+  }
 }
 
 

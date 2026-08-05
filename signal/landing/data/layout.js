@@ -82,8 +82,7 @@ var LAYOUT_CONFIG = {
         links: [
           { label: "Become a Sponsor",   modal: "sponsor-modal" },
           { label: "Become a Partner",   modal: "sponsor-modal" },
-          { label: "Community Partners", href: "sponsors.html", page: "sponsors" },
-          { label: "Media Partners",     href: "sponsors.html", page: "sponsors" }
+          { label: "Community Partners", href: "sponsors.html", page: "sponsors" }
         ]
       }
     ],
@@ -110,7 +109,7 @@ var LAYOUT_CONFIG = {
    wording before scripts run.
    ───────────────────────────────────────── */
 
-var REGISTRATION_MODE = "waitlist";   // "waitlist" | "register"
+var REGISTRATION_MODE = "register";   // set as "waitlist" | "register"
 
 var REGISTRATION_MODES = {
 
