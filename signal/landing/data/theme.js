@@ -36,7 +36,7 @@
 
 /* ── 1. THEME ─────────────────────────────────────────────── */
 
-var DEFAULT_THEME     = "dark";   // "dark" | "light"
+var DEFAULT_THEME     = "light";   // "dark" | "light"
 var SHOW_THEME_TOGGLE = true;
 
 var THEME_KEY = "aisummit-theme";
@@ -44,7 +44,7 @@ var THEME_KEY = "aisummit-theme";
 
 /* ── 2. FONTS ─────────────────────────────────────────────── */
 
-var FONT_SET = "montserrat";      // any key in SITE_FONTS below
+var FONT_SET = "montserratInter";      // any key in SITE_FONTS below
 
 var SITE_FONTS = {
 
@@ -84,7 +84,23 @@ var SITE_FONTS = {
     display : "Inter",
     body    : "Inter",
     families: ["Inter:wght@400;500;600;700;800;900"]
-  }
+  },
+  
+  /* Montserrat headlines with a tighter, more mechanical body */
+  montserratManrope: {
+    display : "Montserrat",
+    body    : "Manrope",
+    families: ["Montserrat:wght@400;600;700;800;900",
+               "Manrope:wght@400;500;600;700;800"]
+  },
+  
+  /* Montserrat headlines with a neutral, highly legible body */
+  montserratInter: {
+    display : "Montserrat",
+    body    : "Inter",
+    families: ["Montserrat:wght@400;600;700;800;900",
+               "Inter:wght@400;500;600;700"]
+  },
 
 };
 

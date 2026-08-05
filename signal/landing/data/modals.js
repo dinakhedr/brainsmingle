@@ -492,11 +492,16 @@ document.addEventListener("keydown", function(e) {
    6. FORM SUBMISSION — WAITING LIST
    ───────────────────────────────────────── */
 
-function submitWaitlistForm() {
-  var input   = document.getElementById("wl-email");
-  var btn     = document.getElementById("wl-submit-btn");
-  var error   = document.getElementById("wl-error");
-  var success = document.getElementById("wl-success");
+/* The waiting list form appears in three places: this modal, the
+   coming soon page, and the closing band on the home page. They
+   share one implementation, distinguished by an id prefix. */
+function submitWaitlistForm(prefix) {
+  var p       = prefix || "wl";
+  var input   = document.getElementById(p + "-email");
+  var btn     = document.getElementById(p + "-submit-btn");
+  var error   = document.getElementById(p + "-error");
+  var success = document.getElementById(p + "-success");
+  if (!input) return;
   var email   = input.value.trim();
 
   error.classList.remove("is-visible");

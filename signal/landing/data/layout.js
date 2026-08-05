@@ -82,7 +82,8 @@ var LAYOUT_CONFIG = {
         links: [
           { label: "Become a Sponsor",   modal: "sponsor-modal" },
           { label: "Become a Partner",   modal: "sponsor-modal" },
-          { label: "Partners", href: "sponsors.html", page: "sponsors" }
+          { label: "Community Partners", href: "sponsors.html", page: "sponsors" },
+          { label: "Media Partners",     href: "sponsors.html", page: "sponsors" }
         ]
       }
     ],
@@ -196,6 +197,55 @@ function resolvePageHref(key, href) {
 
 
 /* ─────────────────────────────────────────
+   4a. PAGE CTA
+   The band each inner page closes with. Keyed by file name, so
+   the page markup carries only <div id="page-cta"></div> and the
+   copy lives here.
+
+   action.modal    opens a modal from data/modals.js
+   action.href     a normal link, gated by PAGE_STATUS if you add
+                   a page key
+   action.cta      "registration", which follows REGISTRATION_MODE
+                   and picks up its own label
+
+   A page with no entry renders nothing, so adding a band is a
+   matter of adding a key here plus the placeholder div.
+   ───────────────────────────────────────── */
+
+var PAGE_CTA = {
+
+  "tracks.html": {
+    eyebrow: "Track sponsorship · five slots",
+    title  : "Own a track.<br>Own the conversation.",
+    lead   : "Your brand names the track and leads every session in it, for the full week.",
+    action : { label: "Become a Track Sponsor", modal: "sponsor-modal" }
+  },
+
+  "agenda.html": {
+    eyebrow: "Speaker applications open",
+    title  : "100+ sessions.<br>One of them could be yours.",
+    lead   : "Practitioners, founders and researchers across five tracks. Tell us what you would talk about.",
+    action : { label: "Become a Speaker", modal: "speaker-modal" }
+  },
+
+  "speakers.html": {
+    eyebrow: "Speaker applications open",
+    title  : "Share what you<br>actually know.",
+    lead   : "Not keynotes. Real conversations, in front of a global room, across seven days.",
+    action : { label: "Become a Speaker", modal: "speaker-modal" }
+  },
+
+  "sponsors.html": {
+    eyebrow: "Sponsorship · limited slots",
+    title  : "Be where the<br>conversation happens.",
+    lead   : "In front of 50,000 professionals across 90+ countries, for a full week. We respond within 24 hours.",
+    action : { label: "Request a Call", modal: "sponsor-modal" }
+  }
+
+};
+
+
+/* ─────────────────────────────────────────
    4. HELPERS
    ───────────────────────────────────────── */
 
@@ -209,6 +259,16 @@ function _themeLogo(slot) {
   }
   return "assets/brand/logo-white.png";
 }
+
+/* Both files for a slot, regardless of the active theme. The header
+   needs both in the markup so the CSS can pick by surface: the nav
+   sits on the dark hero band in the light theme too. */
+function _logoFile(theme, slot) {
+  var set = (typeof SITE_LOGOS !== "undefined") ? SITE_LOGOS[theme] : null;
+  if (set && set[slot]) return set[slot];
+  return "assets/brand/logo-white.png";
+}
+
 
 /* Sun and moon button. Which icon shows is decided in CSS by the
    current data-theme, so there is nothing to update on click.
@@ -234,6 +294,40 @@ function applyThemeLogos(scope) {
     var path = _themeLogo(slot);
     if (path) el.setAttribute("src", path);
   });
+}
+
+
+/* The closing band, rendered into #page-cta when the current page
+   has an entry in PAGE_CTA. */
+function renderPageCta() {
+  var slot = document.getElementById("page-cta");
+  if (!slot) return;
+
+  var cfg = PAGE_CTA[_layoutCurrentPage()];
+  if (!cfg) { slot.innerHTML = ""; return; }
+
+  var a = cfg.action || {};
+  var btn;
+  if (a.modal) {
+    btn = '<a href="#" class="btn btn-primary" data-modal="' + a.modal + '">' + a.label + '</a>';
+  } else if (a.cta) {
+    btn = '<a href="#" class="btn btn-primary" data-cta="' + a.cta + '"></a>';
+  } else {
+    btn = '<a href="' + (a.href || "#") + '" class="btn btn-primary"' +
+          (a.page ? ' data-page="' + a.page + '"' : '') + '>' + a.label + '</a>';
+  }
+
+  slot.innerHTML =
+    '<section class="page-cta">' +
+      '<div class="page-cta__inner">' +
+        '<div>' +
+          (cfg.eyebrow ? '<p class="page-cta__eyebrow">' + cfg.eyebrow + '</p>' : '') +
+          '<h2 class="page-cta__title">' + cfg.title + '</h2>' +
+          (cfg.lead ? '<p class="page-cta__lead">' + cfg.lead + '</p>' : '') +
+        '</div>' +
+        '<div class="page-cta__actions">' + btn + '</div>' +
+      '</div>' +
+    '</section>';
 }
 
 
@@ -291,7 +385,8 @@ function renderSiteHeader() {
   return '' +
     '<nav class="site-nav">' +
       '<a href="' + cfg.homePage + '" class="nav-logo">' +
-        '<img data-logo="header" src="' + _themeLogo("header") + '" alt="' + cfg.brand.alt + '" />' +
+        '<img class="nav-logo__on-light" src="' + _logoFile("light", "header") + '" alt="' + cfg.brand.alt + '" />' +
+        '<img class="nav-logo__on-dark" src="' + _logoFile("dark", "header") + '" alt="" aria-hidden="true" />' +
       '</a>' +
       '<div class="nav-links">' + links + '</div>' +
       '<div class="nav-actions">' +
@@ -457,9 +552,14 @@ function applyRegistrationCopy() {
   }
   footerSlot.innerHTML = renderSiteFooter();
 
-  /* Wire modal links in both the header and the footer.
+  /* Closing band. Renders only on pages with a #page-cta slot and
+     an entry in PAGE_CTA. */
+  renderPageCta();
+  var ctaSlot = document.getElementById("page-cta");
+
+  /* Wire modal links in the header, the footer and the closing band.
      Silently does nothing on pages without modals.js. */
-  [headerSlot, footerSlot].forEach(function (slot) {
+  [headerSlot, footerSlot, ctaSlot].filter(Boolean).forEach(function (slot) {
     slot.querySelectorAll("[data-modal]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
@@ -476,11 +576,21 @@ function applyRegistrationCopy() {
     applyRegistrationCopy();
   }
 
+  /* Pages that open with a gradient hero start with a transparent
+     nav. The 40px threshold stops it flickering at the boundary. */
+  if (document.body.classList.contains("has-hero")) {
+    var onScroll = function () {
+      document.body.classList.toggle("is-scrolled", window.scrollY > 40);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   /* Inject any icons used inside the header or footer. icons.js only
      scans on DOMContentLoaded, so cover the case where this file runs
      later than that. */
   if (document.readyState !== "loading" && typeof SIGNAL_ICONS !== "undefined") {
-    [headerSlot, footerSlot].forEach(function (slot) {
+    [headerSlot, footerSlot, ctaSlot].filter(Boolean).forEach(function (slot) {
       slot.querySelectorAll("[data-icon]").forEach(function (el) {
         var key = el.getAttribute("data-icon");
         if (SIGNAL_ICONS[key]) el.innerHTML = SIGNAL_ICONS[key];
