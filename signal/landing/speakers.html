@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
 
-<body>
+<body class="has-hero">
 
     <!-- ══════════════════════════════════════════
      NAV — rendered from data/layout.js
@@ -30,15 +30,19 @@
     <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-    <section class="spk-hero">
-        <div class="spk-hero-glow"></div>
-        <div class="spk-hero-inner">
-            <div class="section-eyebrow">AI Summit 2026 · 10 – 16 October</div>
-            <h1 class="section-title">100+ <em>AI Experts.</em><br>One Live Global Stage.</h1>
-            <p class="section-sub">Practitioners, founders, researchers, and industry leaders coming together for a week of live AI conversations, insights, and real-world expertise.</p>
+    <section class="page-hero">
+        <div class="page-hero__inner">
 
-            <!-- track pills — rendered from data/tracks.js -->
-            <div class="spk-hero-pills" id="spk-hero-pills"></div>
+            <div>
+                <p class="page-hero__eyebrow">Speakers</p>
+                <h1 class="page-hero__title">100+ AI experts.<br>One live global stage.</h1>
+                <p class="page-hero__sub">Practitioners, founders, researchers and industry leaders sharing what they actually know, across seven days and five tracks.</p>
+            </div>
+
+            <!-- rendered from data/tracks.js — same component as tracks.html,
+                 but each row filters the grid instead of jumping to a card -->
+            <nav class="track-index" id="track-index" aria-label="Filter speakers by track"></nav>
+
         </div>
     </section>
 
@@ -65,9 +69,7 @@
         <div class="spk-filters-inner">
             <div class="spk-filter-row spk-filter-row--search">
                 <span class="spk-filter-label">Search</span>
-                <input type="text" id="spk-search" class="spk-search"
-                       placeholder="Search by name or title" oninput="filterGrid()"
-                       aria-label="Search speakers" />
+                <input type="text" id="spk-search" class="spk-search" placeholder="Search by name or title" oninput="filterGrid()" aria-label="Search speakers" />
             </div>
             <div class="spk-filter-row">
                 <span class="spk-filter-label">Track</span>
@@ -215,7 +217,9 @@
      footer link scrolls to it instead of opening a duplicate form.
 ══════════════════════════════════════════ -->
     <script>
-        var MODAL_LINK_OVERRIDES = { "speaker-modal": "#apply" };
+        var MODAL_LINK_OVERRIDES = {
+            "speaker-modal": "#apply"
+        };
     </script>
     <script src="data/layout.js"></script>
     <script src="data/tracks.js"></script>
@@ -250,11 +254,11 @@
            STATE
            ───────────────────────────────────────── */
         let activeTrack = "all";
-        let activeDay   = "all";
+        let activeDay = "all";
 
 
-        document.addEventListener("DOMContentLoaded", function () {
-            renderHeroPills();
+        document.addEventListener("DOMContentLoaded", function() {
+            renderTrackIndex();
             renderFeaturedEyebrow();
             renderTrackFilters();
             renderDayFilters();
@@ -265,18 +269,33 @@
 
 
         /* ─────────────────────────────────────────
-           HERO PILLS — colour from the .track-N class
+           HERO TRACK INDEX
+           Same markup and classes as tracks.html, so it needs no
+           new CSS. Colour comes from the .track-N class. Clicking a
+           row sets the track filter and scrolls to the grid.
            ───────────────────────────────────────── */
-        function renderHeroPills() {
-            const el = document.getElementById("spk-hero-pills");
+        function renderTrackIndex() {
+            const el = document.getElementById("track-index");
             if (!el) return;
 
             el.innerHTML = SIGNAL_TRACKS.map(t => `
-    <span class="tl-pill track-${t.trackNumber}">
-      <span class="tl-icon">${_spkIcon(SPK_TRACK_ICON_KEYS[t.trackNumber])}</span>
-      ${t.shortName}
-    </span>
-  `).join("");
+    <a class="track-index__item track-${t.trackNumber}" href="#speaker-grid"
+       onclick="filterFromHero('${t.trackNumber}');return false;">
+      <span class="track-index__icon">${_spkIcon(SPK_TRACK_ICON_KEYS[t.trackNumber])}</span>
+      ${t.fullName}
+    </a>`).join("");
+        }
+
+        // Drives the real filter button so the active state stays in one place.
+        function filterFromHero(trackNumber) {
+            const btn = document.querySelector(`.spk-fbtn[data-track="${trackNumber}"]`);
+            if (btn) setTrackFilter(trackNumber, btn);
+
+            const target = document.querySelector(".spk-filters");
+            if (target) target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         }
 
 
@@ -310,17 +329,30 @@
       </button>`).join("");
         }
 
-        // Only days that actually have speakers get a button.
+        // Every day gets a button. The enabled check reads the same source
+        // filterGrid does, speaker.appearances, not getSpeakersByDay, which
+        // also requires an assigned session and so returns zero for now.
         function renderDayFilters() {
             const el = document.getElementById("day-filter-btns");
             if (!el) return;
 
-            const days = SIGNAL_DAYS.filter(d => getSpeakersByDay(d.day).length > 0);
+            const daysWithSpeakers = new Set();
+            SIGNAL_SPEAKERS.forEach(s => {
+                (s.appearances || []).forEach(a => {
+                    if (a.day) daysWithSpeakers.add(Number(a.day));
+                });
+            });
 
             el.innerHTML =
                 `<button class="spk-fbtn active-all" data-day="all" onclick="setDayFilter('all', this)">All Days</button>` +
-                days.map(d => `
-      <button class="spk-fbtn" data-day="${d.day}" onclick="setDayFilter('${d.day}', this)">${d.tabLabel}</button>`).join("");
+                SIGNAL_DAYS.map(d => {
+                    const hasSpeakers = daysWithSpeakers.has(Number(d.day));
+                    return `
+      <button class="spk-fbtn${hasSpeakers ? "" : " is-empty"}" data-day="${d.day}"
+              ${hasSpeakers ? `onclick="setDayFilter('${d.day}', this)"` : `disabled title="No speakers announced for this day yet"`}>
+        ${d.tabLabel}
+      </button>`;
+                }).join("");
         }
 
         function renderTrackSelect() {
@@ -342,13 +374,16 @@
             const trackNums = getSpeakerTrackNumbers(speaker);
             const days = [...new Set(speaker.appearances.map(a => a.day))];
 
-            const badge = showBadge
-                ? `<div class="spk-card-badge"><span class="spk-badge-icon">${_spkIcon("activation")}</span>Featured</div>`
-                : "";
+            const badge = showBadge ?
+                `<div class="spk-card-badge"><span class="spk-badge-icon">${_spkIcon("activation")}</span>Featured</div>` :
+                "";
 
-            const photo = speaker.imagePath
-                ? `<img src="${speaker.imagePath}" alt="${speaker.name}" loading="lazy" />`
-                : `<div class="spk-card-initials">${_initials(speaker.name)}</div>`;
+            // Path is derived from the speaker id in speakers.js, the same
+            // helper home.html uses. There is no imagePath on the record.
+            const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(speaker) : "";
+            const photo = src ?
+                `<img src="${src}" alt="${speaker.name}" loading="lazy" />` :
+                `<div class="spk-card-initials">${_initials(speaker.name)}</div>`;
 
             return `
     <div class="spk-card"
@@ -398,12 +433,12 @@
 
             cards.forEach(card => {
                 const cardTracks = (card.dataset.track || "").split(",");
-                const cardDays   = (card.dataset.days || "").split(",").map(Number);
+                const cardDays = (card.dataset.days || "").split(",").map(Number);
 
-                const trackOk  = activeTrack === "all" || cardTracks.includes(String(activeTrack));
-                const dayOk    = activeDay === "all" || cardDays.includes(parseInt(activeDay, 10));
-                const name     = card.querySelector(".spk-card-name")?.textContent.toLowerCase() || "";
-                const title    = card.querySelector(".spk-card-title")?.textContent.toLowerCase() || "";
+                const trackOk = activeTrack === "all" || cardTracks.includes(String(activeTrack));
+                const dayOk = activeDay === "all" || cardDays.includes(parseInt(activeDay, 10));
+                const name = card.querySelector(".spk-card-name")?.textContent.toLowerCase() || "";
+                const title = card.querySelector(".spk-card-title")?.textContent.toLowerCase() || "";
                 const searchOk = !query || name.includes(query) || title.includes(query);
 
                 const show = trackOk && dayOk && searchOk;
@@ -439,12 +474,12 @@
             if (!s) return;
 
             const img = document.getElementById("popup-img");
-            img.src = s.imagePath || "";
+            img.src = (typeof getSpeakerPhoto === "function" && getSpeakerPhoto(s)) || "";
             img.alt = s.name;
 
             document.getElementById("popup-name").textContent = s.name;
             document.getElementById("popup-role").textContent = s.title + (s.company ? " · " + s.company : "");
-            document.getElementById("popup-bio").textContent  = s.bio || "";
+            document.getElementById("popup-bio").textContent = s.bio || "";
 
             // Track pills — .track-pill.track-N is already styled in the CSS
             document.getElementById("popup-track-wrap").innerHTML =
@@ -490,7 +525,7 @@
             document.body.classList.remove("modal-open");
         }
 
-        document.addEventListener("keydown", function (e) {
+        document.addEventListener("keydown", function(e) {
             if (e.key === "Escape") closePopup();
         });
 
@@ -503,8 +538,8 @@
         function submitApply() {
             const val = id => (document.getElementById(id).value || "").trim();
 
-            const name  = val("a-name");
-            const org   = val("a-org");
+            const name = val("a-name");
+            const org = val("a-org");
             const email = val("a-email");
             const track = document.getElementById("a-track").value;
             const topic = val("a-topic");
@@ -534,7 +569,7 @@
 
             const form = document.getElementById("apply-form");
             form.classList.add("is-submitting");
-            setTimeout(function () {
+            setTimeout(function() {
                 form.classList.add("is-hidden");
                 document.getElementById("apply-success").classList.add("is-visible");
             }, 500);

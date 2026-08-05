@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
 
-<body>
+<body class="has-hero">
 
     <!-- ══════════════════════════════════════════
      NAV — rendered from data/layout.js
@@ -30,54 +30,16 @@
     <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-    <section class="hero" id="about">
-        <div class="hero-glow"></div>
-        <div class="hero-glow-right"></div>
-        <div class="hero-grid-bg"></div>
-        <div class="hero-orb-1"></div>
-        <div class="hero-orb-2"></div>
-        <div class="hero-orb-3"></div>
-
-        <div class="hero-freq-line">
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-            <div class="hfb"></div>
-        </div>
-
-        <div class="hero-body">
-            <!-- AI Summit logo -->
-            <div class="hero-logo-wrap">
-                <img class="hero-logo-img" data-logo="hero" src="assets/brand/logo-hero-white.png" alt="AI Summit" />
-            </div>
-            <!-- Descriptor -->
-            <p class="hero-descriptor">The largest AI Virtual Event in the MENA Region</p>
-            <!-- Date pill -->
-            <div class="hero-meta-pill">
-                <span class="hero-meta-text">10 – 16 OCTOBER 2026</span>
-                <span class="hero-meta-dot"></span>
-                <span class="hero-meta-text">VIRTUAL</span>
-                <span class="hero-meta-dot"></span>
-                <span class="hero-meta-text">GLOBAL</span>
-            </div>
-            <div class="hero-cta-group">
+    <section class="hero-home" id="about">
+        <div class="hero-home__inner">
+            <p class="hero-home__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
+            <h1 class="hero-home__title">The largest AI event<br>in the MENA region</h1>
+            <p class="hero-home__sub">Seven days. 100+ Speakers. Unlimited Opportunities.</p>
+            <div class="hero-home__actions">
                 <a href="#" class="btn btn-primary" data-cta="registration">Join the Waiting List</a>
-                <a href="sponsors.html" data-page="sponsors" class="btn btn-outline">Become a Sponsor</a>
+                <a href="#" data-page="sponsors" onclick="openModal('sponsor-modal');return false;" class="btn btn-on-dark">Become a Sponsor</a>
             </div>
         </div>
-
-        <!-- track strip — rendered from tracks.js -->
-        <div class="hero-track-strip" id="hero-track-strip"></div>
-
     </section>
 
 
@@ -113,53 +75,40 @@
     <!-- ══════════════════════════════════════════
      WHAT IS AI SUMMIT
 ══════════════════════════════════════════ -->
-    <section class="what-section">
-        <div class="what-inner">
-            <div class="what-text">
-                <span class="section-eyebrow">What is AI Summit</span>
-                <h2 class="section-title">One domain.<br>One week.<br>One room.</h2>
-                <p class="section-sub">AI Summit by BrainsMingle is a domain-focused global virtual event, bringing together practitioners, founders, researchers, and leaders across the globe for live sessions, panels, special activations, and a full-day speed networking for thousands of connections.</p>
-                <blockquote class="what-quote">That's not networking.<br>That's momentum.</blockquote>
+    <section class="intro">
+        <div class="intro__inner">
+
+            <div class="intro__head">
+                <div>
+                    <span class="section-eyebrow">What is AI Summit</span>
+                    <h2 class="intro__title">Everyone in AI.<br>One week. One room.</h2>
+                </div>
+                <p class="intro__lead">A week-long virtual event built entirely around artificial intelligence, bringing together practitioners, founders, researchers and leaders for live sessions, panels, special activations and a full day of speed networking.</p>
             </div>
 
-            <div class="what-visual">
-                <div class="what-card">
-                    <div class="what-card-icon what-card-icon--purple">
-                        <span data-icon="liveSession"></span>
-                    </div>
-                    <div>
-                        <div class="what-card-title">Live Sessions &amp; Panels</div>
-                        <div class="what-card-desc">More than 100 sessions across five dedicated tracks featuring practitioners, researchers, founders, and industry leaders. Learn how AI is transforming industries and discover practical strategies you can apply immediately.</div>
-                    </div>
+            <div class="intro__grid">
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="liveSession"></span></span>
+                    <h3 class="intro__card-title">Live sessions and panels</h3>
+                    <p class="intro__card-desc">100+ sessions across five dedicated tracks.</p>
                 </div>
-                <div class="what-card">
-                    <div class="what-card-icon what-card-icon--cyan">
-                        <span data-icon="activation"></span>
-                    </div>
-                    <div>
-                        <div class="what-card-title">Special Activations</div>
-                        <div class="what-card-desc">AI Summit Launchpad for startups. AI Summit Talent for hiring. Dedicated experiences built to create opportunities, partnerships, and career growth across the AI ecosystem.</div>
-                    </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--green"><span data-icon="activation"></span></span>
+                    <h3 class="intro__card-title">Special activations</h3>
+                    <p class="intro__card-desc">Launchpad for startups. Talent for hiring.</p>
                 </div>
-                <div class="what-card">
-                    <div class="what-card-icon what-card-icon--yellow">
-                        <span data-icon="speedNetworking"></span>
-                    </div>
-                    <div>
-                        <div class="what-card-title">Speed Networking Day</div>
-                        <div class="what-card-desc">A full day dedicated to connecting attendees from across the event. Meet founders, developers, recruiters, researchers, and professionals in structured networking sessions designed to spark meaningful conversations.</div>
-                    </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--amber"><span data-icon="speedNetworking"></span></span>
+                    <h3 class="intro__card-title">Speed Networking Day</h3>
+                    <p class="intro__card-desc">A full day connecting everyone, across every track.</p>
                 </div>
-                <div class="what-card">
-                    <div class="what-card-icon what-card-icon--pink">
-                        <span data-icon="globe"></span>
-                    </div>
-                    <div>
-                        <div class="what-card-title">Fully Virtual. Truly Global.</div>
-                        <div class="what-card-desc">Attend from anywhere in the world. No travel costs, no logistics, and no barriers to joining one of the fastest-growing AI communities.</div>
-                    </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--pink"><span data-icon="globe"></span></span>
+                    <h3 class="intro__card-title">Fully virtual, truly global</h3>
+                    <p class="intro__card-desc">Attend from anywhere. No travel, no barriers.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -167,18 +116,19 @@
     <!-- ══════════════════════════════════════════
      TRACKS
 ══════════════════════════════════════════ -->
-    <section class="tracks-section" id="tracks">
-        <div class="tracks-inner">
-            <div class="tracks-header">
+    <section class="tracks-preview" id="tracks">
+        <div class="tracks-preview__inner">
+
+            <div class="tracks-preview__head">
                 <div>
                     <span class="section-eyebrow">The Tracks</span>
-                    <h2 class="section-title">Five AI Tracks. <br>One Powerful Week.</h2>
+                    <h2 class="tracks-preview__title">Five AI tracks.<br>One powerful week.</h2>
                 </div>
-                <p class="section-sub">Five dedicated streams. Each track is its own vertical with curated speakers, sessions, and conversations built entirely around one domain.</p>
+                <p class="tracks-preview__lead">Each track is its own vertical, with curated speakers, sessions and conversations built around a single domain.</p>
             </div>
 
-            <!-- rendered from tracks.js -->
-            <div class="tracks-grid" id="tracks-grid"></div>
+            <!-- rendered from data/tracks.js -->
+            <div class="tracks-preview__list" id="tracks-list"></div>
 
         </div>
     </section>
@@ -187,112 +137,119 @@
     <!-- ══════════════════════════════════════════
      WHO ATTENDS
 ══════════════════════════════════════════ -->
-    <section class="audience-section">
-        <div class="audience-inner">
-            <div class="audience-header">
-                <span class="section-eyebrow">Who Attends</span>
-                <h2 class="section-title">Built for All AI Learners and Practitioners</h2>
+    <section class="audience">
+        <div class="audience__inner">
+
+            <div class="audience__head">
+                <div>
+                    <span class="section-eyebrow">Who Attends</span>
+                    <h2 class="audience__title">Built for everyone<br>working in AI.</h2>
+                </div>
+                <p class="audience__lead">Six audiences, one room. Whatever you do in AI, there is a track and a conversation for you.</p>
             </div>
 
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--blue">
-                        <span data-icon="practitioner"></span>
+            <div class="audience__grid">
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--blue"><span data-icon="practitioner"></span></span>
+                        <h3 class="audience__name">Practitioners &amp; Researchers</h3>
                     </div>
-                    <div class="audience-card-title">Practitioners &amp; Researchers</div>
-                    <div class="audience-card-desc">Engineers, data scientists, AI researchers, and academics advancing machine learning and artificial intelligence.</div>
+                    <p class="audience__desc">Engineers, data scientists and academics advancing the field.</p>
                 </div>
-
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--purple">
-                        <span data-icon="leader"></span>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--purple"><span data-icon="leader"></span></span>
+                        <h3 class="audience__name">Leaders &amp; Decision Makers</h3>
                     </div>
-                    <div class="audience-card-title">Leaders &amp; Decision Makers</div>
-                    <div class="audience-card-desc">Executives and business leaders exploring AI adoption, innovation strategies, and organizational transformation.</div>
+                    <p class="audience__desc">Executives exploring AI adoption and organisational change.</p>
                 </div>
-
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--yellow">
-                        <span data-icon="founder"></span>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--green"><span data-icon="founder"></span></span>
+                        <h3 class="audience__name">Founders &amp; Entrepreneurs</h3>
                     </div>
-                    <div class="audience-card-title">Founders &amp; Entrepreneurs</div>
-                    <div class="audience-card-desc">Startup founders and innovators building AI-powered products and searching for opportunities, partnerships, and market insights.</div>
+                    <p class="audience__desc">Builders of AI products, looking for partners and market insight.</p>
                 </div>
-
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--cyan">
-                        <span data-icon="developer"></span>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--gold"><span data-icon="developer"></span></span>
+                        <h3 class="audience__name">Developers &amp; Engineers</h3>
                     </div>
-                    <div class="audience-card-title">Developers &amp; Engineers</div>
-                    <div class="audience-card-desc">Technical professionals creating, deploying, and scaling AI applications, automation workflows, and intelligent systems.</div>
+                    <p class="audience__desc">Shipping AI applications, automation and intelligent systems.</p>
                 </div>
-
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--pink">
-                        <span data-icon="student"></span>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--pink"><span data-icon="student"></span></span>
+                        <h3 class="audience__name">Students &amp; Early Careers</h3>
                     </div>
-                    <div class="audience-card-title">Students &amp; Early Careers</div>
-                    <div class="audience-card-desc">Individuals exploring an AI career path, developing new skills, and preparing for future opportunities in artificial intelligence.</div>
+                    <p class="audience__desc">Exploring an AI career path and building the skills for it.</p>
                 </div>
-
-                <div class="audience-card">
-                    <div class="audience-card-icon audience-card-icon--amber">
-                        <span data-icon="recruiter"></span>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--amber"><span data-icon="recruiter"></span></span>
+                        <h3 class="audience__name">Recruiters &amp; Companies</h3>
                     </div>
-                    <div class="audience-card-title">Recruiters &amp; Companies</div>
-                    <div class="audience-card-desc">Organizations building AI teams and connecting with talent through AI Summit Talent and the wider AI community.</div>
+                    <p class="audience__desc">Building AI teams and meeting talent through AI Summit Talent.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
 
     <!-- ══════════════════════════════════════════
-     AGENDA & SPECIAL ACTIVATIONS
+     AGENDA
 ══════════════════════════════════════════ -->
-    <section class="agenda-section" id="agenda">
-        <div class="agenda-inner">
-            <div class="agenda-header">
+    <section class="agenda-preview" id="agenda">
+        <div class="agenda-preview__inner">
+
+            <div class="agenda-preview__head">
                 <div>
                     <span class="section-eyebrow">The Agenda</span>
-                    <h2 class="section-title">Seven days.<br>Every format.</h2>
+                    <h2 class="agenda-preview__title">Seven days.<br>Every format.</h2>
                 </div>
-                <a href="agenda.html" data-page="agenda" class="btn btn-yellow btn-arrow">View Full Agenda</a>
+                <a href="agenda.html" data-page="agenda" class="agenda-preview__link">View Full Agenda →</a>
             </div>
 
-            <div class="agenda-row-top">
-                <div class="agenda-card agenda-card--opening">
-                    <div class="agenda-card-day">SAT 10 OCTOBER</div>
-                    <div class="agenda-card-date">Day 1</div>
-                    <div class="agenda-card-title">Opening Day</div>
-                    <div class="agenda-card-desc">A full day of high-profile panels bringing together the biggest names in AI. Cross-domain. High-signal. The conversation that sets the tone for the week.</div>
-                </div>
-                <div class="agenda-card">
-                    <div class="agenda-card-day">11–15 OCTOBER</div>
-                    <div class="agenda-card-date">Days 2–6</div>
-                    <div class="agenda-card-title">Track Sessions</div>
-                    <div class="agenda-card-desc">5 parallel tracks running 6–10pm daily. 100+ sessions across 5 domains. Real practitioners, live.</div>
-                </div>
-                <div class="agenda-card agenda-card--networking">
-                    <div class="agenda-card-day">FRI 16 OCTOBER</div>
-                    <div class="agenda-card-date">Day 7</div>
-                    <div class="agenda-card-title">Speed Networking Day</div>
-                    <div class="agenda-card-desc">Full day. Open room. Everyone who spent the week absorbing the same ideas — finally in the same room.</div>
-                </div>
+            <div class="agenda-preview__days">
+                <article class="agenda-card agenda-card--blue">
+                    <p class="agenda-card__date">Sat 10 October</p>
+                    <p class="agenda-card__day agenda-card__day--green">Day 1</p>
+                    <h3 class="agenda-card__name">Opening Day</h3>
+                    <p class="agenda-card__desc">High-profile panels bringing together the biggest names in AI, setting the tone for the week.</p>
+                </article>
+
+                <article class="agenda-card agenda-card--amber">
+                    <p class="agenda-card__date">11–15 October</p>
+                    <p class="agenda-card__day">Days 2–6</p>
+                    <h3 class="agenda-card__name">Track Sessions</h3>
+                    <p class="agenda-card__desc">Five parallel tracks running 6 to 11 PM daily. 100+ sessions across five domains, all live.</p>
+                </article>
+
+                <article class="agenda-card agenda-card--pink">
+                    <p class="agenda-card__date">Fri 16 October</p>
+                    <p class="agenda-card__day agenda-card__day--pink">Day 7</p>
+                    <h3 class="agenda-card__name">Speed Networking Day</h3>
+                    <p class="agenda-card__desc">Full day, open room. Everyone who spent the week in the same ideas, finally in the same place.</p>
+                </article>
             </div>
 
-            <div class="agenda-row-special">
-                <div class="agenda-special-card">
-                    <div class="special-date">Monday, 12 October</div>
-                    <div class="special-badge special-badge-purple">AI Summit Launchpad</div>
-                    <div class="special-desc">AI startups take the stage. Structured presentations to an audience of investors, mentors, and fellow founders. The platform for your first real signal to the market.</div>
-                </div>
-                <div class="agenda-special-card">
-                    <div class="special-date">Wednesday, 14 October</div>
-                    <div class="special-badge special-badge-cyan">AI Summit Talent</div>
-                    <div class="special-desc">Companies building AI teams meet the talent actively looking. Structured presentations from hiring companies followed by open networking between talent and recruiters.</div>
-                </div>
+            <div class="agenda-preview__activations">
+                <article class="agenda-card agenda-card--purple">
+                    <p class="agenda-card__date">Monday 12 October</p>
+                    <span class="badge badge--purple">Special Activation</span>
+                    <h3 class="agenda-card__name">AI Summit Launchpad</h3>
+                    <p class="agenda-card__desc">AI startups take the stage in front of investors, mentors and fellow founders.</p>
+                </article>
+
+                <article class="agenda-card agenda-card--green">
+                    <p class="agenda-card__date">Wednesday 14 October</p>
+                    <span class="badge badge--green">Special Activation</span>
+                    <h3 class="agenda-card__name">AI Summit Talent</h3>
+                    <p class="agenda-card__desc">Companies building AI teams meet the talent actively looking.</p>
+                </article>
             </div>
+
         </div>
     </section>
 
@@ -300,41 +257,26 @@
     <!-- ══════════════════════════════════════════
      SPEAKERS
 ══════════════════════════════════════════ -->
-    <section class="speakers-phase1" id="speakers">
-        <div class="spk1-inner">
+    <section class="speakers-preview">
+        <div class="speakers-preview__inner">
 
-            <!-- LEFT: Value proposition for speakers -->
-            <div class="spk1-left">
-                <span class="section-eyebrow">Speakers</span>
-                <h2 class="spk1-headline">
-                    Join a lineup<br>worth being<br><em>part of.</em>
-                </h2>
-                <p class="spk1-sub">
-                    AI Summit by BrainsMingle is where the sharpest AI practitioners, founders, researchers, and domain leaders come to share what they actually know. Not keynotes. Real conversations, live audiences, and a global room that shows up to listen.
-                </p>
-
-                <!-- Speaker perks -->
-                <div class="spk1-perks">
-                    <div class="spk1-perks-label">What you get</div>
-                    <ul class="spk1-perks-list">
-                        <li><span class="spk1-perk-dot spk1-perk-dot--cyan"></span>Global reach — live audience from 90+ countries, all in one room</li>
-                        <li><span class="spk1-perk-dot spk1-perk-dot--purple"></span>Full speaker profile on AI Summit website and all promotional materials</li>
-                        <li><span class="spk1-perk-dot spk1-perk-dot--yellow"></span>Social amplification — speaker announcement cards and session promotion</li>
-                        <li><span class="spk1-perk-dot spk1-perk-dot--pink"></span>Session recording — your talk on demand after the event</li>
-                        <li><span class="spk1-perk-dot spk1-perk-dot--amber"></span>Access to the full event week — all 5 tracks, opening day, networking</li>
-                    </ul>
+            <div class="speakers-preview__head">
+                <div>
+                    <span class="section-eyebrow">Speakers</span>
+                    <h2 class="speakers-preview__title">Join a lineup worth<br>being part of.</h2>
                 </div>
-
-                <div class="spk1-cta-row">
-                    <a href="#" class="btn btn-yellow btn-arrow" onclick="openModal('speaker-modal');return false;">Apply to Speak</a>
+                <div class="speakers-preview__aside">
+                    <p class="speakers-preview__lead">Practitioners, founders and researchers sharing what they actually know. Not keynotes, real conversations in front of a global room.</p>
+                    <a href="speakers.html" data-page="speakers" class="speakers-preview__link">See All Speakers →</a>
                 </div>
             </div>
 
-            <!-- RIGHT: Speaker wall -->
-            <div class="spk1-right">
-                <div class="spk1-wall-label">Speakers announced on a rolling basis</div>
-                <div id="spk1-avatar-grid"></div>
-                <div class="spk1-wall-note">More speakers announced weekly</div>
+            <!-- rendered from data/speakers.js -->
+            <div class="speakers-preview__grid" id="speakers-preview-grid"></div>
+
+            <div class="speakers-preview__foot">
+                <a href="#" class="btn btn-accent" onclick="openModal('speaker-modal');return false;">Become a Speaker</a>
+                <p class="speakers-preview__note">More announced weekly</p>
             </div>
 
         </div>
@@ -342,111 +284,87 @@
 
 
     <!-- ══════════════════════════════════════════
-     SPONSORS & PARTNERS — LET'S TALK
+     SPONSORS & PARTNERS
 ══════════════════════════════════════════ -->
-    <section class="sponsors-phase1" id="sponsors">
-        <div class="sp1-inner">
+    <section class="sponsors-preview">
+        <div class="sponsors-preview__inner">
 
-            <div class="sp1-header">
-                <div class="sp1-eyebrow">Sponsors &amp; Partners</div>
-                <h2 class="sp1-headline">Let's Talk.<br><em>Slots Won't Last.</em></h2>
-                <p class="sp1-sub">AI Summit by BrainsMingle is the global AI activation week. Be where the conversation happens — in front of 50,000+ professionals across 90+ countries.</p>
+            <div class="sponsors-preview__head">
+                <div>
+                    <span class="section-eyebrow">Sponsors &amp; Partners</span>
+                    <h2 class="sponsors-preview__title">Let's talk.<br><em>Slots won't last.</em></h2>
+                </div>
+                <p class="sponsors-preview__lead">Be where the conversation happens, in front of 50,000 professionals across 90+ countries, for a full week.</p>
             </div>
 
-            <div class="sp1-grid">
-                <div class="sp1-card">
-                    <div class="sp1-card-icon sp1-card-icon--purple"><span data-icon="activation"></span></div>
-                    <div class="sp1-card-title">Tier Sponsors</div>
-                    <div class="sp1-card-desc">Main, Gold, Silver, and Bronze — associate your brand with the full event week. Logo placement, speaking slots, and audience exposure across all 7 days.</div>
-                </div>
-                <div class="sp1-card">
-                    <div class="sp1-card-icon sp1-card-icon--yellow"><span data-icon="grid"></span></div>
-                    <div class="sp1-card-title">Track Sponsor</div>
-                    <div class="sp1-card-desc">Own one of the five AI tracks for the full week. Your brand names the track and leads every session within it. 5 slots — one per track.</div>
-                </div>
-                <div class="sp1-card">
-                    <div class="sp1-card-icon sp1-card-icon--cyan"><span data-icon="founder"></span></div>
-                    <div class="sp1-card-title">Special Events Sponsor</div>
-                    <div class="sp1-card-desc">AI Summit Launchpad, AI Summit Talent, and Speed Networking Day. Exclusive named association with the summit's highest-energy activations.</div>
-                </div>
-                <div class="sp1-card">
-                    <div class="sp1-card-icon sp1-card-icon--amber"><span data-icon="speedNetworking"></span></div>
-                    <div class="sp1-card-title">Community Partner</div>
-                    <div class="sp1-card-desc">Communities, media outlets, and organisations supporting the summit. Get featured across all platforms and reach our global audience.</div>
-                </div>
+            <div class="sponsors-preview__grid">
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="activation"></span></span>
+                    <h3 class="sponsor-type__name">Tier Sponsors</h3>
+                    <p class="sponsor-type__desc">Main, Gold, Silver and Bronze. Logo placement, speaking slots and audience exposure across all seven days.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--blue"><span data-icon="grid"></span></span>
+                    <h3 class="sponsor-type__name">Track Sponsor</h3>
+                    <p class="sponsor-type__desc">Own one of the five AI tracks for the full week. Your brand names the track and leads every session in it.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--green"><span data-icon="launchpad"></span></span>
+                    <h3 class="sponsor-type__name">Special Events</h3>
+                    <p class="sponsor-type__desc">Exclusive named association with AI Summit Launchpad, AI Summit Talent and Speed Networking Day.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--pink"><span data-icon="community"></span></span>
+                    <h3 class="sponsor-type__name">Community Partner</h3>
+                    <p class="sponsor-type__desc">Communities, media outlets and organisations supporting the summit, featured across all platforms.</p>
+                </article>
             </div>
 
-            <div class="sp1-cta-block">
-                <div class="sp1-cta-left">
-                    <h3>Ready to Own<br><em>The Stage?</em></h3>
-                    <p>Fill in the interest form and we'll reach out within 24 hours to arrange a call, walk you through the full benefits, and help you find the right fit for your brand.</p>
+            <div class="sponsors-cta">
+                <div>
+                    <p class="sponsors-cta__title">Ready to own the stage?</p>
+                    <p class="sponsors-cta__desc">Fill in the interest form and we'll reach out within 24 hours to arrange a call, walk you through the full benefits and help you find the right fit for your brand.</p>
                 </div>
-                <div class="sp1-cta-right">
-                    <a href="#" class="btn btn-yellow" onclick="openModal('sponsor-modal');return false;">Request a Call →</a>
-                </div>
+                <a href="#" class="btn btn-primary" onclick="openModal('sponsor-modal');return false;">Request a Call</a>
             </div>
 
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════════════════
-     POWERED BY BRAINSMINGLE
+<!-- ══════════════════════════════════════════
+     FINAL CTA
 ══════════════════════════════════════════ -->
-    <section class="bm-section">
-        <div class="bm-inner">
-            <div class="bm-text">
-                <span class="section-eyebrow">Powered by BrainsMingle</span>
-                <h2 class="section-title">Built for exactly this.</h2>
-                <p class="section-sub">AI Summit isn't simply powered by BrainsMingle. It's designed around the platform itself, bringing together live sessions, communities, speed networking, and professional connections in a single seamless experience.</p>
+    <section class="final-cta" id="register">
+        <div class="final-cta__inner">
+
+            <div>
+                <p class="final-cta__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
+                <h2 class="final-cta__title" data-copy="sectionTitle"></h2>
             </div>
 
-            <div class="bm-features">
-                <div class="bm-feature-card">
-                    <div class="bm-feature-icon bm-feature-icon--purple">
-                        <span data-icon="liveSession"></span>
+            <div>
+                <p class="final-cta__lead" data-copy="sectionSub"></p>
+
+                <div class="wl-form-row">
+                    <div class="modal-field wl-field">
+                        <input type="email" id="cta-email" placeholder="Enter your email address"
+                               autocomplete="email" aria-label="Email address" required />
                     </div>
-                    <div>
-                        <div class="bm-feature-title">Live Sessions</div>
-                        <div class="bm-feature-desc">Host and attend live video sessions, expert talks, webinars, and discussions without relying on external tools.</div>
-                    </div>
+                    <button class="btn btn-primary wl-submit" id="cta-submit-btn"
+                            onclick="submitWaitlistForm('cta')" data-cta="registration"></button>
                 </div>
 
-                <div class="bm-feature-card">
-                    <div class="bm-feature-icon bm-feature-icon--cyan">
-                        <span data-icon="speedNetworking"></span>
-                    </div>
-                    <div>
-                        <div class="bm-feature-title">Speed Networking</div>
-                        <div class="bm-feature-desc">Structured networking experiences that help professionals build meaningful relationships quickly and efficiently.</div>
-                    </div>
+                <div class="wl-error" id="cta-error">Please enter a valid email address.</div>
+                <div class="wl-success" id="cta-success">
+                    <span data-icon="check"></span>
+                    You're on the list. We'll be in touch.
                 </div>
-
-                <div class="bm-feature-card">
-                    <div class="bm-feature-icon bm-feature-icon--yellow">
-                        <span data-icon="community"></span>
-                    </div>
-                    <div>
-                        <div class="bm-feature-title">Communities</div>
-                        <div class="bm-feature-desc">Ongoing communities where conversations continue beyond the event, helping members expand their knowledge, network, and opportunities long after the summit ends.</div>
-                    </div>
-                </div>
+                <p class="wl-note">No spam. One email when registration goes live.</p>
             </div>
-        </div>
-    </section>
 
-
-    <!-- ══════════════════════════════════════════
-     REGISTER
-══════════════════════════════════════════ -->
-    <section class="register-section" id="register">
-        <div class="register-glow"></div>
-        <div class="register-inner">
-            <h2 class="register-title" data-copy="sectionTitle">Registration opens soon.<br>Get in line first.</h2>
-            <p class="register-sub" data-copy="sectionSub">Seven days. Five tracks. 100+ sessions. One room</p>
-            <div class="register-actions">
-                <a href="#" class="btn btn-primary" data-cta="registration">Join the Waiting List</a>
-            </div>
         </div>
     </section>
 
@@ -473,36 +391,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            renderHeroTrackStrip();
-            renderTracksGrid();
-            renderSpeakerAvatars();
-            renderSpeakerWall();
+            renderTrackStrips();
+            renderSpeakersPreview();
             renderSpk1TrackPills();
         });
 
-        // ── Hero track strip — from tracks.js
-        function renderHeroTrackStrip() {
-            const el = document.getElementById("hero-track-strip");
-            if (!el) return;
-            const trackIconKeys = {
-                1: "trackLd",
-                2: "trackCreative",
-                3: "trackStartups",
-                4: "trackBusiness",
-                5: "trackTech"
-            };
-            el.innerHTML = SIGNAL_TRACKS.map(t => `
-    <span class="tl-pill track-${t.trackNumber}">
-      <span class="tl-icon">${SIGNAL_ICONS[trackIconKeys[t.trackNumber]] || ""}</span>
-      ${t.shortName}
-    </span>
-  `).join("");
-        }
-
         // ── Tracks grid — from tracks.js
-        function renderTracksGrid() {
-            const el = document.getElementById("tracks-grid");
+        function renderTrackStrips() {
+            const el = document.getElementById("tracks-list");
             if (!el) return;
+
             const trackIconKeys = {
                 1: "trackLd",
                 2: "trackCreative",
@@ -510,66 +408,47 @@
                 4: "trackBusiness",
                 5: "trackTech"
             };
-            el.innerHTML = SIGNAL_TRACKS.map(t => {
-                const iconSvg = SIGNAL_ICONS[trackIconKeys[t.trackNumber]] || "";
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <a class="track-strip track-${t.trackNumber}" href="agenda.html" data-page="agenda">
+      <span class="track-strip__icon">${SIGNAL_ICONS[trackIconKeys[t.trackNumber]] || ""}</span>
+      <span class="track-strip__text">
+        <span class="track-strip__name">${t.fullName}</span>
+        <span class="track-strip__desc">${t.shortDescription}</span>
+      </span>
+      <span class="track-strip__arrow" aria-hidden="true">→</span>
+    </a>`).join("");
+
+            // Strips render after layout.js, so re-apply the live/soon gate
+            if (typeof applyPageGates === "function") applyPageGates(el);
+        }
+
+        // ── Speaker lineup — from speakers.js
+        // Who appears is set by showOnHome, capped by HOME_SPEAKER_LIMIT.
+        function renderSpeakersPreview() {
+            const el = document.getElementById("speakers-preview-grid");
+            if (!el || typeof getHomepageSpeakers !== "function") return;
+
+            const initials = name => name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
+
+            el.innerHTML = getHomepageSpeakers().map(s => {
+                const photo = getSpeakerPhoto(s);
+                const flag = getCountryFlag(s);
                 return `
-      <div class="track-card track-${t.trackNumber}">
-        <div class="track-card-icon">${iconSvg}</div>
-        <div class="track-card-name">${t.fullName}</div>
-        <div class="track-card-tagline">${t.tagline}</div>
-        <div class="track-card-desc">${t.shortDescription}</div>
+    <article class="speaker-card">
+      <div class="speaker-card__photo">
+        ${photo
+          ? `<img src="${photo}" alt="${s.name}" loading="lazy" />`
+          : `<span class="speaker-card__initials">${initials(s.name)}</span>`}
       </div>
-    `;
+      <h3 class="speaker-card__name">
+        <span>${s.name}</span>
+        ${flag ? `<span class="speaker-card__flag" aria-label="${s.country}">${flag}</span>` : ""}
+      </h3>
+    </article>`;
             }).join("");
-        }
 
-        // ── Speaker avatars — from speakers.js
-        function renderSpeakerAvatars() {
-            const el = document.getElementById("speakers-avatars");
-            if (!el) return;
-            const featured = SIGNAL_SPEAKERS.filter(s => s.featured);
-            const rest = SIGNAL_SPEAKERS.filter(s => !s.featured);
-            let html = featured.map(s => `
-    <div class="speaker-avatar" title="${s.name}">
-      <img src="${s.imagePath}" alt="${s.name}" />
-    </div>
-  `).join("");
-            if (rest.length > 0) {
-                html += `<div class="speaker-avatar more">${rest.length > 94 ? "100+" : rest.length + featured.length + "+"}</div>`;
-            }
-            el.innerHTML = html;
-        }
-
-        // ── Speaker wall (right column)
-        function renderSpeakerWall() {
-            const el = document.getElementById("spk1-avatar-grid");
-            if (!el) return;
-            const featured = SIGNAL_SPEAKERS.filter(s => s.featured);
-            const rest = SIGNAL_SPEAKERS.filter(s => !s.featured);
-            const display = [...featured, ...rest].slice(0, 15);
-
-            const cards = display.map(s => `
-    <div class="spk1-avatar-item">
-      <img src="${s.imagePath}" alt="${s.name}" loading="lazy" />
-    </div>
-  `).join("");
-
-            el.innerHTML = `
-    <div class="spk1-wall-wrap">
-      <div class="spk1-wall-grid">${cards}</div>
-      <div class="spk1-wall-overlay">
-        <span data-icon="mic"></span>
-        <span class="spk1-wall-overlay-label">Coming Soon</span>
-      </div>
-    </div>
-  `;
-
-            // Inject the icon since this was added after DOMContentLoaded
-            el.querySelectorAll("[data-icon]").forEach(function(span) {
-                var key = span.getAttribute("data-icon");
-                if (typeof SUMMIT_ICONS !== "undefined" && SUMMIT_ICONS[key]) span.innerHTML = SUMMIT_ICONS[key];
-                else if (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) span.innerHTML = SIGNAL_ICONS[key];
-            });
+            if (typeof applyPageGates === "function") applyPageGates(el);
         }
 
         // ── Speaker section track pills

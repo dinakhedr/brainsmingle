@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
 
-<body>
+<body class="has-hero">
 
     <!-- ══════════════════════════════════════════
      NAV — rendered from data/layout.js
@@ -30,26 +30,20 @@
     <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-    <section class="sp-hero">
-        <div class="sp-hero-glow"></div>
-        <div class="sp-hero-inner">
-            <div class="sp-hero-eyebrow">Sponsors &amp; Partners · 10 – 16 October 2026</div>
-            <h1 class="sp-hero-title">Be where the<br><em>conversation happens.</em></h1>
-            <p class="sp-hero-sub">AI Summit is the global AI activation week. Put your brand in front of tens of thousands of practitioners, founders, and decision makers across 90+ countries.</p>
-            <div class="sp-hero-cta">
-                <a href="#contact" class="btn btn-yellow btn-arrow">Become a Sponsor</a>
-                <a href="#wall" class="btn btn-outline">See Our Partners</a>
+    <section class="page-hero">
+        <div class="page-hero__inner">
+
+            <div>
+                <p class="page-hero__eyebrow">Sponsors &amp; Partners</p>
+                <h1 class="page-hero__title">Be where the<br>conversation happens.</h1>
+                <p class="page-hero__sub">AI Summit is the global AI activation week. Put your brand in front of tens of thousands of practitioners, founders and decision makers across 90+ countries.</p>
             </div>
+
+            <!-- sponsorship types, rendered from SP_TYPES below -->
+            <nav class="track-index" id="sp-type-index" aria-label="Sponsorship types"></nav>
+
         </div>
     </section>
-
-
-    <!-- ══════════════════════════════════════════
-     STATS
-══════════════════════════════════════════ -->
-    <div class="sp-stats">
-        <div class="sp-stats-inner" id="sp-stats"></div>
-    </div>
 
 
     <!-- ══════════════════════════════════════════
@@ -59,8 +53,8 @@
         <div class="sp-section-inner">
             <div class="sp-section-head">
                 <span class="section-eyebrow">The Line-Up</span>
-                <h2 class="section-title">Our sponsors<br>and partners.</h2>
-                <p class="section-sub">The brands and communities powering AI Summit 2026. Slots are filling as we build toward October.</p>
+                <h2 class="section-title">Sponsors and Partners</h2>
+                <p class="section-sub">The brands and communities powering AI Summit 2026.</p>
             </div>
 
             <div id="sp-wall"></div>
@@ -178,14 +172,6 @@
         // full-colour assets, and their logos will render exactly as given.
         var SPONSOR_LOGO_MONO = true;
 
-        var SP_STATS = [
-            { value: "50K", suffix: "+", label: "Attendees" },
-            { value: "100", suffix: "+", label: "Speakers" },
-            { value: "90",  suffix: "+", label: "Countries" },
-            { value: "7",   suffix: "",  label: "Days" },
-            { value: "5",   suffix: "",  label: "Parallel Tracks" }
-        ];
-
         // Tier rows in the order they appear on the wall.
         // sizeClass maps to the .slb-* sizes in style.css
         var SP_TIER_ROWS = [
@@ -215,26 +201,57 @@
             4: "trackBusiness", 5: "trackTech"
         };
 
+        // Column header icons for the special activations. Swap these for
+        // dedicated keys if data/icons.js gains them. A missing key renders
+        // no icon rather than breaking the header.
+        var SP_SPECIAL_ICON_KEYS = {
+            launchpad:  "trackStartups",
+            talent:     "mic",
+            networking: "community"
+        };
+
+        // Hero index. The same four types as the home page section, in the
+        // same order, with the same icons. Clicking one jumps to the form
+        // and preselects it where there is an exact match.
+        var SP_TYPES = [
+            { key: "tier",      iconKey: "activation", label: "Tier Sponsors",     interest: "Tier Sponsor (Main / Gold / Silver / Bronze)" },
+            { key: "track",     iconKey: "grid",       label: "Track Sponsor",     interest: "Track Sponsor" },
+            { key: "special",   iconKey: "launchpad",  label: "Special Events",    interest: "" },
+            { key: "community", iconKey: "community",  label: "Community Partner", interest: "Community Partner" }
+        ];
+
 
         document.addEventListener("DOMContentLoaded", function () {
-            renderStats();
+            renderTypeIndex();
             renderWall();
             renderInterestOptions();
         });
 
 
         /* ─────────────────────────────────────────
-           STATS
+           HERO TYPE INDEX
+           Same markup and classes as the tracks page, so it
+           needs no layout CSS of its own. Only the icon colour
+           is set, through --track-color.
            ───────────────────────────────────────── */
-        function renderStats() {
-            const el = document.getElementById("sp-stats");
+        function renderTypeIndex() {
+            const el = document.getElementById("sp-type-index");
             if (!el) return;
 
-            el.innerHTML = SP_STATS.map(s => `
-    <div class="sp-stat">
-      <div class="sp-stat-value">${s.value}${s.suffix ? `<span>${s.suffix}</span>` : ""}</div>
-      <div class="sp-stat-label">${s.label}</div>
-    </div>`).join("");
+            el.innerHTML = SP_TYPES.map(t => `
+    <a class="track-index__item sp-index--${t.key}" href="#contact"
+       onclick="preselectInterest('${t.interest.replace(/'/g, "\\'")}')">
+      <span class="track-index__icon">${_spIcon(t.iconKey)}</span>
+      ${t.label}
+    </a>`).join("");
+        }
+
+        // Sets the enquiry dropdown when the label has an exact match in
+        // SP_INTEREST_OPTIONS. Special Events maps to three separate
+        // options, so it scrolls without preselecting anything.
+        function preselectInterest(value) {
+            const sel = document.getElementById("sp-interest");
+            if (sel && value && SP_INTEREST_OPTIONS.indexOf(value) !== -1) sel.value = value;
         }
 
 
@@ -267,45 +284,56 @@
             return _wallSection(meta.label || row.tier, tiles, "sp-wall-row");
         }
 
-        // One per track, each carrying its track colour
+        // One column per track. The track name is a column header above
+        // the frame, not a pill inside it, so the five read as a table.
+        // Icon and header colour come from the .track-N class.
         function _trackRow() {
-            const tiles = SIGNAL_TRACKS.map(t => {
-                const sponsor = getSponsorsByTrack(t.trackNumber).filter(_isConfirmed)[0];
-                const label = `<div class="track-sponsor-label track-${t.trackNumber}">${t.shortName}</div>`;
+            const cols = SIGNAL_TRACKS.map(t => _wallColumn({
+                modifier: `track-${t.trackNumber}`,
+                iconKey:  SP_TRACK_ICON_KEYS[t.trackNumber],
+                label:    t.shortName,
+                sponsor:  getSponsorsByTrack(t.trackNumber).filter(_isConfirmed)[0]
+            })).join("");
 
-                const inner = sponsor
-                    ? `<img src="${sponsor.logoPath}" alt="${sponsor.name}" loading="lazy" />`
-                    : `<div class="slb-open-label">Slot open</div>`;
-
-                const body = `<div class="track-sponsor-inner">${label}${inner}</div>`;
-
-                return sponsor
-                    ? `<a class="sponsor-logo-box slb-track${_monoClass()}" href="${sponsor.website || "#"}" target="_blank" rel="noopener" title="${sponsor.name}">${body}</a>`
-                    : `<div class="sponsor-logo-box slb-track slb-open">${body}</div>`;
-            }).join("");
-
-            return _wallSection("Track Sponsors", tiles, "sp-wall-row");
+            return _wallSection("Track Sponsors", cols, "sp-col-row sp-col-row--track");
         }
 
-        // Launchpad, Talent, Speed Networking Day
+        // Launchpad, Talent, Speed Networking Day. Same column header
+        // treatment as the tracks, each with its own accent colour.
         function _specialRow() {
-            const tiles = SP_SPECIAL_ROWS.map(tier => {
+            const cols = SP_SPECIAL_ROWS.map(tier => {
                 const meta = SIGNAL_SPONSOR_TIERS[tier] || {};
-                const sponsor = getSponsorsByTier(tier).filter(_isConfirmed)[0];
-                const label = `<div class="special-sponsor-label special-${tier}">${meta.label || tier}</div>`;
-
-                const inner = sponsor
-                    ? `<img src="${sponsor.logoPath}" alt="${sponsor.name}" loading="lazy" />`
-                    : `<div class="slb-open-label">Slot open</div>`;
-
-                const body = `<div class="special-sponsor-inner">${label}${inner}</div>`;
-
-                return sponsor
-                    ? `<a class="sponsor-logo-box slb-special${_monoClass()}" href="${sponsor.website || "#"}" target="_blank" rel="noopener" title="${sponsor.name}">${body}</a>`
-                    : `<div class="sponsor-logo-box slb-special slb-open">${body}</div>`;
+                return _wallColumn({
+                    modifier: `sp-col--${tier}`,
+                    iconKey:  SP_SPECIAL_ICON_KEYS[tier],
+                    label:    meta.label || tier,
+                    sponsor:  getSponsorsByTier(tier).filter(_isConfirmed)[0]
+                });
             }).join("");
 
-            return _wallSection("Special Activations", tiles, "sp-wall-row");
+            return _wallSection("Special Activations", cols, "sp-col-row sp-col-row--special");
+        }
+
+        // Shared column: header row, then the logo frame beneath it.
+        function _wallColumn(opts) {
+            const s = opts.sponsor;
+
+            const frame = s
+                ? `<a class="sponsor-logo-box slb-col${_monoClass()}" href="${s.website || "#"}" target="_blank" rel="noopener" title="${s.name}">
+         <img src="${s.logoPath}" alt="${s.name}" loading="lazy" />
+       </a>`
+                : `<div class="sponsor-logo-box slb-col slb-open">
+         <span class="slb-open-label">Slot open</span>
+       </div>`;
+
+            return `
+    <div class="sp-col ${opts.modifier}">
+      <div class="sp-col__head">
+        <span class="sp-col__icon">${_spIcon(opts.iconKey)}</span>
+        <span class="sp-col__name">${opts.label}</span>
+      </div>
+      ${frame}
+    </div>`;
         }
 
         // Community and media partners, uniform grid, no hierarchy
@@ -360,6 +388,12 @@
         // Extra class applied to every tier, track and special logo tile.
         function _monoClass() {
             return SPONSOR_LOGO_MONO ? " slb-mono" : "";
+        }
+
+        // SVG straight from data/icons.js, so it is in the markup before
+        // the icon injector runs. An unknown key renders nothing.
+        function _spIcon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
         }
 
 

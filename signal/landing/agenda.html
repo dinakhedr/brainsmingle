@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
 
-<body>
+<body class="has-hero">
 
     <!-- ══════════════════════════════════════════
      NAV — rendered from data/layout.js
@@ -30,15 +30,22 @@
     <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-    <section class="ag-hero">
-        <div class="ag-hero-glow"></div>
-        <div class="ag-hero-inner">
-            <div class="ag-hero-eyebrow">Full Agenda · 10 – 16 October 2026</div>
-            <h1 class="ag-hero-title">Seven days.<br>Unlimited conversations.</h1>
-            <p class="ag-hero-sub">7 days, 5 tracks, 100+ speakers, special activations, and Speed Networking Day.</p>
+    <section class="page-hero">
+        <div class="page-hero__inner">
 
-            <!-- track legend — rendered from data/tracks.js -->
-            <div class="track-legend" id="track-legend"></div>
+            <div>
+                <p class="page-hero__eyebrow">Full Agenda · 10 – 16 October 2026</p>
+                <h1 class="page-hero__title">Seven days.<br>Every format.</h1>
+                <p class="page-hero__sub">Five parallel tracks, 100+ live sessions, two special activations and a full day of speed networking.</p>
+            </div>
+
+            <div class="page-hero__stats">
+                <div class="page-hero__stat"><span class="page-hero__stat-value">7</span><span class="page-hero__stat-label">Days</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">5</span><span class="page-hero__stat-label">Parallel tracks</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">100+</span><span class="page-hero__stat-label">Live sessions</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">3</span><span class="page-hero__stat-label">Activations</span></div>
+            </div>
+
         </div>
     </section>
 
@@ -58,9 +65,39 @@
 
 
     <!-- ══════════════════════════════════════════
+     CLOSING CTA — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="page-cta"></div>
+
+
+    <!-- ══════════════════════════════════════════
      FOOTER — rendered from data/layout.js
 ══════════════════════════════════════════ -->
     <div id="site-footer"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SESSION DETAILS — populated by openSessionDetails()
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="session-modal">
+        <div class="modal-box modal-box--sm">
+            <button class="modal-close" onclick="closeSessionDetails()" aria-label="Close">&times;</button>
+            <div class="ses-modal__track" id="ses-track"></div>
+            <h3 class="ses-modal__title" id="ses-title"></h3>
+            <p class="ses-modal__when" id="ses-when"></p>
+            <div id="ses-speakers-wrap">
+                <p class="ses-modal__label">Speakers</p>
+                <div class="ses-modal__speakers" id="ses-speakers"></div>
+            </div>
+            <div id="ses-desc-wrap">
+                <p class="ses-modal__label">About</p>
+                <p class="ses-modal__desc" id="ses-desc"></p>
+            </div>
+           <div class="ses-modal__actions">
+                <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Sign up</button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ══════════════════════════════════════════
@@ -93,9 +130,20 @@
             4: "trackBusiness",
             5: "trackTech"
         };
+        
+        // Per-session sign up. Set to false until there is a backend to
+        // record a choice against a member, so the button is never a
+        // promise the site cannot keep.
+        var SHOW_SESSION_SIGNUP = true;
 
         // Opening day panel slots. Day 1 runs earlier than the track days,
         // so it has its own times rather than using SIGNAL_TIME_SLOTS.
+        // Maps trackNumber to a key in data/icons.js
+        var AG_TRACK_ICON_KEYS = {
+            1: "trackLd", 2: "trackCreative", 3: "trackStartups",
+            4: "trackBusiness", 5: "trackTech"
+        };
+
         var AG_DAY1_SLOTS = [
             { time: "5:00 PM", sessionId: "ses-d1-p1" },
             { time: "6:00 PM", sessionId: "ses-d1-p2" },
@@ -229,6 +277,7 @@
             <div class="ag-panel-title${session && session.title ? "" : " ag-session-title--placeholder"}">${title}</div>
             <div class="ag-panel-meta">${names || AG_PLACEHOLDER_SPEAKER}</div>
           </div>
+          ${_sessionActions(session ? session.id : null)}
         </div>
       </div>`;
             }).join("");
@@ -285,10 +334,6 @@
         <div class="ag-sn-title">${day.displayLabel}</div>
         <p class="ag-sn-sub">Structured networking rounds powered by the BrainsMingle speed networking engine, connecting founders, developers, researchers, recruiters, and professionals across the entire AI ecosystem.</p>
       </div>
-      <div class="ag-day-cta">
-        <a href="#" class="btn btn-yellow" data-cta="registration">Join the Waiting List</a>
-        <a href="sponsors.html" data-page="sponsors" class="btn btn-outline">Become a Sponsor</a>
-      </div>
     </div>`;
         }
 
@@ -315,7 +360,10 @@
 
         function _trackHeader() {
             const cols = SIGNAL_TRACKS.map(t => `
-      <div class="ag-track-col-label track-${t.trackNumber}">${t.shortName}</div>`).join("");
+      <div class="ag-track-col-label track-${t.trackNumber}">
+        <span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[t.trackNumber])}</span>
+        ${t.shortName}
+      </div>`).join("");
             return `<div class="ag-track-header"><div class="ag-track-col-label time-col"></div>${cols}</div>`;
         }
 
@@ -328,6 +376,7 @@
       <div class="ag-session track-${trackNumber}">
         <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle ? session.title : AG_PLACEHOLDER_SESSION}</div>
         ${chips || `<div class="ag-session-speaker ag-session-speaker--placeholder">${AG_PLACEHOLDER_SPEAKER}</div>`}
+        ${_sessionActions(session ? session.id : null)}
       </div>`;
         }
 
@@ -346,6 +395,7 @@
             <div class="ag-special-name">${config.name}</div>
             <div class="ag-special-meta">${config.meta}</div>
           </div>
+          ${_sessionActions(config.sessionId || null, config)}
         </div>
       </div>`;
         }
@@ -361,18 +411,111 @@
             return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
         }
 
+
+        /* Session sign up and details. This button is per-session, not
+           event registration, so it carries its own label and class and
+           does not follow REGISTRATION_MODE. */
+        function _sessionActions(sessionId, special) {
+            if (!SHOW_SESSION_SIGNUP) return "";
+
+            const hasDetail = !!sessionId || !!special;
+            const detail = hasDetail
+                ? `<button class="ag-session-info" type="button"
+                       onclick="openSessionDetails('${sessionId || ""}', ${special ? "'" + special.name.replace(/'/g, "\\'") + "'" : "null"})"
+                       aria-label="Session details">${_agIcon("info") || "i"}</button>`
+                : "";
+
+            return `
+      <div class="ag-session-actions">
+        <button class="ag-session-signup" type="button"
+                onclick="signUpForSession('${sessionId || ""}')">Sign me up!</button>
+        ${detail}
+      </div>`;
+        }
+
         function _speakerChips(session) {
             if (!session || !session.speakerIds || !session.speakerIds.length) return "";
             const chips = session.speakerIds.map(id => {
                 const spk = SIGNAL_SPEAKERS_MAP[id];
                 if (!spk) return "";
-                const photo = spk.imagePath
-                    ? `<img class="speaker-chip__photo" src="${spk.imagePath}" alt="${spk.name}" loading="lazy" />`
+                const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(spk) : null;
+                const photo = src
+                    ? `<img class="speaker-chip__photo" src="${src}" alt="" loading="lazy" />`
                     : `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
                 return `<span class="speaker-chip">${photo}<span class="speaker-chip__name">${spk.name}</span></span>`;
             }).join("");
             return chips ? `<div class="ag-session-speakers">${chips}</div>` : "";
         }
+        
+        function signUpForSession(sessionId) {
+            console.log("session signup:", sessionId);
+            // TODO: post to the real endpoint, then mark the card signed up.
+        }
+
+
+        /* ─────────────────────────────────────────
+           SESSION DETAILS
+           Built from what agenda.js and speakers.js already hold.
+           Blocks with nothing to show are hidden rather than left
+           empty, so the modal stays honest while sessions are
+           still being written.
+           ───────────────────────────────────────── */
+        function openSessionDetails(sessionId, specialName) {
+            const s = sessionId ? SIGNAL_AGENDA.find(a => a.id === sessionId) : null;
+            const track = s && s.trackNumber ? SIGNAL_TRACKS_BY_NUMBER[s.trackNumber] : null;
+            const day = s && s.day ? SIGNAL_DAYS_MAP[s.day] : null;
+
+            const trackEl = document.getElementById("ses-track");
+            trackEl.innerHTML = track
+                ? `<span class="track-pill track-${track.trackNumber}"><span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[track.trackNumber])}</span>${track.shortName}</span>`
+                : "";
+
+            document.getElementById("ses-title").textContent =
+                (s && s.title) ? s.title : (specialName || AG_PLACEHOLDER_SESSION);
+
+            const when = [];
+            if (day) when.push(day.date);
+            if (s && s.timeSlot) when.push(s.timeSlot);
+            document.getElementById("ses-when").textContent = when.join(" · ");
+
+            const spk = document.getElementById("ses-speakers");
+            const ids = (s && s.speakerIds) ? s.speakerIds : [];
+            spk.innerHTML = ids.map(id => {
+                const p = SIGNAL_SPEAKERS_MAP[id];
+                if (!p) return "";
+                const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(p) : null;
+                return `
+        <div class="ses-modal__speaker">
+          ${src ? `<img src="${src}" alt="" loading="lazy" />`
+                : `<span class="speaker-chip__initials">${_initials(p.name)}</span>`}
+          <div>
+            <div class="ses-modal__speaker-name">${p.name}</div>
+            <div class="ses-modal__speaker-role">${p.title}${p.company ? ", " + p.company : ""}</div>
+          </div>
+        </div>`;
+            }).join("");
+            document.getElementById("ses-speakers-wrap").classList.toggle("is-hidden", !spk.innerHTML.trim());
+
+            const desc = (s && s.description) ? s.description : "";
+            document.getElementById("ses-desc").textContent = desc;
+            document.getElementById("ses-desc-wrap").classList.toggle("is-hidden", !desc);
+
+            document.getElementById("ses-signup").onclick = function () { signUpForSession(sessionId); };
+            document.getElementById("session-modal").classList.add("is-visible");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeSessionDetails() {
+            document.getElementById("session-modal").classList.remove("is-visible");
+            document.body.classList.remove("modal-open");
+        }
+
+        document.getElementById("session-modal").addEventListener("click", function (e) {
+            if (e.target === this) closeSessionDetails();
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeSessionDetails();
+        });
 
         function _speakerNames(session) {
             if (!session || !session.speakerIds) return "";

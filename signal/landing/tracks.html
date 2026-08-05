@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 </head>
 
-<body>
+<body class="has-hero">
 
     <!-- ══════════════════════════════════════════
      NAV — rendered from data/layout.js
@@ -30,15 +30,18 @@
     <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-    <section class="tr-hero">
-        <div class="tr-hero-glow"></div>
-        <div class="tr-hero-inner">
-            <div class="tr-hero-eyebrow">AI Summit 2026 · 10 – 16 October</div>
-            <h1 class="tr-hero-title">The Tracks</h1>
-            <p class="tr-hero-sub">Five domains. Real practitioners. Live conversations.</p>
+    <section class="page-hero">
+        <div class="page-hero__inner">
 
-            <!-- track legend — rendered from data/tracks.js -->
-            <div class="track-legend" id="track-legend"></div>
+            <div>
+                <p class="page-hero__eyebrow">The Tracks</p>
+                <h1 class="page-hero__title">Five domains.<br>One week.</h1>
+                <p class="page-hero__sub">Each track is its own vertical, with curated speakers, sessions and conversations built around a single domain.</p>
+            </div>
+
+            <!-- rendered from data/tracks.js -->
+            <nav class="track-index" id="track-index" aria-label="Jump to a track"></nav>
+
         </div>
     </section>
 
@@ -46,17 +49,21 @@
     <!-- ══════════════════════════════════════════
      TRACK CARDS — rendered from data/tracks.js
 ══════════════════════════════════════════ -->
+    <div class="tracks-list__head">
+        <span class="section-eyebrow">All five tracks</span>
+        <h2 class="tracks-list__title">Pick your domain.</h2>
+    </div>
+
     <div class="tracks-list" id="tracks-list"></div>
 
 
     <!-- ══════════════════════════════════════════
      BOTTOM CTA
 ══════════════════════════════════════════ -->
-    <section class="tracks-cta-strip">
-        <h2>Want to sponsor a track?</h2>
-        <p>Position your brand at the centre of the conversations shaping the future of AI across learning, creative, startups, business, and tech.</p>
-        <a href="#" class="btn btn-yellow btn-arrow" onclick="openModal('sponsor-modal');return false;">Become a Track Sponsor</a>
-    </section>
+    <!-- ══════════════════════════════════════════
+     CLOSING CTA — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="page-cta"></div>
 
 
     <!-- ══════════════════════════════════════════
@@ -101,24 +108,25 @@
 
 
         document.addEventListener("DOMContentLoaded", function () {
-            renderTrackLegend();
+            renderTrackIndex();
             renderTracksList();
         });
 
 
         /* ─────────────────────────────────────────
-           TRACK LEGEND
-           Colour comes from the .track-N class, so no
-           styling is written here.
+           TRACK INDEX
+           The right column of the hero band. Each row
+           scrolls to its card. Colour comes from the
+           .track-N class, so no styling is written here.
            ───────────────────────────────────────── */
-        function renderTrackLegend() {
-            const el = document.getElementById("track-legend");
+        function renderTrackIndex() {
+            const el = document.getElementById("track-index");
             if (!el) return;
 
             el.innerHTML = SIGNAL_TRACKS.map(t => `
-    <a class="tl-pill track-${t.trackNumber}" href="#track-${t.slug}">
-      <span class="tl-icon">${_trackIcon(t.trackNumber)}</span>
-      ${t.shortName}
+    <a class="track-index__item track-${t.trackNumber}" href="#track-${t.slug}">
+      <span class="track-index__icon">${_trackIcon(t.trackNumber)}</span>
+      ${t.fullName}
     </a>
   `).join("");
         }
