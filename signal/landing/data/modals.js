@@ -112,7 +112,7 @@ var SIGNAL_MODAL_TEMPLATES = {
   waitlist: `
 <div class="modal-overlay" id="waitlist-modal" onclick="if(event.target===this)closeModal('waitlist-modal')">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('waitlist-modal')">&#10005;</button>
+    <button class="modal-close" onclick="closeModal('waitlist-modal')" aria-label="Close"><span data-icon="close"></span></button>
     <div class="modal-eyebrow">AI Summit by BrainsMingle &middot; 10 &ndash; 16 October 2026</div>
     <h2 class="modal-title">Join the <em>Waiting List</em></h2>
     <p class="modal-sub">Be the first to know when registration opens. We'll send you one email, no noise and no spam.</p>
@@ -138,7 +138,7 @@ var SIGNAL_MODAL_TEMPLATES = {
   register: `
 <div class="modal-overlay" id="register-modal" onclick="if(event.target===this)closeModal('register-modal')">
   <div class="modal-box reg-modal-box">
-    <button class="modal-close" onclick="closeModal('register-modal')">&#10005;</button>
+    <button class="modal-close" onclick="closeModal('register-modal')" aria-label="Close"><span data-icon="close"></span></button>
     <div class="modal-eyebrow">AI Summit by BrainsMingle &middot; 10 &ndash; 16 October 2026</div>
     <h2 class="modal-title">Register to <em>Join</em></h2>
     <p class="modal-sub">Seven days, five tracks, 100+ sessions and a full day of speed networking. Free to attend, fully virtual.</p>
@@ -243,7 +243,7 @@ var SIGNAL_MODAL_TEMPLATES = {
   sponsor: `
 <div class="modal-overlay" id="sponsor-modal" onclick="if(event.target===this)closeModal('sponsor-modal')">
   <div class="modal-box sp-modal-box">
-    <button class="modal-close" onclick="closeModal('sponsor-modal')">✕</button>
+    <button class="modal-close" onclick="closeModal('sponsor-modal')" aria-label="Close"><span data-icon="close"></span></button>
     <div class="modal-eyebrow">Sponsorship &amp; Partnerships</div>
     <h2 class="modal-title">Let's Talk.<br><em>Slots Won't Last.</em></h2>
     <p class="modal-sub">Fill in the form and we'll reach out within 24 hours to arrange a call, walk you through the full benefits, and help you find the right fit.</p>
@@ -302,7 +302,7 @@ var SIGNAL_MODAL_TEMPLATES = {
   speaker: `
 <div class="modal-overlay" id="speaker-modal" onclick="if(event.target===this)closeModal('speaker-modal')">
   <div class="modal-box spk-modal-box">
-    <button class="modal-close" onclick="closeModal('speaker-modal')">✕</button>
+    <button class="modal-close" onclick="closeModal('speaker-modal')" aria-label="Close"><span data-icon="close"></span></button>
     <div class="modal-eyebrow">Speak at AI Summit</div>
     <h2 class="modal-title">Want to Speak<br>at <em>AI Summit?</em></h2>
     <p class="modal-sub">We're looking for active practitioners, researchers, founders, and domain leaders who have something worth saying. If that's you — apply below.</p>
