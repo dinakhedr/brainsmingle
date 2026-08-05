@@ -308,11 +308,11 @@ function renderPageCta() {
   var a = cfg.action || {};
   var btn;
   if (a.modal) {
-    btn = '<a href="#" class="btn btn-primary" data-modal="' + a.modal + '">' + a.label + '</a>';
+    btn = '<a href="#" class="btn btn-primary btn-arrow" data-modal="' + a.modal + '">' + a.label + '</a>';
   } else if (a.cta) {
-    btn = '<a href="#" class="btn btn-primary" data-cta="' + a.cta + '"></a>';
+    btn = '<a href="#" class="btn btn-primary btn-arrow" data-cta="' + a.cta + '"></a>';
   } else {
-    btn = '<a href="' + (a.href || "#") + '" class="btn btn-primary"' +
+    btn = '<a href="' + (a.href || "#") + '" class="btn btn-primary btn-arrow"' +
           (a.page ? ' data-page="' + a.page + '"' : '') + '>' + a.label + '</a>';
   }
 
