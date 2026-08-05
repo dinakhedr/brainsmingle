@@ -19,14 +19,25 @@
     15.  Page — Tracks
     16.  Footer
     17.  Responsive / Media Queries
-    18.  Page — Coming Soon\n    19.  Page — Legal (Terms & Privacy)
-    20.  Theme — Light\n    
+    18.  Page — Coming Soon
+    19.  Page — Legal (Terms & Privacy)
+    20.  Theme — Light
     21.  Home — Hero
-    22.  Home — Untro
-    23.  Home — Tracks
+    22.  Home — Intro
+    23.  Home — Tracks Preview
     24.  Home — Audience
-    25.  Home — Speakers
-    26.  Home — Sponsors
+    25.  Home — Agenda Preview
+    26.  Home — Speakers Preview
+    27.  Home — Sponsors Preview
+    28.  Home — Final Call to Action
+    29.  Page Hero
+    30.  Theme — Light, Colour Weight Scale
+    31.  Page CTA
+    32.  Page Hero — Stats
+    33.  Agenda — Session Actions and Details
+    34.  Theme — Light, Speakers Page
+    35.  Sponsors — Hero Index and Wall Columns
+    36.  Alternating Section Backgrounds
    ============================================================ */
 
 /* Fonts are requested by data/theme.js, which also sets
@@ -41,9 +52,9 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  background: #05050F;
-  color: #fff;
-  font-family: 'Urbanist', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
@@ -61,8 +72,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 :root {
   /* ── Backgrounds */
-  --bg:           #05050F;
-  --bg-alt:       #0D0A1F;
+  /* --bg matches --neutral-950 in the BrainsMingle system. */
+  --bg:           #080612;
+  /* A translucent lift rather than an opaque colour, so the page
+     glow in section 37 reads through the alternating sections
+     instead of banding behind them. Over --bg this lands close
+     to the #0D0A1F it replaces. */
+  --bg-alt:       #FFFFFF08;
   --bg-card:      #0E0E1C;
   --bg-card-2:    #111120;
 
@@ -74,21 +90,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
      pass so the headline stays legible on the left, and the colour
      underneath. Identical in both themes. */
   --gradient-band:
-    linear-gradient(90deg, rgba(14,14,20,0.88) 0%, rgba(14,14,20,0.60) 50%, rgba(14,14,20,0.16) 100%),
-    linear-gradient(135deg, #4A3F6B 0%, #6540EC 45%, #2A2740 100%);
+    linear-gradient(90deg, #080612E0 0%, #08061299 50%, #0806122E 100%),
+    linear-gradient(135deg, #4A3F6B 0%, #6723FF 45%, #2A2740 100%);
 
-  /* ── Brand colors */
-  --purple:       #6B3EF5;
-  --purple-dim:   rgba(107,62,245,0.15);
-  --green:         #00E8A2;
-  --green-dim:     rgba(0,232,162,0.12);
+  /* ── Brand colors
+     Both are BrainsMingle system values: --brand-500 and
+     --accent-400. */
+  --purple:       #6723FF;
+  --purple-dim:   #6723FF26;
 
-  /* Fixed brand green for elements that always sit on a dark
+  /* Brand purple reads 3.12:1 on --bg, so it cannot carry text
+     on a dark ground. This is --brand-300, at 6.81:1, and it is
+     what purple text and purple icons use in the dark theme.
+     Like --green-bright it is fixed, not theme-dependent. */
+  --purple-bright: #A97EFF;
+
+  --green:         #13FEC6;
+  --green-dim:     #13FEC61F;
+
+  /* Fixed brand teal for elements that always sit on a dark
      surface, such as the hero and the nav over it. Unlike
      --green, this does not change with the theme. */
-  --green-bright:  #00E8A2;
-  --accent:       #00E8A2;
-  --accent-dim:   rgba(0,232,162,0.10);
+  --green-bright:  #13FEC6;
+  --accent:       #13FEC6;
+  --accent-dim:   #13FEC61A;
+
+  /* Kept as a triplet, not hex: --accent-rgb switches with the
+     theme inside a single rule, which a hex value cannot do.
+     Same reason --track-N-rgb stays a triplet. */
+  --accent-rgb:   19, 254, 198;
 
   /* ── Track colors — keyed by trackNumber (1–5) */
   --track-1:     #00E8A2;   /* L&D */
@@ -117,11 +147,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   --font-head:    'Montserrat', sans-serif;
   --font-body:    'Urbanist', sans-serif;
 
-  /* ── Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* ── Status
+     Straight from the BrainsMingle system. Success is its own
+     green, deliberately not the brand accent: a confirmation
+     must not look like a brand highlight. The -bg values are
+     pale tints for a white page, so they are light-theme only.
+     Warning and info are defined but not yet used. */
+  --status-success:    #22C55E;
+  --status-success-bg: #DCFCE7;
+  --status-warning:    #F59E0B;
+  --status-warning-bg: #FEF3C7;
+  --status-error:      #EF4444;
+  --status-error-bg:   #FEE2E2;
+  --status-info:       #3B82F6;
+  --status-info-bg:    #DBEAFE;
+
+  /* ── Radius — the first four already matched the system */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ── Elevation — purple-tinted, not grey */
+  --shadow-sm:     0 1px 3px #6723FF14, 0 1px 2px #6723FF0A;
+  --shadow-md:     0 4px 12px #6723FF1A, 0 2px 4px #6723FF0F;
+  --shadow-lg:     0 12px 32px #6723FF24, 0 4px 8px #6723FF14;
+  --shadow-xl:     0 24px 64px #6723FF2E, 0 8px 16px #6723FF1A;
+  --shadow-brand:  0 4px 20px #6723FF4D;
+  --shadow-accent: 0 4px 20px #13FEC659;
+
+  /* ── Motion */
+  --duration-fast:   120ms;
+  --duration-base:   200ms;
+  --duration-slow:   350ms;
+  --duration-slower: 500ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ── Layout */
   --max-width:    1200px;
@@ -179,7 +244,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   color: rgba(255,255,255,0.45);
 }
-.powered-by span { color: var(--purple); font-weight: 700; }
+.powered-by span { color: var(--purple-bright); font-weight: 700; }
 
 .divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
 
@@ -339,7 +404,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .track-pill--md { font-size: 11px; padding: 5px 13px; }
 
 /* Per-track pill colors — keyed by trackNumber */
-.pill-1, .track-pill.track-1 { color: var(--track-1); border-color: rgba(0,232,162,0.25);  background: rgba(0,232,162,0.06); }   /* L&D */
+.pill-1, .track-pill.track-1 { color: var(--track-1); border-color: #13FEC640;  background: #13FEC60F; }   /* L&D */
 .pill-2, .track-pill.track-2 { color: var(--track-2); border-color: rgba(245,62,159,0.25); background: rgba(245,62,159,0.06); }  /* Creative */
 .pill-3, .track-pill.track-3 { color: var(--track-3); border-color: rgba(232,242,0,0.25);  background: rgba(232,242,0,0.06); }   /* Startups */
 .pill-4, .track-pill.track-4 { color: var(--track-4); border-color: rgba(245,166,35,0.25); background: rgba(245,166,35,0.06); }  /* Business */
@@ -401,7 +466,7 @@ a.tl-pill:active { transform: translateY(0); }
 .page-hero-glow {
   position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(107,62,245,0.20) 0%, transparent 70%);
+  background: radial-gradient(ellipse, #6723FF33 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -482,7 +547,7 @@ a.tl-pill:active { transform: translateY(0); }
   left: -200px; top: 50%;
   transform: translateY(-50%);
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(107,62,245,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, #6723FF1F 0%, transparent 70%);
   pointer-events: none;
 }
 .spk1-inner {
@@ -496,7 +561,7 @@ a.tl-pill:active { transform: translateY(0); }
   font-family: var(--font-display);
   font-size: 10px; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--purple); margin-bottom: 18px;
+  color: var(--purple-bright); margin-bottom: 18px;
 }
 .spk1-tagline-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -640,7 +705,7 @@ a.tl-pill:active { transform: translateY(0); }
   justify-content: center; gap: 10px; padding: 16px 12px; width: 100%;
 }
 .track-sponsor-label {
-  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-family: var(--font-display); font-weight: 700;
   font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase;
   padding: 4px 9px; border-radius: 20px; border: 0.5px solid;
   white-space: nowrap; text-align: center;
@@ -702,7 +767,7 @@ a.tl-pill:active { transform: translateY(0); }
 }
 .icon-tile svg { width: calc(var(--icon-tile-size) * 0.5); height: calc(var(--icon-tile-size) * 0.5); }
 
-.icon-tile--purple { background: var(--purple-dim);          color: var(--purple); }
+.icon-tile--purple { background: var(--purple-dim);          color: var(--purple-bright); }
 .icon-tile--green  { background: var(--green-dim);            color: var(--green); }
 .icon-tile--amber  { background: rgba(194,87,8,0.10);        color: var(--track-4); }
 .icon-tile--pink   { background: rgba(214,21,111,0.10);      color: var(--track-2); }
@@ -727,7 +792,7 @@ a.tl-pill:active { transform: translateY(0); }
   padding: 4px 10px;
   border-radius: 20px;
 }
-.badge--purple { background: var(--purple-dim);       color: var(--purple); }
+.badge--purple { background: var(--purple-dim);       color: var(--purple-bright); }
 .badge--green  { background: var(--green-dim);        color: var(--green); }
 .badge--pink   { background: rgba(214,21,111,0.12);   color: var(--track-2); }
 .badge--gold   { background: rgba(138,109,0,0.12);    color: var(--track-3); }
@@ -761,7 +826,7 @@ a.tl-pill:active { transform: translateY(0); }
 .sp-contact-meta-item a:hover { text-decoration: underline; }
 .sp-contact-meta-icon {
   width: 32px; height: 32px; border-radius: var(--radius-sm);
-  background: rgba(107,62,245,0.15); display: flex; align-items: center;
+  background: #6723FF26; display: flex; align-items: center;
   justify-content: center; flex-shrink: 0;
   color: #A07BFF;
 }
@@ -792,7 +857,7 @@ a.tl-pill:active { transform: translateY(0); }
 .sp-field input:focus,
 .sp-field select:focus,
 .sp-field textarea:focus {
-  border-color: rgba(107,62,245,0.6); background: rgba(107,62,245,0.06);
+  border-color: #6723FF99; background: #6723FF0F;
 }
 .sp-field textarea { resize: vertical; min-height: 100px; }
 .sp-field input::placeholder,
@@ -801,8 +866,8 @@ a.tl-pill:active { transform: translateY(0); }
 .sp-form-note { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); line-height: 1.5; }
 .sp-form-success {
   display: none; align-items: center; justify-content: center; gap: 10px;
-  background: rgba(0,232,162,0.1);
-  border: 0.5px solid rgba(0,232,162,0.3); border-radius: var(--radius-md);
+  background: #13FEC61A;
+  border: 0.5px solid #13FEC64C; border-radius: var(--radius-md);
   padding: 16px 20px; font-family: var(--font-body); font-size: 14px;
   color: var(--green); text-align: center;
 }
@@ -822,7 +887,7 @@ body.modal-open { overflow: hidden; }
 /* ── Modal overlay */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 9000;
-  background: rgba(5,5,15,0.88);
+  background: #080612E0;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none;
@@ -834,21 +899,21 @@ body.modal-open { overflow: hidden; }
 /* ── Modal box */
 .modal-box {
   background: var(--bg-card);
-  border: 0.5px solid rgba(107,62,245,0.3);
+  border: 0.5px solid #6723FF4C;
   border-radius: var(--radius-xl);
   width: 100%; max-width: 540px;
   max-height: 90vh; overflow-y: auto;
-  padding: 40px;
+  padding: 30px 32px;
   position: relative;
   transform: translateY(16px);
   transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(107,62,245,0.15) inset;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 0.5px #6723FF26 inset;
 }
 .modal-overlay.open .modal-box { transform: translateY(0); }
 
 /* ── Close button */
 .modal-close {
-  position: absolute; top: 16px; right: 18px;
+  position: absolute; top: 14px; right: 16px;
   display: flex; align-items: center; justify-content: center;
   padding: 0; color: rgba(255,255,255,0.35);
   background: none; border: none; cursor: pointer;
@@ -860,16 +925,16 @@ body.modal-open { overflow: hidden; }
 .modal-eyebrow {
   font-family: var(--font-display); font-size: 10px; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--purple); margin-bottom: 10px;
+  color: var(--purple-bright); margin-bottom: 8px;
 }
 .modal-title {
-  font-family: var(--font-display); font-size: 26px; font-weight: 800;
-  line-height: 1.2; margin-bottom: 10px;
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  line-height: 1.2; margin-bottom: 7px;
 }
 .modal-title em { color: var(--green); font-style: normal; }
 .modal-sub {
-  font-size: 14px; color: var(--text-secondary);
-  margin-bottom: 28px; line-height: 1.6;
+  font-size: 13px; color: var(--text-secondary);
+  margin-bottom: 18px; line-height: 1.55;
 }
 
 /* ── Sponsor modal box width */
@@ -880,12 +945,12 @@ body.modal-open { overflow: hidden; }
 
 /* ── Form system (shared by both modals) */
 .modal-form-row {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  margin-bottom: 12px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 10px;
 }
 .modal-form-row--full { grid-template-columns: 1fr; }
 .modal-form-row--last { margin-bottom: 0; }
-.modal-field { display: flex; flex-direction: column; gap: 5px; }
+.modal-field { display: flex; flex-direction: column; gap: 4px; }
 .modal-field-full { grid-column: 1 / -1; }
 .modal-field label {
   font-family: var(--font-body); font-size: 11px; font-weight: 700;
@@ -896,7 +961,7 @@ body.modal-open { overflow: hidden; }
 .modal-field textarea {
   background: rgba(255,255,255,0.04);
   border: 0.5px solid var(--border-mid);
-  border-radius: var(--radius-md); padding: 10px 14px;
+  border-radius: var(--radius-md); padding: 8px 12px;
   font-family: var(--font-body); font-size: 13px;
   color: var(--text-primary); outline: none;
   transition: border-color 0.2s, background 0.2s;
@@ -905,16 +970,16 @@ body.modal-open { overflow: hidden; }
 .modal-field input:focus,
 .modal-field select:focus,
 .modal-field textarea:focus {
-  border-color: rgba(107,62,245,0.55);
-  background: rgba(107,62,245,0.05);
+  border-color: #6723FF8C;
+  background: #6723FF0D;
 }
 .modal-field input::placeholder,
 .modal-field textarea::placeholder { color: var(--text-muted); }
 .modal-field select option { background: var(--bg-card); color: #fff; }
-.modal-field textarea { resize: vertical; min-height: 80px; }
+.modal-field textarea { resize: vertical; min-height: 64px; }
 .modal-submit-row {
   display: flex; align-items: center; gap: 16px;
-  margin-top: 18px; flex-wrap: wrap;
+  margin-top: 14px; flex-wrap: wrap;
 }
 .modal-form-note { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
 .modal-form-success {
@@ -931,30 +996,30 @@ body.modal-open { overflow: hidden; }
   font-family: var(--font-body); font-size: 11px; font-weight: 700;
   color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
 }
-.modal-checkgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin-top: 2px; }
+.modal-checkgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-top: 2px; }
 .modal-check {
   display: flex; align-items: flex-start; gap: 8px; cursor: pointer;
-  font-family: var(--font-body); font-size: 13px;
-  color: var(--text-secondary); line-height: 1.45;
+  font-family: var(--font-body); font-size: 12px;
+  color: var(--text-secondary); line-height: 1.4;
 }
 .modal-check input {
-  width: 15px; height: 15px; margin-top: 2px;
+  width: 14px; height: 14px; margin-top: 2px;
   accent-color: var(--purple); flex-shrink: 0; cursor: pointer;
 }
 .modal-check a { color: var(--accent); }
 .modal-check a:hover { text-decoration: underline; }
 .modal-consent {
-  display: flex; flex-direction: column; gap: 10px;
-  margin-top: 20px; padding-top: 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: 14px; padding-top: 14px;
   border-top: 0.5px solid var(--border);
 }
 
 /* Validation state */
 .modal-field.is-invalid input,
-.modal-field.is-invalid select { border-color: rgba(255,107,107,0.7); }
+.modal-field.is-invalid select { border-color: #EF4444B3; }
 .modal-field.is-invalid .modal-checkgrid,
-.modal-check.is-invalid { color: #FF6B6B; }
-.modal-error { display: none; color: #FF6B6B; font-size: 12px; margin-top: 14px; }
+.modal-check.is-invalid { color: var(--status-error); }
+.modal-error { display: none; color: var(--status-error); font-size: 12px; margin-top: 14px; }
 .modal-error.is-visible { display: block; }
 
 /* ── Waiting list modal */
@@ -962,7 +1027,7 @@ body.modal-open { overflow: hidden; }
 .wl-field     { flex: 1; }
 .wl-submit    { white-space: nowrap; }
 .wl-note      { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
-.wl-error     { display: none; color: #FF6B6B; font-size: 12px; margin-top: 8px; }
+.wl-error     { display: none; color: var(--status-error); font-size: 12px; margin-top: 8px; }
 .wl-error.is-visible { display: block; }
 .wl-success {
   display: none; align-items: center; gap: 8px;
@@ -1119,7 +1184,7 @@ body.modal-open { overflow: hidden; }
 /* ── BrainsMingle section (home) */
 .bm-section {
   padding: var(--section-pad); border-top: 0.5px solid var(--border);
-  background: linear-gradient(180deg, transparent 0%, rgba(107,62,245,0.06) 100%);
+  background: linear-gradient(180deg, transparent 0%, #6723FF0F 100%);
 }
 .bm-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .bm-text .section-title { margin-bottom: 16px; }
@@ -1138,7 +1203,7 @@ body.modal-open { overflow: hidden; }
 }
 .bm-feature-card:hover { border-color: var(--border-mid); }
 .bm-feature-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.bm-feature-icon--purple { background: var(--purple-dim);      color: var(--purple); }
+.bm-feature-icon--purple { background: var(--purple-dim);      color: var(--purple-bright); }
 .bm-feature-icon--green   { background: var(--green-dim);        color: var(--green); }
 .bm-feature-icon--accent { background: var(--accent-dim);      color: var(--accent); }
 .bm-feature-title { font-family: var(--font-head); font-weight: 700; font-size: 15px; color: var(--text-primary); margin-bottom: 4px; }
@@ -1163,7 +1228,7 @@ body.modal-open { overflow: hidden; }
 .ag-hero-glow {
   position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(107,62,245,0.20) 0%, transparent 70%);
+  background: radial-gradient(ellipse, #6723FF33 0%, transparent 70%);
   pointer-events: none;
 }
 .ag-hero-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
@@ -1292,10 +1357,10 @@ body.modal-open { overflow: hidden; }
   position: relative; overflow: hidden;
 }
 .ag-special-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
-.ag-special-launchpad { background: rgba(107,62,245,0.12); border: 0.5px solid rgba(107,62,245,0.35); }
+.ag-special-launchpad { background: #6723FF1F; border: 0.5px solid #6723FF59; }
 .ag-special-launchpad::before { background: var(--purple); }
 .ag-special-launchpad .ag-special-badge { color: #A78BFA; }
-.ag-special-talent { background: rgba(0,232,162,0.09); border: 0.5px solid rgba(0,232,162,0.30); }
+.ag-special-talent { background: #13FEC617; border: 0.5px solid #13FEC64C; }
 .ag-special-talent::before { background: var(--green); }
 .ag-special-talent .ag-special-badge { color: var(--green); }
 .ag-special-badge {
@@ -1327,8 +1392,8 @@ body.modal-open { overflow: hidden; }
 
 /* ── Speed Networking Day hero */
 .ag-sn-hero {
-  background: linear-gradient(135deg, rgba(232,242,0,0.10) 0%, rgba(232,242,0,0.04) 100%);
-  border: 0.5px solid rgba(232,242,0,0.30); border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.10) 0%, rgba(var(--accent-rgb), 0.04) 100%);
+  border: 0.5px solid rgba(var(--accent-rgb), 0.30); border-radius: var(--radius-xl);
   padding: 64px 48px; text-align: center; margin-bottom: 32px;
 }
 .ag-sn-label {
@@ -1377,7 +1442,7 @@ body.modal-open { overflow: hidden; }
   border: 0.5px solid var(--border); background: var(--bg-card);
   transition: border-color 0.25s, transform 0.25s; position: relative;
 }
-.spk-card:hover { border-color: rgba(232,242,0,0.5); transform: translateY(-4px); }
+.spk-card:hover { border-color: rgba(var(--accent-rgb), 0.5); transform: translateY(-4px); }
 .spk-card-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #1a1a2e; }
 .spk-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%);
     transition: transform 0.4s ease, filter 0.3s ease; }
@@ -1389,7 +1454,7 @@ body.modal-open { overflow: hidden; }
   position: absolute; top: 10px; left: 10px; z-index: 2;
   display: inline-flex; align-items: center;
   padding: 3px 9px; border-radius: 100px;
-  background: #E8F200; border: 0.5px solid #E8F200;
+  background: var(--accent); border: 0.5px solid var(--accent);
   font-family: var(--font-body); font-size: 9px; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase; color: #0A0A14;
   backdrop-filter: blur(6px); gap: 5px;
@@ -1428,8 +1493,8 @@ body.modal-open { overflow: hidden; }
 }
 .spk-search::placeholder { color: var(--text-muted); }
 .spk-search:focus {
-  border-color: rgba(107,62,245,0.6);
-  background: rgba(107,62,245,0.06);
+  border-color: #6723FF99;
+  background: #6723FF0F;
 }
 
 .spk-fbtn {
@@ -1442,7 +1507,7 @@ body.modal-open { overflow: hidden; }
 }
 .spk-fbtn .pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .spk-fbtn:hover { border-color: rgba(255,255,255,0.25); color: var(--text-primary); background: rgba(255,255,255,0.03); }
-.spk-fbtn.active-all { background: var(--purple-dim); border-color: rgba(107,62,245,0.4); color: #A07BFF; }
+.spk-fbtn.active-all { background: var(--purple-dim); border-color: #6723FF66; color: #A07BFF; }
 .spk-fbtn.is-empty {
     opacity: 0.55;
     cursor: not-allowed;
@@ -1480,7 +1545,7 @@ body.modal-open { overflow: hidden; }
 .spk-fbtn[class*="track-"] .pill-dot { background: var(--track-color); }
 
 /* Day filter buttons — active */
-.spk-fbtn[data-day].active { background: rgba(0,232,162,0.08); border-color: rgba(0,232,162,0.35); color: var(--accent); }
+.spk-fbtn[data-day].active { background: #13FEC614; border-color: #13FEC659; color: var(--accent); }
 
 /* ── Main grid */
 .spk-grid-section { padding: 48px 48px 100px; }
@@ -1501,9 +1566,9 @@ body.modal-open { overflow: hidden; }
 }
 .spk-overlay.open { opacity: 1; pointer-events: all; }
 .spk-popup {
-  background: var(--bg-card); border: 0.5px solid rgba(232,242,0,0.3);
+  background: var(--bg-card); border: 0.5px solid rgba(var(--accent-rgb), 0.3);
   border-radius: var(--radius-xl); width: 100%; max-width: 760px; max-height: 90vh;
-  overflow-y: auto; display: grid; grid-template-columns: 220px 1fr;
+  overflow-y: auto; display: grid; grid-template-columns: 248px 1fr;
   position: relative; transform: translateY(16px); transition: transform 0.25s;
 }
 .spk-overlay.open .spk-popup { transform: translateY(0); }
@@ -1518,7 +1583,7 @@ body.modal-open { overflow: hidden; }
 .spk-popup-close:hover { background: rgba(255,255,255,0.12); }
 .spk-popup-photo-col { padding: 28px 20px 28px 28px; display: flex; flex-direction: column; gap: 12px; border-right: 0.5px solid var(--border); }
 .spk-popup-img { width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-lg); overflow: hidden; background: #1a1a2e; }
-.spk-popup-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.spk-popup-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); }
 .spk-popup-link {
   display: flex; align-items: center; gap: 8px; padding: 10px 14px;
   border-radius: var(--radius-md); border: 0.5px solid var(--border-mid);
@@ -1530,7 +1595,7 @@ body.modal-open { overflow: hidden; }
 .spk-popup-links { display: flex; flex-direction: column; gap: 8px; }
 .spk-popup-tracks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .spk-popup-link svg { flex-shrink: 0; width: 13px; height: 13px; }
-.spk-popup-link.bm:hover { border-color: var(--green); color: var(--green); background: rgba(0,232,162,0.07); }
+.spk-popup-link.bm:hover { border-color: var(--green); color: var(--green); background: #13FEC612; }
 .spk-popup-link.li:hover { border-color: #4A9ADF; color: #4A9ADF; background: rgba(74,154,223,0.07); }
 .spk-popup-content { padding: 28px 28px 28px 24px; display: flex; flex-direction: column; gap: 20px; }
 .spk-popup-name    { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 5px; padding-right: 40px; }
@@ -1539,10 +1604,10 @@ body.modal-open { overflow: hidden; }
 .spk-popup-bio     { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.75; }
 .spk-session-item  { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: var(--radius-md); border: 0.5px solid var(--border); background: rgba(255,255,255,0.02); margin-bottom: 8px; transition: border-color 0.2s; }
 .spk-session-item:last-child { margin-bottom: 0; }
-.spk-session-item:hover { border-color: rgba(107,62,245,0.3); }
+.spk-session-item:hover { border-color: #6723FF4C; }
 .spk-session-day   { flex-shrink: 0; min-width: 44px; font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding-top: 1px; }
 .spk-session-title { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--text-primary); line-height: 1.4; flex: 1; }
-.spk-session-link  { flex-shrink: 0; font-size: 11px; color: var(--purple); text-decoration: none; font-weight: 600; padding-top: 1px; transition: color 0.2s; }
+.spk-session-link  { flex-shrink: 0; font-size: 11px; color: var(--purple-bright); text-decoration: none; font-weight: 600; padding-top: 1px; transition: color 0.2s; }
 .spk-session-link:hover { color: var(--green); }
 
 /* ── Apply section */
@@ -1558,7 +1623,7 @@ body.modal-open { overflow: hidden; }
 .sp-hero-glow {
   position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(107,62,245,0.22) 0%, transparent 70%);
+  background: radial-gradient(ellipse, #6723FF38 0%, transparent 70%);
   pointer-events: none;
 }
 .sp-hero-inner  { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
@@ -1637,7 +1702,7 @@ body.modal-open { overflow: hidden; }
 .tier-gold::before   { background: #F5A623; }
 .tier-silver::before { background: rgba(255,255,255,0.45); }
 .tier-bronze::before { background: #CD7F32; }
-.tier-card.tier-main { border-color: rgba(107,62,245,0.35); }
+.tier-card.tier-main { border-color: #6723FF59; }
 .tier-card.tier-gold { border-color: rgba(245,166,35,0.28); }
 
 .tier-badge {
@@ -1646,7 +1711,7 @@ body.modal-open { overflow: hidden; }
   letter-spacing: 0.12em; text-transform: uppercase;
   padding: 5px 10px; border-radius: 20px; margin-bottom: 20px; width: fit-content;
 }
-.tier-main .tier-badge   { background: rgba(107,62,245,0.18); color: #A07BFF; }
+.tier-main .tier-badge   { background: #6723FF2E; color: #A07BFF; }
 .tier-gold .tier-badge   { background: rgba(245,166,35,0.15); color: #F5A623; }
 .tier-silver .tier-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
 .tier-bronze .tier-badge { background: rgba(205,127,50,0.15); color: #CD7F32; }
@@ -1662,7 +1727,7 @@ body.modal-open { overflow: hidden; }
 }
 .tier-benefits li:last-child { border-bottom: none; }
 .tier-benefits li::before    { content: '✓'; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-.tier-main .tier-benefits li::before   { color: var(--purple); }
+.tier-main .tier-benefits li::before   { color: var(--purple-bright); }
 .tier-gold .tier-benefits li::before   { color: #F5A623; }
 .tier-silver .tier-benefits li::before { color: rgba(255,255,255,0.45); }
 .tier-bronze .tier-benefits li::before { color: #CD7F32; }
@@ -1701,7 +1766,7 @@ body.modal-open { overflow: hidden; }
 .benefits-table th.col-silver { color: rgba(255,255,255,0.5); }
 .benefits-table th.col-bronze { color: #CD7F32; }
 .benefits-table th.col-track  { color: var(--green); }
-.benefits-table th.col-launch { color: var(--purple); }  /* Signal Launchpad */
+.benefits-table th.col-launch { color: var(--purple-bright); }  /* Signal Launchpad */
 .benefits-table th.col-talent { color: var(--green); }    /* Signal Talent */
 .benefits-table th.col-speed  { color: var(--accent); }  /* Speed Networking */
 .benefits-table td  { padding: 11px 16px; text-align: center; font-size: 13px; border-bottom: 0.5px solid var(--border); color: var(--text-muted); }
@@ -1728,7 +1793,7 @@ body.modal-open { overflow: hidden; }
 .cp-slots { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); margin-bottom: 28px; }
 
 /* ── Benefits note */
-.benefits-note { margin-top: 40px; text-align: center; padding: 28px; background: rgba(107,62,245,0.07); border: 0.5px solid rgba(107,62,245,0.2); border-radius: var(--radius-lg); }
+.benefits-note { margin-top: 40px; text-align: center; padding: 28px; background: #6723FF12; border: 0.5px solid #6723FF33; border-radius: var(--radius-lg); }
 .benefits-note p { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
 
 /* ── Recognition wall */
@@ -1759,7 +1824,7 @@ body.modal-open { overflow: hidden; }
 .sp-contact { background: var(--bg-card-2); }
 
 /* ── Urgency strip */
-.sp-urgency { background: rgba(107,62,245,0.25); padding: 18px 48px; text-align: center; margin-top: -1px; }
+.sp-urgency { background: #6723FF40; padding: 18px 48px; text-align: center; margin-top: -1px; }
 .sp-urgency p { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: #fff; margin: 0; letter-spacing: 0.02em; }
 .sp-urgency span { color: var(--accent); }
 
@@ -1773,7 +1838,7 @@ body.modal-open { overflow: hidden; }
 .tr-hero-glow {
   position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
   width: 700px; height: 500px;
-  background: radial-gradient(ellipse, rgba(107,62,245,0.20) 0%, transparent 70%);
+  background: radial-gradient(ellipse, #6723FF33 0%, transparent 70%);
   pointer-events: none;
 }
 .tr-hero-inner  { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
@@ -2202,7 +2267,7 @@ body.modal-open { overflow: hidden; }
   position: fixed;
   top: -200px; left: -200px;
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(107,62,245,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, #6723FF2E 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -2210,21 +2275,10 @@ body.modal-open { overflow: hidden; }
   position: fixed;
   bottom: -200px; right: -200px;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,232,162,0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, #13FEC61A 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
-.cs-grid-bg {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(107,62,245,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(107,62,245,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
-  z-index: 0;
-}
-
 /* ── Layout */
 .cs-main {
   flex: 1;
@@ -2378,7 +2432,7 @@ body.modal-open { overflow: hidden; }
 }
 .cs-form-wrap .modal-field input:focus {
   border-color: var(--purple);
-  background: rgba(107,62,245,0.07);
+  background: #6723FF12;
 }
 .cs-form-wrap .wl-error {
   text-align: left;
@@ -2388,8 +2442,8 @@ body.modal-open { overflow: hidden; }
 .cs-form-wrap .wl-success {
   justify-content: center;
   padding: 16px 24px;
-  background: rgba(0,232,162,0.08);
-  border: 0.5px solid rgba(0,232,162,0.25);
+  background: #13FEC614;
+  border: 0.5px solid #13FEC640;
   border-radius: var(--radius-md);
   font-size: 14px;
   margin-top: 16px;
@@ -2439,13 +2493,17 @@ body.modal-open { overflow: hidden; }
   --border:       #E6E3EE;
   --border-mid:   #D2CEE0;
 
-  /* Brand */
-  --purple:       #6540EC;
-  --purple-dim:   #F1EDFE;
-  --green:         #00875A;
-  --green-dim:     rgba(0,135,90,0.09);
-  --accent:       #6540EC;      /* purple carries the accent on white */
-  --accent-dim:   rgba(101,64,236,0.08);
+  /* Brand
+     --purple-bright and --green-bright are deliberately absent:
+     both are fixed values for elements on a dark ground, and the
+     hero band is dark in both themes. */
+  --purple:       #6723FF;      /* 6.44:1 on white */
+  --purple-dim:   #F3EEFF;      /* --brand-50 */
+  --green:         #007A5F;     /* 5.32:1 on white */
+  --green-dim:     #007A5F17;
+  --accent:       #6723FF;      /* purple carries the accent on white */
+  --accent-dim:   #6723FF14;
+  --accent-rgb:   103, 35, 255;
 
   /* Track colours for a light surface. Every one passes AA for
      normal text on white, which matters because they appear at
@@ -2477,6 +2535,17 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] body { background: var(--bg); color: var(--text-primary); }
 
 
+/* Five rules use --purple-bright on the dark ground and have no
+   other light override. On white that value reads 2.4:1, so they
+   come back to the brand purple here. The four that already had
+   a light rule further down are not repeated. */
+[data-theme="light"] .powered-by span,
+[data-theme="light"] .spk1-tagline,
+[data-theme="light"] .spk-session-link,
+[data-theme="light"] .tier-main .tier-benefits li::before,
+[data-theme="light"] .benefits-table th.col-launch { color: var(--purple); }
+
+
 
 /* ── 20.3 Dark-only decoration, removed ──────────────────── */
 
@@ -2484,8 +2553,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .tr-hero-glow,
 [data-theme="light"] .sp-hero-glow,
 [data-theme="light"] .cs-glow,
-[data-theme="light"] .cs-glow-right,
-[data-theme="light"] .cs-grid-bg { display: none; }
+[data-theme="light"] .cs-glow-right { display: none; }
 
 
 
@@ -2599,9 +2667,9 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .speaker-chip__initials { background: var(--bg-card-2); color: var(--text-secondary); }
 [data-theme="light"] .ag-panel-num { color: var(--purple); opacity: 0.4; }
 
-[data-theme="light"] .ag-special-launchpad { background: rgba(101,64,236,0.10); border-color: rgba(101,64,236,0.34); }
+[data-theme="light"] .ag-special-launchpad { background: #6723FF1A; border-color: #6723FF57; }
 [data-theme="light"] .ag-special-launchpad .ag-special-badge { color: var(--purple); }
-[data-theme="light"] .ag-special-talent { background: rgba(0,135,90,0.10); border-color: rgba(0,135,90,0.32); }
+[data-theme="light"] .ag-special-talent { background: #007A5F1A; border-color: #007A5F52; }
 [data-theme="light"] .ag-special-talent .ag-special-badge { color: var(--green); }
 [data-theme="light"] .ag-special-networking { background: rgba(214,21,111,0.09); border-color: rgba(214,21,111,0.30); }
 [data-theme="light"] .ag-special-networking::before { background: var(--track-2); }
@@ -2623,7 +2691,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .spk-fbtn { border: 1px solid var(--border-mid); color: var(--text-secondary); }
 [data-theme="light"] .spk-fbtn:hover { border-color: var(--text-muted); background: var(--bg-card-2); }
 [data-theme="light"] .spk-fbtn.active-all { background: var(--purple); border-color: var(--purple); color: #fff; }
-[data-theme="light"] .spk-fbtn[data-day].active { background: var(--purple-dim); border-color: rgba(101,64,236,0.3); color: var(--purple); }
+[data-theme="light"] .spk-fbtn[data-day].active { background: var(--purple-dim); border-color: #6723FF4C; color: var(--purple); }
 [data-theme="light"] .spk-overlay { background: rgba(14,14,20,0.45); }
 [data-theme="light"] .spk-popup {
   border: 1px solid var(--border);
@@ -2749,8 +2817,8 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .cs-headline { color: var(--purple); }
 [data-theme="light"] .cs-eyebrow-dot { background: var(--purple); }
 [data-theme="light"] .cs-date-pill {
-  background: rgba(101,64,236,0.09);
-  border-color: rgba(101,64,236,0.30);
+  background: #6723FF17;
+  border-color: #6723FF4C;
   color: var(--purple);
 }
 [data-theme="light"] .cs-date-pill-sep { background: var(--purple); }
@@ -2766,11 +2834,11 @@ body.modal-open { overflow: hidden; }
   border-color: rgba(14,143,110,0.26);
 }
 [data-theme="light"] .cs-bar:nth-child(1),
-[data-theme="light"] .cs-bar:nth-child(9) { background: rgba(101,64,236,0.25); }
+[data-theme="light"] .cs-bar:nth-child(9) { background: #6723FF40; }
 [data-theme="light"] .cs-bar:nth-child(2),
-[data-theme="light"] .cs-bar:nth-child(8) { background: rgba(101,64,236,0.45); }
+[data-theme="light"] .cs-bar:nth-child(8) { background: #6723FF73; }
 [data-theme="light"] .cs-bar:nth-child(3),
-[data-theme="light"] .cs-bar:nth-child(7) { background: rgba(101,64,236,0.65); }
+[data-theme="light"] .cs-bar:nth-child(7) { background: #6723FFA6; }
 [data-theme="light"] .cs-bar:nth-child(4),
 [data-theme="light"] .cs-bar:nth-child(6) { background: var(--green); }
 [data-theme="light"] .cs-bar:nth-child(5) { background: var(--purple); }
@@ -2816,7 +2884,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .spk1-perk-dot--amber  { background: var(--track-4); }
 [data-theme="light"] .footer-contact a { color: var(--purple); }
 [data-theme="light"] .wl-error,
-[data-theme="light"] .modal-error { color: #C81E1E; }
+[data-theme="light"] .modal-error { color: var(--status-error); }
 [data-theme="light"] .wl-success,
 [data-theme="light"] .modal-form-success { color: var(--green); }
 
@@ -3027,7 +3095,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
    ============================================================ */
 
 .audience { padding: var(--section-pad); border-top: 0.5px solid var(--border); }
-.audience__inner { max-width: 1000px; margin: 0 auto; }
+.audience__inner { max-width: var(--max-width); margin: 0 auto; }
 
 .audience__head {
   display: grid;
@@ -3047,10 +3115,12 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   color: var(--text-secondary);
 }
 
-.audience__grid  { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 12px; 
+.audience__grid  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
     }
 
 .audience__card {
@@ -3202,20 +3272,20 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
    a stronger fill and, on dark, a lighter text colour. */
 
 .agenda-card--purple .badge--purple {
-  background: rgba(101,64,236,0.30);
+  background: #6723FF4C;
   color: #B9A5FF;
 }
 .agenda-card--green .badge--green {
-  background: rgba(0,232,162,0.22);
+  background: #13FEC638;
   color: var(--green);
 }
 
 [data-theme="light"] .agenda-card--purple .badge--purple {
-  background: rgba(101,64,236,0.16);
+  background: #6723FF29;
   color: var(--purple);
 }
 [data-theme="light"] .agenda-card--green .badge--green {
-  background: rgba(0,135,90,0.16);
+  background: #007A5F29;
   color: var(--green);
 }
 
@@ -3411,8 +3481,8 @@ font-family: var(--font-body);
 .sponsors-cta {
   display: flex; align-items: center; justify-content: space-between;
   gap: 28px; flex-wrap: wrap;
-  background: rgba(101,64,236,0.10);
-  border: 1px solid rgba(101,64,236,0.30);
+  background: #6723FF1A;
+  border: 1px solid #6723FF4C;
   border-radius: var(--radius-lg);
   padding: 24px 28px;
 }
@@ -3434,8 +3504,8 @@ font-family: var(--font-body);
 
 [data-theme="light"] .sponsor-type { border: 1px solid var(--border); }
 [data-theme="light"] .sponsors-cta {
-  background: rgba(101,64,236,0.07);
-  border-color: rgba(101,64,236,0.24);
+  background: #6723FF12;
+  border-color: #6723FF3D;
 }
 
 
@@ -3564,11 +3634,11 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 }
 
 .final-cta .wl-note    { color: rgba(255,255,255,0.50); }
-.final-cta .wl-error   { color: #FFB4B4; }
+.final-cta .wl-error   { color: var(--status-error); }
 .final-cta .wl-success {
   color: var(--green-bright);
-  background: rgba(0,232,162,0.12);
-  border-color: rgba(0,232,162,0.30);
+  background: #13FEC61F;
+  border-color: #13FEC64C;
 }
 
 
@@ -3674,84 +3744,211 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 }
 
 /* ============================================================
-   30. THEME — LIGHT, SOLID ACCENTS
-   The light theme's tinted surfaces were running at roughly half
-   the weight of the dark theme's, so colour barely registered.
+   30. THEME — LIGHT, COLOUR WEIGHT SCALE
 
-   The rule from here on:
-     solid   headers, activation cards, icon tiles, badges
-     tinted  card bodies, pills, strips, at 0.14 rather than 0.09
+   The light theme's tinted surfaces were once running at roughly
+   half the weight of the dark theme's, so colour barely
+   registered. The first fix flipped every surface to solid,
+   which overshot: the page became a set of colour blocks with
+   nothing between the faint pills and the full-strength headers.
 
-   Every track colour was chosen for 4.5:1 against white, and
-   contrast is symmetric, so white text on a solid track colour
-   passes at exactly the same ratio.
+   This is the corrected version. One ladder, four steps:
+
+     solid   selected and interactive states ONLY
+             (active track filter, active day filter)
+     strong  0.22   track headers, icon tiles, column labels
+     mid     0.14   pills, badges, agenda cards
+     soft    0.07   footer banners, strips
+
+   Text sitting on a tint uses an ink colour, a deepened version
+   of the same hue. The standard colours reach only 3.4:1 on
+   their own 0.22 tint, which fails AA at the 10px sizes used
+   here. Ink values are tuned to the heaviest step, so they are
+   safe on every lighter one:
+
+     track 1  #006E49    4.71:1 on tint,  6.31:1 on white
+     track 2  #B5125E    4.55:1 on tint,  6.54:1 on white
+     track 3  #765D00    4.71:1 on tint,  6.29:1 on white
+     track 4  #A04807    4.57:1 on tint,  6.13:1 on white
+     track 5  #0064A3    4.62:1 on tint,  6.27:1 on white
 
    Loaded after section 20, so these win.
    ============================================================ */
 
-/* ── Icon tiles: solid, white icon ───────────────────────── */
 
-[data-theme="light"] .icon-tile { color: #FFFFFF; }
-[data-theme="light"] .icon-tile--purple { background: var(--purple); }
-[data-theme="light"] .icon-tile--green  { background: var(--green); }
-[data-theme="light"] .icon-tile--amber  { background: var(--track-4); }
-[data-theme="light"] .icon-tile--pink   { background: var(--track-2); }
-[data-theme="light"] .icon-tile--blue   { background: var(--track-5); }
-[data-theme="light"] .icon-tile--gold   { background: var(--track-3); }
+/* ── Ink tokens ──────────────────────────────────────────────
+   The fallbacks keep the dark theme untouched. --track-color is
+   defined on .track-N, so the var() resolves there. */
+
+:root {
+  --purple-ink: var(--purple);
+  --green-ink:  var(--green);
+}
+
+.track-1, .track-2, .track-3, .track-4, .track-5 {
+  --track-ink: var(--track-color);
+}
+
+[data-theme="light"] {
+  --w-soft:    0.07;
+  --w-mid:     0.14;
+  --w-strong:  0.22;
+
+  --purple-ink: #6520FF;   /* 4.52:1 on its own 0.22 tint */
+  --green-ink:  #006D55;   /* 4.62:1 on its own 0.22 tint */
+}
+
+[data-theme="light"] .track-1 { --track-ink: #006E49; }
+[data-theme="light"] .track-2 { --track-ink: #B5125E; }
+[data-theme="light"] .track-3 { --track-ink: #765D00; }
+[data-theme="light"] .track-4 { --track-ink: #A04807; }
+[data-theme="light"] .track-5 { --track-ink: #0064A3; }
 
 
-/* ── Badges: solid, white text ───────────────────────────── */
+/* ── Icon tiles: tinted fill, coloured glyph ─────────────── */
 
-[data-theme="light"] .badge { color: #FFFFFF; }
-[data-theme="light"] .badge--purple { background: var(--purple); }
-[data-theme="light"] .badge--green  { background: var(--green); }
-[data-theme="light"] .badge--pink   { background: var(--track-2); }
-[data-theme="light"] .badge--gold   { background: var(--track-3); }
+[data-theme="light"] .icon-tile--purple {
+  background: #6723FF38;
+  color: var(--purple-ink);
+}
+[data-theme="light"] .icon-tile--green {
+  background: #007A5F38;
+  color: var(--green-ink);
+}
+[data-theme="light"] .icon-tile--amber {
+  background: rgba(194,87,8, var(--w-strong));
+  color: #A04807;
+}
+[data-theme="light"] .icon-tile--pink {
+  background: rgba(214,21,111, var(--w-strong));
+  color: #B5125E;
+}
+[data-theme="light"] .icon-tile--blue {
+  background: rgba(0,119,194, var(--w-strong));
+  color: #0064A3;
+}
+[data-theme="light"] .icon-tile--gold {
+  background: rgba(138,109,0, var(--w-strong));
+  color: #765D00;
+}
 
 
-/* ── Track card header: solid track colour ───────────────── */
+/* ── Badges: tinted fill, ink text ───────────────────────── */
+
+[data-theme="light"] .badge--purple {
+  background: #6723FF24;
+  color: var(--purple-ink);
+}
+[data-theme="light"] .badge--green {
+  background: #007A5F24;
+  color: var(--green-ink);
+}
+[data-theme="light"] .badge--pink {
+  background: rgba(214,21,111, var(--w-mid));
+  color: #B5125E;
+}
+[data-theme="light"] .badge--gold {
+  background: rgba(138,109,0, var(--w-mid));
+  color: #765D00;
+}
+
+
+/* ── Track cards ─────────────────────────────────────────────
+   The header sits one step above the pills instead of jumping
+   to solid. The left spine goes to 4px, so the card still
+   identifies itself the moment you see it. */
+
+[data-theme="light"] .tr-card {
+  border: 1px solid rgba(var(--track-rgb), 0.26);
+  border-left: 4px solid var(--track-color);
+}
 
 [data-theme="light"] .tr-card__head {
-  background: var(--track-color);
-  border-bottom-color: var(--track-color);
+  background: rgba(var(--track-rgb), var(--w-strong));
+  border-bottom-color: rgba(var(--track-rgb), 0.30);
 }
-[data-theme="light"] .tr-card__tagline { color: rgba(255,255,255,0.72); }
-[data-theme="light"] .tr-card__name    { color: #FFFFFF; }
-[data-theme="light"] .tr-card__icon    { color: #FFFFFF; }
+[data-theme="light"] .tr-card__icon    { color: var(--track-ink); }
+[data-theme="light"] .tr-card__tagline { color: var(--track-ink); }
+[data-theme="light"] .tr-card__name    { color: var(--text-primary); }
+
+[data-theme="light"] .tr-card__sponsor {
+  background: #FFFFFF;
+  border-color: rgba(var(--track-rgb), 0.30);
+}
 [data-theme="light"] .tr-card__sponsor--tbc {
-  color: rgba(255,255,255,0.72);
-  border-color: rgba(255,255,255,0.36);
+  background: none;
+  border-style: dashed;
+  border-color: rgba(var(--track-rgb), 0.38);
+  color: var(--track-ink);
+  opacity: 0.72;
 }
-[data-theme="light"] .tr-card__sponsor { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.30); }
 
-/* Body and banner stay tinted, just stronger */
-[data-theme="light"] .tr-card { border-color: rgba(var(--track-rgb), 0.40); }
-[data-theme="light"] .tr-card__banner {
-  background: rgba(var(--track-rgb), 0.12);
-  border-top-color: rgba(var(--track-rgb), 0.30);
-}
+[data-theme="light"] .tr-card__label { color: var(--track-ink); }
+
 [data-theme="light"] .tr-focus-pill {
-  background: rgba(var(--track-rgb), 0.14);
-  border-color: rgba(var(--track-rgb), 0.40);
+  background: rgba(var(--track-rgb), var(--w-mid));
+  border-color: rgba(var(--track-rgb), 0.30);
+  color: var(--track-ink);
 }
 
+[data-theme="light"] .tr-card__banner {
+  background: rgba(var(--track-rgb), var(--w-soft));
+  border-top-color: rgba(var(--track-rgb), 0.22);
+}
+[data-theme="light"] .tr-card__link { color: var(--track-ink); }
 
-/* ── Home agenda cards: solid ────────────────────────────── */
+
+/* The tracks, speakers and sponsors hero indexes are NOT listed
+   here on purpose. .track-index sits inside .page-hero, which is
+   the dark gradient band in both themes, so it keeps the bright
+   track colours and white text. Tinting it would put light-theme
+   colours on a dark ground. */
+
+
+/* ── Home agenda cards ───────────────────────────────────────
+   If one card should still anchor the group, add the class
+   agenda-card--solid to it in home.html and it keeps the old
+   solid treatment. Nothing else needs to change. */
+
+[data-theme="light"] .agenda-card--purple { --card-ink: #5E37EB; }
+[data-theme="light"] .agenda-card--green  { --card-ink: #006E49; }
+[data-theme="light"] .agenda-card--blue   { --card-ink: #0064A3; }
+[data-theme="light"] .agenda-card--amber  { --card-ink: #A04807; }
+[data-theme="light"] .agenda-card--pink   { --card-ink: #B5125E; }
 
 [data-theme="light"] .agenda-card {
+  background: rgba(var(--card-rgb), var(--w-mid));
+  border-color: rgba(var(--card-rgb), 0.30);
+}
+[data-theme="light"] .agenda-card:hover {
+  background: rgba(var(--card-rgb), 0.20);
+  border-color: rgba(var(--card-rgb), 0.44);
+  filter: none;
+}
+[data-theme="light"] .agenda-card__date { color: var(--text-muted); }
+[data-theme="light"] .agenda-card__day  { color: var(--card-ink); }
+[data-theme="light"] .agenda-card__name { color: var(--text-primary); }
+[data-theme="light"] .agenda-card__desc { color: var(--text-secondary); }
+[data-theme="light"] .agenda-card .badge {
+  background: rgba(var(--card-rgb), 0.20);
+  color: var(--card-ink);
+}
+
+/* Opt-in anchor card, keeps the solid treatment */
+[data-theme="light"] .agenda-card--solid {
   background: var(--card-color);
   border-color: var(--card-color);
 }
-[data-theme="light"] .agenda-card:hover {
+[data-theme="light"] .agenda-card--solid:hover {
   background: var(--card-color);
   border-color: var(--card-color);
   filter: brightness(1.08);
 }
-[data-theme="light"] .agenda-card__date { color: rgba(255,255,255,0.66); }
-[data-theme="light"] .agenda-card__day  { color: #FFFFFF; }
-[data-theme="light"] .agenda-card__name { color: #FFFFFF; }
-[data-theme="light"] .agenda-card__desc { color: rgba(255,255,255,0.84); }
-[data-theme="light"] .agenda-card .badge {
+[data-theme="light"] .agenda-card--solid .agenda-card__date { color: rgba(255,255,255,0.66); }
+[data-theme="light"] .agenda-card--solid .agenda-card__day  { color: #FFFFFF; }
+[data-theme="light"] .agenda-card--solid .agenda-card__name { color: #FFFFFF; }
+[data-theme="light"] .agenda-card--solid .agenda-card__desc { color: rgba(255,255,255,0.84); }
+[data-theme="light"] .agenda-card--solid .badge {
   background: rgba(255,255,255,0.22);
   color: #FFFFFF;
 }
@@ -3759,28 +3956,39 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 
 /* ── Agenda page: activations and column headers ─────────── */
 
-[data-theme="light"] .ag-special-launchpad  { background: var(--purple);   border-color: var(--purple); }
-[data-theme="light"] .ag-special-talent     { background: var(--green);    border-color: var(--green); }
-[data-theme="light"] .ag-special-networking { background: var(--track-2);  border-color: var(--track-2); }
-[data-theme="light"] .ag-special-networking::before { background: rgba(255,255,255,0.5); }
-[data-theme="light"] .ag-special-launchpad .ag-special-badge,
-[data-theme="light"] .ag-special-talent .ag-special-badge,
-[data-theme="light"] .ag-special-networking .ag-special-badge { color: rgba(255,255,255,0.78); }
-[data-theme="light"] .ag-special-name { color: #FFFFFF; }
-[data-theme="light"] .ag-special-meta { color: rgba(255,255,255,0.72); }
+[data-theme="light"] .ag-special-launchpad {
+  background: #6723FF24;
+  border-color: #6723FF57;
+}
+[data-theme="light"] .ag-special-talent {
+  background: #007A5F24;
+  border-color: #007A5F57;
+}
+[data-theme="light"] .ag-special-networking {
+  background: rgba(214,21,111, var(--w-mid));
+  border-color: rgba(214,21,111, 0.34);
+}
+[data-theme="light"] .ag-special-networking::before { background: #B5125E; }
+
+[data-theme="light"] .ag-special-launchpad  .ag-special-badge { color: var(--purple-ink); }
+[data-theme="light"] .ag-special-talent     .ag-special-badge { color: var(--green-ink); }
+[data-theme="light"] .ag-special-networking .ag-special-badge { color: #B5125E; }
+
+[data-theme="light"] .ag-special-name { color: var(--text-primary); }
+[data-theme="light"] .ag-special-meta { color: var(--text-secondary); }
 
 [data-theme="light"] .ag-track-col-label.track-1,
 [data-theme="light"] .ag-track-col-label.track-2,
 [data-theme="light"] .ag-track-col-label.track-3,
 [data-theme="light"] .ag-track-col-label.track-4,
 [data-theme="light"] .ag-track-col-label.track-5 {
-  background: var(--track-color);
-  border-color: var(--track-color);
-  color: #FFFFFF;
+  background: rgba(var(--track-rgb), var(--w-strong));
+  border-color: rgba(var(--track-rgb), 0.30);
+  color: var(--track-ink);
 }
 
 
-/* ── Pills and strips: tinted, stronger ──────────────────── */
+/* ── Pills and strips ────────────────────────────────────── */
 
 [data-theme="light"] .tl-pill.track-1,
 [data-theme="light"] .tl-pill.track-2,
@@ -3792,19 +4000,27 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 [data-theme="light"] .track-pill.track-3,
 [data-theme="light"] .track-pill.track-4,
 [data-theme="light"] .track-pill.track-5 {
-  background: rgba(var(--track-rgb), 0.14);
-  border-color: rgba(var(--track-rgb), 0.42);
+  background: rgba(var(--track-rgb), var(--w-mid));
+  border-color: rgba(var(--track-rgb), 0.30);
+  color: var(--track-ink);
 }
-[data-theme="light"] .track-strip { background: rgba(var(--track-rgb), 0.12); }
-[data-theme="light"] .track-strip:hover { background: rgba(var(--track-rgb), 0.20); }
+[data-theme="light"] .track-strip       { background: rgba(var(--track-rgb), var(--w-soft)); }
+[data-theme="light"] .track-strip:hover { background: rgba(var(--track-rgb), var(--w-mid)); }
+
+
+/* ── Filter buttons ──────────────────────────────────────────
+   The resting state follows the ladder. The active state stays
+   solid on purpose: a selected filter has to be unmistakable,
+   and that is the one job solid still has in this theme. */
 
 [data-theme="light"] .spk-fbtn.track-1,
 [data-theme="light"] .spk-fbtn.track-2,
 [data-theme="light"] .spk-fbtn.track-3,
 [data-theme="light"] .spk-fbtn.track-4,
 [data-theme="light"] .spk-fbtn.track-5 {
-  border-color: rgba(var(--track-rgb), 0.40);
-  background: rgba(var(--track-rgb), 0.09);
+  background: rgba(var(--track-rgb), var(--w-soft));
+  border-color: rgba(var(--track-rgb), 0.30);
+  color: var(--track-ink);
 }
 [data-theme="light"] .spk-fbtn.track-1.active,
 [data-theme="light"] .spk-fbtn.track-2.active,
@@ -3815,28 +4031,31 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   border-color: var(--track-color);
   color: #FFFFFF;
 }
+[data-theme="light"] .spk-fbtn[data-day].active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #FFFFFF;
+}
 
 
 /* ── Panels that were too faint ──────────────────────────── */
 
 [data-theme="light"] .sponsors-cta {
-  background: rgba(101,64,236,0.12);
-  border-color: rgba(101,64,236,0.38);
+  background: #6723FF1F;
+  border-color: #6723FF61;
 }
-[data-theme="light"] .sp-contact-meta-icon { background: var(--purple); color: #FFFFFF; }
+[data-theme="light"] .sp-contact-meta-icon {
+  background: #6723FF38;
+  color: var(--purple-ink);
+}
 [data-theme="light"] .sp-form-success {
-  background: rgba(0,135,90,0.12);
-  border-color: rgba(0,135,90,0.38);
-  color: var(--green);
+  background: #007A5F1F;
+  border-color: #007A5F61;
+  color: var(--green-ink);
 }
 [data-theme="light"] .cs-date-pill {
-  background: rgba(101,64,236,0.12);
-  border-color: rgba(101,64,236,0.38);
-}
-[data-theme="light"] .spk-fbtn[data-day].active {
-  background: var(--purple);
-  border-color: var(--purple);
-  color: #FFFFFF;
+  background: #6723FF1F;
+  border-color: #6723FF61;
 }
 
 /* ============================================================
@@ -3942,17 +4161,12 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
-.ag-session-signup:hover { background: #7A57F0; transform: translateY(-1px); }
+.ag-session-signup:hover { background: #8850FF; transform: translateY(-1px); }
 .ag-session-signup--lg { font-size: 14px; padding: 12px 22px; }
 
-/* On a solid activation card it inverts, since purple on purple
-   would disappear. */
-[data-theme="light"] .ag-special-card .ag-session-signup {
-  background: #FFFFFF; color: var(--purple);
-}
-[data-theme="light"] .ag-special-card .ag-session-signup:hover {
-  background: rgba(255,255,255,0.88);
-}
+/* The activation card used to be a solid colour band, so these
+   actions inverted to white. It is a 14% tint now, so they use
+   the same solid purple as every other session on the grid. */
 
 .ag-session-info {
   display: inline-flex; align-items: center; justify-content: center;
@@ -3968,20 +4182,11 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .ag-session-info:hover {
   color: var(--text-primary);
   border-color: var(--text-muted);
-  background: rgba(var(--track-rgb, 101,64,236), 0.08);
+  background: rgba(var(--track-rgb, 103,35,255), 0.08);
 }
 .ag-session-info svg { width: 15px; height: 15px; }
 
-/* On a solid activation card the actions sit on colour */
 .ag-special-card .ag-session-actions { margin-top: 14px; }
-[data-theme="light"] .ag-special-card .ag-session-info {
-  border-color: rgba(255,255,255,0.4);
-  color: rgba(255,255,255,0.9);
-}
-[data-theme="light"] .ag-special-card .ag-session-info:hover {
-  border-color: #FFFFFF; color: #FFFFFF;
-  background: rgba(255,255,255,0.14);
-}
 
 
 /* ── Speaker chips ───────────────────────────────────────────
@@ -4069,11 +4274,17 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 /* Featured strip: eyebrow and rule take the accent */
 [data-theme="light"] .spk-featured-eyebrow { color: var(--purple); }
 [data-theme="light"] .spk-featured-line    { background: var(--border); }
+/* The base rule is muted text with no background, so the light
+   theme only deepens the colour. A filled pill here reads as a
+   highlighter mark next to the rule line. */
 [data-theme="light"] .spk-featured-tag {
-  background: var(--purple); color: #FFFFFF; border-color: var(--purple);
+  background: none;
+  border-color: transparent;
+  color: var(--purple-ink);
 }
 
-/* Featured badge on a card: solid, as elsewhere */
+/* Featured badge sits on top of a speaker photo, not on white,
+   so it stays solid. The ladder does not apply over imagery. */
 [data-theme="light"] .spk-card-badge {
   background: var(--purple); border-color: var(--purple); color: #FFFFFF;
 }
@@ -4087,7 +4298,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 /* Popup: day labels and the profile links pick up the accent */
 [data-theme="light"] .spk-session-day  { color: var(--purple); }
 [data-theme="light"] .spk-popup-link.bm:hover {
-  border-color: var(--green); color: var(--green); background: rgba(0,135,90,0.07);
+  border-color: var(--green); color: var(--green); background: #007A5F12;
 }
 [data-theme="light"] .spk-popup-link.li:hover {
   border-color: #0A66C2; color: #0A66C2; background: rgba(10,102,194,0.07);
@@ -4170,15 +4381,21 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 /* ── Light theme ──────────────────────────────────────────── */
 
 [data-theme="light"] .sp-col__head {
-  background: var(--track-color);
-  border-bottom-color: var(--track-color);
+  background: rgba(var(--track-rgb), var(--w-strong));
+  border-bottom-color: rgba(var(--track-rgb), 0.30);
 }
-[data-theme="light"] .sp-col__icon,
-[data-theme="light"] .sp-col__name { color: #FFFFFF; }
+[data-theme="light"] .sp-col__icon { color: var(--track-ink); }
+[data-theme="light"] .sp-col__name { color: var(--text-primary); }
 
-[data-theme="light"] .sp-col--launchpad  { --track-color: var(--purple); }
-[data-theme="light"] .sp-col--talent     { --track-color: var(--green); }
-[data-theme="light"] .sp-col--networking { --track-color: var(--track-5); }
+[data-theme="light"] .sp-col--launchpad {
+  --track-color: var(--purple); --track-rgb: 101,64,236; --track-ink: #5E37EB;
+}
+[data-theme="light"] .sp-col--talent {
+  --track-color: var(--green);  --track-rgb: 0,135,90;   --track-ink: #006E49;
+}
+[data-theme="light"] .sp-col--networking {
+  --track-color: var(--track-5); --track-rgb: 0,119,194; --track-ink: #0064A3;
+}
 
 
 /* ── Responsive ───────────────────────────────────────────── */
@@ -4212,3 +4429,63 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .sp-wall {
   background: var(--bg-alt);
 }
+
+
+/* ============================================================
+   37. PAGE GLOW
+
+   Two soft radials behind the page, the same pair the coming
+   soon page has always used, promoted into something any page
+   can opt into. Add the class to the body tag:
+
+     <body class="has-hero glow">
+
+   Dark theme only. On white the light theme already reads as
+   open, and tinted glows on white look like a printing fault.
+
+   z-index -1 puts them above the canvas background and below
+   every section. That is why --bg-alt is translucent in dark:
+   an opaque alternating section would block the glow and the
+   page would band as you scroll.
+
+   The grid overlay is deliberately not here.
+   ============================================================ */
+
+body.glow::before,
+body.glow::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  will-change: transform;
+}
+
+body.glow::before {
+  top: -220px; left: -200px;
+  width: 720px; height: 720px;
+  background: radial-gradient(circle, #6723FF2E 0%, transparent 70%);
+  animation: page-glow-float 16s var(--ease-default) infinite;
+}
+
+body.glow::after {
+  bottom: -220px; right: -200px;
+  width: 620px; height: 620px;
+  background: radial-gradient(circle, #13FEC61A 0%, transparent 70%);
+  animation: page-glow-float 21s var(--ease-default) infinite reverse;
+}
+
+/* Fixed and static reads as a smudge on a long page: the glow
+   stays nailed to the viewport while everything scrolls past
+   it. The drift is what keeps it feeling like part of the page. */
+@keyframes page-glow-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-26px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.glow::before,
+  body.glow::after { animation: none; }
+}
+
+[data-theme="light"] body.glow::before,
+[data-theme="light"] body.glow::after { display: none; }
