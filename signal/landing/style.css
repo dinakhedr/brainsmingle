@@ -1253,7 +1253,7 @@ body.modal-open { overflow: hidden; }
 /* ── Day tabs */
 .ag-tabs-wrap {
   position: sticky; top: 64px; z-index: 90;
-  background: rgba(5,5,15,0.95); backdrop-filter: blur(16px);
+  background: #080612F2; backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 .ag-tabs {
@@ -1474,7 +1474,7 @@ body.modal-open { overflow: hidden; }
 .spk-filters {
   position: sticky; top: 64px; z-index: 50;
   padding: 20px 48px 16px;
-  background: rgba(5,5,15,0.92); backdrop-filter: blur(16px);
+  background: #080612EB; backdrop-filter: blur(16px);
   border-bottom: 0.5px solid var(--border);
 }
 .spk-filters-inner { max-width: var(--max-width); margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
@@ -2652,7 +2652,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .ag-sn-sub,
 [data-theme="light"] .tr-hero-sub { color: var(--text-secondary); }
 
-[data-theme="light"] .ag-tabs-wrap { background: rgba(255,255,255,0.95); }
+[data-theme="light"] .ag-tabs-wrap { background: #FFFFFFF2; }
 [data-theme="light"] .ag-tab { color: var(--text-muted); }
 [data-theme="light"] .ag-tab:hover { color: var(--text-primary); }
 [data-theme="light"] .ag-tab.active { color: var(--purple); border-bottom-color: var(--purple); }
@@ -2687,7 +2687,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .spk-card:hover { border-color: var(--purple); }
 [data-theme="light"] .spk-card-badge { background: var(--purple); border-color: var(--purple); color: #fff; }
 [data-theme="light"] .spk-featured-eyebrow { color: var(--purple); }
-[data-theme="light"] .spk-filters { background: rgba(255,255,255,0.95); }
+[data-theme="light"] .spk-filters { background: #FFFFFFF2; }
 [data-theme="light"] .spk-fbtn { border: 1px solid var(--border-mid); color: var(--text-secondary); }
 [data-theme="light"] .spk-fbtn:hover { border-color: var(--text-muted); background: var(--bg-card-2); }
 [data-theme="light"] .spk-fbtn.active-all { background: var(--purple); border-color: var(--purple); color: #fff; }
@@ -4424,11 +4424,15 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .tracks-preview,
 .agenda-preview,
 .sponsors-preview,
-.spk-filters,
 .spk-grid-wrap,
 .sp-wall {
   background: var(--bg-alt);
 }
+
+/* .spk-filters is deliberately NOT in that list. It is a sticky
+   bar, not a content section, so it needs an opaque background of
+   its own or the cards scroll through it. Same reason
+   .ag-tabs-wrap is not here either. */
 
 
 /* ============================================================
