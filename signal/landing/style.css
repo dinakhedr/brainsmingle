@@ -1069,10 +1069,10 @@ body.modal-open { overflow: hidden; }
   font-size: 48px; color: var(--text-primary);
   line-height: 1; letter-spacing: 0.02em; margin-bottom: 8px;
 }
-.stat-value span { color: var(--green); }
+.stat-value span { color: var(--accent); }
 .stat-label {
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
 }
 
 /* ── What is Signal */
@@ -1417,9 +1417,6 @@ body.modal-open { overflow: hidden; }
    13. PAGE — SPEAKERS
    ============================================================ */
 
-/* ── Hero */
-
-
 /* ── Featured speakers */
 .spk-featured       { padding: 0 48px 72px; padding-top: 96px;}
 .spk-featured-inner { max-width: var(--max-width); margin: 0 auto; }
@@ -1450,6 +1447,13 @@ body.modal-open { overflow: hidden; }
 .spk-card-info  { padding: 12px 14px 14px; }
 .spk-card-name  { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; line-height: 1.2; }
 .spk-card-title { font-family: var(--font-body); font-size: 11px; color: var(--text-secondary); line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spk-card-company { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+.spk-card-flag {
+  font-size: 14px;
+  line-height: 1;
+  margin-left: 5px;
+  vertical-align: -1px;
+}
 .spk-card-badge {
   position: absolute; top: 10px; left: 10px; z-index: 2;
   display: inline-flex; align-items: center;
@@ -2901,11 +2905,22 @@ body.modal-open { overflow: hidden; }
   padding: 156px 48px 100px;
   background: var(--gradient-band);
 }
+@media (min-width: 1025px) {
+  .hero-home {
+    min-height: calc(100svh - 172px);
+    display: flex;
+    align-items: center;
+    padding-top: 96px;
+    padding-bottom: 48px;
+  }
+  .hero-home__inner { width: 100%; }
+}
+
 .hero-home__inner { max-width: var(--max-width); margin: 0 auto; }
 
 .hero-home__eyebrow {
   font-family: var(--font-body);
-  font-size: 12px; font-weight: 700;
+  font-size: 14px; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--green-bright); margin-bottom: 20px;
 }
@@ -2986,7 +3001,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
 .intro__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .intro__card {
   background: var(--bg-card);
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 22px 20px 24px;
   transition: border-color 0.2s, transform 0.2s;
@@ -3125,7 +3140,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
 
 .audience__card {
   background: var(--bg-card);
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 18px 18px 20px;
   transition: border-color 0.2s, transform 0.2s;
@@ -3291,12 +3306,12 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
 
 /* ============================================================
    26. HOME — SPEAKERS PREVIEW
-   One row of six, photo, name with flag, company. Which six is
-   set by showOnHome in data/speakers.js, capped by
-   HOME_SPEAKER_LIMIT. Self-contained.
+   One row of six. Which six is set by showOnHome in
+   data/speakers.js, capped by HOME_SPEAKER_LIMIT.
 
-   .speaker-card is deliberately generic. The speakers page will
-   reuse it when that page gets rebuilt.
+   Only the section shell lives here. The cards themselves are
+   .spk-card from section 13, built by data/speaker-popup.js and
+   shared with the speakers page, so the two grids cannot drift.
    ============================================================ */
 
 .speakers-preview { padding: var(--section-pad); border-top: 0.5px solid var(--border); }
@@ -3348,60 +3363,12 @@ font-family: var(--font-body);
    own card taller rather than stretching the whole row. */
 .speakers-preview__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px 16px;
+  /* Six across, matching .spk-grid and .spk-featured-grid on the
+     speakers page. The card is proportioned for that column
+     width, so five would render the photos oversized. */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
   align-items: start;
-}
-
-
-/* ── Speaker card ────────────────────────────────────────── */
-
-.speaker-card__photo {
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--bg-card-2);
-  display: flex; align-items: center; justify-content: center;
-}
-.speaker-card__photo img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(1);
-  transition: filter 0.3s, transform 0.3s;
-}
-.speaker-card:hover .speaker-card__photo img {
-  filter: grayscale(0);
-  transform: scale(1.04);
-}
-
-.speaker-card__initials {
-  font-family: var(--font-display);
-  font-weight: 900; font-size: 26px;
-  color: var(--text-muted);
-}
-
-/* The name and flag share a line. min-height keeps the company
-   line on the same baseline across the row even when one name
-   wraps. Two lines of 13.5px at 1.3 is roughly 36px. */
-.speaker-card__name {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 6px;
-  font-family: var(--font-head);
-  font-weight: 800; font-size: 13.5px;
-  line-height: 1.3; letter-spacing: -0.01em;
-  color: var(--text-primary);
-  text-align: center;
-  margin: 13px 0 0;
-}
-/* Flag emoji do not inherit weight and read small next to caps,
-   so the size is set rather than left to the parent. */
-.speaker-card__flag { font-size: 15px; line-height: 1; flex-shrink: 0; }
-
-.speaker-card__company {
-  font-family: var(--font-body);
-  font-size: 12px; line-height: 1.45;
-  color: var(--text-secondary);
 }
 
 
@@ -3411,7 +3378,6 @@ font-family: var(--font-body);
 }
 @media (max-width: 640px) {
   .speakers-preview__grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .speaker-card__name { min-height: 0; }
 }
 
 
@@ -3454,7 +3420,7 @@ font-family: var(--font-body);
 
 .sponsor-type {
   background: var(--bg-card);
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 20px 20px 22px;
   display: flex; flex-direction: column;

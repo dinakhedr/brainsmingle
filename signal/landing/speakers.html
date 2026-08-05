@@ -97,32 +97,9 @@
 
 
     <!-- ══════════════════════════════════════════
-     SPEAKER POPUP
+     SPEAKER POPUP — rendered from data/speaker-popup.js
 ══════════════════════════════════════════ -->
-    <div class="spk-overlay" id="spk-overlay" onclick="if(event.target===this)closePopup()">
-        <div class="spk-popup">
-            <button class="spk-popup-close" onclick="closePopup()" aria-label="Close"><span data-icon="close"></span></button>
-            <div class="spk-popup-photo-col">
-                <div class="spk-popup-img"><img id="popup-img" src="" alt="" /></div>
-                <div class="spk-popup-links" id="popup-links"></div>
-            </div>
-            <div class="spk-popup-content">
-                <div>
-                    <div class="spk-popup-name" id="popup-name"></div>
-                    <div class="spk-popup-role" id="popup-role"></div>
-                    <div class="spk-popup-tracks" id="popup-track-wrap"></div>
-                </div>
-                <div>
-                    <div class="spk-popup-micro">About</div>
-                    <div class="spk-popup-bio" id="popup-bio"></div>
-                </div>
-                <div id="popup-sessions-wrap">
-                    <div class="spk-popup-micro">Sessions</div>
-                    <div id="popup-sessions"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="speaker-popup"></div>
 
 
     <!-- ══════════════════════════════════════════
@@ -227,6 +204,7 @@
     <script src="data/agenda.js"></script>
     <script src="data/speakers.js"></script>
     <script src="data/icons.js"></script>
+    <script src="data/speaker-popup.js"></script>
     <script>
         var MODAL_IDS = ["registration", "sponsor"];
     </script>
@@ -237,17 +215,9 @@
            PAGE CONFIG
            ───────────────────────────────────────── */
 
-        // Maps trackNumber to a key in data/icons.js
-        var SPK_TRACK_ICON_KEYS = {
-            1: "trackLd",
-            2: "trackCreative",
-            3: "trackStartups",
-            4: "trackBusiness",
-            5: "trackTech"
-        };
-
+        // SPK_TRACK_ICON_KEYS and SPK_PLACEHOLDER_SESSION moved to
+        // data/speaker-popup.js, since the home page needs them too.
         var SPK_APPLY_EMAIL = "speakers@brainsmingle.com";
-        var SPK_PLACEHOLDER_SESSION = "Session to be announced";
 
 
         /* ─────────────────────────────────────────
@@ -367,37 +337,8 @@
         }
 
 
-        /* ─────────────────────────────────────────
-           SPEAKER CARDS
-           ───────────────────────────────────────── */
-        function speakerCardHtml(speaker, showBadge) {
-            const trackNums = getSpeakerTrackNumbers(speaker);
-            const days = [...new Set(speaker.appearances.map(a => a.day))];
-
-            const badge = showBadge ?
-                `<div class="spk-card-badge"><span class="spk-badge-icon">${_spkIcon("activation")}</span>Featured</div>` :
-                "";
-
-            // Path is derived from the speaker id in speakers.js, the same
-            // helper home.html uses. There is no imagePath on the record.
-            const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(speaker) : "";
-            const photo = src ?
-                `<img src="${src}" alt="${speaker.name}" loading="lazy" />` :
-                `<div class="spk-card-initials">${_initials(speaker.name)}</div>`;
-
-            return `
-    <div class="spk-card"
-         data-track="${trackNums.join(",") || "opening"}"
-         data-days="${days.join(",")}"
-         onclick="openPopup('${speaker.id}')">
-      ${badge}
-      <div class="spk-card-photo">${photo}</div>
-      <div class="spk-card-info">
-        <div class="spk-card-name">${speaker.name}</div>
-        <div class="spk-card-title">${speaker.title}${speaker.company ? " · " + speaker.company : ""}</div>
-      </div>
-    </div>`;
-        }
+        /* speakerCardHtml, openPopup and closePopup now live in
+           data/speaker-popup.js, shared with the home page. */
 
         function renderFeaturedGrid() {
             const el = document.getElementById("spk-featured-grid");
@@ -467,70 +408,6 @@
 
 
         /* ─────────────────────────────────────────
-           POPUP
-           ───────────────────────────────────────── */
-        function openPopup(id) {
-            const s = SIGNAL_SPEAKERS_MAP[id];
-            if (!s) return;
-
-            const img = document.getElementById("popup-img");
-            img.src = (typeof getSpeakerPhoto === "function" && getSpeakerPhoto(s)) || "";
-            img.alt = s.name;
-
-            document.getElementById("popup-name").textContent = s.name;
-            document.getElementById("popup-role").textContent = s.title + (s.company ? " · " + s.company : "");
-            document.getElementById("popup-bio").textContent = s.bio || "";
-
-            // Track pills — .track-pill.track-N is already styled in the CSS
-            document.getElementById("popup-track-wrap").innerHTML =
-                getSpeakerTrackNumbers(s).map(n => {
-                    const t = SIGNAL_TRACKS_BY_NUMBER[n];
-                    return t ? `<span class="track-pill track-${n}"><span class="tl-icon">${_spkIcon(SPK_TRACK_ICON_KEYS[n])}</span>${t.shortName}</span>` : "";
-                }).join("");
-
-            // Profile links, icons from data/icons.js
-            const links = [];
-            if (s.bmProfile) links.push(
-                `<a class="spk-popup-link bm" href="${s.bmProfile}" target="_blank" rel="noopener">
-           ${_spkIcon("brainsmingle")} View on BrainsMingle
-         </a>`);
-            if (s.linkedin) links.push(
-                `<a class="spk-popup-link li" href="${s.linkedin}" target="_blank" rel="noopener">
-           ${_spkIcon("linkedin")} LinkedIn Profile
-         </a>`);
-            document.getElementById("popup-links").innerHTML = links.join("");
-
-            // Sessions from appearances
-            const wrap = document.getElementById("popup-sessions-wrap");
-            const list = document.getElementById("popup-sessions");
-            const appearances = s.appearances.filter(a => a.sessionId);
-
-            wrap.classList.toggle("is-hidden", appearances.length === 0);
-            list.innerHTML = appearances.map(a => {
-                const session = SIGNAL_AGENDA.find(ag => ag.id === a.sessionId);
-                const title = (session && session.title) ? session.title : SPK_PLACEHOLDER_SESSION;
-                return `
-      <div class="spk-session-item">
-        <div class="spk-session-day">Day ${a.day}</div>
-        <div class="spk-session-title">${title}</div>
-      </div>`;
-            }).join("");
-
-            document.getElementById("spk-overlay").classList.add("open");
-            document.body.classList.add("modal-open");
-        }
-
-        function closePopup() {
-            document.getElementById("spk-overlay").classList.remove("open");
-            document.body.classList.remove("modal-open");
-        }
-
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") closePopup();
-        });
-
-
-        /* ─────────────────────────────────────────
            APPLY FORM
            Same destination and message shape as the
            speaker modal in data/modals.js.
@@ -582,13 +459,7 @@
 
         // SVG comes straight from data/icons.js so it is in the markup
         // before the icon injector runs.
-        function _spkIcon(key) {
-            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
-        }
 
-        function _initials(name) {
-            return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
-        }
     </script>
 
 </body>

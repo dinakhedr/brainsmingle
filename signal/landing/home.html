@@ -34,9 +34,9 @@
         <div class="hero-home__inner">
             <p class="hero-home__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
             <h1 class="hero-home__title">The Largest AI Summit<br>In The MENA Region</h1>
-            <p class="hero-home__sub">Seven days. 100+ Speakers. Unlimited Opportunities.</p>
+            <p class="hero-home__sub">Seven Days. 100+ Speakers. Unlimited Conversations.</p>
             <div class="hero-home__actions">
-                <a href="#" class="btn btn-primary" data-cta="registration">Join the Waiting List</a>
+                <a href="#" class="btn btn-primary btn-arrow" data-cta="registration">Join the Waiting List</a>
                 <a href="#" data-page="sponsors" onclick="openModal('sponsor-modal');return false;" class="btn btn-on-dark">Become a Sponsor</a>
             </div>
         </div>
@@ -275,7 +275,7 @@
             <div class="speakers-preview__grid" id="speakers-preview-grid"></div>
 
             <div class="speakers-preview__foot">
-                <a href="#" class="btn btn-accent" onclick="openModal('speaker-modal');return false;">Become a Speaker</a>
+                <a href="#" class="btn btn-accent btn-arrow" onclick="openModal('speaker-modal');return false;">Become a Speaker</a>
                 <p class="speakers-preview__note">More announced weekly</p>
             </div>
 
@@ -328,7 +328,7 @@
                     <p class="sponsors-cta__title">Ready to own the stage?</p>
                     <p class="sponsors-cta__desc">Fill in the interest form and we'll reach out within 24 hours to arrange a call, walk you through the full benefits and help you find the right fit for your brand.</p>
                 </div>
-                <a href="#" class="btn btn-primary" onclick="openModal('sponsor-modal');return false;">Request a Call</a>
+                <a href="#" class="btn btn-primary btn-arrow" onclick="openModal('sponsor-modal');return false;">Request a Call</a>
             </div>
 
         </div>
@@ -376,14 +376,27 @@
 
 
     <!-- ══════════════════════════════════════════
+     SPEAKER POPUP — rendered from data/speaker-popup.js
+══════════════════════════════════════════ -->
+    <div id="speaker-popup"></div>
+
+
+    <!-- ══════════════════════════════════════════
      SHARED FILES
-     Load order: layout → tracks → speakers → sponsors → icons → modals
+     Load order: layout → tracks → speakers → agenda → sponsors
+                 → icons → speaker-popup → modals
+
+     agenda.js is here so the speaker popup can list a speaker's
+     sessions. Without it the popup still opens and the Sessions
+     block hides itself.
 ══════════════════════════════════════════ -->
     <script src="data/layout.js"></script>
     <script src="data/tracks.js"></script>
     <script src="data/speakers.js"></script>
+    <script src="data/agenda.js"></script>
     <script src="data/sponsors.js"></script>
     <script src="data/icons.js"></script>
+    <script src="data/speaker-popup.js"></script>
     <script>
         var MODAL_IDS = ["registration", "sponsor", "speaker"];
     </script>
@@ -429,24 +442,11 @@
             const el = document.getElementById("speakers-preview-grid");
             if (!el || typeof getHomepageSpeakers !== "function") return;
 
-            const initials = name => name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
-
-            el.innerHTML = getHomepageSpeakers().map(s => {
-                const photo = getSpeakerPhoto(s);
-                const flag = getCountryFlag(s);
-                return `
-    <article class="speaker-card">
-      <div class="speaker-card__photo">
-        ${photo
-          ? `<img src="${photo}" alt="${s.name}" loading="lazy" />`
-          : `<span class="speaker-card__initials">${initials(s.name)}</span>`}
-      </div>
-      <h3 class="speaker-card__name">
-        <span>${s.name}</span>
-        ${flag ? `<span class="speaker-card__flag" aria-label="${s.country}">${flag}</span>` : ""}
-      </h3>
-    </article>`;
-            }).join("");
+            // Same card as the speakers page, from data/speaker-popup.js.
+            // The Featured ribbon is off here: the home grid is already a
+            // curated selection, so flagging some of them says nothing.
+            if (typeof speakerCardHtml !== "function") return;
+            el.innerHTML = getHomepageSpeakers().map(s => speakerCardHtml(s, false)).join("");
 
             if (typeof applyPageGates === "function") applyPageGates(el);
         }
