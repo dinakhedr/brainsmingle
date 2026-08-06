@@ -85,6 +85,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* ── Borders */
   --border:       rgba(255,255,255,0.07);
   --border-mid:   rgba(255,255,255,0.12);
+  --border-strong: #FFFFFF2E;
+
+  /* Sponsor tier metals. Tokens rather than literals in the component
+     rules: all three fail as text on white, so the light theme has to
+     swap them and there is no single place to do that otherwise. */
+  --tier-gold:       #F5A623;
+  --tier-silver:     #C0C0C0;
+  --tier-bronze:     #CD7F32;
+  --tier-gold-rgb:   245,166,35;
+  --tier-bronze-rgb: 205,127,50;
 
   /* The band the page opens and closes on. Two layers: a darkening
      pass so the headline stays legible on the left, and the colour
@@ -508,9 +518,11 @@ a.tl-pill:active { transform: translateY(0); }
 /* ── Speaker avatar stack (home + speakers teaser) */
 
 
-/* ── Speaker avatar initials fallback */
-.speaker-avatar-initials,
-.speaker-chip__initials {
+/* ── Speaker avatar initials fallback
+   .speaker-chip__initials used to share this rule and inherited a
+   100% size it never wanted, then had it overridden twice further
+   down. The chip declares all of these for itself, so it is out. */
+.speaker-avatar-initials {
   width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-head); font-weight: 700;
@@ -519,18 +531,30 @@ a.tl-pill:active { transform: translateY(0); }
 }
 
 /* ── Speaker chip (inline in agenda cards) */
-.speaker-chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-body); font-size: 11px; color: var(--text-secondary);
+/* Scoped to the grid. The session modal and the Day 1 panel rows
+   use the same classes and still want names beside the photo, so
+   the base component is left alone. */
+.ag-session-speakers .speaker-chip {
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-default);
 }
-.speaker-chip__photo {
-  width: 20px; height: 20px;
-  border-radius: 50%; object-fit: cover; flex-shrink: 0;
+.ag-session-speakers .speaker-chip:hover { transform: translateY(-2px); }
+.ag-session-speakers .speaker-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
-.speaker-chip__initials {
-  width: 20px; height: 20px;
-  border-radius: 50%; font-size: 8px;
+
+.ag-session-speakers .speaker-chip__photo,
+.ag-session-speakers .speaker-chip__initials {
+  width: 34px; height: 34px;
+  border: 1px solid var(--border);
 }
+.ag-session-speakers .speaker-chip__initials { font-size: 12px; }
 
 /* ── Speakers Phase 1 — Homepage */
 .speakers-phase1 {
@@ -653,28 +677,22 @@ a.tl-pill:active { transform: translateY(0); }
 /* ── Sponsor logo box (shared sizing + filter) */
 .sponsor-logo-box {
   background: var(--bg-card);
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   transition: border-color 0.2s;
 }
-.sponsor-logo-box:hover { border-color: var(--border-mid); }
-.sponsor-logo-box img {
-  max-width: 80%; max-height: 70%;
-  object-fit: contain;
-  transition: opacity 0.2s;
-}
+/* No border change on hover: a column is a header band plus a frame,
+   so recolouring only part of it read as a half-selected card. The
+   logo going from greyscale to full colour is the hover state, the
+   same as .spk-card. */
 
-/* Optional white knock-out, applied per tile via .slb-mono.
-   Turn it off in sponsors.html once real logo assets arrive. */
-.sponsor-logo-box.slb-mono img,
-.sponsor-logo-box.slb-mono .track-sponsor-inner img,
-.sponsor-logo-box.slb-mono .special-sponsor-inner img {
-  filter: brightness(0) invert(1);
-  opacity: 0.75;
+.sponsor-logo-box img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
-.sponsor-logo-box.slb-mono:hover img { opacity: 1; }
 
 /* Open slot placeholder */
 .slb-open {
@@ -690,13 +708,15 @@ a.tl-pill:active { transform: translateY(0); }
 }
 
 /* Sponsor box sizes */
-.slb-main   { width: 280px; height: 112px; }
-.slb-gold   { width: 220px; height: 88px; }
-.slb-silver { width: 175px; height: 70px; }
-.slb-bronze { width: 145px; height: 58px; }
+/* 1.5x larger, same 2:1 and the same step between tiers: main is
+   1.27x gold, gold 1.26x silver, silver 1.21x bronze. Main is now
+   clearly the largest thing on the wall, which it was not before at
+   224px against a 206px track card. */
+.slb-main   { width: 336px; height: 168px; }
+.slb-gold   { width: 264px; height: 132px; }
+.slb-silver { width: 210px; height: 105px; }
+.slb-bronze { width: 174px; height: 87px; }
 
-/* Track sponsor box */
-.slb-track { width: 190px; height: auto; padding: 0; }
 .track-sponsor-inner {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: 10px; padding: 16px 12px; width: 100%;
@@ -742,12 +762,11 @@ a.tl-pill:active { transform: translateY(0); }
 
 /* Community and media partners — uniform, and knocked to white so a
    long tail of mixed logo styles reads as one block */
-.slb-partner { width: 100%; height: 64px; }
-.slb-partner img {
-  filter: brightness(0) invert(1);
-  opacity: 0.55;
-}
-.slb-partner:hover img { opacity: 1; }
+/* The tiles are <button> now, so the browser defaults have to go. */
+.sponsor-logo-box { font: inherit; color: inherit; cursor: pointer; }
+
+.slb-partner { width: 100%; height: 88px; }
+
 
 /* ── Icon tile
    A coloured square holding an icon. Used anywhere a feature,
@@ -825,7 +844,7 @@ a.tl-pill:active { transform: translateY(0); }
   width: 32px; height: 32px; border-radius: var(--radius-sm);
   background: #6723FF26; display: flex; align-items: center;
   justify-content: center; flex-shrink: 0;
-  color: #A07BFF;
+  color: var(--purple-bright);
 }
 .sp-contact-meta-icon svg { width: 16px; height: 16px; }
 
@@ -1071,33 +1090,6 @@ body.modal-open { overflow: hidden; }
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
 }
-
-/* ── What is Signal */
-
-
-/* what-card — same layout as .feature-card */
-
-
-/* ── Tracks preview (home) */
-
-
-/* Track colors inside the home tracks grid — driven by the .track-N class */
-
-
-/* ── Who attends */
-
-
-/* ── Agenda preview (home) */
-
-
-.agenda-card {
-  background: var(--bg-card); border: 0.5px solid var(--border);
-  border-radius: var(--radius-lg); padding: 28px 24px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.agenda-card:hover { border-color: var(--border-mid); transform: translateY(-3px); }
-
-
 /* Agenda card variants — opening day and speed networking day */
 
 
@@ -1218,7 +1210,7 @@ body.modal-open { overflow: hidden; }
   font-family: var(--font-body); font-size: 11px; font-weight: 700;
   letter-spacing: 0.07em; text-transform: uppercase;
   padding: 10px 14px; border-radius: var(--radius-sm);
-  border: 0.5px solid; text-align: center;
+  border: 1px solid; text-align: center;
 }
 .ag-track-col-label.time-col { border: none; background: none; }
 .ag-track-col-label.track-1,
@@ -1227,7 +1219,9 @@ body.modal-open { overflow: hidden; }
 .ag-track-col-label.track-4,
 .ag-track-col-label.track-5 {
   color: var(--track-color);
-  border-color: rgba(var(--track-rgb), 0.25);
+  /* Width was never the reason these read faint. At 0.25 the outline
+     is barely separable from the 0.06 fill inside it. */
+  border-color: rgba(var(--track-rgb), 0.45);
   background: rgba(var(--track-rgb), 0.06);
 }
 .ag-track-col-label .tl-icon { display: flex; flex-shrink: 0; }
@@ -1246,7 +1240,10 @@ body.modal-open { overflow: hidden; }
 
 /* ── Session card */
 .ag-session {
-  background: var(--bg-card); border: 0.5px solid var(--border);
+  /* Not var(--border): that is 7% white in dark, which disappears
+     against --bg-card. The light theme overrides this rule anyway
+     with a solid #E6E3EE, so this value only ever applies on dark. */
+  background: var(--bg-card); border: 1.5px solid #FFFFFF2E;
   border-radius: var(--radius-md); padding: 14px 16px;
   position: relative; overflow: hidden;
   min-height: 95px; display: flex; flex-direction: column; justify-content: space-between;
@@ -1261,19 +1258,9 @@ body.modal-open { overflow: hidden; }
 .ag-session-speaker { font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-top: 8px; }
 
 .ag-session-speaker--placeholder { color: var(--text-muted); font-style: italic; }
-.ag-session-speakers { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
 
 .ag-panel-title--placeholder { color: var(--text-primary); font-weight: 500; font-style: italic; }
 .ag-panel-meta--placeholder  { color: var(--text-muted); font-style: italic; }
-
-.speaker-chip__initials {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
-  background: rgba(255,255,255,0.08);
-  font-family: var(--font-body); font-size: 8px; font-weight: 700;
-  color: var(--text-secondary);
-}
-
 /* ── Special merged row (Launchpad / Talent) */
 .ag-special-merged { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; align-items: stretch; }
 .ag-special-card {
@@ -1436,7 +1423,7 @@ body.modal-open { overflow: hidden; }
 }
 .spk-fbtn .pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .spk-fbtn:hover { border-color: rgba(255,255,255,0.25); color: var(--text-primary); background: rgba(255,255,255,0.03); }
-.spk-fbtn.active-all { background: var(--purple-dim); border-color: #6723FF66; color: #A07BFF; }
+.spk-fbtn.active-all { background: var(--purple-dim); border-color: #6723FF66; color: var(--purple-bright); }
 .spk-fbtn.is-empty {
     opacity: 0.55;
     cursor: not-allowed;
@@ -1606,9 +1593,9 @@ body.modal-open { overflow: hidden; }
 .tier-card:hover { transform: translateY(-3px); }
 .tier-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
 .tier-main::before   { background: var(--purple); }
-.tier-gold::before   { background: #F5A623; }
+.tier-gold::before   { background: var(--tier-gold); }
 .tier-silver::before { background: rgba(255,255,255,0.45); }
-.tier-bronze::before { background: #CD7F32; }
+.tier-bronze::before { background: var(--tier-bronze); }
 .tier-card.tier-main { border-color: #6723FF59; }
 .tier-card.tier-gold { border-color: rgba(245,166,35,0.28); }
 
@@ -1618,10 +1605,10 @@ body.modal-open { overflow: hidden; }
   letter-spacing: 0.12em; text-transform: uppercase;
   padding: 5px 10px; border-radius: 20px; margin-bottom: 20px; width: fit-content;
 }
-.tier-main .tier-badge   { background: #6723FF2E; color: #A07BFF; }
-.tier-gold .tier-badge   { background: rgba(245,166,35,0.15); color: #F5A623; }
+.tier-main .tier-badge   { background: #6723FF2E; color: var(--purple-bright); }
+.tier-gold .tier-badge   { background: rgba(var(--tier-gold-rgb),0.15); color: var(--tier-gold); }
 .tier-silver .tier-badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
-.tier-bronze .tier-badge { background: rgba(205,127,50,0.15); color: #CD7F32; }
+.tier-bronze .tier-badge { background: rgba(var(--tier-bronze-rgb),0.15); color: var(--tier-bronze); }
 
 .tier-price  { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: var(--text-primary); line-height: 1; margin-bottom: 4px; }
 .tier-slots  { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
@@ -1635,9 +1622,9 @@ body.modal-open { overflow: hidden; }
 .tier-benefits li:last-child { border-bottom: none; }
 .tier-benefits li::before    { content: '✓'; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 .tier-main .tier-benefits li::before   { color: var(--purple-bright); }
-.tier-gold .tier-benefits li::before   { color: #F5A623; }
+.tier-gold .tier-benefits li::before   { color: var(--tier-gold); }
 .tier-silver .tier-benefits li::before { color: rgba(255,255,255,0.45); }
-.tier-bronze .tier-benefits li::before { color: #CD7F32; }
+.tier-bronze .tier-benefits li::before { color: var(--tier-bronze); }
 
 /* ── Special event cards */
 .sp-events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -1668,10 +1655,10 @@ body.modal-open { overflow: hidden; }
 .benefits-table      { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
 .benefits-table th   { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: center; border-bottom: 0.5px solid var(--border); white-space: nowrap; }
 .benefits-table th.col-benefit { text-align: left; min-width: 220px; }
-.benefits-table th.col-main   { color: #A07BFF; }
-.benefits-table th.col-gold   { color: #F5A623; }
+.benefits-table th.col-main   { color: var(--purple-bright); }
+.benefits-table th.col-gold   { color: var(--tier-gold); }
 .benefits-table th.col-silver { color: rgba(255,255,255,0.5); }
-.benefits-table th.col-bronze { color: #CD7F32; }
+.benefits-table th.col-bronze { color: var(--tier-bronze); }
 .benefits-table th.col-track  { color: var(--green); }
 .benefits-table th.col-launch { color: var(--purple-bright); }  /* Signal Launchpad */
 .benefits-table th.col-talent { color: var(--green); }    /* Signal Talent */
@@ -1710,17 +1697,21 @@ body.modal-open { overflow: hidden; }
   display: flex; align-items: center; gap: 16px; margin-bottom: 22px;
 }
 .sp-wall-label {
-  font-family: var(--font-body); font-size: 11px; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--text-muted); white-space: nowrap;
+  font-family: var(--font-body); font-size: 15px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); white-space: nowrap;
 }
-.sp-wall-line   { flex: 1; height: 0.5px; background: var(--border); }
+/* --accent is teal in dark and purple in light, so the rule follows
+   the label without a second declaration per theme. */
+.sp-wall-line { flex: 1; height: 2px; background: rgba(var(--accent-rgb), 0.35); }
 .sp-wall-row {
   display: flex; flex-wrap: wrap; gap: 16px;
   align-items: center; justify-content: center;
 }
 .sp-partner-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 176px);
+  gap: 12px;
 }
 .sp-wall-empty {
   grid-column: 1 / -1; text-align: center; padding: 32px 20px;
@@ -2289,6 +2280,15 @@ body.modal-open { overflow: hidden; }
   /* Borders */
   --border:       #E6E3EE;
   --border-mid:   #D2CEE0;
+  --border-strong: #BDB8CE;
+
+  /* On white the dark values read 2.03, 1.82 and 3.14 to 1, all
+     unreadable as text. These clear 4.5. */
+  --tier-gold:       #A56A08;
+  --tier-silver:     #757575;
+  --tier-bronze:     #A66728;
+  --tier-gold-rgb:   165,106,8;
+  --tier-bronze-rgb: 166,103,40;
 
   /* Brand
      --purple-bright and --green-bright are deliberately absent:
@@ -2358,9 +2358,6 @@ body.modal-open { overflow: hidden; }
   background: rgba(255,255,255,0.92);
   border-bottom: 1px solid var(--border);
 }
-[data-theme="light"] .nav-links a:hover,
-[data-theme="light"] .nav-links a.active { color: var(--purple); }
-[data-theme="light"] .nav-soon { color: var(--purple); }
 [data-theme="light"] .theme-toggle {
   background: #FFFFFF;
   border: 1px solid var(--border-mid);
@@ -2454,15 +2451,6 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .ag-session { border: 1px solid var(--border); }
 [data-theme="light"] .speaker-chip__initials { background: var(--bg-card-2); color: var(--text-secondary); }
 [data-theme="light"] .ag-panel-num { color: var(--purple); opacity: 0.4; }
-
-[data-theme="light"] .ag-special-launchpad { background: #6723FF1A; border-color: #6723FF57; }
-[data-theme="light"] .ag-special-launchpad .ag-special-badge { color: var(--purple); }
-[data-theme="light"] .ag-special-talent { background: #007A5F1A; border-color: #007A5F52; }
-[data-theme="light"] .ag-special-talent .ag-special-badge { color: var(--green); }
-[data-theme="light"] .ag-special-networking { background: rgba(214,21,111,0.09); border-color: rgba(214,21,111,0.30); }
-[data-theme="light"] .ag-special-networking::before { background: var(--track-2); }
-[data-theme="light"] .ag-special-networking .ag-special-badge { color: var(--track-2); }
-[data-theme="light"] .ag-special-name { color: var(--text-primary); }
 [data-theme="light"] .ag-sn-hero { background: var(--bg-card-2); border: 1px solid var(--border); }
 [data-theme="light"] .ag-sn-label,
 [data-theme="light"] .ag-sn-title { color: var(--purple); }
@@ -2473,13 +2461,9 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .spk-card-photo,
 [data-theme="light"] .spk-popup-img { background: var(--bg-card-2); }
 [data-theme="light"] .spk-card:hover { border-color: var(--purple); }
-[data-theme="light"] .spk-card-badge { background: var(--purple); border-color: var(--purple); color: #fff; }
-[data-theme="light"] .spk-featured-eyebrow { color: var(--purple); }
 [data-theme="light"] .spk-filters { background: #FFFFFFF2; }
 [data-theme="light"] .spk-fbtn { border: 1px solid var(--border-mid); color: var(--text-secondary); }
 [data-theme="light"] .spk-fbtn:hover { border-color: var(--text-muted); background: var(--bg-card-2); }
-[data-theme="light"] .spk-fbtn.active-all { background: var(--purple); border-color: var(--purple); color: #fff; }
-[data-theme="light"] .spk-fbtn[data-day].active { background: var(--purple-dim); border-color: #6723FF4C; color: var(--purple); }
 [data-theme="light"] .spk-overlay { background: rgba(14,14,20,0.45); }
 [data-theme="light"] .spk-popup {
   border: 1px solid var(--border);
@@ -2489,96 +2473,24 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .spk-popup-close:hover { background: var(--border); color: var(--text-primary); }
 [data-theme="light"] .spk-popup-link { background: #fff; border-color: var(--border-mid); }
 [data-theme="light"] .spk-session-item { background: var(--bg-card-2); }
-[data-theme="light"] .spk-session-day { color: var(--purple); }
 [data-theme="light"] .spk-apply { background: var(--bg-card-2); }
 [data-theme="light"] .sp-contact-left h2 em { color: var(--purple); }
-[data-theme="light"] .sp-contact-meta-icon { background: var(--purple-dim); color: var(--purple); }
 [data-theme="light"] .sp-contact-meta-item a { color: var(--purple); }
-[data-theme="light"] .sp-form-success { background: rgba(14,143,110,0.07); border-color: rgba(14,143,110,0.28); color: var(--green); }
-
-
-/* ── 20.11 Tracks ────────────────────────────────────────── */
-
-[data-theme="light"] .tr-card {
-  border: 1px solid rgba(var(--track-rgb), 0.30);
-  border-left: 3px solid var(--track-color);
-}
-[data-theme="light"] .tr-card__head {
-  background: rgba(var(--track-rgb), 0.09);
-  border-bottom-color: rgba(var(--track-rgb), 0.24);
-}
-[data-theme="light"] .tr-card__sponsor { background: #fff; border-color: var(--border-mid); }
-[data-theme="light"] .tr-card__sponsor--tbc { background: none; border-color: var(--border-mid); }
-[data-theme="light"] .tr-card__banner { background: rgba(var(--track-rgb), 0.07); border-top-color: rgba(var(--track-rgb), 0.24); }
 [data-theme="light"] .tr-card__side { background: var(--bg-card-2); }
-[data-theme="light"] .tr-focus-pill { background: rgba(var(--track-rgb), 0.10); border-color: rgba(var(--track-rgb), 0.32); }
 [data-theme="light"] .tracks-cta-strip { background: var(--bg-card-2); }
 [data-theme="light"] a.tl-pill:hover { background: rgba(var(--track-rgb), 0.18); }
-
-/* Track pills. The base rules use tints tuned for a dark ground,
-   which are close to invisible over white. */
-[data-theme="light"] .tl-pill.track-1,
-[data-theme="light"] .tl-pill.track-2,
-[data-theme="light"] .tl-pill.track-3,
-[data-theme="light"] .tl-pill.track-4,
-[data-theme="light"] .tl-pill.track-5,
-[data-theme="light"] .track-pill.track-1,
-[data-theme="light"] .track-pill.track-2,
-[data-theme="light"] .track-pill.track-3,
-[data-theme="light"] .track-pill.track-4,
-[data-theme="light"] .track-pill.track-5 {
-  background: rgba(var(--track-rgb), 0.10);
-  border-color: rgba(var(--track-rgb), 0.38);
-}
-
-/* Agenda track column headers and session accents */
-[data-theme="light"] .ag-track-col-label.track-1,
-[data-theme="light"] .ag-track-col-label.track-2,
-[data-theme="light"] .ag-track-col-label.track-3,
-[data-theme="light"] .ag-track-col-label.track-4,
-[data-theme="light"] .ag-track-col-label.track-5 {
-  background: rgba(var(--track-rgb), 0.10);
-  border-color: rgba(var(--track-rgb), 0.34);
-}
 [data-theme="light"] .ag-session { border-left-width: 3px; border-left-color: var(--track-color); }
-
-/* Speaker track filter buttons */
-[data-theme="light"] .spk-fbtn.track-1,
-[data-theme="light"] .spk-fbtn.track-2,
-[data-theme="light"] .spk-fbtn.track-3,
-[data-theme="light"] .spk-fbtn.track-4,
-[data-theme="light"] .spk-fbtn.track-5 {
-  color: var(--track-color);
-  border-color: rgba(var(--track-rgb), 0.28);
-  background: rgba(var(--track-rgb), 0.06);
-}
-[data-theme="light"] .spk-fbtn.track-1.active,
-[data-theme="light"] .spk-fbtn.track-2.active,
-[data-theme="light"] .spk-fbtn.track-3.active,
-[data-theme="light"] .spk-fbtn.track-4.active,
-[data-theme="light"] .spk-fbtn.track-5.active {
-  border-color: rgba(var(--track-rgb), 0.45);
-  background: rgba(var(--track-rgb), 0.14);
-}
-
-
 /* ── 20.12 Sponsors ──────────────────────────────────────── */
 
 [data-theme="light"] .sp-hero-title em { color: var(--purple); }
 [data-theme="light"] .sp-stat-value span { color: var(--purple); }
-[data-theme="light"] .sponsor-logo-box { background: #fff; border: 1px solid var(--border); }
-[data-theme="light"] .sponsor-logo-box:hover { border-color: var(--border-mid); }
+[data-theme="light"] .sponsor-logo-box { background: #fff; border: 1px solid var(--border-strong); }
+
 [data-theme="light"] .slb-open { background: none; border-color: var(--border-mid); }
 [data-theme="light"] .slb-open:hover { border-color: var(--text-muted); }
 
-/* The white knock-out is a dark-theme device. On white it hides the logo,
-   so it is switched to a black knock-out for the partner wall only. */
-[data-theme="light"] .sponsor-logo-box.slb-mono img,
-[data-theme="light"] .sponsor-logo-box.slb-mono .track-sponsor-inner img,
-[data-theme="light"] .sponsor-logo-box.slb-mono .special-sponsor-inner img,
-[data-theme="light"] .slb-partner img { filter: brightness(0); opacity: 0.65; }
-[data-theme="light"] .sponsor-logo-box.slb-mono:hover img,
-[data-theme="light"] .slb-partner:hover img { opacity: 1; }
+/* No logo filter overrides here on purpose: greyscale reads the same
+   on both themes, so the base rules cover light too. */
 
 [data-theme="light"] .sp-contact { background: var(--bg-card-2); }
 [data-theme="light"] .special-launchpad { color: var(--purple); }
@@ -2652,10 +2564,6 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .bm-feature-icon--purple { color: var(--purple); }
 [data-theme="light"] .bm-feature-icon--accent { color: var(--track-3); }
 [data-theme="light"] .bm-feature-icon--green { color: var(--green); }
-
-
-[data-theme="light"] .agenda-card:hover { border-color: var(--border-mid); }
-
 
 [data-theme="light"] .spk1-perk-dot--green   { background: var(--green); }
 [data-theme="light"] .spk1-perk-dot--purple { background: var(--purple); }
@@ -2997,7 +2905,10 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   font-family: var(--font-display);
   font-weight: 900; font-size: 28px;
   letter-spacing: -0.02em; line-height: 1.1;
-  color: var(--card-color);
+  /* Falls back to --card-color for cards that set no ink of their
+     own. The purple card needs one: brand purple reads 2.95:1 on
+     its own tinted surface. */
+  color: var(--card-ink, var(--card-color));
   margin-top: 6px;
 }
 .agenda-card .badge { margin: 10px 0 2px; }
@@ -3020,8 +2931,12 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
 .agenda-card--blue   { --card-rgb: 0, 212, 255;   --card-color: var(--track-5); }
 .agenda-card--amber  { --card-rgb: 245, 166, 35;  --card-color: var(--track-4); }
 .agenda-card--pink   { --card-rgb: 245, 62, 159;  --card-color: var(--track-2); }
-.agenda-card--purple { --card-rgb: 101, 64, 236;  --card-color: var(--purple); }
-.agenda-card--green  { --card-rgb: 0, 232, 162;   --card-color: var(--green); }
+/* The rgb triplets were still the pre-swap brand values.
+   --card-ink is the day heading colour: #B9A5FF matches the
+   SPECIAL ACTIVATION badge on the same card, at 8.94:1. The teal
+   is already 15:1 and reads fine as-is. */
+.agenda-card--purple { --card-rgb: 103, 35, 255;  --card-color: var(--purple); --card-ink: #B9A5FF; }
+.agenda-card--green  { --card-rgb: 19, 254, 198;  --card-color: var(--green); }
 
 
 /* ── Badges inside a tinted card ─────────────────────────────
@@ -3202,11 +3117,6 @@ font-family: var(--font-body);
 /* ── Light theme ─────────────────────────────────────────── */
 
 [data-theme="light"] .sponsor-type { border: 1px solid var(--border); }
-[data-theme="light"] .sponsors-cta {
-  background: #6723FF12;
-  border-color: #6723FF3D;
-}
-
 
 /* ── Light theme ─────────────────────────────────────────────
    Deepened hues and a lower alpha, since these sit on white. */
@@ -3216,16 +3126,11 @@ font-family: var(--font-body);
   border-width: 1px;
   border-color: rgba(var(--card-rgb), 0.30);
 }
-[data-theme="light"] .agenda-card:hover {
-  background: rgba(var(--card-rgb), 0.14);
-  border-color: rgba(var(--card-rgb), 0.44);
-}
-
 [data-theme="light"] .agenda-card--blue   { --card-rgb: 0, 119, 194; }
 [data-theme="light"] .agenda-card--amber  { --card-rgb: 194, 87, 8; }
 [data-theme="light"] .agenda-card--pink   { --card-rgb: 214, 21, 111; }
-[data-theme="light"] .agenda-card--purple { --card-rgb: 101, 64, 236; }
-[data-theme="light"] .agenda-card--green  { --card-rgb: 0, 135, 90; }
+[data-theme="light"] .agenda-card--purple { --card-rgb: 103, 35, 255; }
+[data-theme="light"] .agenda-card--green  { --card-rgb: 0, 122, 95; }
 
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -3640,7 +3545,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 [data-theme="light"] .ag-track-col-label.track-4,
 [data-theme="light"] .ag-track-col-label.track-5 {
   background: rgba(var(--track-rgb), var(--w-strong));
-  border-color: rgba(var(--track-rgb), 0.30);
+  border-color: rgba(var(--track-rgb), 0.50);
   color: var(--track-ink);
 }
 
@@ -3729,10 +3634,12 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   padding: 72px 48px;
   background: var(--gradient-band);
 }
+
 .page-cta__inner {
   max-width: var(--max-width); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 40px; flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px; align-items: center;
 }
 
 .page-cta__eyebrow {
@@ -3751,7 +3658,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   font-family: var(--font-body);
   font-size: 15px; line-height: 1.6;
   color: rgba(255,255,255,0.74);
-  max-width: 460px; margin-top: 13px;
+  margin-bottom: 16px;
 }
 .page-cta__actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
@@ -3841,7 +3748,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
    field that no longer exists. Now sized to sit with the actions
    beneath them rather than float. */
 
-.ag-session-speakers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.ag-session-speakers { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 9px; }
 
 .speaker-chip {
   display: inline-flex; align-items: center; gap: 7px;
@@ -3979,7 +3886,12 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 
 .sp-col-row { display: grid; gap: 18px; }
 .sp-col-row--track   { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.sp-col-row--special { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Fixed-width columns rather than 1fr, so a row holding fewer than
+   five cards centres instead of stretching them or hanging them left.
+   206px is the track column width: (1200 - 96 padding - 4 gaps) / 5.
+   Recompute if --max-width, the 48px side padding or the 18px gap
+   ever change. Partner rows use the same rule further down. */
+.sp-col-row--special { grid-template-columns: repeat(auto-fit, 206px); justify-content: center; }
 
 /* No gap: the header band sits flush on the frame, as on a track card */
 .sp-col { display: flex; flex-direction: column; min-width: 0; }
@@ -4009,11 +3921,18 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 }
 
 /* The frame, squared off at the top so the band reads as its header */
+/* Width comes from the 5-column grid, so 2:1 is reached by growing the
+   height rather than narrowing the tile. Narrowing would wrap
+   "AI SUMMIT LAUNCHPAD SPONSOR" in the header band above.
+
+   No padding here and no img override: .sponsor-logo-box img already
+   applies object-fit: contain with 16px. Having both inset every
+   column logo by 28px, and the old 78% width cap reintroduced the
+   asymmetric-cap problem removed everywhere else. */
 .slb-col {
-  width: 100%; height: 88px; padding: 12px;
+  width: 100%; aspect-ratio: 2 / 1; height: auto; padding: 0;
   border-top-left-radius: 0; border-top-right-radius: 0;
 }
-.slb-col img { max-width: 78%; max-height: 100%; }
 
 /* Special activations have no track number, so they set both
    variables themselves. Fixed values, since the dark theme tint
@@ -4021,6 +3940,41 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .sp-col--launchpad  { --track-color: #A78BFA; --track-rgb: 167,139,250; }
 .sp-col--talent     { --track-color: #00E8A2; --track-rgb: 0,232,162; }
 .sp-col--networking { --track-color: #00D4FF; --track-rgb: 0,212,255; }
+
+/* Featured partners. Not a track colour: these are not tied to a
+   track and giving them one would imply they are. --accent instead,
+   so the header follows the theme the way the section labels do. */
+.sp-col--partner {
+  --track-color: var(--accent);
+  --track-rgb: var(--accent-rgb);
+}
+
+/* Five per row, matching the track columns exactly, so a partner card
+   is the same size as a track card however many are featured. */
+.sp-col-row--partner { grid-template-columns: repeat(auto-fit, 206px); justify-content: center; }
+
+
+/* ── Community partners, grouped by type ─────────────────────
+   One header per partnerType rather than one per partner: several
+   partners share a type, and repeating the label reads as an error.
+   The icon comes from the first partner in each group. */
+
+.sp-partner-groups { display: flex; flex-direction: column; gap: 26px; }
+
+.sp-partner-group__head {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+}
+.sp-partner-group__icon {
+  display: flex; color: var(--text-muted);
+}
+.sp-partner-group__icon svg { width: 15px; height: 15px; }
+.sp-partner-group__name {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-muted);
+}
 
 
 /* ── Light theme ──────────────────────────────────────────── */
@@ -4131,6 +4085,54 @@ body.glow::after {
 [data-theme="light"] body.glow::before,
 [data-theme="light"] body.glow::after { display: none; }
 
+/* ============================================================
+   39. SOCIAL ROW
+
+   One component, two sizes. Accounts are configured once in
+   SITE.footer.social in layout.js and rendered by socialLinksHtml.
+
+   Square, not circular: .theme-toggle is the closest sibling on
+   this site and it is a rounded square. Every border-radius: 50%
+   in this file is a dot, an avatar or a status marker, never a
+   button.
+
+   Muted at rest, accent on hover. Deliberately not each platform's
+   own brand colour: four brand colours in a row is exactly the
+   palette noise the rest of this file works to avoid.
+   ============================================================ */
+
+.social-row { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+
+.social-row a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: color var(--duration-base) var(--ease-default),
+              border-color var(--duration-base) var(--ease-default);
+}
+.social-row a:hover { color: var(--accent); border-color: var(--accent); }
+.social-row svg     { width: 16px; height: 16px; display: block; }
+
+/* Hero variant. The hero band is the dark gradient in both themes,
+   so these use fixed light values, never the theme tokens.
+   --radius-md rather than sm: at 44px a 6px corner reads too tight,
+   and 10px matches the two buttons directly above it. */
+
+.social-row--hero { gap: 10px; margin-top: 32px; }
+.social-row--hero a {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-sm);
+  border-color: #FFFFFF38;
+  color: #FFFFFFB8;
+}
+.social-row--hero a:hover {
+  border-color: var(--green-bright);
+  color: var(--green-bright);
+  transform: translateY(-2px);
+}
+.social-row--hero svg { width: 16px; height: 16px; }
 
 /* ============================================================
    38. RESPONSIVE / BREAKPOINTS
@@ -4232,10 +4234,15 @@ body.glow::after {
 
   /* 31. Page call to action */
   .page-cta        { padding: 56px 32px; }
-  .page-cta__inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .page-cta__inner { grid-template-columns: 1fr; gap: 26px; }
 
-  /* 35. Sponsors wall columns */
-  .sp-col-row--track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* 35. Sponsors wall columns
+     The fixed 206px columns go back to fractions here: below 1200px
+     the container is narrower than the arithmetic that produced 206,
+     so a fixed width would overflow. */
+  .sp-col-row--track,
+  .sp-col-row--special,
+  .sp-col-row--partner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 }
 
@@ -4411,7 +4418,8 @@ body.glow::after {
   /* 35. Sponsors wall columns */
   .sp-col-row { gap: 14px; }
   .sp-col-row--track,
-  .sp-col-row--special { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-col-row--special,
+  .sp-col-row--partner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .spk-popup { grid-template-columns: 1fr; max-height: 92vh; }
   .spk-popup-photo-col {
@@ -4421,3 +4429,126 @@ body.glow::after {
   .spk-popup-img { max-width: 190px; margin: 0 auto; }
   .spk-popup-content { padding: 24px; }
 }
+
+
+/* ============================================================
+   40. SPONSOR POPUP
+
+   Opened by every logo on the recognition wall, built by
+   data/sponsor-popup.js. Single column rather than the speaker
+   popup's two, because a logo is wide and short where a headshot
+   is tall, so a side column would leave the row half empty.
+   ============================================================ */
+
+.spr-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: #080612D9; backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-default);
+}
+.spr-overlay.open { opacity: 1; pointer-events: all; }
+
+.spr-popup {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(var(--accent-rgb), 0.30);
+  border-radius: var(--radius-xl);
+  width: 100%; max-width: 460px; max-height: 90vh; overflow-y: auto;
+  padding: 46px 32px 32px;
+  transform: translateY(14px);
+  transition: transform var(--duration-slow) var(--ease-spring);
+}
+.spr-overlay.open .spr-popup { transform: translateY(0); }
+
+/* No border: a boxed X competes with the two link buttons below it
+   and reads as a third action rather than a dismiss. */
+.spr-popup-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 30px; height: 30px; border-radius: var(--radius-sm);
+  background: none; border: none;
+  color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: color var(--duration-fast) var(--ease-default),
+              background var(--duration-fast) var(--ease-default);
+}
+.spr-popup-close svg { width: 16px; height: 16px; }
+.spr-popup-close:hover {
+  color: var(--text-primary);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+/* Replaces the browser default ring, which is the green box you saw
+   after clicking. */
+.spr-popup-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* The logo sits on white in both themes. Sponsor artwork is supplied
+   for light backgrounds and a transparent PNG on a dark card loses
+   every dark mark in it. */
+/* border-radius on both: overflow: hidden alone does not clip an
+   image reliably in every browser when the parent has no background
+   of its own to paint the corners against. */
+.spr-popup-logo {
+  aspect-ratio: 2 / 1;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+}
+.spr-popup-logo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+.spr-popup-kind {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.spr-popup-name {
+  font-family: var(--font-display);
+  font-size: 24px; font-weight: 800; line-height: 1.2;
+  color: var(--text-primary);
+}
+.spr-popup-tagline {
+  font-family: var(--font-body);
+  font-size: 14px; line-height: 1.6;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+.spr-popup-tagline.is-hidden { display: none; }
+
+.spr-popup-links {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: 22px;
+}
+.spr-popup-links:empty { display: none; }
+
+.spr-popup-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--duration-base) var(--ease-default),
+              border-color var(--duration-base) var(--ease-default),
+              background var(--duration-base) var(--ease-default);
+}
+.spr-popup-link svg { flex-shrink: 0; width: 14px; height: 14px; }
+.spr-popup-link:hover {
+  color: var(--accent); border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+@media (max-width: 640px) {
+  .spr-popup { padding: 50px 22px 24px; }
+  .spr-popup-logo { height: 96px; }
+  .spr-popup-name { font-size: 20px; }
+}
+

@@ -139,6 +139,12 @@
 
 
     <!-- ══════════════════════════════════════════
+     SPONSOR POPUP — rendered from data/sponsor-popup.js
+══════════════════════════════════════════ -->
+    <div id="sponsor-popup"></div>
+
+
+    <!-- ══════════════════════════════════════════
      SHARED FILES
      Load order: layout → tracks → sponsors → icons → modals
 
@@ -152,6 +158,7 @@
     <script src="data/tracks.js"></script>
     <script src="data/sponsors.js"></script>
     <script src="data/icons.js"></script>
+    <script src="data/sponsor-popup.js"></script>
     <script>
         var MODAL_IDS = ["registration", "speaker"];
     </script>
@@ -266,6 +273,7 @@
                 SP_TIER_ROWS.map(row => _tierRow(row)).join("") +
                 _trackRow() +
                 _specialRow() +
+                _featuredPartnerRow() +
                 _partnerRow();
         }
 
@@ -319,9 +327,10 @@
             const s = opts.sponsor;
 
             const frame = s
-                ? `<a class="sponsor-logo-box slb-col${_monoClass()}" href="${s.website || "#"}" target="_blank" rel="noopener" title="${s.name}">
-         <img src="${s.logoPath}" alt="${s.name}" loading="lazy" />
-       </a>`
+                ? `<button type="button" class="sponsor-logo-box slb-col${_monoClass()}" title="${s.name || ""}"
+                 aria-label="${s.name || opts.label}" onclick="openSponsorPopup('${s.id}')">
+         <img src="${s.logoPath}" alt="${s.name || ""}" loading="lazy" />
+       </button>`
                 : `<div class="sponsor-logo-box slb-col slb-open">
          <span class="slb-open-label">Slot open</span>
        </div>`;
@@ -336,21 +345,58 @@
     </div>`;
         }
 
-        // Community and media partners, uniform grid, no hierarchy
+        // Featured partners. One column each, same shape as Special
+        // Activations: an icon and the partner type as a header band,
+        // the logo frame flush beneath it at track-card size.
+        // Sits above the community rows because these are named
+        // relationships rather than a logo wall.
+        function _featuredPartnerRow() {
+            const featured = getFeaturedPartners().filter(_isConfirmed);
+            if (!featured.length) return "";
+
+            const cols = featured.map(p => _wallColumn({
+                modifier: "sp-col--partner",
+                iconKey:  p.icon,
+                label:    p.partnerType || "Partner",
+                sponsor:  p
+            })).join("");
+
+            return _wallSection("Strategic Partners", cols, "sp-col-row sp-col-row--partner");
+        }
+
+        // Community partners, grouped by partnerType. One header per
+        // type rather than per partner, since several partners share a
+        // type and repeating the label reads as a mistake. The icon is
+        // taken from the first partner in each group.
         function _partnerRow() {
-            const meta = SIGNAL_SPONSOR_TIERS.community || {};
-            const filled = getCommunityPartners().filter(_isConfirmed);
+            const meta  = SIGNAL_SPONSOR_TIERS.community || {};
+            const types = getPartnerTypesInUse();
 
-            const tiles = filled.map(s => `
-    <a class="sponsor-logo-box slb-partner" href="${s.website || "#"}" target="_blank" rel="noopener" title="${s.name}">
-      <img src="${s.logoPath}" alt="${s.name}" loading="lazy" />
-    </a>`).join("");
+            const groups = types.map(type => {
+                const list = getPartnersByType(type).filter(p => p.featured !== true).filter(_isConfirmed);
+                if (!list.length) return "";
 
-            const body = filled.length
-                ? tiles
+                const tiles = list.map(p => `
+      <button type="button" class="sponsor-logo-box slb-partner" title="${p.name || ""}"
+              aria-label="${p.name || p.partnerType}" onclick="openSponsorPopup('${p.id}')">
+        <img src="${p.logoPath}" alt="${p.name || ""}" loading="lazy" />
+      </button>`).join("");
+
+                return `
+    <div class="sp-partner-group">
+      <div class="sp-partner-group__head">
+        <span class="sp-partner-group__icon">${_spIcon(list[0].icon)}</span>
+        <span class="sp-partner-group__name">${type}</span>
+      </div>
+      <div class="sp-partner-grid">${tiles}</div>
+    </div>`;
+            }).join("");
+
+            const body = groups.trim()
+                ? groups
                 : `<div class="sp-wall-empty">Community and media partners announced soon.</div>`;
 
-            return _wallSection(meta.label || "Community Partners", body, "sp-partner-grid");
+            return _wallSection(meta.label || "Community Partners", body, "sp-partner-groups");
         }
 
         function _wallSection(label, tiles, rowClass) {
@@ -364,11 +410,16 @@
     </div>`;
         }
 
+        // Every filled logo opens the popup rather than jumping straight
+        // to the website. The website is one of the links inside it, so
+        // nothing is lost and the tagline and tier get a chance to show.
         function _logoTile(sponsor, sizeClass) {
             return `
-    <a class="sponsor-logo-box ${sizeClass}${_monoClass()}" href="${sponsor.website || "#"}" target="_blank" rel="noopener" title="${sponsor.name}">
-      <img src="${sponsor.logoPath}" alt="${sponsor.name}" loading="lazy" />
-    </a>`;
+    <button type="button" class="sponsor-logo-box ${sizeClass}${_monoClass()}" title="${sponsor.name || ""}"
+            aria-label="${sponsor.name || "Sponsor"}"
+            onclick="openSponsorPopup('${sponsor.id}')">
+      <img src="${sponsor.logoPath}" alt="${sponsor.name || ""}" loading="lazy" />
+    </button>`;
         }
 
         function _openTiles(count, sizeClass) {

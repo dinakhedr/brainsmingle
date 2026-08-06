@@ -39,6 +39,7 @@
                 <a href="#" class="btn btn-primary btn-arrow" data-cta="registration">Join the Waiting List</a>
                 <a href="#" data-page="sponsors" onclick="openModal('sponsor-modal');return false;" class="btn btn-on-dark">Become a Sponsor</a>
             </div>
+            <div id="hero-social"></div>
         </div>
     </section>
 
@@ -348,21 +349,7 @@
             <div>
                 <p class="final-cta__lead" data-copy="sectionSub"></p>
 
-                <div class="wl-form-row">
-                    <div class="modal-field wl-field">
-                        <input type="email" id="cta-email" placeholder="Enter your email address"
-                               autocomplete="email" aria-label="Email address" required />
-                    </div>
-                    <button class="btn btn-primary wl-submit" id="cta-submit-btn"
-                            onclick="submitWaitlistForm('cta')" data-cta="registration"></button>
-                </div>
-
-                <div class="wl-error" id="cta-error">Please enter a valid email address.</div>
-                <div class="wl-success" id="cta-success">
-                    <span data-icon="check"></span>
-                    You're on the list. We'll be in touch.
-                </div>
-                <p class="wl-note">No spam. One email when registration goes live.</p>
+                <div id="cta-form"></div>
             </div>
 
         </div>

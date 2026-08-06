@@ -75,6 +75,11 @@
 ══════════════════════════════════════════ -->
     <div id="site-footer"></div>
 
+    <!-- ══════════════════════════════════════════
+     SPEAKER POPUP — rendered from data/speaker-popup.js
+══════════════════════════════════════════ -->
+    <div id="speaker-popup"></div>
+
 
     <!-- ══════════════════════════════════════════
      SESSION DETAILS — populated by openSessionDetails()
@@ -93,7 +98,7 @@
                 <p class="ses-modal__label">About</p>
                 <p class="ses-modal__desc" id="ses-desc"></p>
             </div>
-           <div class="ses-modal__actions">
+            <div class="ses-modal__actions">
                 <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Sign up</button>
             </div>
         </div>
@@ -102,7 +107,8 @@
 
     <!-- ══════════════════════════════════════════
      SHARED FILES
-     Load order: layout → tracks → days → agenda → speakers → icons → modals
+     Load order: layout → tracks → days → agenda → speakers → icons
+                 → speaker-popup → modals
 ══════════════════════════════════════════ -->
     <script src="data/layout.js"></script>
     <script src="data/tracks.js"></script>
@@ -110,6 +116,7 @@
     <script src="data/agenda.js"></script>
     <script src="data/speakers.js"></script>
     <script src="data/icons.js"></script>
+    <script src="data/speaker-popup.js"></script>
     <script>
         var MODAL_IDS = ["registration", "sponsor", "speaker"];
     </script>
@@ -130,7 +137,7 @@
             4: "trackBusiness",
             5: "trackTech"
         };
-        
+
         // Per-session sign up. Set to false until there is a backend to
         // record a choice against a member, so the button is never a
         // promise the site cannot keep.
@@ -140,46 +147,63 @@
         // so it has its own times rather than using SIGNAL_TIME_SLOTS.
         // Maps trackNumber to a key in data/icons.js
         var AG_TRACK_ICON_KEYS = {
-            1: "trackLd", 2: "trackCreative", 3: "trackStartups",
-            4: "trackBusiness", 5: "trackTech"
+            1: "trackLd",
+            2: "trackCreative",
+            3: "trackStartups",
+            4: "trackBusiness",
+            5: "trackTech"
         };
 
-        var AG_DAY1_SLOTS = [
-            { time: "5:00 PM", sessionId: "ses-d1-p1" },
-            { time: "6:00 PM", sessionId: "ses-d1-p2" },
-            { time: "7:00 PM", sessionId: "ses-d1-p3" },
-            { time: "8:00 PM", sessionId: "ses-d1-p4" },
-            { time: "9:00 PM", sessionId: "ses-d1-p5" }
+        var AG_DAY1_SLOTS = [{
+                time: "5:00 PM",
+                sessionId: "ses-d1-p1"
+            },
+            {
+                time: "6:00 PM",
+                sessionId: "ses-d1-p2"
+            },
+            {
+                time: "7:00 PM",
+                sessionId: "ses-d1-p3"
+            },
+            {
+                time: "8:00 PM",
+                sessionId: "ses-d1-p4"
+            },
+            {
+                time: "9:00 PM",
+                sessionId: "ses-d1-p5"
+            }
         ];
 
         // Special activations, keyed by the "special" value in days.js
         var AG_ACTIVATIONS = {
             launchpad: {
                 cssClass: "ag-special-launchpad",
-                icon    : "launchpad",
-                badge   : "Special Activation",
-                name    : "AI Summit Launchpad: Startup Showcase",
-                meta    : "Open across all tracks · Open to all attendees",
-                time    : "9:00 PM"
+                icon: "launchpad",
+                badge: "Special Activation",
+                name: "AI Summit Launchpad: Startup Showcase",
+                meta: "Open across all tracks · Open to all attendees",
+                time: "9:00 PM"
             },
             talent: {
                 cssClass: "ag-special-talent",
-                icon    : "talent",
-                badge   : "Special Activation",
-                name    : "AI Summit Talent: Professional Hiring",
-                meta    : "Open across all tracks · Open to all attendees",
-                time    : "9:00 PM"
+                icon: "talent",
+                badge: "Special Activation",
+                name: "AI Summit Talent: Professional Hiring",
+                meta: "Open across all tracks · Open to all attendees",
+                time: "9:00 PM"
             }
         };
 
         // The one hour networking wrap that closes every track day
         var AG_DAILY_NETWORKING = {
             cssClass: "ag-special-networking",
-            icon    : "networking",
-            badge   : "Daily Wrap",
-            name    : "Speed Networking: 1 Hour",
-            meta    : "Open across all tracks · Open to all attendees",
-            time    : "10:00 PM"
+            icon: "networking",
+            badge: "Daily Wrap",
+            name: "Speed Networking: 1 Hour",
+            meta: "Open across all tracks · Open to all attendees",
+            time: "10:00 PM"
         };
 
         // Placeholder copy shown before sessions are confirmed
@@ -198,7 +222,7 @@
         }
 
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             renderTrackLegend();
             renderDayTabs();
             renderAgendaBody();
@@ -260,7 +284,7 @@
             if (!el) return;
 
             el.innerHTML = SIGNAL_DAYS.map((day, i) => {
-                if (day.type === "opening")    return renderOpeningDay(day, i === 0);
+                if (day.type === "opening") return renderOpeningDay(day, i === 0);
                 if (day.type === "networking") return renderNetworkingDay(day, i === 0);
                 return renderTrackDay(day, i === 0);
             }).join("");
@@ -276,9 +300,27 @@
         function renderOpeningDay(day, isActive) {
             const panels = AG_DAY1_SLOTS.map((s, i) => {
                 const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
-                const real    = _realTitle(session);
-                const title   = real || AG_PLACEHOLDER_SESSION;
-                const names   = _speakerNames(session);
+                const real = _realTitle(session);
+                const title = real || AG_PLACEHOLDER_SESSION;
+                const names = _speakerNames(session);
+
+                // Nothing scheduled in this slot: the title placeholder alone,
+                // no speaker line and no actions. The time label and the slot
+                // number stay, because those are the day's structure rather
+                // than session content. Same !session test _sessionActions uses
+                // for the info button, so all three disappear together.
+                if (!session) {
+                    return `
+      <div class="ag-panel-row">
+        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-panel ag-panel--empty">
+          <div class="ag-panel-num">0${i + 1}</div>
+          <div class="ag-panel-content">
+            <div class="ag-panel-title ag-panel-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
+          </div>
+        </div>
+      </div>`;
+                }
 
                 return `
       <div class="ag-panel-row">
@@ -308,9 +350,9 @@
            ───────────────────────────────────────── */
         function renderTrackDay(day, isActive) {
             // Activation days give up their last slot to the activation
-            const slots = day.special
-                ? SIGNAL_TIME_SLOTS.slice(0, SIGNAL_TIME_SLOTS.length - 1)
-                : SIGNAL_TIME_SLOTS;
+            const slots = day.special ?
+                SIGNAL_TIME_SLOTS.slice(0, SIGNAL_TIME_SLOTS.length - 1) :
+                SIGNAL_TIME_SLOTS;
 
             const timeRows = slots.map(s => `
       <div class="ag-time-row">
@@ -365,9 +407,9 @@
 
         function _trackDayTag(day) {
             const activation = day.special ? AG_ACTIVATIONS[day.special] : null;
-            return activation
-                ? `${day.label} · Track Sessions + ${activation.name.split(":")[0]}`
-                : `${day.label} · Track Sessions`;
+            return activation ?
+                `${day.label} · Track Sessions + ${activation.name.split(":")[0]}` :
+                `${day.label} · Track Sessions`;
         }
 
         function _trackHeader() {
@@ -383,6 +425,14 @@
             const session = getSessionByCell(dayNumber, trackNumber, slot);
             const hasTitle = _realTitle(session);
             const chips = _speakerChips(session);
+
+            // Nothing scheduled in this slot: the title placeholder alone.
+            if (!session) {
+                return `
+      <div class="ag-session ag-session--empty track-${trackNumber}">
+        <div class="ag-session-title ag-session-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
+      </div>`;
+            }
 
             return `
       <div class="ag-session track-${trackNumber}">
@@ -431,11 +481,11 @@
             if (!SHOW_SESSION_SIGNUP) return "";
 
             const hasDetail = !!sessionId || !!special;
-            const detail = hasDetail
-                ? `<button class="ag-session-info" type="button"
+            const detail = hasDetail ?
+                `<button class="ag-session-info" type="button"
                        onclick="openSessionDetails('${sessionId || ""}', ${special ? "'" + special.name.replace(/'/g, "\\'") + "'" : "null"})"
-                       aria-label="Session details">${_agIcon("info") || "i"}</button>`
-                : "";
+                       aria-label="Session details">${_agIcon("info") || "i"}</button>` :
+                "";
 
             return `
       <div class="ag-session-actions">
@@ -451,14 +501,16 @@
                 const spk = SIGNAL_SPEAKERS_MAP[id];
                 if (!spk) return "";
                 const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(spk) : null;
-                const photo = src
-                    ? `<img class="speaker-chip__photo" src="${src}" alt="" loading="lazy" />`
-                    : `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
-                return `<span class="speaker-chip">${photo}<span class="speaker-chip__name">${spk.name}</span></span>`;
+                const photo = src ?
+                    `<img class="speaker-chip__photo" src="${src}" alt="${spk.name}" loading="lazy" />` :
+                    `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
+                return `<button type="button" class="speaker-chip" title="${spk.name}"
+                                aria-label="${spk.name}"
+                                onclick="event.stopPropagation(); openPopup('${spk.id}')">${photo}</button>`;
             }).join("");
             return chips ? `<div class="ag-session-speakers">${chips}</div>` : "";
         }
-        
+
         function signUpForSession(sessionId) {
             console.log("session signup:", sessionId);
             // TODO: post to the real endpoint, then mark the card signed up.
@@ -478,9 +530,9 @@
             const day = s && s.day ? SIGNAL_DAYS_MAP[s.day] : null;
 
             const trackEl = document.getElementById("ses-track");
-            trackEl.innerHTML = track
-                ? `<span class="track-pill track-${track.trackNumber}"><span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[track.trackNumber])}</span>${track.shortName}</span>`
-                : "";
+            trackEl.innerHTML = track ?
+                `<span class="track-pill track-${track.trackNumber}"><span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[track.trackNumber])}</span>${track.shortName}</span>` :
+                "";
 
             document.getElementById("ses-title").textContent =
                 _realTitle(s) || specialName || AG_PLACEHOLDER_SESSION;
@@ -512,7 +564,9 @@
             document.getElementById("ses-desc").textContent = desc;
             document.getElementById("ses-desc-wrap").classList.toggle("is-hidden", !desc);
 
-            document.getElementById("ses-signup").onclick = function () { signUpForSession(sessionId); };
+            document.getElementById("ses-signup").onclick = function() {
+                signUpForSession(sessionId);
+            };
             document.getElementById("session-modal").classList.add("is-visible");
             document.body.classList.add("modal-open");
         }
@@ -522,10 +576,10 @@
             document.body.classList.remove("modal-open");
         }
 
-        document.getElementById("session-modal").addEventListener("click", function (e) {
+        document.getElementById("session-modal").addEventListener("click", function(e) {
             if (e.target === this) closeSessionDetails();
         });
-        document.addEventListener("keydown", function (e) {
+        document.addEventListener("keydown", function(e) {
             if (e.key === "Escape") closeSessionDetails();
         });
 
