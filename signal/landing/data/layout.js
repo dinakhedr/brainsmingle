@@ -64,6 +64,16 @@ var LAYOUT_CONFIG = {
     tagline : "The global AI activation week. Powered by BrainsMingle.",
     email   : "aisummit@brainsmingle.com",
 
+    /* BrainsMingle's accounts, not the summit's. The labels say so
+       rather than implying the summit has a presence of its own.
+       One list, used by both the footer and the home hero. */
+    social: [
+      { key: "linkedin",  label: "BrainsMingle on LinkedIn",  href: "https://www.linkedin.com/company/brainsmingle/" },
+      { key: "facebook",  label: "BrainsMingle on Facebook",  href: "https://www.facebook.com/brainsmingle" },
+      { key: "instagram", label: "BrainsMingle on Instagram", href: "https://www.instagram.com/brainsmingle" },
+      { key: "x",         label: "BrainsMingle on X",         href: "https://www.x.com/brainsmingle" }
+    ],
+
     /* Each column: title + links.
        A link is either { label, href } or { label, modal }. */
     columns: [
@@ -116,22 +126,32 @@ var REGISTRATION_MODES = {
   waitlist: {
     modalId : "waitlist-modal",
     template: "waitlist",
+
+    /* Which closing CTA form ctaFormHtml builds.
+       "email" is an email capture, "button" is a single button. */
+    form    : "email",
+
     copy: {
       cta         : "Join the Waiting List",
       ctaShort    : "Waiting List",
       sectionTitle: "Registration opens soon.<br>Get in line first.",
-      sectionSub  : "Seven days. Five tracks. 100+ sessions. One room"
+      sectionSub  : "Seven Days. 100+ Speakers. Unlimited Conversations.",
+      formNote    : "No spam. One email when registration goes live."
     }
   },
 
   register: {
     modalId : "register-modal",
     template: "register",
+    form    : "button",
+
+    /* No formNote here on purpose: the note belongs to the email
+       capture and disappears with it. */
     copy: {
       cta         : "Register to Join",
       ctaShort    : "Register",
       sectionTitle: "Your seat is waiting.<br>Join the Summit",
-      sectionSub  : "Seven days. Five tracks. 100+ sessions. One room"
+      sectionSub  : "Seven Days. 100+ Speakers. Unlimited Conversations."
     }
   }
 
@@ -222,8 +242,8 @@ var PAGE_CTA = {
 
   "agenda.html": {
     eyebrow: "Speaker applications open",
-    title  : "100+ sessions.<br>One of them could be yours.",
-    lead   : "Practitioners, founders and researchers across five tracks. Tell us what you would talk about.",
+    title  : "100+ Speakers.<br>One of them could be you.",
+    lead   : "Practitioners, founders and researchers across five tracks.",
     action : { label: "Become a Speaker", modal: "speaker-modal" }
   },
 
@@ -316,15 +336,21 @@ function renderPageCta() {
           (a.page ? ' data-page="' + a.page + '"' : '') + '>' + a.label + '</a>';
   }
 
+  /* Same two-column split as the home closing band: eyebrow and
+     title on the left, lead and action on the right. Keep this in
+     step with .final-cta, and keep .page-cta__inner matching
+     .final-cta__inner in the stylesheet, breakpoint included. */
   slot.innerHTML =
     '<section class="page-cta">' +
       '<div class="page-cta__inner">' +
         '<div>' +
           (cfg.eyebrow ? '<p class="page-cta__eyebrow">' + cfg.eyebrow + '</p>' : '') +
           '<h2 class="page-cta__title">' + cfg.title + '</h2>' +
-          (cfg.lead ? '<p class="page-cta__lead">' + cfg.lead + '</p>' : '') +
         '</div>' +
-        '<div class="page-cta__actions">' + btn + '</div>' +
+        '<div>' +
+          (cfg.lead ? '<p class="page-cta__lead">' + cfg.lead + '</p>' : '') +
+          '<div class="page-cta__actions">' + btn + '</div>' +
+        '</div>' +
       '</div>' +
     '</section>';
 }
@@ -398,6 +424,57 @@ function renderSiteHeader() {
 }
 
 
+/* Social row. Uses data-icon rather than inline SVG: this file runs
+   at parse time and loads before icons.js, so SIGNAL_ICONS does not
+   exist yet. The injector fills these spans on DOMContentLoaded.
+   Pass "hero" for the larger variant on the home page. */
+function socialLinksHtml(variant) {
+  var list = (LAYOUT_CONFIG.footer && LAYOUT_CONFIG.footer.social) || [];
+  if (!list.length) return "";
+  return '<div class="social-row' + (variant ? " social-row--" + variant : "") + '">' +
+    list.map(function (s) {
+      return '<a href="' + s.href + '" target="_blank" rel="noopener"' +
+             ' aria-label="' + s.label + '" title="' + s.label + '">' +
+             '<span data-icon="' + s.key + '"></span></a>';
+    }).join("") +
+  '</div>';
+}
+
+
+/* The closing CTA form. In waitlist mode it is an email capture; in
+   register mode it is a single button that opens the modal.
+
+   The waitlist submit deliberately does NOT carry data-cta:
+   applyRegistrationCopy attaches a modal-opening click listener to
+   everything with that attribute, which would fire alongside the
+   form submit and do both on one click. */
+function ctaFormHtml(prefix) {
+  var mode = activeRegistration();
+  var p = prefix || "cta";
+
+  if (mode.form !== "email") {
+    return '<div class="wl-form-row">' +
+             '<a href="#" class="btn btn-primary btn-arrow" data-cta="registration"></a>' +
+           '</div>';
+  }
+
+  return '' +
+    '<div class="wl-form-row">' +
+      '<div class="modal-field wl-field">' +
+        '<input type="email" id="' + p + '-email" placeholder="Enter your email address"' +
+        ' autocomplete="email" aria-label="Email address" required />' +
+      '</div>' +
+      '<button class="btn btn-primary wl-submit" id="' + p + '-submit-btn"' +
+      ' onclick="submitWaitlistForm(\'' + p + '\')">' + mode.copy.cta + '</button>' +
+    '</div>' +
+    '<div class="wl-error" id="' + p + '-error">Please enter a valid email address.</div>' +
+    '<div class="wl-success" id="' + p + '-success">' +
+      '<span data-icon="check"></span> You\'re on the list. We\'ll be in touch.' +
+    '</div>' +
+    (mode.copy.formNote ? '<p class="wl-note">' + mode.copy.formNote + '</p>' : "");
+}
+
+
 function renderSiteFooter() {
   var f = LAYOUT_CONFIG.footer;
   var b = LAYOUT_CONFIG.brand;
@@ -434,6 +511,7 @@ function renderSiteFooter() {
           '<div class="footer-contact">' +
             '<a href="mailto:' + f.email + '">' + f.email + '</a>' +
           '</div>' +
+          socialLinksHtml() +
         '</div>' +
         columns +
       '</div>' +
@@ -555,6 +633,17 @@ function applyRegistrationCopy() {
      an entry in PAGE_CTA. */
   renderPageCta();
   var ctaSlot = document.getElementById("page-cta");
+
+  /* Home hero social row. Renders only where the slot exists, so
+     every other page ignores it. */
+  var heroSocial = document.getElementById("hero-social");
+  if (heroSocial) heroSocial.innerHTML = socialLinksHtml("hero");
+
+  /* Closing CTA form. Renders only where the slot exists. Runs here,
+     at parse time, so a register-mode button is in the DOM before
+     applyRegistrationCopy sweeps for [data-cta] on DOMContentLoaded. */
+  var ctaForm = document.getElementById("cta-form");
+  if (ctaForm) ctaForm.innerHTML = ctaFormHtml("cta");
 
   /* Wire modal links in the header, the footer and the closing band.
      Silently does nothing on pages without modals.js. */

@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-06 06:11 · 15 speakers.
+ * Generated 2026-08-06 19:18 · 16 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -65,14 +65,14 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-010",
     order       : 3,
-    name        : "Hany Elmalky",
-    title       : "Google",
-    company     : "Product & Technology Leader",
-    country     : "USA",
-    countryCode : "US",
+    name        : "Maged Ghoneima",
+    title       : "M-Empire Angels",
+    company     : "Angel Investor",
+    country     : "Egypt",
+    countryCode : "EG",
     photo       : "spk-010.png",
-    bio         : "Product and technology leader with 20+ years building platforms at the intersection of cloud, AI, and large-scale systems. Leading AI & Innovation at Google (GFiber), embedding applied AI across operations at national scale. Co-founded SecureStream Technologies, winning first place in the Wharton Entrepreneurship Acceleration Program. Wharton Palmer Scholar with deep ML and cloud expertise.",
-    linkedin    : "https://www.linkedin.com/in/helmalky/",
+    bio         : "Angel investor and technology commercialization expert. Co-founded 10+ startups with multiple successful exits and led an angel group investing in 80+ startups. PhD in Computer Engineering from Northwestern, former Intel and NVIDIA engineer. Associate Professor at Ain Shams University with 2,000+ hours mentoring 400+ startups. Advisor to 50+ startups, SMEs, and corporates across the region.",
+    linkedin    : "https://www.linkedin.com/in/mghoneima/",
     bmProfile   : null,
     featured    : true,
     showOnHome  : true,
@@ -80,18 +80,18 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-009",
+    id          : "spk-011",
     order       : 4,
-    name        : "Maged Ghoneima",
-    title       : "M-Empire Angels",
-    company     : "Angel Investor",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-009.png",
-    bio         : "Angel investor and technology commercialization expert. Co-founded 10+ startups with multiple successful exits and led an angel group investing in 80+ startups. PhD in Computer Engineering from Northwestern, former Intel and NVIDIA engineer. Associate Professor at Ain Shams University with 2,000+ hours mentoring 400+ startups. Advisor to 50+ startups, SMEs, and corporates across the region.",
-    linkedin    : "https://www.linkedin.com/in/mghoneima/",
+    name        : "Hany Elmalky",
+    title       : "Google",
+    company     : "Product & Technology Leader",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-011.png",
+    bio         : "Product and technology leader with 20+ years building platforms at the intersection of cloud, AI, and large-scale systems. Leading AI & Innovation at Google (GFiber), embedding applied AI across operations at national scale. Co-founded SecureStream Technologies, winning first place in the Wharton Entrepreneurship Acceleration Program. Wharton Palmer Scholar with deep ML and cloud expertise.",
+    linkedin    : "https://www.linkedin.com/in/helmalky/",
     bmProfile   : null,
-    featured    : true,
+    featured    : false,
     showOnHome  : true,
     appearances : []
   },
@@ -114,20 +114,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-006",
+    id          : "spk-009",
     order       : 6,
-    name        : "Yasmine Aguib",
-    title       : "Research & Innovation Officer",
-    company     : "Magdi Yacoub Heart Foundation",
+    name        : "Mohamed Elsherif",
+    title       : "CEO",
+    company     : "ASaaSI Middle East",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-006.png",
-    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
-    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
-    bmProfile   : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    photo       : "spk-009.png",
+    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
+    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
+    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
   },
 
   {
@@ -148,8 +148,59 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-008",
+    id          : "spk-006",
     order       : 8,
+    name        : "Yasmine Aguib",
+    title       : "Research & Innovation Officer",
+    company     : "Magdi Yacoub Heart Foundation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-006.png",
+    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
+    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    bmProfile   : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-005",
+    order       : 9,
+    name        : "Youssef Hosni",
+    title       : "AI/ML Engeineer",
+    company     : "Solita",
+    country     : "Finland",
+    countryCode : "FI",
+    photo       : "spk-005.png",
+    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
+    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
+    bmProfile   : "https://brainsmingle.com/youssef9740",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-014",
+    order       : 10,
+    name        : "Hend El Damaty",
+    title       : "AI Global",
+    company     : "Founder & AI Consultant",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-014.png",
+    bio         : "AI strategist specializing in enabling organizations to make smarter, faster decisions by integrating AI across business functions. Expert in AI-driven business planning, predictive analytics, and decision-support for regulated sectors including petroleum, energy, finance, and government. Strong capabilities in responsible AI governance, workflow optimization, and automation for measurable impact.",
+    linkedin    : "https://www.linkedin.com/in/hend-eldamaty/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-008",
+    order       : 11,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -165,20 +216,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-005",
-    order       : null,
-    name        : "Youssef Hosni",
-    title       : "AI/ML Engeineer",
-    company     : "Solita",
-    country     : "Finland",
-    countryCode : "FI",
-    photo       : "spk-005.png",
-    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
-    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
-    bmProfile   : "https://brainsmingle.com/youssef9740",
+    id          : "spk-012",
+    order       : 12,
+    name        : "Taha Ali",
+    title       : "GroHub",
+    company     : "CEO",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-012.png",
+    bio         : "Business development leader with 10+ years in B2B and B2C growth across diverse industries. Spearheaded a 10X business growth initiative at Biznes Clinics and scaled a portfolio by 300%. Systems Engineering degree combined with an MBA (ranked 1st, perfect 4.0 GPA). Certified in AI and Digital Marketing from McKinsey, HubSpot, and AUC. Expert in sales enablement, partnerships, and AI-driven strategy.",
+    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    bmProfile   : null,
     featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+    showOnHome  : true,
+    appearances : []
   },
 
   {
@@ -199,65 +250,31 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-011",
-    order       : null,
-    name        : "Taha Ali",
-    title       : "GroHub",
-    company     : "CEO",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-011.png",
-    bio         : "Business development leader with 10+ years in B2B and B2C growth across diverse industries. Spearheaded a 10X business growth initiative at Biznes Clinics and scaled a portfolio by 300%. Systems Engineering degree combined with an MBA (ranked 1st, perfect 4.0 GPA). Certified in AI and Digital Marketing from McKinsey, HubSpot, and AUC. Expert in sales enablement, partnerships, and AI-driven strategy.",
-    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-012",
+    id          : "spk-013",
     order       : null,
     name        : "Nadeem Abdin",
     title       : "AImpulse.io",
     company     : "Partner & VP Business Development",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-012.png",
+    photo       : "spk-013.png",
     bio         : "Business development and commercial strategy leader driving global market expansion across Europe, Scandinavia, Egypt, KSA, and the UAE. Specializing in the \"Dedicated Team\" model, providing senior-led Egyptian engineering squads to international clients. 15+ years of business leadership with a Telecommunication Engineering background and C-suite consultancy expertise.",
     linkedin    : "https://www.linkedin.com/in/nadeem-abdin-7bb89524/",
     bmProfile   : null,
     featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-013",
-    order       : null,
-    name        : "Hend El Damaty",
-    title       : "AI Global",
-    company     : "Founder & AI Consultant",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-013.png",
-    bio         : "AI strategist specializing in enabling organizations to make smarter, faster decisions by integrating AI across business functions. Expert in AI-driven business planning, predictive analytics, and decision-support for regulated sectors including petroleum, energy, finance, and government. Strong capabilities in responsible AI governance, workflow optimization, and automation for measurable impact.",
-    linkedin    : "https://www.linkedin.com/in/hend-eldamaty/",
-    bmProfile   : null,
-    featured    : true,
     showOnHome  : true,
     appearances : []
   },
 
   {
-    id          : "spk-014",
+    id          : "spk-015",
     order       : null,
     name        : "Amr Helal",
     title       : "DotPy",
     company     : "Founder",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-014.png",
+    photo       : "spk-015.png",
     bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
     linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
     bmProfile   : null,
@@ -267,14 +284,14 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-015",
+    id          : "spk-016",
     order       : null,
     name        : "Ehab Khaled Fawzi",
     title       : "Develovent Network",
     company     : "Creative Director",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-015.png",
+    photo       : "spk-016.png",
     bio         : "Creative Director with 10+ years in advertising, blending a musician's eye for detail with strategic creativity. Evolved from copywriter to Creative Director across top agencies including Kijamii, Media Hub, Hive Analytics, and Mint & Co. Expert in strategy, copywriting, digital activations, and campaign production. Passionate about nurturing ideas into products that attract and linger in minds.",
     linkedin    : "linkedin.com/in/ehab-khaled-fawzi-65809697",
     bmProfile   : null,
