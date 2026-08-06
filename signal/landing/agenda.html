@@ -183,8 +183,19 @@
         };
 
         // Placeholder copy shown before sessions are confirmed
-        var AG_PLACEHOLDER_SESSION = "Session to be announced";
+        var AG_PLACEHOLDER_SESSION = "To be announced";
         var AG_PLACEHOLDER_SPEAKER = "Speaker to be announced";
+
+        /* A session counts as titled only when the title is real. agenda.js
+           may carry a placeholder string instead of null, so compare against
+           the known placeholders rather than testing truthiness. */
+        var AG_TBA_STRINGS = ["to be announced", "session to be announced", "tba"];
+
+        function _realTitle(session) {
+            var t = (session && session.title) ? String(session.title).trim() : "";
+            if (!t) return null;
+            return AG_TBA_STRINGS.indexOf(t.toLowerCase()) === -1 ? t : null;
+        }
 
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -265,7 +276,8 @@
         function renderOpeningDay(day, isActive) {
             const panels = AG_DAY1_SLOTS.map((s, i) => {
                 const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
-                const title   = (session && session.title) ? session.title : AG_PLACEHOLDER_SESSION;
+                const real    = _realTitle(session);
+                const title   = real || AG_PLACEHOLDER_SESSION;
                 const names   = _speakerNames(session);
 
                 return `
@@ -274,8 +286,8 @@
         <div class="ag-panel">
           <div class="ag-panel-num">0${i + 1}</div>
           <div class="ag-panel-content">
-            <div class="ag-panel-title${session && session.title ? "" : " ag-session-title--placeholder"}">${title}</div>
-            <div class="ag-panel-meta">${names || AG_PLACEHOLDER_SPEAKER}</div>
+            <div class="ag-panel-title${real ? "" : " ag-panel-title--placeholder"}">${title}</div>
+            <div class="ag-panel-meta${names ? "" : " ag-panel-meta--placeholder"}">${names || AG_PLACEHOLDER_SPEAKER}</div>
           </div>
           ${_sessionActions(session ? session.id : null)}
         </div>
@@ -369,12 +381,12 @@
 
         function _sessionCell(dayNumber, slot, trackNumber) {
             const session = getSessionByCell(dayNumber, trackNumber, slot);
-            const hasTitle = session && session.title;
+            const hasTitle = _realTitle(session);
             const chips = _speakerChips(session);
 
             return `
       <div class="ag-session track-${trackNumber}">
-        <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle ? session.title : AG_PLACEHOLDER_SESSION}</div>
+        <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle || AG_PLACEHOLDER_SESSION}</div>
         ${chips || `<div class="ag-session-speaker ag-session-speaker--placeholder">${AG_PLACEHOLDER_SPEAKER}</div>`}
         ${_sessionActions(session ? session.id : null)}
       </div>`;
@@ -471,7 +483,7 @@
                 : "";
 
             document.getElementById("ses-title").textContent =
-                (s && s.title) ? s.title : (specialName || AG_PLACEHOLDER_SESSION);
+                _realTitle(s) || specialName || AG_PLACEHOLDER_SESSION;
 
             const when = [];
             if (day) when.push(day.date);
