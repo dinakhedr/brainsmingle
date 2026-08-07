@@ -191,6 +191,33 @@ var PAGE_STATUS_BADGES = true;
 /* Where gated pages send people */
 var COMING_SOON_PAGE = "coming-soon.html";
 
+
+/* ─────────────────────────────────────────
+   3a. SPONSOR WALL FILL
+   One switch for the sponsors page recognition wall.
+
+     true  — show every slot, including the "Slot open" placeholders,
+             with all section headers. The full wall.
+     false — show only confirmed sponsors. A tier, track or special
+             section with nothing confirmed hides entirely, header and
+             all. Strategic Partners and Community Partners are never
+             affected: they are named relationships, not open slots.
+
+   Preview the other state without deploying by adding ?wall=full or
+   ?wall=confirmed to the URL.
+   ───────────────────────────────────────── */
+var SHOW_EMPTY_SLOTS = true;
+
+/* Resolves the switch through the ?wall= preview override. */
+function showEmptySlots() {
+  try {
+    var w = new URLSearchParams(window.location.search).get("wall");
+    if (w === "full") return true;
+    if (w === "confirmed") return false;
+  } catch (e) {}
+  return SHOW_EMPTY_SLOTS;
+}
+
 /* Maps a file name back to its PAGE_STATUS key, for the redirect guard */
 var PAGE_FILES = {
   "tracks.html"  : "tracks",

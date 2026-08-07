@@ -217,7 +217,7 @@ var SIGNAL_MODAL_TEMPLATES = {
       <div class="modal-consent">
         <label class="modal-check" for="rg-terms">
           <input type="checkbox" id="rg-terms" />
-          <span>I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms</a> and the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>. *</span>
+          <span>I agree to the <a href="https://brainsmingle.com/terms" target="_blank" rel="noopener">Terms</a> and the <a href="https://brainsmingle.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>. *</span>
         </label>
         <label class="modal-check" for="rg-marketing">
           <input type="checkbox" id="rg-marketing" />

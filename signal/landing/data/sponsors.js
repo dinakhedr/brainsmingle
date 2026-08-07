@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-08-06 23:57 · 19 sponsors, 7 partners.
+ * Generated 2026-08-08 02:10 · 19 sponsors, 9 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -41,8 +41,8 @@ const SIGNAL_PARTNER_TYPES = [
   "Tech Partner",
   "Recruitment Partner",
   "Career Partner",
-  "Community Partner",
-  "Ecosystem Partner"
+  "Ecosystem Partner",
+  "Community Partner"
 ];
 
 const SIGNAL_SPONSORS = [
@@ -71,9 +71,11 @@ const SIGNAL_PARTNERS = [
   { id: "prt-001", name: "AI Global", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-001.png", logoURL: "s", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
   { id: "prt-008", name: "WUZZUF", tier: "community", icon: "recruiter", trackNumber: null, special: null, partnerType: "Recruitment Partner", confirmed: true, featured: true, logo: "prt-008.png", logoURL: "s", website: "https://wuzzuf.net/", bmCommunityLink: null, tagline: "Find the Best Jobs in Egypt" },
   { id: "prt-009", name: "iCareer", tier: "community", icon: "practitioner", trackNumber: null, special: null, partnerType: "Career Partner", confirmed: true, featured: true, logo: "prt-009.png", logoURL: "s", website: "https://icareer.ai/", bmCommunityLink: "https://brainsmingle.com/icareer", tagline: "Revolutionizing Education and Employment Ecosystems for All" },
+  { id: "prt-002", name: "MEmpire", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, featured: true, logo: "prt-002.png", logoURL: "s", website: "https://www.mempireangels.com/", bmCommunityLink: null, tagline: "Where MENA's most ambitious operators find their first believer." },
+  { id: "prt-005", name: "Dr. Ahmed El-Shamy", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-005.png", logoURL: "s", website: "https://elsha.my/", bmCommunityLink: null, tagline: "Better decisions at the intersection of risk, product and AI." },
   { id: "prt-006", name: "Digital Product Community", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-006.png", logoURL: "s", website: "https://digital-products.online/", bmCommunityLink: null, tagline: "Where Products, People, and Innovation Meet" },
   { id: "prt-007", name: "Business Lobby", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-007.png", logoURL: "s", website: "https://businesslobby.community/", bmCommunityLink: null, tagline: "Where Connections Turn into Opportunities" },
-  { id: "prt-002", name: "MEmpire", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, featured: true, logo: "prt-002.png", logoURL: "s", website: "https://www.mempireangels.com/", bmCommunityLink: null, tagline: "Where MENA's most ambitious operators find their first believer." },
+  { id: "prt-004", name: "Youth Scope", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-004.png", logoURL: "s", website: "https://www.linkedin.com/company/youth-scope3ex/", bmCommunityLink: null, tagline: "An organization working to support volunteer activities in Egypt." },
   { id: "prt-003", name: "Startup Egypt", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, featured: true, logo: "prt-003.png", logoURL: "s", website: "https://startupegypt.org.eg/", bmCommunityLink: null, tagline: "We Empower Egyptian Founders to Build the Future" }
 ];
 

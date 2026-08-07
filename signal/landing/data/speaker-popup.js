@@ -37,6 +37,11 @@ var SPK_TRACK_ICON_KEYS = {
 
 var SPK_PLACEHOLDER_SESSION = "Session to be announced";
 
+/* Day 1 of the summit. Session rows in the popup turn a day number
+   into a real date from this, so it works on every page — including
+   ones that do not load data/days.js. Update it if the dates move. */
+var SPK_EVENT_START = { year: 2026, month: 10, day: 10 };
+
 
 /* ── HELPERS ──────────────────────────────────────────────── */
 
@@ -50,6 +55,41 @@ function _initials(name) {
   return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
 }
 
+/* "Sun, Oct 11 · 7:00 PM" for a session row. Date comes from the day
+   number and SPK_EVENT_START; time from the session's 24h timeSlot.
+   Falls back to "Day N" if anything is off, so the row never renders
+   an empty when-line. */
+function _spkSessionWhen(dayNumber, session) {
+  var parts = [];
+
+  var d = null;
+  if (dayNumber && SPK_EVENT_START) {
+    d = new Date(SPK_EVENT_START.year, SPK_EVENT_START.month - 1,
+                 SPK_EVENT_START.day + (dayNumber - 1));
+  }
+  parts.push(
+    (d && !isNaN(d)) ?
+      d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) :
+      "Day " + dayNumber
+  );
+
+  var t = (session && session.timeSlot) ? _spkTime12(session.timeSlot) : "";
+  if (t) parts.push(t);
+
+  return parts.join(" · ");
+}
+
+/* "19:00" → "7:00 PM". Anything that does not look like HH:MM is
+   returned as given. */
+function _spkTime12(hhmm) {
+  var m = /^(\d{1,2}):(\d{2})$/.exec(String(hhmm).trim());
+  if (!m) return String(hhmm);
+  var h = parseInt(m[1], 10);
+  var suffix = h >= 12 ? "PM" : "AM";
+  var h12 = h % 12 || 12;
+  return h12 + ":" + m[2] + " " + suffix;
+}
+
 /* The close glyph cannot use <span data-icon="close">. That span is
    filled by the injector in icons.js on DOMContentLoaded, and this
    file injects its markup on the same event but registers later, so
@@ -61,6 +101,16 @@ function _spkCloseIcon() {
     '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"' +
     ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' +
     ' stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+}
+
+/* Outward arrow on session rows that link to their BrainsMingle page.
+   Same inline-SVG reasoning as the close glyph above; the literal is
+   the fallback in case the icon set has no matching key. */
+function _spkExternalIcon() {
+  return _spkIcon("external") || _spkIcon("arrowUpRight") ||
+    '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"' +
+    ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' +
+    ' stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>';
 }
 
 
@@ -195,10 +245,27 @@ function openPopup(id) {
   list.innerHTML = appearances.map(a => {
     const session = SIGNAL_AGENDA.find(ag => ag.id === a.sessionId);
     const title = (session && session.title) ? session.title : SPK_PLACEHOLDER_SESSION;
+    const inner = `
+        <div class="spk-session-main">
+          <div class="spk-session-title">${title}</div>
+          <div class="spk-session-when">${_spkSessionWhen(a.day, session)}</div>
+        </div>`;
+
+    /* A session with a BrainsMingle page becomes a link opening it in
+       a new tab, with an arrow so the row reads as clickable. One
+       without stays a plain row until its page goes live. */
+    if (session && session.bmUrl) {
+      return `
+      <a class="spk-session-item spk-session-item--link" href="${session.bmUrl}"
+         target="_blank" rel="noopener"
+         aria-label="${title} — open session page in a new tab">
+        ${inner}
+        <span class="spk-session-arrow" aria-hidden="true">${_spkExternalIcon()}</span>
+      </a>`;
+    }
     return `
       <div class="spk-session-item">
-        <div class="spk-session-day">Day ${a.day}</div>
-        <div class="spk-session-title">${title}</div>
+        ${inner}
       </div>`;
   }).join("");
 
