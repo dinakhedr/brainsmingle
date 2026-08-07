@@ -106,6 +106,20 @@
 
 
     <!-- ══════════════════════════════════════════
+     COMING SOON — shown by the info button (and by agenda.js's
+     pending path) for any session whose bmUrl is still null
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="coming-soon-modal">
+        <div class="modal-box modal-box--sm">
+            <button class="modal-close" onclick="closeComingSoon()" aria-label="Close"><span data-icon="close"></span></button>
+            <div class="modal-eyebrow">Coming soon</div>
+            <h3 class="modal-title" id="coming-soon-title">Details coming soon</h3>
+            <p class="modal-sub" id="coming-soon-msg"></p>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
      SHARED FILES
      Load order: layout → tracks → days → agenda → speakers → icons
                  → speaker-popup → modals
@@ -340,7 +354,7 @@
     <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
       ${_dayHeader(day, day.label + " · " + day.displayLabel)}
       ${panels}
-      ${_specialRow(AG_DAILY_NETWORKING)}
+      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
     </div>`;
         }
 
@@ -360,7 +374,7 @@
         ${SIGNAL_TRACKS.map(t => _sessionCell(day.day, s.slot, t.trackNumber)).join("")}
       </div>`).join("");
 
-            const activation = day.special ? _specialRow(AG_ACTIVATIONS[day.special]) : "";
+            const activation = day.special ? _specialRow(AG_ACTIVATIONS[day.special], day.day, day.special) : "";
 
             return `
     <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
@@ -368,7 +382,7 @@
       ${_trackHeader()}
       ${timeRows}
       ${activation}
-      ${_specialRow(AG_DAILY_NETWORKING)}
+      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
     </div>`;
         }
 
@@ -442,9 +456,15 @@
       </div>`;
         }
 
-        // One row spanning all five tracks: activations and the networking wrap
-        function _specialRow(config) {
+        // One row spanning all five tracks: activations and the networking wrap.
+        // dayNumber + specialKey find the day's own session in agenda.js, so
+        // the actions carry a real id — and with it, the bmUrl — instead of
+        // the shared config, which has none.
+        function _specialRow(config, dayNumber, specialKey) {
             if (!config) return "";
+            const session = SIGNAL_AGENDA.find(s =>
+                s.day === dayNumber && s.special === specialKey && s.trackNumber === null
+            ) || null;
             return `
       <div class="ag-special-merged">
         <div class="ag-time-label">${config.time}</div>
@@ -457,7 +477,7 @@
             <div class="ag-special-name">${config.name}</div>
             <div class="ag-special-meta">${config.meta}</div>
           </div>
-          ${_sessionActions(config.sessionId || null, config)}
+          ${_sessionActions(session ? session.id : null, config)}
         </div>
       </div>`;
         }
@@ -474,23 +494,24 @@
         }
 
 
-        /* Session sign up and details. This button is per-session, not
-           event registration, so it carries its own label and class and
-           does not follow REGISTRATION_MODE. */
+        /* Session actions. The Sign up button is deliberately inert:
+           BrainsMingle's Quick Signup will be wired to it later by the
+           tech team, so it carries no handler of its own here. The info
+           button opens the session's BrainsMingle page in a new tab, or
+           the coming-soon popup while its bmUrl is still null. */
         function _sessionActions(sessionId, special) {
             if (!SHOW_SESSION_SIGNUP) return "";
 
             const hasDetail = !!sessionId || !!special;
             const detail = hasDetail ?
                 `<button class="ag-session-info" type="button"
-                       onclick="openSessionDetails('${sessionId || ""}', ${special ? "'" + special.name.replace(/'/g, "\\'") + "'" : "null"})"
+                       onclick="openSessionInfo('${sessionId || ""}', ${special ? "'" + special.name.replace(/'/g, "\\'") + "'" : "null"})"
                        aria-label="Session details">${_agIcon("info") || "i"}</button>` :
                 "";
 
             return `
       <div class="ag-session-actions">
-        <button class="ag-session-signup" type="button"
-                onclick="signUpForSession('${sessionId || ""}')">Sign up</button>
+        <button class="ag-session-signup" type="button">Sign up</button>
         ${detail}
       </div>`;
         }
@@ -511,9 +532,16 @@
             return chips ? `<div class="ag-session-speakers">${chips}</div>` : "";
         }
 
-        function signUpForSession(sessionId) {
-            console.log("session signup:", sessionId);
-            // TODO: post to the real endpoint, then mark the card signed up.
+        /* The info button. A session with a BrainsMingle page goes
+           straight there in a new tab; one without shows the
+           coming-soon popup until the page is live. */
+        function openSessionInfo(sessionId, specialName) {
+            const s = sessionId ? SIGNAL_AGENDA.find(a => a.id === sessionId) : null;
+            if (s && s.bmUrl) {
+                window.open(s.bmUrl, "_blank", "noopener");
+                return;
+            }
+            showComingSoon(s, specialName);
         }
 
 
@@ -564,9 +592,8 @@
             document.getElementById("ses-desc").textContent = desc;
             document.getElementById("ses-desc-wrap").classList.toggle("is-hidden", !desc);
 
-            document.getElementById("ses-signup").onclick = function() {
-                signUpForSession(sessionId);
-            };
+            /* No handler on #ses-signup on purpose: BrainsMingle's
+               Quick Signup will be wired to it by the tech team. */
             document.getElementById("session-modal").classList.add("is-visible");
             document.body.classList.add("modal-open");
         }
@@ -576,11 +603,54 @@
             document.body.classList.remove("modal-open");
         }
 
+
+        /* ─────────────────────────────────────────
+           COMING SOON POPUP
+           Opened by the info button for any session
+           whose bmUrl is still null. specialName
+           labels activation rows that have no
+           session record yet.
+           ───────────────────────────────────────── */
+        var AG_COMING_SOON_MESSAGE =
+            "This session's page isn't live yet. Register for the summit and we'll let you know the moment it goes up.";
+
+        function showComingSoon(session, specialName) {
+            const real = session ? _realTitle(session) : null;
+            document.getElementById("coming-soon-title").textContent =
+                real || specialName || "Details coming soon";
+            document.getElementById("coming-soon-msg").textContent = AG_COMING_SOON_MESSAGE;
+            document.getElementById("coming-soon-modal").classList.add("is-visible");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeComingSoon() {
+            document.getElementById("coming-soon-modal").classList.remove("is-visible");
+            /* Keep the scroll lock if the details modal is somehow
+               still open underneath. */
+            const ses = document.getElementById("session-modal");
+            if (!ses || !ses.classList.contains("is-visible")) {
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+        /* agenda.js's openSessionSignup() calls showSignupPending()
+           for a null bmUrl. Nothing calls it today (the Sign up button
+           is inert), but keep the name alive so re-enabling that path
+           later needs no changes here. */
+        function showSignupPending(session) { showComingSoon(session, null); }
+
+        document.getElementById("coming-soon-modal").addEventListener("click", function(e) {
+            if (e.target === this) closeComingSoon();
+        });
+
         document.getElementById("session-modal").addEventListener("click", function(e) {
             if (e.target === this) closeSessionDetails();
         });
         document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") closeSessionDetails();
+            if (e.key !== "Escape") return;
+            const cs = document.getElementById("coming-soon-modal");
+            if (cs.classList.contains("is-visible")) { closeComingSoon(); return; }
+            closeSessionDetails();
         });
 
         function _speakerNames(session) {

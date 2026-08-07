@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sponsors &amp; Partners | AI Summit 2026</title>
-    <meta name="description" content="The brands and communities behind AI Summit 2026. Sponsorship and community partner opportunities across seven days, five tracks, and a global virtual audience." />
+    <meta name="description" content="The organizations and communities behind AI Summit 2026. Sponsorship and community partner opportunities across seven days, five tracks, and a global virtual audience." />
     <!-- Theme and fonts. Must load before the stylesheet so there is no
          flash of the wrong theme or typeface. Both are set in data/theme.js. -->
     <script src="data/theme.js"></script>
@@ -54,7 +54,7 @@
             <div class="sp-section-head">
                 <span class="section-eyebrow">The Line-Up</span>
                 <h2 class="section-title">Sponsors and Partners</h2>
-                <p class="section-sub">The brands and communities powering AI Summit 2026.</p>
+                <p class="section-sub">The organizations and communities powering AI Summit 2026</p>
             </div>
 
             <div id="sp-wall"></div>
@@ -169,10 +169,9 @@
            PAGE CONFIG
            ───────────────────────────────────────── */
 
-        // Flip to true once you would rather hide unsold slots than
-        // advertise them. While false, every empty slot shows a
-        // placeholder tile and the remaining count.
-        var SHOW_OPEN_SLOTS = true;
+        // Whether the wall shows empty slots is set site-wide by
+        // SHOW_EMPTY_SLOTS in data/layout.js. Read it through
+        // showEmptySlots() so the ?wall= preview override applies.
 
         // Knocks logos to white so mixed artwork reads as one block on the
         // dark background. Set to false once sponsors supply proper white or
@@ -282,12 +281,15 @@
             const meta = SIGNAL_SPONSOR_TIERS[row.tier] || {};
             const filled = getSponsorsByTier(row.tier).filter(_isConfirmed);
             const open = Math.max(0, (meta.slots || 0) - filled.length);
+            const showEmpty = showEmptySlots();
 
-            if (!filled.length && !SHOW_OPEN_SLOTS) return "";
+            // Nothing confirmed and not showing empties: the whole tier
+            // row goes, header and all.
+            if (!filled.length && !showEmpty) return "";
 
             const tiles =
                 filled.map(s => _logoTile(s, row.sizeClass)).join("") +
-                (SHOW_OPEN_SLOTS ? _openTiles(open, row.sizeClass) : "");
+                (showEmpty ? _openTiles(open, row.sizeClass) : "");
 
             return _wallSection(meta.label || row.tier, tiles, "sp-wall-row");
         }
@@ -296,11 +298,19 @@
         // the frame, not a pill inside it, so the five read as a table.
         // Icon and header colour come from the .track-N class.
         function _trackRow() {
-            const cols = SIGNAL_TRACKS.map(t => _wallColumn({
+            const showEmpty = showEmptySlots();
+            const tracks = SIGNAL_TRACKS
+                .map(t => ({ t, sponsor: getSponsorsByTrack(t.trackNumber).filter(_isConfirmed)[0] }))
+                .filter(x => showEmpty || x.sponsor);
+
+            // Confirmed-only and no track has a sponsor: hide the section.
+            if (!tracks.length) return "";
+
+            const cols = tracks.map(({ t, sponsor }) => _wallColumn({
                 modifier: `track-${t.trackNumber}`,
                 iconKey:  SP_TRACK_ICON_KEYS[t.trackNumber],
-                label:    t.shortName,
-                sponsor:  getSponsorsByTrack(t.trackNumber).filter(_isConfirmed)[0]
+                label:    t.fullName,
+                sponsor
             })).join("");
 
             return _wallSection("Track Sponsors", cols, "sp-col-row sp-col-row--track");
@@ -309,15 +319,19 @@
         // Launchpad, Talent, Speed Networking Day. Same column header
         // treatment as the tracks, each with its own accent colour.
         function _specialRow() {
-            const cols = SP_SPECIAL_ROWS.map(tier => {
-                const meta = SIGNAL_SPONSOR_TIERS[tier] || {};
-                return _wallColumn({
-                    modifier: `sp-col--${tier}`,
-                    iconKey:  SP_SPECIAL_ICON_KEYS[tier],
-                    label:    meta.label || tier,
-                    sponsor:  getSponsorsByTier(tier).filter(_isConfirmed)[0]
-                });
-            }).join("");
+            const showEmpty = showEmptySlots();
+            const rows = SP_SPECIAL_ROWS
+                .map(tier => ({ tier, meta: SIGNAL_SPONSOR_TIERS[tier] || {}, sponsor: getSponsorsByTier(tier).filter(_isConfirmed)[0] }))
+                .filter(x => showEmpty || x.sponsor);
+
+            if (!rows.length) return "";
+
+            const cols = rows.map(({ tier, meta, sponsor }) => _wallColumn({
+                modifier: `sp-col--${tier}`,
+                iconKey:  SP_SPECIAL_ICON_KEYS[tier],
+                label:    meta.label || tier,
+                sponsor
+            })).join("");
 
             return _wallSection("Special Activations", cols, "sp-col-row sp-col-row--special");
         }
@@ -332,7 +346,7 @@
          <img src="${s.logoPath}" alt="${s.name || ""}" loading="lazy" />
        </button>`
                 : `<div class="sponsor-logo-box slb-col slb-open">
-         <span class="slb-open-label">Slot open</span>
+         <span class="slb-open-label">Coming Soon</span>
        </div>`;
 
             return `
@@ -425,15 +439,18 @@
         function _openTiles(count, sizeClass) {
             let out = "";
             for (let i = 0; i < count; i++) {
-                out += `<div class="sponsor-logo-box ${sizeClass} slb-open"><span class="slb-open-label">Slot open</span></div>`;
+                out += `<div class="sponsor-logo-box ${sizeClass} slb-open"><span class="slb-open-label">Coming Soon</span></div>`;
             }
             return out;
         }
 
-        // A slot counts as filled when sponsors.js has an entry with a logo.
-        // Replace the placeholder PNGs and names in place and the wall updates.
+        // A slot counts as confirmed when its sponsors.js entry has a
+        // name. Every open slot carries the comingsoon.png placeholder,
+        // so logoPath is always set and can't be the signal; set the
+        // sponsor's real name (name is null until then) and the wall
+        // shows its card.
         function _isConfirmed(sponsor) {
-            return !!sponsor && !!sponsor.logoPath;
+            return !!sponsor && !!sponsor.name;
         }
 
         // Extra class applied to every tier, track and special logo tile.
