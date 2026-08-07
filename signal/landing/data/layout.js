@@ -92,15 +92,15 @@ var LAYOUT_CONFIG = {
         links: [
           { label: "Become a Sponsor",   modal: "sponsor-modal" },
           { label: "Become a Partner",   modal: "sponsor-modal" },
-          { label: "Community Partners", href: "sponsors.html", page: "sponsors" }
+          { label: "Sponsors and Partners", href: "sponsors.html", page: "sponsors" }
         ]
       }
     ],
 
     /* Small print links shown next to the copyright line */
     legal: [
-      { label: "Terms",   href: "terms.html"   },
-      { label: "Privacy", href: "privacy.html" }
+      { label: "Terms",   href: "https://brainsmingle.com/terms"   },
+      { label: "Privacy", href: "https://brainsmingle.com/privacy" }
     ],
 
     bottomLeft  : "© 2026 AI Summit · Powered by BrainsMingle",
@@ -419,7 +419,15 @@ function renderSiteHeader() {
         '<a href="#" class="btn btn-primary btn-sm" data-cta="registration" data-cta-short>' +
           activeRegistration().copy.ctaShort +
         '</a>' +
+        '<button class="nav-burger" id="nav-burger" type="button"' +
+          ' aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">' +
+          '<span></span><span></span><span></span>' +
+        '</button>' +
       '</div>' +
+      /* Mobile menu. Same links string as .nav-links, so active state,
+         Soon badges and page gates stay in step with the desktop nav.
+         Shown only below 768px, toggled by the burger via body.nav-open. */
+      '<div class="nav-mobile" id="nav-mobile">' + links + '</div>' +
     '</nav>';
 }
 
@@ -618,6 +626,33 @@ function applyRegistrationCopy() {
   var themeBtn = headerSlot.querySelector("#theme-toggle");
   if (themeBtn && typeof toggleTheme === "function") {
     themeBtn.addEventListener("click", toggleTheme);
+  }
+
+  /* Burger menu. The open state lives on <body> so the bar, the icon
+     and the panel can all react from CSS with no extra JS. Tapping a
+     link, pressing Escape or resizing past the breakpoint closes it. */
+  var burger  = headerSlot.querySelector("#nav-burger");
+  var mobNav  = headerSlot.querySelector("#nav-mobile");
+  if (burger && mobNav) {
+    var closeMobileNav = function () {
+      document.body.classList.remove("nav-open");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-label", "Open menu");
+    };
+    burger.addEventListener("click", function () {
+      var open = document.body.classList.toggle("nav-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    mobNav.addEventListener("click", function (e) {
+      if (e.target.closest && e.target.closest("a")) closeMobileNav();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMobileNav();
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768) closeMobileNav();
+    });
   }
 
   /* Footer: use #site-footer if present, otherwise append one. */
