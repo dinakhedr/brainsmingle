@@ -316,6 +316,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
+/* ── Burger + mobile menu
+   Hidden on desktop, where .nav-links carries the navigation.
+   Everything below 768px lives in the responsive section (38). */
+.nav-burger { display: none; }
+.nav-mobile { display: none; }
+
 /* ── Theme toggle */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -765,7 +771,11 @@ a.tl-pill:active { transform: translateY(0); }
 /* The tiles are <button> now, so the browser defaults have to go. */
 .sponsor-logo-box { font: inherit; color: inherit; cursor: pointer; }
 
-.slb-partner { width: 100%; height: 88px; }
+/* Aspect ratio rather than a fixed height: the 176px desktop column
+   gives the same 176×88, but on mobile the grid columns are fractions,
+   and a fixed 88px height there broke the 2:1 the artwork is supplied
+   in — object-fit: cover then trimmed the logo (DPC most visibly). */
+.slb-partner { width: 100%; height: auto; aspect-ratio: 2 / 1; }
 
 
 /* ── Icon tile
@@ -1293,7 +1303,11 @@ body.modal-open { overflow: hidden; }
 /* ── Panel card (Day 1) */
 .ag-panel-row  { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; align-items: stretch; }
 .ag-panel {
-  background: var(--bg-card); border: 0.5px solid var(--border);
+  /* Same border as .ag-session: var(--border) is 7% white in dark and
+     disappears against --bg-card, which left Day 1 reading borderless
+     next to the track-day grid. The light theme overrides this with
+     the same 1px var(--border) the session cards use there. */
+  background: var(--bg-card); border: 1.5px solid var(--border-strong);
   border-left: 3px solid var(--accent); border-radius: var(--radius-md);
   padding: 18px 20px; display: flex; align-items: center; gap: 20px;
 }
@@ -2449,6 +2463,7 @@ body.modal-open { overflow: hidden; }
 [data-theme="light"] .ag-time-label,
 [data-theme="light"] .ag-special-meta { color: var(--text-muted); }
 [data-theme="light"] .ag-session { border: 1px solid var(--border); }
+[data-theme="light"] .ag-panel   { border: 1px solid var(--border); border-left: 3px solid var(--accent); }
 [data-theme="light"] .speaker-chip__initials { background: var(--bg-card-2); color: var(--text-secondary); }
 [data-theme="light"] .ag-panel-num { color: var(--purple); opacity: 0.4; }
 [data-theme="light"] .ag-sn-hero { background: var(--bg-card-2); border: 1px solid var(--border); }
@@ -3726,7 +3741,10 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; flex-shrink: 0;
   border-radius: var(--radius-sm);
-  border: 0.5px solid var(--border-mid);
+  /* --border-mid at 0.5px faded into the card next to the solid
+     Sign up button; --border-strong is defined per theme, so this
+     holds up on light as well. */
+  border: 1px solid var(--border-strong);
   background: none;
   color: var(--text-muted);
   font-family: var(--font-body); font-size: 13px; font-weight: 700;
@@ -4237,12 +4255,16 @@ body.glow::after {
   .page-cta__inner { grid-template-columns: 1fr; gap: 26px; }
 
   /* 35. Sponsors wall columns
-     The fixed 206px columns go back to fractions here: below 1200px
-     the container is narrower than the arithmetic that produced 206,
-     so a fixed width would overflow. */
+     Fixed 206px columns would overflow below 1200px, and fraction
+     columns hang an incomplete last row on the left. Centered flex
+     rows instead — the same treatment as the bronze tier — with the
+     card width doing the 3-per-row arithmetic (2 gaps of 18px). */
   .sp-col-row--track,
   .sp-col-row--special,
-  .sp-col-row--partner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sp-col-row--partner { display: flex; flex-wrap: wrap; justify-content: center; }
+  .sp-col-row--track   > .sp-col,
+  .sp-col-row--special > .sp-col,
+  .sp-col-row--partner > .sp-col { width: calc((100% - 36px) / 3); }
 
 }
 
@@ -4263,7 +4285,10 @@ body.glow::after {
   .ag-body { padding: 40px 16px 80px; }
   .ag-track-header,
   .ag-time-row        { grid-template-columns: 64px repeat(5, 1fr); gap: 6px; }
-  .ag-special-merged  { grid-template-columns: 64px 1fr; }
+  .ag-special-merged  { grid-template-columns: 64px 1fr; gap: 6px; }
+  /* Day 1 panels follow the same narrowed time column, otherwise they
+     keep the desktop 90px and fall out of line with the other rows. */
+  .ag-panel-row       { grid-template-columns: 64px 1fr; gap: 6px; }
   .ag-track-col-label { font-size: 9px; padding: 8px 6px; }
   .ag-session         { min-height: 80px; padding: 10px; }
   .ag-session-title   { font-size: 11px; }
@@ -4285,13 +4310,95 @@ body.glow::after {
   /* 5. Navigation */
   .site-nav     { padding: 0 20px; }
   .nav-links    { display: none; }
+  .nav-logo img { height: 40px; }
+  .nav-actions  { gap: 8px; }
   .theme-toggle { width: 32px; height: 32px; }
+
+  /* Burger button. Same footprint as the theme toggle beside it. */
+  .nav-burger {
+    display: inline-flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 4px;
+    width: 32px; height: 32px; flex-shrink: 0; padding: 0;
+    border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border-mid);
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+  }
+  .nav-burger span {
+    display: block; width: 15px; height: 2px; border-radius: 2px;
+    background: var(--text-secondary);
+    transition: transform 0.25s, opacity 0.2s;
+  }
+  /* 6px = span height (2) + gap (4), so the outer bars meet the middle */
+  body.nav-open .nav-burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  body.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+  body.nav-open .nav-burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  body.has-hero:not(.is-scrolled) .nav-burger {
+    background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.28);
+  }
+  body.has-hero:not(.is-scrolled) .nav-burger span { background: rgba(255,255,255,0.85); }
+
+  [data-theme="light"] .nav-burger { background: #FFFFFF; border: 1px solid var(--border-mid); }
+
+  /* Mobile menu panel, dropped from the bottom edge of the fixed bar */
+  .nav-mobile {
+    display: flex; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    padding: 4px 20px 12px;
+    background: rgba(5,5,15,0.97);
+    border-bottom: 0.5px solid var(--border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0; transform: translateY(-8px); pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  body.nav-open .nav-mobile { opacity: 1; transform: none; pointer-events: auto; }
+
+  .nav-mobile a {
+    display: flex; align-items: center; gap: 6px;
+    padding: 13px 2px;
+    font-family: var(--font-body); font-size: 15px; font-weight: 500;
+    color: var(--text-secondary);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile a:hover,
+  .nav-mobile a.active { color: var(--green); }
+
+  [data-theme="light"] .nav-mobile { background: rgba(255,255,255,0.97); }
+  [data-theme="light"] .nav-mobile a:hover,
+  [data-theme="light"] .nav-mobile a.active { color: var(--purple); }
+
+  /* The bar goes solid while the menu is open — including over an
+     unscrolled hero, where it is otherwise transparent — so the panel
+     never hangs from a see-through strip. Over the hero the bar stays
+     dark in both themes, matching the white logo and links there. */
+  body.nav-open .site-nav {
+    background: rgba(5,5,15,0.97);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  [data-theme="light"] body.nav-open .site-nav { background: rgba(255,255,255,0.97); }
+  body.has-hero.nav-open:not(.is-scrolled) .site-nav {
+    background: rgba(8,6,18,0.97);
+    border-bottom-color: var(--border);
+  }
+  body.has-hero:not(.is-scrolled) .nav-mobile { background: rgba(8,6,18,0.97); }
+  body.has-hero:not(.is-scrolled) .nav-mobile a { color: rgba(255,255,255,0.72); }
+  body.has-hero:not(.is-scrolled) .nav-mobile a:hover,
+  body.has-hero:not(.is-scrolled) .nav-mobile a.active { color: var(--green-bright); }
 
   /* 3. Typography */
   .section-title { font-size: 38px; }
 
   /* 8. Shared components */
-  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+  /* Five cards as 2 + 2 + 1: the fifth spans the full row, so its
+     centered text sits in the middle instead of hanging left. Odd
+     items keep their divider; row-end items drop theirs. */
+  .stats-bar       { padding: 40px 20px; }
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .stat-item:nth-child(even) { border-right: none; }
+  .stat-item:last-child      { grid-column: 1 / -1; }
 
   /* 10. Modals */
   .modal-box       { padding: 32px 22px; }
@@ -4332,9 +4439,12 @@ body.glow::after {
 
   /* 15. Tracks page */
   .tracks-list__head { padding: 40px 20px 0; }
-  .tracks-list       { padding: 0 20px 64px; gap: 20px; }
-  .tr-card__head     { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .tr-card__sponsor  { width: 110px; height: 42px; }
+  /* Top padding was 0, which glued the first card to the heading */
+  .tracks-list       { padding: 24px 20px 64px; gap: 20px; }
+  /* Stacked header: the sponsor slot stretches to the card width
+     instead of sitting as a small box shifted to the left. */
+  .tr-card__head     { flex-direction: column; align-items: stretch; gap: 16px; }
+  .tr-card__sponsor  { width: 100%; height: 42px; }
   .tr-card__name     { font-size: 18px; }
   .tr-card__body     { grid-template-columns: 1fr; }
   .tr-card__side     { background: none; border-left: none; border-top: 0.5px solid var(--border); padding-top: 18px; }
@@ -4380,7 +4490,16 @@ body.glow::after {
   .ag-track-header   { display: none; }
   .ag-time-row       { grid-template-columns: 1fr; }
   .ag-special-merged { grid-template-columns: 1fr; }
-  .ag-time-label     { display: none; }
+  .ag-panel-row      { grid-template-columns: 1fr; }
+  .ag-panel          { padding: 14px 16px; gap: 14px; }
+  /* The side time column is gone, so the label becomes a small header
+     above each stacked group instead of disappearing with it. */
+  .ag-time-label {
+    padding: 8px 0 0 2px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
   .ag-session        { min-height: 70px; }
 
   /* 15. Tracks page */
@@ -4415,11 +4534,13 @@ body.glow::after {
   .page-cta               { padding: 48px 20px; }
   .page-cta__actions .btn { width: 100%; justify-content: center; }
 
-  /* 35. Sponsors wall columns */
+  /* 35. Sponsors wall columns
+     Two per row; the flex + width pattern from the 1024 block keeps
+     an odd last card centered (1 gap of 14px). */
   .sp-col-row { gap: 14px; }
-  .sp-col-row--track,
-  .sp-col-row--special,
-  .sp-col-row--partner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-col-row--track   > .sp-col,
+  .sp-col-row--special > .sp-col,
+  .sp-col-row--partner > .sp-col { width: calc((100% - 14px) / 2); }
 
 .spk-popup { grid-template-columns: 1fr; max-height: 92vh; }
   .spk-popup-photo-col {
