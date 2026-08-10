@@ -68,6 +68,7 @@ var LAYOUT_CONFIG = {
        rather than implying the summit has a presence of its own.
        One list, used by both the footer and the home hero. */
     social: [
+      { key: "globe",   label: "BrainsMingle",              href: "https://brainsmingle.com", heroOnly: true },
       { key: "linkedin",  label: "BrainsMingle on LinkedIn",  href: "https://www.linkedin.com/company/brainsmingle/" },
       { key: "facebook",  label: "BrainsMingle on Facebook",  href: "https://www.facebook.com/brainsmingle" },
       { key: "instagram", label: "BrainsMingle on Instagram", href: "https://www.instagram.com/brainsmingle" },
@@ -465,6 +466,7 @@ function renderSiteHeader() {
    Pass "hero" for the larger variant on the home page. */
 function socialLinksHtml(variant) {
   var list = (LAYOUT_CONFIG.footer && LAYOUT_CONFIG.footer.social) || [];
+  if (variant !== "hero") list = list.filter(function (s) { return !s.heroOnly; });
   if (!list.length) return "";
   return '<div class="social-row' + (variant ? " social-row--" + variant : "") + '">' +
     list.map(function (s) {
