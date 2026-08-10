@@ -119,7 +119,7 @@ var LAYOUT_CONFIG = {
    wording before scripts run.
    ───────────────────────────────────────── */
 
-var REGISTRATION_MODE = "register";   // set as "waitlist" | "register"
+var REGISTRATION_MODE = "waitlist";   // set as "waitlist" | "register"
 
 var REGISTRATION_MODES = {
 
