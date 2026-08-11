@@ -1,5 +1,5 @@
 /**
- * speakers.js — AI Summit 2026
+ * speakers.js — AI Summit 2026 by BrainsMingle
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
  * Generated 2026-08-06 19:18 · 16 speakers.
