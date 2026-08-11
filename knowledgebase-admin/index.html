@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Knowledge Base — BrainsMingle Suite</title>
+    <title>BrainsMingle Help</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,18 +18,37 @@
 
     <!-- Hero -->
     <header class="hero">
-        <h1>Admin Knowledge Base</h1>
-        <p>Guides for managing your BrainsMingle Suite admin panel</p>
+        <h1>How can we help?</h1>
+        <p>Guides for managing your BrainsMingle admin panel</p>
         <div class="search-wrap">
             <i class="ti ti-search"></i>
-            <input type="text" class="search-input" placeholder="Search admin articles..." id="search-input" autocomplete="off">
+            <input type="text" class="search-input" placeholder="Search articles..." id="search-input" autocomplete="off">
             <div class="search-results" id="search-results"></div>
+        </div>
+        <div class="popular-tags" id="popular-tags">
+            <span class="popular-label">Popular:</span>
+            <button class="popular-tag" data-query="user">Users</button>
+            <button class="popular-tag" data-query="payment">Payment</button>
+            <button class="popular-tag" data-query="rooms">Rooms</button>
+            <button class="popular-tag" data-query="course">Course</button>
+            <button class="popular-tag" data-query="consultation">Consultation</button>
         </div>
     </header>
 
     <!-- Sections Grid (home view) -->
     <main class="sections" id="sections-home">
+        
+        <!-- section grid -->
         <div class="sections-grid" id="sections-grid"></div>
+        
+        <!-- search results -->
+        <div class="home-results" id="home-results" style="display:none;">
+            <div class="home-results-header">
+                <span id="home-results-count"></span>
+                <button class="home-results-clear" id="home-results-clear">Clear search</button>
+            </div>
+            <ul class="home-results-list" id="home-results-list"></ul>
+        </div>
     </main>
 
     <!-- Section Detail (drill-down view) -->
@@ -60,6 +79,15 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
 
+        // Section descriptions for homepage cards
+        const SECTION_DESCRIPTIONS = {
+            'users-activity': 'Manage registered users, edit profiles, change plans, and monitor host activity logs.',
+            'rooms-communities': 'Create and manage rooms, configure community settings, and organize your platform spaces.',
+            'payments-billing': 'Set up payment providers, manage transactions, and configure billing for your platform.',
+            'content-learning': 'Build courses, manage LMS settings, track analytics, and organize learning content.',
+            'platform-settings': 'Configure branding, fields of interest, integrations, and global platform preferences.'
+        };
+
         function countArticles(section) {
             return section.groups.reduce((sum, g) => sum + g.articles.length, 0);
         }
@@ -68,12 +96,13 @@
             grid.innerHTML = '';
             KB_SECTIONS.forEach((section, idx) => {
                 const count = countArticles(section);
+                const desc = SECTION_DESCRIPTIONS[section.id] || '';
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
           <div class="card-icon"><i class="ti ${section.icon}"></i></div>
           <div class="card-title">${section.title}</div>
-          <div class="card-count">${count} article${count !== 1 ? 's' : ''}</div>
+          <div class="card-desc">${desc}</div>
         `;
                 card.addEventListener('click', () => showDetail(idx));
                 grid.appendChild(card);
@@ -114,13 +143,19 @@
 
             homeView.style.display = 'none';
             detailView.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
         function showHome() {
             detailView.classList.remove('active');
             homeView.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
         document.getElementById('back-link').addEventListener('click', showHome);
@@ -156,10 +191,17 @@
 
         const searchIndex = buildSearchIndex();
 
+        const homeResults = document.getElementById('home-results');
+        const homeResultsList = document.getElementById('home-results-list');
+        const homeResultsCount = document.getElementById('home-results-count');
+
         searchInput.addEventListener('input', () => {
             const query = searchInput.value.trim().toLowerCase();
+            searchResults.classList.remove('active');
+
             if (query.length < 2) {
-                searchResults.classList.remove('active');
+                homeResults.style.display = 'none';
+                grid.style.display = '';
                 return;
             }
 
@@ -167,23 +209,37 @@
                 item.title.toLowerCase().includes(query) ||
                 item.section.toLowerCase().includes(query) ||
                 item.keywords.includes(query)
-            ).slice(0, 8);
+            );
+            
+            homeView.style.display = 'block';
+            detailView.classList.remove('active');
 
-            if (matches.length === 0) {
-                searchResults.innerHTML = `<div class="search-no-results">No articles found for "${searchInput.value.trim()}"</div>`;
-            } else {
-                searchResults.innerHTML = matches.map(m => `
-          <a class="search-result-item" href="${m.url}">
-            <i class="ti ${m.icon} result-icon"></i>
-            <div class="result-text">
-              <div class="result-title">${highlightMatch(m.title, query)}</div>
-              <div class="result-section">${m.section}</div>
-            </div>
-          </a>
-        `).join('');
-            }
+            grid.style.display = 'none';
+            homeResults.style.display = 'block';
 
-            searchResults.classList.add('active');
+            homeResultsCount.textContent = matches.length
+                ? `${matches.length} result${matches.length !== 1 ? 's' : ''} for "${searchInput.value.trim()}"`
+                : `No results for "${searchInput.value.trim()}"`;
+
+            homeResultsList.innerHTML = matches.map(m => `
+                <li class="article-item">
+                  <a href="${m.url}">
+                    <i class="ti ti-file-text"></i>
+                    <div class="home-result-text">
+                      <span>${m.title}</span>
+                      <small class="home-result-section">${m.section}</small>
+                    </div>
+                    <i class="ti ti-chevron-right"></i>
+                  </a>
+                </li>
+            `).join('');
+        });
+
+        document.getElementById('home-results-clear').addEventListener('click', () => {
+            searchInput.value = '';
+            homeResults.style.display = 'none';
+            grid.style.display = '';
+            searchInput.focus();
         });
 
         function highlightMatch(text, query) {
@@ -195,6 +251,15 @@
             if (!e.target.closest('.search-wrap')) {
                 searchResults.classList.remove('active');
             }
+        });
+
+        // Popular tags click → inject into search
+        document.querySelectorAll('.popular-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                searchInput.value = tag.dataset.query;
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.focus();
+            });
         });
 
         renderGrid();
