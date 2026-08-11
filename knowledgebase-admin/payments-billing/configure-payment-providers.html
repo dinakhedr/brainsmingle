@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure payment providers — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#payments-billing">Payments & Billing</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Configure payment providers</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Configure payment providers</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Connect and configure payment providers for your platform. BrainsMingle Suite supports Stripe and Paymob — set up credentials, register webhooks, and activate each provider to start accepting payments.</p>
+
+            <!-- Open the Payment Providers page -->
+            <section class="article-section">
+                <h2>Open the Payment Providers page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Payment Providers</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Payment Providers page displays a configuration card for each supported provider. Secret values are hidden — leave a secret field blank to keep its stored value.</p>
+
+                <figure class="article-img">
+                    <img src="../images/admin-menu-08-payment-providers-view.png" alt="The Payment Providers page showing configuration cards for Stripe and Paymob gateways, each with an Active checkbox, Title field, Webhook URL with copy button, required webhook events, and credential fields for API keys and secrets" />
+                    <figcaption>The Payment Providers page with Stripe and Paymob gateway configuration cards</figcaption>
+                </figure>
+            </section>
+
+
+            <!-- Configure Stripe -->
+            <section class="article-section">
+                <h2>Configure Stripe</h2>
+
+                <ol class="step-list">
+                    <li>Check the <strong>Active</strong> checkbox in the top-right corner of the Stripe card to enable it.</li>
+                    <li>Fill in the credentials:
+                        <ul class="option-list">
+                            <li><strong>secret_key</strong> — your Stripe secret key. This field is hidden once saved.</li>
+                            <li><strong>webhook_secret</strong> — the signing secret from your Stripe webhook endpoint (starts with whsec_). This field is hidden once saved.</li>
+                            <li><strong>publishable_key</strong> — your Stripe publishable key.</li>
+                        </ul>
+                    </li>
+                    <li>Copy the <strong>Webhook URL</strong> shown on the card and register it in your Stripe dashboard. This URL receives payment confirmations back to your platform.</li>
+                    <li>In your Stripe webhook settings, subscribe to the required events listed on the card:
+                        <ul class="option-list">
+                            <li><code>invoice.paid</code></li>
+                            <li><code>invoice.payment_failed</code></li>
+                            <li><code>customer.subscription.updated</code></li>
+                            <li><code>customer.subscription.deleted</code></li>
+                            <li><code>checkout.session.completed</code></li>
+                            <li><code>checkout.session.async_payment_succeeded</code></li>
+                        </ul>
+                    </li>
+                    <li>Paste the endpoint's signing secret (whsec_...) into the <strong>webhook_secret</strong> credential field.</li>
+                    <li>Click <strong>Save</strong> to apply.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/payment-provider-stripe.png" alt="The Stripe configuration card showing the Active checkbox, Title field, Webhook URL with a copy button, list of six required webhook events, and credential fields for secret_key, webhook_secret, and publishable_key" />
+                    <figcaption>The Stripe provider card with webhook URL, required events, and credential fields</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Configure Paymob -->
+            <section class="article-section">
+                <h2>Configure Paymob</h2>
+
+                <ol class="step-list">
+                    <li>Check the <strong>Active</strong> checkbox in the top-right corner of the Paymob card to enable it.</li>
+                    <li>Fill in the credentials:
+                        <ul class="option-list">
+                            <li><strong>api_key</strong> — your Paymob API key. This field is hidden once saved.</li>
+                            <li><strong>public_key</strong> — your Paymob public key.</li>
+                            <li><strong>secret_key</strong> — your Paymob secret key. This field is hidden once saved.</li>
+                            <li><strong>hmac</strong> — the HMAC secret for verifying webhook signatures. This field is hidden once saved.</li>
+                            <li><strong>base_url</strong> — the Paymob API base URL.</li>
+                            <li><strong>integration_id</strong> — your Paymob integration ID for card payments.</li>
+                            <li><strong>moto_integration_id</strong> — your Paymob MOTO integration ID.</li>
+                            <li><strong>iframe_id</strong> — the Paymob iframe ID for the payment form.</li>
+                            <li><strong>apple_pay_integration_id</strong> — your Apple Pay integration ID (if applicable).</li>
+                            <li><strong>currency</strong> — the payment currency code (e.g. EGP, USD).</li>
+                        </ul>
+                    </li>
+                    <li>Copy the <strong>Transaction webhook (callback)</strong> URL and register it in your Paymob dashboard as the transaction processed/response callback. The subscription webhook is attached automatically when plans are created.</li>
+                    <li>Click <strong>Save</strong> to apply.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/payment-provider-paymob.png" alt="The Paymob configuration card showing the Active checkbox, Title field, Transaction webhook callback URL, and credential fields for api_key, public_key, secret_key, hmac, base_url, integration_id, moto_integration_id, iframe_id, apple_pay_integration_id, and currency" />
+                    <figcaption>The Paymob provider card with webhook URL and credential fields</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
