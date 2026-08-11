@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure LMS settings — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#content-learning">Content & Learning</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Configure LMS settings</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Configure LMS settings</h1>
+            <p class="article-meta">Last updated: August 2026</p>
+
+            <p class="article-summary">Control how learners watch course videos in your Communities. These settings apply only to the LMS video player — event recordings and webinars are unaffected.</p>
+
+            <!-- Open the LMS Settings page -->
+            <section class="article-section">
+                <h2>Open the LMS Settings page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>LMS Settings</strong> in the left sidebar.</li>
+                </ol>
+
+            </section>
+            
+            <figure class="article-img">
+                    <img src="../images/admin-menu-14-lms-view.png" alt="The LMS Settings page showing the Restrict course video playback toggle disabled by default.">
+                    <figcaption>The LMS Settings page with restricted playback disabled by default.</figcaption>
+                </figure>
+
+            <!-- Restrict course video playback -->
+            <section class="article-section">
+                <h2>Restrict course video playback</h2>
+
+                <p>The <strong>Restrict course video playback</strong> toggle controls whether skipping restrictions are active across your Communities. When the toggle is on, learners in restricted courses cannot skip ahead in lesson videos and must watch each lesson in full before progressing.</p>
+
+                <p>Turn on the <strong>Restrict course video playback</strong> toggle to enable restrictions. When a course is restricted:</p>
+
+                <ul class="prereq-list">
+                    <li>Learners cannot fast-forward, change playback speed, or use the seek bar until they have watched the lesson video in full.</li>
+                    <li>The <strong>Mark Complete</strong> button stays disabled until the video is fully watched.</li>
+                    <li>Once a lesson is completed, seeking is unlocked on rewatch.</li>
+                    <li>A <strong>back 10 sec</strong> button remains available at all times for backward navigation.</li>
+                </ul>
+
+                <p>Turning the toggle off pauses restrictions everywhere without losing your course selections. Turn it back on and your previously selected courses are still restricted.</p>
+
+                <figure class="article-img">
+                    <img src="../images/lms-settings-enabled.png" alt="The LMS Settings page showing the Restrict course video playback toggle enabled and a description of the restriction behavior">
+                    <figcaption>The LMS Settings page with restricted playback enabled</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Choose which courses to restrict -->
+            <section class="article-section">
+                <h2>Choose which courses to restrict</h2>
+
+                <p>The <strong>Restricted courses</strong> section lets you pick exactly which courses enforce the skipping restriction. Courses left off play without restrictions.</p>
+
+                <ol class="step-list">
+                    <li>Scroll down to the <strong>Restricted courses</strong> section. A counter shows how many courses are currently restricted out of the total (for example, <em>2 of 31 courses restricted</em>).</li>
+                    <li>Use the <strong>Search communities</strong> field to find a specific community, or browse the list.</li>
+                    <li>Click a community name to expand it and see its courses.</li>
+                    <li>Toggle individual courses on or off. Each community also shows its own counter (for example, <em>2 of 8 courses restricted</em>).</li>
+                </ol>
+
+                <div class="callout callout-tip">
+    <i class="ti ti-bulb"></i>
+    <div>You can also use the <strong>Search courses</strong> field inside an expanded community to find a specific course quickly.</div>
+</div>
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
