@@ -63,8 +63,15 @@ const KB_KEYWORDS = {
   "quick call", "instant call", "drop-in", "start call", "go live",
   "ad hoc", "spontaneous", "join call"
 ],
+"live-sessions/create-polls-in-live-sessions.html": [
+    "poll", "polls", "create poll", "launch poll", "survey", "vote",
+    "multiple choice", "multi-select", "anonymous poll", "timed poll",
+    "poll results", "poll timer", "audience poll", "engagement",
+    "ready list", "save poll", "close poll", "end poll",
+    "poll options", "poll question", "live poll"
+],
 "live-sessions/use-the-video-call-toolbar.html": [
-  "toolbar", "mute", "unmute", "camera", "screen share", "mic",
+  "toolbar", "poll", "polls", "create poll", "mute", "unmute", "camera", "screen share", "mic",
   "controls", "raise hand", "emoji", "reactions", "chat",
   "record", "recording", "background", "blur", "leave call",
   "end call", "hang up"

@@ -173,6 +173,16 @@ related: [
     ]
 },
 {
+    title: "Create polls in live sessions",
+    url: "live-sessions/create-polls-in-live-sessions.html",
+    related: [
+        "live-sessions/use-the-video-call-toolbar.html",
+        "live-sessions/schedule-a-live-session.html",
+        "live-sessions/host-a-webinar.html",
+        "live-sessions/create-breakout-rooms.html"
+    ]
+},
+{
 title: "Use the video call toolbar",
 url: "live-sessions/use-the-video-call-toolbar.html",
 related: [

@@ -15,26 +15,39 @@
   /* ── 1. Top Nav ── */
   const nav = document.getElementById('kb-nav');
   if (nav) {
-    nav.outerHTML = `
-    <nav class="nav">
-      <a href="${base}index.html" class="nav-brand">
-        <img src="${base}logo.png" alt="BrainsMingle Suite" class="nav-logo">
-        <span class="nav-sep">/</span>
-        <span class="nav-label">Knowledge base</span>
-      </a>
-      ${!isRoot ? `<div class="nav-search-wrap" id="nav-search-wrap">
-        <i class="ti ti-search"></i>
-        <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search articles..." autocomplete="off">
-        <div class="nav-search-results" id="nav-search-results"></div>
-      </div>` : ''}
-      <div class="nav-links">
-        <a href="${base}index.html">All articles</a>
-        <a href="https://brainsmingle.com/" target="_blank" rel="noopener noreferrer" style="color: #6B3EF5;">BrainsMingle</a>
-      </div>
-      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
-        <i class="ti ti-menu-2"></i>
-      </button>
-    </nav>`;
+    if (isRoot) {
+      // Homepage: transparent nav, white logo, blends with hero
+      nav.outerHTML = `
+      <nav class="nav nav-transparent">
+        <a href="index.html" class="nav-brand">
+          <img src="kb-logo-white.png" alt="BrainsMingle" class="nav-logo">
+        </a>
+        <div class="nav-spacer"></div>
+        <a href="https://brainsmingle.com/" target="_blank" rel="noopener noreferrer" class="nav-bm-link" aria-label="Go to BrainsMingle">
+          <img src="icon-white.png" alt="BrainsMingle" class="nav-bm-icon">
+        </a>
+      </nav>`;
+    } else {
+      // Article pages: white nav, purple logo, search bar, BM icon
+      nav.outerHTML = `
+      <nav class="nav">
+        <a href="${base}index.html" class="nav-brand">
+          <img src="${base}kb-logo-purple.png" alt="BrainsMingle" class="nav-logo">
+        </a>
+        <div class="nav-search-wrap" id="nav-search-wrap">
+          <i class="ti ti-search"></i>
+          <input type="text" class="nav-search-input" id="nav-search-input" placeholder="Search articles..." autocomplete="off">
+          <div class="nav-search-results" id="nav-search-results"></div>
+        </div>
+        <div class="nav-spacer"></div>
+        <a href="https://brainsmingle.com/" target="_blank" rel="noopener noreferrer" class="nav-bm-link" aria-label="Go to BrainsMingle">
+          <img src="${base}icon-purple.png" alt="BrainsMingle" class="nav-bm-icon">
+        </a>
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
+          <i class="ti ti-menu-2"></i>
+        </button>
+      </nav>`;
+    }
   }
 
   /* ── 2. Footer ── */
@@ -69,6 +82,7 @@
   // Build sidebar HTML
   let sidebarHTML = '<aside class="kb-sidebar" id="kb-sidebar">\n';
   sidebarHTML += '<div class="sidebar-inner">\n';
+  sidebarHTML += '<button class="sidebar-collapse-btn" id="sidebar-collapse" aria-label="Collapse sidebar"><i class="ti ti-arrow-bar-left"></i></button>\n';
 
   KB_SECTIONS.forEach(section => {
     const isCurrentSection = section.id === currentSectionId;
@@ -110,6 +124,14 @@
   overlay.id = 'sidebar-overlay';
   document.body.appendChild(overlay);
 
+  // Expand button (visible only when sidebar is collapsed)
+  const expandBtn = document.createElement('button');
+  expandBtn.className = 'sidebar-expand-btn';
+  expandBtn.id = 'sidebar-expand';
+  expandBtn.setAttribute('aria-label', 'Expand sidebar');
+  expandBtn.innerHTML = '<i class="ti ti-menu-2"></i>';
+  layout.insertBefore(expandBtn, layout.firstChild);
+
   /* ── 4. Sidebar interactions ── */
 
   // Toggle sections
@@ -120,7 +142,7 @@
     });
   });
 
-  // Mobile toggle
+  // Mobile toggle (nav hamburger)
   const toggleBtn = document.getElementById('sidebar-toggle');
   const sidebar = document.getElementById('kb-sidebar');
 
@@ -138,6 +160,21 @@
     });
   }
 
+  // Desktop collapse / expand
+  const collapseBtn = document.getElementById('sidebar-collapse');
+  const expandBtnEl = document.getElementById('sidebar-expand');
+
+  if (collapseBtn) {
+    collapseBtn.addEventListener('click', () => {
+      layout.classList.add('sidebar-collapsed');
+    });
+  }
+  if (expandBtnEl) {
+    expandBtnEl.addEventListener('click', () => {
+      layout.classList.remove('sidebar-collapsed');
+    });
+  }
+
   // Scroll active article into view in sidebar
   const activeItem = sidebar ? sidebar.querySelector('.sidebar-article.active') : null;
   if (activeItem) {
@@ -145,7 +182,8 @@
       activeItem.scrollIntoView({ block: 'center', behavior: 'instant' });
     }, 50);
   }
-/* ── 5. Nav Search (article pages only) ── */
+
+  /* ── 5. Nav Search (article pages only) ── */
   const navSearchInput = document.getElementById('nav-search-input');
   const navSearchResults = document.getElementById('nav-search-results');
   if (!navSearchInput || typeof KB_SECTIONS === 'undefined') return;
