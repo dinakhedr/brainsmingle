@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage icebreaker questions — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#rooms-communities">Rooms & Communities</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage icebreaker questions</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage icebreaker questions</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Create and manage conversation starters that appear in speed networking rooms. Icebreaker questions help participants break the ice during 1-on-1 matchups. Changes go live within approximately 5 minutes.</p>
+
+            <!-- Open the Icebreakers page -->
+            <section class="article-section">
+                <h2>Open the Icebreakers page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Icebreakers</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Icebreakers page displays all questions organized by category. Category tabs at the top show the question count per category: <strong>all</strong>, <strong>professional</strong>, <strong>story</strong>, <strong>opinion</strong>, <strong>future</strong>, and <strong>fun</strong>. Click any tab to filter questions by that category.</p>
+
+                <figure class="article-img">
+                    <img src="../images/admin-menu-12-icebreakers-view.png" alt="The Icebreakers page showing the category tabs with zero questions in each category, a New question button in the top right, and a message reading No icebreaker questions yet" />
+                    <figcaption>The Icebreakers page before any questions have been added</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Add a new question -->
+            <section class="article-section">
+                <h2>Add a new question</h2>
+
+                <ol class="step-list">
+                    <li>Click <strong>+ New question</strong> in the top-right corner.</li>
+                    <li>Fill in the question details:
+                        <ul class="option-list">
+                            <li><strong>Code</strong> — a short unique identifier for the question (e.g. pro-1, fun-2).</li>
+                            <li><strong>Category</strong> — select a category from the dropdown: professional, story, opinion, future, or fun.</li>
+                            <li><strong>Order</strong> — a number that controls display order within the category (lower numbers appear first).</li>
+                            <li><strong>Question text</strong> — the conversation starter shown to participants.</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Create</strong> to save the question.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/icebreaker-new.png" alt="The New question form showing fields for code, a category dropdown set to professional, an order number field, a question text area, and a Create button" />
+                    <figcaption>The New question form with code, category, order, and question text fields</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- View and edit questions -->
+            <section class="article-section">
+                <h2>View and edit questions</h2>
+
+                <p>Once created, questions appear grouped by category with an uppercase category header and count (e.g. PROFESSIONAL (2)). Each question row is editable inline and shows:</p>
+
+                <ol class="step-list">
+                    <li>The question <strong>code</strong>, <strong>category</strong> dropdown, <strong>order</strong> number, and <strong>question text</strong> — all editable directly.</li>
+                    <li>Three action icons on the right:
+                        <ul class="option-list">
+                            <li><strong>Visibility toggle</strong> (eye icon) — show or hide the question in speed networking rooms. Green means visible.</li>
+                            <li><strong>Save</strong> (disk icon) — save any inline edits to the question.</li>
+                            <li><strong>Delete</strong> (trash icon) — permanently remove the question.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/icebreaker-list.png" alt="The Icebreakers page showing questions grouped by category with Professional having 2 questions, Story 1, Opinion 1, and Future 1, each with inline editable fields and visibility, save, and delete action icons" />
+                    <figcaption>Icebreaker questions grouped by category with inline editing and action icons</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>

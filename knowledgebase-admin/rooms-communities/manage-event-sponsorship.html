@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage event sponsorship — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#rooms-communities">Rooms &amp; Communities</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage event sponsorship</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage event sponsorship</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">Add sponsors to any room, configure their branding and call-to-action details, reuse sponsor records across events, and control where sponsor placements appear on the event details page and inside associated rooms.</p>
+
+            <!-- Open the Sponsorship dialog -->
+            <section class="article-section">
+                <h2>Open the Sponsorship dialog</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong> and click <strong>Rooms</strong> in the left sidebar.</li>
+                    <li>Find the room you want to manage and click the <strong>handshake icon</strong> in the room's Actions column.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-actions-sponsor.png" alt="Four action buttons with the handshake icon highlighted, indicating the Sponsorship action is selected">
+                    <figcaption>The Sponsorship button (handshake icon) highlighted in the Actions column</figcaption>
+                </figure>
+
+                <p>The Sponsorship dialog opens with two tabs: <strong>Sponsor Data</strong> and <strong>Placements</strong>.</p>
+            </section>
+
+            <!-- Sponsor Data tab -->
+            <section class="article-section">
+                <h2>Sponsor Data tab</h2>
+
+                <p>The Sponsor Data tab shows two sections:</p>
+
+                <ol class="step-list" style="list-style: none; padding-left: 0;">
+                    <li>
+                        <ul class="option-list">
+                            <li><strong>Reusable Sponsor Data</strong> — lists sponsors previously saved for other events. Once a sponsor is saved for one event, it becomes available here for reuse across events.</li>
+                            <li><strong>This Event Sponsors</strong> — lists sponsors currently assigned to this event, with a count of sponsor records and a <strong>+ New Sponsor</strong> button.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsors-dialog.png" alt="The Sponsorship dialog on the Sponsor Data tab showing the Reusable Sponsor Data section with no data yet and the This Event Sponsors section with 0 sponsor records and a New Sponsor button">
+                    <figcaption>The Sponsorship dialog before any sponsors have been added</figcaption>
+                </figure>
+            </section>
+
+            <!-- Add a new sponsor -->
+            <section class="article-section">
+                <h2>Add a new sponsor</h2>
+
+                <ol class="step-list">
+                    <li>Click <strong>+ New Sponsor</strong> in the This Event Sponsors section.</li>
+                    <li>Fill in the sponsor details:
+                        <ul class="option-list">
+                            <li><strong>Sponsor Title</strong> — the sponsor's display name.</li>
+                            <li><strong>Sponsor Type</strong> — select a tier from the dropdown (e.g. Gold, Silver, Bronze).</li>
+                            <li><strong>Description</strong> — a short description of the sponsor.</li>
+                            <li><strong>Sponsor Logo</strong> — a URL to the sponsor's logo image, or upload one.</li>
+                            <li><strong>Sponsor Card Image</strong> — a URL to the sponsor's card image, or upload one.</li>
+                            <li><strong>Sponsor Link</strong> — the URL visitors are directed to when they click the sponsor.</li>
+                            <li><strong>Button Title</strong> — the label on the sponsor's call-to-action button (e.g. "Learn More", "Visit IBM").</li>
+                            <li><strong>Card can be shown</strong> — check this box to make the sponsor card visible.</li>
+                            <li><strong>Display Order</strong> — a number that controls the order sponsors appear (lower numbers appear first).</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save Sponsor</strong> to create the record, or <strong>Cancel</strong> to discard.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsors-new.png" alt="The New Sponsor form with empty fields for Sponsor Title, Sponsor Type set to Silver, Description, Sponsor Logo URL, Sponsor Card Image URL, Sponsor Link, Button Title set to Learn More, Card can be shown checkbox checked, and Display Order set to 0">
+                    <figcaption>The New Sponsor form with all available fields</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsors-new-filled.png" alt="The New Sponsor form filled in with IBM as the Sponsor Title, a description, logo URLs showing the IBM logo preview, Sponsor Link set to ibm.com, and Button Title set to Visit IBM">
+                    <figcaption>A completed New Sponsor form with IBM as an example</figcaption>
+                </figure>
+
+                <p>After saving, the sponsor appears in the This Event Sponsors section with its logo, name, tier, status, and a <strong>Choose</strong> button. Click the <strong>delete icon</strong> to remove a sponsor.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsors-one-listed.png" alt="The Sponsorship dialog showing IBM saved as a sponsor record under This Event Sponsors with Silver tier and Active status, alongside a Choose button and a delete icon">
+                    <figcaption>A saved sponsor displayed in the This Event Sponsors section</figcaption>
+                </figure>
+
+                <p>You can add multiple sponsors to a single event. Each sponsor card shows its logo, name, tier, and status.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsors-multiple.png" alt="The Sponsorship dialog showing two sponsor records: IBM as Silver and Active, and Microsoft as Gold and Active, each with a Choose button and delete icon">
+                    <figcaption>Multiple sponsors assigned to the same event</figcaption>
+                </figure>
+            </section>
+
+            <!-- Placements tab -->
+            <section class="article-section">
+                <h2>Placements tab</h2>
+
+                <p>The Placements tab controls where sponsor cards appear on the platform. You must create at least one sponsor before placements become available.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsor-placement-empty.png" alt="The Placements tab showing a message that reads Create at least one sponsor card before enabling placements">
+                    <figcaption>The Placements tab before any sponsors have been created</figcaption>
+                </figure>
+
+                <p>Once sponsors are added, the Placements tab displays two sections — <strong>Event Details Page</strong> and <strong>Associated Rooms</strong> — each listing every sponsor with toggleable placement types:</p>
+
+                <table class="article-table two-col">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; width: 160px;">Placement type</th>
+                            <th style="text-align: left;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Logo Bar</strong></td>
+                            <td>Displays the sponsor logo in a horizontal bar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skyscraper</strong></td>
+                            <td>A tall vertical ad placement alongside content.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inline Compact</strong></td>
+                            <td>A small inline placement within the content area.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Header Logo</strong></td>
+                            <td>Displays the sponsor logo in the page header.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Floating Notification</strong></td>
+                            <td>A floating notification card that appears on screen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Native Card</strong></td>
+                            <td>A sponsor card styled to match the platform's native layout.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Banner Hero</strong></td>
+                            <td>A large banner placement in the hero section.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sidebar Tile</strong></td>
+                            <td>A tile placement in the sidebar area.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Message Strip</strong></td>
+                            <td>A horizontal message strip placement.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Click any placement type to toggle it on (highlighted in purple) or off for each sponsor in each section independently.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsor-placement.png" alt="The Placements tab showing the Event Details Page and Associated Rooms sections, with IBM and Microsoft listed as sponsors and various placement types toggled on in purple including Logo Bar, Banner Hero, Inline Compact, Floating Notification, Skyscraper, and Header Logo">
+                    <figcaption>The Placements tab with placement types toggled on per sponsor</figcaption>
+                </figure>
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>

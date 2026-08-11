@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage rooms — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#rooms-communities">Rooms & Communities</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage rooms</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage rooms</h1>
+            <p class="article-meta">Last updated: July 2026</p>
+
+            <p class="article-summary">View all rooms on your platform, search and filter by status or type, edit event details, manage sponsorship and ad placements, and review event members and attendees.</p>
+
+            <!-- Open the Rooms page -->
+            <section class="article-section">
+                <h2>Open the Rooms page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Rooms</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The Rooms Management page displays a table of all rooms with a total room count in the top-right corner. Each row shows the room owner's ID, avatar, name, username, contact email, plan, timezone, hosting status, join date, and action buttons.</p>
+
+                <figure class="article-img">
+                    <img src="../images/admin-menu-02-rooms-view.png" alt="The Rooms Management page showing a search bar, two filter dropdowns for Status and Types, total room count, and a table listing rooms with columns for ID, Avatar, User Info, Contact, Plan, Timezone, Status, Joined, and Actions" />
+                    <figcaption>The Rooms Management page with the room table and search controls</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Search and filter rooms -->
+            <section class="article-section">
+                <h2>Search and filter rooms</h2>
+
+                <ol class="step-list">
+                    <li>To find a specific room, type a title, description, or public ID into the search bar at the top of the page.</li>
+                    <li>To filter by status, click the <strong>All Status</strong> dropdown and select one:
+                        <ul class="option-list">
+                            <li><strong>All Status</strong> — shows every room regardless of status.</li>
+                            <li><strong>Live Now</strong> — shows only rooms that are currently in session.</li>
+                            <li><strong>Upcoming</strong> — shows only rooms scheduled for the future.</li>
+                            <li><strong>Past</strong> — shows only rooms that have already ended.</li>
+                        </ul>
+                    </li>
+                    <li>To filter by type, click the <strong>All Types</strong> dropdown and select one:
+                        <ul class="option-list">
+                            <li><strong>All Types</strong> — shows every room type.</li>
+                            <li><strong>Networking</strong> — shows only networking rooms.</li>
+                            <li><strong>Webinar</strong> — shows only webinar rooms.</li>
+                            <li><strong>Video Call</strong> — shows only video call rooms.</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Search</strong> to apply the filters.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-search.png" alt="The search bar with placeholder text Search by title, description, or public ID, followed by the All Status and All Types filter dropdowns and a Search button" />
+                    <figcaption>The search bar and filter controls at the top of the Rooms page</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-filter-status.png" alt="The Status filter dropdown expanded showing four options: All Status (selected), Live Now, Upcoming, and Past" />
+                    <figcaption>The Status filter dropdown with room status options</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-filter-type.png" alt="The Types filter dropdown expanded showing four options: All Types (selected), Networking, Webinar, and Video Call" />
+                    <figcaption>The Types filter dropdown with room type options</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Room actions -->
+            <section class="article-section">
+                <h2>Room actions</h2>
+
+                <p>Each room row has four action buttons in the <strong>Actions</strong> column:</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-actions.png" alt="Four action buttons shown as icons: a pencil for Edit Event, a handshake for Sponsorship, a group of people for Event Attendees, and a person with a checkmark for Event Members" />
+                    <figcaption>The four action buttons: Edit Event, Sponsorship, View Members, and View Attendees.</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Edit a room -->
+            <section class="article-section">
+                <h2>Edit a room</h2>
+
+                <ol class="step-list">
+                    <li>Click the <strong>pencil icon</strong> in the room's Actions column.</li>
+                    <li>In the Edit Event dialog, update any of the following fields:
+                        <ul class="option-list">
+                            <li><strong>Title</strong> — the event name displayed to participants.</li>
+                            <li><strong>Description</strong> — a summary of the event topic or agenda.</li>
+                            <li><strong>Date &amp; Time</strong> — the scheduled start date and time.</li>
+                            <li><strong>Timezone</strong> — the timezone for the event (e.g. Africa/Cairo).</li>
+                            <li><strong>Duration (minutes)</strong> — the planned length of the event in minutes.</li>
+                        </ul>
+                    </li>
+                    <li>Under <strong>Event Settings</strong>, toggle <strong>Discoverable (Public)</strong> to control whether the event appears in public discovery.</li>
+                    <li>Click <strong>Save Changes</strong> to apply, or <strong>Cancel</strong> to discard.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-actions-edit.png" alt="Four action buttons with the pencil icon highlighted, indicating the Edit Event action is selected" />
+                    <figcaption>The Edit Event button (pencil icon) highlighted in the Actions column</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-edit.png" alt="The Edit Event dialog showing fields for Title, Description, Date and Time, Timezone, Duration in minutes, and an Event Settings section with a Discoverable (Public) checkbox" />
+                    <figcaption>The Edit Event dialog with editable event fields and visibility settings</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Manage sponsorship -->
+            <section class="article-section">
+                <h2>Manage sponsorship</h2>
+
+                <p>Click the <strong>handshake icon</strong> in the room's Actions column to open the Sponsorship dialog. The dialog has two tabs: <strong>Sponsor Data</strong> and <strong>Placements</strong>.</p>
+
+                <!-- Sponsor Data tab -->
+                <h2>Sponsor Data tab</h2>
+
+                <p>The Sponsor Data tab shows two sections:</p>
+
+                <ul class="option-list">
+                    <li><strong>Reusable Sponsor Data</strong> — lists sponsors previously saved for other events. Once a sponsor is saved for one event, it becomes available here for reuse across events.</li>
+                    <li><strong>This Event Sponsors</strong> — lists sponsors currently assigned to this event, with a count of sponsor records and a <strong>+ New Sponsor</strong> button.</li>
+                </ul>
+                <figure class="article-img">
+                    <img src="../images/rooms-actions-sponsor.png" alt="Four action buttons with the handshake icon highlighted, indicating the Sponsorship action is selected" />
+                    <figcaption>The Sponsorship button (handshake icon) highlighted in the Actions column</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_01.png" alt="The Sponsorship dialog on the Sponsor Data tab showing the Reusable Sponsor Data section with no data yet and the This Event Sponsors section with 0 sponsor records and a New Sponsor button" />
+                    <figcaption>The Sponsorship dialog before any sponsors have been added</figcaption>
+                </figure>
+
+                <!-- Add a new sponsor -->
+                <h2>Add a new sponsor</h2>
+
+                <ol class="step-list">
+                    <li>Click <strong>+ New Sponsor</strong> in the This Event Sponsors section.</li>
+                    <li>Fill in the sponsor details:
+                        <ul class="option-list">
+                            <li><strong>Sponsor Title</strong> — the sponsor's display name.</li>
+                            <li><strong>Sponsor Type</strong> — select a tier from the dropdown (e.g. Gold, Silver, Bronze).</li>
+                            <li><strong>Description</strong> — a short description of the sponsor.</li>
+                            <li><strong>Sponsor Logo</strong> — a URL to the sponsor's logo image, or upload one.</li>
+                            <li><strong>Sponsor Card Image</strong> — a URL to the sponsor's card image, or upload one.</li>
+                            <li><strong>Sponsor Link</strong> — the URL visitors are directed to when they click the sponsor.</li>
+                            <li><strong>Button Title</strong> — the label on the sponsor's call-to-action button (e.g. "Learn More", "Visit IBM").</li>
+                            <li><strong>Card can be shown</strong> — check this box to make the sponsor card visible.</li>
+                            <li><strong>Display Order</strong> — a number that controls the order sponsors appear (lower numbers appear first).</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save Sponsor</strong> to create the record, or <strong>Cancel</strong> to discard.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_02.png" alt="The New Sponsor form with empty fields for Sponsor Title, Sponsor Type set to Silver, Description, Sponsor Logo URL, Sponsor Card Image URL, Sponsor Link, Button Title set to Learn More, Card can be shown checkbox checked, and Display Order set to 0" />
+                    <figcaption>The New Sponsor form with all available fields</figcaption>
+                </figure>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_03.png" alt="The New Sponsor form filled in with IBM as the Sponsor Title, a description, logo URLs showing the IBM logo preview, Sponsor Link set to ibm.com, and Button Title set to Visit IBM" />
+                    <figcaption>A completed New Sponsor form with IBM as an example</figcaption>
+                </figure>
+
+                <p>After saving, the sponsor appears in the This Event Sponsors section with its logo, name, tier, status, and a <strong>Choose</strong> button. Click the <strong>delete icon</strong> to remove a sponsor.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_04.png" alt="The Sponsorship dialog showing IBM saved as a sponsor record under This Event Sponsors with Silver tier and Active status, alongside a Choose button and a delete icon" />
+                    <figcaption>A saved sponsor displayed in the This Event Sponsors section</figcaption>
+                </figure>
+
+                <p>You can add multiple sponsors to a single event. Each sponsor card shows its logo, name, tier, and status.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_05.png" alt="The Sponsorship dialog showing two sponsor records: IBM as Silver and Active, and Microsoft as Gold and Active, each with a Choose button and delete icon" />
+                    <figcaption>Multiple sponsors assigned to the same event</figcaption>
+                </figure>
+
+                <!-- Placements tab -->
+                <h2>Placements tab</h2>
+
+                <p>The Placements tab controls where sponsor cards appear on the platform. You must create at least one sponsor before placements become available.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms_sponsorship_06.png" alt="The Placements tab showing a message that reads Create at least one sponsor card before enabling placements" />
+                    <figcaption>The Placements tab before any sponsors have been created</figcaption>
+                </figure>
+
+                <p>Once sponsors are added, the Placements tab displays two sections — <strong>Event Details Page</strong> and <strong>Associated Rooms</strong> — each listing every sponsor with toggleable placement types:</p>
+
+                <table class="article-table two-col">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; width: 160px;">Placement type</th>
+                            <th style="text-align: left;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Logo Bar</strong></td>
+                            <td>Displays the sponsor logo in a horizontal bar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skyscraper</strong></td>
+                            <td>A tall vertical ad placement alongside content.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inline Compact</strong></td>
+                            <td>A small inline placement within the content area.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Header Logo</strong></td>
+                            <td>Displays the sponsor logo in the page header.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Floating Notification</strong></td>
+                            <td>A floating notification card that appears on screen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Native Card</strong></td>
+                            <td>A sponsor card styled to match the platform's native layout.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Banner Hero</strong></td>
+                            <td>A large banner placement in the hero section.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sidebar Tile</strong></td>
+                            <td>A tile placement in the sidebar area.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Message Strip</strong></td>
+                            <td>A horizontal message strip placement.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Click any placement type to toggle it on (highlighted in purple) or off for each sponsor in each section independently.</p>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-sponsor-placement.png" alt="The Placements tab showing the Event Details Page and Associated Rooms sections, with IBM and Microsoft listed as sponsors and various placement types toggled on in purple including Logo Bar, Banner Hero, Inline Compact, Floating Notification, Skyscraper, and Header Logo" />
+                    <figcaption>The Placements tab with placement types toggled on per sponsor</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- View event members -->
+            <section class="article-section">
+                <h2>View event members</h2>
+
+                <ol class="step-list">
+                    <li>Click the <strong>group-of-people icon</strong> in the room's Actions column.</li>
+                    <li>The Event Members dialog displays summary counts at the top:
+                        <ul class="option-list">
+                            <li><strong>Total</strong> — the total number of members.</li>
+                            <li><strong>Approved</strong> — the number of approved members (highlighted in green).</li>
+                            <li><strong>Waitlisted</strong> — the number of waitlisted members.</li>
+                        </ul>
+                    </li>
+                    <li>Use the tab bar to filter the list by <strong>All</strong>, <strong>Approved</strong>, or <strong>Waitlisted</strong>.</li>
+                    <li>Each member row shows the user's avatar, name, approval status badge, email, and user ID.</li>
+                    <li>Click <strong>Close</strong> to dismiss the dialog.</li>
+                </ol>
+
+                <figure class="article-img">
+                    <img src="../images/rooms-actions-members.png" alt="Four action buttons with the group-of-people icon highlighted, indicating the Event Members action is selected" />
+                    <figcaption>The Event Members button (group-of-people icon) highlighted in the Actions column</figcaption>
+                </figure>
+                <figure class="article-img">
+                    <img src="../images/rooms-members.png" alt="The Event Members dialog showing 20 Total, 20 Approved, and 0 Waitlisted at the top, with tabs for All, Approved, and Waitlisted, and a list of members with names, Approved badges, emails, and IDs" />
+                    <figcaption>The Event Members dialog showing approved members with summary counts</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- View event attendees -->
+            <section class="article-section">
+                <h2>View event attendees</h2>
+
+                <ol class="step-list">
+                    <li>Click the <strong>person-with-checkmark icon</strong> in the room's Actions column.</li>
+                    <li>The Event Attendees dialog displays the actual attendee count in the header and lists each person who joined the session. Each attendee row shows:
+                        <ul class="option-list">
+                            <li>The attendee's avatar, name, and email.</li>
+                            <li><strong>Joined</strong> — the date and time the attendee entered the room.</li>
+                            <li><strong>Left</strong> — the date and time the attendee exited the room.</li>
+                            <li><strong>Duration</strong> — the total time spent in the room.</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Close</strong> to dismiss the dialog.</li>
+                </ol>
+                <figure class="article-img">
+                    <img src="../images/rooms-actions-attendees.png" alt="Four action buttons with the person-with-checkmark icon highlighted, indicating the Event Attendees action is selected" />
+                    <figcaption>The Event Attendees button (person-with-checkmark icon) highlighted in the Actions column</figcaption>
+                </figure>
+                <figure class="article-img">
+                    <img src="../images/rooms-attendees.png" alt="The Event Attendees dialog showing the actual attendee count in the header and a list of four attendees with their avatars, names, emails, join times, leave times, and session durations" />
+                    <figcaption>The Event Attendees dialog showing individual join and leave times</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        // Find current article and render related links
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
