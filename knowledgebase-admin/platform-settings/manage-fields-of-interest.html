@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage fields of interest — BrainsMingle Suite Admin Knowledge Base</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <div id="kb-nav"></div>
+
+    <!-- Article -->
+    <main class="article-page">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Knowledge base</a>
+            <i class="ti ti-chevron-right"></i>
+            <a href="../index.html#platform-settings">Platform Settings</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>Manage fields of interest</span>
+        </nav>
+
+        <article class="article">
+
+            <h1>Manage fields of interest</h1>
+            <p class="article-meta">Last updated: August 2026</p>
+
+            <p class="article-summary">Manage the category list of professional interests and review user-submitted entries. Users select from these categories on their profiles to indicate their areas of expertise or focus.</p>
+
+            <!-- Open the Fields of interest page -->
+            <section class="article-section">
+                <h2>Open the Fields of interest page</h2>
+
+                <ol class="step-list">
+                    <li>Open the <strong>Admin Panel</strong>.</li>
+                    <li>Click <strong>Interests</strong> in the left sidebar.</li>
+                </ol>
+
+                <p>The page has two tabs: <strong>Categories</strong> and <strong>Review queue</strong>.</p>
+
+                <figure class="article-img">
+                    <img src="../images/admin-menu-13-interests-view.png" alt="The Admin Panel sidebar with the Interests menu item highlighted, showing the Fields of interest page with the Categories tab open">
+                    <figcaption>The Interests page in the Admin Panel sidebar</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Manage categories -->
+            <section class="article-section">
+                <h2>Manage categories</h2>
+
+                <p>The <strong>Categories</strong> tab shows all interest categories available on your platform. A counter at the top displays the total number of categories.</p>
+
+                <h3>Add a category</h3>
+
+                <ol class="step-list">
+                    <li>Click <strong>+ Add category</strong> in the top-right corner.</li>
+                    <li>Type the category name in the text field.</li>
+                    <li>Click <strong>Save</strong> to confirm.</li>
+                </ol>
+
+                <h3>Rename a category</h3>
+
+                <ol class="step-list">
+                    <li>Click the category name field to edit it inline.</li>
+                    <li>Update the name.</li>
+                    <li>Click <strong>Save</strong> to apply.</li>
+                </ol>
+
+                <h3>Reorder categories</h3>
+
+                <p>Use the <strong>up</strong> and <strong>down arrows</strong> on the left side of each category row to change its display order.</p>
+
+                <h3>Delete a category</h3>
+
+                <p>Click the <strong>delete icon</strong> on the right side of the category row to remove it.</p>
+
+                <div class="callout callout-tip">
+    <i class="ti ti-bulb"></i>
+    <div>Each category shows an <strong>Active</strong> status badge. Only active ones are visible to users on their profiles.</div>
+</div>
+
+                <figure class="article-img">
+                    <img src="../images/interests-list.png" alt="The Categories tab showing a list of interest categories with reorder arrows, editable name fields, Active badges, Save buttons, and delete icons">
+                    <figcaption>The Categories tab with existing interest categories</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Review user-submitted entries -->
+            <section class="article-section">
+                <h2>Review user-submitted entries</h2>
+
+                <p>When users type a custom interest that does not match an existing category, it is sent to the <strong>Review queue</strong> for admin approval. The tab badge shows the number of pending entries.</p>
+
+                <p>Each entry displays the submitted category name, the username of the submitter, and the submission date and time.</p>
+
+                <ol class="step-list">
+                    <li>Click the <strong>Review queue</strong> tab.</li>
+                    <li>Review each submitted entry.</li>
+                    <li>Click <strong>Approve</strong> to add the entry as a new category, or click <strong>Reject</strong> to discard it.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+    <i class="ti ti-bulb"></i>
+    <div>Duplicate submissions from different users appear as separate entries. Review each one individually.</div>
+</div>
+
+                <figure class="article-img">
+                    <img src="../images/interests-user-requests.png" alt="The Review queue tab showing user-submitted interest entries with submitter usernames, timestamps, and Approve and Reject buttons">
+                    <figcaption>The Review queue with pending user-submitted interests</figcaption>
+                </figure>
+
+            </section>
+
+            <!-- Related articles -->
+            <section class="article-section related-articles">
+                <h2>Related articles</h2>
+                <ul id="related-list"></ul>
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="../kb-data.js"></script>
+    <script src="../kb-keywords.js"></script>
+    <script>
+        const currentPath = location.pathname.split('/').slice(-2).join('/');
+        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
+        const current = allArticles.find(a => a.url === currentPath);
+
+        if (current && current.related) {
+            const list = document.getElementById('related-list');
+            current.related.forEach(url => {
+                const match = allArticles.find(a => a.url === url);
+                if (match) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
+                    list.appendChild(li);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <div id="kb-footer"></div>
+    <script src="../kb-nav.js"></script>
+
+</body>
+
+</html>
