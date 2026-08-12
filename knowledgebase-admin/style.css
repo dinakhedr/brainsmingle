@@ -167,7 +167,7 @@ body {
  background:
   linear-gradient(90deg, #080612E0 0%, #08061299 50%, #0806122E 100%),
   linear-gradient(135deg, #4A3F6B 0%, #6B3EF5 45%, #2A2740 100%);
-  text-align: left;
+  text-align: center;
   padding: 100px 40px 52px;
 }
 .hero h1 {
@@ -186,7 +186,7 @@ body {
 
 .search-wrap {
   max-width: 520px;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
 }
 .search-wrap .ti-search {
@@ -221,6 +221,7 @@ body {
 .popular-tags {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-top: 16px;
 }
