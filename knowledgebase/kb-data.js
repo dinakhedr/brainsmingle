@@ -12,41 +12,28 @@ title: "Manage your profile settings",
 url: "getting-started/manage-your-profile-settings.html",
 related: [
 "getting-started/send-direct-messages.html",
-"getting-started/understand-roles-and-permissions.html",
-"consultation/manage-your-profile-and-earnings.html",
 "getting-started/view-your-profile.html",
 "payments/create-and-manage-coupons.html"
 ]
 },
 {
-    title: "View your profile",
-    url: "getting-started/view-your-profile.html",
-    related: [
-        "getting-started/manage-your-profile-settings.html",
-        "payments/track-your-earnings.html",
-        "payments/create-and-manage-coupons.html",
-        "consultation/set-up-consultation-services.html"
-    ]
+title: "View your profile",
+url: "getting-started/view-your-profile.html",
+related: [
+"getting-started/manage-your-profile-settings.html",
+"payments/track-your-earnings.html",
+"payments/create-and-manage-coupons.html",
+"consultation/set-up-consultation-services.html"
+]
 },
 {
 title: "Send direct messages",
 url: "getting-started/send-direct-messages.html",
 related: [
 "getting-started/manage-your-profile-settings.html",
-"speed-networking/view-the-post-event-connection-summary.html",
 "getting-started/view-your-profile.html"
 ]
 },
-{
-title: "Understand roles and permissions",
-url: "getting-started/understand-roles-and-permissions.html",
-related: [
-"getting-started/manage-your-profile-settings.html",
-"getting-started/view-your-profile.html",
-"communities/set-up-your-community.html",
-"payments/create-and-manage-coupons.html"
-]
-}
 ]
 }
 ]
@@ -63,51 +50,59 @@ articles: [
 title: "Create a community",
 url: "communities/create-a-community.html",
 related: [
-"communities/set-up-your-community.html",
-"communities/manage-community-members.html",
+"communities/manage-a-community.html",
+"communities/manage-community-rooms.html",
 "payments/set-up-paid-membership.html",
 "live-sessions/schedule-a-live-session.html"
 ]
 },
 {
-title: "Set up your community",
-url: "communities/set-up-your-community.html",
+title: "Manage a community",
+url: "communities/manage-a-community.html",
 related: [
 "communities/create-a-community.html",
-"communities/manage-community-members.html",
-"getting-started/understand-roles-and-permissions.html",
+"communities/manage-community-rooms.html",
 "live-sessions/schedule-a-live-session.html",
-"speed-networking/create-a-speed-networking-room.html",
-"communities/customize-navigation-tabs-in-community.html",
+"speed-networking/create-a-speed-networking-room.html"
+]
+},
+{
+title: "Manage community rooms",
+url: "communities/manage-community-rooms.html",
+related: [
+"communities/manage-a-community.html",
+"communities/manage-community-navigation.html",
+"live-sessions/schedule-a-live-session.html",
+"speed-networking/create-a-speed-networking-room.html"
 ]
 },
 {
 title: "Manage community members",
 url: "communities/manage-community-members.html",
 related: [
-"communities/set-up-your-community.html",
+"communities/manage-a-community.html",
 "communities/create-a-community.html",
-"getting-started/understand-roles-and-permissions.html",
-"communities/customize-navigation-tabs-in-community.html",
+"communities/manage-community-navigation.html"
 ]
 },
 {
-  title: "Manage channels in community",
-  url: "communities/manage-channels-in-community.html",
-  related: [
-    "communities/set-up-your-community.html",
-    "communities/customize-navigation-tabs-in-community.html",
-    "getting-started/understand-roles-and-permissions.html"
-  ]
+title: "Manage community channels",
+url: "communities/manage-community-channels.html",
+related: [
+"communities/manage-a-community.html",
+"communities/manage-community-navigation.html",
+"communities/manage-community-members.html"
+]
 },
 {
-  title: "Customize navigation tabs",
-  url: "communities/customize-navigation-tabs-in-community.html",
-  related: [
-    "communities/set-up-your-community.html",
-    "communities/manage-channels-in-community.html",
-    "communities/manage-community-members.html"
-  ]
+title: "Manage community navigation",
+url: "communities/manage-community-navigation.html",
+related: [
+"communities/manage-a-community.html",
+"communities/manage-community-channels.html",
+"communities/manage-community-rooms.html",
+"communities/manage-community-members.html"
+]
 }
 ]
 }
@@ -125,31 +120,47 @@ articles: [
 title: "Schedule a live session",
 url: "live-sessions/schedule-a-live-session.html",
 related: [
+"live-sessions/manage-a-live-room.html",
 "live-sessions/start-an-instant-drop-in-call.html",
 "live-sessions/use-the-video-call-toolbar.html",
-"live-sessions/set-up-a-recurring-session.html",
-"forms/create-a-registration-form.html",
-"live-sessions/host-a-webinar.html"
+"live-sessions/host-a-webinar.html",
+"live-sessions/manage-recordings.html",
+"forms/create-a-registration-form.html"
 ]
 },
 {
 title: "Start an instant drop-in call",
 url: "live-sessions/start-an-instant-drop-in-call.html",
 related: [
+"live-sessions/manage-a-live-room.html",
 "live-sessions/schedule-a-live-session.html",
 "live-sessions/use-the-video-call-toolbar.html",
 "live-sessions/create-breakout-rooms.html",
-"live-sessions/host-a-webinar.html"
+"live-sessions/manage-recordings.html",
+"live-sessions/delete-a-room-or-recording.html"
 ]
 },
 {
-    title: "Host a webinar",
-    url: "live-sessions/host-a-webinar.html",
-    related: [
-        "live-sessions/schedule-a-live-session.html",
-        "live-sessions/use-the-video-call-toolbar.html",
-        "live-sessions/create-breakout-rooms.html"
-    ]
+title: "Host a webinar",
+url: "live-sessions/host-a-webinar.html",
+related: [
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/create-breakout-rooms.html",
+"live-sessions/manage-recordings.html",
+"live-sessions/delete-a-room-or-recording.html"
+]
+},
+{
+title: "Manage a live room",
+url: "live-sessions/manage-a-live-room.html",
+related: [
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/use-the-video-call-toolbar.html",
+"live-sessions/manage-recordings.html",
+"live-sessions/delete-a-room-or-recording.html",
+"live-sessions/create-breakout-rooms.html"
+]
 },
 {
 title: "Set up a recurring session",
@@ -157,39 +168,62 @@ url: "live-sessions/set-up-a-recurring-session.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
 "speed-networking/set-up-a-recurring-speed-networking-room.html",
-"live-sessions/create-breakout-rooms.html",
 "live-sessions/start-an-instant-drop-in-call.html",
 "live-sessions/host-a-webinar.html"
 ]
 },
 {
-    title: "Create breakout rooms",
-    url: "live-sessions/create-breakout-rooms.html",
-    related: [
-        "live-sessions/use-the-video-call-toolbar.html",
-        "live-sessions/schedule-a-live-session.html",
-        "live-sessions/start-an-instant-drop-in-call.html",
-        "live-sessions/host-a-webinar.html"
-    ]
+title: "Create breakout rooms",
+url: "live-sessions/create-breakout-rooms.html",
+related: [
+"live-sessions/use-the-video-call-toolbar.html",
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/host-a-webinar.html"
+]
 },
 {
-    title: "Create polls in live sessions",
-    url: "live-sessions/create-polls-in-live-sessions.html",
-    related: [
-        "live-sessions/use-the-video-call-toolbar.html",
-        "live-sessions/schedule-a-live-session.html",
-        "live-sessions/host-a-webinar.html",
-        "live-sessions/create-breakout-rooms.html"
-    ]
+title: "Create polls in live sessions",
+url: "live-sessions/create-polls-in-live-sessions.html",
+related: [
+"live-sessions/use-the-video-call-toolbar.html",
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/host-a-webinar.html",
+"live-sessions/create-breakout-rooms.html"
+]
+},
+{
+title: "Manage recordings",
+url: "live-sessions/manage-recordings.html",
+related: [
+"live-sessions/delete-a-room-or-recording.html",
+"live-sessions/manage-a-live-room.html",
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/host-a-webinar.html"
+]
+},
+{
+title: "Delete a room or recording",
+url: "live-sessions/delete-a-room-or-recording.html",
+related: [
+"live-sessions/manage-recordings.html",
+"live-sessions/manage-a-live-room.html",
+"live-sessions/schedule-a-live-session.html",
+"live-sessions/start-an-instant-drop-in-call.html",
+"live-sessions/host-a-webinar.html"
+]
 },
 {
 title: "Use the video call toolbar",
 url: "live-sessions/use-the-video-call-toolbar.html",
 related: [
+"live-sessions/manage-a-live-room.html",
 "live-sessions/schedule-a-live-session.html",
 "live-sessions/start-an-instant-drop-in-call.html",
 "live-sessions/create-breakout-rooms.html",
-"live-sessions/host-a-webinar.html"
+"live-sessions/host-a-webinar.html",
+"live-sessions/manage-recordings.html"
 ]
 }
 ]
@@ -210,6 +244,7 @@ url: "speed-networking/create-a-speed-networking-room.html",
 related: [
 "speed-networking/manage-a-speed-networking-room.html",
 "speed-networking/set-up-a-recurring-speed-networking-room.html",
+"communities/manage-community-rooms.html",
 "forms/create-a-registration-form.html"
 ]
 },
@@ -218,7 +253,6 @@ title: "Manage a speed networking room",
 url: "speed-networking/manage-a-speed-networking-room.html",
 related: [
 "speed-networking/create-a-speed-networking-room.html",
-"speed-networking/view-the-post-event-connection-summary.html",
 "forms/view-and-export-form-responses.html"
 ]
 },
@@ -230,15 +264,6 @@ related: [
 "live-sessions/set-up-a-recurring-session.html"
 ]
 },
-{
-title: "View the post-event connection summary",
-url: "speed-networking/view-the-post-event-connection-summary.html",
-related: [
-"speed-networking/manage-a-speed-networking-room.html",
-"speed-networking/create-a-speed-networking-room.html",
-"getting-started/send-direct-messages.html"
-]
-}
 ]
 }
 ]
@@ -256,16 +281,6 @@ title: "Set up consultation services",
 url: "consultation/set-up-consultation-services.html",
 related: [
 "consultation/manage-consultation-requests-and-bookings.html",
-"consultation/manage-your-profile-and-earnings.html",
-"payments/connect-stripe-and-receive-payouts.html"
-]
-},
-{
-title: "Manage your profile and earnings",
-url: "consultation/manage-your-profile-and-earnings.html",
-related: [
-"consultation/set-up-consultation-services.html",
-"consultation/manage-consultation-requests-and-bookings.html",
 "payments/connect-stripe-and-receive-payouts.html",
 "payments/track-your-earnings.html"
 ]
@@ -275,7 +290,7 @@ title: "Manage consultation requests and bookings",
 url: "consultation/manage-consultation-requests-and-bookings.html",
 related: [
 "consultation/set-up-consultation-services.html",
-"consultation/manage-your-profile-and-earnings.html",
+"payments/track-your-earnings.html",
 "payments/connect-stripe-and-receive-payouts.html"
 ]
 }
@@ -292,28 +307,28 @@ groups: [
 label: null,
 articles: [
 {
-title: "Create a program with courses and lessons",
-url: "courses/create-a-program-with-courses-and-lessons.html",
+title: "Create programs, courses and lessons",
+url: "courses/create-programs-courses-and-lessons.html",
 related: [
 "courses/set-up-certification.html",
 "courses/view-course-analytics.html",
-"communities/set-up-your-community.html"
+"communities/manage-a-community.html"
 ]
 },
 {
 title: "Set up certification",
 url: "courses/set-up-certification.html",
 related: [
-"courses/create-a-program-with-courses-and-lessons.html",
+"courses/create-programs-courses-and-lessons.html",
 "courses/view-course-analytics.html",
-"communities/set-up-your-community.html"
+"communities/manage-a-community.html"
 ]
 },
 {
 title: "View course analytics",
 url: "courses/view-course-analytics.html",
 related: [
-"courses/create-a-program-with-courses-and-lessons.html",
+"courses/create-programs-courses-and-lessons.html",
 "courses/set-up-certification.html"
 ]
 }
@@ -363,8 +378,9 @@ title: "Connect Stripe and receive payouts",
 url: "payments/connect-stripe-and-receive-payouts.html",
 related: [
 "payments/track-your-earnings.html",
-"consultation/manage-your-profile-and-earnings.html",
-"payments/create-and-manage-coupons.html"
+"payments/create-and-manage-coupons.html",
+"payments/set-up-paid-session.html",
+"payments/set-up-paid-speed-networking.html"
 ]
 },
 {
@@ -377,13 +393,23 @@ related: [
 ]
 },
 {
-title: "Set up paid sessions and rooms",
-url: "payments/set-up-paid-sessions-and-rooms.html",
+title: "Set up paid session",
+url: "payments/set-up-paid-session.html",
 related: [
 "live-sessions/schedule-a-live-session.html",
+"payments/connect-stripe-and-receive-payouts.html",
+"payments/create-and-manage-coupons.html",
+"payments/track-your-earnings.html"
+]
+},
+{
+title: "Set up paid speed networking",
+url: "payments/set-up-paid-speed-networking.html",
+related: [
 "speed-networking/create-a-speed-networking-room.html",
 "payments/connect-stripe-and-receive-payouts.html",
-"payments/create-and-manage-coupons.html"
+"payments/create-and-manage-coupons.html",
+"payments/track-your-earnings.html"
 ]
 },
 {
@@ -391,18 +417,19 @@ title: "Track your earnings",
 url: "payments/track-your-earnings.html",
 related: [
 "payments/connect-stripe-and-receive-payouts.html",
-"consultation/manage-your-profile-and-earnings.html",
-"payments/create-and-manage-coupons.html"
+"payments/create-and-manage-coupons.html",
+"consultation/set-up-consultation-services.html"
 ]
 },
 {
-    title: "Create and manage coupons",
-    url: "payments/create-and-manage-coupons.html",
-    related: [
-        "payments/track-your-earnings.html",
-        "payments/connect-stripe-and-receive-payouts.html",
-        "getting-started/view-your-profile.html"
-    ]
+title: "Create and manage coupons",
+url: "payments/create-and-manage-coupons.html",
+related: [
+"payments/track-your-earnings.html",
+"payments/connect-stripe-and-receive-payouts.html",
+"payments/set-up-paid-session.html",
+"payments/set-up-paid-speed-networking.html"
+]
 },
 ]
 }

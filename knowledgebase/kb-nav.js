@@ -59,7 +59,7 @@
     </footer>`;
   }
 
-  /* ── 3. Sidebar (only on article pages) ── */
+  /* ── 3. Detect current article ── */
   const articlePage = document.querySelector('.article-page');
   if (!articlePage || typeof KB_SECTIONS === 'undefined') return;
 
@@ -69,15 +69,34 @@
 
   // Find which section the current article belongs to
   let currentSectionId = null;
+  let currentSection = null;
+  let currentArticle = null;
   KB_SECTIONS.forEach(section => {
     section.groups.forEach(group => {
       group.articles.forEach(article => {
         if (article.url === currentPath) {
           currentSectionId = section.id;
+          currentSection = section;
+          currentArticle = article;
         }
       });
     });
   });
+
+  /* ── 4. Breadcrumb ── */
+  const breadcrumb = document.getElementById('kb-breadcrumb');
+  if (breadcrumb && currentSection && currentArticle) {
+    breadcrumb.outerHTML = `
+    <nav class="breadcrumb">
+      <a href="${base}index.html">Help</a>
+      <i class="ti ti-chevron-right"></i>
+      <a href="${base}index.html#${currentSection.id}">${currentSection.title}</a>
+      <i class="ti ti-chevron-right"></i>
+      <span>${currentArticle.title}</span>
+    </nav>`;
+  }
+
+  /* ── 5. Sidebar ── */
 
   // Build sidebar HTML
   let sidebarHTML = '<aside class="kb-sidebar" id="kb-sidebar">\n';
@@ -132,7 +151,7 @@
   expandBtn.innerHTML = '<i class="ti ti-menu-2"></i>';
   layout.insertBefore(expandBtn, layout.firstChild);
 
-  /* ── 4. Sidebar interactions ── */
+  /* ── 6. Sidebar interactions ── */
 
   // Toggle sections
   layout.querySelectorAll('.sidebar-section-toggle').forEach(btn => {
@@ -183,7 +202,64 @@
     }, 50);
   }
 
-  /* ── 5. Nav Search (article pages only) ── */
+  /* ── 7. Related Articles (renders into #related-list if present) ── */
+  const relatedList = document.getElementById('related-list');
+  if (relatedList) {
+    // Build a lookup: article url → { article, section }
+    const articleIndex = {};
+    KB_SECTIONS.forEach(section => {
+      section.groups.forEach(group => {
+        group.articles.forEach(article => {
+          articleIndex[article.url] = { article, section };
+        });
+      });
+    });
+
+    const current = articleIndex[currentPath];
+
+    if (current && current.article.related) {
+      current.article.related.forEach(url => {
+        const match = articleIndex[url];
+        if (match) {
+          const li = document.createElement('li');
+          li.className = 'related-card';
+
+          const link = document.createElement('a');
+          link.href = base + match.article.url;
+
+          const iconWrap = document.createElement('span');
+          iconWrap.className = 'related-icon';
+          const icon = document.createElement('i');
+          icon.className = 'ti ' + match.section.icon;
+          icon.setAttribute('aria-hidden', 'true');
+          iconWrap.appendChild(icon);
+
+          const text = document.createElement('span');
+          text.className = 'related-text';
+          const label = document.createElement('span');
+          label.className = 'related-section';
+          label.textContent = match.section.title;
+          const title = document.createElement('span');
+          title.className = 'related-title';
+          title.textContent = match.article.title;
+          text.appendChild(label);
+          text.appendChild(title);
+
+          const arrow = document.createElement('i');
+          arrow.className = 'ti ti-arrow-right related-arrow';
+          arrow.setAttribute('aria-hidden', 'true');
+
+          link.appendChild(iconWrap);
+          link.appendChild(text);
+          link.appendChild(arrow);
+          li.appendChild(link);
+          relatedList.appendChild(li);
+        }
+      });
+    }
+  }
+
+  /* ── 8. Nav Search (article pages only) ── */
   const navSearchInput = document.getElementById('nav-search-input');
   const navSearchResults = document.getElementById('nav-search-results');
   if (!navSearchInput || typeof KB_SECTIONS === 'undefined') return;
