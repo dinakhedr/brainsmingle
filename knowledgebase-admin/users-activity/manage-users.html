@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage users — BrainsMingle Suite Admin Knowledge Base</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- SEO -->
+    <title>Manage users | BrainsMingle Suite Admin</title>
+    <meta name="description" content="View all registered users on your platform, search and filter by status, edit user details, change plans, and review each user's hosted events and consultations.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Manage users | BrainsMingle Suite Admin">
+    <meta property="og:description" content="View all registered users on your platform, search and filter by status, edit user details, change plans, and review each user's hosted events and consultations.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://brainsmingle.com/admin-help/og-image.png">
+    <!-- Fonts & icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../icon-purple.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -20,13 +30,7 @@
     <main class="article-page">
 
         <!-- Breadcrumb -->
-        <nav class="breadcrumb">
-            <a href="../index.html">Knowledge base</a>
-            <i class="ti ti-chevron-right"></i>
-            <a href="../index.html#users-activity">Users & Activity</a>
-            <i class="ti ti-chevron-right"></i>
-            <span>Manage users</span>
-        </nav>
+        <div id="kb-breadcrumb"></div>
 
         <article class="article">
 
@@ -240,31 +244,13 @@
 
     </main>
 
+    <!-- Script -->
     <script src="../kb-data.js"></script>
     <script src="../kb-keywords.js"></script>
-    <script>
-        // Find current article and render related links
-        const currentPath = location.pathname.split('/').slice(-2).join('/');
-        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
-        const current = allArticles.find(a => a.url === currentPath);
-
-        if (current && current.related) {
-            const list = document.getElementById('related-list');
-            current.related.forEach(url => {
-                const match = allArticles.find(a => a.url === url);
-                if (match) {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
-                    list.appendChild(li);
-                }
-            });
-        }
-    </script>
-
+    
     <!-- Footer -->
     <div id="kb-footer"></div>
     <script src="../kb-nav.js"></script>
-
 </body>
 
 </html>
