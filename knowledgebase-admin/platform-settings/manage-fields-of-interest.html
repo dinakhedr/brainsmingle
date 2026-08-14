@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage fields of interest — BrainsMingle Suite Admin Knowledge Base</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- SEO -->
+    <title>Manage fields of interest | BrainsMingle Suite Admin</title>
+    <meta name="description" content="Create and manage the interest categories users pick from on their profiles. Fields of interest power matching in speed networking and community recommendations.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Manage fields of interest | BrainsMingle Suite Admin">
+    <meta property="og:description" content="Create and manage the interest categories users pick from on their profiles. Fields of interest power matching in speed networking and community recommendations.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://brainsmingle.com/admin-help/og-image.png">
+    <!-- Fonts & icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../icon-purple.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -20,13 +30,7 @@
     <main class="article-page">
 
         <!-- Breadcrumb -->
-        <nav class="breadcrumb">
-            <a href="../index.html">Knowledge base</a>
-            <i class="ti ti-chevron-right"></i>
-            <a href="../index.html#platform-settings">Platform Settings</a>
-            <i class="ti ti-chevron-right"></i>
-            <span>Manage fields of interest</span>
-        </nav>
+        <div id="kb-breadcrumb"></div>
 
         <article class="article">
 
@@ -84,9 +88,9 @@
                 <p>Click the <strong>delete icon</strong> on the right side of the category row to remove it.</p>
 
                 <div class="callout callout-tip">
-    <i class="ti ti-bulb"></i>
-    <div>Each category shows an <strong>Active</strong> status badge. Only active ones are visible to users on their profiles.</div>
-</div>
+                    <i class="ti ti-bulb"></i>
+                    <div>Each category shows an <strong>Active</strong> status badge. Only active ones are visible to users on their profiles.</div>
+                </div>
 
                 <figure class="article-img">
                     <img src="../images/interests-list.png" alt="The Categories tab showing a list of interest categories with reorder arrows, editable name fields, Active badges, Save buttons, and delete icons">
@@ -110,9 +114,9 @@
                 </ol>
 
                 <div class="callout callout-tip">
-    <i class="ti ti-bulb"></i>
-    <div>Duplicate submissions from different users appear as separate entries. Review each one individually.</div>
-</div>
+                    <i class="ti ti-bulb"></i>
+                    <div>Duplicate submissions from different users appear as separate entries. Review each one individually.</div>
+                </div>
 
                 <figure class="article-img">
                     <img src="../images/interests-user-requests.png" alt="The Review queue tab showing user-submitted interest entries with submitter usernames, timestamps, and Approve and Reject buttons">
@@ -131,30 +135,13 @@
 
     </main>
 
+    <!-- Script -->
     <script src="../kb-data.js"></script>
     <script src="../kb-keywords.js"></script>
-    <script>
-        const currentPath = location.pathname.split('/').slice(-2).join('/');
-        const allArticles = KB_SECTIONS.flatMap(s => s.groups.flatMap(g => g.articles));
-        const current = allArticles.find(a => a.url === currentPath);
-
-        if (current && current.related) {
-            const list = document.getElementById('related-list');
-            current.related.forEach(url => {
-                const match = allArticles.find(a => a.url === url);
-                if (match) {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="../${match.url}">${match.title}</a>`;
-                    list.appendChild(li);
-                }
-            });
-        }
-    </script>
-
+    
     <!-- Footer -->
     <div id="kb-footer"></div>
     <script src="../kb-nav.js"></script>
-
 </body>
 
 </html>
