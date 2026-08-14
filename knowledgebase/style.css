@@ -1094,7 +1094,7 @@ body {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
-  .hero { padding: 0 16px 40px; }
+  .hero { padding: 80px 16px 40px; }
   .hero h1 { font-size: 24px; }
   .article h1 { font-size: 20px; }
   .sections { margin-top: -16px; }
