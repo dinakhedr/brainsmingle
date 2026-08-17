@@ -2,6 +2,7 @@
    SIGNAL: AI — Master Stylesheet
    style.css · All pages read from this file only
    Segments:
+     0.  Self-hosted Fonts
      1.  Reset & Base
      2.  CSS Variables
      3.  Typography
@@ -39,6 +40,104 @@
     35.  Sponsors — Hero Index and Wall Columns
     36.  Alternating Section Backgrounds
    ============================================================ */
+
+/* ============================================================
+   0.  SELF-HOSTED FONTS
+   woff2 files live in assets/fonts/. Loaded from the project,
+   nothing is fetched from Google Fonts. theme.js still points
+   the type tokens at these families.
+   ============================================================ */
+
+/* ── Montserrat ── */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-latin-800-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/fonts/montserrat-latin-900-normal.woff2') format('woff2');
+}
+
+/* ── Inter ── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/inter-latin-700-normal.woff2') format('woff2');
+}
+
+/* ── JetBrains Mono ── */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-latin-600-normal.woff2') format('woff2');
+}
+
 
 /* Fonts are requested by data/theme.js, which also sets
    --font-display, --font-head and --font-body. Change the pairing
@@ -3960,6 +4059,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   display: flex; align-items: center; justify-content: center;
   width: 18px; flex-shrink: 0;
   color: var(--track-color, var(--text-secondary));
+  align-self: center; height: 15px;
 }
 .sp-col__icon svg { width: 16px; height: 16px; }
 
