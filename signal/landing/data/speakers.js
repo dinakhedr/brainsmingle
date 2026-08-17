@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-17 16:50 · 23 speakers.
+ * Generated 2026-08-17 16:59 · 23 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -177,30 +177,13 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
     bmProfile   : null,
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
   },
 
   {
-    id          : "spk-005",
-    order       : 10,
-    name        : "Youssef Hosni",
-    title       : "AI/ML Engeineer",
-    company     : "Solita",
-    country     : "Finland",
-    countryCode : "FI",
-    photo       : "spk-005.png",
-    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
-    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
-    bmProfile   : "https://brainsmingle.com/youssef9740",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
-  },
-
-  {
     id          : "spk-014",
-    order       : 11,
+    order       : 10,
     name        : "Hend El Damaty",
     title       : "Founder & AI Consultant",
     company     : "AI Global",
@@ -216,8 +199,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-008",
+    id          : "spk-023",
+    order       : 11,
+    name        : "Alaa Mukhtar",
+    title       : "Sales Development Representative",
+    company     : "Opentext",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-023.png",
+    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
+    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
+    bmProfile   : "https://brainsmingle.com/profile@alaa3964",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-005",
     order       : 12,
+    name        : "Youssef Hosni",
+    title       : "AI/ML Engeineer",
+    company     : "Solita",
+    country     : "Finland",
+    countryCode : "FI",
+    photo       : "spk-005.png",
+    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
+    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
+    bmProfile   : "https://brainsmingle.com/youssef9740",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-008",
+    order       : 13,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -234,7 +251,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 13,
+    order       : 14,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -400,23 +417,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-023",
-    order       : null,
-    name        : "Alaa Mukhtar",
-    title       : "Sales Development Representative",
-    company     : "Opentext",
-    country     : "UAE",
-    countryCode : "AE",
-    photo       : "spk-023.png",
-    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
-    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
-    bmProfile   : "https://brainsmingle.com/profile@alaa3964",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
   }
 
 ];
