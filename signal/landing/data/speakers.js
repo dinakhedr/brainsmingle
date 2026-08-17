@@ -2,14 +2,14 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-17 16:42 · 23 speakers.
+ * Generated 2026-08-17 16:50 · 23 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
  */
 
 const SPEAKER_PHOTO_BASE = "assets/speakers/";
-const HOME_SPEAKER_LIMIT = 10;
+const HOME_SPEAKER_LIMIT = 12;
 
 function getSpeakerPhoto(speaker) {
   if (!speaker) return null;
@@ -32,8 +32,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-002",
     order       : 1,
     name        : "Amr Awadallah",
-    title       : "Vectara, Cloudera, and Aptivia.",
-    company     : "Tech Entrepreneur",
+    title       : "Tech Entrepreneur",
+    company     : "Vectara, Cloudera, and Aptivia.",
     country     : "USA",
     countryCode : "US",
     photo       : "spk-002.png",
@@ -66,8 +66,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-010",
     order       : 3,
     name        : "Maged Ghoneima",
-    title       : "M-Empire Angels",
-    company     : "Angel Investor",
+    title       : "Angel Investor",
+    company     : "M-Empire Angels",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-010.png",
@@ -83,8 +83,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-011",
     order       : 4,
     name        : "Hany Elmalky",
-    title       : "Google",
-    company     : "Product & Technology Leader",
+    title       : "Product & Technology Leader",
+    company     : "Google",
     country     : "USA",
     countryCode : "US",
     photo       : "spk-011.png",
@@ -134,8 +134,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-021",
     order       : 7,
     name        : "Moustafa Eshra",
-    title       : "IBM",
-    company     : "Enterprise Data & AI Presales Architect",
+    title       : "Enterprise Data & AI Presales Architect",
+    company     : "IBM",
     country     : "France",
     countryCode : "FR",
     photo       : "spk-021.png",
@@ -202,8 +202,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-014",
     order       : 11,
     name        : "Hend El Damaty",
-    title       : "AI Global",
-    company     : "Founder & AI Consultant",
+    title       : "Founder & AI Consultant",
+    company     : "AI Global",
     country     : "Germany",
     countryCode : "DE",
     photo       : "spk-014.png",
@@ -236,8 +236,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-012",
     order       : 13,
     name        : "Taha Ali",
-    title       : "GroHub",
-    company     : "CEO",
+    title       : "CEO",
+    company     : "GroHub",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-012.png",
@@ -245,7 +245,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
     bmProfile   : null,
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : []
   },
 
@@ -270,8 +270,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-013",
     order       : null,
     name        : "Nadeem Abdin",
-    title       : "AImpulse.io",
-    company     : "Partner & VP Business Development",
+    title       : "Partner & VP Business Development",
+    company     : "AImpulse.io",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-013.png",
@@ -279,7 +279,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/nadeem-abdin-7bb89524/",
     bmProfile   : null,
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : []
   },
 
@@ -287,8 +287,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-015",
     order       : null,
     name        : "Amr Helal",
-    title       : "DotPy",
-    company     : "Founder",
+    title       : "Founder",
+    company     : "DotPy",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-015.png",
@@ -304,8 +304,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-016",
     order       : null,
     name        : "Ehab Khaled Fawzi",
-    title       : "Develovent Network",
-    company     : "Creative Director",
+    title       : "Creative Director",
+    company     : "Develovent Network",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-016.png",
@@ -406,8 +406,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-023",
     order       : null,
     name        : "Alaa Mukhtar",
-    title       : "Opentext",
-    company     : "Sales Development Representative",
+    title       : "Sales Development Representative",
+    company     : "Opentext",
     country     : "UAE",
     countryCode : "AE",
     photo       : "spk-023.png",
