@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-17 15:09 · 23 speakers.
+ * Generated 2026-08-17 16:42 · 23 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -131,8 +131,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-004",
+    id          : "spk-021",
     order       : 7,
+    name        : "Moustafa Eshra",
+    title       : "IBM",
+    company     : "Enterprise Data & AI Presales Architect",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : "Enterprise Data & AI Presales Architect at IBM (Paris), with 12+ years of experience across AI, enterprise architecture, and digital transformation. Previously at DataStax, MEGA International, and LTI, helping clients across Europe drive innovation through data, AI, and cloud solutions. Former AI researcher at École Polytechnique (CERN/LHC project) and embedded software engineer at Valeo. Holds a B.Sc. in Engineering from Alexandria University and a Post-Master from Sciences Po × Mines ParisTech. Passionate about emerging technologies and solving complex business challenges.",
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-004",
+    order       : 8,
     name        : "Ashraf Bacheet",
     title       : "Founder",
     company     : "O7 Therapy",
@@ -149,7 +166,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-006",
-    order       : 8,
+    order       : 9,
     name        : "Yasmine Aguib",
     title       : "Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -166,7 +183,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 9,
+    order       : 10,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -183,7 +200,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-014",
-    order       : 10,
+    order       : 11,
     name        : "Hend El Damaty",
     title       : "AI Global",
     company     : "Founder & AI Consultant",
@@ -200,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 11,
+    order       : 12,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -217,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 12,
+    order       : 13,
     name        : "Taha Ali",
     title       : "GroHub",
     company     : "CEO",
@@ -369,23 +386,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-021",
-    order       : null,
-    name        : "Moustafa Eshra",
-    title       : "IBM",
-    company     : "Enterprise Data & AI Presales Architect",
-    country     : "France",
-    countryCode : "FR",
-    photo       : "spk-021.png",
-    bio         : null,
-    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-022",
     order       : null,
     name        : "Ebrahem Anwar",
@@ -415,7 +415,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
     bmProfile   : "https://brainsmingle.com/profile@alaa3964",
     featured    : false,
-    showOnHome  : false,
+    showOnHome  : true,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
   }
 
