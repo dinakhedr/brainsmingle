@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-17 16:59 · 23 speakers.
+ * Generated 2026-08-18 00:56 · 24 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -46,25 +46,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-003",
-    order       : 2,
-    name        : "Kate Barker",
-    title       : "Chief Futurist",
-    company     : "NEOM",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-003.png",
-    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
-    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
-    bmProfile   : "https://brainsmingle.com/profile",
-    featured    : true,
-    showOnHome  : true,
-    appearances : []
-  },
-
-  {
     id          : "spk-010",
-    order       : 3,
+    order       : 2,
     name        : "Maged Ghoneima",
     title       : "Angel Investor",
     company     : "M-Empire Angels",
@@ -74,6 +57,23 @@ const SIGNAL_SPEAKERS = [
     bio         : "Angel investor and technology commercialization expert. Co-founded 10+ startups with multiple successful exits and led an angel group investing in 80+ startups. PhD in Computer Engineering from Northwestern, former Intel and NVIDIA engineer. Associate Professor at Ain Shams University with 2,000+ hours mentoring 400+ startups. Advisor to 50+ startups, SMEs, and corporates across the region.",
     linkedin    : "https://www.linkedin.com/in/mghoneima/",
     bmProfile   : null,
+    featured    : true,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-003",
+    order       : 3,
+    name        : "Kate Barker",
+    title       : "Chief Futurist",
+    company     : "NEOM",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-003.png",
+    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
+    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
+    bmProfile   : "https://brainsmingle.com/profile",
     featured    : true,
     showOnHome  : true,
     appearances : []
@@ -114,8 +114,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-009",
+    id          : "spk-024",
     order       : 6,
+    name        : "Sami AlAhmed",
+    title       : "Founder & CEO",
+    company     : "Doroob",
+    country     : "Syria",
+    countryCode : "SY",
+    photo       : "spk-024.png",
+    bio         : "Syrian Entrepreneur and technical founder with 10+ years building ventures that connect MENA youth to opportunity. Founder of Emonovo (formerly MARJ3), the region's leading study-abroad platform with 2.5M+ monthly users and 350+ university partners, which began with Khatwa, a volunteer network founded in 2013. Currently CEO & Co-Founder of Doroob, building education-to-employment pathways in Syria as the country rebuilds. Stanford AMENDS fellow, WEF Global Shaper, and TEDx speaker. Passionate about AI, automation, and helping youth go from learning to earning.",
+    linkedin    : "https://www.linkedin.com/in/samialahmad/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-009",
+    order       : 7,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -132,7 +149,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-021",
-    order       : 7,
+    order       : 8,
     name        : "Moustafa Eshra",
     title       : "Enterprise Data & AI Presales Architect",
     company     : "IBM",
@@ -144,12 +161,12 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s4-t3", timeSlot: "21:00" }]
   },
 
   {
     id          : "spk-004",
-    order       : 8,
+    order       : 9,
     name        : "Ashraf Bacheet",
     title       : "Founder",
     company     : "O7 Therapy",
@@ -161,23 +178,6 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/ashraf3370",
     featured    : false,
     showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-006",
-    order       : 9,
-    name        : "Yasmine Aguib",
-    title       : "Research & Innovation Officer",
-    company     : "Magdi Yacoub Heart Foundation",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-006.png",
-    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
-    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
   },
 
@@ -199,6 +199,23 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-022",
+    order       : 10,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
     id          : "spk-023",
     order       : 11,
     name        : "Alaa Mukhtar",
@@ -211,7 +228,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
     bmProfile   : "https://brainsmingle.com/profile@alaa3964",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
   },
 
@@ -264,6 +281,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
+  },
+
+  {
+    id          : "spk-006",
+    order       : null,
+    name        : "Yasmine Aguib",
+    title       : "Research & Innovation Officer",
+    company     : "Magdi Yacoub Heart Foundation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-006.png",
+    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
+    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
   },
 
   {
@@ -400,23 +434,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-022",
-    order       : null,
-    name        : "Ebrahem Anwar",
-    title       : "Founder",
-    company     : "ICCY",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-022.png",
-    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
-    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
   }
 
 ];

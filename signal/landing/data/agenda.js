@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-17 15:16 · 7 sessions, 0 with a sign-up link.
+ * Generated 2026-08-17 23:54 · 8 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, activations, Speed Networking.
@@ -28,6 +28,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "talk", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: null, description: null, special: null },
   { id: "ses-d2-s2-t4", title: "Build or Buy Odoo use Case integrated with AI", type: "talk", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null },
   { id: "ses-d2-s3-t5", title: "Building Deep Seearch Agent from Scratch", type: "talk", trackNumber: 5, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-005"], bmUrl: null, description: null, special: null },
+  { id: "ses-d2-s4-t3", title: "How to build your GenAI application", type: "talk", trackNumber: 3, day: 2, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-021"], bmUrl: null, description: null, special: null },
 
   // ======================================
   // DAY 3

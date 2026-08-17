@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-08-17 17:59 · 19 sponsors, 14 partners.
+ * Generated 2026-08-18 01:25 · 19 sponsors, 15 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -12,7 +12,9 @@
  *   partners  assets/partners/prt-003.png
  *
  * icon is a key in data/icons.js, or null.
- * featured partners render in their own group, above the community rows.
+ * group splits partners into wall sections: strategic, regional,
+ * community. Sponsors carry group: null. Render the sections in
+ * SIGNAL_PARTNER_GROUPS order via getPartnersByGroup().
  */
 
 const SPONSOR_LOGO_BASE = "assets/sponsors/";
@@ -38,50 +40,59 @@ const SIGNAL_SPONSOR_TIERS = {
 };
 
 const SIGNAL_PARTNER_TYPES = [
-  "Tech Partner",
+  "Germany",
   "Recruitment Partner",
   "Career Partner",
   "Ecosystem Partner",
-  "Community Partner"
+  "Tech Partner",
+  "Community Partner",
+  "Syria"
 ];
 
+const SIGNAL_PARTNER_GROUPS = {
+  strategic: { label: "Strategic Partners", order: 1 },
+  regional: { label: "Regional Partners", order: 2 },
+  community: { label: "Community Partners", order: 3 }
+};
+
 const SIGNAL_SPONSORS = [
-  { id: "main", name: null, tier: "main", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "gold-001", name: null, tier: "gold", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "gold-002", name: null, tier: "gold", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "slvr-001", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "slvr-002", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "slvr-003", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "brnz-001", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "brnz-002", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "brnz-003", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "brnz-004", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "brnz-005", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "trk-001", name: null, tier: "track", icon: null, trackNumber: 1, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "trk-002", name: null, tier: "track", icon: null, trackNumber: 2, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "trk-003", name: null, tier: "track", icon: null, trackNumber: 3, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "trk-004", name: null, tier: "track", icon: null, trackNumber: 4, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "trk-005", name: null, tier: "track", icon: null, trackNumber: 5, special: null, partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "spl-001", name: null, tier: "launchpad", icon: null, trackNumber: null, special: "launchpad", partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "spl-002", name: null, tier: "talent", icon: null, trackNumber: null, special: "talent", partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "spl-003", name: null, tier: "networking", icon: null, trackNumber: null, special: "networking", partnerType: null, confirmed: true, featured: false, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null }
+  { id: "main", name: null, tier: "main", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "gold-001", name: null, tier: "gold", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "gold-002", name: null, tier: "gold", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "slvr-001", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "slvr-002", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "slvr-003", name: null, tier: "silver", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "brnz-001", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "brnz-002", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "brnz-003", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "brnz-004", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "brnz-005", name: null, tier: "bronze", icon: null, trackNumber: null, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "trk-001", name: null, tier: "track", icon: null, trackNumber: 1, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "trk-002", name: null, tier: "track", icon: null, trackNumber: 2, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "trk-003", name: null, tier: "track", icon: null, trackNumber: 3, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "trk-004", name: null, tier: "track", icon: null, trackNumber: 4, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "trk-005", name: null, tier: "track", icon: null, trackNumber: 5, special: null, partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "spl-001", name: null, tier: "launchpad", icon: null, trackNumber: null, special: "launchpad", partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "spl-002", name: null, tier: "talent", icon: null, trackNumber: null, special: "talent", partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "spl-003", name: null, tier: "networking", icon: null, trackNumber: null, special: "networking", partnerType: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null }
 ];
 
 const SIGNAL_PARTNERS = [
-  { id: "prt-001", name: "AI Global", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-001.png", logoURL: "x", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
-  { id: "prt-008", name: "WUZZUF", tier: "community", icon: "recruiter", trackNumber: null, special: null, partnerType: "Recruitment Partner", confirmed: true, featured: true, logo: "prt-008.png", logoURL: "x", website: "https://wuzzuf.net/", bmCommunityLink: null, tagline: "Find the Best Jobs in Egypt" },
-  { id: "prt-009", name: "iCareer", tier: "community", icon: "practitioner", trackNumber: null, special: null, partnerType: "Career Partner", confirmed: true, featured: true, logo: "prt-009.png", logoURL: "x", website: "https://icareer.ai/", bmCommunityLink: "https://brainsmingle.com/icareer", tagline: "Revolutionizing Education and Employment Ecosystems for All" },
-  { id: "prt-002", name: "MEmpire", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, featured: true, logo: "prt-002.png", logoURL: "x", website: "https://www.mempireangels.com/", bmCommunityLink: null, tagline: "Where MENA's most ambitious operators find their first believer." },
-  { id: "prt-005", name: "Dr. Ahmed El-Shamy", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-005.png", logoURL: "x", website: "https://elsha.my/", bmCommunityLink: null, tagline: "Better decisions at the intersection of risk, product and AI." },
-  { id: "prt-006", name: "Digital Product Community", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-006.png", logoURL: "x", website: "https://digital-products.online/", bmCommunityLink: null, tagline: "Where Products, People, and Innovation Meet" },
-  { id: "prt-007", name: "Business Lobby", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-007.png", logoURL: "x", website: "https://businesslobby.community/", bmCommunityLink: null, tagline: "Where Connections Turn into Opportunities" },
-  { id: "prt-004", name: "Youth Scope", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-004.png", logoURL: "x", website: "https://www.linkedin.com/company/youth-scope3ex/", bmCommunityLink: null, tagline: "An organization working to support volunteer activities in Egypt." },
-  { id: "prt-003", name: "Startup Egypt", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, featured: true, logo: "prt-003.png", logoURL: "x", website: "https://startupegypt.org.eg/", bmCommunityLink: null, tagline: "We Empower Egyptian Founders to Build the Future" },
-  { id: "prt-010", name: "ALX", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-010.png", logoURL: "x", website: "https://www.alxafrica.com/", bmCommunityLink: null, tagline: "We bring together industry leaders" },
-  { id: "prt-011", name: "GroHub", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-011.png", logoURL: "x", website: "https://www.grohub.co/", bmCommunityLink: null, tagline: "Where Modern B2B Growth Gets Built" },
-  { id: "prt-012", name: "Leaders in AI era", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, featured: false, logo: "prt-012.png", logoURL: "x", website: null, bmCommunityLink: "https://brainsmingle.com/spaces/product-builders-1", tagline: "Lead the future. Outpace the rest" },
-  { id: "prt-013", name: "EraaSoft", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-013.png", logoURL: "x", website: "https://eraasoft.com/", bmCommunityLink: null, tagline: null },
-  { id: "prt-014", name: "aSaaSi Middle East", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, featured: false, logo: "prt-014.png", logoURL: "x", website: "https://www.linkedin.com/company/asaasi-me/", bmCommunityLink: "https://brainsmingle.com/spaces/the-saas-majlis-community", tagline: null }
+  { id: "prt-001", name: "AI Global", tier: "community", icon: "globe", trackNumber: null, special: null, partnerType: "Germany", confirmed: true, group: "regional", logo: "prt-001.png", logoURL: "x", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
+  { id: "prt-008", name: "WUZZUF", tier: "community", icon: "recruiter", trackNumber: null, special: null, partnerType: "Recruitment Partner", confirmed: true, group: "strategic", logo: "prt-008.png", logoURL: "x", website: "https://wuzzuf.net/", bmCommunityLink: null, tagline: "Find the Best Jobs in Egypt" },
+  { id: "prt-009", name: "iCareer", tier: "community", icon: "practitioner", trackNumber: null, special: null, partnerType: "Career Partner", confirmed: true, group: "strategic", logo: "prt-009.png", logoURL: "x", website: "https://icareer.ai/", bmCommunityLink: "https://brainsmingle.com/icareer", tagline: "Revolutionizing Education and Employment Ecosystems for All" },
+  { id: "prt-002", name: "MEmpire", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, group: "strategic", logo: "prt-002.png", logoURL: "x", website: "https://www.mempireangels.com/", bmCommunityLink: null, tagline: "Where MENA's most ambitious operators find their first believer." },
+  { id: "prt-005", name: "Dr. Ahmed El-Shamy", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, group: "community", logo: "prt-005.png", logoURL: "x", website: "https://elsha.my/", bmCommunityLink: null, tagline: "Better decisions at the intersection of risk, product and AI." },
+  { id: "prt-006", name: "Digital Product Community", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, group: "community", logo: "prt-006.png", logoURL: "x", website: "https://digital-products.online/", bmCommunityLink: null, tagline: "Where Products, People, and Innovation Meet" },
+  { id: "prt-007", name: "Business Lobby", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, group: "community", logo: "prt-007.png", logoURL: "x", website: "https://businesslobby.community/", bmCommunityLink: null, tagline: "Where Connections Turn into Opportunities" },
+  { id: "prt-004", name: "Youth Scope", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, group: "community", logo: "prt-004.png", logoURL: "x", website: "https://www.linkedin.com/company/youth-scope3ex/", bmCommunityLink: null, tagline: "An organization working to support volunteer activities in Egypt." },
+  { id: "prt-003", name: "Startup Egypt", tier: "community", icon: "grid", trackNumber: null, special: null, partnerType: "Ecosystem Partner", confirmed: true, group: "strategic", logo: "prt-003.png", logoURL: "x", website: "https://startupegypt.org.eg/", bmCommunityLink: null, tagline: "We Empower Egyptian Founders to Build the Future" },
+  { id: "prt-010", name: "ALX", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, group: "community", logo: "prt-010.png", logoURL: "x", website: "https://www.alxafrica.com/", bmCommunityLink: null, tagline: "We bring together industry leaders" },
+  { id: "prt-011", name: "GroHub", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, group: "community", logo: "prt-011.png", logoURL: "x", website: "https://www.grohub.co/", bmCommunityLink: null, tagline: "Where Modern B2B Growth Gets Built" },
+  { id: "prt-012", name: "Leaders in AI era", tier: "community", icon: "community", trackNumber: null, special: null, partnerType: "Community Partner", confirmed: true, group: "community", logo: "prt-012.png", logoURL: "x", website: null, bmCommunityLink: "https://brainsmingle.com/spaces/product-builders-1", tagline: "Lead the future. Outpace the rest" },
+  { id: "prt-013", name: "EraaSoft", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, group: "community", logo: "prt-013.png", logoURL: "x", website: "https://eraasoft.com/", bmCommunityLink: null, tagline: null },
+  { id: "prt-014", name: "aSaaSi Middle East", tier: "community", icon: "trackTech", trackNumber: null, special: null, partnerType: "Tech Partner", confirmed: true, group: "community", logo: "prt-014.png", logoURL: "x", website: "https://www.linkedin.com/company/asaasi-me/", bmCommunityLink: "https://brainsmingle.com/spaces/the-saas-majlis-community", tagline: null },
+  { id: "prt-015", name: "Doroob", tier: "community", icon: "globe", trackNumber: null, special: null, partnerType: "Syria", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." }
 ];
 
 SIGNAL_SPONSORS.forEach(s => { s.logoPath = getSponsorLogo(s); });
@@ -103,27 +114,25 @@ function getSponsorsByTrack(trackNumber) {
   return SIGNAL_SPONSORS.filter(s => s.trackNumber === trackNumber);
 }
 
-/* Community partners excluding the featured ones, which render in
-   their own group above. */
-function getCommunityPartners() {
-  return SIGNAL_PARTNERS.filter(p => p.featured !== true);
+/* Partner wall sections. Iterate SIGNAL_PARTNER_GROUPS in order
+   and call this per section. */
+function getPartnersByGroup(group) {
+  return SIGNAL_PARTNERS.filter(p => p.group === group);
 }
 
-function getFeaturedPartners() {
-  return SIGNAL_PARTNERS.filter(p => p.featured === true);
-}
-
-function getFeaturedSponsors() {
-  return SIGNAL_SPONSORS.filter(s => s.featured === true);
-}
+function getStrategicPartners() { return getPartnersByGroup("strategic"); }
+function getRegionalPartners()  { return getPartnersByGroup("regional"); }
+function getCommunityPartners() { return getPartnersByGroup("community"); }
 
 function getPartnersByType(type) {
   return SIGNAL_PARTNERS.filter(p => p.partnerType === type);
 }
 
+/* Types used by community-group partners, for the sub-group rows.
+   Strategic and regional sections render flat. */
 function getPartnerTypesInUse() {
   return SIGNAL_PARTNER_TYPES.filter(type =>
-    SIGNAL_PARTNERS.some(p => p.partnerType === type && p.featured !== true));
+    SIGNAL_PARTNERS.some(p => p.partnerType === type && p.group === "community"));
 }
 
 function getTierSponsors() {
