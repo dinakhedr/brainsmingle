@@ -24,13 +24,16 @@
    2. FONTS  — one switch, not exposed in the UI
    ════════════════════════════════════════════════════════════
 
-   Both themes always use the same typefaces. To try a different
-   pairing, change FONT_SET below to any key in SITE_FONTS. The
-   Google Fonts request is built from that entry automatically,
-   so there is nothing to edit in the page heads or the CSS.
+   Both themes always use the same typefaces. Fonts are served
+   from the project itself: the woff2 files sit in assets/fonts/
+   with their @font-face rules at the top of style.css
+   (segment 0). Nothing is fetched from Google Fonts.
 
-   To add a pairing, copy an entry in SITE_FONTS and give it the
-   family names plus the weights you need.
+   To try a different pairing, change FONT_SET below to any key
+   in SITE_FONTS whose faces are hosted (Montserrat, Inter,
+   JetBrains Mono ship with the site). A pairing using a new
+   face needs its woff2 files dropped into assets/fonts/ and
+   matching @font-face rules added to style.css segment 0.
 
    A pairing may also carry a "mono" for overlines and small
    labels. It is optional: pairings without one leave --font-mono
@@ -213,27 +216,19 @@ function toggleTheme() {
 }
 
 
-/* Requests the pairing from Google Fonts and points the CSS type
-   tokens at it. Both themes use the same fonts, so this runs once
-   and is not affected by the theme switch. */
+/* Fonts are self-hosted. The woff2 files live in assets/fonts/
+   and their @font-face rules sit at the top of style.css
+   (segment 0), so nothing needs injecting here. This only
+   points the CSS type tokens at the active pairing. Both
+   themes use the same fonts, so this runs once and is not
+   affected by the theme switch. No external requests are made.
+
+   Note: only the faces used by the shipped pairings are hosted
+   (Montserrat, Inter, JetBrains Mono). Switching FONT_SET to a
+   pairing outside those faces needs its woff2 files added to
+   assets/fonts/ and rules added to style.css first. */
 function applyFonts() {
   var f = activeFonts();
-  var head = document.head || document.getElementsByTagName("head")[0];
-
-  [["preconnect", "https://fonts.googleapis.com", false],
-   ["preconnect", "https://fonts.gstatic.com",    true]].forEach(function (p) {
-    var l = document.createElement("link");
-    l.rel = p[0];
-    l.href = p[1];
-    if (p[2]) l.crossOrigin = "anonymous";
-    head.appendChild(l);
-  });
-
-  var sheet = document.createElement("link");
-  sheet.rel = "stylesheet";
-  sheet.href = "https://fonts.googleapis.com/css2?family=" +
-               f.families.join("&family=") + "&display=swap";
-  head.appendChild(sheet);
 
   var root = document.documentElement;
   root.style.setProperty("--font-display", "'" + f.display + "', sans-serif");
