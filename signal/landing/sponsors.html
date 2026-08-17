@@ -272,7 +272,8 @@
                 SP_TIER_ROWS.map(row => _tierRow(row)).join("") +
                 _trackRow() +
                 _specialRow() +
-                _featuredPartnerRow() +
+                _strategicPartnerRow() +
+                _regionalPartnerRow() +
                 _partnerRow();
         }
 
@@ -359,24 +360,29 @@
     </div>`;
         }
 
-        // Featured partners. One column each, same shape as Special
-        // Activations: an icon and the partner type as a header band,
-        // the logo frame flush beneath it at track-card size.
-        // Sits above the community rows because these are named
-        // relationships rather than a logo wall.
-        function _featuredPartnerRow() {
-            const featured = getFeaturedPartners().filter(_isConfirmed);
-            if (!featured.length) return "";
+        // Strategic and regional partners. One column each, same shape
+        // as Special Activations: an icon and the partner type as a
+        // header band, the logo frame flush beneath it at track-card
+        // size. Named relationships rather than a logo wall, so they
+        // sit above the community rows. Section titles come from
+        // SIGNAL_PARTNER_GROUPS in the generated sponsors.js.
+        function _partnerColumnRow(group) {
+            const meta = SIGNAL_PARTNER_GROUPS[group] || {};
+            const list = getPartnersByGroup(group).filter(_isConfirmed);
+            if (!list.length) return "";
 
-            const cols = featured.map(p => _wallColumn({
+            const cols = list.map(p => _wallColumn({
                 modifier: "sp-col--partner",
                 iconKey:  p.icon,
                 label:    p.partnerType || "Partner",
                 sponsor:  p
             })).join("");
 
-            return _wallSection("Strategic Partners", cols, "sp-col-row sp-col-row--partner");
+            return _wallSection(meta.label || group, cols, "sp-col-row sp-col-row--partner");
         }
+
+        function _strategicPartnerRow() { return _partnerColumnRow("strategic"); }
+        function _regionalPartnerRow()  { return _partnerColumnRow("regional"); }
 
         // Community partners, grouped by partnerType. One header per
         // type rather than per partner, since several partners share a
@@ -387,7 +393,7 @@
             const types = getPartnerTypesInUse();
 
             const groups = types.map(type => {
-                const list = getPartnersByType(type).filter(p => p.featured !== true).filter(_isConfirmed);
+                const list = getPartnersByType(type).filter(p => p.group === "community").filter(_isConfirmed);
                 if (!list.length) return "";
 
                 const tiles = list.map(p => `
@@ -410,7 +416,8 @@
                 ? groups
                 : `<div class="sp-wall-empty">Community and media partners announced soon.</div>`;
 
-            return _wallSection(meta.label || "Community Partners", body, "sp-partner-groups");
+            const gmeta = SIGNAL_PARTNER_GROUPS.community || {};
+            return _wallSection(gmeta.label || meta.label || "Community Partners", body, "sp-partner-groups");
         }
 
         function _wallSection(label, tiles, rowClass) {
