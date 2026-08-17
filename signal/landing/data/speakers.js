@@ -1,8 +1,8 @@
 /**
- * speakers.js — AI Summit 2026 by BrainsMingle
+ * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-06 19:18 · 16 speakers.
+ * Generated 2026-08-17 15:09 · 23 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -51,8 +51,8 @@ const SIGNAL_SPEAKERS = [
     name        : "Kate Barker",
     title       : "Chief Futurist",
     company     : "NEOM",
-    country     : "UAE",
-    countryCode : "AE",
+    country     : "Egypt",
+    countryCode : "EG",
     photo       : "spk-003.png",
     bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
     linkedin    : "https://www.linkedin.com/in/drkatebarker/",
@@ -158,7 +158,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-006.png",
     bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
     linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
-    bmProfile   : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    bmProfile   : null,
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
@@ -246,7 +246,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/yehya8879",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s2-t3", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s2-t4", timeSlot: "19:00" }]
   },
 
   {
@@ -298,6 +298,125 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
+  },
+
+  {
+    id          : "spk-017",
+    order       : null,
+    name        : "Abdelrahman Kandil",
+    title       : "Founder",
+    company     : "Next Academy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-017.png",
+    bio         : "Pharmacist turned Business Strategist with 15 years of experience across manufacturing, e-commerce, real estate, and more. Founder of Next Academy, redefining industry education with 1,000+ graduates, and Ex's Agency, helping companies scale through strategic marketing. 210+ brands developed, 30+ companies restructured, 2,000+ professionals trained. MBA holder passionate about helping startups scale faster and build sustainable legacies.",
+    linkedin    : "https://www.linkedin.com/in/dr-abdelrahman-kandil/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-018",
+    order       : null,
+    name        : "Abdallah Amer",
+    title       : "Founder & CEO",
+    company     : "English Capsules",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-018.png",
+    bio         : "Founder and CEO of English Capsules and Executive Mastery Camp (EMC), helping leaders, CEOs, and C-level executives build clarity, structure, and systems to scale. 14+ EMC rounds hosted, 200+ executives supported. Passionate about leadership transformation, strategic alignment, and purpose-driven growth.",
+    linkedin    : "https://www.linkedin.com/in/amership9/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-019",
+    order       : null,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-020",
+    order       : null,
+    name        : "Nader Sayed",
+    title       : "Founder",
+    company     : "Tawasul for AI transformation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-020.png",
+    bio         : "Enterprise Architect and Digital Transformation Expert with 12+ years of experience turning complex operations into scalable digital products. Sits at the intersection of business, technology, and product — designing smart systems powered by automation, AI/ML, and IoT. Combines product thinking with solution architecture to deliver and scale real impact.",
+    linkedin    : "linkedin.com/in/nader-sayed-y",
+    bmProfile   : "https://brainsmingle.com/nader2tawasol",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-021",
+    order       : null,
+    name        : "Moustafa Eshra",
+    title       : "IBM",
+    company     : "Enterprise Data & AI Presales Architect",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : null,
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-022",
+    order       : null,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-023",
+    order       : null,
+    name        : "Alaa Mukhtar",
+    title       : "Opentext",
+    company     : "Sales Development Representative",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-023.png",
+    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
+    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
+    bmProfile   : "https://brainsmingle.com/profile@alaa3964",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
   }
 
 ];
