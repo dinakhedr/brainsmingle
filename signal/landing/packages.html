@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Sponsorship Packages | AI Summit 2026</title>
+    <meta name="description" content="AI Summit 2026 sponsorship packages, tiers, and benefits." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+    <!-- ══════════════════════════════════════════
+         PAGE-LOCAL STYLES
+         This is an orphan page (not linked in nav, not deployed publicly).
+         Everything specific to it is hard-coded and lives here, so nothing
+         in the shared stylesheet has to change. Only tokens are reused.
+    ══════════════════════════════════════════ -->
+    <style>
+        /* ── Main sponsor — single featured card, sits alone above the tiers */
+        .pk-main-wrap { max-width: var(--max-width); margin: 0 auto; }
+        .pk-main-card {
+            position: relative; overflow: hidden;
+            background: var(--bg-card);
+            border: 0.5px solid #6723FF59;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid; grid-template-columns: 300px 1fr; gap: 40px;
+        }
+        .pk-main-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: var(--purple);
+        }
+        .pk-main-left { display: flex; flex-direction: column; }
+        .pk-main-price { font-family: var(--font-display); font-size: 52px; font-weight: 900; color: var(--text-primary); line-height: 1; margin-bottom: 10px; }
+        .pk-main-desc  { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        .pk-main-benefits { list-style: none; padding: 0; margin: 0; column-count: 2; column-gap: 32px; }
+        .pk-main-benefits li {
+            font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary);
+            padding: 9px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45;
+            break-inside: avoid;
+        }
+        .pk-main-benefits li::before { content: '✓'; color: var(--purple-bright); font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 3px; }
+
+        /* ── Tier grid — Gold / Silver / Bronze together, 3 columns */
+        .pk-tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+        /* ── Special events — 5 cards in a row on wide screens */
+        .pk-events-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+        .pk-event-card .sp-event-price { margin-top: auto; }
+        .pk-track-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .pk-track-pills .tl-pill { font-size: 10px; padding: 4px 8px; }
+
+        /* ── Community — single card, full width */
+        .pk-community-card {
+            max-width: var(--max-width); margin: 0 auto;
+            position: relative; overflow: hidden;
+            background: var(--bg-card);
+            border: 0.5px solid rgba(245,62,159,0.28);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid; grid-template-columns: 300px 1fr; gap: 40px;
+        }
+        .pk-community-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: #F53E9F;
+        }
+        .pk-community-price { font-family: var(--font-display); font-size: 52px; font-weight: 900; color: var(--text-primary); line-height: 1; margin-bottom: 10px; }
+        .pk-community-desc  { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+        .pk-community-benefits { list-style: none; padding: 0; margin: 0; column-count: 2; column-gap: 32px; }
+        .pk-community-benefits li {
+            font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary);
+            padding: 9px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45;
+            break-inside: avoid;
+        }
+        .pk-community-benefits li::before { content: '✓'; color: #F53E9F; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 3px; }
+
+        .pk-badge {
+            display: inline-flex; align-items: center;
+            font-family: var(--font-body); font-size: 11px; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; width: fit-content;
+        }
+        .pk-badge-main      { background: #6723FF2E; color: var(--purple-bright); }
+        .pk-badge-community { background: rgba(245,62,159,0.15); color: #F53E9F; }
+        .pk-tier-label {
+            font-family: var(--font-display); font-size: 15px; font-weight: 800;
+            color: var(--text-primary); margin-bottom: 4px;
+        }
+
+        /* ── Benefits matrix — extra columns (Academic + Partner) beyond the base 8 */
+        .benefits-table th.col-academic { color: var(--tier-gold); }
+        .benefits-table th.col-partner  { color: #F53E9F; }
+        .benefits-table th.col-investment { text-align: left; }
+        .benefits-invest-row td { font-family: var(--font-display); font-weight: 900; color: var(--text-primary); font-size: 14px; }
+        .benefits-invest-row td.col-benefit { font-family: var(--font-body); font-weight: 700; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+        .benefits-table th, .benefits-table td { min-width: 84px; }
+        .benefits-table th.col-benefit, .benefits-table td.col-benefit { min-width: 240px; }
+
+        /* ── Special offers (from the decks) — final section */
+        .pk-offers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 860px; margin: 0 auto; }
+        .pk-offer-card {
+            background: var(--bg-card); border: 0.5px solid var(--border);
+            border-radius: var(--radius-lg); padding: 32px 28px; text-align: center;
+        }
+        .pk-offer-for   { font-family: var(--font-mono, var(--font-body)); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+        .pk-offer-head  { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
+        .pk-offer-note  { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; line-height: 1.5; }
+        .pk-offer-rate  { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-bottom: 8px; }
+        .pk-offer-old   { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-muted); text-decoration: line-through; }
+        .pk-offer-new   { font-family: var(--font-display); font-size: 40px; font-weight: 900; color: var(--green); line-height: 1; }
+        .pk-offer-new span { font-size: 18px; font-weight: 700; color: var(--text-secondary); }
+        .pk-offer-billed { font-family: var(--font-body); font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+        /* Egypt / International reference — no visible switch; the URL param decides. */
+        .pk-eyebrow-tag { font-weight: 700; }
+
+        /* ── Responsive ── */
+        @media (max-width: 980px) {
+            .pk-main-card, .pk-community-card { grid-template-columns: 1fr; gap: 28px; }
+            .pk-tier-grid   { grid-template-columns: 1fr; }
+            .pk-events-grid { grid-template-columns: repeat(2, 1fr); }
+            .pk-main-benefits, .pk-community-benefits { column-count: 1; }
+            .pk-offers-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+            .pk-main-card, .pk-community-card { padding: 28px 22px; }
+            .pk-events-grid { grid-template-columns: 1fr; }
+            .pk-main-price, .pk-community-price { font-size: 42px; }
+        }
+    </style>
+</head>
+
+<body class="has-hero glow">
+
+    <!-- ══════════════════════════════════════════
+         NAV — rendered from data/layout.js (standard site header)
+    ══════════════════════════════════════════ -->
+    <div id="site-header"></div>
+
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="page-hero__inner">
+            <div>
+                <p class="page-hero__eyebrow">Sponsorship Opportunities</p>
+                <h1 class="page-hero__title">Choose Your<br>Sponsorship Level</h1>
+                <p class="page-hero__sub">All sponsors receive visibility across the AI Summit platform, the BrainsMingle ecosystem, and event communications, with opportunities tailored to each tier.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         MAIN SPONSOR — alone, most important
+    ══════════════════════════════════════════ -->
+    <section class="sp-section" style="padding-bottom:48px;">
+        <div class="sp-section-inner">
+            <div class="sp-section-head" style="margin-bottom:40px;">
+                <div class="section-eyebrow">The Headline</div>
+                <h2 class="section-title">Main Sponsor</h2>
+            </div>
+
+            <div class="pk-main-wrap">
+                <div class="pk-main-card">
+                    <div class="pk-main-left">
+                        <span class="pk-badge pk-badge-main">Main Sponsor</span>
+                        <div class="pk-main-price" data-price data-int="50,000" data-eg="10,000"></div>
+                        <p class="pk-main-desc">The single most prominent brand at the Summit. Named association across the entire event, top placement everywhere, and the deepest speaking and community footprint of any tier.</p>
+                    </div>
+                    <ul class="pk-main-benefits">
+                        <li>Named association across all event materials — "AI Summit, presented by [Brand]"</li>
+                        <li>Large logo · top placement · website + sticky banner across all BrainsMingle pages</li>
+                        <li>Live room top-bar placement across all 100+ sessions and panels</li>
+                        <li>4 speaking slots across preferred tracks + panelist seat at Opening Day panels</li>
+                        <li>Dedicated sponsor spotlight post across all social platforms + co-branded content</li>
+                        <li>Dedicated channel + room in the AI Summit Community Space on BrainsMingle</li>
+                        <li>Mention in pre-event email campaign and the AI Summit newsletter</li>
+                        <li>Post-event audience insights report · mentioned in post-event press release</li>
+                        <li>500 promo codes (50% off Premium) + 1,000 promo codes (25% off Premium)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         TIER SPONSORS — Gold / Silver / Bronze together
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-inner">
+            <div class="sp-section-head">
+                <div class="section-eyebrow">Sponsorship Tiers</div>
+                <h2 class="section-title">Gold, Silver &amp; Bronze</h2>
+                <p class="section-sub">Three levels of presence across the website, live rooms, speaking slots, and social coverage.</p>
+            </div>
+
+            <div class="pk-tier-grid">
+
+                <div class="tier-card tier-gold">
+                    <div class="tier-badge">Gold Sponsor</div>
+                    <div class="tier-price" data-price data-int="25,000" data-eg="5,000"></div>
+                    <hr class="tier-divider" />
+                    <ul class="tier-benefits">
+                        <li>Medium logo · above the fold on the Signal website</li>
+                        <li>Rotating banner — all live session rooms + detail pages</li>
+                        <li>3 speaking slots across preferred tracks</li>
+                        <li>Panelist seat at Opening Day panels</li>
+                        <li>Dedicated sponsor spotlight post · co-branded content</li>
+                        <li>Dedicated channel + room in Community Space</li>
+                        <li>Mentioned in post-event press release</li>
+                        <li>300 promo codes (50% off) + 600 promo codes (25% off)</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card tier-silver">
+                    <div class="tier-badge">Silver Sponsor</div>
+                    <div class="tier-price" data-price data-int="12,500" data-eg="2,500"></div>
+                    <hr class="tier-divider" />
+                    <ul class="tier-benefits">
+                        <li>Medium logo in Sponsors section of the Signal website</li>
+                        <li>Rotating banner — live session rooms + detail pages</li>
+                        <li>2 speaking slots across preferred tracks</li>
+                        <li>Panelist seat at Opening Day panels</li>
+                        <li>Shared sponsor spotlight post · all social platforms</li>
+                        <li>Mention in pre-event email + Signal newsletter</li>
+                        <li>150 promo codes (50% off) + 300 promo codes (25% off)</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card tier-bronze">
+                    <div class="tier-badge">Bronze Sponsor</div>
+                    <div class="tier-price" data-price data-int="5,000" data-eg="1,000"></div>
+                    <hr class="tier-divider" />
+                    <ul class="tier-benefits">
+                        <li>Small logo in Sponsors section of the Signal website</li>
+                        <li>Discovery toast · rotating</li>
+                        <li>1 speaking slot in a preferred track</li>
+                        <li>Shared sponsor spotlight post · all social platforms</li>
+                        <li>Brand mention in Opening Day panels</li>
+                        <li>50 promo codes (50% off) + 100 promo codes (25% off)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         SPECIAL EVENTS SPONSORSHIP
+         Academic · Track · Launchpad · Talent · Speed Networking
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-inner">
+            <div class="sp-section-head">
+                <div class="section-eyebrow">Special Events Sponsorship</div>
+                <h2 class="section-title">Own the Moment</h2>
+                <p class="section-sub">Exclusive sponsorships tied to high-visibility activations across the week. Each carries its own named association and stage.</p>
+            </div>
+
+            <div class="pk-events-grid">
+
+                <!-- Academic -->
+                <div class="sp-event-card pk-event-card">
+                    <div class="sp-event-icon" style="background:rgba(245,166,35,0.15);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+                    </div>
+                    <div class="sp-event-name">Academic Sponsor</div>
+                    <div class="sp-event-desc">For universities and research bodies. Named association with academic programming, plus banner and speaking presence across sessions.</div>
+                    <div class="sp-event-price" data-price data-int="15,000" data-eg="3,000"></div>
+                    <div class="sp-event-highlight">Named academic association</div>
+                </div>
+
+                <!-- Track -->
+                <div class="sp-event-card pk-event-card">
+                    <div class="sp-event-icon" style="background:rgba(19,254,198,0.12);">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="#13FEC6"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="#13FEC6" opacity="0.5"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="#13FEC6" opacity="0.5"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="#13FEC6" opacity="0.5"/></svg>
+                    </div>
+                    <div class="sp-event-name">Track Sponsor</div>
+                    <div class="sp-event-desc">Own one of five AI tracks for the full week — "AI in [Topic], powered by [Brand]" — with the opening slot in your track.</div>
+                    <nav class="pk-track-pills" id="pk-track-pills" aria-label="Tracks available to sponsor"></nav>
+                    <div class="sp-event-price" data-price data-int="15,000" data-eg="3,000"></div>
+                    <div class="sp-event-highlight">1 per track</div>
+                </div>
+
+                <!-- Launchpad -->
+                <div class="sp-event-card pk-event-card">
+                    <div class="sp-event-icon" style="background:rgba(107,62,245,0.15);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+                    </div>
+                    <div class="sp-event-name">Signal Launchpad</div>
+                    <div class="sp-event-desc">The startup spotlight where AI ventures showcase to the largest AI community in MENA. Powered by [Brand].</div>
+                    <div class="sp-event-price" data-price data-int="7,500" data-eg="1,500"></div>
+                    <div class="sp-event-highlight">Named event association</div>
+                </div>
+
+                <!-- Talent -->
+                <div class="sp-event-card pk-event-card">
+                    <div class="sp-event-icon" style="background:rgba(19,254,198,0.12);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#13FEC6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="sp-event-name">Signal Talent</div>
+                    <div class="sp-event-desc">The live hiring stage connecting companies building AI teams with the region's top talent. Powered by [Brand].</div>
+                    <div class="sp-event-price" data-price data-int="7,500" data-eg="1,500"></div>
+                    <div class="sp-event-highlight">Named event association</div>
+                </div>
+
+                <!-- Speed Networking -->
+                <div class="sp-event-card pk-event-card">
+                    <div class="sp-event-icon" style="background:rgba(19,254,198,0.12);">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="5.5" cy="5" r="2" stroke="#13FEC6" stroke-width="1.8"/><path d="M2 18C2 15.239 3.567 13 5.5 13C7.433 13 9 15.239 9 18" stroke="#13FEC6" stroke-width="1.8" stroke-linecap="round"/><circle cx="14.5" cy="5" r="2" stroke="#13FEC6" stroke-width="1.8"/><path d="M11 18C11 15.239 12.567 13 14.5 13C16.433 13 18 15.239 18 18" stroke="#13FEC6" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="sp-event-name">Speed Networking Day</div>
+                    <div class="sp-event-desc">The closing-day activation. 1:1 speed rounds across all five tracks — your brand closes the entire event.</div>
+                    <div class="sp-event-price" data-price data-int="12,500" data-eg="2,500"></div>
+                    <div class="sp-event-highlight">Named event association</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         COMMUNITY PARTNER — single card
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-inner">
+            <div class="sp-section-head">
+                <div class="section-eyebrow">Bring Your Community</div>
+                <h2 class="section-title">Community Partner</h2>
+            </div>
+
+            <div class="pk-community-card">
+                <div class="pk-main-left">
+                    <span class="pk-badge pk-badge-community">Community Partner</span>
+                    <div class="pk-community-price" data-price data-int="2,500" data-eg="500"></div>
+                    <p class="pk-community-desc">For AI communities, developer groups, and professional networks bringing their members into the room.</p>
+                </div>
+                <ul class="pk-community-benefits">
+                    <li>Your logo in the Partners section of the AI Summit website</li>
+                    <li>Rotating bottom banner in the AI Summit Community Space on BrainsMingle</li>
+                    <li>Brand mention in Opening Day panels — heard by the full audience</li>
+                    <li>Shared sponsor spotlight post across all AI Summit social platforms</li>
+                    <li>Social mention during event week + post-event thank-you post</li>
+                    <li>1,000 promo codes (25% off Premium) to share with your audience</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         FULL BENEFITS MATRIX
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-head" style="max-width:var(--max-width);margin:0 auto 48px;">
+            <div class="section-eyebrow">The Complete Presence</div>
+            <h2 class="section-title">Full Benefits Breakdown</h2>
+            <p class="section-sub">All tiers. All benefits. At a glance.</p>
+        </div>
+        <div class="sp-tabs-wrap">
+            <div class="benefits-table-wrap">
+                <table class="benefits-table">
+                    <thead>
+                        <tr>
+                            <th class="col-benefit">Benefit</th>
+                            <th class="col-main">Main</th>
+                            <th class="col-gold">Gold</th>
+                            <th class="col-silver">Silver</th>
+                            <th class="col-bronze">Bronze</th>
+                            <th class="col-track">Track</th>
+                            <th class="col-academic">Academic</th>
+                            <th class="col-launch">Launchpad</th>
+                            <th class="col-talent">Talent</th>
+                            <th class="col-speed">Speed Net.</th>
+                            <th class="col-partner">Community</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="benefits-invest-row">
+                            <td class="col-benefit">Investment (USD)</td>
+                            <td data-price data-int="$50K" data-eg="$10K"></td>
+                            <td data-price data-int="$25K" data-eg="$5K"></td>
+                            <td data-price data-int="$12.5K" data-eg="$2.5K"></td>
+                            <td data-price data-int="$5K" data-eg="$1K"></td>
+                            <td data-price data-int="$15K" data-eg="$3K"></td>
+                            <td data-price data-int="$15K" data-eg="$3K"></td>
+                            <td data-price data-int="$7.5K" data-eg="$1.5K"></td>
+                            <td data-price data-int="$7.5K" data-eg="$1.5K"></td>
+                            <td data-price data-int="$12.5K" data-eg="$2.5K"></td>
+                            <td data-price data-int="$2.5K" data-eg="$500"></td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Branding &amp; Ad Placements</td></tr>
+                        <tr>
+                            <td class="col-benefit">Logo on Signal Website</td>
+                            <td class="val">Large</td><td class="val">Med · ATF</td><td class="val">Medium</td><td class="val">Small</td>
+                            <td class="val">Tracks</td><td class="val">Sponsors</td><td class="val">Events</td><td class="val">Events</td><td class="val">Events</td><td class="val">Partners</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Top Sticky Banner — all BrainsMingle pages</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Named Association (presented by)</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Named Track / Event Association (powered by)</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Discovery — Toast · Rotating</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Session &amp; Event Pages</td></tr>
+                        <tr>
+                            <td class="col-benefit">Live Room — Top Bar · All Sessions</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Live Room — Rotating Bottom Banner</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Session Details Page — Top Bar</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Session Details Page — Rotating Bottom Banner</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Session Details Page — Sidebar Tile (Powered By)</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Owned Event — Sidebar Tile (Powered By)</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Live Video / 1:1 Call — Powered By Bar</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Break Room / Live Lobby — Powered By Bar</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Community Space</td></tr>
+                        <tr>
+                            <td class="col-benefit">Logo on Community Banner</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Rotating Sidebar Tile</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Rotating Bottom Banner — Community Space</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Dedicated Channel</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Dedicated Room</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Content &amp; Speaking</td></tr>
+                        <tr>
+                            <td class="col-benefit">Panelist Slot — Opening Day Panels</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Speaking Slots — Preferred Track</td>
+                            <td class="val">4</td><td class="val">3</td><td class="val">2</td><td class="val">1</td>
+                            <td class="val">Own Track</td><td class="val">2</td><td class="val">Own Event</td><td class="val">Own Event</td><td class="val">Own Event</td><td class="val">1</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Opening Slot / Remarks at Owned Event</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Brand Mention in Session Opening — Day 0</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Social Media &amp; Communications</td></tr>
+                        <tr>
+                            <td class="col-benefit">Dedicated Sponsor Spotlight Post</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Shared Sponsor Spotlight Post</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Mention in Pre-Event Email Campaign</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Mention in Signal Newsletter</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Social Mention During Event Week</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Co-Branded Content Opportunity</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">50% Promo Codes</td>
+                            <td class="val">500</td><td class="val">300</td><td class="val">150</td><td class="val">50</td>
+                            <td class="val">200</td><td class="val">200</td><td class="val">50</td><td class="val">50</td><td class="val">100</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">25% Promo Codes</td>
+                            <td class="val">1,000</td><td class="val">600</td><td class="val">300</td><td class="val">100</td>
+                            <td class="val">400</td><td class="val">400</td><td class="val">100</td><td class="val">100</td><td class="val">200</td><td class="val">1,000</td>
+                        </tr>
+
+                        <tr class="benefits-cat-row"><td colspan="11">Post-Event &amp; PR</td></tr>
+                        <tr>
+                            <td class="col-benefit">Post-Event Thank You Post</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Post-Event Audience Insights Report</td>
+                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                        <tr>
+                            <td class="col-benefit">Mentioned in Post-Event Press Release</td>
+                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         SPECIAL OFFERS — sponsor/partner BrainsMingle rate (from the decks)
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-head" style="max-width:var(--max-width);margin:0 auto 48px;">
+            <div class="section-eyebrow">Exclusive to AI Summit Sponsors &amp; Partners</div>
+            <h2 class="section-title">Summit Ended. Your Brand Keeps Growing.</h2>
+            <p class="section-sub">Every sponsor and partner gets an exclusive rate on BrainsMingle annual plans — 3 months free, then 40% off, locked for 12 months. Not available publicly.</p>
+        </div>
+
+        <div class="pk-offers-grid">
+            <div class="pk-offer-card">
+                <div class="pk-offer-for">For Experts</div>
+                <div class="pk-offer-head">40% off Premium Plans</div>
+                <div class="pk-offer-note">3 months free, then 40% off annually.</div>
+                <div class="pk-offer-rate">
+                    <span class="pk-offer-old">$6.00</span>
+                    <span class="pk-offer-new">$3.60<span>/mo</span></span>
+                </div>
+                <div class="pk-offer-billed">Billed annually · $72/year → $43/year — locked for 12 months</div>
+            </div>
+
+            <div class="pk-offer-card">
+                <div class="pk-offer-for">For Communities</div>
+                <div class="pk-offer-head">40% off Community Plan</div>
+                <div class="pk-offer-note">3 months free, then 40% off annually.</div>
+                <div class="pk-offer-rate">
+                    <span class="pk-offer-old">$35</span>
+                    <span class="pk-offer-new">$20<span>/mo</span></span>
+                </div>
+                <div class="pk-offer-billed">Billed annually · $420/year → $250/year — locked for 12 months</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FOOTER — rendered from data/layout.js
+    ══════════════════════════════════════════ -->
+    <div id="site-footer"></div>
+
+
+    <!-- Shared site scripts: header, footer, theme toggle, tracks, icons. -->
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/icons.js"></script>
+
+    <!-- ══════════════════════════════════════════
+         PAGE SCRIPT — pricing switch + track pills
+         Orphan page: everything here is self-contained.
+    ══════════════════════════════════════════ -->
+    <script>
+        (function () {
+            // ── Pricing region from the URL.
+            //   ?ref=eg  → Egypt rates
+            //   ?ref=int → International (also the default when no ref is set)
+            function activeRegion() {
+                try {
+                    var v = (new URLSearchParams(window.location.search).get("ref") || "").toLowerCase();
+                    return (v === "eg" || v === "egypt") ? "eg" : "int";
+                } catch (e) { return "int"; }
+            }
+
+            function applyPricing() {
+                var region = activeRegion();
+                document.querySelectorAll("[data-price]").forEach(function (el) {
+                    var val = el.getAttribute(region === "eg" ? "data-eg" : "data-int");
+                    if (val === null) return;
+                    // Prices already carry their own $ where needed; the tier/card
+                    // prices get a leading $ here so the data stays clean.
+                    el.textContent = /[$]/.test(val) ? val : "$" + val;
+                });
+            }
+
+            // ── Track pills inside the Track Sponsor card, from data/tracks.js.
+            function renderTrackPills() {
+                var el = document.getElementById("pk-track-pills");
+                if (!el || typeof SIGNAL_TRACKS === "undefined") return;
+                el.innerHTML = SIGNAL_TRACKS.map(function (t) {
+                    return '<span class="tl-pill track-' + t.trackNumber + '">' + t.shortName + '</span>';
+                }).join("");
+            }
+
+            function init() {
+                applyPricing();
+                renderTrackPills();
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
