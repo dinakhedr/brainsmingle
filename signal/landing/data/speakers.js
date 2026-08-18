@@ -292,7 +292,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-026.png",
-    bio         : "AI and automation specialist at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
+    bio         : "AI Tech & Business Lead Manager at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
     linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
     bmProfile   : null,
     featured    : false,
