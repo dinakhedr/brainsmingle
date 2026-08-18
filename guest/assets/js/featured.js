@@ -116,14 +116,14 @@
     },
 
     muslimCircle: {
-      name: 'Muslim Circle', category: 'Tech',
-      image: '2.png', href: 'collective-circle-building-together-as-muslim-women', order: 20,
+      name: 'SaaS Majlis', category: 'Tech',
+      image: '2.png', href: 'the-saas-majlis-community', order: 20,
       showInHome: true
     },
 
     saasMajlis: {
-      name: 'SaaS Majlis', category: 'Tech',
-      image: '3.png', href: 'the-saas-majlis-community', order: 30,
+      name: 'Muslim Circle', category: 'Business',
+      image: '3.png', href: 'collective-circle-building-together-as-muslim-women', order: 30,
       showInHome: true
     },
 
@@ -134,7 +134,7 @@
     },
 
     leadersInAi: {
-      name: 'Leaders in AI', category: 'Tech',
+      name: 'Leaders in AI', category: 'Product',
       image: '5.png', href: 'product-builders-1', order: 50,
       showInHome: true
     }
