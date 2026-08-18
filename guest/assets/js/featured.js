@@ -69,39 +69,39 @@
      ------------------------------------------------------------ */
   var EXPERTS = {
 
+    meltabakh: {
+      name: 'M. ElTabah', title: 'Lead IoT Engineer',
+      image: '1.png', href: 'meltabakh', order: 10,
+      showInHome: true
+    },
+
     ameer: {
-      name: 'Expert Name', title: 'Executive Chairman',
-      image: '1.png', href: 'expert-2', order: 10,
+      name: 'Ameer Sherif', title: 'Founder',
+      image: '2.png', href: 'ameer', order: 20,
       showInHome: true
     },
 
-    expert2: {
-      name: 'Expert Name', title: 'Title / Expertise',
-      image: '2.png', href: 'expert-2', order: 20,
+    mohamed4120: {
+      name: 'M. AboElKheir', title: 'Security Engineer',
+      image: '3.png', href: 'mohamed4120', order: 30,
       showInHome: true
     },
 
-    expert3: {
-      name: 'Expert Name', title: 'Title / Expertise',
-      image: '3.png', href: 'expert-3', order: 30,
+    nofil_ai: {
+      name: 'Nofil Khan', title: 'Head of AI',
+      image: '4.png', href: 'nofil_ai', order: 40,
       showInHome: true
     },
 
-    expert4: {
-      name: 'Expert Name', title: 'Title / Expertise',
-      image: '4.png', href: 'expert-4', order: 40,
+    MohamedElsherif: {
+      name: 'M. ElSherif', title: 'SaaS AI Consultant',
+      image: '5.png', href: 'MohamedElsherif', order: 50,
       showInHome: true
     },
 
-    expert5: {
-      name: 'Expert Name', title: 'Title / Expertise',
-      image: '5.png', href: 'expert-5', order: 50,
-      showInHome: true
-    },
-
-    expert6: {
-      name: 'Expert Name', title: 'Title / Expertise',
-      image: '6.png', href: 'expert-6', order: 60,
+    mohammed3084: {
+      name: 'M. Hamza', title: 'Scrum Master',
+      image: '6.png', href: 'mohammed3084', order: 60,
       showInHome: true
     }
 
@@ -110,32 +110,32 @@
   var COMMUNITIES = {
 
     arabIot: {
-       name: 'Community Name', category: 'Category',
-      image: '1.png', href: 'community-1', order: 10,
+      name: 'Arab IoT', category: 'Tech',
+      image: '1.png', href: 'arab-iot-community', order: 10,
       showInHome: true
     },
 
-    community2: {
-      name: 'Community Name', category: 'Category',
-      image: '2.png', href: 'community-2', order: 20,
+    muslimCircle: {
+      name: 'Muslim Circle', category: 'Tech',
+      image: '2.png', href: 'collective-circle-building-together-as-muslim-women', order: 20,
       showInHome: true
     },
 
-    community3: {
-      name: 'Community Name', category: 'Category',
-      image: '3.png', href: 'community-3', order: 30,
+    saasMajlis: {
+      name: 'SaaS Majlis', category: 'Tech',
+      image: '3.png', href: 'the-saas-majlis-community', order: 30,
       showInHome: true
     },
 
-    community4: {
-      name: 'Community Name', category: 'Category',
-      image: '4.png', href: 'community-4', order: 40,
+    zeroDaySociety: {
+      name: 'Zero Day', category: 'Tech',
+      image: '4.png', href: 'zero-day-society', order: 40,
       showInHome: true
     },
 
-    community5: {
-      name: 'Community Name', category: 'Category',
-      image: '5.png', href: 'community-5', order: 50,
+    leadersInAi: {
+      name: 'Leaders in AI', category: 'Tech',
+      image: '5.png', href: 'product-builders-1', order: 50,
       showInHome: true
     }
 
