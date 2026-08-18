@@ -336,7 +336,7 @@
       },
 
       suite: {
-        trigger: 'Suite',
+        trigger: 'For Business',
         layout: 'aside',
         aside: {
           label: 'Overview',
