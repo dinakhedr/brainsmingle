@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ============================
+         SEO
+         ============================ -->
+    <title>Analytics &amp; Administration — BrainsMingle</title>
+    <meta name="description" content="Platform metrics, course completion, host reliability, session quality, user management, and revenue tracking, all from a single admin panel.">
+    <link rel="canonical" href="https://brainsmingle.com/analytics.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BrainsMingle">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_EG">
+    <meta property="og:url" content="https://brainsmingle.com/analytics.html">
+    <meta property="og:title" content="Analytics — See everything, run everything, in one place.">
+    <meta property="og:description" content="Platform metrics, course completion, host reliability, session quality, user management, and revenue tracking, all from a single admin panel.">
+    <meta property="og:image" content="https://brainsmingle.com/assets/og/og-analytics.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BrainsMingle Analytics — see everything, run everything, in one place.">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@brainsmingle">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Analytics & Administration",
+            "headline": "See everything, run everything, in one place.",
+            "url": "https://brainsmingle.com/analytics.html",
+            "description": "Platform metrics, course completion, host reliability, session quality, user management, and revenue tracking, all from a single admin panel. The reporting layer your stakeholders and funders need, wired to every module.",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "BrainsMingle",
+                "url": "https://brainsmingle.com/"
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://brainsmingle.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Capabilities",
+                        "item": "https://brainsmingle.com/capabilities.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Analytics & Administration",
+                        "item": "https://brainsmingle.com/analytics.html"
+                    }
+                ]
+            }
+        }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+    <!-- Styles, then theme (order matters) -->
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/style-shared.css" />
+    <link rel="stylesheet" href="assets/css/style-product.css" />
+
+    <script src="assets/js/theme.js"></script>
+</head>
+
+<body>
+
+    <div id="site-header"></div>
+
+    <!-- ============================
+     HERO + OVERVIEW STRIP
+     ============================ -->
+    <div class="sol-fold">
+
+        <!-- HERO — hydrated from NAV_CONFIG via nav.js (data-page = index key) -->
+        <section class="sol-hero sol-hero--split" data-page="analytics.html">
+            <div class="glow" style="top:-180px;left:30%;"></div>
+            <div class="container sol-hero__content">
+                <div class="sol-hero__copy">
+                    <a href="capabilities.html" class="sol-hero__back"><span data-icon="arrowLeft"></span> All Capabilities</a>
+                    <span class="sol-hero__tag"></span>
+                    <h1 class="sol-hero__title"></h1>
+                    <p class="sol-hero__headline"></p>
+                    <p class="sol-hero__sub"></p>
+                </div>
+                <div class="sol-hero__visual">
+                    <img src="assets/images/hero/analytics.png" alt="The BrainsMingle admin analytics panel — engagement, host reliability, and revenue charts." width="1600" height="900" loading="eager" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- OVERVIEW STRIP -->
+        <section class="sol-overview">
+            <div class="container">
+                <div class="sol-overview__grid">
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--cyan" data-icon="analytics"></span>
+                        </div>
+                        <div class="sol-overview__label">Platform Analytics</div>
+                        <div class="sol-overview__desc">Users, events, recordings, and leaderboards</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--purple" data-icon="courseanalytics"></span>
+                        </div>
+                        <div class="sol-overview__label">Course Analytics</div>
+                        <div class="sol-overview__desc">Enrollment, completion, and certification</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--pink" data-icon="memberconfig"></span>
+                        </div>
+                        <div class="sol-overview__label">User Management</div>
+                        <div class="sol-overview__desc">Profiles, plans, roles, and hosted events</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--amber" data-icon="revenuetrack"></span>
+                        </div>
+                        <div class="sol-overview__label">Revenue Tracking</div>
+                        <div class="sol-overview__desc">Payments, fees, and payout management</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<!-- ============================
+     FEATURE SECTIONS
+     ============================ -->
+    <section class="sol-features" data-page-accent="sol">
+        <div class="container">
+
+            <!-- F1: Platform Analytics -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Platform Analytics</div>
+                    <h2 class="sol-feature__title">One dashboard for your entire membership operation.</h2>
+                    <p class="sol-feature__desc">See member engagement, event attendance, course completion, networking activity, and revenue in one place — no stitching six systems together to build a board report. A member rollup table adds tier, course progress, learning hours, and certification, with filters and CSV or Excel export. Bulk email members, manage roles, and track renewals from the same admin panel.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Headline metrics</strong> — Active members, Event attendance, Course completion, and Monthly revenue, each with month-over-month change.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Member rollup table</strong> — tier, courses completed, overall progress, learning hours, and certificate status, filterable and exportable to CSV or Excel.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Built-in admin actions</strong> — bulk email members and manage roles without leaving the dashboard.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/analytics-view.png" alt="The Analytics and Admin dashboard showing Active members, Event attendance, Course completion, and Monthly revenue cards with month-over-month change, a filters panel, Bulk email and Manage roles actions, CSV and Excel export, and a member table with tier, courses, overall progress, hours, and certificate status">
+                    <div class="sol-feature__media-caption">Analytics &amp; Admin — headline metrics, a member rollup table, and built-in admin actions</div>
+                </div>
+            </div>
+
+            <!-- F2: Course Analytics -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Course Analytics</div>
+                    <h2 class="sol-feature__title">Track every learner from enrollment to certification.</h2>
+                    <p class="sol-feature__desc">The all-courses dashboard shows total enrollment, course count, average completion rate, and certification status. Filter by courses completed, completion percentage, certificate status, or date range. Drill into any individual course to see per-learner progress bars, lesson counts, and last activity timestamps.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Program-level view</strong> — members enrolled, courses available, average completion, and certified count.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Course-level drill-down</strong> — per-learner progress, lesson completion, and last activity.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Export data</strong> — download learner tables as CSV or Excel for reporting.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/courses-analytics.png" alt="The course analytics dashboard showing summary cards and a member completion table">
+                    <div class="sol-feature__media-caption">Course analytics — completion, certification, and per-member progress</div>
+                </div>
+            </div>
+
+            <!-- F3: Host Activity -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Host Activity</div>
+                    <h2 class="sol-feature__title">Know which hosts show up — and which don't.</h2>
+                    <p class="sol-feature__desc">The Host Activity page tracks show-up rates across every host on your platform. The Hosts tab ranks each host by attendance ratio. The Rooms tab shows every room with its status, host attendance, scheduled time, duration, and attendee count. Filter by live, upcoming, or past events and search by room title or host name.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Host show-up rate</strong> — showed vs. total rooms, color-coded from green (reliable) down to red (low turnout).</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Room activity</strong> — status (Live Now, Upcoming, Past), host present/missing, duration, and attendees.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Filter and search</strong> — narrow by room status or search by title and host name.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/analytics-hosts.png" alt="The Hosts tab showing the Host Statistics table with ten hosts listed, their showed versus total rooms ratios, and color-coded show-up rate percentages from green down to red">
+                    <div class="sol-feature__media-caption">Host Activity — show-up rates and attendance ratios per host</div>
+                </div>
+            </div>
+
+            <!-- F4: Feedback Analytics -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Feedback Analytics</div>
+                    <h2 class="sol-feature__title">Measure session quality with NPS and quality scores.</h2>
+                    <p class="sol-feature__desc">Post-call feedback is collected automatically after every session. The Feedback Analytics dashboard shows average quality scores, Net Promoter Score with Promoter/Passive/Detractor breakdowns, total responses, and completion rate. Four charts break quality down by country, browser, time of day, and daily volume.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>NPS breakdown</strong> — Promoters (9–10), Passives (7–8), and Detractors (0–6) with percentages.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Quality dimensions</strong> — by country, by browser, by time of day, and daily volume vs. quality.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Automatic collection</strong> — feedback dialogs appear after every completed session. Anonymous and used for quality monitoring only.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/analytics-feedback.png" alt="The Feedback Analytics dashboard showing Avg Quality Score, Content NPS, Total Responses, and Completion Rate cards, a Content NPS breakdown of promoters, passives, and detractors, and quality charts by country, browser, time of day, and daily volume">
+                    <div class="sol-feature__media-caption">Feedback Analytics — NPS breakdown, quality scores, and dimensional charts</div>
+                </div>
+            </div>
+
+            <!-- F5: User Management -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">User Management</div>
+                    <h2 class="sol-feature__title">Every user, searchable and manageable.</h2>
+                    <p class="sol-feature__desc">The Users Management page lists every registered user with their ID, name, email, plan, timezone, hosting status, and join date. Search by name or email, filter by hosting privileges, edit profiles and plans, and drill into any user's hosted events or consultation services.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Search and filter</strong> — find users by name, email, or username. Filter by Can Host or Can't Host.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Edit profiles</strong> — update name, email, username, and plan from the admin panel.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>View user activity</strong> — see each user's hosted events and consultation services with full details.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/analytics-users.png" alt="The Users Management page showing a search bar, filter dropdown, total user count, and a table listing users with columns for ID, Avatar, User Info, Contact, Plan, Timezone, Status, Joined, and Actions">
+                    <div class="sol-feature__media-caption">Users Management — search, filter, and manage every user on your deployment</div>
+                </div>
+            </div>
+
+            <!-- F6: Revenue & Payments Admin -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Revenue &amp; Payments</div>
+                    <h2 class="sol-feature__title">Full visibility over every transaction and payout.</h2>
+                    <p class="sol-feature__desc">The Platform Payments page shows every payment across your deployment — total revenue, platform fees, pending payouts, and organizer earnings. Search by event, organizer, or participant, filter by events or consultations, and manage payout requests with approve or reject controls.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Revenue summary</strong> — Total Revenue, Platform Fees, Pending Payouts, and Organizer Earnings at a glance.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Transaction log</strong> — every payment with type, event name, organizer, participant, amount, fee, and date.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Payout management</strong> — review, approve, or reject withdrawal requests. Filter by Pending, Approved, Completed, or Rejected.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/analytics-payments.png" alt="Summary cards for Total Revenue, Platform Fees, Pending Payouts, and Organizer Earnings, above an All Payments table listing type, organizer, participant, amount, platform fee, and organizer earnings by date">
+                    <div class="sol-feature__media-caption">Platform Payments — revenue summary and transaction records</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================
+     CTA
+     ============================ -->
+      <!-- ============================
+       RELATED
+       ============================ -->
+  <section id="related-capabilities"></section>
+
+  <!-- ============================
+       CTA
+       ============================ -->
+  <section id="get-started"></section>
+
+    
+
+
+    <!-- Footer + mobile bar — built by nav.js -->
+    <div id="site-footer"></div>
+    <div id="site-mobile-cta"></div>
+
+    <!-- Body scripts -->
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/illustrations.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/nav.js"></script>
+
+</body>
+
+</html>

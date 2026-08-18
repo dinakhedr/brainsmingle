@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ============================
+         SEO
+         ============================ -->
+    <title>Event Management — BrainsMingle</title>
+    <meta name="description" content="Publish an event page, sell tickets, manage sponsors, and track attendance for single sessions or multi-day programs. Live, virtual, or hybrid.">
+    <link rel="canonical" href="https://brainsmingle.com/events.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BrainsMingle">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_EG">
+    <meta property="og:url" content="https://brainsmingle.com/events.html">
+    <meta property="og:title" content="Events — From registration to replay.">
+    <meta property="og:description" content="Publish an event page, sell tickets, manage sponsors, and track attendance for single sessions or multi-day programs.">
+    <meta property="og:image" content="https://brainsmingle.com/assets/og/og-events.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BrainsMingle Events — from registration to replay.">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@brainsmingle">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Events",
+            "headline": "From registration to replay.",
+            "url": "https://brainsmingle.com/events.html",
+            "description": "Publish an event page, sell tickets, manage sponsors, and track attendance for single sessions or multi-day programs. Live, virtual, or hybrid, every event runs on your brand and feeds straight into your community.",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "BrainsMingle",
+                "url": "https://brainsmingle.com/"
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://brainsmingle.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Capabilities",
+                        "item": "https://brainsmingle.com/capabilities.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Events",
+                        "item": "https://brainsmingle.com/events.html"
+                    }
+                ]
+            }
+        }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+    <!-- Styles, then theme (order matters) -->
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/style-shared.css" />
+    <link rel="stylesheet" href="assets/css/style-product.css" />
+
+    <script src="assets/js/theme.js"></script>
+</head>
+
+<body>
+
+    <div id="site-header"></div>
+
+    <!-- ============================
+     HERO + OVERVIEW STRIP
+     ============================ -->
+    <div class="sol-fold">
+
+        <!-- HERO — hydrated from NAV_CONFIG via nav.js (data-page = index key) -->
+        <section class="sol-hero sol-hero--split" data-page="events.html">
+            <div class="glow" style="top:-180px;left:30%;"></div>
+            <div class="container sol-hero__content">
+                <div class="sol-hero__copy">
+                    <a href="capabilities.html" class="sol-hero__back"><span data-icon="arrowLeft"></span> All Capabilities</a>
+                    <span class="sol-hero__tag"></span>
+                    <h1 class="sol-hero__title"></h1>
+                    <p class="sol-hero__headline"></p>
+                    <p class="sol-hero__sub"></p>
+                </div>
+                <div class="sol-hero__visual">
+                    <img src="assets/images/hero/events.png" alt="A BrainsMingle event page — ticket tiers, an agenda, and attendee registration." width="1600" height="900" loading="eager" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- OVERVIEW STRIP -->
+        <section class="sol-overview">
+            <div class="container">
+                <div class="sol-overview__grid">
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--cyan" data-icon="sponsorship"></span>
+                        </div>
+                        <div class="sol-overview__label">Native Sponsorship</div>
+                        <div class="sol-overview__desc">Tiers, placements, and reusable records</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--amber" data-icon="ticket"></span>
+                        </div>
+                        <div class="sol-overview__label">Paid Ticketing</div>
+                        <div class="sol-overview__desc">Dual-currency pricing for every event</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--pink" data-icon="form"></span>
+                        </div>
+                        <div class="sol-overview__label">Registration Forms</div>
+                        <div class="sol-overview__desc">Attendee data before every session</div>
+                    </div>
+                    <div class="sol-overview__item">
+                        <div class="sol-overview__icon">
+                            <span class="icon icon--purple" data-icon="memberconfig"></span>
+                        </div>
+                        <div class="sol-overview__label">Participant Management</div>
+                        <div class="sol-overview__desc">Invitations, waitlists, and approvals</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ============================
+     FEATURE SECTIONS
+     ============================ -->
+    <section class="sol-features" data-page-accent="sol">
+        <div class="container">
+
+            <!-- F1: Event Sponsorship -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Event Sponsorship</div>
+                    <h2 class="sol-feature__title">A built-in sponsorship engine for your events.</h2>
+                    <p class="sol-feature__desc">Create sponsor records with full branding — logo, card image, description, link, and a custom call-to-action button. Assign sponsors to any event and control exactly where their branding appears. Sponsorship is built directly into the event tools, so there's no third-party integration or manual workaround to set up.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Full sponsor profile</strong> — title, description, logo, card image, link, CTA button, and display order.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Custom CTAs</strong> — each sponsor gets its own button label (e.g. "Learn More", "Visit IBM").</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Visibility controls</strong> — toggle "Card can be shown" and set display order per sponsor.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/sponsorship-create.png" alt="The New Sponsor form filled in with IBM as the Sponsor Title, a Silver Sponsor Type, a description, logo URLs showing the IBM logo preview, Sponsor Link set to ibm.com, and Button Title set to Visit IBM">
+                    <div class="sol-feature__media-caption">A completed sponsor record — branding, link, and CTA configured</div>
+                </div>
+            </div>
+
+            <!-- F2: Sponsor Tiers -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Sponsor Tiers</div>
+                    <h2 class="sol-feature__title">Organize sponsors into tiered packages.</h2>
+                    <p class="sol-feature__desc">Assign each sponsor a tier — Gold, Silver, or Bronze — to structure the packages you offer. Add as many sponsors as an event needs, mark each one Active or Inactive, and reuse saved sponsors across future events. Placements are controlled separately, so each tier's visibility is exactly what you decide.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Gold, Silver, Bronze</strong> — a built-in tier system for structuring your sponsorship packages.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Multiple sponsors per event</strong> — assign as many sponsors as the event needs.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Status management</strong> — each sponsor shows an Active or Inactive status you control.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Reusable records</strong> — save a sponsor once and reuse it on any future event, with no re-entry.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/sponsorship-tiers.png" alt="The Sponsorship dialog showing two sponsor records under This Event Sponsors: IBM as Silver and Active, and Microsoft as Gold and Active, each with a Choose button and delete icon, above a New Sponsor action">
+                    <div class="sol-feature__media-caption">Two sponsors on one event — Silver and Gold, each with a tier and status</div>
+                </div>
+            </div>
+
+            <!-- F3: 9 Placement Types -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Placement Types</div>
+                    <h2 class="sol-feature__title">Nine placement types across two surfaces.</h2>
+                    <p class="sol-feature__desc">Control exactly where each sponsor appears. Toggle placements independently for the Event Details Page and for Associated Rooms — so a Gold sponsor can have the Banner Hero on the event page and the Header Logo inside the live session, while a Bronze sponsor only gets the Logo Bar.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Logo Bar</strong> — horizontal logo strip across the event page.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Banner Hero &amp; Skyscraper</strong> — high-impact placements for premium sponsors.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Floating Notification &amp; Message Strip</strong> — attention-grabbing formats that overlay content.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Native Card, Inline Compact, Sidebar Tile, Header Logo</strong> — seamless placements that blend into the page.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/sponsorship-placement.png" alt="The Placements tab showing the Event Details Page and Associated Rooms sections, with IBM and Microsoft listed as sponsors and various placement types toggled on in purple">
+                    <div class="sol-feature__media-caption">The Placements tab — 9 types toggled independently per sponsor, per surface</div>
+                </div>
+            </div>
+
+            <!-- F4: Paid Events -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Paid Ticketing</div>
+                    <h2 class="sol-feature__title">Charge for any event with one toggle.</h2>
+                    <p class="sol-feature__desc">Toggle Paid Access during event creation and set a price in USD, EGP, or both. Attendees pay before they join. The platform handles payment collection, shows the net amount after the platform fee, and the same flow works for video sessions and speed networking rooms.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Dual currency</strong> — set prices in USD, EGP, or both. Attendees choose what fits them.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Transparent fees</strong> — net earnings per attendee displayed below the price field.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Coupon support</strong> — apply discount codes scoped to a single event or to all events.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/room-paid.png" alt="Paid Access enabled showing a price field in USD set to 5 dollars, a note about the 10% platform fee and 4.50 net per attendee, and a discount code applying automatically">
+                    <div class="sol-feature__media-caption">Paid Access enabled — price field with net earnings breakdown</div>
+                </div>
+            </div>
+
+            <!-- F5: Registration & Gating -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Registration &amp; Gating</div>
+                    <h2 class="sol-feature__title">Know your attendees before the event starts.</h2>
+                    <p class="sol-feature__desc">Attach a registration form to any event during creation. Pick from suggested fields — name, email, company, job title, LinkedIn — or add custom questions. Attendees must complete the form before they can join, so you always know who is in the room.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Suggested fields</strong> — one-click to add Full Name, Email, Phone, Company, Job Title, and LinkedIn URL.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Custom questions</strong> — add open-ended questions specific to the event.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Response review</strong> — view all submissions from the room detail page before or after the event.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/form-view.png" alt="The registration form panel with Require attendees to fill a form toggled on, a form title field, and a Quick Add From Suggestions list including Full Name, Email, Phone, Company, Job Title, and LinkedIn URL">
+                    <div class="sol-feature__media-caption">The built-in form builder — suggested fields and custom questions</div>
+                </div>
+            </div>
+
+            <!-- F6: Participant Management -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Participant Management</div>
+                    <h2 class="sol-feature__title">Invite, approve, and manage every attendee.</h2>
+                    <p class="sol-feature__desc">Share the event link with one click, invite participants by email with a custom message, manage the waitlist for approval-required events, and track who has joined. The room detail page keeps participants, waitlist, recordings, and discussions in one place.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Email invitations</strong> — invite up to 5 people at once with an optional custom message.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Waitlist management</strong> — review and approve pending attendees for gated events.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Shareable link</strong> — copy the event link and distribute it via any channel.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media sol-feature__media--compact">
+                    <img src="assets/images/room-invite.png" alt="The Invite Guests by Email dialog with an email address field showing 0 of 5 total, an optional custom message field, and a Send Invitations button">
+                    <div class="sol-feature__media-caption">Email invitations — add addresses and an optional custom message</div>
+                </div>
+            </div>
+
+            <!-- F7: Attendance Cards & Sharing -->
+            <div class="sol-feature">
+                <div class="sol-feature__copy">
+                    <div class="sol-feature__eyebrow">Attendance Cards &amp; Sharing</div>
+                    <h2 class="sol-feature__title">Shareable event cards your audience can pass along.</h2>
+                    <p class="sol-feature__desc">Download a branded attendance card from any room detail page — a visual card with event details ready to share on social media, email, or messaging. Combined with the shareable link and email invitations, every event has the distribution tools it needs built in.</p>
+                    <ul class="sol-feature__highlights">
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Downloadable cards</strong> — click Get Attendance Card to download a shareable event visual.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Copy link</strong> — share the event URL via any channel with one click.</span>
+                        </li>
+                        <li>
+                            <span data-icon="check"></span>
+                            <span><strong>Everything in one place</strong> — participants, recordings, and discussions on tabs within the same page.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sol-feature__media">
+                    <img src="assets/images/room-details.png" alt="The room detail page for The Quickfire Mixer showing the title, host, date and time, Add to Calendar and Get Attendance Card actions, a Reminders toggle, event tags, a start countdown, and tabs for Recordings, Discussions, and Members above the participant list">
+                    <div class="sol-feature__media-caption">The room detail page — attendance card, reminders, calendar, and tabs for participants, recordings, and discussions</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================
+     CTA
+     ============================ -->
+      <!-- ============================
+       RELATED
+       ============================ -->
+  <section id="related-capabilities"></section>
+
+  <!-- ============================
+       CTA
+       ============================ -->
+  <section id="get-started"></section>
+
+    
+
+    <!-- Footer + mobile bar — built by nav.js -->
+    <div id="site-footer"></div>
+    <div id="site-mobile-cta"></div>
+
+    <!-- Body scripts -->
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/illustrations.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/nav.js"></script>
+</body>
+
+</html>

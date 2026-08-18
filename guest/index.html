@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ============================
+         SEO
+         ============================ -->
+    <title>BrainsMingle — Where professionals meet, learn, and earn.</title>
+    <meta name="description" content="Join a professional network built around live sessions, expert consultations, courses, and introductions to the right people. Learn from people ahead of you, get paid for what you know, all in one place.">
+    <link rel="canonical" href="https://brainsmingle.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BrainsMingle">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_EG">
+    <meta property="og:url" content="https://brainsmingle.com/">
+    <meta property="og:title" content="BrainsMingle — Where professionals meet, learn, and earn.">
+    <meta property="og:description" content="Join a professional network built around live sessions, expert consultations, courses, and curated introductions. Learn, connect, and get paid for what you know.">
+    <meta property="og:image" content="https://brainsmingle.com/assets/og/og-home.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BrainsMingle — where professionals meet, learn, and earn.">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@brainsmingle">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "BrainsMingle",
+            "headline": "Where professionals meet, learn, and earn.",
+            "url": "https://brainsmingle.com/",
+            "description": "Join a professional network built around live sessions, expert consultations, courses, and introductions to the right people. Learn from people ahead of you, get paid for what you know, all in one place.",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "BrainsMingle",
+                "url": "https://brainsmingle.com/"
+            }
+        }
+    </script>
+
+    <!-- Structured data — Organization -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "BrainsMingle",
+            "url": "https://brainsmingle.com/",
+            "logo": "https://brainsmingle.com/assets/brand/apple-touch-icon.png",
+            "sameAs": [
+                "https://www.linkedin.com/company/brainsmingle",
+                "https://twitter.com/brainsmingle"
+            ]
+        }
+    </script>
+
+    <!-- Structured data — WebSite -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "BrainsMingle",
+            "url": "https://brainsmingle.com/",
+            "publisher": {
+                "@type": "Organization",
+                "name": "BrainsMingle",
+                "url": "https://brainsmingle.com/"
+            }
+        }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+    <!-- Styles, then theme (order matters) -->
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/style-shared.css" />
+    <link rel="stylesheet" href="assets/css/style-home.css" />
+
+    <script src="assets/js/theme.js"></script>
+</head>
+
+<body>
+
+    <div id="site-header"></div>
+
+    <!-- ============================
+       S1: HERO
+       Category-level promise + dual CTA (free / see inside).
+       #suite-hero-strip is hydrated by nav.js buildCapabilityStrip()
+       with the 8 shared capabilities as a looping carousel.
+       ============================ -->
+    <section class="home-hero" data-page="index.html">
+        <div class="container home-hero__inner">
+            <div class="home-hero__copy">
+                <span class="pill home-hero__pill">The professional network with a pulse</span>
+                <h1 class="heading-xl home-hero__headline">
+                    Where professionals<br>meet, learn,<br><span class="home-hero__accent">and earn.</span>
+                </h1>
+                <p class="home-hero__sub">
+                    Live sessions, expert consultations, courses, and matched introductions, all in one place. Learn from people ahead of you, and get paid for what you know.
+                </p>
+                <div class="home-hero__cta-row">
+                    <a href="https://brainsmingle.com/auth/login" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Get Started for Free</a>
+                    <a href="#capabilities" class="btn btn--secondary btn--lg">See What's Inside <span data-icon="arrowRight"></span></a>
+                </div>
+            </div>
+            <div class="home-hero__visual" data-illus="homeHero"></div>
+        </div>
+        <div class="home-hero__strip" id="suite-hero-strip"></div>
+    </section>
+
+    <!-- ============================
+       S2: STATS BAR
+       Home surface figures via stats.js (data-stats="home").
+       Featured Experts + Communities live lower, in their own
+       dedicated sections (S4b, S6b).
+       ============================ -->
+    <section class="metrics-bar" id="proof">
+        <div class="container">
+            <div class="metrics-bar__stats" data-stats="home"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S3: MEET BRAINSMINGLE
+       Reuses the Suite .solution structure/layout, general copy
+       (not B2B). Sits above the fork so everyone gets the category
+       story before self-selecting.
+       ============================ -->
+    <section class="section solution" id="meet">
+        <div class="container">
+            <div class="solution__grid">
+                <div class="solution__copy">
+                    <span class="eyebrow">Meet BrainsMingle</span>
+                    <h2 class="heading-lg solution__headline">
+                        One place where your professional life comes together.
+                    </h2>
+                    <p class="solution__body">
+                        BrainsMingle brings the people, the learning, and the work into <strong>one connected place</strong>, live sessions, expert consultations, courses, communities, and warm introductions to the right people. Meet the right people, learn from those ahead of you, and <span class="highlight">get paid for what you know</span>, all from one account.
+                    </p>
+                    <p class="solution__tagline">We don't sell you a tool. We give your work a home.</p>
+                    <div class="solution__cta">
+                        <a href="https://brainsmingle.com/auth/login" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Get Started for Free</a>
+                    </div>
+                </div>
+                <div class="solution__visual" data-illus="meetBrainsMingle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S4: THE FORK
+       The key section — individuals vs organizations, split high
+       so neither reader wades through the other's pitch. Routes
+       within the page (scroll) then out to the right hub.
+       ============================ -->
+    <section class="section home-fork" id="fork">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">Two ways in</span>
+            <h2 class="heading-lg home-fork__headline">What brings you to BrainsMingle?</h2>
+            <div class="home-fork__grid">
+
+                <a href="#capabilities" class="home-fork__card home-fork__card--individual">
+                    <div class="home-fork__icon">
+                        <span class="icon icon--purple" data-icon="user"></span>
+                    </div>
+                    <div class="home-fork__card-title">I'm here for myself</div>
+                    <div class="home-fork__card-desc">
+                        Professionals, experts, creators, and learners. Network with the right people, take courses, book consultations, host sessions, and get paid for what you know, all from one account.
+                    </div>
+                    <span class="home-fork__card-cta">See what you can do <span data-icon="arrowRight"></span></span>
+                </a>
+
+                <a href="#suite" class="home-fork__card home-fork__card--org">
+                    <div class="home-fork__icon">
+                        <span class="icon icon--cyan" data-icon="building"></span>
+                    </div>
+                    <div class="home-fork__card-title">I'm here for my organization</div>
+                    <div class="home-fork__card-desc">
+                        Accelerators, universities, academies, communities, and event teams. Deploy a fully branded professional ecosystem for your members, content, and events, served from your own domain.
+                    </div>
+                    <span class="home-fork__card-cta">Explore BrainsMingle Suite <span data-icon="arrowRight"></span></span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S5: CAPABILITIES
+       Shared capability grid, reused from the Suite pattern.
+       #modules-grid is hydrated by nav.js buildModulesGrid().
+       Featured Experts now lives in its own section (S4b) below.
+       ============================ -->
+    <section class="section modules" id="capabilities">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">What's inside</span>
+            <h2 class="heading-lg modules__headline">
+                Everything your professional life needs. All connected.
+            </h2>
+            <p class="section-intro">
+                Advanced capabilities. One platform. Endless connections.
+            </p>
+            <div id="modules-grid"></div>
+            <a href="capabilities.html" id="modules-link" class="cap-seeall">See all capabilities in detail
+                <span data-icon="arrowRight"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================
+       S6: FEATURED EXPERTS — promoted to its own section.
+       Living proof the capabilities are real people doing real work.
+       ============================ -->
+    <section class="section featured-experts" id="featured-experts">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">Featured experts</span>
+            <h2 class="heading-lg home-featured__headline">Learn from the experts already here</h2>
+            <p class="section-intro">
+                Trainers, consultants, and coaches sharing what they know through sessions, courses, and one-to-one consultations.
+            </p>
+            <!-- Featured Experts — hydrated by featured.js -->
+            <div class="home-featured">
+                <div data-featured="experts"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S7: SPEED NETWORKING SPOTLIGHT
+       The differentiator nobody else has. Neutral, B2C-forward
+       copy — most visitors have never seen this before.
+       ============================ -->
+    <section class="section sn-spotlight" id="speed-networking">
+        <div class="container sn-spotlight__grid">
+            <div class="sn-spotlight__visual">
+                <img src="assets/images/sn-session-view.png" alt="A live one-to-one speed networking session inside BrainsMingle, with a round timer and a conversation starter." width="960" height="600" loading="lazy">
+            </div>
+            <div class="sn-spotlight__copy">
+                <span class="pill sn-spotlight__pill">Only on BrainsMingle</span>
+                <h2 class="heading-lg sn-spotlight__headline">Meet the right people, on a timer.</h2>
+                <p class="sn-spotlight__body">
+                    Speed networking pairs you into timed, one-to-one conversations with people worth meeting, matched by what you do and what you're looking for. No cold messages, no endless scrolling. Just real introductions, one round at a time, and it's something you won't find anywhere else.
+                </p>
+                <ul class="sn-spotlight__points">
+                    <li><span class="icon icon--cyan" data-icon="community"></span> Meet people one-to-one, not just scroll profiles</li>
+                    <li><span class="icon icon--cyan" data-icon="speedNetworking"></span> Matched by what you do and what you're looking for</li>
+                    <li><span class="icon icon--cyan" data-icon="analytics"></span> Every connection stays with you afterward</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S8: FEATURED COMMUNITIES — promoted to its own section.
+       Communities are where the personas converge; living proof.
+       ============================ -->
+    <section class="section featured-communities" id="featured-communities">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">Featured communities</span>
+            <h2 class="heading-lg home-featured__headline">Communities already growing here</h2>
+            <p class="section-intro">
+                Real networks running their sessions, courses, and members on BrainsMingle, right now.
+            </p>
+            <!-- Featured Communities — hydrated by featured.js -->
+            <div class="home-featured">
+                <div data-featured="communities"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================
+       S9: PERSONAS STRIP
+       Who joins. Six B2C personas routing to /for- pages.
+       Featured Communities now lives in its own section (S6b) below.
+       ============================ -->
+    <section class="section personas" id="personas">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">For Individuals</span>
+            <h2 class="heading-lg personas__headline">Built for how you already work.</h2>
+            <p class="section-intro">
+                However you show up, there's a place for you here.
+            </p>
+            <div class="personas__grid" id="personas-grid"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S10: SUITE VERTICALS
+       The B2B lane after the fork. Compact Suite pitch merged
+       with a vertical card grid. Distinct styling from the
+       Suite hub — this opens the door; /suite closes the deal.
+       ============================ -->
+    <section class="section home-suite" id="suite">
+        <div class="container">
+            <div class="home-suite__intro">
+                <span class="eyebrow">For organizations</span>
+                <h2 class="heading-lg home-suite__headline">
+                    Run your whole organization on your own branded platform.
+                </h2>
+                <p class="home-suite__body">
+                    BrainsMingle Suite deploys a complete professional ecosystem under your brand and your domain: communities, courses, live sessions, events, and payments, configured for how your organization actually works.
+                </p>
+                <a href="suite/index.html" class="btn btn--primary btn--lg">Explore BrainsMingle Suite <span data-icon="arrowRight"></span></a>
+            </div>
+
+            <div class="home-suite__verticals" id="home-verticals-grid"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S11: SOCIAL PROOF
+       Blended testimonials — one individual, one organization —
+       where the two lanes converge before the final CTA.
+       ============================ -->
+    <section class="section social-proof" id="testimonials">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center;display:block;">Voices from the networks</span>
+            <h2 class="heading-lg social-proof__headline">The connections that move careers and organizations forward.</h2>
+            <div class="social-proof__grid">
+
+                <div class="testimonial-card">
+                    <div class="testimonial-card__quote">
+                        I came for one workshop and stayed for the people. The matched introductions put me in front of exactly the right person at the right moment, twice.
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">AB</div>
+                        <div>
+                            <div class="testimonial-card__name">Member Name</div>
+                            <div class="testimonial-card__role">Role, Field</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card__metric">
+                        <div class="testimonial-card__metric-num">2x</div>
+                        <div class="testimonial-card__metric-label">more meaningful connections</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-card__quote">
+                        We replaced five tools with one branded environment. Engagement went up because everything finally lives in one place and it all carries our identity.
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">CD</div>
+                        <div>
+                            <div class="testimonial-card__name">Client Name</div>
+                            <div class="testimonial-card__role">Title, Organization</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card__metric">
+                        <div class="testimonial-card__metric-num">+40%</div>
+                        <div class="testimonial-card__metric-label">community engagement increase</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-card__quote">
+                        The speed networking alone justified joining. I've made connections here that weren't possible anywhere else, and every one started as a real conversation.
+                    </div>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">EF</div>
+                        <div>
+                            <div class="testimonial-card__name">Member Name</div>
+                            <div class="testimonial-card__role">Role, Field</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card__metric">
+                        <div class="testimonial-card__metric-num">3x</div>
+                        <div class="testimonial-card__metric-label">faster to the right people</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+       S12: FINAL CTA — built by nav.js buildGetStarted()
+       No demo flag -> universal B2C flavor (Get Started for Free
+       -> login). Copy comes from PAGE_CTA['index.html'] in nav.js.
+       ============================ -->
+    <section id="get-started"></section>
+
+    <!-- Footer + mobile bar — built by nav.js -->
+    <div id="site-footer"></div>
+    <div id="site-mobile-cta"></div>
+
+    <!-- Body scripts -->
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/illustrations.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/stats.js"></script>
+    <script src="assets/js/featured.js"></script>
+</body>
+
+</html>
