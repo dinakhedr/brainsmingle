@@ -88,8 +88,8 @@
     },
 
     nofil_ai: {
-      name: 'Nofil Khan', title: 'Head of AI',
-      image: '4.png', href: 'nofil_ai', order: 40,
+      name: 'Basem Elasioty', title: 'Founding Architect',
+      image: '4.png', href: 'basem2685', order: 40,
       showInHome: true
     },
 
