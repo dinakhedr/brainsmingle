@@ -1,0 +1,520 @@
+/* ============================================
+   BrainsMingle Suite — Main Page (suite.html)
+   Page-specific layout only.
+   Reusable components live in suite-common.css
+   ============================================ */
+
+/* --- S1: Hero --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  padding: var(--nav-h) 0 var(--space-4xl);
+  text-align: center;
+}
+.hero__content { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
+.hero__headline {
+  font-size: var(--text-5xl);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+}
+.hero__sub {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto var(--space-xl);
+  line-height: var(--leading-normal);
+}
+.hero__cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+/* --- S2: Metrics bar — moved to style-shared.css (shared component) --- */
+
+/* --- S3: Problem (grid only — cards use .content-card) --- */
+.problem { text-align: center; }
+.problem__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+/* --- S4: Solution — moved to style-shared.css (shared component,
+   reused as "Meet BrainsMingle" on Home). The .solution__cta spacing
+   and the page-accent .highlight override stay in this file. --- */
+
+/* --- S5: Modules — .modules / #modules-grid / .cap-chip* / .cap-seeall
+   moved to style-shared.css (shared component, reused on Home). The
+   legacy .cap-group / .cap-grid / .cap-item rules below stay here. --- */
+.cap-group__label {
+  display: flex; align-items: center; gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+.cap-group__label span {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.cap-group__label--purple span { color: var(--purple); }
+.cap-group__label--cyan   span { color: var(--cyan); }
+.cap-group__line { width: 28px; height: 2px; border-radius: 1px; }
+.cap-group__line--purple { background: var(--purple); }
+.cap-group__line--cyan   { background: var(--cyan); }
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl) var(--space-lg);
+}
+.cap-item {
+  text-align: center;
+  padding: var(--space-sm) 0;
+  text-decoration: none;
+  display: block;
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.cap-item:hover { transform: translateY(-3px); }
+.cap-item:hover .cap-item__icon { border-color: var(--purple-glow); }
+.cap-item__icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-md);
+  border: 1px solid transparent;
+  transition: border-color var(--duration-fast);
+}
+.cap-item__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.cap-item__desc {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: var(--leading-normal);
+}
+
+/* --- S6: Lifecycle --- */
+.lifecycle {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--duration-med);
+}
+.lifecycle__headline { text-align: center; margin-bottom: var(--space-md); }
+.lifecycle__steps {
+  display: flex;
+  margin-top: var(--space-2xl);
+}
+
+/* --- S7: Brand spotlight --- */
+.brand-spotlight__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+.brand-spotlight__copy { max-width: 500px; }
+.brand-spotlight__headline {
+  margin-bottom: var(--space-lg);
+}
+.brand-spotlight__body {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-lg);
+}
+.brand-spotlight__features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+.brand-spotlight__feature {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: left;
+  transition: border-color var(--duration-fast), transform var(--duration-fast), background var(--duration-med);
+}
+.brand-spotlight__feature:hover {
+  border-color: var(--purple-glow);
+  transform: translateY(-2px);
+}
+.brand-spotlight__feature-icon {
+  margin-bottom: var(--space-sm);
+}
+.brand-spotlight__feature-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-base);
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.brand-spotlight__feature-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+
+/* --- S8: Verticals (grid only — cards use .content-card) --- */
+.verticals {
+  text-align: center;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--duration-med);
+}
+.verticals__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+/* --- S9: What Suite Is Not --- */
+.not-this { text-align: left; }
+.not-this__headline { margin-bottom: var(--space-md); }
+.not-this__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+.not-this__head .section-intro {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 44ch;
+}
+.not-this__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  text-align: left;
+}
+.not-this__item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+.not-this__item-icon { flex-shrink: 0; margin-top: 2px; }
+.not-this__item-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+.not-this__item-text strong {
+  color: var(--text);
+  font-weight: 700;
+  font-family: var(--font-display);
+  display: block;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  .not-this__layout { grid-template-columns: 1fr; gap: var(--space-xl); }
+}
+
+/* --- S10: Social proof — moved to style-shared.css (shared component, reused on Home) --- */
+
+/* ============================================
+   main — Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+  .verticals__grid { grid-template-columns: repeat(2, 1fr); }
+  .lifecycle__steps { flex-wrap: wrap; }
+  .lifecycle__step { flex: 1 1 50%; }
+  .lifecycle__step::before { display: none; }
+  .problem__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: calc(var(--nav-h) + var(--space-3xl)) 0 var(--space-3xl); }
+  .hero__cta-row { flex-direction: column; }
+  .problem__cards { grid-template-columns: 1fr; }
+  .solution__grid { grid-template-columns: 1fr; }
+  .modules__grid { grid-template-columns: 1fr; }
+  .social-proof__grid { grid-template-columns: 1fr; }
+  .verticals__grid { grid-template-columns: 1fr; }
+  .brand-spotlight__grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .brand-spotlight__copy { max-width: none; text-align: center; }
+  .lifecycle__steps { flex-direction: column; }
+  .lifecycle__step { flex: none; }
+}
+/* ============================================
+   Page accent — Suite hub follows --page-color
+   (published by nav.js from the suite/index.html config entry, = purple).
+   This stylesheet loads only on the Suite hub, so these rules are
+   automatically page-scoped — no other page's accents are affected.
+   ============================================ */
+
+/* Section eyebrows (What's inside, Meet Suite, By industry, …) */
+.eyebrow { color: var(--page-color); }
+
+/* Inline highlight in the solution copy */
+.solution__body .highlight { color: var(--page-color); }
+
+/* Hover accents that were hardcoded to purple-glow */
+.cap-item:hover .cap-item__icon,
+.brand-spotlight__feature:hover { border-color: var(--page-color-glow); }
+
+/* ============================================================
+   SUITE HERO — split, purple band (facelift)
+   Additive. Reuses the .gen-hero--band gradient recipe over
+   --vert-band-purple; band is theme-independent (does not flip).
+   The old centered .hero rules above are now unused on this page.
+   ============================================================ */
+.suite-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + var(--space-3xl)) 0 0;
+  background:
+    linear-gradient(150deg, rgba(0,0,0,0) 28%, rgba(8,8,18,0.55) 100%),
+    linear-gradient(330deg, rgba(0,0,0,0) 55%, rgba(8,8,18,0.40) 100%),
+    var(--vert-band-purple);
+}
+.suite-hero__inner {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  padding-bottom: var(--space-3xl);
+}
+.suite-hero__copy { max-width: 520px; }
+.suite-hero__pill {
+  background: rgba(255,255,255,0.16);
+  color: #fff;
+  border: 1px solid transparent;
+}
+.suite-hero__headline {
+  color: #fff;
+  margin: var(--space-lg) 0 var(--space-md);
+  line-height: var(--leading-tight);
+}
+.suite-hero__accent { color: var(--cyan); }
+[data-theme="light"] .suite-hero__accent { color: #00E8A2; }
+.suite-hero__sub {
+  color: rgba(255,255,255,0.88);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  max-width: 420px;
+  margin-bottom: var(--space-xl);
+}
+.suite-hero__cta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+/* Buttons on the band — white primary with band-purple text,
+   outline-white secondary. Matches .vert-hero treatment. */
+.suite-hero__cta-row .btn--primary {
+  background: #fff;
+  color: var(--vert-band-purple);
+  border-color: #fff;
+}
+.suite-hero__cta-row .btn--primary:hover { background: rgba(255,255,255,0.9); }
+/* Secondary button sits on the dark band — invert to white outline */
+.suite-hero__cta-row .btn--secondary {
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+  background: transparent;
+}
+.suite-hero__cta-row .btn--secondary:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+.suite-hero__cta-row .btn--secondary svg { color: #fff; }
+.suite-hero__visual {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(8,8,18,0.35);
+}
+.suite-hero__visual .cap-illus,
+.suite-hero__visual svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+/* --- Hero capability strip (marquee) ---
+   .cap-strip__track / run / item / label + keyframes moved to
+   style-shared.css (shared marquee, reused on Home with neutral
+   colors). Kept here: the band container + white-on-band color,
+   since the Suite hero strip sits on the purple band. */
+.suite-hero__strip {
+  border-top: 1px solid rgba(255,255,255,0.14);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.suite-hero__strip:hover .cap-strip__track { animation-play-state: paused; }
+/* Band context: strip items are white on the purple hero band. */
+.suite-hero__strip .cap-strip__item { color: rgba(255,255,255,0.92); }
+.suite-hero__strip .cap-strip__item:hover { color: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .suite-hero__strip { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* S5 MODULES chips + cap-seeall — moved to style-shared.css
+   (shared component, reused on Home). Suite-hero responsive kept here. */
+@media (max-width: 1024px) {
+  .suite-hero__inner { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .suite-hero__visual { max-width: 520px; }
+}
+@media (max-width: 768px) {
+  .suite-hero { min-height: 0; padding-top: calc(var(--nav-h) + var(--space-2xl)); }
+  .suite-hero__cta-row { flex-direction: column; align-items: stretch; }
+}
+
+/* ============================================================
+   S4 — inline Book a Demo (spacing only)
+   ============================================================ */
+.solution__cta { margin-top: var(--space-xl); }
+
+/* S6 SPEED NETWORKING SPOTLIGHT — moved to style-shared.css
+   (self-contained purple band, reused on Home). --- */
+
+/* ============================================================
+   FAQ — native details/summary accordions
+   ============================================================ */
+.faq__headline { text-align: center; margin-bottom: var(--space-2xl); }
+.faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.faq__item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0 var(--space-lg);
+  transition: border-color var(--duration-fast);
+}
+.faq__item[open] { border-color: var(--page-color-glow); }
+.faq__q {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--space-lg) 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: "+";
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--page-color, var(--purple));
+  line-height: 1;
+  transition: transform var(--duration-fast);
+}
+.faq__item[open] .faq__q::after { transform: rotate(45deg); }
+.faq__a {
+  padding: 0 0 var(--space-lg);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+@media (max-width: 768px) {
+  .solution__cta { text-align: center; }
+}
+
+/* ============================================================
+   PAGE RHYTHM — tighter vertical spacing (facelift)
+   style-suite.css loads only on the Suite hub, so these plain
+   .section overrides are page-scoped. Shared default is 5xl (128px);
+   halving to 3xl (64px) removes the airy gaps between sections.
+   ============================================================ */
+.section { padding: var(--space-3xl) 0; }
+.problem__cards,
+.solution__grid,
+.lifecycle__steps,
+.brand-spotlight__grid,
+.verticals__grid,
+.social-proof__grid,
+.faq__list { margin-top: var(--space-xl); }
+.modules__headline,
+.lifecycle__headline,
+.not-this__headline,
+.faq__headline { margin-bottom: var(--space-lg); }
+.section-intro { margin-bottom: var(--space-lg); }
+
+/* ============================================================
+   MID-PAGE CTA STRIP — purple band, headline left / white button right
+   Sits between Verticals and Brand Spotlight. Band is theme-independent.
+   ============================================================ */
+.cta-strip {
+  background:
+    linear-gradient(150deg, rgba(0,0,0,0) 28%, rgba(8,8,18,0.55) 100%),
+    linear-gradient(330deg, rgba(0,0,0,0) 55%, rgba(8,8,18,0.40) 100%),
+    var(--vert-band-purple);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cta-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+.cta-strip__headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-2xl);
+  color: #fff;
+}
+.cta-strip__sub {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.82);
+  margin-top: var(--space-xs);
+}
+/* White button with band-purple text, matches the hero primary */
+.cta-strip__btn {
+  background: #fff;
+  color: var(--vert-band-purple);
+  border-color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cta-strip__btn:hover { background: rgba(255,255,255,0.9); }
+
+@media (max-width: 640px) {
+  .cta-strip__inner { flex-direction: column; align-items: flex-start; }
+  .cta-strip__btn { width: 100%; text-align: center; }
+}
+
+/* ============================================================
+   Meet BrainsMingle illustration colors — moved to
+   style-shared.css (shared component, reused on Home).
+   ============================================================ */
