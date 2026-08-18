@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-18 00:56 · 24 speakers.
+ * Generated 2026-08-18 14:34 · 26 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -151,12 +151,12 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-021",
     order       : 8,
     name        : "Moustafa Eshra",
-    title       : "Enterprise Data & AI Presales Architect",
+    title       : "Data & AI Enterprise Architect",
     company     : "IBM",
     country     : "France",
     countryCode : "FR",
     photo       : "spk-021.png",
-    bio         : "Enterprise Data & AI Presales Architect at IBM (Paris), with 12+ years of experience across AI, enterprise architecture, and digital transformation. Previously at DataStax, MEGA International, and LTI, helping clients across Europe drive innovation through data, AI, and cloud solutions. Former AI researcher at École Polytechnique (CERN/LHC project) and embedded software engineer at Valeo. Holds a B.Sc. in Engineering from Alexandria University and a Post-Master from Sciences Po × Mines ParisTech. Passionate about emerging technologies and solving complex business challenges.",
+    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
     linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
     bmProfile   : null,
     featured    : false,
@@ -185,12 +185,12 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-014",
     order       : 10,
     name        : "Hend El Damaty",
-    title       : "Founder & AI Consultant",
+    title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
     country     : "Germany",
     countryCode : "DE",
     photo       : "spk-014.png",
-    bio         : "AI strategist specializing in enabling organizations to make smarter, faster decisions by integrating AI across business functions. Expert in AI-driven business planning, predictive analytics, and decision-support for regulated sectors including petroleum, energy, finance, and government. Strong capabilities in responsible AI governance, workflow optimization, and automation for measurable impact.",
+    bio         : "Digital Transformation and AI Strategy Consultant based in Germany with a background in Electrical and Systems Engineering. Has worked with organizations including DFKI, Microsoft, Bosch, Amazon, and the International Olympic Committee across AI strategy, product management, and Industry 4.0/5.0. Co-founded tech ventures spanning AI, education, and real estate. Passionate about connecting European, Egyptian, and MENA innovation ecosystems and building bridges between technology, people, and business.",
     linkedin    : "https://www.linkedin.com/in/hend-eldamaty/",
     bmProfile   : null,
     featured    : false,
@@ -275,8 +275,42 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-012.png",
-    bio         : "Business development leader with 10+ years in B2B and B2C growth across diverse industries. Spearheaded a 10X business growth initiative at Biznes Clinics and scaled a portfolio by 300%. Systems Engineering degree combined with an MBA (ranked 1st, perfect 4.0 GPA). Certified in AI and Digital Marketing from McKinsey, HubSpot, and AUC. Expert in sales enablement, partnerships, and AI-driven strategy.",
+    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
     linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-026",
+    order       : 15,
+    name        : "Ziad Elaily",
+    title       : "AI Tech & Business Lead",
+    company     : "PwC",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-026.png",
+    bio         : "AI and automation specialist at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
+    linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-025",
+    order       : 16,
+    name        : "Mohamed Zahran",
+    title       : "Head of AI/ML",
+    company     : "Adam ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-025.png",
+    bio         : "Head of AI/ML, author, researcher, and co-inventor of 4 patent publications with 9+ years of experience delivering AI solutions across autonomous vehicles, ed-tech, and digital marketing. Leverages Generative AI, deep learning, computer vision, and data science to develop innovative, award-winning products. Passionate about turning cutting-edge research into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/mohzahran/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
@@ -287,7 +321,7 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-006",
     order       : null,
     name        : "Yasmine Aguib",
-    title       : "Research & Innovation Officer",
+    title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
     country     : "Egypt",
     countryCode : "EG",
@@ -345,7 +379,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-015.png",
     bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
     linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/hend6987",
     featured    : false,
     showOnHome  : false,
     appearances : []
