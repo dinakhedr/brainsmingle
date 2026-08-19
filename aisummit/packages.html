@@ -28,134 +28,607 @@
     <style>
         /* ── Tier detail card — price rail on the left, story on the right */
         .pk-card {
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
             background: var(--bg-card);
             border: 0.5px solid var(--border);
             border-radius: var(--radius-lg);
-            display: grid; grid-template-columns: 280px 1fr; gap: 0;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 0;
         }
+
         .pk-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
             background: var(--purple);
         }
-        .pk-card--teal::before   { background: var(--green); }
-        .pk-card--pink::before   { background: var(--track-2); }
-        .pk-card--muted::before  { background: #6723FF80; }
+
+        .pk-card--teal::before {
+            background: var(--green);
+        }
+
+        .pk-card--pink::before {
+            background: var(--track-2);
+        }
+
+        .pk-card--muted::before {
+            background: #6723FF80;
+        }
 
         .pk-rail {
             padding: 34px 30px;
             border-right: 0.5px solid var(--border);
-            display: flex; flex-direction: column;
+            display: flex;
+            flex-direction: column;
         }
-        .pk-body { padding: 34px 34px; }
+
+        .pk-body {
+            padding: 34px 34px;
+        }
 
         .pk-badge {
-            display: inline-flex; align-items: center;
-            font-family: var(--font-body); font-size: 11px; font-weight: 700;
-            letter-spacing: 0.12em; text-transform: uppercase;
-            padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; width: fit-content;
-            background: #6723FF2E; color: var(--purple-bright);
+            display: inline-flex;
+            align-items: center;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            width: fit-content;
+            background: #6723FF2E;
+            color: var(--purple-bright);
         }
-        .pk-badge--teal  { background: #13FEC61F; color: var(--green); }
-        .pk-badge--pink  { background: #F53E9F26; color: var(--track-2); }
 
-        .pk-price { font-family: var(--font-display); font-weight: 900; color: var(--text-primary); line-height: 1; }
-        .pk-price--xl  { font-size: 52px; }
-        .pk-price--lg  { font-size: 40px; }
-        .pk-price__unit { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-muted); margin-left: 6px; }
-        .pk-price__note { font-family: var(--font-body); font-size: 12.5px; color: var(--text-muted); margin-top: 8px; }
+        .pk-badge--teal {
+            background: #13FEC61F;
+            color: var(--green);
+        }
+
+        .pk-badge--pink {
+            background: #F53E9F26;
+            color: var(--track-2);
+        }
+
+        .pk-price {
+            font-family: var(--font-display);
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .pk-price--xl {
+            font-size: 52px;
+        }
+
+        .pk-price--lg {
+            font-size: 40px;
+        }
+
+        .pk-price__unit {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-left: 6px;
+        }
+
+        .pk-price__note {
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
 
         /* Facts stack under the price — naming, scope, logo, availability */
-        .pk-facts { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 12px; }
-        .pk-fact { display: flex; flex-direction: column; gap: 2px; }
-        .pk-fact__k { font-family: var(--font-mono, var(--font-body)); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-        .pk-fact__v { font-family: var(--font-body); font-size: 13.5px; font-weight: 600; color: var(--text-primary); }
+        .pk-facts {
+            list-style: none;
+            padding: 0;
+            margin: 22px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pk-fact {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pk-fact__k {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .pk-fact__v {
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
 
         .pk-avail {
-            margin-top: auto; padding-top: 22px;
-            font-family: var(--font-mono, var(--font-body)); font-size: 11px; font-weight: 600;
-            letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple-bright);
+            margin-top: auto;
+            padding-top: 22px;
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--purple-bright);
         }
-        .pk-avail--teal { color: var(--green); }
-        .pk-avail--pink { color: var(--track-2); }
+
+        .pk-avail--teal {
+            color: var(--green);
+        }
+
+        .pk-avail--pink {
+            color: var(--track-2);
+        }
 
         /* Body — pitch, ICP, benefits */
-        .pk-pitch { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); line-height: 1.65; margin: 0 0 22px; }
-        .pk-icp {
-            background: #6723FF14; border: 0.5px solid #6723FF33;
-            border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 22px;
+        .pk-pitch {
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin: 0 0 22px;
         }
-        .pk-icp--teal { background: #13FEC614; border-color: #13FEC63D; }
-        .pk-icp--pink { background: #F53E9F14; border-color: #F53E9F33; }
-        .pk-icp__k { font-family: var(--font-mono, var(--font-body)); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
-        .pk-icp__v { font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
 
-        .pk-benefits { list-style: none; padding: 0; margin: 0; column-gap: 32px; }
-        .pk-benefits--2col { column-count: 2; }
+        .pk-icp {
+            background: #6723FF26;
+            border: 0.5px solid #6723FF4D;
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            margin-bottom: 22px;
+        }
+
+        .pk-icp--teal {
+            background: #13FEC626;
+            border-color: #13FEC661;
+        }
+
+        .pk-icp--pink {
+            background: #F53E9F26;
+            border-color: #F53E9F4D;
+        }
+
+        .pk-icp__k {
+            font-family: var(--font-body);
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .pk-icp__v {
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            color: var(--text-primary);
+            line-height: 1.55;
+        }
+
+        .pk-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            column-gap: 32px;
+        }
+
+        .pk-benefits--2col {
+            column-count: 2;
+        }
+
         .pk-benefits li {
-            font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary);
-            padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45;
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.45;
             break-inside: avoid;
         }
-        .pk-benefits li::before { content: '✓'; color: var(--purple-bright); font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 3px; }
-        .pk-benefits--teal li::before { color: var(--green); }
-        .pk-benefits--pink li::before { color: var(--track-2); }
+
+        .pk-benefits li::before {
+            content: '✓';
+            color: var(--purple-bright);
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .pk-benefits--teal li::before {
+            color: var(--green);
+        }
+
+        .pk-benefits--pink li::before {
+            color: var(--track-2);
+        }
 
         /* Track pills inside the Track card */
-        .pk-track-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+        .pk-track-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 22px;
+        }
 
-        /* Bundle callout — inside tiers that offer a bundle */
+        /* Bundle callout — Option B: compact card with stacked price breakdown */
         .pk-bundle {
-            margin-top: 22px; border: 0.5px dashed #13FEC661; border-radius: var(--radius-md);
-            background: #13FEC60F; padding: 16px 18px;
-            display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px;
+            margin-top: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 0.5px solid var(--border-mid);
+            border-radius: var(--radius-md);
+            background: rgba(0, 232, 162, 0.06);
+            padding: 18px 20px;
         }
+
+        .pk-bundle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--green);
+        }
+
+        .pk-bundle--purple::before {
+            background: var(--purple);
+        }
+
+        .pk-bundle--purple {
+            background: rgba(103, 35, 255, 0.07);
+        }
+
+        .pk-bundle__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
         .pk-bundle__tag {
-            font-family: var(--font-mono, var(--font-body)); font-size: 10px; font-weight: 700;
-            letter-spacing: 0.12em; text-transform: uppercase; color: var(--green);
-            background: #13FEC629; padding: 4px 10px; border-radius: 14px;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: #13FEC629;
+            padding: 4px 10px;
+            border-radius: 14px;
         }
-        .pk-bundle__old { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-muted); text-decoration: line-through; }
-        .pk-bundle__new { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--text-primary); line-height: 1; }
-        .pk-bundle__per { font-family: var(--font-body); font-size: 12.5px; color: var(--text-secondary); }
-        .pk-bundle__save { font-family: var(--font-body); font-size: 12px; font-weight: 700; color: var(--green); }
+
+        .pk-bundle--purple .pk-bundle__tag {
+            color: var(--purple-bright);
+            background: #6723FF22;
+        }
+
+        .pk-bundle__save {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .pk-bundle--purple .pk-bundle__save {
+            color: var(--purple-bright);
+        }
+
+        .pk-bundle__prices {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .pk-bundle__new {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .pk-bundle__old {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .pk-bundle__detail {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding-top: 10px;
+            border-top: 0.5px solid var(--border);
+        }
 
         /* Two tiers presented at the same level (Daily Speed Networking + Spotlight).
            Flex column + stretch so both cards share the taller card's height,
            and the bundle callout drops to the card bottom. */
-        .pk-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
-        .pk-pair .pk-card { display: flex; flex-direction: column; }
-        .pk-pair .pk-rail { border-right: 0; border-bottom: 0.5px solid var(--border); }
-        .pk-pair .pk-body { flex: 1 1 auto; display: flex; flex-direction: column; }
-        .pk-pair .pk-bundle { margin-top: auto; }
+        .pk-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .pk-pair .pk-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pk-pair .pk-rail {
+            border-right: 0;
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .pk-pair .pk-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pk-pair .pk-bundle { margin-top: 24px; }
 
         /* ── Benefits matrix — 7 tier columns beyond the base label */
-        .benefits-table th.col-title    { color: var(--purple-bright); }
-        .benefits-table th.col-track    { color: var(--purple-bright); }
+        .benefits-table th.col-title {
+            color: var(--purple-bright);
+        }
+
+        .benefits-table th.col-track {
+            color: var(--purple-bright);
+        }
+
         .benefits-table th.col-fullsn,
-        .benefits-table th.col-dailysn  { color: var(--green); }
-        .benefits-table th.col-spot     { color: var(--track-2); }
-        .benefits-table th.col-session  { color: var(--text-primary); }
-        .benefits-table th.col-community { color: var(--track-2); }
-        .benefits-invest-row td { font-family: var(--font-display); font-weight: 900; color: var(--text-primary); font-size: 14px; }
-        .benefits-invest-row td.col-benefit { font-family: var(--font-body); font-weight: 700; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
-        .benefits-slots-row td { font-family: var(--font-mono, var(--font-body)); font-weight: 600; color: var(--text-secondary); font-size: 12.5px; }
-        .benefits-slots-row td.col-benefit { font-family: var(--font-body); font-weight: 700; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
-        .benefits-table th, .benefits-table td { min-width: 92px; }
-        .benefits-table th.col-benefit, .benefits-table td.col-benefit { min-width: 260px; }
+        .benefits-table th.col-dailysn {
+            color: var(--green);
+        }
+
+        .benefits-table th.col-spot {
+            color: var(--track-2);
+        }
+
+        .benefits-table th.col-session {
+            color: var(--text-primary);
+        }
+
+        .benefits-table th.col-community {
+            color: var(--track-2);
+        }
+
+        .benefits-invest-row td {
+            font-family: var(--font-display);
+            font-weight: 900;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .benefits-invest-row td.col-benefit {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .benefits-slots-row td { font-family: var(--font-body); font-weight: 600; color: var(--text-secondary); font-size: 13px; }
+
+        .benefits-slots-row td.col-benefit {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .benefits-table th,
+        .benefits-table td {
+            min-width: 92px;
+        }
+
+        .benefits-table th.col-benefit,
+        .benefits-table td.col-benefit {
+            min-width: 260px;
+        }
+
+        /* ── Benefits table — stronger borders (both modes) ── */
+        .benefits-table {
+            border: 1px solid var(--border-mid);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .benefits-table td,
+        .benefits-table th {
+            border-bottom: 1px solid var(--border-mid);
+        }
+
+        .benefits-cat-row td {
+            border-bottom: 1px solid var(--border-mid);
+        }
+
+        /* ── Light-mode fixes — packages ── */
+        [data-theme="light"] .pk-badge {
+            background: #6723FF1A;
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .pk-badge--teal {
+            background: #00875A1A;
+            color: #00875A;
+        }
+
+        [data-theme="light"] .pk-badge--pink {
+            background: #D6156F1A;
+            color: #D6156F;
+        }
+
+        [data-theme="light"] .pk-icp {
+            background: #6723FF0F;
+            border-color: #6723FF33;
+        }
+
+        [data-theme="light"] .pk-icp--teal {
+            background: #00875A0F;
+            border-color: #00875A33;
+        }
+
+        [data-theme="light"] .pk-icp--pink {
+            background: #D6156F0F;
+            border-color: #D6156F33;
+        }
+
+        [data-theme="light"] .pk-avail {
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .pk-avail--teal {
+            color: #00875A;
+        }
+
+        [data-theme="light"] .pk-avail--pink {
+            color: #D6156F;
+        }
+
+        [data-theme="light"] .pk-benefits li::before {
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .pk-benefits--teal li::before {
+            color: #00875A;
+        }
+
+        [data-theme="light"] .pk-benefits--pink li::before {
+            color: #D6156F;
+        }
+
+        [data-theme="light"] .pk-pitch {
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .pk-benefits li {
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .pk-bundle {
+            border-color: var(--border-mid);
+        }
+
+        [data-theme="light"] .pk-bundle__save {
+            color: #00875A;
+        }
+
+        [data-theme="light"] .pk-bundle__tag {
+            color: #00875A;
+            background: #00875A1A;
+        }
+
+        [data-theme="light"] .pk-bundle--purple .pk-bundle__save {
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .pk-bundle--purple .pk-bundle__tag {
+            color: #6723FF;
+            background: #6723FF1A;
+        }
+
+        /* Light-mode — benefits table pop */
+        [data-theme="light"] .benefits-table td.check {
+            color: #00875A;
+        }
+
+        [data-theme="light"] .benefits-table th.col-title {
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .benefits-table th.col-track {
+            color: #6723FF;
+        }
+
+        [data-theme="light"] .benefits-table th.col-fullsn,
+        [data-theme="light"] .benefits-table th.col-dailysn {
+            color: #00875A;
+        }
+
+        [data-theme="light"] .benefits-table th.col-spot {
+            color: #D6156F;
+        }
+
+        [data-theme="light"] .benefits-table th.col-community {
+            color: #D6156F;
+        }
+
+        /* ── Dark-mode — benefits table category rows in cyan ── */
+        .benefits-cat-row td { background: rgba(0, 232, 162, 0.14); color: var(--green); }
+
+        [data-theme="light"] .benefits-cat-row td {
+            background: #F3EEFF;
+            color: #6723FF;
+        }
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .pk-card { grid-template-columns: 1fr; }
-            .pk-rail { border-right: 0; border-bottom: 0.5px solid var(--border); }
-            .pk-pair { grid-template-columns: 1fr; }
-            .pk-benefits--2col { column-count: 1; }
-            .pk-avail { margin-top: 20px; }
+            .pk-card {
+                grid-template-columns: 1fr;
+            }
+
+            .pk-rail {
+                border-right: 0;
+                border-bottom: 0.5px solid var(--border);
+            }
+
+            .pk-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .pk-benefits--2col {
+                column-count: 1;
+            }
+
+            .pk-avail {
+                margin-top: 20px;
+            }
         }
+
         @media (max-width: 560px) {
-            .pk-rail, .pk-body { padding: 26px 22px; }
-            .pk-price--xl { font-size: 42px; }
-            .pk-price--lg { font-size: 34px; }
+
+            .pk-rail,
+            .pk-body {
+                padding: 26px 22px;
+            }
+
+            .pk-price--xl {
+                font-size: 42px;
+            }
+
+            .pk-price--lg {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
@@ -173,7 +646,7 @@
             <div>
                 <p class="page-hero__eyebrow">Sponsorship Opportunities</p>
                 <h1 class="page-hero__title">Choose Your<br>Sponsorship Level</h1>
-                <p class="page-hero__sub">Six ways to put your brand at the center of AI Summit 2026 — from presenting the whole event to owning a single session. Each tier carries its own naming, scope, and audience.</p>
+                <p class="page-hero__sub">50,000+ Attendees. 100+ Apeakers. 90+ Countries. Seven days of AI across five tracks — and six ways to put your brand at the center of it.</p>
             </div>
         </div>
     </section>
@@ -187,7 +660,7 @@
             <div class="sp-section-head" style="margin-bottom:32px;">
                 <div class="section-eyebrow">The Headline · Presented By</div>
                 <h2 class="section-title">Title Sponsor</h2>
-                <p class="section-sub">The single most prominent brand at the Summit. Named association with the entire event, top placement everywhere, and the deepest speaking and community footprint of any tier.</p>
+                <p class="section-sub">One brand. One name beside the event. The Title Sponsor is the only company that can say "AI Summit 2026, presented by us" — and nothing else comes close.</p>
             </div>
 
             <div class="pk-card">
@@ -203,10 +676,10 @@
                     <div class="pk-avail">1 available</div>
                 </div>
                 <div class="pk-body">
-                    <p class="pk-pitch">Own the entire narrative of AI Summit. Your name sits beside the event's across every touchpoint — the website, all 90+ live session rooms, the Community Space, and every piece of pre- and post-event communication. This is flagship, whole-event association with nothing above it.</p>
+                    <p class="pk-pitch">Your name opens the Summit. Your logo is in every live session room. Your brand is in every email, every social post, every press release. When 50,000 professionals across 85 countries think AI Summit 2026, they think your company. There is no higher position.</p>
                     <div class="pk-icp">
                         <div class="pk-icp__k">Best for</div>
-                        <div class="pk-icp__v">Category-defining companies making AI central to their story — cloud &amp; AI platforms, telecoms, banks, and global brands that want the Summit to carry their name.</div>
+                        <div class="pk-icp__v">The company that wants to be the name behind the region's largest AI event — cloud platforms, telecoms, banks, and global enterprises ready to lead the conversation, not just join it.</div>
                     </div>
                     <ul class="pk-benefits pk-benefits--2col">
                         <li>Presented-by association across all event materials</li>
@@ -236,7 +709,7 @@
             <div class="sp-section-head" style="margin-bottom:32px;">
                 <div class="section-eyebrow">Own a Vertical · Powered By</div>
                 <h2 class="section-title">Track Sponsor</h2>
-                <p class="section-sub">Own one of the five AI tracks end to end — "AI in [Topic], powered by [Brand]" — across all 15 sessions in your track, with the opening slot.</p>
+                <p class="section-sub">Five tracks. Five verticals. Five sponsors who get to say "this entire conversation is powered by us." Pick the domain that fits your brand — and own every session in it.</p>
             </div>
 
             <div class="pk-card">
@@ -252,11 +725,11 @@
                     <div class="pk-avail">5 available · one per track</div>
                 </div>
                 <div class="pk-body">
-                    <p class="pk-pitch">Take ownership of an entire vertical for the week. Your brand powers every one of the 15 sessions in your track, takes the opening slot, and appears on the track's Tracks-page placement — the definitive sponsor of that conversation.</p>
+                    <p class="pk-pitch">Fifteen sessions. Five days. One brand powering the entire track. Your company opens the conversation, your logo sits on every session room, and your name appears on the Tracks page as the definitive voice behind that domain. This isn't a logo placement — it's category ownership.</p>
                     <nav class="pk-track-pills" id="pk-track-pills" aria-label="Tracks available to sponsor"></nav>
                     <div class="pk-icp">
                         <div class="pk-icp__k">Best for</div>
-                        <div class="pk-icp__v">Brands aligned to a specific field — a devtools or cloud company for AI in Tech, an EdTech for AI in L&amp;D, a creative-software brand for AI in Creative, a VC or accelerator for AI in Startups, a consultancy for AI in Business.</div>
+                        <div class="pk-icp__v">The company that wants to own a domain — not just attend it. A cloud company powering AI in Tech. An EdTech brand owning AI in L&amp;D. A consultancy leading AI in Business. Your field, your name on it.</div>
                     </div>
                     <ul class="pk-benefits pk-benefits--2col">
                         <li>Powered-by naming on your full track</li>
@@ -284,7 +757,7 @@
             <div class="sp-section-head" style="margin-bottom:32px;">
                 <div class="section-eyebrow">Own the Connection · Powered By</div>
                 <h2 class="section-title">Full Day Speed Networking</h2>
-                <p class="section-sub">Power the full 24-hour Speed Networking finale on Day 7 — the highest-energy matchmaking moment of the week, closing the entire event under your brand.</p>
+                <p class="section-sub">Day 7 is when the entire Summit meets. A full 24 hours of 1:1 matchmaking across every track — and one brand powers all of it.</p>
             </div>
 
             <div class="pk-card pk-card--teal">
@@ -300,10 +773,10 @@
                     <div class="pk-avail pk-avail--teal">1 available</div>
                 </div>
                 <div class="pk-body">
-                    <p class="pk-pitch">Speed Networking is where the region actually meets — thousands of 1:1 rounds across all five tracks over a full 24 hours. Powering the entire Day 7 finale puts your brand on the top bar of every round and closes the Summit on your name.</p>
+                    <p class="pk-pitch">Every attendee. Every track. Every round. For a full 24 hours, professionals from 90+ countries meet 1:1 — and your brand is the name on every single matchmaking room. The Summit ends on your name.</p>
                     <div class="pk-icp pk-icp--teal">
                         <div class="pk-icp__k">Best for</div>
-                        <div class="pk-icp__v">Recruitment platforms, talent marketplaces, HR-tech, and community builders whose product <em>is</em> connection — the brand that wants to own how the region meets.</div>
+                        <div class="pk-icp__v">Any company whose value grows when professionals connect — whether you build tools, run platforms, or lead an industry. If your brand is about bringing people together, this is where you prove it at scale.</div>
                     </div>
                     <ul class="pk-benefits pk-benefits--teal pk-benefits--2col">
                         <li>Powered-by naming on the full Speed Networking day</li>
@@ -330,7 +803,7 @@
             <div class="sp-section-head">
                 <div class="section-eyebrow">Own a Day · Own a Moment · Powered By</div>
                 <h2 class="section-title">Daily Speed Networking &amp; Spotlight</h2>
-                <p class="section-sub">Two focused, high-visibility activations at the same level — power a single day's networking, or a single marquee session hour.</p>
+                <p class="section-sub">Two ways to own a single evening — the networking room where everyone meets, or the spotlight stage where everyone watches.</p>
             </div>
 
             <div class="pk-pair">
@@ -346,13 +819,13 @@
                             <li class="pk-fact"><span class="pk-fact__k">Scope</span><span class="pk-fact__v">One day's Speed Networking</span></li>
                             <li class="pk-fact"><span class="pk-fact__k">Logo</span><span class="pk-fact__v">Exclusive</span></li>
                         </ul>
-                        <div class="pk-avail pk-avail--teal">6 available · Days 1–6</div>
+                        <div class="pk-avail pk-avail--teal">6 available · Days 1–6 (Sat–Thu)</div>
                     </div>
                     <div class="pk-body">
-                        <p class="pk-pitch">Power one day's Speed Networking round — top bar across that day's matchmaking, plus rotating presence in the Community Space. A focused, high-energy activation for a single day of the week.</p>
+                        <p class="pk-pitch">Every night, hundreds of professionals meet 1:1 in back-to-back rounds. Your brand sits on the top bar of every match that evening — the name people see before every conversation starts.</p>
                         <div class="pk-icp pk-icp--teal">
                             <div class="pk-icp__k">Best for</div>
-                            <div class="pk-icp__v">Regional recruiters, growing HR-tech, and brands wanting a focused networking day — bundle three to own the connection story across half the event.</div>
+                            <div class="pk-icp__v">Companies that want to own the room where professionals actually meet. Six nights of 1:1 matchmaking — your brand on every round. Bundle three and you're the name behind half the week's connections.</div>
                         </div>
                         <ul class="pk-benefits pk-benefits--teal">
                             <li>Powered-by naming on your Speed Networking day</li>
@@ -362,11 +835,15 @@
                             <li>Dedicated spotlight post</li>
                         </ul>
                         <div class="pk-bundle">
-                            <span class="pk-bundle__tag">Bundle · 3 days</span>
-                            <span class="pk-bundle__old">$6,000</span>
-                            <span class="pk-bundle__new">$4,200</span>
-                            <span class="pk-bundle__per">$1,400 / day</span>
-                            <span class="pk-bundle__save">Save 30%</span>
+                            <div class="pk-bundle__head">
+                                <span class="pk-bundle__tag">Bundle · 3 days</span>
+                                <span class="pk-bundle__save">Save 30%</span>
+                            </div>
+                            <div class="pk-bundle__prices">
+                                <span class="pk-bundle__new">$4,200</span>
+                                <span class="pk-bundle__old">$6,000</span>
+                            </div>
+                            <div class="pk-bundle__detail">$1,400 / day · 3 Speed Networking days</div>
                         </div>
                     </div>
                 </div>
@@ -375,20 +852,20 @@
                 <div class="pk-card pk-card--pink">
                     <div class="pk-rail">
                         <span class="pk-badge pk-badge--pink">Daily Spotlight</span>
-                        <div class="pk-price pk-price--lg">$1,500</div>
-                        <div class="pk-price__note">One sponsor per spotlight hour.</div>
+                        <div class="pk-price pk-price--lg">$1,500<span class="pk-price__unit">/ day</span></div>
+                        <div class="pk-price__note">One sponsor per spotlight day.</div>
                         <ul class="pk-facts">
                             <li class="pk-fact"><span class="pk-fact__k">Naming</span><span class="pk-fact__v">Powered by [Brand]</span></li>
-                            <li class="pk-fact"><span class="pk-fact__k">Scope</span><span class="pk-fact__v">That hour · one spotlight</span></li>
+                            <li class="pk-fact"><span class="pk-fact__k">Scope</span><span class="pk-fact__v">That day · one spotlight</span></li>
                             <li class="pk-fact"><span class="pk-fact__k">Logo</span><span class="pk-fact__v">Exclusive</span></li>
                         </ul>
-                        <div class="pk-avail pk-avail--pink">5 available · Days 2–6</div>
+                        <div class="pk-avail pk-avail--pink">5 available · Days 2–6 (Sun–Thu)</div>
                     </div>
                     <div class="pk-body">
-                        <p class="pk-pitch">Power a marquee Spotlight hour — a concentrated, high-visibility session moment with your brand on the top bar of that hour and rotating presence in the Community Space.</p>
+                        <p class="pk-pitch">Every evening at 9 PM, the tracks stop and the entire Summit gathers in one room for one high-profile panel. Women in AI. Tech in Syria. The conversations that define the week. Your brand powers that moment.</p>
                         <div class="pk-icp pk-icp--pink">
                             <div class="pk-icp__k">Best for</div>
-                            <div class="pk-icp__v">Product launches, funded startups with a flagship announcement, and brands wanting one concentrated marquee moment tied to a headline session.</div>
+                            <div class="pk-icp__v">Companies that want their brand next to the conversation everyone's talking about. Five nights, five high-profile panels, one room — the entire Summit watching. Your logo on the moment, not the margin.</div>
                         </div>
                         <ul class="pk-benefits pk-benefits--pink">
                             <li>Powered-by naming on your spotlight</li>
@@ -415,7 +892,7 @@
             <div class="sp-section-head" style="margin-bottom:32px;">
                 <div class="section-eyebrow">The Entry Point · Brought To You By</div>
                 <h2 class="section-title">Session Sponsor</h2>
-                <p class="section-sub">Attach your brand to a single parallel session — "brought to you by [Brand]" on a shared rotating bottom banner. The lowest-commitment way in.</p>
+                <p class="section-sub">Your brand on a live session room seen by hundreds of attendees — with a speaking slot included. The most flexible tier at the Summit.</p>
             </div>
 
             <div class="pk-card pk-card--muted">
@@ -431,10 +908,10 @@
                     <div class="pk-avail">75 available</div>
                 </div>
                 <div class="pk-body">
-                    <p class="pk-pitch">The most accessible way onto the Summit. Attach your brand to a single parallel session with a brought-to-you-by credit and a shared rotating bottom banner in the live room and on the session detail page.</p>
+                    <p class="pk-pitch">Pick a session that fits your audience, get a speaking slot in your preferred track, and put your brand on the live room. At $500, this is how smart companies get in front of exactly the right audience without overcommitting.</p>
                     <div class="pk-icp">
                         <div class="pk-icp__k">Best for</div>
-                        <div class="pk-icp__v">Startups, SMBs, tools, and first-time sponsors testing the water. Low commitment, high volume — bundle three for presence across multiple sessions at 30% off.</div>
+                        <div class="pk-icp__v">Startups with a story to tell, growing companies entering new markets, and any brand that wants targeted visibility in front of a curated audience. Bundle three to stretch across the week.</div>
                     </div>
                     <ul class="pk-benefits pk-benefits--2col">
                         <li>Brought-to-you-by credit on your session</li>
@@ -444,12 +921,16 @@
                         <li>Shared sponsor spotlight post</li>
                         <li>Post-event thank-you post</li>
                     </ul>
-                    <div class="pk-bundle">
-                        <span class="pk-bundle__tag">Bundle · 3 sessions</span>
-                        <span class="pk-bundle__old">$1,500</span>
-                        <span class="pk-bundle__new">$1,050</span>
-                        <span class="pk-bundle__per">$350 / session</span>
-                        <span class="pk-bundle__save">Save 30%</span>
+                    <div class="pk-bundle pk-bundle--purple">
+                        <div class="pk-bundle__head">
+                            <span class="pk-bundle__tag">Bundle · 3 sessions</span>
+                            <span class="pk-bundle__save">Save 30%</span>
+                        </div>
+                        <div class="pk-bundle__prices">
+                            <span class="pk-bundle__new">$1,050</span>
+                            <span class="pk-bundle__old">$1,500</span>
+                        </div>
+                        <div class="pk-bundle__detail">$350 / session · 3 parallel sessions</div>
                     </div>
                 </div>
             </div>
@@ -467,7 +948,7 @@
             <div class="sp-section-head" style="margin-bottom:32px;">
                 <div class="section-eyebrow">Bring Your Community</div>
                 <h2 class="section-title">Community Partner</h2>
-                <p class="section-sub">For AI communities, developer groups, universities, and professional networks bringing their members into the room — exchanged in-kind.</p>
+                <p class="section-sub">You bring the audience. We give you the stage. A partner-level presence across the entire Summit, exchanged entirely in-kind.</p>
             </div>
 
             <div class="pk-card pk-card--pink">
@@ -483,10 +964,10 @@
                     <div class="pk-avail pk-avail--pink">20 available</div>
                 </div>
                 <div class="pk-body">
-                    <p class="pk-pitch">You bring your members; we give your brand partner-level presence across the Summit. A $500 value exchanged in-kind — no cash changes hands. The simplest way for a community to plug into the largest AI activation in the region.</p>
+                    <p class="pk-pitch">Activate your community inside the region's largest AI event. Your members get access, your brand gets partner-level presence — logo on the website, a dedicated channel in the Community Space, a speaking slot, and social coverage. No cash. Just your audience.</p>
                     <div class="pk-icp pk-icp--pink">
                         <div class="pk-icp__k">Best for</div>
-                        <div class="pk-icp__v">AI communities, developer groups, meetups, universities, and professional networks with an engaged audience to activate.</div>
+                        <div class="pk-icp__v">Communities, developer groups, universities, and professional networks with an audience ready to show up. If your members would attend anyway, make sure your brand is the one that brought them.</div>
                     </div>
                     <ul class="pk-benefits pk-benefits--pink pk-benefits--2col">
                         <li>Logo in the Partners section of the website</li>
@@ -511,39 +992,41 @@
         <div class="sp-section-head" style="max-width:var(--max-width);margin:0 auto 40px;">
             <div class="section-eyebrow">Save at Volume</div>
             <h2 class="section-title">Bundle &amp; Save 30%</h2>
-            <p class="section-sub">Two tiers reward buying in threes — the same presence, at a lower unit price.</p>
+            <p class="section-sub">Buy three, save 30%. Same presence, lower unit cost — the fastest way to build repeated visibility across the week.</p>
         </div>
 
         <div class="pk-pair" style="max-width:var(--max-width);margin:0 auto;">
-            <div class="pk-card pk-card--teal">
-                <div class="pk-rail">
-                    <span class="pk-badge pk-badge--teal">Daily Speed Networking Bundle</span>
-                    <div class="pk-price pk-price--lg">$4,200</div>
-                    <div class="pk-price__note">3 days · was <s>$6,000</s></div>
-                    <ul class="pk-facts">
-                        <li class="pk-fact"><span class="pk-fact__k">Unit after discount</span><span class="pk-fact__v">$1,400 / day</span></li>
-                        <li class="pk-fact"><span class="pk-fact__k">You save</span><span class="pk-fact__v">$1,800 (30%)</span></li>
-                    </ul>
+
+            <!-- SN Bundle — Option B card -->
+            <div class="pk-bundle" style="margin:0;">
+                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);"></div>
+                <div class="pk-bundle__head">
+                    <span class="pk-bundle__tag">Bundle · 3 days</span>
+                    <span class="pk-bundle__save">Save 30%</span>
                 </div>
-                <div class="pk-body">
-                    <p class="pk-pitch">Power three Speed Networking days for the price of a discount. Own the connection narrative across half the event week, at $1,400 per day instead of $2,000.</p>
+                <div class="pk-bundle__prices">
+                    <span class="pk-bundle__new">$4,200</span>
+                    <span class="pk-bundle__old">$6,000</span>
                 </div>
+                <div class="pk-bundle__detail">$1,400 / day · 3 Speed Networking days</div>
+                <p style="font-family:var(--font-body);font-size:13.5px;color:var(--text-secondary);line-height:1.55;margin:14px 0 0;">Three nights of matchmaking. Your brand on every round. Own the connection story across half the event week at $1,400 per day instead of $2,000.</p>
             </div>
 
-            <div class="pk-card pk-card--muted">
-                <div class="pk-rail">
-                    <span class="pk-badge">Session Bundle</span>
-                    <div class="pk-price pk-price--lg">$1,050</div>
-                    <div class="pk-price__note">3 sessions · was <s>$1,500</s></div>
-                    <ul class="pk-facts">
-                        <li class="pk-fact"><span class="pk-fact__k">Unit after discount</span><span class="pk-fact__v">$350 / session</span></li>
-                        <li class="pk-fact"><span class="pk-fact__k">You save</span><span class="pk-fact__v">$450 (30%)</span></li>
-                    </ul>
+            <!-- Session Bundle — Option B card -->
+            <div class="pk-bundle pk-bundle--purple" style="margin:0;">
+                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--purple);"></div>
+                <div class="pk-bundle__head">
+                    <span class="pk-bundle__tag">Bundle · 3 sessions</span>
+                    <span class="pk-bundle__save">Save 30%</span>
                 </div>
-                <div class="pk-body">
-                    <p class="pk-pitch">Spread your brand across three parallel sessions at $350 each instead of $500 — the cheapest way to build repeated presence throughout the week.</p>
+                <div class="pk-bundle__prices">
+                    <span class="pk-bundle__new">$1,050</span>
+                    <span class="pk-bundle__old">$1,500</span>
                 </div>
+                <div class="pk-bundle__detail">$350 / session · 3 parallel sessions</div>
+                <p style="font-family:var(--font-body);font-size:13.5px;color:var(--text-secondary);line-height:1.55;margin:14px 0 0;">Three sessions, three audiences, one brand showing up again and again. At $350 per session instead of $500, repeated visibility has never been more efficient.</p>
             </div>
+
         </div>
     </section>
 
@@ -577,161 +1060,391 @@
                     <tbody>
                         <tr class="benefits-invest-row">
                             <td class="col-benefit">Unit Price (USD)</td>
-                            <td>$20K</td><td>$5K</td><td>$4K</td><td>$2K</td><td>$1.5K</td><td>$500</td><td>In-kind</td>
+                            <td>$20K</td>
+                            <td>$5K</td>
+                            <td>$4K</td>
+                            <td>$2K</td>
+                            <td>$1.5K</td>
+                            <td>$500</td>
+                            <td>In-kind</td>
                         </tr>
                         <tr class="benefits-slots-row">
                             <td class="col-benefit">Available Slots</td>
-                            <td>1</td><td>5</td><td>1</td><td>6</td><td>5</td><td>75</td><td>20</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>75</td>
+                            <td>20</td>
                         </tr>
                         <tr class="benefits-slots-row">
                             <td class="col-benefit">Scope</td>
-                            <td>Whole event</td><td>Track · 15 sessions</td><td>Day 7 · 24h</td><td>That day</td><td>That hour</td><td>1 parallel slot</td><td>Partner</td>
+                            <td>Whole event</td>
+                            <td>Track · 15 sessions</td>
+                            <td>Day 7 · 24h</td>
+                            <td>That day</td>
+                            <td>That hour</td>
+                            <td>1 parallel slot</td>
+                            <td>Partner</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Branding &amp; Ad Placements</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Branding &amp; Ad Placements</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Named Association</td>
-                            <td class="val">Presented by</td><td class="val">Powered by</td><td class="val">Powered by</td><td class="val">Powered by</td><td class="val">Powered by</td><td class="val">Brought to you by</td><td class="dash">—</td>
+                            <td class="val">Presented by</td>
+                            <td class="val">Powered by</td>
+                            <td class="val">Powered by</td>
+                            <td class="val">Powered by</td>
+                            <td class="val">Powered by</td>
+                            <td class="val">Brought to you by</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Logo — Sponsors &amp; Partners Page</td>
-                            <td class="val">Large</td><td class="val">Medium</td><td class="val">Medium</td><td class="val">Small</td><td class="val">Small</td><td class="val">Small</td><td class="val">Small</td>
+                            <td class="val">Large</td>
+                            <td class="val">Medium</td>
+                            <td class="val">Medium</td>
+                            <td class="val">Small</td>
+                            <td class="val">Small</td>
+                            <td class="val">Small</td>
+                            <td class="val">Small</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Logo Placement in AI Summit Pages</td>
-                            <td class="val">Homepage</td><td class="val">Tracks</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="val">Homepage</td>
+                            <td class="val">Tracks</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Discovery — Toast · Rotating</td>
-                            <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Live Room — Session &amp; Spotlight</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Live Room — Session &amp; Spotlight</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Live Room — Top Bar</td>
-                            <td class="val">All</td><td class="val">Track only</td><td class="val">Full Speed Networking Day</td><td class="val">Own Daily Speed Networking</td><td class="val">Own Spotlight</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="val">All</td>
+                            <td class="val">Track only</td>
+                            <td class="val">Full Speed Networking Day</td>
+                            <td class="val">Own Daily Speed Networking</td>
+                            <td class="val">Own Spotlight</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Live Room — Rotating Bottom Banner</td>
-                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="val">Own Session</td><td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="val">Own Session</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Session Details Page — Top Bar</td>
-                            <td class="val">All</td><td class="val">Track only</td><td class="val">Full Speed Networking Day</td><td class="val">Own Daily Speed Networking</td><td class="val">Own Spotlight</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="val">All</td>
+                            <td class="val">Track only</td>
+                            <td class="val">Full Speed Networking Day</td>
+                            <td class="val">Own Daily Speed Networking</td>
+                            <td class="val">Own Spotlight</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Session Details Page — Rotating Bottom Banner</td>
-                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="val">Own Session</td><td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="val">Own Session</td>
+                            <td class="dash">—</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Speed Networking</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Speed Networking</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Live Room — Top Bar</td>
-                            <td class="val">All</td><td class="dash">—</td><td class="val">Full Speed Networking Day</td><td class="val">Own Daily Speed Networking</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="val">All</td>
+                            <td class="dash">—</td>
+                            <td class="val">Full Speed Networking Day</td>
+                            <td class="val">Own Daily Speed Networking</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Session Details Page — Top Bar</td>
-                            <td class="val">All</td><td class="dash">—</td><td class="val">Full Speed Networking Day</td><td class="val">Own Daily Speed Networking</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="val">All</td>
+                            <td class="dash">—</td>
+                            <td class="val">Full Speed Networking Day</td>
+                            <td class="val">Own Daily Speed Networking</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Community Space — 50K+ Registered Attendees</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Community Space — 50K+ Registered Attendees</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Logo on Community Banner</td>
-                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Rotating Sidebar Tile</td>
-                            <td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Rotating Bottom Banner</td>
-                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Dedicated Channel</td>
-                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Sponsors Channel</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Partners Channel</td>
-                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Dedicated Room (1 / month)</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Content &amp; Speaking</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Content &amp; Speaking</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Panelist Slot — Day 0 Panels</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Speaking Slot — Preferred Track Session</td>
-                            <td class="val">3</td><td class="val">2</td><td class="val">2</td><td class="val">1</td><td class="val">1</td><td class="val">1</td><td class="val">1</td>
+                            <td class="val">3</td>
+                            <td class="val">2</td>
+                            <td class="val">2</td>
+                            <td class="val">1</td>
+                            <td class="val">1</td>
+                            <td class="val">1</td>
+                            <td class="val">1</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Brand Mention in Opening Session (Day 1)</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Brand Mention in Full Day Speed Networking (Day 7)</td>
-                            <td class="check">✓</td><td class="dash">—</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Social Media &amp; Communications</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Social Media &amp; Communications</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Dedicated Sponsor Spotlight Post</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Shared Sponsor Spotlight Post</td>
-                            <td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Mention in Pre-Event Email Campaign</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Mention in AI Summit Newsletter</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Post-Event Thank You Post</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Co-Branded Content Opportunity</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Social Mention During Event Week</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">AI Summit 100% Promo Codes</td>
-                            <td class="val">5,000</td><td class="val">5,000</td><td class="val">5,000</td><td class="val">5,000</td><td class="val">5,000</td><td class="val">5,000</td><td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
+                            <td class="val">5,000</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">BrainsMingle 25% Promo — Premium (Annual)</td>
-                            <td class="val">500</td><td class="val">500</td><td class="val">500</td><td class="val">500</td><td class="val">500</td><td class="val">500</td><td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
+                            <td class="val">500</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">BrainsMingle 15% Promo — Premium (Monthly)</td>
-                            <td class="val">2,000</td><td class="val">2,000</td><td class="val">2,000</td><td class="val">2,000</td><td class="val">2,000</td><td class="val">2,000</td><td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
+                            <td class="val">2,000</td>
                         </tr>
 
-                        <tr class="benefits-cat-row"><td colspan="8">Post-Event &amp; PR</td></tr>
+                        <tr class="benefits-cat-row">
+                            <td colspan="8">Post-Event &amp; PR</td>
+                        </tr>
                         <tr>
                             <td class="col-benefit">Post-Event Audience Insights Report</td>
-                            <td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                         <tr>
                             <td class="col-benefit">Mentioned in Post-Event Press Release</td>
-                            <td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
                         </tr>
                     </tbody>
                 </table>
@@ -755,16 +1468,18 @@
          (Pricing is now single-currency USD and static — no region switch.)
     ══════════════════════════════════════════ -->
     <script>
-        (function () {
+        (function() {
             function renderTrackPills() {
                 var el = document.getElementById("pk-track-pills");
                 if (!el || typeof SIGNAL_TRACKS === "undefined") return;
-                el.innerHTML = SIGNAL_TRACKS.map(function (t) {
+                el.innerHTML = SIGNAL_TRACKS.map(function(t) {
                     return '<span class="tl-pill track-' + t.trackNumber + '">' + t.shortName + '</span>';
                 }).join("");
             }
 
-            function init() { renderTrackPills(); }
+            function init() {
+                renderTrackPills();
+            }
 
             if (document.readyState === "loading") {
                 document.addEventListener("DOMContentLoaded", init);
