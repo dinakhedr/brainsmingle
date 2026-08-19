@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Tracks | AI Summit 2026</title>
+    <meta name="description" content="Five AI tracks covering learning, creative, startups, business, and tech. Real practitioners, live sessions, and global AI insights across one week." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+</head>
+
+<body class="has-hero glow">
+
+    <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-header"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="page-hero__inner">
+
+            <div>
+                <p class="page-hero__eyebrow">The Tracks</p>
+                <h1 class="page-hero__title">Five domains.<br>One week.</h1>
+                <p class="page-hero__sub">Each track is its own vertical, with curated speakers, sessions and conversations built around a single domain.</p>
+            </div>
+
+            <!-- rendered from data/tracks.js -->
+            <nav class="track-index" id="track-index" aria-label="Jump to a track"></nav>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     TRACK CARDS — rendered from data/tracks.js
+══════════════════════════════════════════ -->
+    <div class="tracks-list__head">
+        <span class="section-eyebrow">All five tracks</span>
+        <h2 class="tracks-list__title">Pick your domain.</h2>
+    </div>
+
+    <div class="tracks-list" id="tracks-list"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     BOTTOM CTA
+══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════
+     CLOSING CTA — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="page-cta"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-footer"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → sponsors → icons → modals
+══════════════════════════════════════════ -->
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/sponsors.js"></script>
+    <script src="data/icons.js"></script>
+    <script>
+        var MODAL_IDS = ["registration", "sponsor", "speaker"];
+    </script>
+    <script src="data/modals.js"></script>
+
+    <script>
+        /* ─────────────────────────────────────────
+           PAGE CONFIG
+           ───────────────────────────────────────── */
+
+        // Flip to true once track sponsors are confirmed. While false,
+        // every card shows the "Sponsor TBC" placeholder.
+        var TRACK_SPONSORS_ANNOUNCED = false;
+
+        // Shown on the left of each card's footer banner.
+        var TRACK_SCHEDULE_LABEL = "Runs days 2 to 6 · 6:00 – 11:00 PM";
+
+        // Maps trackNumber to a key in data/icons.js
+        var TRACK_ICON_KEYS = {
+            1: "trackLd",
+            2: "trackCreative",
+            3: "trackStartups",
+            4: "trackBusiness",
+            5: "trackTech"
+        };
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderTrackIndex();
+            renderTracksList();
+        });
+
+
+        /* ─────────────────────────────────────────
+           TRACK INDEX
+           The right column of the hero band. Each row
+           scrolls to its card. Colour comes from the
+           .track-N class, so no styling is written here.
+           ───────────────────────────────────────── */
+        function renderTrackIndex() {
+            const el = document.getElementById("track-index");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <a class="track-index__item track-${t.trackNumber}" href="#track-${t.slug}">
+      <span class="track-index__icon">${_trackIcon(t.trackNumber)}</span>
+      ${t.fullName}
+    </a>
+  `).join("");
+        }
+
+
+        /* ─────────────────────────────────────────
+           TRACK CARDS
+           ───────────────────────────────────────── */
+        function renderTracksList() {
+            const el = document.getElementById("tracks-list");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => {
+
+                // Focus areas: keep the name, drop the explanation after the dash
+                const focusPills = t.focusAreas
+                    .map(area => `<span class="tr-focus-pill">${area.split(" — ")[0].trim()}</span>`)
+                    .join("");
+
+                const audience = t.targetGroups
+                    .map(group => `<li>${group}</li>`)
+                    .join("");
+
+                return `
+      <article class="tr-card track-${t.trackNumber}" id="track-${t.slug}">
+
+        <header class="tr-card__head">
+          <div class="tr-card__ident">
+            <span class="tr-card__icon">${_trackIcon(t.trackNumber)}</span>
+            <div>
+              <div class="tr-card__tagline">${t.tagline} · Track 0${t.trackNumber}</div>
+              <h2 class="tr-card__name">${t.fullName}</h2>
+            </div>
+          </div>
+          ${_sponsorSlot(t.trackNumber)}
+        </header>
+
+        <div class="tr-card__body">
+          <div class="tr-card__main">
+            <p class="tr-card__desc">${t.longDescription}</p>
+            <div class="tr-card__label">Focus Areas</div>
+            <div class="tr-focus">${focusPills}</div>
+          </div>
+          <aside class="tr-card__side">
+            <div class="tr-card__label tr-card__label--muted">Who It's For</div>
+            <ul class="tr-audience">${audience}</ul>
+          </aside>
+        </div>
+
+        <footer class="tr-card__banner">
+          <span class="tr-card__meta">${TRACK_SCHEDULE_LABEL}</span>
+          <a class="tr-card__link" href="agenda.html" data-page="agenda">View Sessions</a>
+        </footer>
+
+      </article>`;
+            }).join("");
+
+            // Cards render after layout.js has run, so re-apply the
+            // live/soon gate to the links inside them.
+            if (typeof applyPageGates === "function") applyPageGates(el);
+        }
+
+
+        /* ─────────────────────────────────────────
+           HELPERS
+           ───────────────────────────────────────── */
+
+        // SVG is pulled straight from data/icons.js, so it is present
+        // before the icon injector runs and never arrives late.
+        function _trackIcon(trackNumber) {
+            const key = TRACK_ICON_KEYS[trackNumber];
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
+        }
+
+        // Sponsor logo when announced, placeholder until then.
+        function _sponsorSlot(trackNumber) {
+            if (TRACK_SPONSORS_ANNOUNCED && typeof SIGNAL_SPONSORS !== "undefined") {
+                const sponsor = SIGNAL_SPONSORS.find(s => s.tier === "track" && s.trackNumber === trackNumber);
+                if (sponsor && sponsor.logoPath) {
+                    return `<a class="tr-card__sponsor" href="${sponsor.website || "#"}" target="_blank" rel="noopener" title="${sponsor.name}">
+            <img src="${sponsor.logoPath}" alt="${sponsor.name}" loading="lazy" />
+          </a>`;
+                }
+            }
+            return `<div class="tr-card__sponsor tr-card__sponsor--tbc">Sponsor TBC</div>`;
+        }
+    </script>
+
+</body>
+
+</html>

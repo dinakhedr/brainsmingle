@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Summit 2026 | AI Event Powered by BrainsMingle</title>
+    <meta name="description" content="Join AI Summit 2026 on BrainsMingle, a global AI activation week with 100+ live sessions, expert-led panels, and networking across 5 tracks for practitioners, founders, and industry leaders." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+</head>
+
+<body class="has-hero glow">
+
+    <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-header"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <section class="hero-home" id="about">
+        <div class="hero-home__inner">
+            <p class="hero-home__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
+            <h1 class="hero-home__title">The Largest AI Summit<br>In The MENA Region</h1>
+            <p class="hero-home__sub">Seven Days. 100+ Speakers. Unlimited Conversations.</p>
+            <div class="hero-home__actions">
+                <a href="#" class="btn btn-primary" data-cta="registration">Join the Waiting List</a>
+                <a href="#" data-page="sponsors" onclick="openModal('sponsor-modal');return false;" class="btn btn-on-dark">Become a Sponsor</a>
+            </div>
+            <div id="hero-social"></div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════ -->
+    <div class="stats-bar">
+        <div class="stats-bar-inner">
+            <div class="stat-item">
+                <div class="stat-value">50K<span>+</span></div>
+                <div class="stat-label">Attendees</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">100<span>+</span></div>
+                <div class="stat-label">Speakers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Parallel Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Days</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">Global</div>
+                <div class="stat-label">Virtual Event</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+     WHAT IS AI SUMMIT
+══════════════════════════════════════════ -->
+    <section class="intro">
+        <div class="intro__inner">
+
+            <div class="intro__head">
+                <div>
+                    <span class="section-eyebrow">What is AI Summit</span>
+                    <h2 class="intro__title">Everyone in AI.<br>One week. One room.</h2>
+                </div>
+                <p class="intro__lead">A week-long virtual event built entirely around artificial intelligence, bringing together practitioners, founders, researchers and leaders for live sessions, panels, special activations and a full day of speed networking.</p>
+            </div>
+
+            <div class="intro__grid">
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="liveSession"></span></span>
+                    <h3 class="intro__card-title">Live sessions and panels</h3>
+                    <p class="intro__card-desc">100+ sessions across five dedicated tracks.</p>
+                </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--green"><span data-icon="activation"></span></span>
+                    <h3 class="intro__card-title">Special activations</h3>
+                    <p class="intro__card-desc">Launchpad for startups. Talent for hiring.</p>
+                </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="speedNetworking"></span></span>
+                    <h3 class="intro__card-title">Speed Networking Day</h3>
+                    <p class="intro__card-desc">A full day connecting everyone, across every track.</p>
+                </div>
+                <div class="intro__card">
+                    <span class="icon-tile icon-tile--green"><span data-icon="globe"></span></span>
+                    <h3 class="intro__card-title">Fully virtual, truly global</h3>
+                    <p class="intro__card-desc">Attend from anywhere. No travel, no barriers.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     TRACKS
+══════════════════════════════════════════ -->
+    <section class="tracks-preview" id="tracks">
+        <div class="tracks-preview__inner">
+
+            <div class="tracks-preview__head">
+                <div>
+                    <span class="section-eyebrow">The Tracks</span>
+                    <h2 class="tracks-preview__title">Five AI tracks.<br>One powerful week.</h2>
+                </div>
+                <p class="tracks-preview__lead">Each track is its own vertical, with curated speakers, sessions and conversations built around a single domain.</p>
+            </div>
+
+            <!-- rendered from data/tracks.js -->
+            <div class="tracks-preview__list" id="tracks-list"></div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     WHO ATTENDS
+══════════════════════════════════════════ -->
+    <section class="audience">
+        <div class="audience__inner">
+
+            <div class="audience__head">
+                <div>
+                    <span class="section-eyebrow">Who Attends</span>
+                    <h2 class="audience__title">Built for everyone<br>working in AI.</h2>
+                </div>
+                <p class="audience__lead">Six audiences, one room. Whatever you do in AI, there is a track and a conversation for you.</p>
+            </div>
+
+            <div class="audience__grid">
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--green"><span data-icon="practitioner"></span></span>
+                        <h3 class="audience__name">Practitioners &amp; Researchers</h3>
+                    </div>
+                    <p class="audience__desc">Engineers, data scientists and academics advancing the field.</p>
+                </div>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--purple"><span data-icon="leader"></span></span>
+                        <h3 class="audience__name">Leaders &amp; Decision Makers</h3>
+                    </div>
+                    <p class="audience__desc">Executives exploring AI adoption and organisational change.</p>
+                </div>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--green"><span data-icon="founder"></span></span>
+                        <h3 class="audience__name">Founders &amp; Entrepreneurs</h3>
+                    </div>
+                    <p class="audience__desc">Builders of AI products, looking for partners and market insight.</p>
+                </div>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--purple"><span data-icon="developer"></span></span>
+                        <h3 class="audience__name">Developers &amp; Engineers</h3>
+                    </div>
+                    <p class="audience__desc">Shipping AI applications, automation and intelligent systems.</p>
+                </div>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--green"><span data-icon="student"></span></span>
+                        <h3 class="audience__name">Students &amp; Early Careers</h3>
+                    </div>
+                    <p class="audience__desc">Exploring an AI career path and building the skills for it.</p>
+                </div>
+                <div class="audience__card">
+                    <div class="audience__card-head">
+                        <span class="icon-tile icon-tile--purple"><span data-icon="recruiter"></span></span>
+                        <h3 class="audience__name">Recruiters &amp; Companies</h3>
+                    </div>
+                    <p class="audience__desc">Building AI teams and meeting talent through AI Summit Talent.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     AGENDA
+══════════════════════════════════════════ -->
+    <section class="agenda-preview" id="agenda">
+        <div class="agenda-preview__inner">
+
+            <div class="agenda-preview__head">
+                <div>
+                    <span class="section-eyebrow">The Agenda</span>
+                    <h2 class="agenda-preview__title">Seven days.<br>Every format.</h2>
+                </div>
+                <a href="agenda.html" data-page="agenda" class="agenda-preview__link">View Full Agenda</a>
+            </div>
+
+            <!-- The week as a flow: Opening → the nightly three-act rhythm (×5) → Closing -->
+            <div class="agenda-flow">
+
+                <article class="agenda-card agenda-card--green">
+                    <p class="agenda-card__date">Sat 10 October</p>
+                    <p class="agenda-card__day">Day 1</p>
+                    <h3 class="agenda-card__name">Opening Day</h3>
+                    <p class="agenda-card__desc">High-profile panels bringing together the biggest names in AI, setting the tone for the week.</p>
+                </article>
+
+                <div class="agenda-flow__arrow" aria-hidden="true">→</div>
+
+                <div class="agenda-evening">
+                    <div class="agenda-evening__head">
+                        <span class="agenda-evening__label">Every evening · Days 2–6 · Sun–Thu</span>
+                        <span class="agenda-evening__x5">×5 nights</span>
+                    </div>
+                    <div class="agenda-acts">
+                        <div class="agenda-act agenda-card--green">
+                            <p class="agenda-act__time">6–9 PM</p>
+                            <h4 class="agenda-act__name">Track Sessions</h4>
+                            <p class="agenda-act__desc">Five parallel tracks, three slots a night.</p>
+                        </div>
+                        <div class="agenda-acts__arrow" aria-hidden="true">→</div>
+                        <div class="agenda-act agenda-card--pink">
+                            <p class="agenda-act__time">9 PM</p>
+                            <h4 class="agenda-act__name">Day Spotlight</h4>
+                            <p class="agenda-act__desc">One stage, the whole summit in one room.</p>
+                        </div>
+                        <div class="agenda-acts__arrow" aria-hidden="true">→</div>
+                        <div class="agenda-act agenda-card--purple">
+                            <p class="agenda-act__time">10 PM</p>
+                            <h4 class="agenda-act__name">Speed Networking</h4>
+                            <p class="agenda-act__desc">Meet the room you just shared the Spotlight with.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agenda-flow__arrow" aria-hidden="true">→</div>
+
+                <article class="agenda-card agenda-card--purple">
+                    <p class="agenda-card__date">Fri 16 October</p>
+                    <p class="agenda-card__day">Day 7</p>
+                    <h3 class="agenda-card__name">Speed Networking Day</h3>
+                    <p class="agenda-card__desc">Full day, open room. Everyone who spent the week in the same ideas, finally in the same place.</p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     SPEAKERS
+══════════════════════════════════════════ -->
+    <section class="speakers-preview">
+        <div class="speakers-preview__inner">
+
+            <div class="speakers-preview__head">
+                <div>
+                    <span class="section-eyebrow">Speakers</span>
+                    <h2 class="speakers-preview__title">Join a lineup worth<br>being part of.</h2>
+                </div>
+                <div class="speakers-preview__aside">
+                    <p class="speakers-preview__lead">Practitioners, founders and researchers sharing what they actually know. Not keynotes, real conversations in front of a global room.</p>
+                    <a href="speakers.html" data-page="speakers" class="speakers-preview__link">See All Speakers</a>
+                </div>
+            </div>
+
+            <!-- rendered from data/speakers.js -->
+            <div class="speakers-preview__grid" id="speakers-preview-grid"></div>
+
+            <div class="speakers-preview__foot">
+                <a href="#" class="btn btn-accent btn-arrow" onclick="openModal('speaker-modal');return false;">Become a Speaker</a>
+                <p class="speakers-preview__note">More announced weekly</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     SPONSORS & PARTNERS
+══════════════════════════════════════════ -->
+    <section class="sponsors-preview">
+        <div class="sponsors-preview__inner">
+
+            <div class="sponsors-preview__head">
+                <div>
+                    <span class="section-eyebrow">Sponsors &amp; Partners</span>
+                    <h2 class="sponsors-preview__title">Let's talk.<br><em>Slots won't last.</em></h2>
+                </div>
+                <p class="sponsors-preview__lead">Be where the conversation happens, in front of 50K+ professionals across 90+ countries, for a full week.</p>
+            </div>
+
+            <div class="sponsors-preview__grid">
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="activation"></span></span>
+                    <h3 class="sponsor-type__name">Tier Sponsors</h3>
+                    <p class="sponsor-type__desc">Main, Gold, Silver and Bronze. Logo placement, speaking slots and audience exposure across all seven days.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--green"><span data-icon="grid"></span></span>
+                    <h3 class="sponsor-type__name">Track Sponsor</h3>
+                    <p class="sponsor-type__desc">Own one of the five AI tracks for the full week. Your brand names the track and leads every session in it.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--purple"><span data-icon="launchpad"></span></span>
+                    <h3 class="sponsor-type__name">Signature Sponsor</h3>
+                    <p class="sponsor-type__desc">Exclusive named association with the Daily Spotlight and Speed Networking, or the full closing Speed Networking Day.</p>
+                </article>
+
+                <article class="sponsor-type">
+                    <span class="icon-tile icon-tile--green"><span data-icon="community"></span></span>
+                    <h3 class="sponsor-type__name">Community Partner</h3>
+                    <p class="sponsor-type__desc">Communities, media outlets and organisations supporting the summit, featured across all platforms.</p>
+                </article>
+            </div>
+
+            <div class="sponsors-cta">
+                <div>
+                    <p class="sponsors-cta__title">Ready to own the stage?</p>
+                    <p class="sponsors-cta__desc">Fill in the interest form and we'll reach out within 48 hours to arrange a call, walk you through the full benefits and help you find the right fit for your brand.</p>
+                </div>
+                <a href="#" class="btn btn-primary btn-arrow" onclick="openModal('sponsor-modal');return false;">Request a Call</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════ -->
+    <section class="final-cta" id="register">
+        <div class="final-cta__inner">
+
+            <div>
+                <p class="final-cta__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
+                <h2 class="final-cta__title" data-copy="sectionTitle"></h2>
+            </div>
+
+            <div>
+                <p class="final-cta__lead" data-copy="sectionSub"></p>
+
+                <div id="cta-form"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-footer"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SPEAKER POPUP — rendered from data/speaker-popup.js
+══════════════════════════════════════════ -->
+    <div id="speaker-popup"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → speakers → agenda → sponsors
+                 → icons → speaker-popup → modals
+
+     agenda.js is here so the speaker popup can list a speaker's
+     sessions. Without it the popup still opens and the Sessions
+     block hides itself.
+══════════════════════════════════════════ -->
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/speakers.js"></script>
+    <script src="data/agenda.js"></script>
+    <script src="data/sponsors.js"></script>
+    <script src="data/icons.js"></script>
+    <script src="data/speaker-popup.js"></script>
+    <script>
+        var MODAL_IDS = ["registration", "sponsor", "speaker"];
+    </script>
+    <script src="data/modals.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderTrackStrips();
+            renderSpeakersPreview();
+            renderSpk1TrackPills();
+        });
+
+        // ── Tracks grid — from tracks.js
+        function renderTrackStrips() {
+            const el = document.getElementById("tracks-list");
+            if (!el) return;
+
+            const trackIconKeys = {
+                1: "trackLd",
+                2: "trackCreative",
+                3: "trackStartups",
+                4: "trackBusiness",
+                5: "trackTech"
+            };
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <a class="track-strip track-${t.trackNumber}" href="agenda.html" data-page="agenda">
+      <span class="track-strip__icon">${SIGNAL_ICONS[trackIconKeys[t.trackNumber]] || ""}</span>
+      <span class="track-strip__text">
+        <span class="track-strip__name">${t.fullName}</span>
+        <span class="track-strip__desc">${t.shortDescription}</span>
+      </span>
+      <span class="track-strip__arrow" aria-hidden="true">${_icon("arrowRight")}</span>
+    </a>`).join("");
+
+            // Strips render after layout.js, so re-apply the live/soon gate
+            if (typeof applyPageGates === "function") applyPageGates(el);
+        }
+
+        // ── Speaker lineup — from speakers.js
+        // Who appears is set by showOnHome, capped by HOME_SPEAKER_LIMIT.
+        function renderSpeakersPreview() {
+            const el = document.getElementById("speakers-preview-grid");
+            if (!el || typeof getHomepageSpeakers !== "function") return;
+
+            // Same card as the speakers page, from data/speaker-popup.js.
+            // The Featured ribbon is off here: the home grid is already a
+            // curated selection, so flagging some of them says nothing.
+            if (typeof speakerCardHtml !== "function") return;
+            el.innerHTML = getHomepageSpeakers().map(s => speakerCardHtml(s, false)).join("");
+
+            if (typeof applyPageGates === "function") applyPageGates(el);
+        }
+
+        // ── Speaker section track pills
+        function renderSpk1TrackPills() {
+            const el = document.getElementById("spk1-track-pills");
+            if (!el) return;
+            const trackIconKeys = {
+                1: "trackLd",
+                2: "trackCreative",
+                3: "trackStartups",
+                4: "trackBusiness",
+                5: "trackTech"
+            };
+            const icons = (typeof SIGNAL_ICONS !== "undefined") ? SIGNAL_ICONS : {};
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <span class="tl-pill track-${t.trackNumber}">
+      <span class="tl-icon">${icons[trackIconKeys[t.trackNumber]] || ""}</span>
+      ${t.shortName}
+    </span>
+  `).join("");
+        }
+        // SVG straight from data/icons.js, so it is in the markup before
+        // the icon injector runs. An unknown key renders nothing.
+        function _icon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
+        }
+    </script>
+
+</body>
+
+</html>

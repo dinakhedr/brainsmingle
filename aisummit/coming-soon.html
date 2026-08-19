@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | AI Summit 2026</title>
+    <meta name="description" content="AI Summit 2026 is coming. The global AI activation week, 10 to 16 October 2026. Join the waiting list to be notified when registration opens." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+</head>
+
+<body>
+
+    <div class="cs-page">
+
+        <!-- Background atmosphere -->
+        <div class="cs-glow"></div>
+        <div class="cs-glow-right"></div>
+        <div class="cs-grid-bg"></div>
+
+        <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
+══════════════════════════════════════════ -->
+        <div id="site-header"></div>
+
+
+        <main class="cs-main" id="waitlist">
+            <div class="cs-inner">
+
+                <div class="cs-eyebrow">
+                    <span class="cs-eyebrow-dot"></span>
+                    Coming Soon
+                </div>
+
+                <h1 class="cs-headline">The summit is loading.</h1>
+
+                <p class="cs-sub">We're tuning in. Join the waiting list and be the first to know when registration goes live.</p>
+
+                <div class="cs-date-pill">
+                    <span>10 – 16 October 2026</span>
+                    <span class="cs-date-pill-sep"></span>
+                    <span>Virtual</span>
+                    <span class="cs-date-pill-sep"></span>
+                    <span>Global</span>
+                </div>
+
+                <!-- Waiting list form.
+                     Uses the same ids, classes and submit handler as the
+                     waiting list modal in data/modals.js, so there is one
+                     form implementation across the site. -->
+                <div class="cs-form-wrap">
+                    <p class="cs-form-label">Get notified when registration opens</p>
+
+                    <div class="wl-form-row">
+                        <div class="modal-field wl-field">
+                            <input type="email" id="wl-email" placeholder="Enter your email address"
+                                   autocomplete="email" aria-label="Email address" required />
+                        </div>
+                        <button class="btn btn-primary btn-arrow wl-submit" id="wl-submit-btn"
+                                onclick="submitWaitlistForm()">Join the Waiting List</button>
+                    </div>
+
+                    <div class="wl-error" id="wl-error">Please enter a valid email address.</div>
+                    <div class="wl-success" id="wl-success">
+                        <span data-icon="check"></span>
+                        You're on the list. We'll be in touch.
+                    </div>
+                    <p class="wl-note">No spam. One email when registration goes live.</p>
+                </div>
+
+                <a href="home.html" class="cs-back">Back to AI Summit</a>
+
+            </div>
+        </main>
+
+
+        <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
+══════════════════════════════════════════ -->
+        <div id="site-footer"></div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → icons → modals
+
+     No "registration" modal here: the waiting list form is already on
+     the page, so injecting the modal would duplicate its element ids.
+══════════════════════════════════════════ -->
+    <script>
+        // Point the nav button at the form on this page instead of a modal.
+        var REGISTRATION_CTA_TARGET = "#waitlist";
+    </script>
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/icons.js"></script>
+    <script>
+        var MODAL_IDS = ["sponsor", "speaker"];
+    </script>
+    <script src="data/modals.js"></script>
+
+</body>
+
+</html>

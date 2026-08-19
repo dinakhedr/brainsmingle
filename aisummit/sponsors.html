@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sponsors &amp; Partners | AI Summit 2026</title>
+    <meta name="description" content="The organizations and communities behind AI Summit 2026. Sponsorship and community partner opportunities across seven days, five tracks, and a global virtual audience." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+</head>
+
+<body class="has-hero glow">
+
+    <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-header"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="page-hero__inner">
+
+            <div>
+                <p class="page-hero__eyebrow">Sponsors &amp; Partners</p>
+                <h1 class="page-hero__title">Be where the<br>conversation happens.</h1>
+                <p class="page-hero__sub">AI Summit is the global AI activation week. Put your brand in front of tens of thousands of practitioners, founders and decision makers across 90+ countries.</p>
+            </div>
+
+            <!-- sponsorship types, rendered from SP_TYPES below -->
+            <nav class="track-index" id="sp-type-index" aria-label="Sponsorship types"></nav>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     RECOGNITION WALL — rendered from data/sponsors.js
+══════════════════════════════════════════ -->
+    <section class="sp-section" id="wall">
+        <div class="sp-section-inner">
+            <div class="sp-section-head">
+                <span class="section-eyebrow">The Line-Up</span>
+                <h2 class="section-title">Sponsors and Partners</h2>
+                <p class="section-sub">The organizations and communities powering AI Summit 2026</p>
+            </div>
+
+            <div id="sp-wall"></div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     CONTACT FORM
+══════════════════════════════════════════ -->
+    <section class="sp-section sp-contact" id="contact">
+        <div class="sp-contact-inner">
+            <div class="sp-contact-left">
+                <h2>Let's Discuss<br><em>Your Sponsorship</em></h2>
+                <p>Fill out the form and our team will respond within 24 hours to schedule a call and guide you through the best sponsorship options for your brand.</p>
+                <div class="sp-contact-meta">
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="mail"></span></div>
+                        <div>Sponsors: <a href="mailto:sponsors@brainsmingle.com">sponsors@brainsmingle.com</a></div>
+                    </div>
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="community"></span></div>
+                        <div>Partners: <a href="mailto:partners@brainsmingle.com">partners@brainsmingle.com</a></div>
+                    </div>
+                    <div class="sp-contact-meta-item">
+                        <div class="sp-contact-meta-icon"><span data-icon="calendar"></span></div>
+                        <div>Event dates: 10 – 16 October 2026 · Virtual · Global</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-contact-right">
+                <div class="sp-form" id="sp-form">
+                    <div class="sp-form-row">
+                        <div class="sp-field">
+                            <label for="sp-name">Full Name *</label>
+                            <input type="text" id="sp-name" placeholder="Your name" required />
+                        </div>
+                        <div class="sp-field">
+                            <label for="sp-company">Company / Organisation *</label>
+                            <input type="text" id="sp-company" placeholder="Your company" required />
+                        </div>
+                    </div>
+                    <div class="sp-form-row">
+                        <div class="sp-field">
+                            <label for="sp-email">Email *</label>
+                            <input type="email" id="sp-email" placeholder="you@company.com" required />
+                        </div>
+                        <div class="sp-field">
+                            <label for="sp-phone">Phone *</label>
+                            <input type="tel" id="sp-phone" placeholder="+20 000 000 0000" required />
+                        </div>
+                    </div>
+                    <div class="sp-field">
+                        <label for="sp-interest">I'm interested in *</label>
+                        <select id="sp-interest" required>
+                            <option value="" disabled selected>Select sponsorship type</option>
+                        </select>
+                    </div>
+                    <div class="sp-field">
+                        <label for="sp-message">Message (optional)</label>
+                        <textarea id="sp-message" placeholder="Tell us about your brand, goals, or any questions"></textarea>
+                    </div>
+                    <div class="sp-form-submit-row">
+                        <button class="btn btn-primary btn-arrow" onclick="submitSponsorEnquiry()">Request a Call</button>
+                        <span class="sp-form-note">We respond within 24 hours. No spam, ever.</span>
+                    </div>
+                </div>
+                <div class="sp-form-success" id="sp-form-success">
+                    <span data-icon="check"></span>
+                    Request received. We'll be in touch within 24 hours.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-footer"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SPONSOR POPUP — rendered from data/sponsor-popup.js
+══════════════════════════════════════════ -->
+    <div id="sponsor-popup"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → sponsors → icons → modals
+
+     No "sponsor" modal here: the enquiry form is already on the page, so
+     the footer links scroll to it instead of opening a duplicate form.
+══════════════════════════════════════════ -->
+    <script>
+        var MODAL_LINK_OVERRIDES = { "sponsor-modal": "#contact" };
+    </script>
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/sponsors.js"></script>
+    <script src="data/icons.js"></script>
+    <script src="data/sponsor-popup.js"></script>
+    <script>
+        var MODAL_IDS = ["registration", "speaker"];
+    </script>
+    <script src="data/modals.js"></script>
+
+    <script>
+        /* ─────────────────────────────────────────
+           PAGE CONFIG
+           ───────────────────────────────────────── */
+
+        // Whether the wall shows empty slots is set site-wide by
+        // SHOW_EMPTY_SLOTS in data/layout.js. Read it through
+        // showEmptySlots() so the ?wall= preview override applies.
+
+        // Knocks logos to white so mixed artwork reads as one block on the
+        // dark background. Set to false once sponsors supply proper white or
+        // full-colour assets, and their logos will render exactly as given.
+        var SPONSOR_LOGO_MONO = true;
+
+        // Tier rows in the order they appear on the wall.
+        // sizeClass maps to the .slb-* sizes in style.css
+        // Gold, silver and bronze are hidden (not deleted): flip
+        // hidden to false to bring a tier back onto the wall.
+        var SP_TIER_ROWS = [
+            { tier: "main",   sizeClass: "slb-main"   },
+            { tier: "gold",   sizeClass: "slb-gold",   hidden: true },
+            { tier: "silver", sizeClass: "slb-silver", hidden: true },
+            { tier: "bronze", sizeClass: "slb-bronze", hidden: true }
+        ];
+
+        // Sponsorship types in the enquiry form
+        var SP_INTEREST_OPTIONS = [
+            "Track Sponsor",
+            "Speed Networking Sponsor",
+            "Spotlight Sponsor",
+            "Session Sponsor",
+            "Community Partner"
+        ];
+
+        // Hero index. Clicking one jumps to the form and preselects it
+        // where there is an exact match in SP_INTEREST_OPTIONS.
+        var SP_TYPES = [
+            { key: "track",           iconKey: "grid",       label: "Track Sponsor",      interest: "Track Sponsor" },
+            { key: "speednetworking", iconKey: "networking", label: "Speed Networking",   interest: "Speed Networking Sponsor" },
+            { key: "spotlight",       iconKey: "spotlight",  label: "Spotlight Sponsor",  interest: "Spotlight Sponsor" },
+            { key: "session",         iconKey: "calendar",   label: "Session Sponsor",    interest: "Session Sponsor" },
+            { key: "community",       iconKey: "community",  label: "Community Partner",  interest: "Community Partner" }
+        ];
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderTypeIndex();
+            renderWall();
+            renderInterestOptions();
+        });
+
+
+        /* ─────────────────────────────────────────
+           HERO TYPE INDEX
+           Same markup and classes as the tracks page, so it
+           needs no layout CSS of its own. Only the icon colour
+           is set, through --track-color.
+           ───────────────────────────────────────── */
+        function renderTypeIndex() {
+            const el = document.getElementById("sp-type-index");
+            if (!el) return;
+
+            el.innerHTML = SP_TYPES.map(t => `
+    <a class="track-index__item sp-index--${t.key}" href="#contact"
+       onclick="preselectInterest('${t.interest.replace(/'/g, "\\'")}')">
+      <span class="track-index__icon">${_spIcon(t.iconKey)}</span>
+      ${t.label}
+    </a>`).join("");
+        }
+
+        // Sets the enquiry dropdown when the label has an exact match in
+        // SP_INTEREST_OPTIONS. Special Events maps to three separate
+        // options, so it scrolls without preselecting anything.
+        function preselectInterest(value) {
+            const sel = document.getElementById("sp-interest");
+            if (sel && value && SP_INTEREST_OPTIONS.indexOf(value) !== -1) sel.value = value;
+        }
+
+
+        /* ─────────────────────────────────────────
+           RECOGNITION WALL
+           ───────────────────────────────────────── */
+        function renderWall() {
+            const el = document.getElementById("sp-wall");
+            if (!el) return;
+
+            el.innerHTML =
+                SP_TIER_ROWS.filter(row => !row.hidden).map(row => _tierRow(row)).join("") +
+                _trackRow() +
+                _speedNetworkingFullRow() +
+                _speedNetworkingDailyRow() +
+                _spotlightRow() +
+                _sessionRow() +
+                _strategicPartnerRow() +
+                _regionalPartnerRow() +
+                _partnerRow();
+        }
+
+        // Main, gold, silver, bronze
+        function _tierRow(row) {
+            const meta = SIGNAL_SPONSOR_TIERS[row.tier] || {};
+            const filled = getSponsorsByTier(row.tier).filter(_isConfirmed);
+            const open = Math.max(0, (meta.slots || 0) - filled.length);
+            const showEmpty = showEmptySlots();
+
+            // Nothing confirmed and not showing empties: the whole tier
+            // row goes, header and all.
+            if (!filled.length && !showEmpty) return "";
+
+            const tiles =
+                filled.map(s => _logoTile(s, row.sizeClass)).join("") +
+                (showEmpty ? _openTiles(open, row.sizeClass) : "");
+
+            return _wallSection(meta.label || row.tier, tiles, "sp-wall-row", meta.color);
+        }
+
+        // One column per track. The track name is a column header above
+        // the frame, not a pill inside it, so the five read as a table.
+        // Icon and header colour come from the .track-N class.
+        function _trackRow() {
+            const showEmpty = showEmptySlots();
+            const tracks = SIGNAL_TRACKS
+                .map(t => ({ t, sponsor: getSponsorsByTrack(t.trackNumber).filter(_isConfirmed)[0] }))
+                .filter(x => showEmpty || x.sponsor);
+
+            // Confirmed-only and no track has a sponsor: hide the section.
+            if (!tracks.length) return "";
+
+            const cols = tracks.map(({ t, sponsor }) => _wallColumn({
+                modifier: `track-${t.trackNumber}`,
+                marker:   `<span class="sp-col__sq"></span>`,
+                label:    t.shortName,
+                sponsor
+            })).join("");
+
+            return _wallSection("Track Sponsors", cols, "sp-col-row sp-col-row--track", (SIGNAL_SPONSOR_TIERS.track || {}).color);
+        }
+
+        // Full-day Speed Networking: a single tile at track size with no
+        // card header — the section title carries it. Purple.
+        function _speedNetworkingFullRow() {
+            const row = getSpeedNetworkingFull();
+            const showEmpty = showEmptySlots();
+            const sold = _isConfirmed(row);
+            if (!row || (!sold && !showEmpty)) return "";
+
+            const tile = sold
+                ? `<button type="button" class="sponsor-logo-box slb-col slb-sn-full sp-col--sn${_monoClass()}" title="${row.name || ""}"
+                 aria-label="${row.name || "Speed Networking Sponsor"}" onclick="openSponsorPopup('${row.id}')">
+         <img src="${row.logoPath}" alt="${row.name || ""}" loading="lazy" />
+       </button>`
+                : `<div class="sponsor-logo-box slb-col slb-sn-full sp-col--sn slb-open">
+         <span class="slb-open-label">Coming Soon</span>
+       </div>`;
+
+            return _wallSection("Full Day Speed Networking Sponsor", tile, "sp-wall-row sp-wall-row--snfull", "var(--purple)");
+        }
+
+        // Daily Speed Networking: one column per day (Day 1–6). The day is
+        // the whole header — no icon, no square. Silver-size frames, purple.
+        function _speedNetworkingDailyRow() {
+            const showEmpty = showEmptySlots();
+            const rows = getSpeedNetworkingDaily().filter(r => showEmpty || _isConfirmed(r));
+            if (!rows.length) return "";
+
+            const cols = rows.map(r => _wallColumn({
+                modifier:   "sp-col--sn",
+                marker:     "",
+                label:      r.title,
+                sponsor:    r,
+                frameClass: "slb-sn-daily"
+            })).join("");
+
+            return _wallSection("Daily Speed Networking Sponsors", cols, "sp-col-row sp-col-row--sn", "var(--purple)");
+        }
+
+        // Day Spotlight: one column per day (Day 2–6). Day-only header,
+        // bronze-size frames, pink.
+        function _spotlightRow() {
+            const showEmpty = showEmptySlots();
+            const rows = getSpotlights().filter(r => showEmpty || _isConfirmed(r));
+            if (!rows.length) return "";
+
+            const cols = rows.map(r => _wallColumn({
+                modifier:   "sp-col--spotlight",
+                marker:     "",
+                label:      r.title,
+                sponsor:    r,
+                frameClass: "slb-spotlight"
+            })).join("");
+
+            return _wallSection("Spotlight Sponsors", cols, "sp-col-row sp-col-row--spotlight", "var(--track-2)");
+        }
+
+        // Session Sponsors: a flat logo grid in the community-partner
+        // style, but with no per-type card headers and no group. The
+        // title is carried in the data (getSessionSponsors) yet never
+        // shown. Unlimited and confirmed-only, so the section appears
+        // only once a session sponsor is live. Cyan section square
+        // (meta.color, fixed across the theme toggle); the label text
+        // follows the theme normally. Logos come from assets/sponsors/.
+        function _sessionRow() {
+            const meta = SIGNAL_SPONSOR_TIERS.session || {};
+            const list = getSessionSponsors().filter(_isConfirmed);
+            if (!list.length) return "";
+
+            const tiles = list.map(s => `
+      <button type="button" class="sponsor-logo-box slb-partner" title="${s.name || ""}"
+              aria-label="${s.name || "Session Sponsor"}" onclick="openSponsorPopup('${s.id}')">
+        <img src="${s.logoPath}" alt="${s.name || ""}" loading="lazy" />
+      </button>`).join("");
+
+            return _wallSection(meta.label || "Session Sponsors",
+                `<div class="sp-partner-grid">${tiles}</div>`,
+                "sp-partner-groups", meta.color);
+        }
+
+        // Shared column: header row, then the logo frame beneath it.
+        // opts.marker is pre-rendered header HTML (a square, an icon or a
+        // flag) or ""; opts.frameClass sizes the frame (default track size).
+        function _wallColumn(opts) {
+            const s = opts.sponsor;
+            const sold = _isConfirmed(s);
+            const frameClass = "slb-col" + (opts.frameClass ? " " + opts.frameClass : "");
+
+            const frame = sold
+                ? `<button type="button" class="sponsor-logo-box ${frameClass}${_monoClass()}" title="${s.name || ""}"
+                 aria-label="${s.name || opts.label}" onclick="openSponsorPopup('${s.id}')">
+         <img src="${s.logoPath}" alt="${s.name || ""}" loading="lazy" />
+       </button>`
+                : `<div class="sponsor-logo-box ${frameClass} slb-open">
+         <span class="slb-open-label">Coming Soon</span>
+       </div>`;
+
+            return `
+    <div class="sp-col ${opts.modifier}">
+      <div class="sp-col__head">
+        ${opts.marker || ""}
+        <span class="sp-col__name">${opts.label}</span>
+      </div>
+      ${frame}
+    </div>`;
+        }
+
+        // Strategic and regional partners. One column each, same shape
+        // as Special Activations: an icon and the partner type as a
+        // header band, the logo frame flush beneath it at track-card
+        // size. Named relationships rather than a logo wall, so they
+        // sit above the community rows. Section titles come from
+        // SIGNAL_PARTNER_GROUPS in the generated sponsors.js.
+        function _partnerColumnRow(group) {
+            const meta = SIGNAL_PARTNER_GROUPS[group] || {};
+            const list = getPartnersByGroup(group).filter(_isConfirmed);
+            if (!list.length) return "";
+
+            const cols = list.map(p => _wallColumn({
+                modifier:   "sp-col--partner",
+                marker:     group === "regional"
+                                ? `<span class="sp-col__flag">${getCountryFlag(p)}</span>`
+                                : `<span class="sp-col__icon">${_spIcon(p.icon)}</span>`,
+                label:      p.title || "Partner",
+                sponsor:    p,
+                frameClass: "slb-partner-card"
+            })).join("");
+
+            return _wallSection(meta.label || group, cols, "sp-col-row sp-col-row--partner", "var(--text-muted)");
+        }
+
+        function _strategicPartnerRow() { return _partnerColumnRow("strategic"); }
+        function _regionalPartnerRow()  { return _partnerColumnRow("regional"); }
+
+        // Community partners, grouped by title (type). One header per
+        // type rather than per partner, since several partners share a
+        // type and repeating the label reads as a mistake. The icon is
+        // taken from the first partner in each group.
+        function _partnerRow() {
+            const meta  = SIGNAL_SPONSOR_TIERS.community || {};
+            const types = getPartnerTypesInUse();
+
+            const groups = types.map(type => {
+                const list = getPartnersByType(type).filter(p => p.group === "community").filter(_isConfirmed);
+                if (!list.length) return "";
+
+                const tiles = list.map(p => `
+      <button type="button" class="sponsor-logo-box slb-partner" title="${p.name || ""}"
+              aria-label="${p.name || p.title}" onclick="openSponsorPopup('${p.id}')">
+        <img src="${p.logoPath}" alt="${p.name || ""}" loading="lazy" />
+      </button>`).join("");
+
+                return `
+    <div class="sp-partner-group">
+      <div class="sp-partner-group__head">
+        <span class="sp-partner-group__icon">${_spIcon(list[0].icon)}</span>
+        <span class="sp-partner-group__name">${type}</span>
+      </div>
+      <div class="sp-partner-grid">${tiles}</div>
+    </div>`;
+            }).join("");
+
+            const body = groups.trim()
+                ? groups
+                : `<div class="sp-wall-empty">Community and media partners announced soon.</div>`;
+
+            const gmeta = SIGNAL_PARTNER_GROUPS.community || {};
+            return _wallSection(gmeta.label || meta.label || "Community Partners", body, "sp-partner-groups", "var(--text-muted)");
+        }
+
+        function _wallSection(label, tiles, rowClass, squareColor) {
+            const sq = squareColor
+                ? `<span class="sp-wall-sq" style="background:${squareColor}"></span>`
+                : "";
+            return `
+    <div class="sp-wall-block">
+      <div class="sp-wall-head">
+        ${sq}<span class="sp-wall-label">${label}</span>
+        <span class="sp-wall-line"></span>
+      </div>
+      <div class="${rowClass}">${tiles}</div>
+    </div>`;
+        }
+
+        // Every filled logo opens the popup rather than jumping straight
+        // to the website. The website is one of the links inside it, so
+        // nothing is lost and the tagline and tier get a chance to show.
+        function _logoTile(sponsor, sizeClass) {
+            return `
+    <button type="button" class="sponsor-logo-box ${sizeClass}${_monoClass()}" title="${sponsor.name || ""}"
+            aria-label="${sponsor.name || "Sponsor"}"
+            onclick="openSponsorPopup('${sponsor.id}')">
+      <img src="${sponsor.logoPath}" alt="${sponsor.name || ""}" loading="lazy" />
+    </button>`;
+        }
+
+        function _openTiles(count, sizeClass) {
+            let out = "";
+            for (let i = 0; i < count; i++) {
+                out += `<div class="sponsor-logo-box ${sizeClass} slb-open"><span class="slb-open-label">Coming Soon</span></div>`;
+            }
+            return out;
+        }
+
+        // A slot counts as confirmed when its sponsors.js entry has a
+        // name. Every open slot carries the comingsoon.png placeholder,
+        // so logoPath is always set and can't be the signal; set the
+        // sponsor's real name (name is null until then) and the wall
+        // shows its card.
+        function _isConfirmed(sponsor) {
+            return !!sponsor && !!sponsor.name;
+        }
+
+        // Extra class applied to every tier, track and special logo tile.
+        function _monoClass() {
+            return SPONSOR_LOGO_MONO ? " slb-mono" : "";
+        }
+
+        // SVG straight from data/icons.js, so it is in the markup before
+        // the icon injector runs. An unknown key renders nothing.
+        function _spIcon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
+        }
+
+
+        /* ─────────────────────────────────────────
+           ENQUIRY FORM
+           Same destination and message shape as the
+           sponsor modal in data/modals.js.
+           ───────────────────────────────────────── */
+        function renderInterestOptions() {
+            const sel = document.getElementById("sp-interest");
+            if (!sel) return;
+            SP_INTEREST_OPTIONS.forEach(label => {
+                const opt = document.createElement("option");
+                opt.value = label;
+                opt.textContent = label;
+                sel.appendChild(opt);
+            });
+        }
+
+        function submitSponsorEnquiry() {
+            const val = id => (document.getElementById(id).value || "").trim();
+
+            const name     = val("sp-name");
+            const company  = val("sp-company");
+            const email    = val("sp-email");
+            const phone    = val("sp-phone");
+            const interest = document.getElementById("sp-interest").value;
+
+            if (!name || !company || !email || !phone || !interest) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            const message = val("sp-message");
+            const toEmail = interest === "Community Partner"
+                ? "partners@brainsmingle.com"
+                : "sponsors@brainsmingle.com";
+
+            const subject = encodeURIComponent("AI Summit Sponsorship Enquiry: " + interest + " · " + company);
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nCompany: " + company +
+                "\nEmail: " + email +
+                "\nPhone: " + phone +
+                "\nInterest: " + interest +
+                "\n\nMessage:\n" + (message || "No message provided.")
+            );
+
+            window.location.href = "mailto:" + toEmail + "?subject=" + subject + "&body=" + body;
+
+            const form = document.getElementById("sp-form");
+            form.classList.add("is-submitting");
+            setTimeout(function () {
+                form.classList.add("is-hidden");
+                document.getElementById("sp-form-success").classList.add("is-visible");
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>

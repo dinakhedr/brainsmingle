@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Agenda | AI Summit 2026</title>
+    <meta name="description" content="Explore the full AI Summit 2026 agenda. 7 days, 5 parallel AI tracks, 100+ speakers, nightly Spotlight panels, and Speed Networking Day." />
+    <!-- Theme and fonts. Must load before the stylesheet so there is no
+         flash of the wrong theme or typeface. Both are set in data/theme.js. -->
+    <script src="data/theme.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon follows the browser theme, not the site theme -->
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-purple.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/brand/favicon-32-white.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+</head>
+
+<body class="has-hero glow">
+
+    <!-- ══════════════════════════════════════════
+     NAV — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-header"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="page-hero__inner">
+
+            <div>
+                <p class="page-hero__eyebrow">Full Agenda · 10 – 16 October 2026</p>
+                <h1 class="page-hero__title">Seven days.<br>Every format.</h1>
+                <p class="page-hero__sub">Five parallel tracks, 100+ Speakers, a nightly Spotlight panel and a full day of speed networking.</p>
+            </div>
+
+            <div class="page-hero__stats">
+                <div class="page-hero__stat"><span class="page-hero__stat-value">7</span><span class="page-hero__stat-label">Days</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">7</span><span class="page-hero__stat-label">Speed Networking</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">100+</span><span class="page-hero__stat-label"> Speakers</span></div>
+                <div class="page-hero__stat"><span class="page-hero__stat-value">5</span><span class="page-hero__stat-label">Spotlights</span></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     DAY TABS — rendered from data/days.js
+══════════════════════════════════════════ -->
+    <div class="ag-tabs-wrap">
+        <div class="ag-tabs" id="ag-tabs"></div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+     AGENDA BODY — rendered from days.js + agenda.js + tracks.js + speakers.js
+══════════════════════════════════════════ -->
+    <div class="ag-body" id="ag-body"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     CLOSING CTA — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="page-cta"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER — rendered from data/layout.js
+══════════════════════════════════════════ -->
+    <div id="site-footer"></div>
+
+    <!-- ══════════════════════════════════════════
+     SPEAKER POPUP — rendered from data/speaker-popup.js
+══════════════════════════════════════════ -->
+    <div id="speaker-popup"></div>
+
+
+    <!-- ══════════════════════════════════════════
+     SESSION DETAILS — populated by openSessionDetails()
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="session-modal">
+        <div class="modal-box modal-box--sm">
+            <button class="modal-close" onclick="closeSessionDetails()" aria-label="Close"><span data-icon="close"></span></button>
+            <div class="ses-modal__track" id="ses-track"></div>
+            <h3 class="ses-modal__title" id="ses-title"></h3>
+            <p class="ses-modal__when" id="ses-when"></p>
+            <div id="ses-speakers-wrap">
+                <p class="ses-modal__label">Speakers</p>
+                <div class="ses-modal__speakers" id="ses-speakers"></div>
+            </div>
+            <div id="ses-desc-wrap">
+                <p class="ses-modal__label">About</p>
+                <p class="ses-modal__desc" id="ses-desc"></p>
+            </div>
+            <div class="ses-modal__actions">
+                <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Sign up</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+     COMING SOON — shown by the info button (and by agenda.js's
+     pending path) for any session whose bmUrl is still null
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="coming-soon-modal">
+        <div class="modal-box modal-box--sm">
+            <button class="modal-close" onclick="closeComingSoon()" aria-label="Close"><span data-icon="close"></span></button>
+            <div class="modal-eyebrow">Coming soon</div>
+            <h3 class="modal-title" id="coming-soon-title">Details coming soon</h3>
+            <p class="modal-sub" id="coming-soon-msg"></p>
+        </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════
+     SHARED FILES
+     Load order: layout → tracks → days → agenda → speakers → icons
+                 → speaker-popup → modals
+══════════════════════════════════════════ -->
+    <script src="data/layout.js"></script>
+    <script src="data/tracks.js"></script>
+    <script src="data/days.js"></script>
+    <script src="data/agenda.js"></script>
+    <script src="data/speakers.js"></script>
+    <script src="data/icons.js"></script>
+    <script src="data/speaker-popup.js"></script>
+    <script>
+        var MODAL_IDS = ["registration", "sponsor", "speaker"];
+    </script>
+    <script src="data/modals.js"></script>
+
+    <script>
+        /* ─────────────────────────────────────────
+           PAGE CONFIG
+           Everything editable lives here. Days, tracks,
+           sessions and speakers come from the data files.
+           ───────────────────────────────────────── */
+
+        // Maps trackNumber to a key in data/icons.js
+        var AG_TRACK_ICON_KEYS = {
+            1: "trackLd",
+            2: "trackCreative",
+            3: "trackStartups",
+            4: "trackBusiness",
+            5: "trackTech"
+        };
+
+        // Per-session sign up. Set to false until there is a backend to
+        // record a choice against a member, so the button is never a
+        // promise the site cannot keep.
+        var SHOW_SESSION_SIGNUP = true;
+
+        // Opening day panel slots. Day 1 runs earlier than the track days,
+        // so it has its own times rather than using SIGNAL_TIME_SLOTS.
+        var AG_DAY1_SLOTS = [{
+                time: "5:00 PM",
+                sessionId: "ses-d1-p1"
+            },
+            {
+                time: "6:00 PM",
+                sessionId: "ses-d1-p2"
+            },
+            {
+                time: "7:00 PM",
+                sessionId: "ses-d1-p3"
+            },
+            {
+                time: "8:00 PM",
+                sessionId: "ses-d1-p4"
+            },
+            {
+                time: "9:00 PM",
+                sessionId: "ses-d1-p5"
+            }
+        ];
+
+        // The 9 PM Day Spotlight that anchors every evening — one solo
+        // panel, all tracks merged into a single room. The per-night topic
+        // and its 4–5 panelists come from that day's spotlight session in
+        // agenda.js (special: "spotlight", trackNumber: null); this config
+        // only carries the fixed chrome. `name` is the fallback shown until
+        // that session is confirmed.
+        var AG_DAILY_SPOTLIGHT = {
+            cssClass: "ag-special-spotlight",
+            icon: "spotlight",
+            badge: "Day Spotlight",
+            meta: "Open to all",
+            time: "9:00 PM"
+        };
+
+        // The one hour networking wrap that closes every track day
+        var AG_DAILY_NETWORKING = {
+            cssClass: "ag-special-networking",
+            icon: "networking",
+            badge: "Daily Wrap",
+            meta: "Open across all tracks · Open to all attendees",
+            time: "10:00 PM"
+        };
+
+        // Placeholder copy shown before sessions are confirmed
+        var AG_PLACEHOLDER_SESSION = "To be announced";
+        var AG_PLACEHOLDER_SPEAKER = "Speaker to be announced";
+
+        /* A session counts as titled only when the title is real. agenda.js
+           may carry a placeholder string instead of null, so compare against
+           the known placeholders rather than testing truthiness. */
+        var AG_TBA_STRINGS = ["to be announced", "session to be announced", "tba"];
+
+        function _realTitle(session) {
+            var t = (session && session.title) ? String(session.title).trim() : "";
+            if (!t) return null;
+            return AG_TBA_STRINGS.indexOf(t.toLowerCase()) === -1 ? t : null;
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderTrackLegend();
+            renderDayTabs();
+            renderAgendaBody();
+        });
+
+
+        /* ─────────────────────────────────────────
+           TAB SWITCHER
+           ───────────────────────────────────────── */
+        function switchDay(domId, tab) {
+            document.querySelectorAll(".ag-day").forEach(d => d.classList.remove("active"));
+            document.querySelectorAll(".ag-tab").forEach(t => t.classList.remove("active"));
+            const day = document.getElementById(domId);
+            if (day) day.classList.add("active");
+            if (tab) tab.classList.add("active");
+        }
+
+
+        /* ─────────────────────────────────────────
+           TRACK LEGEND
+           Colour comes from the .track-N class.
+           ───────────────────────────────────────── */
+        function renderTrackLegend() {
+            const el = document.getElementById("track-legend");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_TRACKS.map(t => `
+    <span class="tl-pill track-${t.trackNumber}">
+      <span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[t.trackNumber])}</span>
+      ${t.shortName}
+    </span>
+  `).join("");
+        }
+
+
+        /* ─────────────────────────────────────────
+           DAY TABS — from data/days.js
+           ───────────────────────────────────────── */
+        function renderDayTabs() {
+            const el = document.getElementById("ag-tabs");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_DAYS.map((day, i) => `
+    <div class="ag-tab${i === 0 ? " active" : ""}" onclick="switchDay('${day.domId}', this)">
+      ${day.tabLabel}
+      <span class="ag-tab-date">${day.tabSublabel}</span>
+    </div>
+  `).join("");
+        }
+
+
+        /* ─────────────────────────────────────────
+           AGENDA BODY
+           Builds every day from days.js rather than a
+           hardcoded list, so adding a day is a data edit.
+           ───────────────────────────────────────── */
+        function renderAgendaBody() {
+            const el = document.getElementById("ag-body");
+            if (!el) return;
+
+            el.innerHTML = SIGNAL_DAYS.map((day, i) => {
+                if (day.type === "opening") return renderOpeningDay(day, i === 0);
+                if (day.type === "networking") return renderNetworkingDay(day, i === 0);
+                return renderTrackDay(day, i === 0);
+            }).join("");
+
+            if (typeof applyPageGates === "function") applyPageGates(el);
+            if (typeof applyRegistrationCopy === "function") applyRegistrationCopy();
+        }
+
+
+        /* ─────────────────────────────────────────
+           DAY 1 — Opening panels
+           ───────────────────────────────────────── */
+        function renderOpeningDay(day, isActive) {
+            const panels = AG_DAY1_SLOTS.map((s, i) => {
+                const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
+                const real = _realTitle(session);
+                const title = real || AG_PLACEHOLDER_SESSION;
+                const names = _speakerNames(session);
+
+                // Nothing scheduled in this slot: the title placeholder alone,
+                // no speaker line and no actions. The time label and the slot
+                // number stay, because those are the day's structure rather
+                // than session content. Same !session test _sessionActions uses
+                // for the info button, so all three disappear together.
+                if (!session) {
+                    return `
+      <div class="ag-panel-row">
+        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-panel ag-panel--empty">
+          <div class="ag-panel-num">0${i + 1}</div>
+          <div class="ag-panel-content">
+            <div class="ag-panel-title ag-panel-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
+          </div>
+        </div>
+      </div>`;
+                }
+
+                const wip = _isWip(session);
+                return `
+      <div class="ag-panel-row">
+        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-panel${wip ? " ag-panel--wip" : ""}">
+          <div class="ag-panel-num">0${i + 1}</div>
+          <div class="ag-panel-content">
+            <div class="ag-panel-title${real ? "" : " ag-panel-title--placeholder"}">${title}</div>
+            <div class="ag-panel-meta${names ? "" : " ag-panel-meta--placeholder"}">${names || AG_PLACEHOLDER_SPEAKER}</div>
+            ${wip ? _wipTag() : ""}
+          </div>
+          ${_sessionActions(session ? session.id : null, null, !wip)}
+        </div>
+      </div>`;
+            }).join("");
+
+            return `
+    <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
+      ${_dayHeader(day, day.label + " · " + day.displayLabel)}
+      ${panels}
+      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+    </div>`;
+        }
+
+
+        /* ─────────────────────────────────────────
+           DAYS 2 to 6 — Track grid
+           ───────────────────────────────────────── */
+        function renderTrackDay(day, isActive) {
+            // Track sessions occupy the three slots in SIGNAL_TIME_SLOTS
+            // (6–9 PM), identical on every evening. 9 PM is always the Day
+            // Spotlight and 10 PM is Speed Networking — both merged
+            // full-width rows, not track slots.
+            const timeRows = SIGNAL_TIME_SLOTS.map(s => `
+      <div class="ag-time-row">
+        <div class="ag-time-label">${s.display}</div>
+        ${SIGNAL_TRACKS.map(t => _sessionCell(day.day, s.slot, t.trackNumber)).join("")}
+      </div>`).join("");
+
+            return `
+    <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
+      ${_dayHeader(day, _trackDayTag(day))}
+      ${_trackHeader()}
+      ${timeRows}
+      ${_specialRow(AG_DAILY_SPOTLIGHT, day.day, "spotlight")}
+      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+    </div>`;
+        }
+
+
+        /* ─────────────────────────────────────────
+           DAY 7 — Speed Networking
+           ───────────────────────────────────────── */
+        function renderNetworkingDay(day, isActive) {
+            // Title is dynamic: it comes from the day's networking session in
+            // agenda.js, falling back to the day label from days.js until the
+            // row is published.
+            const session = SIGNAL_AGENDA.find(s =>
+                s.day === day.day && s.special === "networking" && s.trackNumber === null
+            ) || null;
+            const title = _realTitle(session) || day.displayLabel;
+
+            return `
+    <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
+      ${_dayHeader(day, day.label + " · Closing Day")}
+      <div class="ag-sn-hero">
+        <div class="ag-sn-label">
+          <span class="ag-badge-icon">${_agIcon("speedNetworking")}</span>
+          Full Day Activation · All Tracks · Open to All
+        </div>
+        <div class="ag-sn-title">${title}</div>
+        <p class="ag-sn-sub">Structured networking rounds powered by the BrainsMingle speed networking engine, connecting founders, developers, researchers, recruiters, and professionals across the entire AI ecosystem.</p>
+      </div>
+    </div>`;
+        }
+
+
+        /* ─────────────────────────────────────────
+           SHARED PIECES
+           ───────────────────────────────────────── */
+
+        function _dayHeader(day, tag) {
+            return `
+      <div class="ag-day-header">
+        <div class="ag-day-tag">${tag}</div>
+        <h2 class="ag-day-title">${day.date}</h2>
+        <p class="ag-day-desc">${day.description}</p>
+      </div>`;
+        }
+
+        function _trackDayTag(day) {
+            return `${day.label} · Track Sessions`;
+        }
+
+        function _trackHeader() {
+            const cols = SIGNAL_TRACKS.map(t => `
+      <div class="ag-track-col-label track-${t.trackNumber}">
+        <span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[t.trackNumber])}</span>
+        ${t.shortName}
+      </div>`).join("");
+            return `<div class="ag-track-header"><div class="ag-track-col-label time-col"></div>${cols}</div>`;
+        }
+
+        function _sessionCell(dayNumber, slot, trackNumber) {
+            const session = getSessionByCell(dayNumber, trackNumber, slot);
+            const hasTitle = _realTitle(session);
+            const chips = _speakerChips(session);
+
+            // Nothing scheduled in this slot: the title placeholder alone.
+            if (!session) {
+                return `
+      <div class="ag-session ag-session--empty track-${trackNumber}">
+        <div class="ag-session-title ag-session-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
+      </div>`;
+            }
+
+            const wip = _isWip(session);
+            return `
+      <div class="ag-session track-${trackNumber}${wip ? " ag-session--wip" : ""}">
+        <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle || AG_PLACEHOLDER_SESSION}</div>
+        ${wip ? _wipTag() : ""}
+        ${chips || `<div class="ag-session-speaker ag-session-speaker--placeholder">${AG_PLACEHOLDER_SPEAKER}</div>`}
+        ${_sessionActions(session ? session.id : null, null, !wip)}
+      </div>`;
+        }
+
+        // One row spanning all five tracks: activations and the networking wrap.
+        // dayNumber + specialKey find the day's own session in agenda.js, so
+        // the actions carry a real id — and with it, the bmUrl — instead of
+        // the shared config, which has none.
+        function _specialRow(config, dayNumber, specialKey) {
+            if (!config) return "";
+            const session = SIGNAL_AGENDA.find(s =>
+                s.day === dayNumber && s.special === specialKey && s.trackNumber === null
+            ) || null;
+
+            // Every special card's title is dynamic: it comes from the
+            // session's title in agenda.js, or the same "To be announced"
+            // placeholder a track cell shows when the row isn't published yet.
+            const real = _realTitle(session);
+            const name = real || AG_PLACEHOLDER_SESSION;
+            const isPlaceholder = !real;
+
+            // Spotlight panels carry 4–5 speakers; show their chips here.
+            const chips = _speakerChips(session, "ag-special-speakers");
+            const wip = _isWip(session);
+
+            return `
+      <div class="ag-special-merged">
+        <div class="ag-time-label">${config.time}</div>
+        <div class="ag-special-card ${config.cssClass}${wip ? " ag-special-card--wip" : ""}">
+          <div class="ag-special-text">
+            <div class="ag-special-badge">
+              <span class="ag-badge-icon">${_agIcon(config.icon)}</span>
+              ${config.badge}${wip ? " " + _wipTag() : ""}
+            </div>
+            <div class="ag-special-headline">
+              <span class="ag-special-name${isPlaceholder ? " ag-special-name--placeholder" : ""}">${name}</span>
+              <span class="ag-special-meta">${config.meta}</span>
+            </div>
+          </div>
+          <div class="ag-special-side">
+            ${chips}
+            ${_sessionActions(session ? session.id : null, config, !wip)}
+          </div>
+        </div>
+      </div>`;
+        }
+
+
+        /* ─────────────────────────────────────────
+           HELPERS
+           ───────────────────────────────────────── */
+
+        // SVG is pulled straight from data/icons.js so it is already in the
+        // markup and never arrives after the icon injector has run.
+        function _agIcon(key) {
+            return (typeof SIGNAL_ICONS !== "undefined" && SIGNAL_ICONS[key]) ? SIGNAL_ICONS[key] : "";
+        }
+
+
+        /* Session actions. The Sign up button is deliberately inert:
+           BrainsMingle's Quick Signup will be wired to it later by the
+           tech team, so it carries no handler of its own here. The info
+           button opens the session's BrainsMingle page in a new tab, or
+           the coming-soon popup while its bmUrl is still null. */
+        function _sessionActions(sessionId, special, showSignup) {
+            if (!SHOW_SESSION_SIGNUP) return "";
+
+            const hasDetail = !!sessionId || !!special;
+            const detail = hasDetail ?
+                `<button class="ag-session-info" type="button"
+                       onclick="openSessionInfo('${sessionId || ""}', ${special ? "'" + (special.name || special.badge || "").replace(/'/g, "\\'") + "'" : "null"})"
+                       aria-label="Session details">${_agIcon("info") || "i"}</button>` :
+                "";
+
+            // In-progress sessions can't take sign-ups yet, so callers pass
+            // showSignup === false to leave just the info button.
+            const signup = (showSignup === false) ?
+                "" : `<button class="ag-session-signup" type="button">Sign up</button>`;
+
+            if (!signup && !detail) return "";
+
+            return `
+      <div class="ag-session-actions">
+        ${signup}
+        ${detail}
+      </div>`;
+        }
+
+        /* Status differentiates published sessions: "closed" renders normally,
+           "in-progress" gets the dashed treatment, a tag, and no Sign up. */
+        var AG_WIP_LABEL = "To be confirmed";
+        function _isWip(session) { return !!(session && session.status === "in-progress"); }
+        function _wipTag() { return `<span class="ag-wip-tag">${_agIcon("close")}${AG_WIP_LABEL}</span>`; }
+
+        function _speakerChips(session, wrapperClass) {
+            if (!session || !session.speakerIds || !session.speakerIds.length) return "";
+            const cls = wrapperClass || "ag-session-speakers";
+            const chips = session.speakerIds.map(id => {
+                const spk = SIGNAL_SPEAKERS_MAP[id];
+                if (!spk) return "";
+                const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(spk) : null;
+                const photo = src ?
+                    `<img class="speaker-chip__photo" src="${src}" alt="${spk.name}" loading="lazy" />` :
+                    `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
+                return `<button type="button" class="speaker-chip" title="${spk.name}"
+                                aria-label="${spk.name}"
+                                onclick="event.stopPropagation(); openPopup('${spk.id}')">${photo}</button>`;
+            }).join("");
+            return chips ? `<div class="${cls}">${chips}</div>` : "";
+        }
+
+        /* The info button. A session with a BrainsMingle page goes
+           straight there in a new tab; one without shows the
+           coming-soon popup until the page is live. */
+        function openSessionInfo(sessionId, specialName) {
+            const s = sessionId ? SIGNAL_AGENDA.find(a => a.id === sessionId) : null;
+            if (s && s.bmUrl) {
+                window.open(s.bmUrl, "_blank", "noopener");
+                return;
+            }
+            showComingSoon(s, specialName);
+        }
+
+
+        /* ─────────────────────────────────────────
+           SESSION DETAILS
+           Built from what agenda.js and speakers.js already hold.
+           Blocks with nothing to show are hidden rather than left
+           empty, so the modal stays honest while sessions are
+           still being written.
+           ───────────────────────────────────────── */
+        function openSessionDetails(sessionId, specialName) {
+            const s = sessionId ? SIGNAL_AGENDA.find(a => a.id === sessionId) : null;
+            const track = s && s.trackNumber ? SIGNAL_TRACKS_BY_NUMBER[s.trackNumber] : null;
+            const day = s && s.day ? SIGNAL_DAYS_MAP[s.day] : null;
+
+            const trackEl = document.getElementById("ses-track");
+            trackEl.innerHTML = track ?
+                `<span class="track-pill track-${track.trackNumber}"><span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[track.trackNumber])}</span>${track.shortName}</span>` :
+                "";
+
+            document.getElementById("ses-title").textContent =
+                _realTitle(s) || specialName || AG_PLACEHOLDER_SESSION;
+
+            const when = [];
+            if (day) when.push(day.date);
+            if (s && s.timeSlot) when.push(s.timeSlot);
+            document.getElementById("ses-when").textContent = when.join(" · ");
+
+            const spk = document.getElementById("ses-speakers");
+            const ids = (s && s.speakerIds) ? s.speakerIds : [];
+            spk.innerHTML = ids.map(id => {
+                const p = SIGNAL_SPEAKERS_MAP[id];
+                if (!p) return "";
+                const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(p) : null;
+                return `
+        <div class="ses-modal__speaker">
+          ${src ? `<img src="${src}" alt="" loading="lazy" />`
+                : `<span class="speaker-chip__initials">${_initials(p.name)}</span>`}
+          <div>
+            <div class="ses-modal__speaker-name">${p.name}</div>
+            <div class="ses-modal__speaker-role">${p.title}${p.company ? ", " + p.company : ""}</div>
+          </div>
+        </div>`;
+            }).join("");
+            document.getElementById("ses-speakers-wrap").classList.toggle("is-hidden", !spk.innerHTML.trim());
+
+            const desc = (s && s.description) ? s.description : "";
+            document.getElementById("ses-desc").textContent = desc;
+            document.getElementById("ses-desc-wrap").classList.toggle("is-hidden", !desc);
+
+            /* No handler on #ses-signup on purpose: BrainsMingle's
+               Quick Signup will be wired to it by the tech team. */
+            document.getElementById("session-modal").classList.add("is-visible");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeSessionDetails() {
+            document.getElementById("session-modal").classList.remove("is-visible");
+            document.body.classList.remove("modal-open");
+        }
+
+
+        /* ─────────────────────────────────────────
+           COMING SOON POPUP
+           Opened by the info button for any session
+           whose bmUrl is still null. specialName
+           labels activation rows that have no
+           session record yet.
+           ───────────────────────────────────────── */
+        var AG_COMING_SOON_MESSAGE =
+            "This session's page isn't live yet. Register for the summit and we'll let you know the moment it goes up.";
+
+        function showComingSoon(session, specialName) {
+            const real = session ? _realTitle(session) : null;
+            document.getElementById("coming-soon-title").textContent =
+                real || specialName || "Details coming soon";
+            document.getElementById("coming-soon-msg").textContent = AG_COMING_SOON_MESSAGE;
+            document.getElementById("coming-soon-modal").classList.add("is-visible");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeComingSoon() {
+            document.getElementById("coming-soon-modal").classList.remove("is-visible");
+            /* Keep the scroll lock if the details modal is somehow
+               still open underneath. */
+            const ses = document.getElementById("session-modal");
+            if (!ses || !ses.classList.contains("is-visible")) {
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+        /* agenda.js's openSessionSignup() calls showSignupPending()
+           for a null bmUrl. Nothing calls it today (the Sign up button
+           is inert), but keep the name alive so re-enabling that path
+           later needs no changes here. */
+        function showSignupPending(session) { showComingSoon(session, null); }
+
+        document.getElementById("coming-soon-modal").addEventListener("click", function(e) {
+            if (e.target === this) closeComingSoon();
+        });
+
+        document.getElementById("session-modal").addEventListener("click", function(e) {
+            if (e.target === this) closeSessionDetails();
+        });
+        document.addEventListener("keydown", function(e) {
+            if (e.key !== "Escape") return;
+            const cs = document.getElementById("coming-soon-modal");
+            if (cs.classList.contains("is-visible")) { closeComingSoon(); return; }
+            closeSessionDetails();
+        });
+
+        function _speakerNames(session) {
+            if (!session || !session.speakerIds) return "";
+            return session.speakerIds
+                .map(id => SIGNAL_SPEAKERS_MAP[id] ? SIGNAL_SPEAKERS_MAP[id].name : null)
+                .filter(Boolean)
+                .join(" · ");
+        }
+
+        function _initials(name) {
+            return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
+        }
+    </script>
+
+</body>
+
+</html>
