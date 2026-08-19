@@ -3098,7 +3098,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
    --card-rgb / --card-ink colour modifiers for free theme support. */
 .agenda-flow {
   display: grid;
-  grid-template-columns: 0.9fr auto 1.6fr auto 0.9fr;
+  grid-template-columns: 0.8fr auto 1.8fr auto 0.8fr;
   align-items: stretch; gap: 16px;
 }
 .agenda-flow > .agenda-card { display: flex; flex-direction: column; justify-content: center; }
@@ -3139,7 +3139,7 @@ body.has-hero:not(.is-scrolled) .theme-toggle:hover {
   background: rgba(var(--card-rgb), 0.10);
   border: 1px solid rgba(var(--card-rgb), 0.32);
   border-radius: var(--radius-md);
-  padding: 13px 13px 14px;
+  padding: 13px 10px 14px;
 }
 .agenda-act__time {
   font-family: var(--font-body); font-size: 10px; font-weight: 700;
