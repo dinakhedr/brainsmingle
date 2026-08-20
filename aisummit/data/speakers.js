@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-18 14:34 · 26 speakers.
+ * Generated 2026-08-20 15:47 · 26 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -80,25 +80,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-011",
-    order       : 4,
-    name        : "Hany Elmalky",
-    title       : "Product & Technology Leader",
-    company     : "Google",
-    country     : "USA",
-    countryCode : "US",
-    photo       : "spk-011.png",
-    bio         : "Product and technology leader with 20+ years building platforms at the intersection of cloud, AI, and large-scale systems. Leading AI & Innovation at Google (GFiber), embedding applied AI across operations at national scale. Co-founded SecureStream Technologies, winning first place in the Wharton Entrepreneurship Acceleration Program. Wharton Palmer Scholar with deep ML and cloud expertise.",
-    linkedin    : "https://www.linkedin.com/in/helmalky/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : true,
-    appearances : []
-  },
-
-  {
     id          : "spk-001",
-    order       : 5,
+    order       : 4,
     name        : "Ameer Sherif",
     title       : "Founder & Chairman",
     company     : "BasharSoft",
@@ -109,6 +92,23 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/ameersherif/",
     bmProfile   : "https://brainsmingle.com/ameer",
     featured    : true,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-011",
+    order       : 5,
+    name        : "Hany Elmalky",
+    title       : "Product & Technology Leader",
+    company     : "Google",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-011.png",
+    bio         : "Product and technology leader with 20+ years building platforms at the intersection of cloud, AI, and large-scale systems. Leading AI & Innovation at Google (GFiber), embedding applied AI across operations at national scale. Co-founded SecureStream Technologies, winning first place in the Wharton Entrepreneurship Acceleration Program. Wharton Palmer Scholar with deep ML and cloud expertise.",
+    linkedin    : "https://www.linkedin.com/in/helmalky/",
+    bmProfile   : null,
+    featured    : false,
     showOnHome  : true,
     appearances : []
   },
@@ -161,7 +161,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s4-t3", timeSlot: "21:00" }]
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -200,7 +200,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 10,
+    order       : 11,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -217,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-023",
-    order       : 11,
+    order       : 12,
     name        : "Alaa Mukhtar",
     title       : "Sales Development Representative",
     company     : "Opentext",
@@ -234,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 12,
+    order       : 13,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -251,7 +251,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 13,
+    order       : 14,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -268,7 +268,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 14,
+    order       : 15,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -285,14 +285,14 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 15,
+    order       : 16,
     name        : "Ziad Elaily",
     title       : "AI Tech & Business Lead",
     company     : "PwC",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-026.png",
-    bio         : "AI Tech & Business Lead Manager at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
+    bio         : "AI and automation specialist at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
     linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
     bmProfile   : null,
     featured    : false,
@@ -302,7 +302,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-025",
-    order       : 16,
+    order       : 17,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",

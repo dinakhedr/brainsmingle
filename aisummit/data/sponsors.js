@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-08-19 14:08 · 58 sponsors, 30 partners.
+ * Generated 2026-08-20 15:44 · 58 sponsors, 30 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -65,7 +65,8 @@ const SIGNAL_PARTNER_TYPES = [
   "Ecosystem Partner",
   "Tech Partner",
   "Community Partner",
-  "Syria"
+  "Syria",
+  "EdTech Partner"
 ];
 
 const SIGNAL_PARTNER_GROUPS = {
@@ -148,12 +149,12 @@ const SIGNAL_PARTNERS = [
   { id: "prt-010", name: "ALX", tier: "community", icon: "community", title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-010.png", logoURL: "x", website: "https://www.alxafrica.com/", bmCommunityLink: null, tagline: "We bring together industry leaders" },
   { id: "prt-011", name: "GroHub", tier: "community", icon: "trackTech", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-011.png", logoURL: "x", website: "https://www.grohub.co/", bmCommunityLink: null, tagline: "Where Modern B2B Growth Gets Built" },
   { id: "prt-012", name: "Leaders in AI era", tier: "community", icon: "community", title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-012.png", logoURL: "x", website: null, bmCommunityLink: "https://brainsmingle.com/spaces/product-builders-1", tagline: "Lead the future. Outpace the rest" },
-  { id: "prt-013", name: "EraaSoft", tier: "community", icon: "trackTech", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-013.png", logoURL: "x", website: "https://eraasoft.com/", bmCommunityLink: null, tagline: null },
-  { id: "prt-014", name: "aSaaSi Middle East", tier: "community", icon: "trackTech", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-014.png", logoURL: "x", website: "https://www.linkedin.com/company/asaasi-me/", bmCommunityLink: "https://brainsmingle.com/spaces/the-saas-majlis-community", tagline: null },
+  { id: "prt-013", name: "EraaSoft", tier: "community", icon: "trackTech", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-013.png", logoURL: "x", website: "https://eraasoft.com/", bmCommunityLink: null, tagline: "We dig into your business, study your market, and build tailored strategies that drive measurable online growth and stronger brand loyalty. Your success is our success, every solution we deliver is designed to get you results." },
+  { id: "prt-014", name: "aSaaSi Middle East", tier: "community", icon: "trackTech", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-014.png", logoURL: "x", website: "https://www.linkedin.com/company/asaasi-me/", bmCommunityLink: "https://brainsmingle.com/spaces/the-saas-majlis-community", tagline: "A Training and Consultation Company to Help You to Solve Your SaaS Problems, Powered By Everything That Matters" },
   { id: "prt-015", name: "Doroob", tier: "community", icon: "globe", title: "Syria", country: "Syria", countryCode: "SY", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." },
-  { id: "prt-016", name: "Wrk+", tier: "community", icon: "community", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
-  { id: "prt-017", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "prt-018", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "prt-016", name: "Wrk+", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
+  { id: "prt-017", name: "English Capsules", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-017.png", logoURL: "x", website: "http://englishcapsules.com/", bmCommunityLink: null, tagline: "English Capsules is a regional corporation of integrated Language Solutions. English Capsules is perfectly positioned to be your partner for speaking the English Language, and support for your business." },
+  { id: "prt-018", name: "Next Academy", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-018.png", logoURL: "x", website: "https://nextacademyedu.com/ar", bmCommunityLink: null, tagline: "Your Strategic Growth Partner. Architecting market leaders." },
   { id: "prt-019", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "prt-020", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "prt-021", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
