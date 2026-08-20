@@ -1136,3 +1136,20 @@ body {
 @media (max-width: 480px) {
   .nav-search-wrap { display: none; }
 }
+
+/* Toolbar control cards (video-call-toolbar article) */
+.ctl-card-list { display: grid; gap: 6px; margin-bottom: 20px; }
+.ctl-card {
+  display: flex; gap: 14px; align-items: center;
+  background: var(--surface-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 14px;
+}
+.ctl-card-ic {
+  width: 42px; height: 42px; flex: none; border-radius: 10px;
+  background: var(--purple); color: #fff;
+  display: grid; place-items: center;
+}
+.ctl-card-ic svg { width: 19px; height: 19px; }
+.ctl-card-ic.red { background: #e5484d; }
+.ctl-card b { font-size: 15px; font-weight: 700; color: var(--text-dark); display: block; }
+.ctl-card p { color: var(--text-body); font-size: 13px; line-height: 1.5; margin: 3px 0 0; }
