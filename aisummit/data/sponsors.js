@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-08-20 15:44 · 58 sponsors, 30 partners.
+ * Generated 2026-08-22 18:48 · 58 sponsors, 30 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -155,7 +155,7 @@ const SIGNAL_PARTNERS = [
   { id: "prt-016", name: "Wrk+", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
   { id: "prt-017", name: "English Capsules", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-017.png", logoURL: "x", website: "http://englishcapsules.com/", bmCommunityLink: null, tagline: "English Capsules is a regional corporation of integrated Language Solutions. English Capsules is perfectly positioned to be your partner for speaking the English Language, and support for your business." },
   { id: "prt-018", name: "Next Academy", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-018.png", logoURL: "x", website: "https://nextacademyedu.com/ar", bmCommunityLink: null, tagline: "Your Strategic Growth Partner. Architecting market leaders." },
-  { id: "prt-019", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
+  { id: "prt-019", name: "Off Campus", tier: "community", icon: "community", title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-019.png", logoURL: "x", website: "https://www.myoffcampus.com", bmCommunityLink: null, tagline: "Bridge the gap between Classroom & Career" },
   { id: "prt-020", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "prt-021", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "prt-022", name: null, tier: "community", icon: null, title: "Community Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },

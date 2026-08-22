@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-20 15:47 · 26 speakers.
+ * Generated 2026-08-22 18:44 · 28 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -73,7 +73,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-003.png",
     bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
     linkedin    : "https://www.linkedin.com/in/drkatebarker/",
-    bmProfile   : "https://brainsmingle.com/profile",
+    bmProfile   : null,
     featured    : true,
     showOnHome  : true,
     appearances : []
@@ -100,17 +100,17 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-011",
     order       : 5,
     name        : "Hany Elmalky",
-    title       : "Product & Technology Leader",
+    title       : "Head of AI & Innovation, GFiber",
     company     : "Google",
     country     : "USA",
     countryCode : "US",
     photo       : "spk-011.png",
-    bio         : "Product and technology leader with 20+ years building platforms at the intersection of cloud, AI, and large-scale systems. Leading AI & Innovation at Google (GFiber), embedding applied AI across operations at national scale. Co-founded SecureStream Technologies, winning first place in the Wharton Entrepreneurship Acceleration Program. Wharton Palmer Scholar with deep ML and cloud expertise.",
+    bio         : "Product and technology executive with 20+ years at the intersection of large-scale infrastructure, AI, and connectivity. Currently leads AI strategy across an enterprise stack, embedding intelligence into operations and customer experience at scale. Pioneered the industry's first commercially deployable virtualization framework and helped shape cloud-native architectures that redefined how networks are built. Contributor to global networking standards, patent holder, and published author in distributed systems. Holds an entrepreneurship and finance degree from The Wharton School. Passionate about AI infrastructure economics, agentic workloads, and the lessons of prior technology cycles.",
     linkedin    : "https://www.linkedin.com/in/helmalky/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s2-t5", timeSlot: "19:00" }]
   },
 
   {
@@ -301,8 +301,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-025",
+    id          : "spk-028",
     order       : 17,
+    name        : "Abdelrahman Osama",
+    title       : "Head of Design",
+    company     : "Mal",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-028.png",
+    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
+    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-025",
+    order       : 18,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -312,6 +329,23 @@ const SIGNAL_SPEAKERS = [
     bio         : "Head of AI/ML, author, researcher, and co-inventor of 4 patent publications with 9+ years of experience delivering AI solutions across autonomous vehicles, ed-tech, and digital marketing. Leverages Generative AI, deep learning, computer vision, and data science to develop innovative, award-winning products. Passionate about turning cutting-edge research into real-world impact.",
     linkedin    : "https://www.linkedin.com/in/mohzahran/",
     bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-027",
+    order       : 19,
+    name        : "Sherouk Ghallab",
+    title       : "Founder & Digital Learning Strategist",
+    company     : "NOOR",
+    country     : "KSA",
+    countryCode : "SA",
+    photo       : "spk-027.png",
+    bio         : "Edtech specialist with 13+ years of experience in instructional design and digital learning solutions. Bridges instructional design, psychology, and AI personalization to create transformational learning journeys — not just courses. Focused on learner experience, experiential learning, and AI-driven educational innovation that solves real problems.",
+    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
+    bmProfile   : "https://brainsmingle.com/sherouk1278",
     featured    : false,
     showOnHome  : false,
     appearances : []
@@ -424,13 +458,13 @@ const SIGNAL_SPEAKERS = [
     order       : null,
     name        : "Abdallah Amer",
     title       : "Founder & CEO",
-    company     : "English Capsules",
+    company     : "Capsules Group",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-018.png",
-    bio         : "Founder and CEO of English Capsules and Executive Mastery Camp (EMC), helping leaders, CEOs, and C-level executives build clarity, structure, and systems to scale. 14+ EMC rounds hosted, 200+ executives supported. Passionate about leadership transformation, strategic alignment, and purpose-driven growth.",
+    bio         : "Founder and CEO of Capsules Group, an education holding company in Cairo encompassing English Capsules Academy (4 branches), SML European language institute, and Executive Mastery Camp (EMC). Clients include Banque Misr, Carrefour, and Misr Insurance. Through EMC, he helps founders and senior leaders build delegation systems and organizational design to shift from operating a business to owning one. Currently pursuing a Doctorate of Business Administration. Speaks and writes in Arabic and English on execution, systems, and organizational discipline.",
     linkedin    : "https://www.linkedin.com/in/amership9/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/AbdullahAmer",
     featured    : false,
     showOnHome  : false,
     appearances : []
