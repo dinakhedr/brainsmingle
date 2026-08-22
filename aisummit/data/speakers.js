@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-22 18:44 · 28 speakers.
+ * Generated 2026-08-23 00:57 · 28 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -99,8 +99,8 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-011",
     order       : 5,
-    name        : "Hany Elmalky",
-    title       : "Head of AI & Innovation, GFiber",
+    name        : "Hani Elmalky",
+    title       : "Head of AI & Innovation",
     company     : "Google",
     country     : "USA",
     countryCode : "US",
