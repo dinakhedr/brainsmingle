@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-23 00:57 · 28 speakers.
+ * Generated 2026-08-23 23:09 · 30 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -99,8 +99,8 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-011",
     order       : 5,
-    name        : "Hani Elmalky",
-    title       : "Head of AI & Innovation",
+    name        : "Hany Elmalky",
+    title       : "Head of AI & Innovation, GFiber",
     company     : "Google",
     country     : "USA",
     countryCode : "US",
@@ -314,12 +314,29 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/abdelrahman4372",
     featured    : false,
     showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-029",
+    order       : 18,
+    name        : "Kamal Ghamry",
+    title       : "Marketing Manager",
+    company     : "SABIKA",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-029.png",
+    bio         : "Marketing Manager with 10+ years of experience transforming brands across e-commerce, SaaS, and non-profit sectors in MENA markets. Currently at TWO, leading cross-functional teams to optimize pricing and customer engagement for e-commerce portfolios. Previously redesigned digital outreach at Mersal Foundation, expanding organic reach and community loyalty. Specializes in lifecycle marketing, SEO, CRM, and building high-engagement ecosystems.",
+    linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
     appearances : []
   },
 
   {
     id          : "spk-025",
-    order       : 18,
+    order       : 19,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -336,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-027",
-    order       : 19,
+    order       : 20,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "NOOR",
@@ -502,6 +519,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-030",
+    order       : null,
+    name        : "Ahmed Elzoghby",
+    title       : "UX Research Lead",
+    company     : "UX Labs",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-030.png",
+    bio         : "UX Researcher and Strategist with 11 years of hands-on experience in design, product strategy, and human-centered research. Background in Architecture, with work spanning 40+ entities. Specializes in leading UX research, tackling complex design operations, and maximizing the value of human-centered design for impactful product experiences.",
+    linkedin    : "https://www.linkedin.com/in/azoughby/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
