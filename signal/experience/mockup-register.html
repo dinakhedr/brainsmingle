@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Summit — Registration Mockup</title>
+
+<!-- Fonts -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Urbanist:wght@400;500;600;700&display=swap');
+
+/* ── Tokens ── */
+:root {
+  --bg:            #080612;
+  --bg-card:       #0E0E1C;
+  --purple:        #6723FF;
+  --purple-bright: #A97EFF;
+  --green:         #13FEC6;
+  --green-bright:  #13FEC6;
+  --text-primary:  #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-muted:    rgba(255,255,255,0.30);
+  --border-mid:    rgba(255,255,255,0.12);
+  --radius-md:     8px;
+  --radius-xl:     16px;
+  --font-display:  'Montserrat', sans-serif;
+  --font-head:     'Montserrat', sans-serif;
+  --font-body:     'Urbanist', sans-serif;
+  --gradient-band:
+    linear-gradient(90deg, #080612E0 0%, #08061299 50%, #0806122E 100%),
+    linear-gradient(135deg, #4A3F6B 0%, #6723FF 45%, #2A2740 100%);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Nav ── */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-head); font-weight: 800; font-size: 14px;
+  color: #fff; text-decoration: none; letter-spacing: 0.02em;
+}
+.nav-logo svg { height: 28px; width: auto; }
+.nav-logo .divider { width: 1px; height: 22px; background: rgba(255,255,255,0.25); }
+.nav-logo .summit-label {
+  font-family: var(--font-display); font-size: 16px; font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 0.5px solid rgba(255,255,255,0.18);
+  background: none; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+/* ── Hero ── */
+.hero-home {
+  position: relative;
+  padding: 156px 48px 100px;
+  background: var(--gradient-band);
+}
+.hero-home__inner { max-width: 1200px; margin: 0 auto; }
+.hero-home__eyebrow {
+  font-family: var(--font-body); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--green-bright); margin-bottom: 20px;
+}
+.hero-home__title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(38px, 6.2vw, 76px);
+  line-height: 0.92; letter-spacing: -0.03em;
+  color: #FFFFFF; margin-bottom: 22px;
+}
+.hero-home__sub {
+  font-family: var(--font-body); font-size: 18px; line-height: 1.6;
+  color: rgba(255,255,255,0.74);
+  max-width: 460px; margin-bottom: 34px;
+}
+.hero-home__actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+/* ── Socials ── */
+.hero-social { display: flex; gap: 8px; margin-top: 32px; }
+.hero-social a {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 0.5px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.hero-social a:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+.hero-social svg { width: 16px; height: 16px; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none; cursor: pointer; border: none;
+  font-family: var(--font-body); font-weight: 700; font-size: 15px;
+  letter-spacing: 0.04em; border-radius: var(--radius-md);
+  padding: 14px 32px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: var(--purple); color: #fff; }
+.btn-on-dark {
+  background: transparent; color: #FFFFFF;
+  border: 1.5px solid rgba(255,255,255,0.55);
+}
+.btn-on-dark:hover { border-color: #FFFFFF; background: rgba(255,255,255,0.08); }
+.btn-accent { background: var(--green); color: #0A0A14; font-weight: 700; }
+
+/* ── Stats bar ── */
+.stats-bar {
+  background: var(--bg-card);
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  padding: 28px 48px;
+}
+.stats-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; text-align: center;
+}
+.stat-value {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 48px; color: var(--text-primary);
+}
+.stat-value span { color: var(--green); }
+.stat-label {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--green);
+}
+
+/* ── Modal overlay ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  background: #080612E0;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+  padding: 24px;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+/* ── Modal box ── */
+.modal-box {
+  background: var(--bg-card);
+  border: 0.5px solid #6723FF4C;
+  border-radius: var(--radius-xl);
+  width: 100%; max-width: 420px;
+  padding: 30px 32px;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform 0.28s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 0.5px #6723FF26 inset;
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+
+/* ── Modal content ── */
+.modal-close {
+  position: absolute; top: 14px; right: 16px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; color: rgba(255,255,255,0.35);
+  background: none; border: none; cursor: pointer;
+  transition: color 0.15s; line-height: 1; font-size: 20px;
+}
+.modal-close:hover { color: #fff; }
+
+.modal-eyebrow {
+  font-family: var(--font-display); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--purple-bright); margin-bottom: 8px;
+}
+.modal-title {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  line-height: 1.2; margin-bottom: 7px;
+}
+.modal-sub {
+  font-size: 13px; color: var(--text-secondary);
+  margin-bottom: 22px; line-height: 1.55;
+}
+
+/* ── Referral field ── */
+.ref-field { display: flex; flex-direction: column; gap: 6px; }
+.ref-field label {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.ref-field input {
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-md); padding: 10px 14px;
+  font-family: var(--font-body); font-size: 14px;
+  color: var(--text-primary); outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.ref-field input:focus {
+  border-color: #6723FF8C;
+  background: #6723FF0D;
+}
+.ref-field input::placeholder { color: var(--text-muted); }
+.ref-hint {
+  font-size: 12px; color: var(--text-muted); margin-top: 2px;
+}
+
+/* ── Auto-filled indicator ── */
+.ref-field.has-code input {
+  border-color: rgba(19, 254, 198, 0.35);
+  background: rgba(19, 254, 198, 0.04);
+}
+.ref-source {
+  display: none; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--green); margin-top: 2px;
+}
+.ref-field.has-code .ref-source { display: flex; }
+.ref-field.has-code .ref-hint { display: none; }
+.ref-source svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ── Submit row ── */
+.modal-actions {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 20px;
+}
+.modal-actions .btn { flex: 1; justify-content: center; }
+.skip-link {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--text-secondary); cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: color 0.15s;
+}
+.skip-link:hover { color: var(--text-primary); }
+
+/* ── Success state ── */
+.modal-success {
+  display: none; flex-direction: column; align-items: center;
+  text-align: center; padding: 12px 0 4px; gap: 12px;
+}
+.modal-success.show { display: flex; }
+.modal-success .check-circle {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(19, 254, 198, 0.12);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-success .check-circle svg { width: 24px; height: 24px; color: var(--green); }
+.modal-success h3 {
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
+}
+.modal-success p {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.5;
+}
+.triggers-list {
+  display: flex; flex-direction: column; gap: 6px;
+  width: 100%; margin-top: 4px;
+}
+.trigger-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-secondary);
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-md);
+  border: 0.5px solid rgba(255,255,255,0.06);
+}
+.trigger-item svg { width: 14px; height: 14px; color: var(--green); flex-shrink: 0; }
+
+/* ── Mockup badge ── */
+.mockup-badge {
+  position: fixed; bottom: 20px; right: 20px; z-index: 10000;
+  background: var(--bg-card); border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-md); padding: 10px 16px;
+  font-family: var(--font-body); font-size: 12px;
+  color: var(--text-secondary); line-height: 1.5;
+  max-width: 340px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.mockup-badge code {
+  font-size: 11px; background: rgba(255,255,255,0.06);
+  padding: 1px 5px; border-radius: 4px; color: var(--purple-bright);
+}
+.mockup-badge .state-label {
+  font-weight: 700; color: var(--green);
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  display: block; margin-bottom: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .site-nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-home { padding: 118px 20px 64px; }
+  .hero-home__actions { flex-direction: column; align-items: stretch; }
+  .hero-home__actions .btn { justify-content: center; }
+  .stats-bar { padding: 20px; }
+  .stats-bar-inner { flex-wrap: wrap; gap: 20px; justify-content: center; }
+  .modal-box { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <a class="nav-logo" href="#">
+    <svg viewBox="0 0 130 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="14" fill="#13FEC6" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="0.12em">BRAINS</text>
+      <text x="0" y="26" fill="#13FEC6" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="0.12em">MINGLE</text>
+    </svg>
+    <span class="divider"></span>
+    <span class="summit-label">AI SUMMIT</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#" style="color:var(--green)">About</a></li>
+    <li><a href="#">Tracks</a></li>
+    <li><a href="#">Agenda</a></li>
+    <li><a href="#">Speakers</a></li>
+    <li><a href="#">Sponsors & Partners</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <button class="btn btn-primary btn-sm" id="nav-register" style="font-size:13px;padding:10px 22px;">Register</button>
+  </div>
+</nav>
+
+
+<!-- ── Hero ── -->
+<section class="hero-home">
+  <div class="hero-home__inner">
+    <p class="hero-home__eyebrow">10 – 16 October 2026 · Virtual · Global</p>
+    <h1 class="hero-home__title">The Largest AI Summit<br>In The MENA Region</h1>
+    <p class="hero-home__sub">Seven Days. 100+ Speakers. Unlimited Conversations.</p>
+    <div class="hero-home__actions">
+      <button class="btn btn-primary" id="hero-register">Register</button>
+      <a href="#" class="btn btn-on-dark">Become a Sponsor</a>
+    </div>
+    <div class="hero-social">
+      <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Stats bar ── -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-value">50K<span>+</span></div>
+      <div class="stat-label">Attendees</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">100<span>+</span></div>
+      <div class="stat-label">Speakers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Parallel Tracks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Days</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">Global</div>
+      <div class="stat-label">Virtual Event</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── Referral code modal ── -->
+<div class="modal-overlay" id="ref-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+
+    <!-- Form state -->
+    <div id="modal-form-state">
+      <div class="modal-eyebrow">AI Summit 2026</div>
+      <div class="modal-title">Register for the Summit</div>
+      <div class="modal-sub">You're one step away. If someone referred you, enter their code below.</div>
+
+      <div class="ref-field" id="ref-field">
+        <label for="ref-input">Referral Code</label>
+        <input type="text" id="ref-input" placeholder="e.g. ahmed-saleh" autocomplete="off" spellcheck="false">
+        <span class="ref-hint">Optional. Leave blank if you don't have one.</span>
+        <span class="ref-source">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Auto-filled from your link
+        </span>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="submit-register">Register</button>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div class="modal-success" id="modal-success-state">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3>You're registered!</h3>
+      <p>Welcome to AI Summit 2026. Here's what just happened:</p>
+      <div class="triggers-list">
+        <div class="trigger-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Joined the AI Summit Community
+        </div>
+        <div class="trigger-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Added to summit mailing list
+        </div>
+        <div class="trigger-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="m6 9 6 12 6-12"/></svg>
+          <span>"AI Summit" badge on your profile</span>
+        </div>
+        <div class="trigger-item" id="trigger-ref" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span>Referral code <strong id="trigger-ref-code"></strong> recorded</span>
+        </div>
+      </div>
+      <button class="btn btn-accent" style="margin-top:16px;width:100%" onclick="window.location.href='profile-summit.html'">Go to My Summit Dashboard →</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── Mockup status badge ── -->
+<div class="mockup-badge" id="status-badge">
+  <span class="state-label" id="badge-state"></span>
+  <span id="badge-info"></span>
+</div>
+
+
+<script>
+// ── Read URL params ──
+const params = new URLSearchParams(window.location.search);
+const refCode = params.get('ref') || '';
+const isLoggedIn = params.get('logged') === 'true';
+
+// ── Update status badge ──
+const badgeState = document.getElementById('badge-state');
+const badgeInfo = document.getElementById('badge-info');
+
+if (isLoggedIn) {
+  badgeState.textContent = '● Logged in';
+  badgeState.style.color = 'var(--green)';
+  badgeInfo.innerHTML = refCode
+    ? `Referral code: <code>${refCode}</code>`
+    : 'No referral code in URL';
+} else {
+  badgeState.textContent = '○ Not logged in';
+  badgeState.style.color = 'var(--purple-bright)';
+  badgeInfo.textContent = 'Click Register → redirects to /auth/login';
+}
+
+// ── Pre-fill referral code ──
+const refInput = document.getElementById('ref-input');
+const refField = document.getElementById('ref-field');
+
+if (refCode) {
+  refInput.value = refCode;
+  refField.classList.add('has-code');
+}
+
+// ── Register click handler ──
+function handleRegister() {
+  if (!isLoggedIn) {
+    // Simulate redirect
+    const returnUrl = encodeURIComponent(window.location.pathname + window.location.search);
+    alert(`Redirecting to:\nhttps://brainsmingle.com/auth/login?return=${returnUrl}\n\n(Add ?logged=true to the URL to simulate a logged-in user)`);
+    return;
+  }
+  openModal();
+}
+
+document.getElementById('hero-register').addEventListener('click', handleRegister);
+document.getElementById('nav-register').addEventListener('click', handleRegister);
+
+// ── Modal controls ──
+function openModal() {
+  document.getElementById('ref-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Focus input after transition
+  setTimeout(() => refInput.focus(), 300);
+}
+
+function closeModal() {
+  document.getElementById('ref-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.getElementById('ref-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── Submit handler ──
+document.getElementById('submit-register').addEventListener('click', function() {
+  const code = refInput.value.trim();
+
+  // Show success state
+  document.getElementById('modal-form-state').style.display = 'none';
+  document.getElementById('modal-success-state').classList.add('show');
+
+  // Show referral trigger if code provided
+  if (code) {
+    document.getElementById('trigger-ref').style.display = 'flex';
+    document.getElementById('trigger-ref-code').textContent = code;
+  }
+});
+
+// ── Clear has-code state if user clears the field ──
+refInput.addEventListener('input', function() {
+  if (this.value.trim()) {
+    refField.classList.add('has-code');
+  } else {
+    refField.classList.remove('has-code');
+  }
+});
+</script>
+
+</body>
+</html>
