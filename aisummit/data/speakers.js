@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-23 23:09 · 30 speakers.
+ * Generated 2026-08-25 00:37 · 31 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -532,6 +532,23 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-030.png",
     bio         : "UX Researcher and Strategist with 11 years of hands-on experience in design, product strategy, and human-centered research. Background in Architecture, with work spanning 40+ entities. Specializes in leading UX research, tackling complex design operations, and maximizing the value of human-centered design for impactful product experiences.",
     linkedin    : "https://www.linkedin.com/in/azoughby/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-031",
+    order       : null,
+    name        : "Shaimaa Emam",
+    title       : "Senior Program Manager",
+    company     : "Ascendra",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-031.png",
+    bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
+    linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,

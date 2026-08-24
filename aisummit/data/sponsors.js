@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-08-23 02:39 · 58 sponsors, 45 partners.
+ * Generated 2026-08-25 00:38 · 58 sponsors, 45 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
