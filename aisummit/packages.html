@@ -393,6 +393,97 @@
 
         .pk-pair .pk-bundle { margin-top: 24px; }
 
+        /* ── Swag Bag — offer-ideas callout (green / deals treatment).
+           Reuses pk-card--teal for the card itself; only this block is new. */
+        .pk-offers {
+            margin-top: 26px;
+            position: relative;
+            overflow: hidden;
+            border: 0.5px solid var(--border-mid);
+            border-radius: var(--radius-md);
+            background: #13FEC60F;
+            padding: 20px 22px;
+        }
+
+        .pk-offers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--green);
+        }
+
+        .pk-offers__tag {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: #13FEC629;
+            padding: 4px 10px;
+            border-radius: 14px;
+            margin-bottom: 16px;
+        }
+
+        .pk-offers__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 28px;
+        }
+
+        .pk-offers__group__k {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .pk-offers__group ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .pk-offers__group li {
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .pk-offers__group li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+        }
+
+        .pk-offers__example {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 0.5px solid var(--border);
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .pk-offers__example b {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
         /* ── Benefits matrix — 7 tier columns beyond the base label */
         .benefits-table th.col-title {
             color: var(--purple-bright);
@@ -610,6 +701,10 @@
                 column-count: 1;
             }
 
+            .pk-offers__grid {
+                grid-template-columns: 1fr;
+            }
+
             .pk-avail {
                 margin-top: 20px;
             }
@@ -687,7 +782,7 @@
                         <li>Live room top bar across every session</li>
                         <li>3 speaking sessions in preferred tracks</li>
                         <li>Panelist seat at Day 0 panels</li>
-                        <li>Dedicated channel + room in the Community Space</li>
+                        <li>Dedicated channel in the Community Space</li>
                         <li>Dedicated announcement post + co-branded content</li>
                         <li>Mention in pre-event email + AI Summit newsletter</li>
                         <li>Post-event audience insights report</li>
@@ -736,8 +831,7 @@
                         <li>Medium logo · Tracks page</li>
                         <li>Top bar across all track sessions</li>
                         <li>2 speaking sessions + Day 0 panelist seat</li>
-                        <li>Shared sidebar tile in the Community Space</li>
-                        <li>Dedicated channel · sponsors channel</li>
+                        <li>Featured in the sponsors channel</li>
                         <li>Dedicated announcement post + co-branded content</li>
                         <li>Mention in pre-event email + newsletter + press release</li>
                     </ul>
@@ -783,7 +877,7 @@
                         <li>Top bar across the entire Day 7 finale</li>
                         <li>Brand mention in the Full Day Speed Networking (Day 7)</li>
                         <li>2 speaking sessions in preferred tracks</li>
-                        <li>Shared sidebar tile · sponsors channel</li>
+                        <li>Featured in the sponsors channel</li>
                         <li>Dedicated announcement post · pre-event email + newsletter</li>
                         <li>Mentioned in post-event press release</li>
                     </ul>
@@ -831,7 +925,7 @@
                             <li>Powered-by naming on your Speed Networking day</li>
                             <li>Top bar across your Speed Networking</li>
                             <li>1 speaking session · brand mention Day 1</li>
-                            <li>Shared bottom banner · sponsors channel</li>
+                            <li>Access to sponsors channel</li>
                             <li>Dedicated announcement post</li>
                         </ul>
                         <div class="pk-bundle">
@@ -871,7 +965,7 @@
                             <li>Powered-by naming on your spotlight</li>
                             <li>Top bar across your Spotlight</li>
                             <li>1 speaking session · brand mention Day 1</li>
-                            <li>Shared bottom banner · sponsors channel</li>
+                            <li>Access to sponsors channel</li>
                             <li>Dedicated announcement post</li>
                         </ul>
                     </div>
@@ -977,6 +1071,89 @@
                         <li>Shared partner announcement post</li>
                         <li>Post-event thank-you post + event-week mention</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ══════════════════════════════════════════
+         BRAINSMINGLE SWAG BAG — every partner's offer, one bundle
+         Cross-tier: sits after the last tier, before bundles/matrix.
+    ══════════════════════════════════════════ -->
+    <section class="sp-section">
+        <div class="sp-section-inner">
+            <div class="sp-section-head" style="margin-bottom:32px;">
+                <div class="section-eyebrow">Reach Every Attendee · Featured In</div>
+                <h2 class="section-title">BrainsMingle Swag Bag</h2>
+                <p class="section-sub">A curated digital bundle of exclusive offers delivered to every registered attendee. Every partner places one discounted offer — and gets a direct, trackable line to the audience.</p>
+            </div>
+
+            <div class="pk-card pk-card--teal">
+                <div class="pk-rail">
+                    <span class="pk-badge pk-badge--teal">Swag Bag</span>
+                    <div class="pk-price pk-price--lg">1 offer<span class="pk-price__unit">/ partner</span></div>
+                    <div class="pk-price__note">Included with every partnership.</div>
+                    <ul class="pk-facts">
+                        <li class="pk-fact"><span class="pk-fact__k">You contribute</span><span class="pk-fact__v">One discounted attendee offer</span></li>
+                        <li class="pk-fact"><span class="pk-fact__k">Reach</span><span class="pk-fact__v">Every registered attendee</span></li>
+                        <li class="pk-fact"><span class="pk-fact__k">Reporting</span><span class="pk-fact__v">Redemption report after the Summit</span></li>
+                    </ul>
+                    <div class="pk-avail pk-avail--teal">Open to all partners</div>
+                </div>
+                <div class="pk-body">
+                    <p class="pk-pitch">A logo earns impressions. The Swag Bag earns redemptions — attendees actively claim your offer. Your deal lands in front of the full registered audience, sitting beside a curated group of partners instead of lost in a wall of coupons, and you see exactly how many people converted.</p>
+                    <div class="pk-icp pk-icp--teal">
+                        <div class="pk-icp__k">Best for</div>
+                        <div class="pk-icp__v">Any partner with a product, subscription, course, or service worth putting in front of a targeted AI audience — and who wants a warm list of people who raised their hand, not just brand exposure.</div>
+                    </div>
+                    <ul class="pk-benefits pk-benefits--teal pk-benefits--2col">
+                        <li>Your offer in front of every registered attendee</li>
+                        <li>Unique redeem link or code, tracked per partner</li>
+                        <li>Post-summit redemption report</li>
+                        <li>Placement beside a curated group of partners</li>
+                    </ul>
+
+                    <div class="pk-offers">
+                        <span class="pk-offers__tag">Offer ideas · pick what fits you</span>
+                        <div class="pk-offers__grid">
+                            <div class="pk-offers__group">
+                                <div class="pk-offers__group__k">Subscriptions &amp; plans</div>
+                                <ul>
+                                    <li>Discounted first month or year (e.g. 50% off)</li>
+                                    <li>Reduced-price premium tier or upgrade</li>
+                                    <li>Discounted annual vs. monthly plan</li>
+                                </ul>
+                            </div>
+                            <div class="pk-offers__group">
+                                <div class="pk-offers__group__k">Content &amp; learning</div>
+                                <ul>
+                                    <li>Discounted course, workshop, or certification</li>
+                                    <li>Reduced-price report, dataset, or templates</li>
+                                    <li>Discounted e-book or paid newsletter</li>
+                                </ul>
+                            </div>
+                            <div class="pk-offers__group">
+                                <div class="pk-offers__group__k">Deals &amp; pricing</div>
+                                <ul>
+                                    <li>Launch discount (30%+ lands far better than 10%)</li>
+                                    <li>Waived or reduced setup / onboarding fee</li>
+                                    <li>Bundle discount across multiple products</li>
+                                </ul>
+                            </div>
+                            <div class="pk-offers__group">
+                                <div class="pk-offers__group__k">Services</div>
+                                <ul>
+                                    <li>Discounted consultation, audit, or strategy session</li>
+                                    <li>Reduced-rate onboarding or priority support</li>
+                                    <li>Early-access pricing on a beta or feature</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pk-offers__example">Example offer: <b>BrainsMingle Plus — 50% off first month ($4.99, normally $9.97)</b></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1209,16 +1386,6 @@
                             <td class="check">✓</td>
                             <td class="dash">—</td>
                             <td class="dash">—</td>
-                            <td class="dash">—</td>
-                            <td class="dash">—</td>
-                            <td class="dash">—</td>
-                            <td class="dash">—</td>
-                        </tr>
-                        <tr>
-                            <td class="col-benefit">Shared Sidebar Tile</td>
-                            <td class="dash">—</td>
-                            <td class="check">✓</td>
-                            <td class="check">✓</td>
                             <td class="dash">—</td>
                             <td class="dash">—</td>
                             <td class="dash">—</td>
