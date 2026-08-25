@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AI Summit 2026 — Asset Tracker (Live)</title>
+<style>
+:root{
+  --ink:#0A0A14;--muted:#5A5A6E;--line:#E7E7EF;--purple:#6B3EF5;--cyan:#00C98C;
+  --cyan-soft:#00E8A2;--amber:#F5A623;--pink:#F53E9F;--gray:#9A9AAD;--bg:#F8F8FB;--card:#FFFFFF;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Lato","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,.disp{font-family:"Montserrat","Inter",-apple-system,"Segoe UI",sans-serif;}
+a{color:var(--purple);}
+.wrap{max-width:1240px;margin:0 auto;padding:32px 28px 72px;}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px;justify-content:space-between;
+  border-bottom:2px solid var(--line);padding-bottom:20px;margin-bottom:26px;}
+.brand h1{font-size:24px;font-weight:800;margin:0;letter-spacing:-.02em;}
+.brand .mark{color:var(--purple);}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:13.5px;}
+.status-wrap{display:flex;align-items:center;gap:14px;}
+.live{display:inline-flex;align-items:center;gap:7px;font-family:"Montserrat",sans-serif;font-weight:700;
+  font-size:12px;color:var(--muted);}
+.live .led{width:8px;height:8px;border-radius:50%;background:var(--gray);}
+.live.on .led{background:var(--cyan);box-shadow:0 0 0 3px rgba(0,201,140,.18);}
+.live.err .led{background:#D8434A;box-shadow:0 0 0 3px rgba(216,67,74,.16);}
+.refresh{display:inline-flex;align-items:center;gap:7px;font-family:"Montserrat",sans-serif;font-weight:700;
+  font-size:12.5px;color:var(--purple);background:#EEEAFE;border:none;border-radius:9px;padding:8px 13px;cursor:pointer;}
+.refresh:hover{filter:brightness(.97);}
+.refresh svg{width:14px;height:14px;}
+.refresh[disabled]{opacity:.5;cursor:default;}
+
+/* setup / error card */
+.setup{border:2px dashed #D4CEEF;border-radius:20px;background:linear-gradient(180deg,#F3F0FF 0%,#F8F8FB 260px);
+  padding:44px 40px;max-width:720px;margin:0 auto;}
+.setup.err{border-color:#F1C7C7;background:#FCEDED;}
+.setup h2{font-size:20px;margin:0 0 6px;font-weight:800;}
+.setup .sub{color:var(--muted);margin:0 0 22px;}
+.setup ol{margin:0 0 22px;padding-left:20px;color:var(--ink);}
+.setup li{margin-bottom:9px;}
+.setup li b{font-weight:700;}
+.setup .field{display:flex;gap:10px;flex-wrap:wrap;}
+.setup input{flex:1;min-width:260px;border:1px solid var(--line);border-radius:10px;padding:11px 14px;
+  font-family:inherit;font-size:13.5px;background:#fff;color:var(--ink);}
+.setup input:focus{outline:2px solid var(--purple);outline-offset:1px;border-color:transparent;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:"Montserrat",sans-serif;font-weight:700;
+  font-size:13px;color:#fff;background:var(--purple);border:none;border-radius:10px;padding:11px 18px;cursor:pointer;}
+.btn:hover{filter:brightness(1.08);}
+.setup .note{font-size:12.5px;color:var(--muted);margin:16px 0 0;}
+.setup code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:#EEEAFE;color:#4A28C0;
+  padding:1px 6px;border-radius:5px;}
+
+/* summary */
+.summary{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-bottom:24px;}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;}
+.panel .lbl{font-family:"Montserrat",sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--muted);margin:0 0 14px;}
+.bignum{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;}
+.bignum b{font-family:"Montserrat",sans-serif;font-size:40px;font-weight:800;line-height:1;letter-spacing:-.02em;}
+.bignum span{color:var(--muted);font-size:13px;}
+.bar{height:12px;border-radius:8px;background:#EDEDF2;overflow:hidden;display:flex;}
+.bar i{display:block;height:100%;}
+.barkey{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12.5px;color:var(--muted);}
+.barkey span{display:inline-flex;align-items:center;gap:6px;}
+.dot{width:9px;height:9px;border-radius:3px;display:inline-block;}
+.typegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.typecell{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:11px 12px;}
+.typecell b{font-family:"Montserrat",sans-serif;font-size:22px;font-weight:800;display:block;line-height:1;}
+.typecell span{font-size:11.5px;color:var(--muted);}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:20px;}
+.search{flex:1;min-width:200px;position:relative;}
+.search input{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 14px 10px 36px;
+  font-family:inherit;font-size:13.5px;background:var(--card);color:var(--ink);}
+.search input:focus{outline:2px solid var(--purple);outline-offset:1px;border-color:transparent;}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--muted);}
+.seg{display:inline-flex;gap:4px;background:#EDEDF2;border-radius:10px;padding:3px;}
+.seg button{font-family:"Montserrat",sans-serif;font-weight:700;font-size:12px;border:none;background:none;
+  color:var(--muted);padding:6px 11px;border-radius:7px;cursor:pointer;}
+.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06);}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-family:"Montserrat",sans-serif;font-weight:700;font-size:11.5px;border:1px solid var(--line);
+  background:var(--card);color:var(--muted);border-radius:20px;padding:5px 12px;cursor:pointer;transition:all .12s;}
+.chip.on{color:#fff;background:var(--ink);border-color:var(--ink);}
+.seglabel{font-family:"Montserrat",sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted);margin-right:2px;}
+
+/* groups + tables */
+.showing{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+.group{margin-bottom:26px;}
+.group-h{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+.group-h h3{font-size:15px;font-weight:800;margin:0;}
+.group-h .cnt{font-family:"Montserrat",sans-serif;font-weight:700;font-size:11.5px;color:var(--muted);
+  background:#EDEDF2;border-radius:20px;padding:2px 9px;}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;table-layout:fixed;}
+th,td{text-align:left;padding:11px 14px;font-size:13px;vertical-align:top;border-bottom:1px solid var(--line);
+  overflow-wrap:break-word;}
+th:nth-child(1),td:nth-child(1){width:19%;}
+th:nth-child(2),td:nth-child(2){width:8%;}
+th:nth-child(3),td:nth-child(3){width:31%;}
+th:nth-child(4),td:nth-child(4){width:16%;}
+th:nth-child(5),td:nth-child(5){width:10%;}
+th:nth-child(6),td:nth-child(6){width:16%;}
+th{font-family:"Montserrat",sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);background:#FBFBFD;cursor:pointer;user-select:none;white-space:nowrap;}
+th .arw{opacity:.4;font-size:9px;}
+tr:last-child td{border-bottom:none;}
+td.asset{font-weight:700;}
+td.purpose{color:var(--muted);}
+td.fmt{color:var(--muted);font-size:12px;}
+td.due{white-space:nowrap;font-size:12.5px;}
+.pill{display:inline-block;font-family:"Montserrat",sans-serif;font-weight:700;font-size:11px;
+  padding:3px 9px;border-radius:6px;white-space:nowrap;}
+.ph-Foundation{background:#FBEBCF;color:#9A6300;}
+.ph-Teaser{background:#FADCEC;color:#C21E78;}
+.ph-Launch,.ph-Build,.ph-Finalpush{background:#EEEAFE;color:#4A28C0;}
+.ph-During{background:#DFF7EF;color:#0A7A56;}
+.ph-Post{background:#EDEDF2;color:#4C4C5C;}
+.st-Built{background:#D9F2E6;color:#0A7A56;}
+.st-Template{background:#EDE7FE;color:#4A28C0;}
+.st-Toproduce{background:#FCEFD3;color:#8A5A00;}
+
+@media (max-width:760px){
+  .summary{grid-template-columns:1fr;}
+  td.purpose,th.purpose,td.fmt,th.fmt{display:none;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <h1><span class="mark">AI Summit 2026</span> · Asset Tracker</h1>
+      <p>Live from your Google Sheet — edit the sheet, the dashboard follows.</p>
+    </div>
+    <div class="status-wrap" id="statusWrap"></div>
+  </div>
+  <div id="stage"></div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — set this once and the dashboard auto-loads on open.
+   sheetId  = the long id in your sheet URL:  docs.google.com/spreadsheets/d/<THIS>/edit
+   The sheet must be shared "Anyone with the link → Viewer" (or Published to web).
+   ============================================================ */
+var CONFIG = {
+  sheetId: "1p1IDdsAPI6PKA0XCgGIagHzhVUXe_z-urV7gKv_-O18",   // AI Summit asset tracker
+  sheetName: "Assets",    // tab to read
+  autoRefreshSec: 90      // 0 disables auto-refresh
+};
+
+(function(){
+  var PHASE_ORDER=["Foundation","Teaser","Launch","Build","Final push","During","Post"];
+  var TYPE_ORDER=["Reel","Animated","Image card","Email","Copy","Operational"];
+  var STATUS_ORDER=["To produce","Template","Built"];
+  var rows=[], groupBy="Type", sortKey=null, sortDir=1, srcUrl="", timer=null;
+  var filters={q:"",types:new Set(),phases:new Set(),statuses:new Set()};
+
+  var $=function(s){return document.querySelector(s);};
+  var stage=$("#stage"), statusWrap=$("#statusWrap");
+  function phClass(p){return "ph-"+String(p).replace(/\s+/g,"");}
+  function stClass(s){return "st-"+String(s).replace(/\s+/g,"");}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+
+  /* ---------- source (gviz JSONP — loads via <script>, so no CORS from file://) ---------- */
+  function extractId(s){ var m=String(s).match(/\/d\/(?:e\/)?([a-zA-Z0-9-_]+)/); return m?m[1]:String(s).trim(); }
+  function gvizUrl(id,name,cb){
+    return "https://docs.google.com/spreadsheets/d/"+id+"/gviz/tq?tqx=out:json;responseHandler:"+cb+
+           "&sheet="+encodeURIComponent(name||"Assets")+"&headers=1&_="+Date.now();
+  }
+  function jsonp(url,cb){
+    return new Promise(function(resolve,reject){
+      var s=document.createElement("script"), done=false;
+      window[cb]=function(resp){ done=true; cleanup(); resolve(resp); };
+      function cleanup(){ try{delete window[cb];}catch(e){window[cb]=undefined;} if(s.parentNode)s.parentNode.removeChild(s); clearTimeout(t); }
+      var t=setTimeout(function(){ if(!done){cleanup(); reject(new Error("unreachable")); } },15000);
+      s.onerror=function(){ if(!done){cleanup(); reject(new Error("unreachable")); } };
+      s.src=url; document.head.appendChild(s);
+    });
+  }
+  function gvizToObjects(resp){
+    if(!resp||resp.status==="error"||!resp.table) throw new Error("not-public");
+    var cols=(resp.table.cols||[]).map(function(c){return String((c.label||c.id||"")).trim();});
+    return (resp.table.rows||[]).map(function(r){
+      var o={}; (r.c||[]).forEach(function(cell,i){ o[cols[i]]=cell&&cell.v!=null?cell.v:""; });
+      return o;
+    });
+  }
+  function ingest(resp){
+    return gvizToObjects(resp).map(mapRow).filter(function(r){
+      return r.asset && r.asset.toLowerCase()!=="asset"; });   // guard against a leaked header row
+  }
+  function remember(id){ try{localStorage.setItem("tracker_id",id);}catch(e){} }
+  function recall(){ try{return localStorage.getItem("tracker_id")||"";}catch(e){return "";} }
+  function fromInput(val){ return extractId(val); }
+
+  function boot(){
+    var id = CONFIG.sheetId || recall();
+    if(id) connect(id); else showSetup();
+  }
+
+  function connect(id){
+    srcUrl=id; remember(id); setStatus("loading");
+    var cb="__gviz_"+Math.floor(Math.random()*1e9);
+    jsonp(gvizUrl(id,CONFIG.sheetName,cb),cb).then(function(resp){
+      var data=ingest(resp);
+      if(!data.length) throw new Error("empty");
+      rows=data; setStatus("ok"); render(); schedule();
+    }).catch(function(err){ showError(err.message); });
+  }
+  function schedule(){
+    if(timer) clearTimeout(timer);
+    if(CONFIG.autoRefreshSec>0 && srcUrl) timer=setTimeout(silentRefresh, CONFIG.autoRefreshSec*1000);
+  }
+  function silentRefresh(){
+    var cb="__gviz_"+Math.floor(Math.random()*1e9);
+    jsonp(gvizUrl(srcUrl,CONFIG.sheetName,cb),cb).then(function(resp){
+      var data=ingest(resp); if(data.length){ rows=data; setStatus("ok"); render(); }
+    }).catch(function(){/* keep last good data */}).then(schedule,schedule);
+  }
+
+  function col(row,re){for(var k in row){if(re.test(k))return String(row[k]).trim();}return "";}
+  function mapRow(r){return{
+    type:col(r,/^type/i),asset:col(r,/^asset/i),phase:col(r,/^phase/i),purpose:col(r,/^purpose/i),
+    format:col(r,/format/i),status:col(r,/^status/i),due:col(r,/due|timing/i),
+    owner:col(r,/owner/i),notes:col(r,/notes/i)};}
+
+  /* ---------- status pill (header) ---------- */
+  function setStatus(state){
+    var t=new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"});
+    var cls = state==="ok"?"live on":state==="error"?"live err":"live";
+    var label = state==="ok"?("Live · updated "+t) : state==="loading"?"Connecting…" : "Disconnected";
+    statusWrap.innerHTML='<span class="'+cls+'"><span class="led"></span>'+label+'</span>'+
+      (state==="ok"?'<button class="refresh" id="refreshBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>Refresh</button>':'');
+    var rb=$("#refreshBtn"); if(rb) rb.addEventListener("click",function(){ setStatus("loading"); connect(srcUrl); });
+  }
+
+  /* ---------- setup + error screens ---------- */
+  function showSetup(msg){
+    setStatus("idle");
+    stage.innerHTML=
+      '<div class="setup"><h2>Connect your Google Sheet</h2>'+
+      '<p class="sub">'+(msg||"Point this dashboard at the tracker sheet — it reads live and refreshes on its own.")+'</p>'+
+      '<ol>'+
+        '<li>Open the tracker in Google Sheets.</li>'+
+        '<li>Click <b>Share</b>, and under <b>General access</b> choose <b>Anyone with the link \u2192 Viewer</b>.</li>'+
+        '<li>Copy the sheet link (or its id) and paste it below.</li>'+
+      '</ol>'+
+      '<div class="field"><input id="srcInput" type="text" placeholder="Paste the sheet link or id\u2026" '+
+        'autocomplete="off" spellcheck="false"><button class="btn" id="connectBtn">Connect</button></div>'+
+      '<p class="note">Reads the tab named <code>'+esc(CONFIG.sheetName)+'</code> over Google\u2019s visualization feed, which loads even when this page is opened as a local file. To make it permanent, set <code>sheetId</code> in the CONFIG block at the top of this file.</p></div>';
+    var go=function(){ var v=$("#srcInput").value; if(v.trim()) connect(fromInput(v)); };
+    $("#connectBtn").addEventListener("click",go);
+    $("#srcInput").addEventListener("keydown",function(e){ if(e.key==="Enter") go(); });
+    $("#srcInput").focus();
+  }
+  function showError(code){
+    setStatus("error");
+    var msg = code==="not-public" ? "The sheet responded, but not as data \u2014 it\u2019s not shared for anonymous read yet. Set <b>Share \u2192 General access \u2192 Anyone with the link \u2192 Viewer</b>, then reconnect."
+            : code==="empty" ? "Connected, but the \u201C"+esc(CONFIG.sheetName)+"\u201D tab has no asset rows. Check the tab name and headers."
+            : "Couldn\u2019t reach the sheet. Make sure <b>Share \u2192 General access</b> is set to <b>Anyone with the link \u2192 Viewer</b>, then reconnect.";
+    stage.innerHTML=
+      '<div class="setup err"><h2>Couldn\'t load the sheet</h2><p class="sub">'+msg+'</p>'+
+      '<div class="field"><input id="srcInput" type="text" placeholder="Paste the sheet link or id\u2026" '+
+        'value="'+esc(srcUrl)+'" autocomplete="off" spellcheck="false"><button class="btn" id="connectBtn">Reconnect</button></div></div>';
+    var go=function(){ var v=$("#srcInput").value; if(v.trim()) connect(fromInput(v)); };
+    $("#connectBtn").addEventListener("click",go);
+    $("#srcInput").addEventListener("keydown",function(e){ if(e.key==="Enter") go(); });
+  }
+
+  /* ---------- dashboard render ---------- */
+  function orderIndex(arr,v){var i=arr.indexOf(v);return i<0?99:i;}
+  function render(){
+    var q=filters.q.toLowerCase();
+    var view=rows.filter(function(r){
+      if(filters.types.size && !filters.types.has(r.type))return false;
+      if(filters.phases.size && !filters.phases.has(r.phase))return false;
+      if(filters.statuses.size && !filters.statuses.has(r.status))return false;
+      if(q){var hay=(r.asset+" "+r.purpose+" "+r.format+" "+r.due+" "+r.owner+" "+r.notes).toLowerCase();
+        if(hay.indexOf(q)<0)return false;}
+      return true;
+    });
+    var built=rows.filter(function(r){return r.status==="Built";}).length;
+    var tpl=rows.filter(function(r){return r.status==="Template";}).length;
+    var prod=rows.filter(function(r){return r.status==="To produce";}).length;
+    var total=rows.length, ready=built+tpl, pct=total?Math.round(ready/total*100):0;
+    var typeCounts={}; TYPE_ORDER.forEach(function(t){typeCounts[t]=rows.filter(function(r){return r.type===t;}).length;});
+
+    var html='<div class="summary">'+
+      '<div class="panel"><p class="lbl">Production progress</p>'+
+        '<div class="bignum"><b>'+pct+'%</b><span>ready — '+ready+' of '+total+' assets built or templated</span></div>'+
+        '<div class="bar">'+
+          '<i style="width:'+(built/total*100)+'%;background:var(--cyan)"></i>'+
+          '<i style="width:'+(tpl/total*100)+'%;background:var(--purple)"></i>'+
+          '<i style="width:'+(prod/total*100)+'%;background:var(--amber)"></i></div>'+
+        '<div class="barkey">'+
+          '<span><i class="dot" style="background:var(--cyan)"></i>Built '+built+'</span>'+
+          '<span><i class="dot" style="background:var(--purple)"></i>Template '+tpl+'</span>'+
+          '<span><i class="dot" style="background:var(--amber)"></i>To produce '+prod+'</span></div></div>'+
+      '<div class="panel"><p class="lbl">By type</p><div class="typegrid">'+
+        TYPE_ORDER.map(function(t){return '<div class="typecell"><b>'+typeCounts[t]+'</b><span>'+esc(t)+'</span></div>';}).join("")+
+      '</div></div></div>';
+
+    html+='<div class="controls">'+
+      '<div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>'+
+        '<input id="q" type="search" placeholder="Search assets, purpose, dates…" value="'+esc(filters.q)+'"></div>'+
+      '<span class="seglabel">Group</span><div class="seg" id="seg">'+
+        ["Type","Phase","Status","None"].map(function(g){return '<button data-g="'+g+'"'+(groupBy===g?' class="on"':'')+'>'+g+'</button>';}).join("")+
+      '</div></div>';
+    html+='<div class="controls" style="margin-top:-6px">'+
+      '<span class="seglabel">Phase</span><div class="chips" id="phchips">'+
+        PHASE_ORDER.map(function(p){return '<button class="chip'+(filters.phases.has(p)?' on':'')+'" data-ph="'+esc(p)+'">'+esc(p)+'</button>';}).join("")+'</div>'+
+      '<span class="seglabel">Status</span><div class="chips" id="stchips">'+
+        STATUS_ORDER.map(function(s){return '<button class="chip'+(filters.statuses.has(s)?' on':'')+'" data-st="'+esc(s)+'">'+esc(s)+'</button>';}).join("")+'</div></div>';
+    if(filters.types.size||filters.phases.size||filters.statuses.size||filters.q)
+      html+='<p class="showing">Showing '+view.length+' of '+total+' assets. <a href="#" id="clear">Clear filters</a></p>';
+
+    if(sortKey) view.sort(function(a,b){var x=(a[sortKey]||"").toLowerCase(),y=(b[sortKey]||"").toLowerCase();return x<y?-sortDir:x>y?sortDir:0;});
+
+    if(groupBy==="None"){ html+=tableFor(view,"All assets"); }
+    else{
+      var key=groupBy==="Type"?"type":groupBy==="Phase"?"phase":"status";
+      var order=groupBy==="Type"?TYPE_ORDER:groupBy==="Phase"?PHASE_ORDER:STATUS_ORDER;
+      var groups={}; view.forEach(function(r){(groups[r[key]]=groups[r[key]]||[]).push(r);});
+      var keys=Object.keys(groups).sort(function(a,b){return orderIndex(order,a)-orderIndex(order,b);});
+      keys.forEach(function(k){ html+=tableFor(groups[k],k||"—"); });
+      if(!keys.length) html+='<p class="showing">No assets match these filters.</p>';
+    }
+    stage.innerHTML=html; wire();
+  }
+  function th(label,key){return '<th data-k="'+key+'" class="'+(key==='purpose'?'purpose':key==='format'?'fmt':'')+'">'+label+
+    (sortKey===key?' <span class="arw">'+(sortDir>0?'▲':'▼')+'</span>':'')+'</th>';}
+  function tableFor(list,title){
+    var h='<div class="group"><div class="group-h"><h3>'+esc(title)+'</h3><span class="cnt">'+list.length+'</span></div>'+
+      '<table><thead><tr>'+th("Asset","asset")+th("Phase","phase")+th("Purpose","purpose")+th("Format","format")+th("Status","status")+th("Due / timing","due")+'</tr></thead><tbody>';
+    list.forEach(function(r){
+      h+='<tr><td class="asset">'+esc(r.asset)+'</td>'+
+        '<td><span class="pill '+phClass(r.phase)+'">'+esc(r.phase)+'</span></td>'+
+        '<td class="purpose">'+esc(r.purpose)+'</td>'+
+        '<td class="fmt">'+esc(r.format)+'</td>'+
+        '<td><span class="pill '+stClass(r.status)+'">'+esc(r.status)+'</span></td>'+
+        '<td class="due">'+esc(r.due)+(r.owner?' · '+esc(r.owner):'')+'</td></tr>';
+    });
+    return h+'</tbody></table></div>';
+  }
+  function wire(){
+    var qi=$("#q"); if(qi)qi.addEventListener("input",function(){filters.q=this.value;var p=this.selectionStart;render();var n=$("#q");if(n){n.focus();try{n.setSelectionRange(p,p);}catch(e){}}});
+    $("#seg").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){groupBy=this.dataset.g;sortKey=null;render();});});
+    $("#phchips").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){toggle(filters.phases,this.dataset.ph);render();});});
+    $("#stchips").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){toggle(filters.statuses,this.dataset.st);render();});});
+    var cl=$("#clear");if(cl)cl.addEventListener("click",function(e){e.preventDefault();filters={q:"",types:new Set(),phases:new Set(),statuses:new Set()};render();});
+    stage.querySelectorAll("th[data-k]").forEach(function(t){t.addEventListener("click",function(){var k=this.dataset.k;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=1;}render();});});
+  }
+  function toggle(set,v){ if(set.has(v))set.delete(v); else set.add(v); }
+
+  // expose for testing without a live Google connection
+  window.__connect=connect;
+  window.__ingestResp=function(resp){ try{ var d=ingest(resp); if(d.length){rows=d;setStatus("ok");render();} else showError("empty"); }catch(e){ showError(e.message); } };
+  boot();
+})();
+</script>
+</body>
+</html>
