@@ -1,0 +1,81 @@
+/* ============================================================
+   Design tokens — fonts + all CSS custom properties (light default, [data-theme="dark"]).
+   Load FIRST on every page.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* ---------- Design tokens : LIGHT theme (default) ---------- */
+:root{
+  /* fonts */
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-display:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+
+  /* surfaces & text */
+  --bg:#f4f4f8;
+  --surface:#ffffff;
+  --surface-2:#f1f1f6;
+  --border:#e7e7ee;
+  --border-soft:#eeeef3;
+  --text:#17171f;
+  --text-2:#33333f;
+  --muted:#6b6b78;
+  --muted-2:#9a9aa8;
+
+  /* brand & accents */
+  --purple:#7c4dff;
+  --purple-bright:#6d3fef;
+  --purple-btn:#6d3fef;
+  --purple-btn-hover:#7b4dff;
+  --purple-tint:rgba(124,77,255,.10);
+  --purple-tint-2:rgba(124,77,255,.13);
+  --brand-avatar-1:#8a5cff;
+  --brand-avatar-2:#6f3aff;
+  --crown:#0fb37f;
+  --like:#ff5c8a;
+  --on-accent:#ffffff;
+  --toggle-ink:#5b3fd6;
+
+  /* states & effects */
+  --hover:rgba(17,17,30,.04);
+  --badge-bg:rgba(17,17,30,.04);
+  --cbox-border:#c4c4cf;
+  --card-shadow:0 1px 2px rgba(20,20,45,.05),0 10px 30px -18px rgba(20,20,45,.18);
+  --banner:radial-gradient(120% 160% at 78% 0%, rgba(150,120,255,.28), transparent 60%),linear-gradient(120deg,#efeaff 0%,#e6ddff 50%,#dccffb 100%);
+
+  --radius:16px;
+}
+/* ---------- Design tokens : DARK theme ---------- */
+html[data-theme="dark"]{
+  --bg:#08080b;
+  --surface:#1d1d27;
+  --surface-2:#282834;
+  --border:#33333f;
+  --border-soft:#1a1a23;
+  --text:#f4f4f7;
+  --text-2:#e7e7ee;
+  --muted:#8b8b97;
+  --muted-2:#63636f;
+  --purple-bright:#8a63ff;
+  --purple-tint:rgba(124,77,255,.12);
+  --purple-tint-2:rgba(124,77,255,.18);
+  --crown:#38d39f;
+  --toggle-ink:#ffffff;
+  --hover:rgba(255,255,255,.04);
+  --badge-bg:rgba(255,255,255,.05);
+  --cbox-border:#55556a;
+  --card-shadow:none;
+  --banner:radial-gradient(120% 160% at 78% 0%, rgba(124,77,255,.38), transparent 60%),linear-gradient(120deg,#39306f 0%,#241f43 46%,#12121a 100%);
+}
+/* extra tokens */
+:root{
+  --green:#0e9f6e;
+  --green-border:rgba(16,185,129,.35);
+  --green-soft:rgba(16,185,129,.09);
+  --green-soft-2:rgba(16,185,129,.15);
+}
+html[data-theme="dark"]{
+  --green:#34d399;
+  --green-border:rgba(52,211,153,.35);
+  --green-soft:rgba(52,211,153,.10);
+  --green-soft-2:rgba(52,211,153,.16);
+}
