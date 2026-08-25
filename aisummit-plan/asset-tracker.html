@@ -162,14 +162,37 @@ var CONFIG = {
 (function(){
   var PHASE_ORDER=["Foundation","Teaser","Launch","Build","Final push","During","Post"];
   var TYPE_ORDER=["Reel","Animated","Image card","Email","Copy","Operational"];
-  var STATUS_ORDER=["To produce","Template","Built"];
+  var STATUS_ORDER=["To produce","In progress","Blocked","Template","Built"];
+  // [bg, text, bar-colour, countsAsDone] — unknown statuses fall back to a neutral palette
+  var STATUS_STYLE={
+    "To produce":["#FCEFD3","#8A5A00","var(--amber)",false],
+    "In progress":["#DDEBFF","#1F5FD6","#3B82F6",false],
+    "Blocked":["#FBE0E0","#B4232A","#D8434A",false],
+    "Template":["#EDE7FE","#4A28C0","var(--purple)",true],
+    "Built":["#D9F2E6","#0A7A56","var(--cyan)",true]
+  };
+  var PHASE_STYLE={
+    "Foundation":["#FBEBCF","#9A6300"],"Teaser":["#FADCEC","#C21E78"],
+    "Launch":["#EEEAFE","#4A28C0"],"Build":["#EEEAFE","#4A28C0"],"Final push":["#EEEAFE","#4A28C0"],
+    "During":["#DFF7EF","#0A7A56"],"Post":["#EDEDF2","#4C4C5C"]
+  };
+  var FALLBACK=[["#EDEDF2","#4C4C5C","#9A9AAD"],["#E6E9F6","#3E4A82","#6B76C0"],["#EAF3E7","#3B6B2E","#6FA85C"],["#F6ECDF","#8A5A00","#C79A4B"]];
+  function hashIdx(s,n){var h=0;s=String(s);for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h%n;}
+  function statusStyle(s){ return STATUS_STYLE[s] || FALLBACK[hashIdx(s,FALLBACK.length)]; }
+  function statusDone(s){ var st=STATUS_STYLE[s]; return st?!!st[3]:false; }
+  function distinctStatuses(){
+    var seen=[]; rows.forEach(function(r){ if(r.status && seen.indexOf(r.status)<0) seen.push(r.status); });
+    var known=STATUS_ORDER.filter(function(s){return seen.indexOf(s)>-1;});
+    var unknown=seen.filter(function(s){return STATUS_ORDER.indexOf(s)<0;});
+    return known.concat(unknown);
+  }
   var rows=[], groupBy="Type", sortKey=null, sortDir=1, srcUrl="", timer=null;
   var filters={q:"",types:new Set(),phases:new Set(),statuses:new Set()};
 
   var $=function(s){return document.querySelector(s);};
   var stage=$("#stage"), statusWrap=$("#statusWrap");
-  function phClass(p){return "ph-"+String(p).replace(/\s+/g,"");}
-  function stClass(s){return "st-"+String(s).replace(/\s+/g,"");}
+  function phasePill(p){ var s=PHASE_STYLE[p]||["#EDEDF2","#4C4C5C"]; return '<span class="pill" style="background:'+s[0]+';color:'+s[1]+'">'+esc(p)+'</span>'; }
+  function statusPill(v){ var s=statusStyle(v); return '<span class="pill" style="background:'+s[0]+';color:'+s[1]+'">'+esc(v)+'</span>'; }
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
 
   /* ---------- source (gviz JSONP — loads via <script>, so no CORS from file://) ---------- */
@@ -290,23 +313,22 @@ var CONFIG = {
         if(hay.indexOf(q)<0)return false;}
       return true;
     });
-    var built=rows.filter(function(r){return r.status==="Built";}).length;
-    var tpl=rows.filter(function(r){return r.status==="Template";}).length;
-    var prod=rows.filter(function(r){return r.status==="To produce";}).length;
-    var total=rows.length, ready=built+tpl, pct=total?Math.round(ready/total*100):0;
+    var total=rows.length;
+    var statuses=distinctStatuses();
+    var stCount={}; statuses.forEach(function(s){stCount[s]=rows.filter(function(r){return r.status===s;}).length;});
+    var done=rows.filter(function(r){return statusDone(r.status);}).length;
+    var pct=total?Math.round(done/total*100):0;
     var typeCounts={}; TYPE_ORDER.forEach(function(t){typeCounts[t]=rows.filter(function(r){return r.type===t;}).length;});
 
     var html='<div class="summary">'+
       '<div class="panel"><p class="lbl">Production progress</p>'+
-        '<div class="bignum"><b>'+pct+'%</b><span>ready — '+ready+' of '+total+' assets built or templated</span></div>'+
+        '<div class="bignum"><b>'+pct+'%</b><span>ready — '+done+' of '+total+' assets built or templated</span></div>'+
         '<div class="bar">'+
-          '<i style="width:'+(built/total*100)+'%;background:var(--cyan)"></i>'+
-          '<i style="width:'+(tpl/total*100)+'%;background:var(--purple)"></i>'+
-          '<i style="width:'+(prod/total*100)+'%;background:var(--amber)"></i></div>'+
+          statuses.map(function(s){return '<i style="width:'+(stCount[s]/total*100)+'%;background:'+statusStyle(s)[2]+'"></i>';}).join("")+
+        '</div>'+
         '<div class="barkey">'+
-          '<span><i class="dot" style="background:var(--cyan)"></i>Built '+built+'</span>'+
-          '<span><i class="dot" style="background:var(--purple)"></i>Template '+tpl+'</span>'+
-          '<span><i class="dot" style="background:var(--amber)"></i>To produce '+prod+'</span></div></div>'+
+          statuses.map(function(s){return '<span><i class="dot" style="background:'+statusStyle(s)[2]+'"></i>'+esc(s)+' '+stCount[s]+'</span>';}).join("")+
+        '</div></div>'+
       '<div class="panel"><p class="lbl">By type</p><div class="typegrid">'+
         TYPE_ORDER.map(function(t){return '<div class="typecell"><b>'+typeCounts[t]+'</b><span>'+esc(t)+'</span></div>';}).join("")+
       '</div></div></div>';
@@ -321,7 +343,7 @@ var CONFIG = {
       '<span class="seglabel">Phase</span><div class="chips" id="phchips">'+
         PHASE_ORDER.map(function(p){return '<button class="chip'+(filters.phases.has(p)?' on':'')+'" data-ph="'+esc(p)+'">'+esc(p)+'</button>';}).join("")+'</div>'+
       '<span class="seglabel">Status</span><div class="chips" id="stchips">'+
-        STATUS_ORDER.map(function(s){return '<button class="chip'+(filters.statuses.has(s)?' on':'')+'" data-st="'+esc(s)+'">'+esc(s)+'</button>';}).join("")+'</div></div>';
+        statuses.map(function(s){return '<button class="chip'+(filters.statuses.has(s)?' on':'')+'" data-st="'+esc(s)+'">'+esc(s)+'</button>';}).join("")+'</div></div>';
     if(filters.types.size||filters.phases.size||filters.statuses.size||filters.q)
       html+='<p class="showing">Showing '+view.length+' of '+total+' assets. <a href="#" id="clear">Clear filters</a></p>';
 
@@ -330,7 +352,7 @@ var CONFIG = {
     if(groupBy==="None"){ html+=tableFor(view,"All assets"); }
     else{
       var key=groupBy==="Type"?"type":groupBy==="Phase"?"phase":"status";
-      var order=groupBy==="Type"?TYPE_ORDER:groupBy==="Phase"?PHASE_ORDER:STATUS_ORDER;
+      var order=groupBy==="Type"?TYPE_ORDER:groupBy==="Phase"?PHASE_ORDER:statuses;
       var groups={}; view.forEach(function(r){(groups[r[key]]=groups[r[key]]||[]).push(r);});
       var keys=Object.keys(groups).sort(function(a,b){return orderIndex(order,a)-orderIndex(order,b);});
       keys.forEach(function(k){ html+=tableFor(groups[k],k||"—"); });
@@ -345,10 +367,10 @@ var CONFIG = {
       '<table><thead><tr>'+th("Asset","asset")+th("Phase","phase")+th("Purpose","purpose")+th("Format","format")+th("Status","status")+th("Due / timing","due")+'</tr></thead><tbody>';
     list.forEach(function(r){
       h+='<tr><td class="asset">'+esc(r.asset)+'</td>'+
-        '<td><span class="pill '+phClass(r.phase)+'">'+esc(r.phase)+'</span></td>'+
+        '<td>'+phasePill(r.phase)+'</td>'+
         '<td class="purpose">'+esc(r.purpose)+'</td>'+
         '<td class="fmt">'+esc(r.format)+'</td>'+
-        '<td><span class="pill '+stClass(r.status)+'">'+esc(r.status)+'</span></td>'+
+        '<td>'+statusPill(r.status)+'</td>'+
         '<td class="due">'+esc(r.due)+(r.owner?' · '+esc(r.owner):'')+'</td></tr>';
     });
     return h+'</tbody></table></div>';
