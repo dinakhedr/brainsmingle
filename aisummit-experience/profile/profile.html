@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile · BrainsMingle</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../shared.css">
+<link rel="stylesheet" href="../../nav/nav.css">
+<link rel="stylesheet" href="profile.css">
+<script defer src="../../nav/nav.js"></script>
+</head>
+<body>
+<!-- top app nav (shared component) -->
+<div id="bm-nav" data-active="communities" data-user="Jamie Bennett" data-initials="JB" data-profile-href="profile.html" data-settings-href="settings.html"></div>
+
+<!-- ================= PROFILE PAGE ================= -->
+<main class="pf-page">
+
+  <!-- top action bar -->
+  <div class="pf-actions">
+    <button class="pf-act is-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2c0-1 1-1.7 2.5-1.7s2.4.7 2.4 1.6c0 2.4-4.9 1.2-4.9 3.6 0 1 1 1.7 2.5 1.7s2.5-.7 2.5-1.7"/></svg>My Earnings</button>
+    <button class="pf-act is-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12 12 3h6a3 3 0 0 1 3 3v6l-9 9Z"/><circle cx="16.5" cy="7.5" r="1.3"/></svg>Coupons</button>
+    <button class="pf-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>View public profile</button>
+    <button class="pf-act" onclick="toast('Profile link copied')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 13a4 4 0 0 0 5.7.3l2.6-2.6A4 4 0 0 0 11.6 5l-1.3 1.3"/><path d="M15 11a4 4 0 0 0-5.7-.3L6.7 13.3A4 4 0 0 0 12.4 19l1.3-1.3"/></svg>Copy profile link</button>
+    <button class="pf-act is-green" onclick="openInvite()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7M8.1 13.1 15.9 17"/></svg>Invite Network</button>
+  </div>
+
+  <!-- identity card -->
+  <section class="pf-id">
+    <div class="pf-id-grid">
+      <div class="pf-ava-wrap">
+        <div class="pf-ava">JB</div>
+        <div class="pf-crown"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 8l4 4 4-7 4 7 4-4-1.5 10h-13Z"/></svg></div>
+        <div class="pf-cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4Z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
+      </div>
+      <div class="pf-id-meta">
+        <span class="pf-handle">@jamiebennett <span class="pf-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></span></span>
+        <div class="pf-name-row"><h1>Jamie Bennett</h1><span class="pf-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></span></div>
+        <div class="pf-title-row"><span class="pf-title">Product &amp; Growth Advisor</span><span class="pf-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></span></div>
+        <div class="pf-stats"><span><b>214</b> followers</span><span class="pf-dot">·</span><span><b>176</b> following</span></div>
+        <div class="pf-links-row">
+          <button class="pf-linkbtn icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.8H3.7V20h2.8Zm-1.4-4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.3 20h-2.8v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.4.6-1.7 1.2-.1.2-.1.5-.1.8V20H11.2s.04-9.5 0-11.2H14v1.6c.4-.6 1-1.5 2.6-1.5 1.9 0 3.7 1.2 3.7 4Z"/></svg></button>
+          <button class="pf-linkbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 13a4 4 0 0 0 5.7.3l2.6-2.6A4 4 0 0 0 11.6 5l-1.3 1.3"/><path d="M15 11a4 4 0 0 0-5.7-.3L6.7 13.3A4 4 0 0 0 12.4 19l1.3-1.3"/></svg>Website: jamiebennett.io</button>
+          <span class="pf-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="card pf-about">
+    <div class="pf-about-head">
+      <span class="pf-about-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.7-3.4 3.4-5 7-5s6.3 1.6 7 5"/></svg></span>
+      <h2>About</h2>
+      <span class="pf-edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></span>
+    </div>
+    <div class="pf-about-body">
+      <p>With 12+ years across product, growth, and early-stage operating roles, I help teams turn rough ideas into products people actually use.</p>
+      <p>I work in two lanes: <span class="h">product strategy &amp; execution</span> — taking products from first principle to launch, measured on activation, retention, and revenue; and <span class="h">fractional product leadership</span> — plugging in when founders need senior firepower without a full-time hire.</p>
+      <p>🤝 Worked with: Revolut · Wise · Paystack · Techstars · Seedcamp · Google for Startups<br>🏛 Sectors: Fintech · Marketplaces · SaaS · Developer Tools</p>
+      <p>💬 Whether it's validating your first ten customers or untangling a stalled roadmap, I bring the same thing: sharp prioritization, hands-on execution, and a bias toward shipping.</p>
+    </div>
+  </section>
+
+  <!-- tabs -->
+  <div class="pf-tabs" id="pfTabs">
+    <button class="pf-tab active" data-tab="network"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/><path d="M17 14.4c2 .5 3.4 1.9 3.9 4.1"/></svg>Professional Network</button>
+    <button class="pf-tab" data-tab="manage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg>Rooms You Manage</button>
+    <button class="pf-tab" data-tab="joined"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/></svg>Rooms You Joined</button>
+    <button class="pf-tab" data-tab="feedback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V6a2 2 0 0 1 2-2h8l4 4v11"/><path d="M4 20 8 16"/><path d="M14 4v5h5"/></svg>Feedback</button>
+    <button class="pf-tab" data-tab="services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16v11H4Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Services</button>
+  </div>
+
+  <!-- panels -->
+  <section class="pf-panel" data-panel="network">
+    <div class="pf-panel-head"><span class="pf-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/><path d="M17 14.4c2 .5 3.4 1.9 3.9 4.1"/></svg></span><h2 class="pf-h">Your Professional Network</h2></div>
+    <p class="pf-sub">You have met <b>42</b> professionals on <span class="brand">BrainsMingle</span></p>
+    <div class="pf-net-toolbar">
+      <div class="search" style="flex:1;min-width:260px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg><input placeholder="Search by name..." oninput="filterNet(this.value)"></div>
+      <div class="cm-select"><svg class="cm-select-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h18l-7 8v5l-4 2v-7Z"/></svg><select><option>Recently met</option><option>Name A–Z</option><option>Most rooms together</option></select><svg class="cm-select-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+    </div>
+    <div class="pf-net-grid" id="netGrid"></div>
+  </section>
+
+  <section class="pf-panel" data-panel="manage" hidden>
+    <div class="pf-panel-head"><span class="pf-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg></span><h2 class="pf-h">Rooms You Manage</h2></div>
+    <p class="pf-sub">You are managing <b>5</b> rooms on <span class="brand">BrainsMingle</span></p>
+    <div class="pf-room-grid" id="manageGrid"></div>
+  </section>
+
+  <section class="pf-panel" data-panel="joined" hidden>
+    <div class="pf-panel-head"><span class="pf-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/></svg></span><h2 class="pf-h">Rooms You Joined</h2></div>
+    <p class="pf-sub">You have joined <b>24</b> rooms on <span class="brand">BrainsMingle</span></p>
+    <div class="pf-room-grid" id="joinedGrid"></div>
+  </section>
+
+  <section class="pf-panel" data-panel="feedback" hidden>
+    <div class="pf-panel-head"><span class="pf-panel-ic purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H8Z"/></svg></span><h2 class="pf-h">Professional Feedback</h2></div>
+    <p class="pf-sub">Feedback you've given and received from your professional connections</p>
+    <div class="pf-fb-grid">
+      <div class="pf-fb-col">
+        <div class="pf-fb-col-head given"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/></svg><h3>Feedback You've Given</h3></div>
+        <div id="fbGiven"></div>
+      </div>
+      <div class="pf-fb-col">
+        <div class="pf-fb-col-head recv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="m8.5 13.5-1.5 7 5-3 5 3-1.5-7"/></svg><h3>Feedback You've Received</h3></div>
+        <div id="fbRecv"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-panel" data-panel="services" hidden>
+    <div class="pf-panel-head"><span class="pf-panel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h2 class="pf-h">Consultation Services</h2></div>
+    <p class="pf-svc-intro">Offer 1-on-1 video consultations with built-in scheduling, payments, and video calls. Everything you need in one platform. Retain 85–90% of your consultation fees — 90% on paid plans, 85% on free plans.</p>
+    <div class="pf-svc-bar">
+      <div class="pf-svc-bar-left">
+        <h3>Your Services</h3>
+        <div class="pf-share-line">Share your services:
+          <span class="pf-share-btns">
+            <button class="tw"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.5 7.4L22 21h-5.9l-4.2-5.5L7 21H4.9l6.9-7.9L4 3h6l3.8 5Zm-1 16h1.2L8.1 4.1H6.8Z"/></svg></button>
+            <button class="li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.8H3.7V20h2.8Zm-1.4-4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.3 20h-2.8v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.4.6-1.7 1.2v6.7H11.2V8.8H14v1.6c.4-.6 1-1.5 2.6-1.5 1.9 0 3.7 1.2 3.7 4Z"/></svg></button>
+            <button class="cp" onclick="toast('Services link copied')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></button>
+          </span>
+        </div>
+      </div>
+      <button class="btn btn--primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>Add New Service</button>
+    </div>
+    <div class="pf-svc-grid" id="svcGrid"></div>
+
+    <div class="pf-avail">
+      <div class="pf-avail-head">
+        <h3>Availability Settings</h3>
+        <button class="btn btn--offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Edit Availability</button>
+      </div>
+      <div class="pf-avail-grid" id="availGrid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= INVITE MODAL ================= -->
+<div class="rm-overlay" id="inviteOverlay" hidden>
+  <div class="rm-modal" style="max-width:480px">
+    <div class="rm-modal-body" style="text-align:center;padding:34px 32px">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--purple-tint);color:var(--purple-bright);display:grid;place-items:center;margin:0 auto 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:26px;height:26px"><circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7M8.1 13.1 15.9 17"/></svg></div>
+      <h2 style="font-size:26px;font-weight:800;letter-spacing:-.4px">Exclusive Invitation</h2>
+      <p style="color:var(--muted);font-size:15px;margin-top:8px">Share this personal invite with your professional network</p>
+      <div style="text-align:left;background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-top:22px;font-size:15px;line-height:1.6;color:var(--text-2)">
+        I found a platform better than Zoom for video calls and better than LinkedIn for networking!<br><br>
+        Try out BrainsMingle:<br><a class="mention" href="#" onclick="return false">https://brainsmingle.com/invite/jamie2043</a>
+      </div>
+      <button class="btn btn--primary" style="width:100%;justify-content:center;margin-top:20px;padding:13px" onclick="toast('Invitation text copied')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>Copy invitation text</button>
+      <button class="btn" style="width:100%;justify-content:center;margin-top:12px;padding:13px;border-color:var(--purple-tint-2);color:var(--purple-bright)" onclick="closeInvite()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="pf-toast" id="toast"></div>
+
+<script>
+/* ---------- theme ---------- */
+function toggleTheme(){
+  var d=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme', d?'light':'dark');
+  try{localStorage.setItem('bm-theme', d?'light':'dark');}catch(e){}
+}
+(function(){try{var t=localStorage.getItem('bm-theme');if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.setAttribute('data-theme','dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+
+/* ---------- persona data (edit here) ---------- */
+var NET=[
+  {n:'Emma Clarke',r:'Head of Design · Northwind',count:1,ago:'a month ago',li:true,h:0},
+  {n:'Michael Larsson',r:'Engineering Lead · Kova',count:2,ago:'2 months ago',li:true,h:2},
+  {n:'Sophie Marchetti',r:'VC Associate · Northstar',count:1,ago:'2 months ago',li:false,h:7},
+  {n:'Marcus Odera',r:'Data Scientist · Aperture',count:1,ago:'2 months ago',li:true,h:4},
+  {n:'Lina Khoury',r:'UX Researcher · Beacon',count:3,ago:'3 months ago',li:true,h:5},
+  {n:'Daniel Asante',r:'Growth Marketer · Loop',count:1,ago:'3 months ago',li:false,h:6},
+  {n:'Ryan Callister',r:'Solo Founder · Tally',count:1,ago:'3 months ago',li:true,h:1},
+  {n:'James Whitford',r:'CTO · Meridian',count:1,ago:'3 months ago',li:true,h:2},
+  {n:'Nadia Fares',r:'Product & Growth Strategist',count:2,ago:'3 months ago',li:false,h:1},
+  {n:'Sara Nilsson',r:'Brand Strategist · Independent',count:1,ago:'4 months ago',li:true,h:6},
+  {n:'Amara Okafor',r:'Founder · LedgerLoop',count:1,ago:'4 months ago',li:true,h:3},
+  {n:'Amir Hassan',r:'Product Manager · Rideloop',count:12,ago:'4 months ago',li:true,h:5}
+];
+var MANAGE=[
+  {st:'Upcoming',t:'06:00 PM',d:'08/18/2026',title:'Zero-to-One: Validate Your First 10 Customers',p:12,desc:"A working session for pre-launch founders: pick a wedge, script your customer interviews, and leave with a validation plan."},
+  {st:'Past',t:'05:00 PM',d:'08/07/2026',title:'Growth Teardown: Live App Audit',p:28,desc:"Live funnel and onboarding teardown of a volunteer's app. We rip apart activation and rebuild it on the spot."},
+  {st:'Past',t:'01:00 PM',d:'08/04/2026',title:'Fractional PM Office Hours',p:9,desc:"Open Q&A on roadmaps, prioritization, and stakeholder wrangling. Bring your messiest product problem."},
+  {st:'Upcoming',t:'07:00 PM',d:'08/21/2026',title:'Fintech Founders Roundtable',p:16,desc:"Closed-door peer group for fintech founders navigating compliance, pricing, and trust."},
+  {st:'Past',t:'03:30 PM',d:'07/25/2026',title:'Pricing Strategy Clinic',p:21,desc:"Value-based pricing frameworks, packaging teardowns, and live pricing critiques."}
+];
+var JOINED=[
+  {st:'Upcoming',t:'08:00 PM',d:'08/15/2026',title:'The Golden Hour: Tech Speed Networking',host:'Daniel Asante',h:6,desc:"Ever left a networking event having spoken to 3 people? This fixes that — rapid 1:1 rounds with a curated room."},
+  {st:'Upcoming',t:'05:30 PM',d:'08/13/2026',title:'Positioning Workshop (April Dunford method)',host:'Sara Nilsson',h:6,desc:"Reposition one product live using the obviously-awesome framework. Bring a product you're too close to."},
+  {st:'Past',t:'02:00 PM',d:'08/06/2026',title:'SaaS Metrics Jam',host:'James Whitford',h:2,desc:"A working jam on the metrics that actually predict retention and expansion for B2B SaaS."},
+  {st:'Past',t:'04:00 PM',d:'07/30/2026',title:'Design Systems in Practice',host:'Emma Clarke',h:0,desc:"How small teams ship and maintain a design system without a dedicated platform team."},
+  {st:'Past',t:'06:00 PM',d:'07/22/2026',title:'Founders × Investors Mingle',host:'Sophie Marchetti',h:7,desc:"A fast-paced networking session designed to connect founders with early-stage investors."},
+  {st:'Past',t:'03:00 PM',d:'07/16/2026',title:'AI for Product Teams',host:'Marcus Odera',h:4,desc:"Where AI genuinely moves the needle in discovery, delivery, and support — and where it's just noise."}
+];
+var FB_GIVEN=[
+  {n:'Nadia Fares',li:true,h:1,q:"Sharp operator — reframed our onboarding in ten minutes and the fix was obvious in hindsight.",date:'Aug 3, 2026',room:'Fintech Founders Roundtable'},
+  {n:'Michael Larsson',li:true,h:2,q:"Good call!",date:'Jul 29, 2026',room:'SaaS Metrics Jam'}
+];
+var FB_RECV=[
+  {n:'Emma Clarke',li:true,h:0,q:"Jamie cut through a roadmap we'd argued about for a month. Calm, decisive, kind.",date:'Aug 7, 2026',room:'Design Systems in Practice'},
+  {n:'Ryan Callister',li:false,h:1,q:"Awesome partner",date:'Jun 28, 2026',room:'Fractional PM Office Hours'}
+];
+var SVC=[
+  {t:'Product Strategy Sprint',vis:'Public',dur:'45 min',price:'$120',paid:true,desc:'A focused working session to pressure-test your strategy and leave with a prioritized next three moves.'},
+  {t:'Growth Audit & Roadmap',vis:'Public',dur:'60 min',price:'$180',paid:true,desc:'I audit your funnel end-to-end and hand you a ranked growth roadmap you can run immediately.'},
+  {t:'1-1 Founder Office Hours',vis:'Private Link',dur:'30 min',price:'Free',paid:false,desc:"Bring one hard product or growth problem. We'll work it live and leave with next steps."},
+  {t:'Fractional PM Intro Call',vis:'Public',dur:'30 min',price:'Free',paid:false,desc:'A no-pitch intro to scope whether fractional product help is a fit for your team.'}
+];
+var AVAIL=[
+  {day:'Monday',slots:['09:00 - 12:00','14:00 - 17:00']},
+  {day:'Tuesday',slots:['10:00 - 13:00']},
+  {day:'Thursday',slots:['09:00 - 12:00','15:00 - 18:00']}
+];
+
+/* ---------- helpers ---------- */
+function initials(n){return n.split(' ').map(function(w){return w[0];}).slice(0,2).join('').toUpperCase();}
+function ic(p){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">'+p+'</svg>';}
+var LI='<span class="pf-li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.8H3.7V20h2.8Zm-1.4-4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.3 20h-2.8v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.4.6-1.7 1.2v6.7H11.2V8.8H14v1.6c.4-.6 1-1.5 2.6-1.5 1.9 0 3.7 1.2 3.7 4Z"/></svg></span>';
+var STAR='<svg class="pf-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z"/></svg>';
+function stars(k){var s='';for(var i=0;i<5;i++){s+='<svg class="'+(i<k?'on':'off')+'" viewBox="0 0 24 24"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.1l1-5.8L3.5 9.2l5.9-.9Z" stroke="currentColor" stroke-width="1.5"/></svg>';}return s;}
+
+/* ---------- render ---------- */
+function renderNet(list){
+  document.getElementById('netGrid').innerHTML=list.map(function(x){
+    return '<div class="pf-net-card">'+
+      '<div class="pf-net-ava"><div class="pf-ai h'+x.h+'">'+initials(x.n)+'</div><span class="pf-net-count">'+x.count+'</span></div>'+
+      '<div class="pf-net-info">'+
+        '<div class="pf-net-name">'+x.n+(x.li?' '+LI:'')+'</div>'+
+        '<div class="pf-net-stat">'+STAR+'Mingled <b>'+x.count+'</b> '+(x.count===1?'time':'times')+'</div>'+
+        '<div class="pf-net-stat mut">'+ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+x.ago+'</div>'+
+      '</div>'+
+      '<button class="pf-net-more" onclick="toast(\'Opening profile…\')">More Details</button>'+
+    '</div>';
+  }).join('');
+}
+function roomCard(x){
+  var host=x.host?'<div class="pf-room-host"><div class="pf-ai h'+x.h+'">'+initials(x.host)+'</div>Hosted by '+x.host+'</div>':'';
+  return '<div class="pf-room-card"><div class="pf-room-when">'+ic('<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>')+
+  '<span class="st '+(x.st==='Past'?'past':'up')+'">'+x.st+'</span><span class="lbl">at</span><span class="val">'+x.t+'</span><span class="lbl">on</span><span class="val">'+x.d+'</span></div>'+
+  '<div class="pf-room-title">'+x.title+'</div>'+
+  '<div class="pf-room-part">'+ic('<circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/>')+(x.p!=null?x.p+' participants':'Networking session')+'</div>'+
+  '<div class="pf-room-desc">'+x.desc+'</div>'+host+
+  '<div class="pf-room-foot"><button class="pf-room-share" onclick="toast(\'Room link copied\')">'+ic('<circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7M8.1 13.1 15.9 17"/>')+'Share</button>'+
+  '<button class="pf-room-details">'+ic('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>')+'Room Details</button></div></div>';
+}
+function fbItem(x,recv){
+  return '<div class="pf-fb-item">'+
+    '<div class="pf-fb-top">'+
+      '<div class="pf-ai sm h'+x.h+'">'+initials(x.n)+'</div>'+
+      '<b class="pf-fb-name">'+x.n+(x.li?' '+LI:'')+'</b>'+
+      (recv?'<button class="pf-fb-share" onclick="toast(\'Feedback shared\')">'+ic('<circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7M8.1 13.1 15.9 17"/>')+'</button>':'')+
+    '</div>'+
+    '<div class="pf-fb-quote'+(recv?' recv':'')+'">"'+x.q+'"</div>'+
+    '<div class="pf-fb-meta">Shared on <b>'+x.date+'</b> after meeting in <b>'+x.room+'</b> room</div>'+
+  '</div>';
+}
+function svcCard(x){
+  return '<div class="pf-svc-card"><div class="pf-svc-card-top"><div><div class="pf-svc-name">'+x.t+'</div></div><div class="pf-svc-acts">'+
+  '<span class="icon-btn">'+ic('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/>')+'</span>'+
+  '<span class="icon-btn">'+ic('<path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/>')+'</span>'+
+  '<span class="icon-btn">'+ic('<circle cx="12" cy="6" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="18" r="1"/>')+'</span></div></div>'+
+  '<div class="pf-svc-desc">'+x.desc+'</div>'+
+  '<div class="pf-svc-tags"><span class="cm-pill '+(x.vis==='Public'?'cm-pill--public':'cm-pill--profile')+'">'+
+  ic(x.vis==='Public'?'<path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/>':'<path d="M6 11V8a6 6 0 0 1 12 0v3"/><rect x="4" y="11" width="16" height="9" rx="2"/>')+x.vis+'</span>'+
+  '<span class="pf-svc-meta">'+ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+x.dur+'</span>'+
+  '<span class="pf-svc-price '+(x.paid?'paid':'free')+'">'+x.price+'</span></div></div>';
+}
+renderNet(NET);
+document.getElementById('manageGrid').innerHTML=MANAGE.map(roomCard).join('');
+document.getElementById('joinedGrid').innerHTML=JOINED.map(roomCard).join('');
+document.getElementById('fbGiven').innerHTML=FB_GIVEN.map(function(x){return fbItem(x,false);}).join('');
+document.getElementById('fbRecv').innerHTML=FB_RECV.map(function(x){return fbItem(x,true);}).join('');
+document.getElementById('svcGrid').innerHTML=SVC.map(svcCard).join('');
+document.getElementById('availGrid').innerHTML=AVAIL.map(function(x){return '<div class="pf-day"><b>'+x.day+'</b><div class="pf-day-chips">'+x.slots.map(function(s){return '<span class="pf-chip">'+s+'</span>';}).join('')+'</div></div>';}).join('');
+
+function filterNet(q){q=q.toLowerCase();renderNet(NET.filter(function(x){return x.n.toLowerCase().indexOf(q)>-1||x.r.toLowerCase().indexOf(q)>-1;}));}
+
+/* ---------- tabs ---------- */
+document.getElementById('pfTabs').addEventListener('click',function(e){
+  var b=e.target.closest('.pf-tab');if(!b)return;
+  document.querySelectorAll('.pf-tab').forEach(function(t){t.classList.toggle('active',t===b);});
+  var id=b.dataset.tab;
+  document.querySelectorAll('.pf-panel').forEach(function(p){p.hidden=p.dataset.panel!==id;});
+  window.scrollTo({top:document.querySelector('.pf-tabs').offsetTop-80,behavior:'smooth'});
+});
+
+
+/* ---------- invite modal ---------- */
+function openInvite(){document.getElementById('inviteOverlay').hidden=false;}
+function closeInvite(){document.getElementById('inviteOverlay').hidden=true;}
+document.getElementById('inviteOverlay').addEventListener('click',function(e){if(e.target===this)closeInvite();});
+
+/* ---------- toast ---------- */
+var toastT;
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},1900);}
+</script>
+
+</body>
+</html>

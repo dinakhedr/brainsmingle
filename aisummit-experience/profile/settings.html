@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · BrainsMingle</title>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../shared.css">
+<link rel="stylesheet" href="../../nav/nav.css">
+<link rel="stylesheet" href="profile.css">
+<script defer src="../../nav/nav.js"></script>
+</head>
+<body>
+
+<div id="bm-nav" data-user="Jamie Bennett" data-initials="JB"></div>
+
+<main class="set-page">
+  <div class="set-head">
+    <a class="set-backbtn" href="profile.html" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></a>
+    <div><h1>Settings</h1><p>Manage your profile information and preferences</p></div>
+  </div>
+
+  <div class="set-layout">
+    <!-- sidebar -->
+    <aside class="set-side" id="setSide">
+      <button class="set-navitem active" data-tab="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.7-3.4 3.4-5 7-5s6.3 1.6 7 5"/></svg>Profile</button>
+      <button class="set-navitem" data-tab="billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Billing &amp; Subscription</button>
+    </aside>
+
+    <div class="set-main">
+      <!-- ============ PROFILE TAB ============ -->
+      <section class="set-panel" data-panel="profile">
+        <div class="set-titlecard"><h2>Profile Settings</h2><p>Manage your profile information and preferences</p></div>
+
+        <!-- profile basics -->
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c.7-3.4 3.4-5 7-5s6.3 1.6 7 5"/></svg></span><h3>Profile Basics</h3></div>
+
+          <div style="display:flex;align-items:center;gap:16px;margin:18px 0 4px">
+            <div class="pf-ava-wrap" style="flex:none">
+              <div class="pf-ava h0" style="width:64px;height:64px;border-radius:50%;font-size:22px;display:grid;place-items:center;color:#fff;background:linear-gradient(160deg,var(--brand-avatar-1),var(--brand-avatar-2))">JB</div>
+              <div class="pf-cam" style="width:26px;height:26px;bottom:-2px;right:-2px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:13px;height:13px"><path d="M4 8h3l1.5-2h7L17 8h3v11H4Z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
+            </div>
+            <span class="set-hint">JPG, PNG or WebP. Max 5MB.</span>
+          </div>
+
+          <div class="set-grid2">
+            <div class="set-field"><span class="set-label">First Name</span><input class="set-input" value="Jamie"></div>
+            <div class="set-field"><span class="set-label">Last Name</span><input class="set-input" value="Bennett"></div>
+            <div class="set-field full"><span class="set-label">Username</span>
+              <div class="set-inwrap"><span class="set-pre">@</span><input class="set-input" value="jamiebennett"></div>
+              <span class="set-hint">Only letters, numbers, hyphens, and underscores allowed.</span>
+            </div>
+            <div class="set-field"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>Country</span>
+              <div class="set-select-wrap"><select class="set-select"><option>🇬🇧 United Kingdom</option><option>🇺🇸 United States</option><option>🇩🇪 Germany</option><option>🇦🇪 United Arab Emirates</option></select><span class="set-select-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div>
+            </div>
+            <div class="set-field"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>City</span>
+              <div class="set-select-wrap"><select class="set-select"><option>London</option><option>Manchester</option><option>Edinburgh</option><option>Bristol</option></select><span class="set-select-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div>
+            </div>
+            <div class="set-field"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>Spoken Language</span>
+              <div class="set-select-wrap"><select class="set-select"><option>English</option><option>Spanish</option><option>French</option><option>German</option></select><span class="set-select-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></div>
+            </div>
+          </div>
+          <div class="set-save-row"><button class="btn btn--primary" onclick="toast('Profile saved')">Save</button></div>
+        </div>
+
+        <!-- professional details -->
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><h3>Professional Details</h3></div>
+          <p class="set-card-sub">Share your professional information to help others connect with you</p>
+
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Job Title</span>
+            <div class="set-inwrap ico"><span class="set-lead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><input class="set-input" value="Product & Growth Advisor"></div></div>
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V6a2 2 0 0 1 2-2h6v16M12 20h8V10h-8"/></svg>Company</span>
+            <div class="set-inwrap ico"><span class="set-lead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V6a2 2 0 0 1 2-2h6v16M12 20h8V10h-8"/></svg></span><input class="set-input" value="Independent"></div></div>
+
+          <div class="set-status-head"><span class="set-label">Current Job Status</span>
+            <span class="set-toggle-label">Display on Profile <button class="set-toggle on" onclick="this.classList.toggle('on')" aria-label="Display on profile"></button></span>
+          </div>
+          <div class="set-status" id="jobStatus">
+            <div class="set-radio" data-v="employed"><span class="set-radio-dot"></span><div><b>Employed</b><span>I am currently employed</span></div></div>
+            <div class="set-radio active" data-v="not-looking"><span class="set-radio-dot"></span><div><b>Not Looking</b><span>I am not looking for opportunities</span></div></div>
+            <div class="set-radio" data-v="open"><span class="set-radio-dot"></span><div><b>Open to Work</b><span>I am open to new opportunities</span></div></div>
+          </div>
+
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6Z"/><path d="M14 3v5h5"/></svg>Bio</span>
+            <textarea class="set-textarea" id="bioField" maxlength="500" oninput="bioCount(this)">With 12+ years across product, growth, and early-stage operating roles, I help teams turn rough ideas into products people actually use. I work in two lanes: product strategy & execution, and fractional product leadership when founders need senior firepower without a full-time hire.</textarea>
+            <div><span class="set-hint">This will be displayed on your public profile</span><span class="set-charcount" id="bioCount">282/500</span></div>
+          </div>
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>Website</span>
+            <div class="set-inwrap ico"><span class="set-lead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></span><input class="set-input" value="https://jamiebennett.io/"></div></div>
+
+          <div class="set-field full" style="margin-bottom:0"><span class="set-label" style="font-weight:700;color:var(--text)">Social Links</span></div>
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.8H3.7V20h2.8Zm-1.4-4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.3 20h-2.8v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.4.6-1.7 1.2v6.7H11.2V8.8H14v1.6c.4-.6 1-1.5 2.6-1.5 1.9 0 3.7 1.2 3.7 4Z"/></svg>LinkedIn</span>
+            <div class="set-inwrap ico"><span class="set-lead"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.8H3.7V20h2.8Zm-1.4-4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.3 20h-2.8v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.4.6-1.7 1.2v6.7H11.2V8.8H14v1.6c.4-.6 1-1.5 2.6-1.5 1.9 0 3.7 1.2 3.7 4Z"/></svg></span><input class="set-input" value="https://www.linkedin.com/in/jamiebennett/"></div></div>
+          <div class="set-field full"><span class="set-label"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H21l-6.5 7.4L22 21h-5.9l-4.2-5.5L7 21H4.9l6.9-7.9L4 3h6l3.8 5Z"/></svg>Twitter / X</span>
+            <div class="set-inwrap"><span class="set-pre">@</span><input class="set-input" placeholder="username"></div></div>
+          <div class="set-save-row"><button class="btn btn--primary" onclick="toast('Professional details saved')">Save</button></div>
+        </div>
+
+        <!-- fields of interest -->
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2Z"/></svg></span><h3>Fields of interest</h3></div>
+          <div id="fiState">
+            <div class="set-fi-empty" onclick="openFI()"><span>Add your fields of interest</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></div>
+          </div>
+        </div>
+
+        <!-- email -->
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>Email Management</h3></div>
+          <div class="set-field full"><span class="set-label">Notification Email</span>
+            <div class="set-email-row">
+              <div class="set-inwrap ico" style="flex:1"><span class="set-lead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><input class="set-input" value="jamie.bennett@example.com"></div>
+              <button class="btn" onclick="toast('Verification email sent')">Edit</button>
+            </div>
+            <span class="set-hint">This email will be used for all notifications and communications.</span>
+          </div>
+        </div>
+
+        <!-- account deletion -->
+        <div class="set-card danger">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M6 7l1 13h10l1-13"/></svg></span><h3>Account Deletion</h3></div>
+          <p class="set-card-sub" style="margin-left:50px">Request to delete your account and all associated data</p>
+          <div class="set-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 20h20Z"/><path d="M12 9v5M12 17h.01"/></svg><div><b>Warning: This action cannot be undone</b><p>Deleting your account will permanently remove all your data, including your profile, connections, events, and earnings history. This action cannot be reversed.</p></div></div>
+          <p class="set-danger-note">When you submit a deletion request, our team will review and process it within 30 days. You will receive a confirmation email once your account has been deleted.</p>
+          <button class="btn btn--danger" onclick="toast('Deletion request submitted')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M6 7l1 13h10l1-13"/></svg>Request Account Deletion</button>
+        </div>
+      </section>
+
+      <!-- ============ BILLING TAB ============ -->
+      <section class="set-panel" data-panel="billing" hidden>
+        <div class="set-titlecard"><h2>Billing &amp; Subscription</h2><p>Manage your subscription, payment methods, and invoices</p></div>
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8l4 4 4-7 4 7 4-4-1.5 10h-13Z"/></svg></span><h3>Current Plan</h3></div>
+          <div class="set-plan-grid">
+            <div class="set-plan-box"><div class="lbl">Plan</div><div class="val">Community</div></div>
+            <div class="set-plan-box"><div class="lbl">Status</div><div class="val free"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Free</div></div>
+          </div>
+        </div>
+        <div class="set-card">
+          <div class="set-card-head"><span class="set-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></span><h3>Manage Subscription</h3></div>
+          <p class="set-billing-note">You are currently on the Free plan. Upgrade to unlock more features.</p>
+          <button class="btn btn--primary" onclick="toast('Opening upgrade options…')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8l4 4 4-7 4 7 4-4-1.5 10h-13Z"/></svg>Upgrade Plan</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FIELDS OF INTEREST MODAL ============ -->
+<div class="fi-overlay" id="fiOverlay" hidden>
+  <div class="fi-modal">
+    <button class="fi-close" onclick="closeFI()" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <h2>Set your fields of interest</h2>
+    <p class="fi-sub">30 seconds. Helps us create better connections for you inside this session and beyond.</p>
+    <div class="fi-grid" id="fiGrid"></div>
+    <div class="fi-other">
+      <button class="fi-other-btn" id="fiOtherBtn" onclick="fiShowOther()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Other</button>
+      <div class="fi-other-form" id="fiOtherForm" hidden>
+        <label>Add your own interest</label>
+        <div class="fi-other-row"><input id="fiOtherInput" placeholder="e.g. AI Safety" onkeydown="if(event.key==='Enter')fiAddOther()"><button class="btn btn--primary" onclick="fiAddOther()">Add</button><button class="btn" onclick="fiHideOther()">Cancel</button></div>
+      </div>
+    </div>
+    <div class="fi-footer"><span class="fi-count"><b id="fiCount">0</b> of 3 selected</span><button class="fi-save" onclick="fiSave()">Save changes</button></div>
+  </div>
+</div>
+
+<div class="pf-toast" id="toast"></div>
+
+<script>
+/* theme init */
+(function(){try{var t=localStorage.getItem('bm-theme');document.documentElement.setAttribute('data-theme',t||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',d?'light':'dark');try{localStorage.setItem('bm-theme',d?'light':'dark');}catch(e){}}
+
+/* tabs */
+document.getElementById('setSide').addEventListener('click',function(e){
+  var b=e.target.closest('.set-navitem'); if(!b) return;
+  document.querySelectorAll('.set-navitem').forEach(function(n){n.classList.toggle('active',n===b);});
+  var id=b.dataset.tab;
+  document.querySelectorAll('.set-panel').forEach(function(p){p.hidden=p.dataset.panel!==id;});
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* job status radios */
+document.getElementById('jobStatus').addEventListener('click',function(e){
+  var r=e.target.closest('.set-radio'); if(!r) return;
+  document.querySelectorAll('#jobStatus .set-radio').forEach(function(x){x.classList.toggle('active',x===r);});
+});
+
+/* bio counter */
+function bioCount(el){var n=el.value.length;var c=document.getElementById('bioCount');c.textContent=n+'/500';c.classList.toggle('over',n>500);}
+bioCount(document.getElementById('bioField'));
+
+/* ---------- interests modal ---------- */
+var FI_OPTIONS=['Software Engineering','Product Management','Design & UX','Data, ML & AI','Marketing','Sales','Entrepreneurship','Finance & Investing','HR & People Ops','Operations','Leadership & Management','Career Growth','Education & Teaching','Healthcare','Legal','Content Creation','Public Speaking','Mentorship','Research','Community Building'];
+var fiSelected=[];
+function fiRender(){
+  document.getElementById('fiGrid').innerHTML=FI_OPTIONS.map(function(o){
+    var sel=fiSelected.indexOf(o)>-1;
+    var dis=!sel&&fiSelected.length>=3;
+    return '<button class="fi-chip'+(sel?' sel':'')+(dis?' disabled':'')+'" data-o="'+o.replace(/"/g,'&quot;')+'">'+o+'</button>';
+  }).join('');
+  document.getElementById('fiCount').textContent=fiSelected.length;
+}
+document.getElementById('fiGrid').addEventListener('click',function(e){
+  var c=e.target.closest('.fi-chip'); if(!c||c.classList.contains('disabled'))return;
+  var o=c.dataset.o, i=fiSelected.indexOf(o);
+  if(i>-1) fiSelected.splice(i,1); else if(fiSelected.length<3) fiSelected.push(o);
+  fiRender();
+});
+function openFI(){document.getElementById('fiOverlay').hidden=false;fiRender();}
+function closeFI(){document.getElementById('fiOverlay').hidden=true;fiHideOther();}
+document.getElementById('fiOverlay').addEventListener('click',function(e){if(e.target===this)closeFI();});
+function fiShowOther(){document.getElementById('fiOtherBtn').hidden=true;document.getElementById('fiOtherForm').hidden=false;document.getElementById('fiOtherInput').focus();}
+function fiHideOther(){document.getElementById('fiOtherBtn').hidden=false;document.getElementById('fiOtherForm').hidden=true;document.getElementById('fiOtherInput').value='';}
+function fiAddOther(){var v=document.getElementById('fiOtherInput').value.trim();if(!v)return;if(fiSelected.length>=3){toast('You can pick up to 3');return;}if(FI_OPTIONS.indexOf(v)<0)FI_OPTIONS.push(v);if(fiSelected.indexOf(v)<0)fiSelected.push(v);fiHideOther();fiRender();}
+function fiSave(){
+  var host=document.getElementById('fiState');
+  if(!fiSelected.length){host.innerHTML='<div class="set-fi-empty" onclick="openFI()"><span>Add your fields of interest</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg></div>';}
+  else{host.innerHTML='<div class="set-fi-chips">'+fiSelected.map(function(o){return '<span class="set-fi-chip">'+o+'</span>';}).join('')+'<button class="set-fi-edit" onclick="openFI()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h4L18.5 9.5a2 2 0 0 0-3-3L5 17Z"/></svg>Edit</button></div>';}
+  closeFI();toast('Interests saved');
+}
+
+/* toast */
+var toastT;function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},1900);}
+</script>
+</body>
+</html>
