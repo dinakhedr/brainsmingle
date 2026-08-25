@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile · BrainsMingle — AI Summit</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/shared.css">
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/profile.css">
+<link rel="stylesheet" href="assets/profile-summit.css">
+<script defer src="assets/nav.js"></script>
+</head>
+<body>
+<!-- top app nav (shared component) -->
+<div id="bm-nav" data-active="communities" data-user="Jamie Bennett" data-initials="JB" data-profile-href="profile/profile.html" data-settings-href="profile/settings.html"></div>
+
+<!-- ================= PROFILE PAGE (AI Summit variant) ================= -->
+<main class="pf-page">
+
+  <!-- top action bar — AI Summit pill (amber, first position) -->
+  <div class="pf-actions">
+    <button class="pf-act is-amber" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>AI Summit</button>
+    <button class="pf-act is-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2c0-1 1-1.7 2.5-1.7s2.4.7 2.4 1.6c0 2.4-4.9 1.2-4.9 3.6 0 1 1 1.7 2.5 1.7s2.5-.7 2.5-1.7"/></svg>My Earnings</button>
+    <button class="pf-act is-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12 12 3h6a3 3 0 0 1 3 3v6l-9 9Z"/><circle cx="16.5" cy="7.5" r="1.3"/></svg>Coupons</button>
+    <button class="pf-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>View public profile</button>
+    <button class="pf-act" onclick="toast('Profile link copied')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 13a4 4 0 0 0 5.7.3l2.6-2.6A4 4 0 0 0 11.6 5l-1.3 1.3"/><path d="M15 11a4 4 0 0 0-5.7-.3L6.7 13.3A4 4 0 0 0 12.4 19l1.3-1.3"/></svg>Copy profile link</button>
+    <button class="pf-act is-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="6" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 10.9 15.9 7M8.1 13.1 15.9 17"/></svg>Invite Network</button>
+  </div>
+
+  <!-- ═══════ AI SUMMIT — full page ═══════ -->
+  <section class="summit-page">
+    <div class="pf-panel-head">
+      <span class="pf-panel-ic amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+      <h2 class="pf-h">AI Summit 2026</h2>
+    </div>
+    <p class="pf-sub">Your summit dashboard on <span class="summit-accent">BrainsMingle</span></p>
+
+    <div class="summit-dash">
+
+      <!-- Sponsor banner -->
+      <div class="summit-sponsor">
+        <span class="label">Brought to you by</span>
+        <span class="divider"></span>
+        <span class="name">Sponsor Name</span>
+      </div>
+
+      <!-- Countdown -->
+      <div class="summit-countdown">
+        <div class="summit-cd-unit"><div class="summit-cd-val" id="cd-d">48</div><div class="summit-cd-label">Days</div></div>
+        <div class="summit-cd-unit"><div class="summit-cd-val" id="cd-h">--</div><div class="summit-cd-label">Hours</div></div>
+        <div class="summit-cd-unit"><div class="summit-cd-val" id="cd-m">--</div><div class="summit-cd-label">Minutes</div></div>
+        <div class="summit-cd-unit"><div class="summit-cd-val" id="cd-s">--</div><div class="summit-cd-label">Seconds</div></div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;margin:0 0 28px">
+        <button class="summit-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          View Summit Agenda
+        </button>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">Browse sessions and sign up for the ones you want to attend</div>
+      </div>
+
+      <!-- Referral + Community -->
+      <div class="summit-grid-2">
+
+        <!-- Referral -->
+        <div class="summit-card">
+          <div class="summit-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E8A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span class="title">Invite your network</span>
+          </div>
+          <div class="summit-card-desc">Share your referral link and track how many people you bring to the summit.</div>
+          <div class="ref-link-row">
+            <div class="ref-link-url">brainsmingle.com/aisummit?ref=jamiebennett</div>
+            <button class="ref-link-copy" onclick="toast('Link copied!')">Copy link</button>
+          </div>
+          <div class="ref-counter">
+            <div class="ref-counter-num">0</div>
+            <div class="ref-counter-label"><b>0 people</b> registered with your link<br>Invite counter updates live</div>
+          </div>
+        </div>
+
+        <!-- Community -->
+        <div class="summit-card">
+          <div class="summit-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c.6-3 2.9-4.6 5.5-4.6S13.9 16 14.5 19"/><path d="M16 5.5a3 3 0 0 1 0 5.7"/><path d="M17 14.4c2 .5 3.4 1.9 3.9 4.1"/></svg>
+            <span class="title">Your Community</span>
+          </div>
+          <div class="summit-card-desc">You were auto-joined to the AI Summit Community when you registered. This community stays live permanently after the event.</div>
+          <div class="community-preview">
+            <div class="community-ava">AI</div>
+            <div class="community-info">
+              <div class="community-name">AI Summit Community</div>
+              <div class="community-meta">Public · 2,340 members</div>
+            </div>
+            <button class="community-btn">Open</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sessions -->
+      <div class="summit-sessions-head">
+        <h3>Your Sessions</h3>
+        <button class="btn" style="font-size:13px;padding:8px 14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Browse Agenda</button>
+      </div>
+
+      <div class="summit-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <h4>No sessions yet</h4>
+        <p>Browse the agenda and sign up for sessions you want to attend. They'll appear here.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<div class="pf-toast" id="toast"></div>
+
+<script>
+/* ---------- theme ---------- */
+function toggleTheme(){
+  var d=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme', d?'light':'dark');
+  try{localStorage.setItem('bm-theme', d?'light':'dark');}catch(e){}
+}
+(function(){try{var t=localStorage.getItem('bm-theme');if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.setAttribute('data-theme','dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+
+/* ---------- countdown to Oct 10, 2026 19:00 Cairo (UTC+2) ---------- */
+var TARGET=new Date('2026-10-10T17:00:00Z');
+function tick(){
+  var diff=Math.max(0,TARGET-Date.now());
+  var d=Math.floor(diff/864e5);diff-=d*864e5;
+  var h=Math.floor(diff/36e5);diff-=h*36e5;
+  var m=Math.floor(diff/6e4);diff-=m*6e4;
+  var s=Math.floor(diff/1e3);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+/* ---------- toast ---------- */
+var toastT;
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},1900);}
+</script>
+
+</body>
+</html>
