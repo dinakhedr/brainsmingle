@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-26 12:32 · 32 speakers.
+ * Generated 2026-08-26 19:13 · 34 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -566,6 +566,40 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-032.png",
     bio         : "Senior Computer Vision Engineer with 7+ years of experience building AI systems for real-world applications. Specializes in 3D Vision, Visual SLAM, deep learning, and multimodal systems combining images, engineering documents, and language models. Recently designing agentic workflows for engineering applications including design review and compliance verification. Holds an Erasmus Mundus M.Sc. in Computer Vision and Medical Imaging, with a publication at SPIE Medical Imaging 2023. Passionate about where computer vision, multimodal AI, and production engineering converge.",
     linkedin    : "https://www.linkedin.com/in/mahmoud-khaled-nasr/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-033",
+    order       : null,
+    name        : "Ahmed Aabed",
+    title       : "Senior Engineering Manger",
+    company     : "Yassir",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-033.png",
+    bio         : "Senior Engineering Manager with 13+ years of experience across DevOps, infrastructure, and engineering leadership. Former CTO at Zyda and Head of SRE at Nana, with previous roles at Instabug, Swvl, and Crowd Analyzer. Started in cybersecurity as a Malware Hunter at EG-CERT. Passionate about building high-performing engineering teams that ship products with real business impact.",
+    linkedin    : "https://www.linkedin.com/in/ahmadaabed/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-034",
+    order       : null,
+    name        : "Ahmed El Fakhrany",
+    title       : "Content Producer",
+    company     : "KodeKloud",
+    country     : "Netherlands",
+    countryCode : "NL",
+    photo       : "spk-034.png",
+    bio         : "Senior DevOps/SRE engineer with 15 years of experience in and around critical infrastructure, from SWIFT, the network powering global interbank payments, to Unix administration in banking. Specializes in Kubernetes platform engineering (operators, Helm, GitOps/ArgoCD), AWS (EKS, Terraform, IaC), and SRE practice. Also a technical educator with 12+ Udemy courses, KodeKloud certification content, and a YouTube channel of 22,000+ engineers. Certified in RHCSA, RHCE, CKA, HashiCorp Vault, and AWS. Meticulous about documentation, cool under pressure, and averse to downtime.",
+    linkedin    : "https://www.linkedin.com/in/aelfakharany/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
