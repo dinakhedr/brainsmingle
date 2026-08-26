@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-26 19:13 · 34 speakers.
+ * Generated 2026-08-26 21:49 · 35 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -501,7 +501,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/aabouzaid",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -530,9 +530,9 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-030.png",
-    bio         : "UX Researcher and Strategist with 11 years of hands-on experience in design, product strategy, and human-centered research. Background in Architecture, with work spanning 40+ entities. Specializes in leading UX research, tackling complex design operations, and maximizing the value of human-centered design for impactful product experiences.",
+    bio         : "A Product Design Expert with 13 years of hand-on experience focused on Product Strategy, User Research, and Interaction Design, with an educational background in Architecture. Enjoys maximizing the value of Human Centered Design for the people interacting with products of over 50+ entities that I’ve crossed path with through direct work or mentorship capacity.",
     linkedin    : "https://www.linkedin.com/in/azoughby/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed4721",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
@@ -586,7 +586,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -600,6 +600,23 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-034.png",
     bio         : "Senior DevOps/SRE engineer with 15 years of experience in and around critical infrastructure, from SWIFT, the network powering global interbank payments, to Unix administration in banking. Specializes in Kubernetes platform engineering (operators, Helm, GitOps/ArgoCD), AWS (EKS, Terraform, IaC), and SRE practice. Also a technical educator with 12+ Udemy courses, KodeKloud certification content, and a YouTube channel of 22,000+ engineers. Certified in RHCSA, RHCE, CKA, HashiCorp Vault, and AWS. Meticulous about documentation, cool under pressure, and averse to downtime.",
     linkedin    : "https://www.linkedin.com/in/aelfakharany/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-036",
+    order       : null,
+    name        : "Hussein Galal",
+    title       : "Staff Software Engineer",
+    company     : "SUSE",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-036.png",
+    bio         : "Staff Software Engineer at SUSE with 10+ years of experience in Linux systems and cloud-native engineering. Spent nearly 5 years at Rancher Labs building Kubernetes infrastructure, following a foundation in Linux system administration. Certified Kubernetes Administrator (CKA) with a B.Sc. in Computer Science from Alexandria University. Passionate about open-source, Linux, and container orchestration.",
+    linkedin    : "https://www.linkedin.com/in/galal-hussein/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
