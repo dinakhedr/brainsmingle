@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-27 00:09 · 36 speakers.
+ * Generated 2026-08-27 00:13 · 36 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -600,7 +600,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-034.png",
     bio         : "Infrastructure and platform engineer with 25 years of experience across Kubernetes, OpenShift, Linux/RHEL, AWS, Terraform, and HashiCorp Vault, most recently at SWIFT. In 2026, he left to teach full-time. Under the DevCloudLab name, he produces Arabic-language DevOps and Linux certification courses for learners across MENA, running the entire operation himself — writing, recording, editing, and publishing each course. Holds RHCSA, RHCE, CKA, AWS, and Vault certifications.",
     linkedin    : "https://www.linkedin.com/in/aelfakharany/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed9799",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
