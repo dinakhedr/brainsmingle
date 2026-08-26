@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-26 23:26 · 36 speakers.
+ * Generated 2026-08-27 00:09 · 36 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -593,12 +593,12 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-034",
     order       : null,
     name        : "Ahmed El Fakhrany",
-    title       : "Content Producer",
-    company     : "KodeKloud",
+    title       : "AWS Platform Engineer",
+    company     : "Schuberg Phillis",
     country     : "Netherlands",
     countryCode : "NL",
     photo       : "spk-034.png",
-    bio         : "Senior DevOps/SRE engineer with 15 years of experience in and around critical infrastructure, from SWIFT, the network powering global interbank payments, to Unix administration in banking. Specializes in Kubernetes platform engineering (operators, Helm, GitOps/ArgoCD), AWS (EKS, Terraform, IaC), and SRE practice. Also a technical educator with 12+ Udemy courses, KodeKloud certification content, and a YouTube channel of 22,000+ engineers. Certified in RHCSA, RHCE, CKA, HashiCorp Vault, and AWS. Meticulous about documentation, cool under pressure, and averse to downtime.",
+    bio         : "Infrastructure and platform engineer with 25 years of experience across Kubernetes, OpenShift, Linux/RHEL, AWS, Terraform, and HashiCorp Vault, most recently at SWIFT. In 2026, he left to teach full-time. Under the DevCloudLab name, he produces Arabic-language DevOps and Linux certification courses for learners across MENA, running the entire operation himself — writing, recording, editing, and publishing each course. Holds RHCSA, RHCE, CKA, AWS, and Vault certifications.",
     linkedin    : "https://www.linkedin.com/in/aelfakharany/",
     bmProfile   : null,
     featured    : false,
