@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-26 21:49 · 35 speakers.
+ * Generated 2026-08-26 23:26 · 36 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -603,6 +603,23 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-035",
+    order       : null,
+    name        : "Ahmed Sysy",
+    title       : "AI Content Creator",
+    company     : "",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-035.png",
+    bio         : "AI-powered video creator helping brands, educators, and creators produce high-impact content faster and without bloated production costs. Specializes in ads that sell without shouting, educational content, documentary-style storytelling, and faceless formats for YouTube, TikTok, and Reels. Blends AI tools with human storytelling to handle the full stack — scripting, voiceover, editing, visuals, and delivery — in one streamlined system.",
+    linkedin    : "https://www.linkedin.com/in/ahmed-sysy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
     appearances : []
   },
 
@@ -620,7 +637,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   }
 
 ];
