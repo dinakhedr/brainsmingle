@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-25 00:37 · 31 speakers.
+ * Generated 2026-08-26 12:32 · 32 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -549,6 +549,23 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-031.png",
     bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
     linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-032",
+    order       : null,
+    name        : "Mahmoud Abdelhamed",
+    title       : "Senior Computer Vision Engineer",
+    company     : "",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-032.png",
+    bio         : "Senior Computer Vision Engineer with 7+ years of experience building AI systems for real-world applications. Specializes in 3D Vision, Visual SLAM, deep learning, and multimodal systems combining images, engineering documents, and language models. Recently designing agentic workflows for engineering applications including design review and compliance verification. Holds an Erasmus Mundus M.Sc. in Computer Vision and Medical Imaging, with a publication at SPIE Medical Imaging 2023. Passionate about where computer vision, multimodal AI, and production engineering converge.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-khaled-nasr/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
