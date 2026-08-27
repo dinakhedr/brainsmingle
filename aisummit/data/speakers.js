@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-27 15:42 · 37 speakers.
+ * Generated 2026-08-27 23:37 · 37 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -287,17 +287,17 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-026",
     order       : 16,
     name        : "Ziad Elaily",
-    title       : "AI Tech & Business Lead",
-    company     : "PwC",
+    title       : "AI Practice & Business Lead",
+    company     : "PwC ETIC",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-026.png",
-    bio         : "AI and automation specialist at PwC, leading the development of generative AI bots that transform engineer and customer support. Previously at Capgemini, deploying NLP-powered chatbots to drive adoption and zero-touch rates. Experienced in computational design, MLOps, and cloud-based machine learning pipelines. Passionate about empowering organizations to embrace transformative technologies.",
+    bio         : "Ziad Elalaily is an AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
     linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ziad6252",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s3-t4", timeSlot: "20:00" }]
   },
 
   {
@@ -356,16 +356,16 @@ const SIGNAL_SPEAKERS = [
     order       : 20,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
-    company     : "NOOR",
-    country     : "KSA",
-    countryCode : "SA",
+    company     : "Noor Edtech",
+    country     : "Egypt",
+    countryCode : "EG",
     photo       : "spk-027.png",
-    bio         : "Edtech specialist with 13+ years of experience in instructional design and digital learning solutions. Bridges instructional design, psychology, and AI personalization to create transformational learning journeys — not just courses. Focused on learner experience, experiential learning, and AI-driven educational innovation that solves real problems.",
+    bio         : "Sherouk Ghallab is a Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
     linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
     bmProfile   : "https://brainsmingle.com/sherouk1278",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
   },
 
   {
