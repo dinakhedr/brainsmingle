@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-27 01:40 · 32 sessions, 0 with a sign-up link.
+ * Generated 2026-08-27 16:24 · 33 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -34,10 +34,11 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "panel", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "talk", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "panel", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034","spk-036"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d2-s2-t1", title: "AI in Education: From Hype to Practical Use", type: "talk", trackNumber: 1, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-034"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "talk", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t4", title: "Build or Buy Odoo use Case integrated with AI", type: "talk", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t5", title: "Building Through the Bubble: Telecom's Lessons for the AI Buildout", type: "talk", trackNumber: 5, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-011"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d2-s3-t1", title: "DPC Talk", type: "talk", trackNumber: 1, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d2-s3-t1", title: null, type: "talk", trackNumber: 1, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s3-t3", title: "How to build your GenAI application", type: "talk", trackNumber: 3, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-021"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s3-t4", title: "Designing Trust: What AI-Ready UX Looks Like When It Ships", type: "panel", trackNumber: 4, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-028","spk-030"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s3-t5", title: "Building Deep Search Agent from Scratch", type: "talk", trackNumber: 5, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-005"], bmUrl: null, description: null, special: null, status: "closed" },
@@ -49,10 +50,10 @@ const SIGNAL_AGENDA = [
   // ======================================
   { id: "ses-d3-s1-t3", title: "From Idea to AI Startup: Building an MVP in Days, Not Months", type: "talk", trackNumber: 3, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-022"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t4", title: null, type: "talk", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-017"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d3-s2-t1", title: null, type: "talk", trackNumber: 1, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-027"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d3-s2-t1", title: "Redesigning L&D Offer for an AI-Native Workforce", type: "talk", trackNumber: 1, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-027"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s2-t2", title: "Creative & AI:  [Vs. or Ft.]?", type: "panel", trackNumber: 2, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-016"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s2-t4", title: "AI in Marketing", type: "talk", trackNumber: 4, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-007"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d3-s3-t1", title: "how to be the most valuable leader in AI era", type: "panel", trackNumber: 1, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d3-s3-t1", title: "How to be the most valuable leader in AI era", type: "panel", trackNumber: 1, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-spotlight", title: null, type: "talk", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "closed" },
   { id: "ses-d3-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
