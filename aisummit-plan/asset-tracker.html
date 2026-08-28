@@ -125,6 +125,10 @@ td.due{white-space:nowrap;font-size:12.5px;}
 .ph-During{background:#DFF7EF;color:#0A7A56;}
 .ph-Post{background:#EDEDF2;color:#4C4C5C;}
 .st-Built{background:#D9F2E6;color:#0A7A56;}
+tr.row-built td{background:#C7EED9;}
+tr.row-built:hover td{background:#B5E8CC;}
+tr.row-inprogress td{background:#B3D0F7;}
+tr.row-inprogress:hover td{background:#9DC2F3;}
 .st-Template{background:#EDE7FE;color:#4A28C0;}
 .st-Toproduce{background:#FCEFD3;color:#8A5A00;}
 
@@ -366,7 +370,7 @@ var CONFIG = {
     var h='<div class="group"><div class="group-h"><h3>'+esc(title)+'</h3><span class="cnt">'+list.length+'</span></div>'+
       '<table><thead><tr>'+th("Asset","asset")+th("Phase","phase")+th("Purpose","purpose")+th("Format","format")+th("Status","status")+th("Due / timing","due")+'</tr></thead><tbody>';
     list.forEach(function(r){
-      h+='<tr><td class="asset">'+esc(r.asset)+'</td>'+
+      h+='<tr'+(r.status==="Built"?' class="row-built"':r.status==="In progress"?' class="row-inprogress"':'')+'><td class="asset">'+esc(r.asset)+'</td>'+
         '<td>'+phasePill(r.phase)+'</td>'+
         '<td class="purpose">'+esc(r.purpose)+'</td>'+
         '<td class="fmt">'+esc(r.format)+'</td>'+
