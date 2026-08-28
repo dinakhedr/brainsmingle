@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-27 23:37 · 37 speakers.
+ * Generated 2026-08-28 23:49 · 39 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -99,7 +99,7 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-011",
     order       : 5,
-    name        : "Hany Elmalky",
+    name        : "Hani Elmalky",
     title       : "Head of AI & Innovation, GFiber",
     company     : "Google",
     country     : "USA",
@@ -655,6 +655,40 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
+  },
+
+  {
+    id          : "spk-038",
+    order       : null,
+    name        : "Bassem Ahmed",
+    title       : "CEO",
+    company     : "Premier Rank",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-038.png",
+    bio         : "CEO and E-Commerce Strategist at Premier Rank E-Business Solutions, a leading agency across Egypt and Saudi Arabia. With 14+ years in MENA e-commerce, Bassem has worked on 1M+ product pages and trained 1,400+ professionals. Specializes in catalog engineering, marketplace operations (Amazon, Noon, Shopify), and e-commerce automation. Ranked top 10 among Arabic-speaking e-commerce creators on LinkedIn by Favikon.",
+    linkedin    : "https://www.linkedin.com/in/bassem-ahmed7/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-039",
+    order       : null,
+    name        : "Ahmed Esmail",
+    title       : "Business Development Engineer",
+    company     : "EVRAID",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-039.png",
+    bio         : "Business Development Engineer blending an engineering background with a passion for technology, business, and personal branding. Experienced in sales, partnerships, and the Electric Vehicle industry. Also an educator and content creator, helping students and professionals build their skills, strengthen their personal brand, and access real opportunities.",
+    linkedin    : "https://www.linkedin.com/in/esmaillab/",
+    bmProfile   : "https://brainsmingle.com/esmaillab",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 6, sessionId: "ses-d6-s2-t1", timeSlot: "19:00" }]
   }
 
 ];
