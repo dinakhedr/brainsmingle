@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-28 23:49 · 39 speakers.
+ * Generated 2026-08-29 00:57 · 40 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -689,6 +689,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 6, sessionId: "ses-d6-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-040",
+    order       : null,
+    name        : "Fady Fouad",
+    title       : "Art Director / Ai film maker",
+    company     : "Fndmntl Labs",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-040.png",
+    bio         : "Art Director and AI Specialist focused on visual storytelling, filmmaking, and the evolving relationship between creativity and artificial intelligence. His work explores how art direction and emerging AI technologies come together to shape cinematic worlds and visual narratives. From concept development and character creation to cinematography and final execution, he integrates AI throughout the creative and filmmaking process.",
+    linkedin    : "https://www.linkedin.com/in/fady-fouad-a57b53203/overlay/contact-info/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s1-t2", timeSlot: "18:00" }]
   }
 
 ];
