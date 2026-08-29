@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-29 15:35 · 38 sessions, 0 with a sign-up link.
+ * Generated 2026-08-29 19:44 · 38 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
