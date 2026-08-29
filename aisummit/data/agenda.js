@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-29 00:56 · 37 sessions, 0 with a sign-up link.
+ * Generated 2026-08-29 15:35 · 38 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -69,6 +69,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 5
   // ======================================
+  { id: "ses-d5-s1-t2", title: "Create your first AI video", type: "talk", trackNumber: 2, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-041"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s3-t2", title: "Build Your Digital Twin: AI Content for Trainers & Experts", type: "talk", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s3-t4", title: null, type: "talk", trackNumber: 4, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-012"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-spotlight", title: null, type: "talk", trackNumber: null, day: 5, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "closed" },

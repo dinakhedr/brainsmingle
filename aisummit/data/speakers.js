@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-29 00:57 · 40 speakers.
+ * Generated 2026-08-29 15:34 · 42 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -695,17 +695,51 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-040",
     order       : null,
     name        : "Fady Fouad",
-    title       : "Art Director / Ai film maker",
+    title       : "Art Director & AI Film Maker",
     company     : "Fndmntl Labs",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-040.png",
     bio         : "Art Director and AI Specialist focused on visual storytelling, filmmaking, and the evolving relationship between creativity and artificial intelligence. His work explores how art direction and emerging AI technologies come together to shape cinematic worlds and visual narratives. From concept development and character creation to cinematography and final execution, he integrates AI throughout the creative and filmmaking process.",
-    linkedin    : "https://www.linkedin.com/in/fady-fouad-a57b53203/overlay/contact-info/",
+    linkedin    : "https://www.linkedin.com/in/fady-fouad-a57b53203/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-041",
+    order       : null,
+    name        : "Eyad Eldomairy",
+    title       : "Art Director",
+    company     : "Six10 Ventures",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-041.png",
+    bio         : "Seven years of experience as an art director, plus two years using Al to create video ads, static campaigns, UGC content, product shoots, and branding for e-commerce teams. He's worked with brands like Audi, SEAT, and Burger King, and in his session, he'll focus on where Al meets design, advertising, and marketing",
+    linkedin    : "https://www.linkedin.com/in/eyadaldomairy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-042",
+    order       : null,
+    name        : "Shereen Badr",
+    title       : "Founder & CEO",
+    company     : "Medrara Digitals",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-042.png",
+    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
+    linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
