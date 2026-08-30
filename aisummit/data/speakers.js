@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-30 13:37 · 44 speakers.
+ * Generated 2026-08-30 18:43 · 46 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -763,13 +763,47 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-044",
     order       : null,
     name        : "Ahmed Gohary",
-    title       : "Gohary",
-    company     : "AI Digital Content Creator",
+    title       : "AI Digital Content Creator",
+    company     : "Freelancer",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-044.png",
     bio         : "AI Digital Content Creator",
     linkedin    : "https://www.facebook.com/Farouk1881",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-045",
+    order       : null,
+    name        : "Mohamed Shokry",
+    title       : "AI Consultant",
+    company     : "Freelancer",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-045.png",
+    bio         : "Lead Architect and Design Manager with 17+ years of professional experience, including 5+ years in the GCC. His portfolio spans 100+ executed projects worth over $2 billion, ranging from medium-scale to mega-scale across diverse building types. Specializes in architectural design, design management, and project management, with a focus on value engineering and green digital approaches. Passionate about formulating unique architectural character for iconic, innovative projects.",
+    linkedin    : "https://www.linkedin.com/in/mohamed-shokry-el-kholy-a20a3468/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-046",
+    order       : null,
+    name        : "Anwar Aly",
+    title       : "Founder & CEO",
+    company     : "Zaher.ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-046.png",
+    bio         : "Digital growth strategist empowering Arabic brands to stay visible in the AI-driven search landscape, with a focus on closing the $25B visibility gap across AI platforms like ChatGPT and Gemini. Brings a background in Business Informatics and deep expertise in conversion rate optimization, behavioral marketing, and AI-driven strategies. A seasoned CRO consultant and trainer passionate about designing frameworks that drive measurable digital growth.",
+    linkedin    : "https://www.linkedin.com/in/anwaraly/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
