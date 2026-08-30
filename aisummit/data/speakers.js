@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-30 18:43 · 46 speakers.
+ * Generated 2026-08-30 23:08 · 47 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -805,6 +805,23 @@ const SIGNAL_SPEAKERS = [
     bio         : "Digital growth strategist empowering Arabic brands to stay visible in the AI-driven search landscape, with a focus on closing the $25B visibility gap across AI platforms like ChatGPT and Gemini. Brings a background in Business Informatics and deep expertise in conversion rate optimization, behavioral marketing, and AI-driven strategies. A seasoned CRO consultant and trainer passionate about designing frameworks that drive measurable digital growth.",
     linkedin    : "https://www.linkedin.com/in/anwaraly/",
     bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-047",
+    order       : null,
+    name        : "Ahmed Maher",
+    title       : "Cofounder & CEO",
+    company     : "Wessam.ai",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-047.png",
+    bio         : "CEO at Wessam AI, co-founder of SuperCommerce EMEA, former Managing Director at  Soleek Lab, product leader with 15+ years of experience in product, technology, and leadership.",
+    linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
+    bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
     featured    : false,
     showOnHome  : false,
     appearances : []
