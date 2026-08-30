@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-29 15:34 · 42 speakers.
+ * Generated 2026-08-30 13:37 · 44 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -736,6 +736,40 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-042.png",
     bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
     linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-043",
+    order       : null,
+    name        : "Ezzat Essam",
+    title       : "AI Animator",
+    company     : "TPP",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-043.png",
+    bio         : "AI Specialist and Art Director with 7+ years of experience in commercial design, illustration, and motion graphics. Currently AI Animator at TPP and Art Director at Sports United, with past leadership roles at Lamba Digital and Pi Plus Lab. Has worked with clients including the Italian Embassy in Cairo, Metropolitan, and F5 Agency. Industrial Engineering graduate turned digital artist. Passionate about blending creativity with emerging AI tools.",
+    linkedin    : "https://www.linkedin.com/in/ezzat-essam-355190189/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-044",
+    order       : null,
+    name        : "Ahmed Gohary",
+    title       : "Gohary",
+    company     : "AI Digital Content Creator",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-044.png",
+    bio         : "AI Digital Content Creator",
+    linkedin    : "https://www.facebook.com/Farouk1881",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,

@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-29 19:44 · 38 sessions, 0 with a sign-up link.
+ * Generated 2026-08-30 13:36 · 39 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -80,6 +80,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   { id: "ses-d6-s1-t4", title: "Beyond Copilots: Governed Agentic AI for Enterprise Decisions", type: "panel", trackNumber: 4, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-008"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s2-t1", title: "Building Your Personal Brand in the Age of AI", type: "talk", trackNumber: 1, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-039"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d6-s3-t2", title: null, type: "talk", trackNumber: 2, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-044"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-spotlight", title: null, type: "talk", trackNumber: null, day: 6, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "closed" },
   { id: "ses-d6-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 6, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
