@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-01 16:33 · 48 speakers.
+ * Generated 2026-09-02 01:26 · 49 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -841,7 +841,24 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/yasser7941",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-049",
+    order       : null,
+    name        : "Aya Abdelkader",
+    title       : "Product Marketing Lead",
+    company     : "Intalio",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-049.png",
+    bio         : "Product marketing leader specializing in AI and enterprise software, with 12+ years across Egypt, Saudi Arabia, and the wider MEA and European markets. At Intalio, she owns positioning, messaging, and go-to-market for four enterprise products spanning data management, process orchestration, AI agents, and correspondence management. Her edge is the combination: founder instincts, enterprise B2B discipline, and consumer-grade communication, backed by an MBA from the Swiss School of Management. Currently focused on how enterprise buyers discover software through AI rather than search.",
+    linkedin    : "https://www.linkedin.com/in/ayaabdelkader/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s1-t2", timeSlot: "18:00" }]
   }
 
 ];
