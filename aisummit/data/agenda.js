@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-08-31 03:05 · 40 sessions, 0 with a sign-up link.
+ * Generated 2026-09-01 16:34 · 41 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -63,6 +63,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 4
   // ======================================
+  { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "talk", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-spotlight", title: null, type: "talk", trackNumber: null, day: 4, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "closed" },
   { id: "ses-d4-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 4, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 

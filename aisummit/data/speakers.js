@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-08-31 03:05 · 47 speakers.
+ * Generated 2026-09-01 16:33 · 48 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -68,8 +68,8 @@ const SIGNAL_SPEAKERS = [
     name        : "Kate Barker",
     title       : "Chief Futurist",
     company     : "NEOM",
-    country     : "Egypt",
-    countryCode : "EG",
+    country     : "UAE",
+    countryCode : "AE",
     photo       : "spk-003.png",
     bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
     linkedin    : "https://www.linkedin.com/in/drkatebarker/",
@@ -822,6 +822,23 @@ const SIGNAL_SPEAKERS = [
     bio         : "CEO at Wessam AI, co-founder of SuperCommerce EMEA, former Managing Director at  Soleek Lab, product leader with 15+ years of experience in product, technology, and leadership.",
     linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
     bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-048",
+    order       : null,
+    name        : "Yasser Abdellateef",
+    title       : "Creative Director",
+    company     : "Andalusia Group",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-048.png",
+    bio         : "Creative Director with 18+ years in advertising, working across ideas, disciplines, markets, and cultures. Has spent his career building work, leading creative teams, and chasing the idea that makes everything else click. Today, his focus is on how creativity is evolving, where new tools make execution easier, and taste, judgment, and original thinking matter more than ever. Alongside his creative work, he teaches and mentors emerging creatives, sharing what the industry truly demands beyond the brief and the polished case study.",
+    linkedin    : "https://www.linkedin.com/in/yasser-abdellateif-1369766b/",
+    bmProfile   : "https://brainsmingle.com/yasser7941",
     featured    : false,
     showOnHome  : false,
     appearances : []
