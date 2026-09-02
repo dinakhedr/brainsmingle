@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-02 12:27 · 51 speakers.
+ * Generated 2026-09-02 13:37 · 51 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -114,8 +114,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-024",
+    id          : "spk-047",
     order       : 6,
+    name        : "Ahmed Maher",
+    title       : "Cofounder & CEO",
+    company     : "Wessam.ai",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-047.png",
+    bio         : "CEO at Wessam AI, co-founder of SuperCommerce EMEA, former Managing Director at  Soleek Lab, product leader with 15+ years of experience in product, technology, and leadership.",
+    linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
+    bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-024",
+    order       : 7,
     name        : "Sami AlAhmed",
     title       : "Founder & CEO",
     company     : "Doroob",
@@ -132,7 +149,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 7,
+    order       : 8,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -145,23 +162,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-021",
-    order       : 8,
-    name        : "Moustafa Eshra",
-    title       : "Data & AI Enterprise Architect",
-    company     : "IBM",
-    country     : "France",
-    countryCode : "FR",
-    photo       : "spk-021.png",
-    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -182,8 +182,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-014",
+    id          : "spk-021",
     order       : 10,
+    name        : "Moustafa Eshra",
+    title       : "Data & AI Enterprise Architect",
+    company     : "IBM",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-014",
+    order       : 11,
     name        : "Hend El Damaty",
     title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
@@ -200,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 11,
+    order       : 12,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -217,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-023",
-    order       : 12,
+    order       : 13,
     name        : "Alaa Mukhtar",
     title       : "Sales Development Representative",
     company     : "Opentext",
@@ -234,7 +251,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 13,
+    order       : 14,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -251,7 +268,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 14,
+    order       : 15,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -262,13 +279,13 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/realelshamy/",
     bmProfile   : "https://brainsmingle.com/realElShamy",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : []
   },
 
   {
     id          : "spk-012",
-    order       : 15,
+    order       : 16,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -285,7 +302,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 16,
+    order       : 17,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -302,7 +319,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 17,
+    order       : 18,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -319,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 18,
+    order       : 19,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -336,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-025",
-    order       : 19,
+    order       : 20,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -352,8 +369,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-015",
+    order       : 21,
+    name        : "Amr Helal",
+    title       : "Founder",
+    company     : "DotPy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-015.png",
+    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
+    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
+    bmProfile   : "https://brainsmingle.com/hend6987",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
     id          : "spk-027",
-    order       : 20,
+    order       : 22,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "Noor Edtech",
@@ -414,23 +448,6 @@ const SIGNAL_SPEAKERS = [
     bio         : "Business development and commercial strategy leader driving global market expansion across Europe, Scandinavia, Egypt, KSA, and the UAE. Specializing in the \"Dedicated Team\" model, providing senior-led Egyptian engineering squads to international clients. 15+ years of business leadership with a Telecommunication Engineering background and C-suite consultancy expertise.",
     linkedin    : "https://www.linkedin.com/in/nadeem-abdin-7bb89524/",
     bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-015",
-    order       : null,
-    name        : "Amr Helal",
-    title       : "Founder",
-    company     : "DotPy",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-015.png",
-    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
-    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
-    bmProfile   : "https://brainsmingle.com/hend6987",
     featured    : false,
     showOnHome  : false,
     appearances : []
@@ -808,23 +825,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
-  },
-
-  {
-    id          : "spk-047",
-    order       : null,
-    name        : "Ahmed Maher",
-    title       : "Cofounder & CEO",
-    company     : "Wessam.ai",
-    country     : "USA",
-    countryCode : "US",
-    photo       : "spk-047.png",
-    bio         : "CEO at Wessam AI, co-founder of SuperCommerce EMEA, former Managing Director at  Soleek Lab, product leader with 15+ years of experience in product, technology, and leadership.",
-    linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
-    bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s3-t4", timeSlot: "20:00" }]
   },
 
   {
