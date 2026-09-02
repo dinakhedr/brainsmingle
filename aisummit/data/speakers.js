@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-02 13:37 · 51 speakers.
+ * Generated 2026-09-02 22:00 · 51 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -853,12 +853,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-049.png",
-    bio         : "Product marketing leader specializing in AI and enterprise software, with 12+ years across Egypt, Saudi Arabia, and the wider MEA and European markets. At Intalio, she owns positioning, messaging, and go-to-market for four enterprise products spanning data management, process orchestration, AI agents, and correspondence management. Her edge is the combination: founder instincts, enterprise B2B discipline, and consumer-grade communication, backed by an MBA from the Swiss School of Management. Currently focused on how enterprise buyers discover software through AI rather than search.",
+    bio         : "Product marketer and brand builder with 12 years across enterprise AI, software, and consumer technology in MENA. Product Marketing Lead at Intalio, taking enterprise AI and automation products to market across MEA, North Africa, Europe, and the Levant. Former Product Marketing Manager at Gotrah Ventures in Saudi Arabia, Strategic Marketing Supervisor for NilePreneurs at Nile University, and Marketing Manager for e-commerce and consumer brands across Egypt. MBA in Marketing & Luxury Management. Recipient of the Top 25 Emerging Marketing Innovators Award. Passionate about turning complex technology into stories buyers understand and sales teams can sell.",
     linkedin    : "https://www.linkedin.com/in/ayaabdelkader/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/aya8122",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s1-t2", timeSlot: "18:00" }]
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s1-t4", timeSlot: "18:00" }]
   },
 
   {
@@ -892,7 +892,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/aoun4432",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s3-t3", timeSlot: "20:00" }]
   }
 
 ];
