@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-02 01:26 · 49 speakers.
+ * Generated 2026-09-02 12:27 · 51 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -859,6 +859,40 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-050",
+    order       : null,
+    name        : "Karim Nabil",
+    title       : "AI Engineer",
+    company     : "FPT Software",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-050.png",
+    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
+    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
+    bmProfile   : "https://brainsmingle.com/karim3423",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-051",
+    order       : null,
+    name        : "Oun Alazam",
+    title       : "Founder",
+    company     : "brono.ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-051.png",
+    bio         : "Enthusiastic full stack developer with a knack for crafting creative solutions across web, mobile, and game development. Adept in a comprehensive tech stack encompassing React, React Native, Node.js, JavaScript, TypeScript, Astro.js, PHP, SQL, Java, Figma, and more, with a keen eye for staying ahead of the curve (e.g., Go, UX). Possesses a strong work ethic and thrives in fast-paced environments. Continuously expanding skillset through self-directed learning.",
+    linkedin    : "https://www.linkedin.com/in/aoun-alazzam",
+    bmProfile   : "https://brainsmingle.com/aoun4432",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
