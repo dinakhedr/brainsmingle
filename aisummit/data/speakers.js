@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-03 14:03 · 53 speakers.
+ * Generated 2026-09-03 14:30 · 53 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -141,7 +141,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-024.png",
     bio         : "Syrian Entrepreneur and technical founder with 10+ years building ventures that connect MENA youth to opportunity. Founder of Emonovo (formerly MARJ3), the region's leading study-abroad platform with 2.5M+ monthly users and 350+ university partners, which began with Khatwa, a volunteer network founded in 2013. Currently CEO & Co-Founder of Doroob, building education-to-employment pathways in Syria as the country rebuilds. Stanford AMENDS fellow, WEF Global Shaper, and TEDx speaker. Passionate about AI, automation, and helping youth go from learning to earning.",
     linkedin    : "https://www.linkedin.com/in/samialahmad/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/sami9921",
     featured    : false,
     showOnHome  : true,
     appearances : []
@@ -209,7 +209,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-014.png",
     bio         : "Digital Transformation and AI Strategy Consultant based in Germany with a background in Electrical and Systems Engineering. Has worked with organizations including DFKI, Microsoft, Bosch, Amazon, and the International Olympic Committee across AI strategy, product management, and Industry 4.0/5.0. Co-founded tech ventures spanning AI, education, and real estate. Passionate about connecting European, Egyptian, and MENA innovation ecosystems and building bridges between technology, people, and business.",
     linkedin    : "https://www.linkedin.com/in/hend-eldamaty/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/hend6987",
     featured    : false,
     showOnHome  : true,
     appearances : []
@@ -413,7 +413,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-006.png",
     bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
     linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/yasmine7704",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
