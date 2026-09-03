@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-02 22:00 · 51 speakers.
+ * Generated 2026-09-03 14:03 · 53 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -893,6 +893,40 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-052",
+    order       : null,
+    name        : "Hassan Gad",
+    title       : "Founder",
+    company     : "Fgimawya",
+    country     : "KSA",
+    countryCode : "SA",
+    photo       : "spk-052.png",
+    bio         : "UX Engineering specialist with 14+ years of experience, now focused on UX leadership and management. Aligns user needs with business objectives and stakeholder expectations, providing clarity, reducing friction, and guiding teams toward user-centered, strategically effective outcomes. Collaborates across product, engineering, and stakeholders to translate strategic goals into scalable design systems and efficient workflows. Passionate about advancing UX maturity, strengthening cross-functional collaboration, and connecting vision to execution.",
+    linkedin    : "https://www.linkedin.com/in/hasangadux/",
+    bmProfile   : "https://brainsmingle.com/hasangad",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 6, sessionId: "ses-d6-s2-t2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-053",
+    order       : null,
+    name        : "Mo Fattah",
+    title       : "Founder & CEO",
+    company     : "KeepUp & MIT VAP Finalist",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-053.png",
+    bio         : "Mohamed Fattah is the Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
+    linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
