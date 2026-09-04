@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-04 14:56 · 55 speakers.
+ * Generated 2026-09-04 17:08 · 56 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -131,8 +131,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-024",
+    id          : "spk-056",
     order       : 7,
+    name        : "Margreet Magdy",
+    title       : "Founder",
+    company     : "You Are س",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-056.png",
+    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
+    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
+    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-024",
+    order       : 8,
     name        : "Sami AlAhmed",
     title       : "Founder & CEO",
     company     : "Doroob",
@@ -149,7 +166,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 8,
+    order       : 9,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -166,7 +183,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-004",
-    order       : 9,
+    order       : 10,
     name        : "Ashraf Bacheet",
     title       : "Founder",
     company     : "O7 Therapy",
@@ -183,7 +200,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-021",
-    order       : 10,
+    order       : 11,
     name        : "Moustafa Eshra",
     title       : "Data & AI Enterprise Architect",
     company     : "IBM",
@@ -200,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-014",
-    order       : 11,
+    order       : 12,
     name        : "Hend El Damaty",
     title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
@@ -217,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 12,
+    order       : 13,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -233,23 +250,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-023",
-    order       : 13,
-    name        : "Alaa Mukhtar",
-    title       : "Sales Development Representative",
-    company     : "Opentext",
-    country     : "UAE",
-    countryCode : "AE",
-    photo       : "spk-023.png",
-    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
-    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
-    bmProfile   : "https://brainsmingle.com/profile@alaa3964",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
-  },
-
-  {
     id          : "spk-005",
     order       : 14,
     name        : "Youssef Hosni",
@@ -262,7 +262,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
     bmProfile   : "https://brainsmingle.com/youssef9740",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
   },
 
@@ -284,8 +284,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-012",
+    id          : "spk-006",
     order       : 16,
+    name        : "Yasmine Aguib",
+    title       : "co-Chief, Research & Innovation Officer",
+    company     : "Magdi Yacoub Heart Foundation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-006.png",
+    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
+    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    bmProfile   : "https://brainsmingle.com/yasmine7704",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : 17,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -302,7 +319,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 17,
+    order       : 18,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -319,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 18,
+    order       : 19,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -336,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 19,
+    order       : 20,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -353,7 +370,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-025",
-    order       : 20,
+    order       : 21,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -370,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-015",
-    order       : 21,
+    order       : 22,
     name        : "Amr Helal",
     title       : "Founder",
     company     : "DotPy",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-027",
-    order       : 22,
+    order       : 23,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "Noor Edtech",
@@ -400,23 +417,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-006",
-    order       : null,
-    name        : "Yasmine Aguib",
-    title       : "co-Chief, Research & Innovation Officer",
-    company     : "Magdi Yacoub Heart Foundation",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-006.png",
-    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
-    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
-    bmProfile   : "https://brainsmingle.com/yasmine7704",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
   },
 
   {
@@ -501,7 +501,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/AbdullahAmer",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
   },
 
   {
@@ -536,6 +536,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-023",
+    order       : null,
+    name        : "Alaa Mukhtar",
+    title       : "Sales Development Representative",
+    company     : "Opentext",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-023.png",
+    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
+    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
+    bmProfile   : "https://brainsmingle.com/profile@alaa3964",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
   },
 
   {
