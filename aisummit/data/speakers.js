@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-03 14:30 · 53 speakers.
+ * Generated 2026-09-04 14:56 · 55 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -924,6 +924,40 @@ const SIGNAL_SPEAKERS = [
     bio         : "Mohamed Fattah is the Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
     linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
     bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-054",
+    order       : null,
+    name        : "Mohamed Sabry",
+    title       : "Co-founder & CEO",
+    company     : "LinkOut & Nabta",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-054.png",
+    bio         : "Dr. Mohamed Sabry brings 19+ years in business management, previously leading regional HR across Africa and Middle East at Koch Industries. An instructor at SCE-BUE and Co-founder/CEO at LinkOut & NABTA, he has coached 20,000+ leaders across 15+ nationalities, specializing in change management, human capital architecture, and organizational psychology.",
+    linkedin    : "https://www.linkedin.com/in/dr-msabry",
+    bmProfile   : "https://brainsmingle.com/drmohamed8551",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-055",
+    order       : null,
+    name        : "Mostafa Elganainy",
+    title       : "Head of AI",
+    company     : "Nowlun",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-055.png",
+    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
+    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
+    bmProfile   : "https://brainsmingle.com/mostafa4876",
     featured    : false,
     showOnHome  : false,
     appearances : []
