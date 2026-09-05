@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-04 17:32 · 53 sessions, 0 with a sign-up link.
+ * Generated 2026-09-05 14:47 · 54 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -63,6 +63,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 4
   // ======================================
+  { id: "ses-d4-s1-t3", title: "AI context building challenges for ops heavy startups", type: "panel", trackNumber: 3, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-055"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t4", title: "AI for Product Marketers: What Actually Changes in the Work", type: "talk", trackNumber: 4, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-049"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t3", title: "How the best founders use AI", type: "panel", trackNumber: 3, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-053"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t4", title: "The Human Architecture of AI Adoption: Change Management & Organizational Psychology", type: "talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-054"], bmUrl: null, description: null, special: null, status: "in-progress" },
