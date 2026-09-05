@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-05 20:51 · 57 speakers.
+ * Generated 2026-09-05 21:51 · 57 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -92,7 +92,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/drkatebarker/",
     bmProfile   : null,
     featured    : true,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : []
   },
 
@@ -313,7 +313,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/elsherbeeny",
     bmProfile   : "https://brainsmingle.com/Elsherbeeny",
     featured    : false,
-    showOnHome  : false,
+    showOnHome  : true,
     appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
   },
 
