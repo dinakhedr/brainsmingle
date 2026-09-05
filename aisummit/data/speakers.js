@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-05 14:51 · 56 speakers.
+ * Generated 2026-09-05 20:51 · 57 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -301,8 +301,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-012",
+    id          : "spk-057",
     order       : 17,
+    name        : "Ahmed Elsherbeeny",
+    title       : "AI/GenAI Lead Specialist SA (MENAT)",
+    company     : "Amazon Web Services (AWS)",
+    country     : "Canada",
+    countryCode : "CA",
+    photo       : "spk-057.png",
+    bio         : "Ahmed Elsherbeeny is a GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
+    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
+    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : 18,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -319,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 18,
+    order       : 19,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -336,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 19,
+    order       : 20,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -353,7 +370,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 20,
+    order       : 21,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -370,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-025",
-    order       : 21,
+    order       : 22,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-015",
-    order       : 22,
+    order       : 23,
     name        : "Amr Helal",
     title       : "Founder",
     company     : "DotPy",
@@ -404,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-027",
-    order       : 23,
+    order       : 24,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "Noor Edtech",
