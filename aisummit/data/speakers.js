@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-06 23:30 · 58 speakers.
+ * Generated 2026-09-07 00:14 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -233,8 +233,59 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-022",
+    id          : "spk-059",
     order       : 13,
+    name        : "Asif Shahriar",
+    title       : "AI Learning Strategist",
+    company     : "Constructor University",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-059.png",
+    bio         : "Learning strategist with 14+ years in academic leadership and corporate learning, helping institutions use Generative AI to design smarter learning systems and lead meaningful change. Currently leads an international GenAI initiative transforming higher education across Europe and Asia. Specializes in turning research into strategy, applying AI, behavioral science, and inclusive design frameworks like UDL and the Community of Inquiry. Previously built advising systems that doubled student intake and developed AI-enhanced LMS platforms. Passionate about aligning people, platforms, and pedagogy to solve real-world learning challenges.",
+    linkedin    : "https://www.linkedin.com/in/asif-shahriar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s3-t1", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-058",
+    order       : 14,
+    name        : "Ahmed ElKayesh",
+    title       : "Founder & AI/ML Engineer",
+    company     : "RoboPhi",
+    country     : "Belgium",
+    countryCode : "BE",
+    photo       : "spk-058.png",
+    bio         : "Ahmed ElKayesh is a Senior AI/ML Engineer and founder of RoboPhi, with 18 years of software and AI experience, including nine years at Nuance Communications and Microsoft. He focuses on healthcare AI, reliable language models, and evaluating whether AI systems are ready for real-world use.",
+    linkedin    : "https://www.linkedin.com/in/aelkayesh/",
+    bmProfile   : "https://brainsmingle.com/aelkayesh",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-055",
+    order       : 15,
+    name        : "Mostafa Elganainy",
+    title       : "Head of AI",
+    company     : "Nowlun",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-055.png",
+    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
+    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
+    bmProfile   : "https://brainsmingle.com/mostafa4876",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-022",
+    order       : 16,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -251,7 +302,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 14,
+    order       : 17,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -268,7 +319,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 15,
+    order       : 18,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -285,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-006",
-    order       : 16,
+    order       : 19,
     name        : "Yasmine Aguib",
     title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -302,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-057",
-    order       : 17,
+    order       : 20,
     name        : "Ahmed Elsherbeeny",
     title       : "AI/GenAI Lead Specialist SA (MENAT)",
     company     : "Amazon Web Services (AWS)",
@@ -319,7 +370,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 18,
+    order       : 21,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -336,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 19,
+    order       : 22,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -353,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 20,
+    order       : 23,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -370,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 21,
+    order       : 24,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -383,57 +434,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
-  },
-
-  {
-    id          : "spk-025",
-    order       : 22,
-    name        : "Mohamed Zahran",
-    title       : "Head of AI/ML",
-    company     : "Adam ai",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-025.png",
-    bio         : "Head of AI/ML, author, researcher, and co-inventor of 4 patent publications with 9+ years of experience delivering AI solutions across autonomous vehicles, ed-tech, and digital marketing. Leverages Generative AI, deep learning, computer vision, and data science to develop innovative, award-winning products. Passionate about turning cutting-edge research into real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/mohzahran/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-015",
-    order       : 23,
-    name        : "Amr Helal",
-    title       : "Founder",
-    company     : "DotPy",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-015.png",
-    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
-    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
-    bmProfile   : "https://brainsmingle.com/hend6987",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-027",
-    order       : 24,
-    name        : "Sherouk Ghallab",
-    title       : "Founder & Digital Learning Strategist",
-    company     : "Noor Edtech",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-027.png",
-    bio         : "Sherouk Ghallab is a Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
-    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
-    bmProfile   : "https://brainsmingle.com/sherouk1278",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
   },
 
   {
@@ -465,6 +465,23 @@ const SIGNAL_SPEAKERS = [
     bio         : "Business development and commercial strategy leader driving global market expansion across Europe, Scandinavia, Egypt, KSA, and the UAE. Specializing in the \"Dedicated Team\" model, providing senior-led Egyptian engineering squads to international clients. 15+ years of business leadership with a Telecommunication Engineering background and C-suite consultancy expertise.",
     linkedin    : "https://www.linkedin.com/in/nadeem-abdin-7bb89524/",
     bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-015",
+    order       : null,
+    name        : "Amr Helal",
+    title       : "Founder",
+    company     : "DotPy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-015.png",
+    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
+    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
+    bmProfile   : "https://brainsmingle.com/hend6987",
     featured    : false,
     showOnHome  : false,
     appearances : []
@@ -570,6 +587,40 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-025",
+    order       : null,
+    name        : "Mohamed Zahran",
+    title       : "Head of AI/ML",
+    company     : "Adam ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-025.png",
+    bio         : "Head of AI/ML, author, researcher, and co-inventor of 4 patent publications with 9+ years of experience delivering AI solutions across autonomous vehicles, ed-tech, and digital marketing. Leverages Generative AI, deep learning, computer vision, and data science to develop innovative, award-winning products. Passionate about turning cutting-edge research into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/mohzahran/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-027",
+    order       : null,
+    name        : "Sherouk Ghallab",
+    title       : "Founder & Digital Learning Strategist",
+    company     : "Noor Edtech",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-027.png",
+    bio         : "Sherouk Ghallab is a Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
+    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
+    bmProfile   : "https://brainsmingle.com/sherouk1278",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
   },
 
   {
@@ -978,40 +1029,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-055",
-    order       : null,
-    name        : "Mostafa Elganainy",
-    title       : "Head of AI",
-    company     : "Nowlun",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-055.png",
-    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
-    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
-    bmProfile   : "https://brainsmingle.com/mostafa4876",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-058",
-    order       : null,
-    name        : "Ahmed ElKayesh",
-    title       : "Founder & AI/ML Engineer",
-    company     : "RoboPhi",
-    country     : "Belgium",
-    countryCode : "BE",
-    photo       : "spk-058.png",
-    bio         : "Senior AI/ML Engineer and applied research scientist with 18 years of software and AI experience, including 9 years at Nuance Communications and Microsoft building production healthcare AI, clinical NLP, and machine learning. Today, he focuses on reliable LLM and RAG systems — turning private documents and company knowledge into AI applications that retrieve the right information and generate grounded, verifiable answers. His work spans retrieval and embeddings, document intelligence, LLM evaluation, hallucination detection, and production AI architecture. Founder of RoboPhi, where he builds reliable AI systems with a particular interest in healthcare. Passionate about closing the gap between an impressive AI demo and a system that can actually be trusted in production.",
-    linkedin    : "https://www.linkedin.com/in/aelkayesh/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
   }
 
 ];
