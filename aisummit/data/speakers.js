@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-05 21:51 · 57 speakers.
+ * Generated 2026-09-06 15:53 · 57 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -785,12 +785,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-042.png",
-    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
+    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, web analytics, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
     linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s1-t4", timeSlot: "18:00" }]
   },
 
   {
@@ -802,12 +802,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-043.png",
-    bio         : "AI Specialist and Art Director with 7+ years of experience in commercial design, illustration, and motion graphics. Currently AI Animator at TPP and Art Director at Sports United, with past leadership roles at Lamba Digital and Pi Plus Lab. Has worked with clients including the Italian Embassy in Cairo, Metropolitan, and F5 Agency. Industrial Engineering graduate turned digital artist. Passionate about blending creativity with emerging AI tools.",
+    bio         : "Ezzat Essam is an Egyptian Art Director, AI Visualizer, and Stand-up Comedian with over 9 years of experience in visual communication and creative direction. His work explores the intersection of design, storytelling, humor, and artificial intelligence, with a strong focus on using AI as a tool for creative thinking, art direction, and visual experimentation. @TPP_Ai Visual Artisit",
     linkedin    : "https://www.linkedin.com/in/ezzat-essam-355190189/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s3-t2", timeSlot: "20:00" }]
   },
 
   {
