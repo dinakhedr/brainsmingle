@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-06 15:53 · 57 speakers.
+ * Generated 2026-09-06 23:30 · 58 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -995,6 +995,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-058",
+    order       : null,
+    name        : "Ahmed ElKayesh",
+    title       : "Founder & AI/ML Engineer",
+    company     : "RoboPhi",
+    country     : "Belgium",
+    countryCode : "BE",
+    photo       : "spk-058.png",
+    bio         : "Senior AI/ML Engineer and applied research scientist with 18 years of software and AI experience, including 9 years at Nuance Communications and Microsoft building production healthcare AI, clinical NLP, and machine learning. Today, he focuses on reliable LLM and RAG systems — turning private documents and company knowledge into AI applications that retrieve the right information and generate grounded, verifiable answers. His work spans retrieval and embeddings, document intelligence, LLM evaluation, hallucination detection, and production AI architecture. Founder of RoboPhi, where he builds reliable AI systems with a particular interest in healthcare. Passionate about closing the gap between an impressive AI demo and a system that can actually be trusted in production.",
+    linkedin    : "https://www.linkedin.com/in/aelkayesh/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
   }
 
 ];
