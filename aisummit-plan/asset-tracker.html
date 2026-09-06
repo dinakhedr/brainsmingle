@@ -190,7 +190,7 @@ var CONFIG = {
     var unknown=seen.filter(function(s){return STATUS_ORDER.indexOf(s)<0;});
     return known.concat(unknown);
   }
-  var rows=[], groupBy="Type", sortKey=null, sortDir=1, srcUrl="", timer=null;
+  var rows=[], groupBy="Phase", sortKey=null, sortDir=1, srcUrl="", timer=null;
   var filters={q:"",types:new Set(),phases:new Set(),statuses:new Set()};
 
   var $=function(s){return document.querySelector(s);};
@@ -341,7 +341,7 @@ var CONFIG = {
       '<div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>'+
         '<input id="q" type="search" placeholder="Search assets, purpose, dates…" value="'+esc(filters.q)+'"></div>'+
       '<span class="seglabel">Group</span><div class="seg" id="seg">'+
-        ["Type","Phase","Status","None"].map(function(g){return '<button data-g="'+g+'"'+(groupBy===g?' class="on"':'')+'>'+g+'</button>';}).join("")+
+        ["Phase","Status","Type","None"].map(function(g){return '<button data-g="'+g+'"'+(groupBy===g?' class="on"':'')+'>'+g+'</button>';}).join("")+
       '</div></div>';
     html+='<div class="controls" style="margin-top:-6px">'+
       '<span class="seglabel">Phase</span><div class="chips" id="phchips">'+
