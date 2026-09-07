@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 15:50 · 59 speakers.
+ * Generated 2026-09-07 16:25 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -80,25 +80,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-003",
-    order       : 4,
-    name        : "Kate Barker",
-    title       : "Chief Futurist",
-    company     : "NEOM",
-    country     : "UAE",
-    countryCode : "AE",
-    photo       : "spk-003.png",
-    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
-    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
-    bmProfile   : null,
-    featured    : true,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-011",
-    order       : 5,
+    order       : 4,
     name        : "Hani Elmalky",
     title       : "Head of AI & Innovation, GFiber",
     company     : "Google",
@@ -115,7 +98,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-047",
-    order       : 6,
+    order       : 5,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -132,7 +115,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-056",
-    order       : 7,
+    order       : 6,
     name        : "Margreet Magdy",
     title       : "Founder",
     company     : "You Are س",
@@ -149,7 +132,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-024",
-    order       : 8,
+    order       : 7,
     name        : "Sami AlAhmed",
     title       : "Founder & CEO",
     company     : "Doroob",
@@ -166,7 +149,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 9,
+    order       : 8,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -183,7 +166,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-004",
-    order       : 10,
+    order       : 9,
     name        : "Ashraf Bacheet",
     title       : "Founder",
     company     : "O7 Therapy",
@@ -200,7 +183,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-021",
-    order       : 11,
+    order       : 10,
     name        : "Moustafa Eshra",
     title       : "Data & AI Enterprise Architect",
     company     : "IBM",
@@ -217,7 +200,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-014",
-    order       : 12,
+    order       : 11,
     name        : "Hend El Damaty",
     title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
@@ -234,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-059",
-    order       : 13,
+    order       : 12,
     name        : "Asif Shahriar",
     title       : "AI Learning Strategist",
     company     : "Constructor University",
@@ -251,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-058",
-    order       : 14,
+    order       : 13,
     name        : "Ahmed ElKayesh",
     title       : "Founder & AI/ML Engineer",
     company     : "RoboPhi",
@@ -268,7 +251,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-055",
-    order       : 15,
+    order       : 14,
     name        : "Mostafa Elganainy",
     title       : "Head of AI",
     company     : "Nowlun",
@@ -285,7 +268,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-050",
-    order       : 16,
+    order       : 15,
     name        : "Karim Nabil",
     title       : "AI Engineer",
     company     : "FPT Software",
@@ -302,7 +285,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-057",
-    order       : 17,
+    order       : 16,
     name        : "Ahmed Elsherbeeny",
     title       : "AI/GenAI Lead Specialist SA (MENAT)",
     company     : "Amazon Web Services (AWS)",
@@ -319,7 +302,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 18,
+    order       : 17,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -336,7 +319,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 19,
+    order       : 18,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -353,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-006",
-    order       : 20,
+    order       : 19,
     name        : "Yasmine Aguib",
     title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -370,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 21,
+    order       : 20,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -387,7 +370,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 22,
+    order       : 21,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -404,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 23,
+    order       : 22,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -421,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 24,
+    order       : 23,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -438,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : null,
+    order       : 24,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -447,6 +430,23 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-029.png",
     bio         : "Marketing Manager with 10+ years of experience transforming brands across e-commerce, SaaS, and non-profit sectors in MENA markets. Currently at TWO, leading cross-functional teams to optimize pricing and customer engagement for e-commerce portfolios. Previously redesigned digital outreach at Mersal Foundation, expanding organic reach and community loyalty. Specializes in lifecycle marketing, SEO, CRM, and building high-engagement ecosystems.",
     linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-003",
+    order       : null,
+    name        : "Kate Barker",
+    title       : "Chief Futurist",
+    company     : "NEOM",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-003.png",
+    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
+    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
