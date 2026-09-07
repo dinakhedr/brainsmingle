@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 19:21 · 59 speakers.
+ * Generated 2026-09-07 20:16 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -728,7 +728,7 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-035",
     order       : null,
-    name        : "Ahmed Sisi",
+    name        : "Ahmed El Sisi",
     title       : "AI Video Director & Creative Systems Builder",
     company     : "Bridges Foundation",
     country     : "Egypt",
