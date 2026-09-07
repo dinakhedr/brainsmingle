@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 00:14 · 59 speakers.
+ * Generated 2026-09-07 12:50 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -284,25 +284,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-022",
+    id          : "spk-050",
     order       : 16,
-    name        : "Ebrahem Anwar",
-    title       : "Founder",
-    company     : "ICCY",
+    name        : "Karim Nabil",
+    title       : "AI Engineer",
+    company     : "FPT Software",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-022.png",
-    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
-    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
-    bmProfile   : null,
+    photo       : "spk-050.png",
+    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
+    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
+    bmProfile   : "https://brainsmingle.com/karim3423",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-057",
+    order       : 17,
+    name        : "Ahmed Elsherbeeny",
+    title       : "AI/GenAI Lead Specialist SA (MENAT)",
+    company     : "Amazon Web Services (AWS)",
+    country     : "Canada",
+    countryCode : "CA",
+    photo       : "spk-057.png",
+    bio         : "Ahmed Elsherbeeny is a GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
+    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
+    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
   },
 
   {
     id          : "spk-005",
-    order       : 17,
+    order       : 18,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -319,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 18,
+    order       : 19,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -336,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-006",
-    order       : 19,
+    order       : 20,
     name        : "Yasmine Aguib",
     title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -352,25 +369,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-057",
-    order       : 20,
-    name        : "Ahmed Elsherbeeny",
-    title       : "AI/GenAI Lead Specialist SA (MENAT)",
-    company     : "Amazon Web Services (AWS)",
-    country     : "Canada",
-    countryCode : "CA",
-    photo       : "spk-057.png",
-    bio         : "Ahmed Elsherbeeny is a GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
-    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
-    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
+    id          : "spk-022",
+    order       : 21,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
     featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
   },
 
   {
     id          : "spk-012",
-    order       : 21,
+    order       : 22,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 22,
+    order       : 23,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -404,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 23,
+    order       : 24,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -421,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 24,
+    order       : null,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "SABIKA",
@@ -497,7 +514,7 @@ const SIGNAL_SPEAKERS = [
     countryCode : "EG",
     photo       : "spk-016.png",
     bio         : "Creative Director with 10+ years in advertising, blending a musician's eye for detail with strategic creativity. Evolved from copywriter to Creative Director across top agencies including Kijamii, Media Hub, Hive Analytics, and Mint & Co. Expert in strategy, copywriting, digital activations, and campaign production. Passionate about nurturing ideas into products that attract and linger in minds.",
-    linkedin    : "linkedin.com/in/ehab-khaled-fawzi-65809697",
+    linkedin    : "https://www.linkedin.com/in/ehab-khaled-fawzi-65809697/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
@@ -565,7 +582,7 @@ const SIGNAL_SPEAKERS = [
     countryCode : "EG",
     photo       : "spk-020.png",
     bio         : "Enterprise Architect and Digital Transformation Expert with 12+ years of experience turning complex operations into scalable digital products. Sits at the intersection of business, technology, and product — designing smart systems powered by automation, AI/ML, and IoT. Combines product thinking with solution architecture to deliver and scale real impact.",
-    linkedin    : "linkedin.com/in/nader-sayed-y",
+    linkedin    : "https://www.linkedin.com/in/nader-sayed-y/",
     bmProfile   : "https://brainsmingle.com/nader2tawasol",
     featured    : false,
     showOnHome  : false,
@@ -944,23 +961,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s1-t4", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-050",
-    order       : null,
-    name        : "Karim Nabil",
-    title       : "AI Engineer",
-    company     : "FPT Software",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-050.png",
-    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
-    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
-    bmProfile   : "https://brainsmingle.com/karim3423",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
