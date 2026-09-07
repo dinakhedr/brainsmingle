@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 16:25 · 59 speakers.
+ * Generated 2026-09-07 19:21 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -728,15 +728,15 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-035",
     order       : null,
-    name        : "Ahmed Sysy",
-    title       : "AI Content Creator",
-    company     : "",
+    name        : "Ahmed Sisi",
+    title       : "AI Video Director & Creative Systems Builder",
+    company     : "Bridges Foundation",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-035.png",
-    bio         : "AI-powered video creator helping brands, educators, and creators produce high-impact content faster and without bloated production costs. Specializes in ads that sell without shouting, educational content, documentary-style storytelling, and faceless formats for YouTube, TikTok, and Reels. Blends AI tools with human storytelling to handle the full stack — scripting, voiceover, editing, visuals, and delivery — in one streamlined system.",
+    bio         : "AI Video Director and creative systems builder who helps educators, experts, and thought leaders transform their knowledge into professional video content using AI avatars, digital twins, and end-to-end production workflows.",
     linkedin    : "https://www.linkedin.com/in/ahmed-sysy/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed6113",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s3-t2", timeSlot: "20:00" }]

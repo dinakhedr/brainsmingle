@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-07 15:40 · 60 sessions, 0 with a sign-up link.
+ * Generated 2026-09-07 19:20 · 61 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -25,8 +25,9 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 1
   // ======================================
-  { id: "ses-d1-p4", title: null, type: "panel", trackNumber: null, day: 1, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 1, slot: 6, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
+  { id: "ses-d1-p3", title: "Reserved for Hend", type: "panel", trackNumber: null, day: 1, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p4", title: "TBD", type: "panel", trackNumber: null, day: 1, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 1, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
   // DAY 2
@@ -61,7 +62,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s3-t1", title: "How to be the most valuable leader in AI era", type: "panel", trackNumber: 1, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s3-t3", title: "How to design your app ideas in minutes with AI", type: "talk", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-051"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "talk", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d3-spotlight", title: null, type: "talk", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "closed" },
+  { id: "ses-d3-spotlight", title: "Reserved for Hend", type: "talk", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d3-networking", title: "Daily Speed Networking", type: "networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
@@ -86,7 +87,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d5-s2-t2", title: "Create Complete AI Videos: Your Face, Voice, Visuals & Editing", type: "talk", trackNumber: 2, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-037"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t4", title: "Beyond the Benchmark: Evaluating AI in Healthcare and Beyond", type: "talk", trackNumber: 4, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-058"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t5", title: "RTG Session", type: "talk", trackNumber: 5, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d5-s3-t2", title: "Build Your Digital Twin: AI Content for Trainers & Experts", type: "talk", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d5-s3-t2", title: "Digital Twins for Education: Turn Expertise into Scalable Content", type: "talk", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s3-t4", title: null, type: "talk", trackNumber: 4, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-012"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t5", title: "RTG Session", type: "talk", trackNumber: 5, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-spotlight", title: "RTG Panel", type: "talk", trackNumber: null, day: 5, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
