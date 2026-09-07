@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 15:39 · 59 speakers.
+ * Generated 2026-09-07 15:50 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -763,7 +763,7 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-037",
     order       : null,
     name        : "Mohamed ElAswad",
-    title       : "AI Trainer and consultant",
+    title       : "AI Trainer and Consultant",
     company     : "Aswad AI",
     country     : "Egypt",
     countryCode : "EG",
