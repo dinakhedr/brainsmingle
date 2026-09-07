@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 20:16 · 59 speakers.
+ * Generated 2026-09-07 22:23 · 61 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -241,7 +241,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Belgium",
     countryCode : "BE",
     photo       : "spk-058.png",
-    bio         : "Ahmed ElKayesh is a Senior AI/ML Engineer and founder of RoboPhi, with 18 years of software and AI experience, including nine years at Nuance Communications and Microsoft. He focuses on healthcare AI, reliable language models, and evaluating whether AI systems are ready for real-world use.",
+    bio         : "Senior AI/ML Engineer and founder of RoboPhi, with 18 years of software and AI experience, including nine years at Nuance Communications and Microsoft. He focuses on healthcare AI, reliable language models, and evaluating whether AI systems are ready for real-world use.",
     linkedin    : "https://www.linkedin.com/in/aelkayesh/",
     bmProfile   : "https://brainsmingle.com/aelkayesh",
     featured    : false,
@@ -292,7 +292,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Canada",
     countryCode : "CA",
     photo       : "spk-057.png",
-    bio         : "Ahmed Elsherbeeny is a GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
+    bio         : "GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
     linkedin    : "https://www.linkedin.com/in/elsherbeeny",
     bmProfile   : "https://brainsmingle.com/Elsherbeeny",
     featured    : false,
@@ -394,7 +394,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-026.png",
-    bio         : "Ziad Elalaily is an AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
+    bio         : "AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
     linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
     bmProfile   : "https://brainsmingle.com/ziad6252",
     featured    : false,
@@ -632,7 +632,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-027.png",
-    bio         : "Sherouk Ghallab is a Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
+    bio         : "Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
     linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
     bmProfile   : "https://brainsmingle.com/sherouk1278",
     featured    : false,
@@ -870,7 +870,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-043.png",
-    bio         : "Ezzat Essam is an Egyptian Art Director, AI Visualizer, and Stand-up Comedian with over 9 years of experience in visual communication and creative direction. His work explores the intersection of design, storytelling, humor, and artificial intelligence, with a strong focus on using AI as a tool for creative thinking, art direction, and visual experimentation. @TPP_Ai Visual Artisit",
+    bio         : "Egyptian Art Director, AI Visualizer, and Stand-up Comedian with over 9 years of experience in visual communication and creative direction. His work explores the intersection of design, storytelling, humor, and artificial intelligence, with a strong focus on using AI as a tool for creative thinking, art direction, and visual experimentation. @TPP_Ai Visual Artisit",
     linkedin    : "https://www.linkedin.com/in/ezzat-essam-355190189/",
     bmProfile   : null,
     featured    : false,
@@ -1006,7 +1006,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-053.png",
-    bio         : "Mohamed Fattah is the Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
+    bio         : "Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
     linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
     bmProfile   : null,
     featured    : false,
@@ -1023,12 +1023,46 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-054.png",
-    bio         : "Dr. Mohamed Sabry brings 19+ years in business management, previously leading regional HR across Africa and Middle East at Koch Industries. An instructor at SCE-BUE and Co-founder/CEO at LinkOut & NABTA, he has coached 20,000+ leaders across 15+ nationalities, specializing in change management, human capital architecture, and organizational psychology.",
+    bio         : "Business management leader with 19+ years of experience, having previously led regional HR across Africa and the Middle East at Koch Industries. An instructor at SCE-BUE and Co-founder and CEO of LinkOut and NABTA, he has coached 20,000+ leaders across 15+ nationalities. Specializes in change management, human capital architecture, and organizational psychology.",
     linkedin    : "https://www.linkedin.com/in/dr-msabry",
     bmProfile   : "https://brainsmingle.com/drmohamed8551",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-060",
+    order       : null,
+    name        : "Mohamed Kelany",
+    title       : "Co-Founder and CTO",
+    company     : "NtegralOne Solutions",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-060.png",
+    bio         : "Technology strategist working at the intersection of AI, high-performance computing, and enterprise transformation, with a decade of marketing experience behind him. As a certified NVIDIA Partner Expert, he specializes in configuring GPU-powered workstations, AI servers, and simulation-ready setups for industries like digital twins, robotics, and smart cities. He advises businesses, research labs, and digital pioneers on the infrastructure they need to accelerate innovation. Passionate about making state-of-the-art hardware accessible, understandable, and practical, bridging ambitious ideas with the computing power to bring them to life.",
+    linkedin    : "https://www.linkedin.com/in/kelanymo/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-061",
+    order       : null,
+    name        : "Abu Bakr Soliman",
+    title       : "Director of Artificial Intelligence",
+    company     : "Rankyx",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-061.png",
+    bio         : "Director of AI at Rankyx with 11+ years in Machine Learning and Data Science, plus over a decade of software engineering experience across large software houses. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Specializes in analyzing problems and architecting solutions across ML, deep learning, NLP, and data science. Also advises AI startups, builds open-source projects, and has educated thousands through his YouTube channel.",
+    linkedin    : "https://www.linkedin.com/in/bakrianoo/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
