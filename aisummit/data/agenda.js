@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-07 12:51 · 60 sessions, 0 with a sign-up link.
+ * Generated 2026-09-07 15:40 · 60 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -83,7 +83,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d5-s1-t3", title: "Democratizing Assessment Centres: AI-Driven Hiring for High-Growth Startups", type: "talk", trackNumber: 3, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-054"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s1-t4", title: "SEO Before vs. After AI: What Changed and What Still Works", type: "talk", trackNumber: 4, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-042"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s1-t5", title: "RTG Session", type: "talk", trackNumber: 5, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d5-s2-t2", title: "Create a Complete AI Video with your face, voice, visuals under 30 minutes", type: "talk", trackNumber: 2, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-037"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d5-s2-t2", title: "Create Complete AI Videos: Your Face, Voice, Visuals & Editing", type: "talk", trackNumber: 2, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-037"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t4", title: "Beyond the Benchmark: Evaluating AI in Healthcare and Beyond", type: "talk", trackNumber: 4, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-058"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t5", title: "RTG Session", type: "talk", trackNumber: 5, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t2", title: "Build Your Digital Twin: AI Content for Trainers & Experts", type: "talk", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },

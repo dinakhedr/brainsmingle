@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 12:50 · 59 speakers.
+ * Generated 2026-09-07 15:39 · 59 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -763,14 +763,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-037",
     order       : null,
     name        : "Mohamed ElAswad",
-    title       : "AI & Digital Marketing Consultant & Trainer",
-    company     : "",
+    title       : "AI Trainer and consultant",
+    company     : "Aswad AI",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-037.png",
-    bio         : "Digital Marketing Consultant and Trainer with 10+ years of experience turning ideas into powerful strategies that drive results. Has managed social media for celebrities, consulted for top brands, and trained professionals and organizations globally. Expertise spans marketing strategy, eCommerce launches, and global social media campaigns. Passionate about creativity, results, and staying ahead in an ever-evolving digital landscape.",
+    bio         : "AI & Digital Marketing Consultant and Trainer with 10+ years of experience. He specializes in Generative AI, AI-powered content and video production, and digital strategy, delivering professional training and consulting for academic institutions, national initiatives, and businesses across Egypt, the Gulf, and international markets.",
     linkedin    : "https://www.linkedin.com/in/mohamad-elaswad/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/mohamad2976",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s2-t2", timeSlot: "19:00" }]
