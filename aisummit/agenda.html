@@ -81,22 +81,32 @@
      SESSION DETAILS — populated by openSessionDetails()
 ══════════════════════════════════════════ -->
     <div class="modal-overlay" id="session-modal">
-        <div class="modal-box modal-box--sm">
+        <div class="modal-box modal-box--session" id="ses-box">
             <button class="modal-close" onclick="closeSessionDetails()" aria-label="Close"><span data-icon="close"></span></button>
-            <div class="ses-modal__track" id="ses-track"></div>
-            <h3 class="ses-modal__title" id="ses-title"></h3>
-            <p class="ses-modal__when" id="ses-when"></p>
-            <div id="ses-speakers-wrap">
-                <p class="ses-modal__label">Speakers</p>
-                <div class="ses-modal__speakers" id="ses-speakers"></div>
+
+            <div class="ses-modal__head">
+                <div class="ses-modal__track" id="ses-track"></div>
+                <h3 class="ses-modal__title" id="ses-title"></h3>
+                <div class="ses-modal__meta" id="ses-meta"></div>
             </div>
-            <div id="ses-desc-wrap">
-                <p class="ses-modal__label">About</p>
-                <p class="ses-modal__desc" id="ses-desc"></p>
-            </div>
-            <div class="ses-modal__actions">
-                <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Reserve your spot</button>
-                <p class="ses-modal__pending is-hidden" id="ses-pending"></p>
+
+            <div class="ses-modal__body">
+                <div id="ses-speakers-wrap">
+                    <p class="ses-modal__label" id="ses-speakers-label">Speakers</p>
+                    <div class="ses-modal__speakers" id="ses-speakers"></div>
+                </div>
+                <div id="ses-plain-wrap" class="is-hidden">
+                    <p class="ses-modal__label">What this is</p>
+                    <p class="ses-modal__plain" id="ses-plain"></p>
+                </div>
+                <div id="ses-desc-wrap">
+                    <p class="ses-modal__label">About</p>
+                    <p class="ses-modal__desc" id="ses-desc"></p>
+                </div>
+                <div class="ses-modal__actions">
+                    <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Reserve your spot</button>
+                    <p class="ses-modal__pending is-hidden" id="ses-pending"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -202,7 +212,20 @@
         // agenda.js carries type as "talk", "panel" or "networking".
         // Only the first two ever reach a track cell. Anything
         // unmapped renders nothing rather than a raw data value.
-        var AG_TYPE_LABELS = { talk: "Talk", panel: "Panel" };
+        var AG_TYPE_LABELS = { talk: "Talk", panel: "Panel", networking: "Speed networking" };
+
+        /* The modal wears the surface of the card it opened from. A track
+           session takes its own colour; the Spotlight and the Day 1
+           panels are purple, because neither belongs to a track; Speed
+           Networking is neutral and has no speakers to list. */
+        var AG_SESSION_SURFACES = {
+            spotlight:  { cls: "ses-modal--purple",  label: "Day Spotlight" },
+            networking: { cls: "ses-modal--neutral", label: "Daily wrap" },
+            opening:    { cls: "ses-modal--purple",  label: "Opening night" }
+        };
+
+        var AG_NETWORKING_BLURB =
+            "Matched one-to-one rounds with everyone still in the building. No sign-up, no track, just turn up.";
 
         /* A session counts as titled only when the title is real. agenda.js
            may carry a placeholder string instead of null, so compare against
@@ -576,18 +599,40 @@
             const track = s && s.trackNumber ? SIGNAL_TRACKS_BY_NUMBER[s.trackNumber] : null;
             const day = s && s.day ? SIGNAL_DAYS_MAP[s.day] : null;
 
+            /* Surface: track colour, purple, or neutral. A session with no
+               track that is not a special row is a Day 1 opening panel. */
+            let surface = null;
+            if (s && s.special && AG_SESSION_SURFACES[s.special]) {
+                surface = AG_SESSION_SURFACES[s.special];
+            } else if (s && !s.trackNumber) {
+                surface = AG_SESSION_SURFACES.opening;
+            }
+
+            const box = document.getElementById("ses-box");
+            box.className = "modal-box modal-box--session"
+                + (surface ? " " + surface.cls : (track ? " track-" + track.trackNumber : ""));
+
             const trackEl = document.getElementById("ses-track");
-            trackEl.innerHTML = track ?
-                `<span class="track-pill track-${track.trackNumber}"><span class="tl-icon">${_agIcon(AG_TRACK_ICON_KEYS[track.trackNumber])}</span>${track.shortName}</span>` :
-                "";
+            const label = surface ? surface.label : (track ? track.shortName : "");
+            trackEl.innerHTML = label
+                ? `<span class="ses-modal__dot"></span>${label}`
+                : "";
 
             document.getElementById("ses-title").textContent =
                 _realTitle(s) || specialName || AG_PLACEHOLDER_SESSION;
 
+            /* Type, length, day and time. With description null on every
+               session these carry the modal, so anything known is shown. */
+            const chips = [];
+            const typeLabel = s && AG_TYPE_LABELS[s.type];
+            if (typeLabel) chips.push(typeLabel);
+            if (s && s.durationMinutes) chips.push(s.durationMinutes + " min");
             const when = [];
             if (day) when.push(day.date);
             if (s && s.timeSlot) when.push(_time12(s.timeSlot));
-            document.getElementById("ses-when").textContent = when.join(" · ");
+            if (when.length) chips.push(when.join(" \u00B7 "));
+            document.getElementById("ses-meta").innerHTML =
+                chips.map(c => `<span class="ses-modal__chip">${c}</span>`).join("");
 
             const spk = document.getElementById("ses-speakers");
             const ids = (s && s.speakerIds) ? s.speakerIds : [];
@@ -595,11 +640,12 @@
                 const p = SIGNAL_SPEAKERS_MAP[id];
                 if (!p) return "";
                 const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(p) : null;
+                const flag = (typeof getCountryFlag === "function") ? getCountryFlag(p) : "";
                 const inner = `
           ${src ? `<img src="${src}" alt="" loading="lazy" />`
                 : `<span class="speaker-chip__initials">${_initials(p.name)}</span>`}
           <div>
-            <div class="ses-modal__speaker-name">${p.name}</div>
+            <div class="ses-modal__speaker-name">${p.name}${flag ? " " + flag : ""}</div>
             <div class="ses-modal__speaker-role">${p.title}${p.company ? ", " + p.company : ""}</div>
           </div>`;
                 // Members link out to their BrainsMingle profile; guests stay plain.
@@ -614,7 +660,19 @@
                 }
                 return `<div class="ses-modal__speaker">${inner}</div>`;
             }).join("");
+
+            /* One portrait gets more room than four. The label carries no
+               count: the rows below already say how many there are. */
+            spk.classList.toggle("ses-modal__speakers--solo", ids.length === 1);
+            document.getElementById("ses-speakers-label").textContent =
+                ids.length === 1 ? "Speaker" : "Speakers";
             document.getElementById("ses-speakers-wrap").classList.toggle("is-hidden", !spk.innerHTML.trim());
+
+            /* Speed Networking has no speakers on any day, so it says what
+               the hour is rather than leaving the body almost empty. */
+            const isNetworking = !!(s && s.special === "networking");
+            document.getElementById("ses-plain").textContent = isNetworking ? AG_NETWORKING_BLURB : "";
+            document.getElementById("ses-plain-wrap").classList.toggle("is-hidden", !isNetworking);
 
             const desc = (s && s.description) ? s.description : "";
             document.getElementById("ses-desc").textContent = desc;
@@ -622,7 +680,7 @@
 
             /* Reserve button: a session with a link opens its BrainsMingle
                page in a new tab; one without shows a greyed, non-clickable
-               state and the pending line, reusing agenda.js's copy. */
+               state and the pending line. */
             const signupBtn = document.getElementById("ses-signup");
             const pending = document.getElementById("ses-pending");
             if (s && s.bmUrl) {
@@ -635,7 +693,7 @@
             } else {
                 signupBtn.disabled = true;
                 signupBtn.classList.add("is-disabled");
-                signupBtn.textContent = "Sign-ups open soon";
+                signupBtn.textContent = "Opening soon";
                 signupBtn.onclick = null;
                 pending.textContent = "Register for the summit and we'll let you know the moment this one is live.";
                 pending.classList.remove("is-hidden");

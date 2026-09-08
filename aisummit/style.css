@@ -4187,63 +4187,141 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 /* The chip's ring is its track colour in both themes now. */
 
 
-/* ── Session detail modal ────────────────────────────────── */
+/* ── Session detail modal ──────────────────────────────────
+   The modal is the card you clicked, expanded: same tint, same edge,
+   same weight, so it reads as that card opening rather than a generic
+   popup. Three surfaces, one layout — a track session takes .track-N,
+   the Day Spotlight and the opening panels take --purple, and Speed
+   Networking takes --neutral.
+   ============================================================ */
 
 .modal-box--sm { max-width: 520px; }
 
-.ses-modal__track { margin-bottom: 14px; }
+/* Each zone sets its own padding, so the shared .modal-box padding is
+   cleared here. */
+.modal-box--session {
+  max-width: 540px; padding: 0; overflow: hidden;
+  border: 1px solid rgba(var(--track-rgb, var(--purple-rgb)), var(--card-edge));
+}
+
+/* Spotlight and opening panels. Redefining the track variables rather
+   than writing a second component keeps one set of rules below. */
+.ses-modal--purple {
+  --track-rgb:   var(--purple-rgb);
+  --track-color: var(--purple);
+  --track-ink:   var(--spotlight-ink);
+  --card-tint:   var(--spotlight-tint);
+  --card-edge:   var(--spotlight-edge);
+}
+
+/* Speed Networking. Neutral, and the only session type with no
+   speakers at all, so its body carries a line instead of a list. */
+.ses-modal--neutral { border-color: var(--border-strong); }
+.ses-modal--neutral .ses-modal__head {
+  background: var(--bg-card-2); border-bottom-color: var(--border-strong);
+}
+.ses-modal--neutral .ses-modal__track { color: var(--text-secondary); }
+.ses-modal--neutral .ses-modal__dot   { background: var(--text-secondary); }
+.ses-modal--neutral .ses-modal__chip  { border-color: var(--border); }
+
+/* The tint is composited over --bg, not over --bg-card. The same alpha
+   over the lighter card surface reads weaker, which would leave the
+   head a shade off the card it opened from. */
+.ses-modal__head {
+  padding: 24px 28px 22px;
+  background: linear-gradient(rgba(var(--track-rgb), var(--card-tint)),
+                              rgba(var(--track-rgb), var(--card-tint))), var(--bg);
+  border-bottom: 1px solid rgba(var(--track-rgb), var(--card-edge));
+}
+.ses-modal__body { padding: 22px 28px 26px; }
+
+.ses-modal__track {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 700;
+  color: var(--track-ink); margin-bottom: 12px;
+}
 .ses-modal__track:empty { display: none; }
+.ses-modal__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--track-color); flex-shrink: 0;
+}
 .ses-modal__title {
   font-family: var(--font-display);
-  font-weight: 900; font-size: 22px;
-  line-height: 1.15; letter-spacing: -0.02em;
+  font-weight: 800; font-size: 22px;
+  line-height: 1.2; letter-spacing: -0.02em;
   color: var(--text-primary);
 }
-.ses-modal__when {
-  font-family: var(--font-body); font-size: 13px;
-  color: var(--text-muted); margin-top: 7px;
+
+/* Type, length and when. With description null on every session, these
+   are most of what the modal has to say. */
+.ses-modal__meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
+.ses-modal__chip {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 5px 10px; border-radius: var(--radius-sm);
+  border: 1px solid rgba(var(--track-rgb), 0.35);
 }
+
 .ses-modal__label {
-  font-family: var(--font-body);
-  font-size: 10px; font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 9.5px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text-muted);
-  margin: 22px 0 10px;
+  margin: 0 0 10px;
 }
-.ses-modal__speakers { display: flex; flex-direction: column; gap: 10px; }
-.ses-modal__speaker { display: flex; align-items: center; gap: 11px; }
+
+/* Rows carry the head's tint, composited the same way. At a lighter
+   weight they read as ghosts under a strong head. The 8px gap is what
+   keeps four full-weight rows from fusing into one striped block. */
+.ses-modal__speakers { display: grid; gap: 8px; }
+.ses-modal__speaker {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 12px; border-radius: var(--radius-md);
+  background: linear-gradient(rgba(var(--track-rgb), var(--card-tint)),
+                              rgba(var(--track-rgb), var(--card-tint))), var(--bg);
+}
 .ses-modal__speaker img,
 .ses-modal__speaker .speaker-chip__initials {
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 42px; height: 42px; border-radius: 50%;
   object-fit: cover; object-position: center 15%; flex-shrink: 0;
+  font-family: var(--font-display); font-size: 13px; font-weight: 800;
+  color: var(--track-ink);
+  background: rgba(var(--track-rgb), 0.22);
+  border: 1.5px solid rgba(var(--track-rgb), 0.55);
+}
+/* One speaker gets the room a single portrait can use. */
+.ses-modal__speakers--solo .ses-modal__speaker { padding: 14px; }
+.ses-modal__speakers--solo img,
+.ses-modal__speakers--solo .speaker-chip__initials {
+  width: 64px; height: 64px; font-size: 19px;
 }
 .ses-modal__speaker-name {
-  font-family: var(--font-head); font-weight: 700; font-size: 14px;
-  color: var(--text-primary);
+  font-family: var(--font-display); font-weight: 700; font-size: 14px;
+  color: var(--text-primary); line-height: 1.25;
 }
 .ses-modal__speaker-role {
   font-family: var(--font-body); font-size: 12px;
-  color: var(--text-secondary); margin-top: 2px;
+  color: var(--text-secondary); line-height: 1.35; margin-top: 3px;
 }
-.ses-modal__desc {
-  font-family: var(--font-body); font-size: 14px; line-height: 1.65;
+.ses-modal__speaker--link { text-decoration: none; color: inherit; transition: filter .15s ease; }
+.ses-modal__speaker--link:hover { filter: brightness(1.12); }
+.ses-modal__speaker-arrow {
+  margin-left: auto; display: inline-flex;
+  color: var(--track-ink); flex-shrink: 0;
+}
+.ses-modal__speaker-arrow svg { width: 15px; height: 15px; }
+
+.ses-modal__desc,
+.ses-modal__plain {
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.6;
   color: var(--text-secondary);
 }
-.ses-modal__actions { margin-top: 26px; }
 
-/* ── Session modal: profile links, Reserve CTA, pending state ── */
-/* Speaker list reads as a table: tinted rows, hairline dividers */
-.ses-modal__speakers { gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-.ses-modal__speaker {
-  padding: 12px 14px;
-  background: rgba(var(--track-rgb, 103,35,255), 0.04);
-  border-bottom: 1px solid var(--border);
-}
-.ses-modal__speaker:last-child { border-bottom: none; }
-.ses-modal__speaker--link { text-decoration: none; color: inherit; transition: background .15s ease; }
-.ses-modal__speaker--link:hover { background: rgba(var(--track-rgb, 103,35,255), 0.10); }
-.ses-modal__speaker-arrow { margin-left: auto; display: inline-flex; color: var(--track-color, var(--text-muted)); flex-shrink: 0; }
-.ses-modal__speaker-arrow svg { width: 15px; height: 15px; }
+/* Reserve is the only action. No calendar button, no second CTA: a
+   pending session says so and stops there. */
+.ses-modal__actions { margin-top: 22px; }
 .ses-modal__actions .ag-session-signup--lg {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%;
@@ -4252,14 +4330,24 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .ag-session-signup.is-disabled,
 .ag-session-signup:disabled {
   background: var(--bg-card-2); color: var(--text-muted);
+  border: 1px solid var(--border);
   cursor: not-allowed; transform: none;
 }
 .ag-session-signup.is-disabled:hover,
 .ag-session-signup:disabled:hover { background: var(--bg-card-2); transform: none; }
 .ses-modal__pending {
-  font-family: var(--font-body); font-size: 12px; line-height: 1.5;
+  font-family: var(--font-body); font-size: 11.5px; line-height: 1.5;
   color: var(--text-muted); text-align: center; margin-top: 10px;
 }
+
+/* The close button sits on the tinted head, so it needs a surface of
+   its own rather than a bare icon. */
+.modal-box--session .modal-close {
+  top: 15px; right: 15px; width: 30px; height: 30px;
+  border-radius: 50%; background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+}
+.modal-box--session .modal-close:hover { border-color: var(--text-muted); }
 
 
 /* ============================================================
