@@ -207,6 +207,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
      --accent-400. */
   --purple:       #6723FF;
   --purple-dim:   #6723FF26;
+  /* Triplet for the same reason --accent-rgb is one: the Day Spotlight
+     tint switches weight with the theme inside a single rule. */
+  --purple-rgb:   103, 35, 255;
 
   /* Brand purple reads 3.12:1 on --bg, so it cannot carry text
      on a dark ground. This is --brand-300, at 6.81:1, and it is
@@ -300,6 +303,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* ── Layout */
   --max-width:    1200px;
   --section-pad:  100px 48px;
+
+  /* ── Agenda card tints
+     A session card carries its track colour as a fill rather than a
+     left bar. Dark runs a higher alpha than light: the same tint over
+     near-black reads weaker than it does over white.
+
+     The Day Spotlight is the one row where all five tracks merge, so
+     it takes brand purple and never a track colour. Speed Networking
+     is neutral and needs no token. */
+  --card-tint:       0.13;
+  --card-tint-hover: 0.20;
+  --card-edge:       0.42;
+  --spotlight-tint:  0.20;
+  --spotlight-edge:  0.50;
+  --spotlight-ink:   var(--purple-bright);
 }
 
 
@@ -560,17 +578,9 @@ a.tl-pill:active { transform: translateY(0); }
   background: rgba(var(--track-rgb), 0.07);
 }
 
-/* ── Agenda session track accents — keyed by trackNumber */
-.ag-session.track-1  { border-left-color: var(--track-1) !important; }
-.ag-session.track-1::before { background: var(--track-1); }
-.ag-session.track-2  { border-left-color: var(--track-2) !important; }
-.ag-session.track-2::before { background: var(--track-2); }
-.ag-session.track-3  { border-left-color: var(--track-3) !important; }
-.ag-session.track-3::before { background: var(--track-3); }
-.ag-session.track-4  { border-left-color: var(--track-4) !important; }
-.ag-session.track-4::before { background: var(--track-4); }
-.ag-session.track-5  { border-left-color: var(--track-5) !important; }
-.ag-session.track-5::before { background: var(--track-5); }
+/* Session cards take their track colour as a tint now, set once in
+   section 12 from --track-rgb. The left bar and the ::before strip
+   that used to live here are gone. */
 
 
 /* ============================================================
@@ -1336,55 +1346,95 @@ body.modal-open { overflow: hidden; }
 .ag-day-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 4vw, 48px); line-height: 1.1; color: var(--text-primary); margin-bottom: 10px; }
 .ag-day-desc  { font-family: var(--font-body); font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.70); }
 
-/* ── Track column grid */
+/* ── Track column grid
+   78px time rail. Every row in the day uses the same first column, so
+   .ag-grid's rail lines up against all of them. */
 .ag-track-header {
-  display: grid; grid-template-columns: 90px repeat(5, 1fr);
-  gap: 10px; margin-bottom: 12px;
+  display: grid; grid-template-columns: 78px repeat(5, 1fr);
+  gap: 12px; margin-bottom: 16px;
 }
+/* The label is no longer a boxed pill. The cards below it carry the
+   track tint now, so a second filled shape on top of the column was
+   two statements of the same fact. */
 .ag-track-col-label {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--font-body); font-size: 11px; font-weight: 700;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  padding: 10px 14px; border-radius: var(--radius-sm);
-  border: 1px solid; text-align: center;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.01em; text-transform: none;
+  padding: 0 0 9px; border: none; border-bottom: 2px solid;
+  border-radius: 0; text-align: left; background: none;
 }
-.ag-track-col-label.time-col { border: none; background: none; }
+.ag-track-col-label.time-col { border: none; }
 .ag-track-col-label.track-1,
 .ag-track-col-label.track-2,
 .ag-track-col-label.track-3,
 .ag-track-col-label.track-4,
 .ag-track-col-label.track-5 {
-  color: var(--track-color);
-  /* Width was never the reason these read faint. At 0.25 the outline
-     is barely separable from the 0.06 fill inside it. */
-  border-color: rgba(var(--track-rgb), 0.45);
-  background: rgba(var(--track-rgb), 0.06);
+  /* --track-ink falls back to --track-color, so this is a no-op on
+     dark and buys the AA-safe ink on light. */
+  color: var(--track-ink);
+  border-bottom-color: var(--track-color);
 }
 .ag-track-col-label .tl-icon { display: flex; flex-shrink: 0; }
 .ag-track-col-label .tl-icon svg { width: 16px; height: 16px; }
 .ag-track-col-label.time-col .tl-icon { display: none; }
 
 .ag-time-row {
-  display: grid; grid-template-columns: 90px repeat(5, 1fr);
-  gap: 10px; margin-bottom: 10px; align-items: stretch;
-}
-.ag-time-label {
-  font-family: var(--font-body); font-size: 13px; font-weight: 700;
-  color: rgba(255,255,255,0.55); padding-top: 16px;
-  text-align: right; padding-right: 10px; white-space: nowrap;
+  display: grid; grid-template-columns: 78px repeat(5, 1fr);
+  gap: 12px; margin-bottom: 12px; align-items: stretch;
 }
 
-/* ── Session card */
-.ag-session {
-  /* Not var(--border): that is 7% white in dark, which disappears
-     against --bg-card. The light theme overrides this rule anyway
-     with a solid #E6E3EE, so this value only ever applies on dark. */
-  background: var(--bg-card); border: 1.5px solid #FFFFFF2E;
-  border-radius: var(--radius-md); padding: 14px 16px;
-  position: relative; overflow: hidden;
-  min-height: 95px; display: flex; flex-direction: column; justify-content: space-between;
+/* One size, one weight, one face for every hour, so 6 through 10 read
+   as a continuous timeline rather than five separate labels. */
+.ag-time-label {
+  position: relative;
+  font-family: var(--font-display); font-size: 17px; font-weight: 800;
+  letter-spacing: -0.01em; color: var(--text-primary);
+  padding: 13px 16px 0 0; text-align: right; white-space: nowrap;
 }
-.ag-session::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+.ag-time-label::after {
+  content: ''; position: absolute; right: -4px; top: 18px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--text-muted);
+}
+
+/* The rail itself. Wraps every row of a day so the line is one
+   unbroken element instead of a border repeated per row and cut at
+   every gap. Added in agenda.html's renderTrackDay/renderOpeningDay. */
+.ag-grid { position: relative; }
+.ag-grid::before {
+  content: ''; position: absolute; left: 78px; top: 6px; bottom: 14px;
+  width: 1px; background: var(--border-mid);
+}
+
+/* Purple surfaces fill their node on the rail, so a row and its point
+   on the timeline agree: the Day Spotlight, and every confirmed
+   opening-night panel. An unfilled slot keeps the neutral node. */
+.ag-special-merged--spotlight .ag-time-label::after,
+.ag-panel-row--filled .ag-time-label::after {
+  background: var(--purple); border-color: var(--purple);
+}
+
+/* ── Session card
+   The card is its track's colour, tinted. No left bar, no strip, no
+   coloured glow: one signal, carried by the surface itself.
+   overflow:hidden went with the strip it used to clip. */
+.ag-session {
+  background: rgba(var(--track-rgb), var(--card-tint));
+  border: 1px solid rgba(var(--track-rgb), var(--card-edge));
+  border-radius: var(--radius-md); padding: 15px 16px;
+  position: relative;
+  min-height: 108px; display: flex; flex-direction: column; gap: 9px;
+}
+
+/* An unpublished slot must not read as a session. No fill, dashed edge. */
+.ag-session--empty {
+  background: none;
+  border: 1px dashed var(--border-mid);
+  align-items: center; justify-content: center;
+}
+.ag-session--empty .ag-session-title--placeholder {
+  font-size: 12px; font-style: normal; color: var(--text-muted);
+}
 
 /* ── Clickable session cards (agenda redesign) ─────────────── */
 .ag-session.is-clickable,
@@ -1392,29 +1442,32 @@ body.modal-open { overflow: hidden; }
 .ag-special-card.is-clickable { cursor: pointer; }
 .ag-panel, .ag-special-card { position: relative; }
 .ag-session.is-clickable {
-  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  transition: background .18s ease, border-color .18s ease,
+              transform .18s ease, box-shadow .18s ease;
 }
 .ag-session.is-clickable:hover,
 .ag-session.is-clickable:focus-visible {
-  border-color: var(--track-color, var(--purple));
-  box-shadow: 0 8px 22px rgba(var(--track-rgb, 103,35,255), 0.22);
+  background: rgba(var(--track-rgb), var(--card-tint-hover));
+  border-color: var(--track-color);
+  box-shadow: 0 8px 20px rgba(var(--track-rgb), 0.16);
   transform: translateY(-2px);
   outline: none;
 }
 .ag-panel.is-clickable:hover,
 .ag-special-card.is-clickable:hover { transform: translateY(-2px); }
-/* Info icon moves to the corner now the whole card is the button */
-.ag-session .ag-session-info,
-.ag-panel .ag-session-info,
-.ag-special-card .ag-session-info {
-  position: absolute; top: 12px; right: 12px; z-index: 2;
-  width: 30px; height: 30px;
-}
-.ag-session-title { padding-right: 34px; }
-.ag-panel-content { padding-right: 34px; }
+/* The corner info button is gone: the whole card already opens the
+   modal by click and by keyboard, so the 34px reserve it needed goes
+   with it. */
 .ag-session-title {
-  font-family: var(--font-body); font-size: 13px; font-weight: 600;
-  color: var(--text-primary); line-height: 1.4;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  color: var(--text-primary); line-height: 1.38;
+}
+
+/* Talk or panel, above the title, in the track's own ink. */
+.ag-session-type {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--track-ink);
 }
 
 .ag-session-title--placeholder { color: var(--text-primary); font-weight: 500; font-style: italic; }
@@ -1425,24 +1478,36 @@ body.modal-open { overflow: hidden; }
 .ag-panel-title--placeholder { color: var(--text-primary); font-weight: 500; font-style: italic; }
 .ag-panel-meta--placeholder  { color: var(--text-muted); font-style: italic; }
 /* ── Special merged row (Day Spotlight / Speed Networking) */
-.ag-special-merged { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; align-items: stretch; }
+.ag-special-merged { display: grid; grid-template-columns: 78px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
 .ag-special-card {
-  border-radius: var(--radius-md); padding: 14px 24px;
+  border-radius: var(--radius-md); padding: 16px 22px;
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  position: relative; overflow: hidden;
+  position: relative;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
 }
-.ag-special-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+.ag-special-card.is-clickable:hover { transform: translateY(-2px); }
 
-/* Day Spotlight — pink, identical on all five evenings */
-.ag-special-spotlight { background: rgba(245,62,159,0.16); border: 0.5px solid rgba(245,62,159,0.45); }
-.ag-special-spotlight::before { background: var(--track-2); }
-.ag-special-spotlight .ag-special-badge { color: var(--track-2); }
+/* Day Spotlight — brand purple. The five track colours belong to
+   tracks; this is the row where all five merge, so it cannot borrow
+   one of them without reading as a very wide Creative session. */
+.ag-special-spotlight {
+  background: rgba(var(--purple-rgb), var(--spotlight-tint));
+  border: 1px solid rgba(var(--purple-rgb), var(--spotlight-edge));
+}
+.ag-special-spotlight:hover { border-color: var(--purple); }
+.ag-special-spotlight .ag-special-badge { color: var(--spotlight-ink); }
 
-/* Speed Networking — rides --accent, so purple on light and teal on
-   dark, matching the Day 7 hero (.ag-sn-hero). */
-.ag-special-networking { background: rgba(var(--accent-rgb),0.16); border: 0.5px solid rgba(var(--accent-rgb),0.45); }
-.ag-special-networking::before { background: var(--accent); }
-.ag-special-networking .ag-special-badge { color: var(--accent); }
+/* Speed Networking — neutral. It closes the night rather than peaking
+   it, and two purple bands stacked would flatten the difference
+   between them. The icon is what keeps it from reading as an
+   unstyled block. */
+.ag-special-networking {
+  background: var(--bg-card-2);
+  border: 1px solid var(--border-strong);
+}
+.ag-special-networking:hover { border-color: var(--text-muted); }
+.ag-special-networking .ag-special-badge { color: var(--text-secondary); }
+.ag-special-networking .ag-badge-icon svg { width: 15px; height: 15px; }
 
 .ag-special-badge {
   display: inline-flex; align-items: center; gap: 7px;
@@ -1454,15 +1519,12 @@ body.modal-open { overflow: hidden; }
 .ag-special-name  { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: #fff; line-height: 1.2; }
 .ag-special-name--placeholder { color: var(--text-primary); font-weight: 500; font-style: italic; }
 
-/* Card titles take the card's own colour, theme-adaptive, instead of
-   black/white. Spotlight rides --track-2 (creative pink: bright on dark,
-   deep on light); Speed Networking rides --accent (purple on light, teal
-   on dark). Applies to the "To be announced" placeholder too. The
-   [data-theme="light"] variants outrank the generic light name rule. */
-.ag-special-spotlight  .ag-special-name,
-[data-theme="light"] .ag-special-spotlight  .ag-special-name { color: var(--track-2); }
-.ag-special-networking .ag-special-name,
-[data-theme="light"] .ag-special-networking .ag-special-name { color: var(--accent); }
+/* Card titles take the card's own colour. --spotlight-ink is the
+   bright purple on dark and the AA-safe ink on light; the networking
+   row is neutral, so its title is plain primary text. Applies to the
+   "To be announced" placeholder too. */
+.ag-special-spotlight  .ag-special-name { color: var(--spotlight-ink); }
+.ag-special-networking .ag-special-name { color: var(--text-primary); }
 .ag-special-meta  { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); }
 
 /* Title and its descriptor share one baseline-aligned row */
@@ -1483,10 +1545,7 @@ body.modal-open { overflow: hidden; }
   border-style: dashed;
   border-color: rgba(var(--track-rgb), 0.55);
 }
-.ag-panel--wip {
-  border-style: dashed;
-  border-left-style: solid;            /* keep the accent edge solid */
-}
+.ag-panel--wip { border-style: dashed; }
 .ag-special-card.ag-special-card--wip {
   border-style: dashed;
   border-width: 1.5px;
@@ -1501,25 +1560,83 @@ body.modal-open { overflow: hidden; }
 }
 .ag-wip-tag svg { width: 11px; height: 11px; flex-shrink: 0; }
 
-/* On the special cards the tag takes the card's own colour, theme-adaptive */
-.ag-special-spotlight  .ag-wip-tag { color: var(--track-2); border-color: var(--track-2); }
-.ag-special-networking .ag-wip-tag { color: var(--accent);  border-color: var(--accent); }
-
-/* ── Panel card (Day 1) */
-.ag-panel-row  { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; align-items: stretch; }
-.ag-panel {
-  /* Same border as .ag-session: var(--border) is 7% white in dark and
-     disappears against --bg-card, which left Day 1 reading borderless
-     next to the track-day grid. The light theme overrides this with
-     the same 1px var(--border) the session cards use there. */
-  background: var(--bg-card); border: 1.5px solid var(--border-strong);
-  border-left: 3px solid var(--accent); border-radius: var(--radius-md);
-  padding: 18px 20px; display: flex; align-items: center; gap: 20px;
+/* On the special cards the tag takes the card's own colour */
+.ag-special-spotlight .ag-wip-tag {
+  color: var(--spotlight-ink); border-color: rgba(var(--purple-rgb), 0.55);
 }
-.ag-panel-num     { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--accent); opacity: 0.5; flex-shrink: 0; }
-.ag-panel-content { flex: 1; }
-.ag-panel-title   { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
-.ag-panel-meta    { font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-top: 6px; }
+.ag-special-networking .ag-wip-tag {
+  color: var(--text-muted); border-color: var(--text-muted);
+}
+
+/* ── Panel card (Day 1)
+   Opening night has no tracks and, unlike every other evening, no Day
+   Spotlight row, so brand purple is free here and collides with
+   nothing. Same anatomy as a session card, type tag then title, but
+   full width and with the portraits held at the right-hand end:
+   opening night is sold on who is in the room.
+
+   --spotlight-ink is the readable purple for any purple surface,
+   bright on dark and the AA-safe ink on light. It is named for the
+   Spotlight because that is where it was first needed. */
+.ag-panel-row  { display: grid; grid-template-columns: 78px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
+.ag-panel {
+  background: rgba(var(--purple-rgb), var(--spotlight-tint));
+  border: 1px solid rgba(var(--purple-rgb), var(--spotlight-edge));
+  border-radius: var(--radius-md);
+  padding: 18px 22px; display: flex; align-items: center; gap: 28px;
+  min-height: 112px;
+  transition: background .18s ease, border-color .18s ease,
+              transform .18s ease, box-shadow .18s ease;
+}
+.ag-panel.is-clickable:hover,
+.ag-panel.is-clickable:focus-visible {
+  background: rgba(var(--purple-rgb), 0.27);
+  border-color: var(--purple);
+  box-shadow: 0 8px 20px rgba(var(--purple-rgb), 0.16);
+  transform: translateY(-2px);
+  outline: none;
+}
+.ag-panel-content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 9px; }
+.ag-panel-title   {
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
+  color: var(--text-primary); line-height: 1.25;
+}
+.ag-panel-type {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--spotlight-ink);
+}
+
+/* Status then people, at the right-hand end. */
+.ag-panel-side { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.ag-panel .ag-wip-tag {
+  color: var(--spotlight-ink); border-color: rgba(var(--purple-rgb), 0.55);
+  white-space: nowrap;
+}
+
+/* Double the grid size. A session card is a fifth of the width and
+   fits five across; these rows are full width, and a 26px circle in
+   that space read as an afterthought. The ring goes to 1.5px or it
+   disappears against the larger portrait. */
+.ag-panel-speakers { display: flex; align-items: center; gap: 10px; }
+.ag-panel-speakers .speaker-chip__photo,
+.ag-panel-speakers .speaker-chip__initials {
+  width: 52px; height: 52px;
+  font-family: var(--font-display); font-size: 16px; font-weight: 800;
+  background: rgba(var(--purple-rgb), 0.22);
+  border: 1.5px solid rgba(var(--purple-rgb), 0.55);
+  color: var(--spotlight-ink);
+}
+
+/* An unfilled opening slot, same treatment as an unfilled track cell. */
+.ag-panel--empty {
+  background: none; border: 1px dashed var(--border-mid);
+  justify-content: center;
+}
+.ag-panel--empty .ag-panel-title--placeholder {
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  font-style: normal; color: var(--text-muted);
+}
 
 /* ── Speed Networking Day hero */
 .ag-sn-hero {
@@ -2572,6 +2689,16 @@ a.spk-session-item--link:hover { border-color: var(--accent); background: rgba(v
   --text-muted:     #8A8A9A;
   --text-micro:     #A8A8B6;
 
+  /* Agenda card tints. Lower than dark: the same alpha over white
+     reads stronger. These sit between --w-soft and --w-mid in the
+     section 30 ladder. */
+  --card-tint:       0.10;
+  --card-tint-hover: 0.16;
+  --card-edge:       0.40;
+  --spotlight-tint:  0.08;
+  --spotlight-edge:  0.36;
+  --spotlight-ink:   var(--purple-ink);
+
 }
 
 
@@ -2693,13 +2820,13 @@ a.spk-session-item--link:hover { border-color: var(--accent); background: rgba(v
 [data-theme="light"] .ag-tab { color: var(--text-muted); }
 [data-theme="light"] .ag-tab:hover { color: var(--text-primary); }
 [data-theme="light"] .ag-tab.active { color: var(--purple); border-bottom-color: var(--purple); }
+/* .ag-time-label left this list: the hour is --text-primary in both
+   themes now. The .ag-session border rule and the chip initials
+   background both went with the track tint, which sets its own. */
 [data-theme="light"] .ag-day-tag,
-[data-theme="light"] .ag-time-label,
 [data-theme="light"] .ag-special-meta { color: var(--text-muted); }
-[data-theme="light"] .ag-session { border: 1px solid var(--border); }
-[data-theme="light"] .ag-panel   { border: 1px solid var(--border); border-left: 3px solid var(--accent); }
-[data-theme="light"] .speaker-chip__initials { background: var(--bg-card-2); color: var(--text-secondary); }
-[data-theme="light"] .ag-panel-num { color: var(--purple); opacity: 0.4; }
+/* The panel card is a purple surface in both themes now, driven by
+   --spotlight-tint and --spotlight-edge, so it needs no light rule. */
 [data-theme="light"] .ag-sn-hero { background: var(--bg-card-2); border: 1px solid var(--border); }
 [data-theme="light"] .ag-sn-label,
 [data-theme="light"] .ag-sn-title { color: var(--purple); }
@@ -2728,7 +2855,6 @@ a.spk-session-item--link:hover { border-color: var(--accent); background: rgba(v
 [data-theme="light"] .tr-card__side { background: var(--bg-card-2); }
 [data-theme="light"] .tracks-cta-strip { background: var(--bg-card-2); }
 [data-theme="light"] a.tl-pill:hover { background: rgba(var(--track-rgb), 0.18); }
-[data-theme="light"] .ag-session { border-left-width: 3px; border-left-color: var(--track-color); }
 /* ── 20.12 Sponsors ──────────────────────────────────────── */
 
 [data-theme="light"] .sp-hero-title em { color: var(--purple); }
@@ -3838,32 +3964,15 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 
 /* ── Agenda page: special rows and column headers ─────────── */
 
-/* Day Spotlight keeps its pink identity in both themes */
-[data-theme="light"] .ag-special-spotlight {
-  background: rgba(214,21,111, var(--w-strong));
-  border-color: rgba(214,21,111, 0.45);
-}
-
-/* Speed Networking rides --accent (purple on light); give it the same
-   weight as the Spotlight and the darker ink on the badge. */
-[data-theme="light"] .ag-special-networking {
-  background: rgba(var(--accent-rgb), var(--w-strong));
-  border-color: rgba(var(--accent-rgb), 0.45);
-}
-[data-theme="light"] .ag-special-networking .ag-special-badge { color: var(--purple-ink); }
-
-[data-theme="light"] .ag-special-name { color: var(--text-primary); }
+/* Both merged rows are driven by the --spotlight-* tokens and a
+   neutral surface now, so neither needs a light override. The old
+   .ag-special-name rule had to go with them: it outranked the purple
+   Spotlight title on light. */
 [data-theme="light"] .ag-special-meta { color: var(--text-secondary); }
 
-[data-theme="light"] .ag-track-col-label.track-1,
-[data-theme="light"] .ag-track-col-label.track-2,
-[data-theme="light"] .ag-track-col-label.track-3,
-[data-theme="light"] .ag-track-col-label.track-4,
-[data-theme="light"] .ag-track-col-label.track-5 {
-  background: rgba(var(--track-rgb), var(--w-strong));
-  border-color: rgba(var(--track-rgb), 0.50);
-  color: var(--track-ink);
-}
+/* Column labels are an underline in both themes now, and section 12
+   already sets --track-ink on them, so the filled light variant is
+   gone. */
 
 
 /* ── Pills and strips ────────────────────────────────────── */
@@ -4038,59 +4147,44 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
    actions inverted to white. It is a 14% tint now, so they use
    the same solid purple as every other session on the grid. */
 
-.ag-session-info {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; flex-shrink: 0;
-  border-radius: var(--radius-sm);
-  /* --border-mid at 0.5px faded into the card next to the solid
-     Sign up button; --border-strong is defined per theme, so this
-     holds up on light as well. */
-  border: 1px solid var(--border-strong);
-  background: none;
-  color: var(--text-muted);
-  font-family: var(--font-body); font-size: 13px; font-weight: 700;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-}
-.ag-session-info:hover {
-  color: var(--text-primary);
-  border-color: var(--text-muted);
-  background: rgba(var(--track-rgb, 103,35,255), 0.08);
-}
-.ag-session-info svg { width: 15px; height: 15px; }
+/* .ag-session-info removed: the whole card opens the modal, so the
+   corner button was a second control for the same action. */
 
 .ag-special-card .ag-session-actions { margin-top: 14px; }
 
 
 /* ── Speaker chips ───────────────────────────────────────────
-   Were rendering as initials on every card, because they read a
-   field that no longer exists. Now sized to sit with the actions
-   beneath them rather than float. */
+   Photo only. Names and roles live in the session modal, never on
+   the grid, so the pill that used to hold a name is gone and what
+   is left is the portrait, ringed in its track colour and separated
+   rather than overlapped. */
 
-.ag-session-speakers { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
+.ag-session-speakers {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 7px; margin-top: auto; padding-top: 10px;
+}
 
 .speaker-chip {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 3px 9px 3px 3px;
-  border-radius: 20px;
-  background: var(--bg-card-2);
-  border: 0.5px solid var(--border);
+  display: inline-flex; padding: 0; border: none;
+  background: none; border-radius: 50%;
 }
 .speaker-chip__photo,
 .speaker-chip__initials {
-  width: 22px; height: 22px; border-radius: 50%;
-  flex-shrink: 0; object-fit: cover;
+  width: 26px; height: 26px; border-radius: 50%;
+  flex-shrink: 0; object-fit: cover; object-position: center 15%;
+  background: rgba(var(--track-rgb, 103,35,255), 0.22);
+  border: 1px solid rgba(var(--track-rgb, 103,35,255), 0.55);
 }
 .speaker-chip__initials {
   display: inline-flex; align-items: center; justify-content: center;
   font-family: var(--font-body); font-size: 9px; font-weight: 700;
-  background: var(--bg-card); color: var(--text-secondary);
+  color: var(--track-ink);
 }
 .speaker-chip__name {
   font-family: var(--font-body); font-size: 12px; font-weight: 600;
   color: var(--text-primary);
 }
-[data-theme="light"] .speaker-chip { border: 1px solid var(--border); }
+/* The chip's ring is its track colour in both themes now. */
 
 
 /* ── Session detail modal ────────────────────────────────── */
@@ -4597,11 +4691,26 @@ body.glow::after {
   .ag-time-row        { grid-template-columns: 64px repeat(5, 1fr); gap: 6px; }
   .ag-special-merged  { grid-template-columns: 64px 1fr; gap: 6px; }
   /* Day 1 panels follow the same narrowed time column, otherwise they
-     keep the desktop 90px and fall out of line with the other rows. */
+     keep the desktop width and fall out of line with the other rows. */
   .ag-panel-row       { grid-template-columns: 64px 1fr; gap: 6px; }
-  .ag-track-col-label { font-size: 9px; padding: 8px 6px; }
-  .ag-session         { min-height: 80px; padding: 10px; }
-  .ag-session-title   { font-size: 11px; }
+  /* The rail is absolutely positioned, so it has to follow the column. */
+  .ag-grid::before    { left: 64px; }
+  .ag-track-col-label { font-size: 11px; padding: 0 0 7px; }
+  .ag-time-label      { font-size: 14px; padding: 10px 12px 0 0; }
+  .ag-time-label::after { top: 15px; }
+  .ag-session         { min-height: 92px; padding: 11px 12px; }
+  .ag-session-title   { font-size: 12px; }
+  .ag-session-type    { font-size: 8.5px; letter-spacing: 0.10em; }
+  /* A five-person opening panel is 300px of portraits at full size,
+     which stops fitting once the row narrows. */
+  .ag-panel           { padding: 15px 16px; gap: 18px; min-height: 96px; }
+  .ag-panel-title     { font-size: 16px; }
+  .ag-panel-side      { gap: 12px; }
+  .ag-panel-speakers  { gap: 8px; }
+  .ag-panel-speakers .speaker-chip__photo,
+  .ag-panel-speakers .speaker-chip__initials { width: 40px; height: 40px; font-size: 13px; }
+  .speaker-chip__photo,
+  .speaker-chip__initials { width: 22px; height: 22px; }
 
 }
 
@@ -4801,16 +4910,25 @@ body.glow::after {
   .ag-time-row       { grid-template-columns: 1fr; }
   .ag-special-merged { grid-template-columns: 1fr; }
   .ag-panel-row      { grid-template-columns: 1fr; }
-  .ag-panel          { padding: 14px 16px; gap: 14px; }
+  /* Stacked on a phone: the portraits drop under the title rather
+     than squeezing the right-hand end of a narrow card. */
+  .ag-panel          { padding: 14px 16px; gap: 12px; flex-direction: column;
+                       align-items: flex-start; min-height: 0; }
+  .ag-panel-side     { width: 100%; }
+  .ag-panel-speakers .speaker-chip__photo,
+  .ag-panel-speakers .speaker-chip__initials { width: 36px; height: 36px; font-size: 12px; }
   /* The side time column is gone, so the label becomes a small header
-     above each stacked group instead of disappearing with it. */
+     above each stacked group instead of disappearing with it. The rail
+     and its node have nothing to run beside, so both are hidden. */
+  .ag-grid::before      { display: none; }
   .ag-time-label {
-    padding: 8px 0 0 2px;
+    padding: 8px 0 4px 2px;
     text-align: left;
-    font-size: 12px;
-    letter-spacing: 0.04em;
+    font-size: 16px;
+    letter-spacing: -0.01em;
   }
-  .ag-session        { min-height: 70px; }
+  .ag-time-label::after { display: none; }
+  .ag-session        { min-height: 0; }
 
   /* 15. Tracks page */
   .tr-hero { padding: 120px 24px 48px; }

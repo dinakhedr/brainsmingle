@@ -155,19 +155,19 @@
         // Opening day panel slots.
         // so it has its own times rather than using SIGNAL_TIME_SLOTS.
         var AG_DAY1_SLOTS = [{
-                time: "6:00 PM",
+                time: "6 PM",
                 sessionId: "ses-d1-p1"
             },
             {
-                time: "7:00 PM",
+                time: "7 PM",
                 sessionId: "ses-d1-p2"
             },
             {
-                time: "8:00 PM",
+                time: "8 PM",
                 sessionId: "ses-d1-p3"
             },
             {
-                time: "9:00 PM",
+                time: "9 PM",
                 sessionId: "ses-d1-p4"
             }
         ];
@@ -181,33 +181,45 @@
         var AG_DAILY_SPOTLIGHT = {
             cssClass: "ag-special-spotlight",
             icon: "spotlight",
-            badge: "Day Spotlight",
-            meta: "Open to all",
-            time: "9:00 PM"
+            badge: "Day Spotlight · all five tracks merge",
+            meta: "One room, open to everyone",
+            time: "9 PM"
         };
 
         // The one hour networking wrap that closes every track day
         var AG_DAILY_NETWORKING = {
             cssClass: "ag-special-networking",
             icon: "networking",
-            badge: "Daily Wrap",
-            meta: "Open to all",
-            time: "10:00 PM"
+            badge: "Daily wrap",
+            meta: "Matched one-to-one rounds · open to everyone",
+            time: "10 PM"
         };
 
         // Placeholder copy shown before sessions are confirmed
         var AG_PLACEHOLDER_SESSION = "To be announced";
         var AG_PLACEHOLDER_SPEAKER = "Speaker to be announced";
 
+        // agenda.js carries type as "talk", "panel" or "networking".
+        // Only the first two ever reach a track cell. Anything
+        // unmapped renders nothing rather than a raw data value.
+        var AG_TYPE_LABELS = { talk: "Talk", panel: "Panel" };
+
         /* A session counts as titled only when the title is real. agenda.js
            may carry a placeholder string instead of null, so compare against
            the known placeholders rather than testing truthiness. */
-        var AG_TBA_STRINGS = ["to be announced", "session to be announced", "tba"];
+        var AG_TBA_STRINGS = ["to be announced", "session to be announced", "tba", "tbd"];
 
         function _realTitle(session) {
             var t = (session && session.title) ? String(session.title).trim() : "";
             if (!t) return null;
             return AG_TBA_STRINGS.indexOf(t.toLowerCase()) === -1 ? t : null;
+        }
+
+        /* Talk or panel, shown above the title in the track colour, so
+           the format is readable without opening the card. */
+        function _typeTag(session) {
+            var label = session && AG_TYPE_LABELS[session.type];
+            return label ? `<div class="ag-session-type">${label}</div>` : "";
         }
 
 
@@ -291,7 +303,6 @@
                 const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
                 const real = _realTitle(session);
                 const title = real || AG_PLACEHOLDER_SESSION;
-                const names = _speakerNames(session);
 
                 // Nothing scheduled in this slot: the title placeholder alone,
                 // no speaker line and no actions. The time label and the slot
@@ -303,35 +314,40 @@
       <div class="ag-panel-row">
         <div class="ag-time-label">${s.time}</div>
         <div class="ag-panel ag-panel--empty">
-          <div class="ag-panel-num">0${i + 1}</div>
-          <div class="ag-panel-content">
-            <div class="ag-panel-title ag-panel-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
-          </div>
+          <div class="ag-panel-title ag-panel-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
         </div>
       </div>`;
                 }
 
+                // Status then people at the right-hand end. The 01 to 04
+                // counter is gone: the 6, 7, 8, 9 rail already says it.
                 const wip = _isWip(session);
                 return `
-      <div class="ag-panel-row">
+      <div class="ag-panel-row ag-panel-row--filled">
         <div class="ag-time-label">${s.time}</div>
         <div class="ag-panel is-clickable${wip ? " ag-panel--wip" : ""}"${_cardOpen(session.id)}>
-          ${_infoButton(session.id)}
-          <div class="ag-panel-num">0${i + 1}</div>
           <div class="ag-panel-content">
+            <span class="ag-panel-type">${AG_TYPE_LABELS[session.type] || "Panel"}</span>
             <div class="ag-panel-title${real ? "" : " ag-panel-title--placeholder"}">${title}</div>
-            <div class="ag-panel-meta${names ? "" : " ag-panel-meta--placeholder"}">${names || AG_PLACEHOLDER_SPEAKER}</div>
+          </div>
+          <div class="ag-panel-side">
             ${wip ? _wipTag() : ""}
+            ${_speakerChips(session, "ag-panel-speakers")}
           </div>
         </div>
       </div>`;
             }).join("");
 
+            // .ag-grid is what the timeline rail draws against: one
+            // unbroken line behind every row rather than a border
+            // repeated per row and cut at every gap.
             return `
     <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
       ${_dayHeader(day, day.label + " · " + day.displayLabel)}
-      ${panels}
-      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+      <div class="ag-grid">
+        ${panels}
+        ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+      </div>
     </div>`;
         }
 
@@ -354,9 +370,11 @@
     <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
       ${_dayHeader(day, _trackDayTag(day))}
       ${_trackHeader()}
-      ${timeRows}
-      ${_specialRow(AG_DAILY_SPOTLIGHT, day.day, "spotlight")}
-      ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+      <div class="ag-grid">
+        ${timeRows}
+        ${_specialRow(AG_DAILY_SPOTLIGHT, day.day, "spotlight")}
+        ${_specialRow(AG_DAILY_NETWORKING, day.day, "networking")}
+      </div>
     </div>`;
         }
 
@@ -427,13 +445,16 @@
       </div>`;
             }
 
+            // No speaker text on the grid at all, so an unconfirmed
+            // line-up leaves the footer empty rather than printing
+            // AG_PLACEHOLDER_SPEAKER. The modal carries the people.
             const wip = _isWip(session);
             return `
       <div class="ag-session track-${trackNumber} is-clickable${wip ? " ag-session--wip" : ""}"${_cardOpen(session.id)}>
-        ${_infoButton(session.id)}
+        ${_typeTag(session)}
         <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle || AG_PLACEHOLDER_SESSION}</div>
         ${wip ? _wipTag() : ""}
-        ${chips || `<div class="ag-session-speaker ag-session-speaker--placeholder">${AG_PLACEHOLDER_SPEAKER}</div>`}
+        ${chips}
       </div>`;
         }
 
@@ -458,11 +479,12 @@
             const chips = _speakerChips(session, "ag-special-speakers");
             const wip = _isWip(session);
 
+            // The --spotlight modifier on the wrapper is what fills
+            // that hour's node on the rail with purple.
             return `
-      <div class="ag-special-merged">
+      <div class="ag-special-merged ag-special-merged--${specialKey}">
         <div class="ag-time-label">${config.time}</div>
         <div class="ag-special-card ${config.cssClass}${session ? " is-clickable" : ""}${wip ? " ag-special-card--wip" : ""}"${_cardOpen(session ? session.id : null)}>
-          ${_infoButton(session ? session.id : null)}
           <div class="ag-special-text">
             <div class="ag-special-badge">
               <span class="ag-badge-icon">${_agIcon(config.icon)}</span>
@@ -492,16 +514,11 @@
         }
 
 
-        /* The info icon and a click anywhere on the card both open the
-           session modal now. openSessionDetails handles the bmUrl-null
-           case itself (a greyed Reserve button), so there is no separate
-           info / coming-soon path from the grid anymore. */
-        function _infoButton(sessionId) {
-            if (!sessionId) return "";
-            return `<button class="ag-session-info" type="button"
-                        onclick="event.stopPropagation(); openSessionDetails('${sessionId}')"
-                        aria-label="Session details">${_agIcon("info") || "i"}</button>`;
-        }
+        /* The corner info button is gone. A click anywhere on the card,
+           or Enter/Space on it, opens the session modal, and
+           openSessionDetails handles the bmUrl-null case itself with a
+           greyed Reserve button. There is no separate info path from
+           the grid anymore. */
 
         /* Attributes that make a whole card open its session modal, by
            click or keyboard. Empty when there is no session yet, so
@@ -527,7 +544,7 @@
                 if (!spk) return "";
                 const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(spk) : null;
                 const photo = src ?
-                    `<img class="speaker-chip__photo" src="${src}" alt="${spk.name}" loading="lazy" />` :
+                    `<img class="speaker-chip__photo" src="${src}" alt="" loading="lazy" />` :
                     `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
                 return `<span class="speaker-chip" title="${spk.name}">${photo}</span>`;
             }).join("");
