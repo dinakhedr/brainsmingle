@@ -209,11 +209,6 @@
         var AG_PLACEHOLDER_SESSION = "To be announced";
         var AG_PLACEHOLDER_SPEAKER = "Speaker to be announced";
 
-        // agenda.js carries type as "talk", "panel" or "networking".
-        // Only the first two ever reach a track cell. Anything
-        // unmapped renders nothing rather than a raw data value.
-        var AG_TYPE_LABELS = { talk: "Talk", panel: "Panel", networking: "Speed networking" };
-
         /* The modal wears the surface of the card it opened from. A track
            session takes its own colour; the Spotlight and the Day 1
            panels are purple, because neither belongs to a track; Speed
@@ -238,11 +233,13 @@
             return AG_TBA_STRINGS.indexOf(t.toLowerCase()) === -1 ? t : null;
         }
 
-        /* Talk or panel, shown above the title in the track colour, so
-           the format is readable without opening the card. */
-        function _typeTag(session) {
-            var label = session && AG_TYPE_LABELS[session.type];
-            return label ? `<div class="ag-session-type">${label}</div>` : "";
+                /* The format, shown above the title in the track colour. Whatever
+           the Sessions tab says, verbatim: the sheet is the only place a
+           format is named, and the CSS uppercases it. A blank cell renders
+           no tag rather than a guess. */
+        function _typeTag(session, cls) {
+            var t = (session && session.type) ? String(session.type).trim() : "";
+            return t ? `<div class="${cls || "ag-session-type"}">${t}</div>` : "";
         }
 
 
@@ -350,7 +347,7 @@
         <div class="ag-time-label">${s.time}</div>
         <div class="ag-panel is-clickable${wip ? " ag-panel--wip" : ""}"${_cardOpen(session.id)}>
           <div class="ag-panel-content">
-            <span class="ag-panel-type">${AG_TYPE_LABELS[session.type] || "Panel"}</span>
+            ${_typeTag(session, "ag-panel-type")}
             <div class="ag-panel-title${real ? "" : " ag-panel-title--placeholder"}">${title}</div>
           </div>
           <div class="ag-panel-side">
@@ -623,9 +620,8 @@
 
             /* Type, length, day and time. With description null on every
                session these carry the modal, so anything known is shown. */
-            const chips = [];
-            const typeLabel = s && AG_TYPE_LABELS[s.type];
-            if (typeLabel) chips.push(typeLabel);
+                        const chips = [];
+            if (s && s.type) chips.push(String(s.type).trim());
             if (s && s.durationMinutes) chips.push(s.durationMinutes + " min");
             const when = [];
             if (day) when.push(day.date);

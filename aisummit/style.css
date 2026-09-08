@@ -1465,8 +1465,8 @@ body.modal-open { overflow: hidden; }
 
 /* Talk or panel, above the title, in the track's own ink. */
 .ag-session-type {
-  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
+  font-family: var(--font-body); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
   color: var(--track-ink);
 }
 
@@ -1602,8 +1602,8 @@ body.modal-open { overflow: hidden; }
   color: var(--text-primary); line-height: 1.25;
 }
 .ag-panel-type {
-  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
+  font-family: var(--font-body); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
   color: var(--spotlight-ink);
 }
 
@@ -4222,7 +4222,9 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 }
 .ses-modal--neutral .ses-modal__track { color: var(--text-secondary); }
 .ses-modal--neutral .ses-modal__dot   { background: var(--text-secondary); }
-.ses-modal--neutral .ses-modal__chip  { border-color: var(--border); }
+.ses-modal--neutral .ses-modal__chip  {
+  border-color: var(--border); color: var(--text-secondary);
+}
 
 /* The tint is composited over --bg, not over --bg-card. The same alpha
    over the lighter card surface reads weaker, which would leave the
@@ -4257,19 +4259,22 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .ses-modal__meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
 .ses-modal__chip {
   display: inline-flex; align-items: center;
-  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text-secondary);
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--track-ink);
   padding: 5px 10px; border-radius: var(--radius-sm);
   border: 1px solid rgba(var(--track-rgb), 0.35);
 }
 
+/* Tints of the text colour rather than the grey tokens: --text-muted
+   is a fixed grey that sits away from the title and reads faded on
+   both themes. */
 .ses-modal__label {
-  font-family: var(--font-mono);
-  font-size: 9.5px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 0 0 10px;
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-primary); opacity: 0.55;
+  margin: 0 0 12px;
 }
 
 /* Rows carry the head's tint, composited the same way. At a lighter
@@ -4281,6 +4286,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   padding: 11px 12px; border-radius: var(--radius-md);
   background: linear-gradient(rgba(var(--track-rgb), var(--card-tint)),
                               rgba(var(--track-rgb), var(--card-tint))), var(--bg);
+  transition: background .18s ease;
 }
 .ses-modal__speaker img,
 .ses-modal__speaker .speaker-chip__initials {
@@ -4302,11 +4308,15 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   color: var(--text-primary); line-height: 1.25;
 }
 .ses-modal__speaker-role {
-  font-family: var(--font-body); font-size: 12px;
-  color: var(--text-secondary); line-height: 1.35; margin-top: 3px;
+  font-family: var(--font-body); font-size: 12.5px;
+  color: var(--text-primary); opacity: 0.72;
+  line-height: 1.35; margin-top: 3px;
 }
-.ses-modal__speaker--link { text-decoration: none; color: inherit; transition: filter .15s ease; }
-.ses-modal__speaker--link:hover { filter: brightness(1.12); }
+.ses-modal__speaker--link { text-decoration: none; color: inherit; }
+.ses-modal__speaker--link:hover {
+  background: linear-gradient(rgba(var(--track-rgb), var(--card-tint-hover)),
+                              rgba(var(--track-rgb), var(--card-tint-hover))), var(--bg);
+}
 .ses-modal__speaker-arrow {
   margin-left: auto; display: inline-flex;
   color: var(--track-ink); flex-shrink: 0;
@@ -4336,8 +4346,9 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .ag-session-signup.is-disabled:hover,
 .ag-session-signup:disabled:hover { background: var(--bg-card-2); transform: none; }
 .ses-modal__pending {
-  font-family: var(--font-body); font-size: 11.5px; line-height: 1.5;
-  color: var(--text-muted); text-align: center; margin-top: 10px;
+  font-family: var(--font-body); font-size: 12px; line-height: 1.5;
+  color: var(--text-primary); opacity: 0.6;
+  text-align: center; margin-top: 10px;
 }
 
 /* The close button sits on the tinted head, so it needs a surface of
@@ -4788,7 +4799,7 @@ body.glow::after {
   .ag-time-label::after { top: 15px; }
   .ag-session         { min-height: 92px; padding: 11px 12px; }
   .ag-session-title   { font-size: 12px; }
-  .ag-session-type    { font-size: 8.5px; letter-spacing: 0.10em; }
+    .ag-session-type    { font-size: 9.5px; letter-spacing: 0.08em; }
   /* A five-person opening panel is 300px of portraits at full size,
      which stops fitting once the row narrows. */
   .ag-panel           { padding: 15px 16px; gap: 18px; min-height: 96px; }
