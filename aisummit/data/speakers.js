@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-07 22:23 · 61 speakers.
+ * Generated 2026-09-08 14:01 · 61 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -424,16 +424,16 @@ const SIGNAL_SPEAKERS = [
     order       : 24,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
-    company     : "SABIKA",
+    company     : "Ninos",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-029.png",
-    bio         : "Marketing Manager with 10+ years of experience transforming brands across e-commerce, SaaS, and non-profit sectors in MENA markets. Currently at TWO, leading cross-functional teams to optimize pricing and customer engagement for e-commerce portfolios. Previously redesigned digital outreach at Mersal Foundation, expanding organic reach and community loyalty. Specializes in lifecycle marketing, SEO, CRM, and building high-engagement ecosystems.",
+    bio         : "Commercial Marketing and Growth Advisor helping CEOs turn marketing data, customer behavior, and business economics into better commercial decisions. Experience spans e-commerce, fintech, retail, SaaS, B2B, and service businesses, with a focus on growth strategy, customer economics, and marketing effectiveness. Passionate about building decision systems that connect marketing activity to real business outcomes.",
     linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/kamal1544",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s3-t4", timeSlot: "20:00" }]
   },
 
   {
