@@ -75,10 +75,6 @@
 ══════════════════════════════════════════ -->
     <div id="site-footer"></div>
 
-    <!-- ══════════════════════════════════════════
-     SPEAKER POPUP — rendered from data/speaker-popup.js
-══════════════════════════════════════════ -->
-    <div id="speaker-popup"></div>
 
 
     <!-- ══════════════════════════════════════════
@@ -99,7 +95,8 @@
                 <p class="ses-modal__desc" id="ses-desc"></p>
             </div>
             <div class="ses-modal__actions">
-                <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Sign up</button>
+                <button class="ag-session-signup ag-session-signup--lg" type="button" id="ses-signup">Reserve your spot</button>
+                <p class="ses-modal__pending is-hidden" id="ses-pending"></p>
             </div>
         </div>
     </div>
@@ -121,8 +118,7 @@
 
     <!-- ══════════════════════════════════════════
      SHARED FILES
-     Load order: layout → tracks → days → agenda → speakers → icons
-                 → speaker-popup → modals
+     Load order: layout → tracks → days → agenda → speakers → icons → modals
 ══════════════════════════════════════════ -->
     <script src="data/layout.js"></script>
     <script src="data/tracks.js"></script>
@@ -130,7 +126,6 @@
     <script src="data/agenda.js"></script>
     <script src="data/speakers.js"></script>
     <script src="data/icons.js"></script>
-    <script src="data/speaker-popup.js"></script>
     <script>
         var MODAL_IDS = ["registration", "sponsor", "speaker"];
     </script>
@@ -320,14 +315,14 @@
                 return `
       <div class="ag-panel-row">
         <div class="ag-time-label">${s.time}</div>
-        <div class="ag-panel${wip ? " ag-panel--wip" : ""}">
+        <div class="ag-panel is-clickable${wip ? " ag-panel--wip" : ""}"${_cardOpen(session.id)}>
+          ${_infoButton(session.id)}
           <div class="ag-panel-num">0${i + 1}</div>
           <div class="ag-panel-content">
             <div class="ag-panel-title${real ? "" : " ag-panel-title--placeholder"}">${title}</div>
             <div class="ag-panel-meta${names ? "" : " ag-panel-meta--placeholder"}">${names || AG_PLACEHOLDER_SPEAKER}</div>
             ${wip ? _wipTag() : ""}
           </div>
-          ${_sessionActions(session ? session.id : null, null, !wip)}
         </div>
       </div>`;
             }).join("");
@@ -434,11 +429,11 @@
 
             const wip = _isWip(session);
             return `
-      <div class="ag-session track-${trackNumber}${wip ? " ag-session--wip" : ""}">
+      <div class="ag-session track-${trackNumber} is-clickable${wip ? " ag-session--wip" : ""}"${_cardOpen(session.id)}>
+        ${_infoButton(session.id)}
         <div class="ag-session-title${hasTitle ? "" : " ag-session-title--placeholder"}">${hasTitle || AG_PLACEHOLDER_SESSION}</div>
         ${wip ? _wipTag() : ""}
         ${chips || `<div class="ag-session-speaker ag-session-speaker--placeholder">${AG_PLACEHOLDER_SPEAKER}</div>`}
-        ${_sessionActions(session ? session.id : null, null, !wip)}
       </div>`;
         }
 
@@ -466,7 +461,8 @@
             return `
       <div class="ag-special-merged">
         <div class="ag-time-label">${config.time}</div>
-        <div class="ag-special-card ${config.cssClass}${wip ? " ag-special-card--wip" : ""}">
+        <div class="ag-special-card ${config.cssClass}${session ? " is-clickable" : ""}${wip ? " ag-special-card--wip" : ""}"${_cardOpen(session ? session.id : null)}>
+          ${_infoButton(session ? session.id : null)}
           <div class="ag-special-text">
             <div class="ag-special-badge">
               <span class="ag-badge-icon">${_agIcon(config.icon)}</span>
@@ -479,7 +475,6 @@
           </div>
           <div class="ag-special-side">
             ${chips}
-            ${_sessionActions(session ? session.id : null, config, !wip)}
           </div>
         </div>
       </div>`;
@@ -497,33 +492,25 @@
         }
 
 
-        /* Session actions. The Sign up button is deliberately inert:
-           BrainsMingle's Quick Signup will be wired to it later by the
-           tech team, so it carries no handler of its own here. The info
-           button opens the session's BrainsMingle page in a new tab, or
-           the coming-soon popup while its bmUrl is still null. */
-        function _sessionActions(sessionId, special, showSignup) {
-            if (!SHOW_SESSION_SIGNUP) return "";
+        /* The info icon and a click anywhere on the card both open the
+           session modal now. openSessionDetails handles the bmUrl-null
+           case itself (a greyed Reserve button), so there is no separate
+           info / coming-soon path from the grid anymore. */
+        function _infoButton(sessionId) {
+            if (!sessionId) return "";
+            return `<button class="ag-session-info" type="button"
+                        onclick="event.stopPropagation(); openSessionDetails('${sessionId}')"
+                        aria-label="Session details">${_agIcon("info") || "i"}</button>`;
+        }
 
-            const hasDetail = !!sessionId || !!special;
-            const detail = hasDetail ?
-                `<button class="ag-session-info" type="button"
-                       onclick="openSessionInfo('${sessionId || ""}', ${special ? "'" + (special.name || special.badge || "").replace(/'/g, "\\'") + "'" : "null"})"
-                       aria-label="Session details">${_agIcon("info") || "i"}</button>` :
-                "";
-
-            // In-progress sessions can't take sign-ups yet, so callers pass
-            // showSignup === false to leave just the info button.
-            const signup = (showSignup === false) ?
-                "" : `<button class="ag-session-signup" type="button">Sign up</button>`;
-
-            if (!signup && !detail) return "";
-
-            return `
-      <div class="ag-session-actions">
-        ${signup}
-        ${detail}
-      </div>`;
+        /* Attributes that make a whole card open its session modal, by
+           click or keyboard. Empty when there is no session yet, so
+           placeholder cells stay inert. */
+        function _cardOpen(sessionId) {
+            if (!sessionId) return "";
+            return ` role="button" tabindex="0"`
+                 + ` onclick="openSessionDetails('${sessionId}')"`
+                 + ` onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSessionDetails('${sessionId}')}"`;
         }
 
         /* Status differentiates published sessions: "closed" renders normally,
@@ -542,9 +529,7 @@
                 const photo = src ?
                     `<img class="speaker-chip__photo" src="${src}" alt="${spk.name}" loading="lazy" />` :
                     `<span class="speaker-chip__initials">${_initials(spk.name)}</span>`;
-                return `<button type="button" class="speaker-chip" title="${spk.name}"
-                                aria-label="${spk.name}"
-                                onclick="event.stopPropagation(); openPopup('${spk.id}')">${photo}</button>`;
+                return `<span class="speaker-chip" title="${spk.name}">${photo}</span>`;
             }).join("");
             return chips ? `<div class="${cls}">${chips}</div>` : "";
         }
@@ -584,7 +569,7 @@
 
             const when = [];
             if (day) when.push(day.date);
-            if (s && s.timeSlot) when.push(s.timeSlot);
+            if (s && s.timeSlot) when.push(_time12(s.timeSlot));
             document.getElementById("ses-when").textContent = when.join(" · ");
 
             const spk = document.getElementById("ses-speakers");
@@ -593,15 +578,24 @@
                 const p = SIGNAL_SPEAKERS_MAP[id];
                 if (!p) return "";
                 const src = (typeof getSpeakerPhoto === "function") ? getSpeakerPhoto(p) : null;
-                return `
-        <div class="ses-modal__speaker">
+                const inner = `
           ${src ? `<img src="${src}" alt="" loading="lazy" />`
                 : `<span class="speaker-chip__initials">${_initials(p.name)}</span>`}
           <div>
             <div class="ses-modal__speaker-name">${p.name}</div>
             <div class="ses-modal__speaker-role">${p.title}${p.company ? ", " + p.company : ""}</div>
-          </div>
-        </div>`;
+          </div>`;
+                // Members link out to their BrainsMingle profile; guests stay plain.
+                if (p.bmProfile) {
+                    return `
+        <a class="ses-modal__speaker ses-modal__speaker--link" href="${p.bmProfile}"
+           target="_blank" rel="noopener"
+           aria-label="${p.name} \u2014 open BrainsMingle profile in a new tab">
+          ${inner}
+          <span class="ses-modal__speaker-arrow" aria-hidden="true">${_agIcon("externalLink") || "\u2197"}</span>
+        </a>`;
+                }
+                return `<div class="ses-modal__speaker">${inner}</div>`;
             }).join("");
             document.getElementById("ses-speakers-wrap").classList.toggle("is-hidden", !spk.innerHTML.trim());
 
@@ -609,8 +603,27 @@
             document.getElementById("ses-desc").textContent = desc;
             document.getElementById("ses-desc-wrap").classList.toggle("is-hidden", !desc);
 
-            /* No handler on #ses-signup on purpose: BrainsMingle's
-               Quick Signup will be wired to it by the tech team. */
+            /* Reserve button: a session with a link opens its BrainsMingle
+               page in a new tab; one without shows a greyed, non-clickable
+               state and the pending line, reusing agenda.js's copy. */
+            const signupBtn = document.getElementById("ses-signup");
+            const pending = document.getElementById("ses-pending");
+            if (s && s.bmUrl) {
+                signupBtn.disabled = false;
+                signupBtn.classList.remove("is-disabled");
+                signupBtn.innerHTML = `Reserve your spot ${_agIcon("externalLink") || "\u2197"}`;
+                signupBtn.onclick = function () { window.open(s.bmUrl, "_blank", "noopener"); };
+                pending.textContent = "";
+                pending.classList.add("is-hidden");
+            } else {
+                signupBtn.disabled = true;
+                signupBtn.classList.add("is-disabled");
+                signupBtn.textContent = "Sign-ups open soon";
+                signupBtn.onclick = null;
+                pending.textContent = "Register for the summit and we'll let you know the moment this one is live.";
+                pending.classList.remove("is-hidden");
+            }
+
             document.getElementById("session-modal").classList.add("is-visible");
             document.body.classList.add("modal-open");
         }
@@ -678,6 +691,14 @@
                 .join(" · ");
         }
 
+        /* "18:00" → "6:00 PM". Anything not HH:MM is returned unchanged. */
+        function _time12(hhmm) {
+            const m = /^(\d{1,2}):(\d{2})$/.exec(String(hhmm).trim());
+            if (!m) return String(hhmm || "");
+            const h = parseInt(m[1], 10);
+            const suffix = h >= 12 ? "PM" : "AM";
+            return (h % 12 || 12) + ":" + m[2] + " " + suffix;
+        }
         function _initials(name) {
             return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
         }

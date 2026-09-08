@@ -646,11 +646,8 @@ a.tl-pill:active { transform: translateY(0); }
   border: none;
   background: none;
   border-radius: 50%;
-  cursor: pointer;
-  transition: transform var(--duration-fast) var(--ease-default);
+  cursor: inherit;
 }
-.ag-session-speakers .speaker-chip:hover,
-.ag-special-speakers .speaker-chip:hover { transform: translateY(-2px); }
 .ag-session-speakers .speaker-chip:focus-visible,
 .ag-special-speakers .speaker-chip:focus-visible {
   outline: 2px solid var(--accent);
@@ -659,19 +656,29 @@ a.tl-pill:active { transform: translateY(0); }
 
 .ag-session-speakers .speaker-chip__photo,
 .ag-session-speakers .speaker-chip__initials {
-  width: 34px; height: 34px;
+  width: 48px; height: 48px;
   border: 1px solid var(--border);
+  object-fit: cover; object-position: center 15%;
+  filter: grayscale(1);
+  transition: filter var(--duration-fast, .25s) var(--ease-default, ease);
 }
-.ag-session-speakers .speaker-chip__initials { font-size: 12px; }
+.ag-session-speakers .speaker-chip__initials { font-size: 15px; }
+/* Colour up when the whole card is hovered or focused */
+.ag-session:hover  .ag-session-speakers .speaker-chip__photo,
+.ag-session:focus-within .ag-session-speakers .speaker-chip__photo { filter: grayscale(0); }
 
 /* Spotlight panelists — same plain-circle treatment as track sessions,
    a touch bigger since the Spotlight is a full-width hero row. */
 .ag-special-speakers .speaker-chip__photo,
 .ag-special-speakers .speaker-chip__initials {
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border: 1px solid var(--border);
+  object-fit: cover; object-position: center 15%;
+  filter: grayscale(1);
+  transition: filter var(--duration-fast, .25s) var(--ease-default, ease);
 }
-.ag-special-speakers .speaker-chip__initials { font-size: 13px; }
+.ag-special-speakers .speaker-chip__initials { font-size: 14px; }
+.ag-special-card:hover .ag-special-speakers .speaker-chip__photo { filter: grayscale(0); }
 
 /* ── Speakers Phase 1 — Homepage */
 .speakers-phase1 {
@@ -1378,6 +1385,33 @@ body.modal-open { overflow: hidden; }
   min-height: 95px; display: flex; flex-direction: column; justify-content: space-between;
 }
 .ag-session::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+
+/* ── Clickable session cards (agenda redesign) ─────────────── */
+.ag-session.is-clickable,
+.ag-panel.is-clickable,
+.ag-special-card.is-clickable { cursor: pointer; }
+.ag-panel, .ag-special-card { position: relative; }
+.ag-session.is-clickable {
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.ag-session.is-clickable:hover,
+.ag-session.is-clickable:focus-visible {
+  border-color: var(--track-color, var(--purple));
+  box-shadow: 0 8px 22px rgba(var(--track-rgb, 103,35,255), 0.22);
+  transform: translateY(-2px);
+  outline: none;
+}
+.ag-panel.is-clickable:hover,
+.ag-special-card.is-clickable:hover { transform: translateY(-2px); }
+/* Info icon moves to the corner now the whole card is the button */
+.ag-session .ag-session-info,
+.ag-panel .ag-session-info,
+.ag-special-card .ag-session-info {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 30px; height: 30px;
+}
+.ag-session-title { padding-right: 34px; }
+.ag-panel-content { padding-right: 34px; }
 .ag-session-title {
   font-family: var(--font-body); font-size: 13px; font-weight: 600;
   color: var(--text-primary); line-height: 1.4;
@@ -4033,7 +4067,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
    field that no longer exists. Now sized to sit with the actions
    beneath them rather than float. */
 
-.ag-session-speakers { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 9px; }
+.ag-session-speakers { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
 
 .speaker-chip {
   display: inline-flex; align-items: center; gap: 7px;
@@ -4087,7 +4121,7 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
 .ses-modal__speaker img,
 .ses-modal__speaker .speaker-chip__initials {
   width: 38px; height: 38px; border-radius: 50%;
-  object-fit: cover; flex-shrink: 0;
+  object-fit: cover; object-position: center 15%; flex-shrink: 0;
 }
 .ses-modal__speaker-name {
   font-family: var(--font-head); font-weight: 700; font-size: 14px;
@@ -4102,6 +4136,36 @@ body.has-hero:not(.is-scrolled) .nav-logo__on-dark  { display: block; }
   color: var(--text-secondary);
 }
 .ses-modal__actions { margin-top: 26px; }
+
+/* ── Session modal: profile links, Reserve CTA, pending state ── */
+/* Speaker list reads as a table: tinted rows, hairline dividers */
+.ses-modal__speakers { gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.ses-modal__speaker {
+  padding: 12px 14px;
+  background: rgba(var(--track-rgb, 103,35,255), 0.04);
+  border-bottom: 1px solid var(--border);
+}
+.ses-modal__speaker:last-child { border-bottom: none; }
+.ses-modal__speaker--link { text-decoration: none; color: inherit; transition: background .15s ease; }
+.ses-modal__speaker--link:hover { background: rgba(var(--track-rgb, 103,35,255), 0.10); }
+.ses-modal__speaker-arrow { margin-left: auto; display: inline-flex; color: var(--track-color, var(--text-muted)); flex-shrink: 0; }
+.ses-modal__speaker-arrow svg { width: 15px; height: 15px; }
+.ses-modal__actions .ag-session-signup--lg {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+}
+.ses-modal__actions .ag-session-signup--lg svg { width: 16px; height: 16px; }
+.ag-session-signup.is-disabled,
+.ag-session-signup:disabled {
+  background: var(--bg-card-2); color: var(--text-muted);
+  cursor: not-allowed; transform: none;
+}
+.ag-session-signup.is-disabled:hover,
+.ag-session-signup:disabled:hover { background: var(--bg-card-2); transform: none; }
+.ses-modal__pending {
+  font-family: var(--font-body); font-size: 12px; line-height: 1.5;
+  color: var(--text-muted); text-align: center; margin-top: 10px;
+}
 
 
 /* ============================================================
