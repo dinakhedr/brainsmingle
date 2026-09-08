@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-08 16:21 · 61 speakers.
+ * Generated 2026-09-08 17:10 · 62 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1063,6 +1063,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : []
+  },
+
+  {
+    id          : "spk-062",
+    order       : null,
+    name        : "Ahmed Samir",
+    title       : "CEO",
+    company     : "ASSET",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-062.png",
+    bio         : "Experienced leader and investor with a track record of establishing and leading successful teams, transforming businesses, and delivering quick results. A certified corporate director by the IFC (International Finance Corporation, World Bank Group), specializing in corporate governance. Also a technical subject matter expert in industrial predictive technologies, actively investing in digital transformation, data visibility, and AI.",
+    linkedin    : "https://www.linkedin.com/in/ahmed-samir-b11782a2/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s2-t4", timeSlot: "19:00" }]
   }
 
 ];
