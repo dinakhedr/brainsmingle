@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-08 17:11 · 67 sessions, 0 with a sign-up link.
+ * Generated 2026-09-08 17:25 · 67 sessions, 1 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -33,7 +33,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 2
   // ======================================
-  { id: "ses-d2-s1-t1", title: "If You Can't Delegate to AI, You Can't Delegate to People", type: "talk", trackNumber: 1, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-018"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d2-s1-t1", title: "If You Can't Delegate to AI, You Can't Delegate to People", type: "talk", trackNumber: 1, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-018"], bmUrl: "https://brainsmingle.com/event-details/7fa613b5-f783-4cdf-8118-3f894b11c04c", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t2", title: "AI filmmaking and the transformation of creative workflows", type: "talk", trackNumber: 2, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-040"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "panel", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "talk", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: null, description: null, special: null, status: "closed" },
