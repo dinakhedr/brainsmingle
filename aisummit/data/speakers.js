@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-08 14:41 · 61 speakers.
+ * Generated 2026-09-08 16:21 · 61 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -219,7 +219,7 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-059",
     order       : 12,
     name        : "Asif Shahriar",
-    title       : "AI Learning Strategist",
+    title       : "AI Learning Strategist & Associate Research Fellow",
     company     : "Constructor University",
     country     : "Germany",
     countryCode : "DE",
