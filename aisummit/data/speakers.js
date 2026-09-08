@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-08 17:10 · 62 speakers.
+ * Generated 2026-09-08 19:41 · 62 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1066,20 +1066,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-062",
+    id          : "spk-063",
     order       : null,
-    name        : "Ahmed Samir",
-    title       : "CEO",
-    company     : "ASSET",
+    name        : "Ahmed Fakhry",
+    title       : "Co-founder & CEO",
+    company     : "Scale by AI",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-062.png",
-    bio         : "Experienced leader and investor with a track record of establishing and leading successful teams, transforming businesses, and delivering quick results. A certified corporate director by the IFC (International Finance Corporation, World Bank Group), specializing in corporate governance. Also a technical subject matter expert in industrial predictive technologies, actively investing in digital transformation, data visibility, and AI.",
-    linkedin    : "https://www.linkedin.com/in/ahmed-samir-b11782a2/",
+    photo       : "spk-063.png",
+    bio         : "Builder and operator of commercial and business systems at the intersection of AI, B2B tech, and enterprise sales. Currently leads Scale by AI, an AI marketing technology platform serving marketing agencies and enterprise clients across MENA.",
+    linkedin    : "https://www.linkedin.com/in/ahmedfakhry/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s2-t4", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
   }
 
 ];
