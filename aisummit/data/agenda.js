@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-09 14:45 · 69 sessions, 0 with a sign-up link.
+ * Generated 2026-09-09 23:28 · 68 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -39,8 +39,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s1-t2", title: "AI filmmaking and the transformation of creative workflows", type: "Session", trackNumber: 2, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-040"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "Fireside Chat", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "Session", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034","spk-036"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d2-s2-t1", title: "AI in Education: From Hype to Practical Use", type: "Session", trackNumber: 1, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-034"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "Session", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t4", title: "Build or Buy Odoo use Case integrated with AI", type: "Session", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t5", title: "Building Through the Bubble: Telecom's Lessons for the AI Buildout", type: "Session", trackNumber: 5, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-011"], bmUrl: null, description: null, special: null, status: "closed" },

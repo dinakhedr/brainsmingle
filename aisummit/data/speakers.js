@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-09 14:45 · 64 speakers.
+ * Generated 2026-09-09 23:28 · 62 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -352,71 +352,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-064",
+    id          : "spk-003",
     order       : null,
-    name        : "Mahmoud Abdellahi",
-    title       : "Postdoctoral Researcher in AI",
-    company     : "UCL",
-    country     : "UK",
-    countryCode : "GB",
-    photo       : "spk-064.png",
-    bio         : "AI researcher with a decade of experience in machine learning and deep learning, with a focus on computer vision. For the past eight years, he has specialized in the analysis of multivariate brain signals, bridging AI with brain-computer interfaces. Currently a postdoctoral researcher at the School of Engineering, Department of Computer Science, University College London (UCL). He teaches supervised machine learning, deep learning, and brain-computer interfaces, covering topics from RNNs and CNNs to Transformers and attention models. Passionate about learning from others and exploring new AI projects.",
-    linkedin    : "https://www.linkedin.com/in/mahmoud-abdellahi-phd-5bb81110b/",
+    name        : "Kate Barker",
+    title       : "Chief Futurist",
+    company     : "NEOM",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-003.png",
+    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
+    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-055",
-    order       : null,
-    name        : "Mostafa Elganainy",
-    title       : "Head of AI",
-    company     : "Nowlun",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-055.png",
-    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
-    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
-    bmProfile   : "https://brainsmingle.com/mostafa4876",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-021",
-    order       : null,
-    name        : "Moustafa Eshra",
-    title       : "Data & AI Enterprise Architect",
-    company     : "IBM",
-    country     : "France",
-    countryCode : "FR",
-    photo       : "spk-021.png",
-    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-009",
-    order       : null,
-    name        : "Mohamed Elsherif",
-    title       : "CEO",
-    company     : "ASaaSI Middle East",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-009.png",
-    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
-    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
-    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
+    appearances : []
   },
 
   {
@@ -454,108 +403,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-022",
-    order       : null,
-    name        : "Ebrahem Anwar",
-    title       : "Founder",
-    company     : "ICCY",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-022.png",
-    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
-    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-012",
-    order       : null,
-    name        : "Taha Ali",
-    title       : "CEO",
-    company     : "GroHub",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-012.png",
-    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
-    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-026",
-    order       : null,
-    name        : "Ziad Elaily",
-    title       : "AI Practice & Business Lead",
-    company     : "PwC ETIC",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-026.png",
-    bio         : "AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
-    bmProfile   : "https://brainsmingle.com/ziad6252",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-029",
-    order       : null,
-    name        : "Kamal Ghamry",
-    title       : "Marketing Manager",
-    company     : "Ninos",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-029.png",
-    bio         : "Commercial Marketing and Growth Advisor helping CEOs turn marketing data, customer behavior, and business economics into better commercial decisions. Experience spans e-commerce, fintech, retail, SaaS, B2B, and service businesses, with a focus on growth strategy, customer economics, and marketing effectiveness. Passionate about building decision systems that connect marketing activity to real business outcomes.",
-    linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
-    bmProfile   : "https://brainsmingle.com/kamal1544",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-056",
-    order       : null,
-    name        : "Margreet Magdy",
-    title       : "Founder",
-    company     : "You Are س",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-056.png",
-    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
-    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
-    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-003",
-    order       : null,
-    name        : "Kate Barker",
-    title       : "Chief Futurist",
-    company     : "NEOM",
-    country     : "UAE",
-    countryCode : "AE",
-    photo       : "spk-003.png",
-    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
-    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-007",
     order       : null,
     name        : "Yehya Othman",
@@ -573,16 +420,33 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-013",
+    id          : "spk-009",
     order       : null,
-    name        : "Nadeem Abdin",
-    title       : "Partner & VP Business Development",
-    company     : "AImpulse.io",
+    name        : "Mohamed Elsherif",
+    title       : "CEO",
+    company     : "ASaaSI Middle East",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-013.png",
-    bio         : "Business development and commercial strategy leader driving global market expansion across Europe, Scandinavia, Egypt, KSA, and the UAE. Specializing in the \"Dedicated Team\" model, providing senior-led Egyptian engineering squads to international clients. 15+ years of business leadership with a Telecommunication Engineering background and C-suite consultancy expertise.",
-    linkedin    : "https://www.linkedin.com/in/nadeem-abdin-7bb89524/",
+    photo       : "spk-009.png",
+    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
+    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
+    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : null,
+    name        : "Taha Ali",
+    title       : "CEO",
+    company     : "GroHub",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-012.png",
+    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
+    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
@@ -675,6 +539,40 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-021",
+    order       : null,
+    name        : "Moustafa Eshra",
+    title       : "Data & AI Enterprise Architect",
+    company     : "IBM",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-022",
+    order       : null,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
     id          : "spk-023",
     order       : null,
     name        : "Alaa Mukhtar",
@@ -709,6 +607,23 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-026",
+    order       : null,
+    name        : "Ziad Elaily",
+    title       : "AI Practice & Business Lead",
+    company     : "PwC ETIC",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-026.png",
+    bio         : "AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
+    bmProfile   : "https://brainsmingle.com/ziad6252",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
     id          : "spk-027",
     order       : null,
     name        : "Sherouk Ghallab",
@@ -723,6 +638,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-029",
+    order       : null,
+    name        : "Kamal Ghamry",
+    title       : "Marketing Manager",
+    company     : "Ninos",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-029.png",
+    bio         : "Commercial Marketing and Growth Advisor helping CEOs turn marketing data, customer behavior, and business economics into better commercial decisions. Experience spans e-commerce, fintech, retail, SaaS, B2B, and service businesses, with a focus on growth strategy, customer economics, and marketing effectiveness. Passionate about building decision systems that connect marketing activity to real business outcomes.",
+    linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
+    bmProfile   : "https://brainsmingle.com/kamal1544",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s3-t4", timeSlot: "20:00" }]
   },
 
   {
@@ -807,7 +739,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/ahmed9799",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }, { trackNumber: 1, day: 2, sessionId: "ses-d2-s2-t1", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -825,23 +757,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s3-t2", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-036",
-    order       : null,
-    name        : "Hussein Galal",
-    title       : "Staff Software Engineer",
-    company     : "SUSE",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-036.png",
-    bio         : "Staff Software Engineer at SUSE with 10+ years of experience in Linux systems and cloud-native engineering. Spent nearly 5 years at Rancher Labs building Kubernetes infrastructure, following a foundation in Linux system administration. Certified Kubernetes Administrator (CKA) with a B.Sc. in Computer Science from Alexandria University. Passionate about open-source, Linux, and container orchestration.",
-    linkedin    : "https://www.linkedin.com/in/galal-hussein/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -1100,6 +1015,40 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-055",
+    order       : null,
+    name        : "Mostafa Elganainy",
+    title       : "Head of AI",
+    company     : "Nowlun",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-055.png",
+    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
+    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
+    bmProfile   : "https://brainsmingle.com/mostafa4876",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-056",
+    order       : null,
+    name        : "Margreet Magdy",
+    title       : "Founder",
+    company     : "You Are س",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-056.png",
+    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
+    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
+    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
     id          : "spk-060",
     order       : null,
     name        : "Mohamed Kelany",
@@ -1114,6 +1063,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-064",
+    order       : null,
+    name        : "Mahmoud Abdellahi",
+    title       : "Postdoctoral Researcher in AI",
+    company     : "UCL",
+    country     : "UK",
+    countryCode : "GB",
+    photo       : "spk-064.png",
+    bio         : "AI researcher with a decade of experience in machine learning and deep learning, with a focus on computer vision. For the past eight years, he has specialized in the analysis of multivariate brain signals, bridging AI with brain-computer interfaces. Currently a postdoctoral researcher at the School of Engineering, Department of Computer Science, University College London (UCL). He teaches supervised machine learning, deep learning, and brain-computer interfaces, covering topics from RNNs and CNNs to Transformers and attention models. Passionate about learning from others and exploring new AI projects.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-abdellahi-phd-5bb81110b/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
   }
 
 ];
