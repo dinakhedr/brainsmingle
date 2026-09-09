@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-09 03:54 · 63 speakers.
+ * Generated 2026-09-09 14:45 · 64 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -332,6 +332,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-065",
+    order       : 20,
+    name        : "Islam Mostafa",
+    title       : "Senior Software Engineer",
+    company     : "Tebi",
+    country     : "Netherlands",
+    countryCode : "NL",
+    photo       : "spk-065.png",
+    bio         : "Software engineer and builder with 13+ years of experience across hardware, fintech, and AI. Started in hardware, co-founding two startups that shipped tens of thousands of IoT devices to 120+ countries, including a Kickstarter that reached 8x its goal. Later led backend teams at Adyen and MoneyHash, building treasury and payment systems moving billions of dollars across 90+ currencies. Currently a Senior Software Engineer at Tebi, building software for the operational core of hospitality, while developing AI Stickers, a product turning generative AI into production-grade creative tools. Drawn to working where product, systems, and constraints collide.",
+    linkedin    : "https://www.linkedin.com/in/imelnaggar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s3-t5", timeSlot: "20:00" }]
   },
 
   {
