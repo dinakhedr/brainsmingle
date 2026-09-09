@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-09 23:28 · 68 sessions, 0 with a sign-up link.
+ * Generated 2026-09-10 01:18 · 68 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -63,7 +63,6 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s3-t1", title: "How to be the most valuable leader in AI era", type: "Session", trackNumber: 1, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s3-t3", title: "How to design your app ideas in minutes with AI", type: "Session", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-051"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "Session", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d3-s3-t5", title: null, type: "Session", trackNumber: 5, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-065"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-spotlight", title: "Startups with Borders (Yassir)", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d3-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
@@ -77,6 +76,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Session", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s3-t2", title: "How AI is changing the creative role", type: "Session", trackNumber: 2, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-048"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "Session", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d4-s3-t5", title: null, type: "Session", trackNumber: 5, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-065"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-spotlight", title: "Dorob Panel", type: "Panel Discussion", trackNumber: null, day: 4, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d4-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 4, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
