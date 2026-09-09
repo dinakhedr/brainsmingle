@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-08 19:41 · 62 speakers.
+ * Generated 2026-09-09 03:54 · 63 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -114,20 +114,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-056",
+    id          : "spk-042",
     order       : 6,
-    name        : "Margreet Magdy",
-    title       : "Founder",
-    company     : "You Are س",
+    name        : "Shereen Badr",
+    title       : "Founder & CEO",
+    company     : "Medrara Digitals",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-056.png",
-    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
-    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
-    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
+    photo       : "spk-042.png",
+    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, web analytics, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
+    linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
+    bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s1-t4", timeSlot: "18:00" }]
   },
 
   {
@@ -148,59 +148,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-009",
+    id          : "spk-061",
     order       : 8,
-    name        : "Mohamed Elsherif",
-    title       : "CEO",
-    company     : "ASaaSI Middle East",
+    name        : "Abu Bakr Soliman",
+    title       : "Director of Artificial Intelligence",
+    company     : "Rankyx",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-009.png",
-    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
-    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
-    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-004",
-    order       : 9,
-    name        : "Ashraf Bacheet",
-    title       : "Founder",
-    company     : "O7 Therapy",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-004.png",
-    bio         : "Tech executive and serial entrepreneur with 20+ years building and scaling ventures across MENA. Led O7 Therapy from idea to regional scale as the Middle East's leading digital mental health platform. Google Health AI Academy graduate and 500 Global ScaleUp alumnus. Active startup mentor and speaker focused on where AI genuinely earns its place in products—in healthcare and beyond.",
-    linkedin    : "https://www.linkedin.com/in/bacheet",
-    bmProfile   : "https://brainsmingle.com/ashraf3370",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-021",
-    order       : 10,
-    name        : "Moustafa Eshra",
-    title       : "Data & AI Enterprise Architect",
-    company     : "IBM",
-    country     : "France",
-    countryCode : "FR",
-    photo       : "spk-021.png",
-    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    photo       : "spk-061.png",
+    bio         : "Director of AI at Rankyx with 11+ years in Machine Learning and Data Science, plus over a decade of software engineering experience across large software houses. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Specializes in analyzing problems and architecting solutions across ML, deep learning, NLP, and data science. Also advises AI startups, builds open-source projects, and has educated thousands through his YouTube channel.",
+    linkedin    : "https://www.linkedin.com/in/bakrianoo/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
+    appearances : []
   },
 
   {
     id          : "spk-014",
-    order       : 11,
+    order       : 9,
     name        : "Hend El Damaty",
     title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
@@ -216,8 +182,76 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-059",
+    id          : "spk-019",
+    order       : 10,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-050",
+    order       : 11,
+    name        : "Karim Nabil",
+    title       : "AI Engineer",
+    company     : "FPT Software",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-050.png",
+    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
+    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
+    bmProfile   : "https://brainsmingle.com/karim3423",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-028",
     order       : 12,
+    name        : "Abdelrahman Osama",
+    title       : "Head of Design",
+    company     : "Mal",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-028.png",
+    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
+    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-057",
+    order       : 14,
+    name        : "Ahmed Elsherbeeny",
+    title       : "AI/GenAI Lead Specialist SA (MENAT)",
+    company     : "Amazon Web Services (AWS)",
+    country     : "Canada",
+    countryCode : "CA",
+    photo       : "spk-057.png",
+    bio         : "GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
+    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
+    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-059",
+    order       : 15,
     name        : "Asif Shahriar",
     title       : "AI Learning Strategist & Associate Research Fellow",
     company     : "Constructor University",
@@ -234,7 +268,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-058",
-    order       : 13,
+    order       : 16,
     name        : "Ahmed ElKayesh",
     title       : "Founder & AI/ML Engineer",
     company     : "RoboPhi",
@@ -247,57 +281,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-055",
-    order       : 14,
-    name        : "Mostafa Elganainy",
-    title       : "Head of AI",
-    company     : "Nowlun",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-055.png",
-    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
-    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
-    bmProfile   : "https://brainsmingle.com/mostafa4876",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-050",
-    order       : 15,
-    name        : "Karim Nabil",
-    title       : "AI Engineer",
-    company     : "FPT Software",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-050.png",
-    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
-    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
-    bmProfile   : "https://brainsmingle.com/karim3423",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s1-t5", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-057",
-    order       : 16,
-    name        : "Ahmed Elsherbeeny",
-    title       : "AI/GenAI Lead Specialist SA (MENAT)",
-    company     : "Amazon Web Services (AWS)",
-    country     : "Canada",
-    countryCode : "CA",
-    photo       : "spk-057.png",
-    bio         : "GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
-    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
-    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -335,8 +318,110 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-006",
+    id          : "spk-063",
     order       : 19,
+    name        : "Ahmed Fakhry",
+    title       : "Co-founder & CEO",
+    company     : "Scale by AI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-063.png",
+    bio         : "Builder and operator of commercial and business systems at the intersection of AI, B2B tech, and enterprise sales. Currently leads Scale by AI, an AI marketing technology platform serving marketing agencies and enterprise clients across MENA.",
+    linkedin    : "https://www.linkedin.com/in/ahmedfakhry/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-064",
+    order       : null,
+    name        : "Mahmoud Abdellahi",
+    title       : "Postdoctoral Researcher in AI",
+    company     : "UCL",
+    country     : "UK",
+    countryCode : "GB",
+    photo       : "spk-064.png",
+    bio         : "AI researcher with a decade of experience in machine learning and deep learning, with a focus on computer vision. For the past eight years, he has specialized in the analysis of multivariate brain signals, bridging AI with brain-computer interfaces. Currently a postdoctoral researcher at the School of Engineering, Department of Computer Science, University College London (UCL). He teaches supervised machine learning, deep learning, and brain-computer interfaces, covering topics from RNNs and CNNs to Transformers and attention models. Passionate about learning from others and exploring new AI projects.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-abdellahi-phd-5bb81110b/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-055",
+    order       : null,
+    name        : "Mostafa Elganainy",
+    title       : "Head of AI",
+    company     : "Nowlun",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-055.png",
+    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
+    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
+    bmProfile   : "https://brainsmingle.com/mostafa4876",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-021",
+    order       : null,
+    name        : "Moustafa Eshra",
+    title       : "Data & AI Enterprise Architect",
+    company     : "IBM",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-009",
+    order       : null,
+    name        : "Mohamed Elsherif",
+    title       : "CEO",
+    company     : "ASaaSI Middle East",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-009.png",
+    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
+    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
+    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-004",
+    order       : null,
+    name        : "Ashraf Bacheet",
+    title       : "Founder",
+    company     : "O7 Therapy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-004.png",
+    bio         : "Tech executive and serial entrepreneur with 20+ years building and scaling ventures across MENA. Led O7 Therapy from idea to regional scale as the Middle East's leading digital mental health platform. Google Health AI Academy graduate and 500 Global ScaleUp alumnus. Active startup mentor and speaker focused on where AI genuinely earns its place in products—in healthcare and beyond.",
+    linkedin    : "https://www.linkedin.com/in/bacheet",
+    bmProfile   : "https://brainsmingle.com/ashraf3370",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-006",
+    order       : null,
     name        : "Yasmine Aguib",
     title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -353,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 20,
+    order       : null,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -370,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 21,
+    order       : null,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -387,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 22,
+    order       : null,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -403,25 +488,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-028",
-    order       : 23,
-    name        : "Abdelrahman Osama",
-    title       : "Head of Design",
-    company     : "Mal",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-028.png",
-    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
-    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
-    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
     id          : "spk-029",
-    order       : 24,
+    order       : null,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "Ninos",
@@ -434,6 +502,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-056",
+    order       : null,
+    name        : "Margreet Magdy",
+    title       : "Founder",
+    company     : "You Are س",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-056.png",
+    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
+    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
+    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   },
 
   {
@@ -553,23 +638,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-019",
-    order       : null,
-    name        : "Ahmed AbouZaid",
-    title       : "Senior Product Engineer",
-    company     : "Camunda",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-019.png",
-    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
-    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
-    bmProfile   : "https://brainsmingle.com/aabouzaid",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -845,23 +913,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-042",
-    order       : null,
-    name        : "Shereen Badr",
-    title       : "Founder & CEO",
-    company     : "Medrara Digitals",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-042.png",
-    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, web analytics, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
-    linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s1-t4", timeSlot: "18:00" }]
-  },
-
-  {
     id          : "spk-043",
     order       : null,
     name        : "Ezzat Essam",
@@ -1040,46 +1091,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-060.png",
-    bio         : "Technology strategist working at the intersection of AI, high-performance computing, and enterprise transformation, with a decade of marketing experience behind him. As a certified NVIDIA Partner Expert, he specializes in configuring GPU-powered workstations, AI servers, and simulation-ready setups for industries like digital twins, robotics, and smart cities. He advises businesses, research labs, and digital pioneers on the infrastructure they need to accelerate innovation. Passionate about making state-of-the-art hardware accessible, understandable, and practical, bridging ambitious ideas with the computing power to bring them to life.",
+    bio         : "Technology strategist working at the intersection of AI, high-performance computing, and enterprise transformation, with a decade of business experience across different roles. As a certified NVIDIA Partner Expert, he specializes in configuring GPU-powered workstations, AI servers, and simulation-ready setups for industries like digital twins, robotics, and smart cities. He advises businesses, research labs, and digital pioneers on the infrastructure they need to accelerate innovation. Passionate about making state-of-the-art hardware accessible, understandable, and practical, bridging ambitious ideas with the computing power to bring them to life.",
     linkedin    : "https://www.linkedin.com/in/kelanymo/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/Kelanymo",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s3-t5", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-061",
-    order       : null,
-    name        : "Abu Bakr Soliman",
-    title       : "Director of Artificial Intelligence",
-    company     : "Rankyx",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-061.png",
-    bio         : "Director of AI at Rankyx with 11+ years in Machine Learning and Data Science, plus over a decade of software engineering experience across large software houses. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Specializes in analyzing problems and architecting solutions across ML, deep learning, NLP, and data science. Also advises AI startups, builds open-source projects, and has educated thousands through his YouTube channel.",
-    linkedin    : "https://www.linkedin.com/in/bakrianoo/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-063",
-    order       : null,
-    name        : "Ahmed Fakhry",
-    title       : "Co-founder & CEO",
-    company     : "Scale by AI",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-063.png",
-    bio         : "Builder and operator of commercial and business systems at the intersection of AI, B2B tech, and enterprise sales. Currently leads Scale by AI, an AI marketing technology platform serving marketing agencies and enterprise clients across MENA.",
-    linkedin    : "https://www.linkedin.com/in/ahmedfakhry/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
   }
 
 ];
