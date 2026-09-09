@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-09 23:28 · 62 speakers.
+ * Generated 2026-09-09 23:50 · 62 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -151,14 +151,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-061",
     order       : 8,
     name        : "Abu Bakr Soliman",
-    title       : "Director of Artificial Intelligence",
-    company     : "Rankyx",
+    title       : "CTO",
+    company     : "SignalMatrix",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-061.png",
-    bio         : "Director of AI at Rankyx with 11+ years in Machine Learning and Data Science, plus over a decade of software engineering experience across large software houses. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Specializes in analyzing problems and architecting solutions across ML, deep learning, NLP, and data science. Also advises AI startups, builds open-source projects, and has educated thousands through his YouTube channel.",
+    bio         : "Talented engineer with 11+ years of experience in Machine Learning and Data Science. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Currently leading the development of SignalMatrix, the intelligence infrastructure for the multilingual, regulated world.",
     linkedin    : "https://www.linkedin.com/in/bakrianoo/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/abubakr9988",
     featured    : false,
     showOnHome  : true,
     appearances : []
