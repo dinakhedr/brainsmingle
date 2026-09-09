@@ -1350,7 +1350,7 @@ body.modal-open { overflow: hidden; }
    78px time rail. Every row in the day uses the same first column, so
    .ag-grid's rail lines up against all of them. */
 .ag-track-header {
-  display: grid; grid-template-columns: 78px repeat(5, 1fr);
+  display: grid; grid-template-columns: 100px repeat(5, 1fr);
   gap: 12px; margin-bottom: 16px;
 }
 /* The label is no longer a boxed pill. The cards below it carry the
@@ -1379,7 +1379,7 @@ body.modal-open { overflow: hidden; }
 .ag-track-col-label.time-col .tl-icon { display: none; }
 
 .ag-time-row {
-  display: grid; grid-template-columns: 78px repeat(5, 1fr);
+  display: grid; grid-template-columns: 100px repeat(5, 1fr);
   gap: 12px; margin-bottom: 12px; align-items: stretch;
 }
 
@@ -1402,7 +1402,7 @@ body.modal-open { overflow: hidden; }
    every gap. Added in agenda.html's renderTrackDay/renderOpeningDay. */
 .ag-grid { position: relative; }
 .ag-grid::before {
-  content: ''; position: absolute; left: 78px; top: 6px; bottom: 14px;
+  content: ''; position: absolute; left: 100px; top: 6px; bottom: 14px;
   width: 1px; background: var(--border-mid);
 }
 
@@ -1478,7 +1478,7 @@ body.modal-open { overflow: hidden; }
 .ag-panel-title--placeholder { color: var(--text-primary); font-weight: 500; font-style: italic; }
 .ag-panel-meta--placeholder  { color: var(--text-muted); font-style: italic; }
 /* ── Special merged row (Day Spotlight / Speed Networking) */
-.ag-special-merged { display: grid; grid-template-columns: 78px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
+.ag-special-merged { display: grid; grid-template-columns: 100px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
 .ag-special-card {
   border-radius: var(--radius-md); padding: 16px 22px;
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
@@ -1578,7 +1578,7 @@ body.modal-open { overflow: hidden; }
    --spotlight-ink is the readable purple for any purple surface,
    bright on dark and the AA-safe ink on light. It is named for the
    Spotlight because that is where it was first needed. */
-.ag-panel-row  { display: grid; grid-template-columns: 78px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
+.ag-panel-row  { display: grid; grid-template-columns: 100px 1fr; gap: 12px; margin-bottom: 12px; align-items: stretch; }
 .ag-panel {
   background: rgba(var(--purple-rgb), var(--spotlight-tint));
   border: 1px solid rgba(var(--purple-rgb), var(--spotlight-edge));
@@ -4786,14 +4786,11 @@ body.glow::after {
   .ag-hero { padding: 130px 24px 48px; }
   .ag-tabs { padding: 0 16px; }
   .ag-body { padding: 40px 16px 80px; }
-  .ag-track-header,
-  .ag-time-row        { grid-template-columns: 64px repeat(5, 1fr); gap: 6px; }
-  .ag-special-merged  { grid-template-columns: 64px 1fr; gap: 6px; }
-  /* Day 1 panels follow the same narrowed time column, otherwise they
-     keep the desktop width and fall out of line with the other rows. */
-  .ag-panel-row       { grid-template-columns: 64px 1fr; gap: 6px; }
-  /* The rail is absolutely positioned, so it has to follow the column. */
-  .ag-grid::before    { left: 64px; }
+    .ag-track-header,
+  .ag-time-row        { grid-template-columns: 78px repeat(5, 1fr); gap: 6px; }
+  .ag-special-merged  { grid-template-columns: 78px 1fr; gap: 6px; }
+  .ag-panel-row       { grid-template-columns: 78px 1fr; gap: 6px; }
+  .ag-grid::before    { left: 78px; }
   .ag-track-col-label { font-size: 11px; padding: 0 0 7px; }
   .ag-time-label      { font-size: 14px; padding: 10px 12px 0 0; }
   .ag-time-label::after { top: 15px; }
