@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-09 23:50 · 62 speakers.
+ * Generated 2026-09-10 00:06 · 61 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -481,23 +481,6 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-016.png",
     bio         : "Creative Director with 10+ years in advertising, blending a musician's eye for detail with strategic creativity. Evolved from copywriter to Creative Director across top agencies including Kijamii, Media Hub, Hive Analytics, and Mint & Co. Expert in strategy, copywriting, digital activations, and campaign production. Passionate about nurturing ideas into products that attract and linger in minds.",
     linkedin    : "https://www.linkedin.com/in/ehab-khaled-fawzi-65809697/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-017",
-    order       : null,
-    name        : "Abdelrahman Kandil",
-    title       : "Founder",
-    company     : "Next Academy",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-017.png",
-    bio         : "Pharmacist turned Business Strategist with 15 years of experience across manufacturing, e-commerce, real estate, and more. Founder of Next Academy, redefining industry education with 1,000+ graduates, and Ex's Agency, helping companies scale through strategic marketing. 210+ brands developed, 30+ companies restructured, 2,000+ professionals trained. MBA holder passionate about helping startups scale faster and build sustainable legacies.",
-    linkedin    : "https://www.linkedin.com/in/dr-abdelrahman-kandil/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
