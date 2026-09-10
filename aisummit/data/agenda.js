@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-10 01:18 · 68 sessions, 0 with a sign-up link.
+ * Generated 2026-09-10 13:09 · 70 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -55,6 +55,7 @@ const SIGNAL_AGENDA = [
   // DAY 3
   // ======================================
   { id: "ses-d3-s1-t3", title: "From Idea to AI Startup: Building an MVP in Days, Not Months", type: "Session", trackNumber: 3, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-022"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d3-s1-t4", title: "AI in Insurance & Finance", type: "Session", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-066"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t5", title: "Your AI agent works. Now what?", type: "Session", trackNumber: 5, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-057"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s2-t1", title: "Redesigning L&D Offer for an AI-Native Workforce", type: "Session", trackNumber: 1, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-027"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s2-t2", title: "Creative & AI:  [Vs. or Ft.]?", type: "Session", trackNumber: 2, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-016"], bmUrl: null, description: null, special: null, status: "in-progress" },
@@ -63,6 +64,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s3-t1", title: "How to be the most valuable leader in AI era", type: "Session", trackNumber: 1, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s3-t3", title: "How to design your app ideas in minutes with AI", type: "Session", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-051"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "Session", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d3-s3-t5", title: "Achilles' heel", type: "Session", trackNumber: 5, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-061"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-spotlight", title: "Startups with Borders (Yassir)", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d3-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
@@ -89,7 +91,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d5-s1-t4", title: "SEO Before vs. After AI: What Changed and What Still Works", type: "Session", trackNumber: 4, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-042"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s1-t5", title: "RTG Session", type: "Session", trackNumber: 5, day: 5, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s2-t2", title: "Create Complete AI Videos: Your Face, Voice, Visuals & Editing", type: "Session", trackNumber: 2, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-037"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d5-s2-t3", title: null, type: "Session", trackNumber: 3, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-063"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d5-s2-t3", title: "AI in Startups & Entrepreneurship", type: "Session", trackNumber: 3, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-063"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t4", title: "Beyond the Benchmark: Evaluating AI in Healthcare and Beyond", type: "Session", trackNumber: 4, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-058"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t5", title: "RTG Session", type: "Session", trackNumber: 5, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t2", title: "Digital Twins for Education: Turn Expertise into Scalable Content", type: "Session", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },

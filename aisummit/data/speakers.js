@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-10 00:06 · 61 speakers.
+ * Generated 2026-09-10 13:09 · 62 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -161,7 +161,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/abubakr9988",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s3-t5", timeSlot: "20:00" }]
   },
 
   {
@@ -233,6 +233,23 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-066",
+    order       : 13,
+    name        : "Manar Mansour",
+    title       : "Founder & Managing Director",
+    company     : "TIK TEN",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-066.png",
+    bio         : "Partnership and growth strategist with 15+ years of experience helping organizations unlock new opportunities through strategic partnerships, go-to-market strategies, and commercial growth initiatives across fintech, financial services, insurance, and technology. Has worked with startups, enterprises, banks, and solution providers to identify growth opportunities and turn ideas into successful business outcomes. Founder of Tik Ten, a strategic partnership advisory helping organizations identify, evaluate, and connect with the right partners. Driven by the belief that the best business opportunities happen when the right organizations find each other.",
+    linkedin    : "https://www.linkedin.com/in/manar-mansour/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
     id          : "spk-057",
     order       : 14,
     name        : "Ahmed Elsherbeeny",
@@ -251,7 +268,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-059",
-    order       : 15,
+    order       : 16,
     name        : "Asif Shahriar",
     title       : "AI Learning Strategist & Associate Research Fellow",
     company     : "Constructor University",
@@ -268,7 +285,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-058",
-    order       : 16,
+    order       : 17,
     name        : "Ahmed ElKayesh",
     title       : "Founder & AI/ML Engineer",
     company     : "RoboPhi",
@@ -284,25 +301,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-005",
-    order       : 17,
-    name        : "Youssef Hosni",
-    title       : "AI/ML Engeineer",
-    company     : "Solita",
-    country     : "Finland",
-    countryCode : "FI",
-    photo       : "spk-005.png",
-    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
-    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
-    bmProfile   : "https://brainsmingle.com/youssef9740",
+    id          : "spk-056",
+    order       : 18,
+    name        : "Margreet Magdy",
+    title       : "Founder",
+    company     : "You Are س",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-056.png",
+    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
+    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
+    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+    appearances : []
   },
 
   {
     id          : "spk-008",
-    order       : 18,
+    order       : 19,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -318,8 +335,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-027",
+    order       : 20,
+    name        : "Sherouk Ghallab",
+    title       : "Founder & Digital Learning Strategist",
+    company     : "Noor Edtech",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-027.png",
+    bio         : "Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
+    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
+    bmProfile   : "https://brainsmingle.com/sherouk1278",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-005",
+    order       : 21,
+    name        : "Youssef Hosni",
+    title       : "AI/ML Engeineer",
+    company     : "Solita",
+    country     : "Finland",
+    countryCode : "FI",
+    photo       : "spk-005.png",
+    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
+    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
+    bmProfile   : "https://brainsmingle.com/youssef9740",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
     id          : "spk-063",
-    order       : 19,
+    order       : 22,
     name        : "Ahmed Fakhry",
     title       : "Co-founder & CEO",
     company     : "Scale by AI",
@@ -336,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-065",
-    order       : 20,
+    order       : 23,
     name        : "Islam Mostafa",
     title       : "Senior Software Engineer",
     company     : "Tebi",
@@ -348,7 +399,58 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s3-t5", timeSlot: "20:00" }]
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-031",
+    order       : 24,
+    name        : "Shaimaa Emam",
+    title       : "Senior Program Manager",
+    company     : "Ascendra",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-031.png",
+    bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
+    linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-022",
+    order       : 25,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-018",
+    order       : 26,
+    name        : "Abdallah Amer",
+    title       : "Founder & CEO",
+    company     : "Capsules Group",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-018.png",
+    bio         : "Founder and CEO of Capsules Group, an education holding company in Cairo encompassing English Capsules Academy (4 branches), SML European language institute, and Executive Mastery Camp (EMC). Clients include Banque Misr, Carrefour, and Misr Insurance. Through EMC, he helps founders and senior leaders build delegation systems and organizational design to shift from operating a business to owning one. Currently pursuing a Doctorate of Business Administration. Speaks and writes in Arabic and English on execution, systems, and organizational discipline.",
+    linkedin    : "https://www.linkedin.com/in/amership9/",
+    bmProfile   : "https://brainsmingle.com/AbdullahAmer",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
   },
 
   {
@@ -488,23 +590,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-018",
-    order       : null,
-    name        : "Abdallah Amer",
-    title       : "Founder & CEO",
-    company     : "Capsules Group",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-018.png",
-    bio         : "Founder and CEO of Capsules Group, an education holding company in Cairo encompassing English Capsules Academy (4 branches), SML European language institute, and Executive Mastery Camp (EMC). Clients include Banque Misr, Carrefour, and Misr Insurance. Through EMC, he helps founders and senior leaders build delegation systems and organizational design to shift from operating a business to owning one. Currently pursuing a Doctorate of Business Administration. Speaks and writes in Arabic and English on execution, systems, and organizational discipline.",
-    linkedin    : "https://www.linkedin.com/in/amership9/",
-    bmProfile   : "https://brainsmingle.com/AbdullahAmer",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
-  },
-
-  {
     id          : "spk-020",
     order       : null,
     name        : "Nader Sayed",
@@ -536,23 +621,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-022",
-    order       : null,
-    name        : "Ebrahem Anwar",
-    title       : "Founder",
-    company     : "ICCY",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-022.png",
-    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
-    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
   },
 
   {
@@ -607,23 +675,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-027",
-    order       : null,
-    name        : "Sherouk Ghallab",
-    title       : "Founder & Digital Learning Strategist",
-    company     : "Noor Edtech",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-027.png",
-    bio         : "Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
-    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
-    bmProfile   : "https://brainsmingle.com/sherouk1278",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
-  },
-
-  {
     id          : "spk-029",
     order       : null,
     name        : "Kamal Ghamry",
@@ -655,23 +706,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-031",
-    order       : null,
-    name        : "Shaimaa Emam",
-    title       : "Senior Program Manager",
-    company     : "Ascendra",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-031.png",
-    bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
-    linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
@@ -1012,23 +1046,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-056",
-    order       : null,
-    name        : "Margreet Magdy",
-    title       : "Founder",
-    company     : "You Are س",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-056.png",
-    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
-    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
-    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
