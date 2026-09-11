@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-11 15:00 · 64 speakers.
+ * Generated 2026-09-11 15:42 · 64 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1103,14 +1103,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-064",
     order       : null,
     name        : "Mahmoud Abdellahi",
-    title       : "Postdoctoral Researcher in AI",
-    company     : "UCL",
-    country     : "UK",
-    countryCode : "GB",
+    title       : "Researcher and Lecturer",
+    company     : "Cairo University",
+    country     : "Egypt",
+    countryCode : "EG",
     photo       : "spk-064.png",
-    bio         : "AI researcher with a decade of experience in machine learning and deep learning, with a focus on computer vision. For the past eight years, he has specialized in the analysis of multivariate brain signals, bridging AI with brain-computer interfaces. Currently a postdoctoral researcher at the School of Engineering, Department of Computer Science, University College London (UCL). He teaches supervised machine learning, deep learning, and brain-computer interfaces, covering topics from RNNs and CNNs to Transformers and attention models. Passionate about learning from others and exploring new AI projects.",
+    bio         : "Computer scientist and neuroscience researcher applying machine learning to decode memory processing during sleep from EEG brain signals. Founder of Aibdaya, an Arabic-language platform teaching AI from its mathematical foundations to thousands of learners. Also a lecturer at the Faculty of Computers and AI, Cairo University.",
     linkedin    : "https://www.linkedin.com/in/mahmoud-abdellahi-phd-5bb81110b/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/mahmoud1446",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
