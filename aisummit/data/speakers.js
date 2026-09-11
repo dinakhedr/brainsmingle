@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-10 13:09 · 62 speakers.
+ * Generated 2026-09-11 15:00 · 64 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -267,8 +267,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-059",
+    id          : "spk-067",
+    order       : 15,
+    name        : "Abdelrahman Seleem",
+    title       : "CEO & AI Systems Architect",
+    company     : "Oligence AI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-067.png",
+    bio         : "Growth strategist helping companies, executives, and institutions scale through AI-powered decision systems, growth engineering, and intelligent automation. With 20+ years of experience in digital growth, business transformation, and AI innovation, he builds systems that help organizations operate smarter and achieve scalable growth. Has worked with enterprise brands, government entities, and fast-growing businesses across MENA, including Ford, Vodafone UK, Jumia, and Namshi. Through IMFND and executive education programs, he has trained 200,000+ professionals in AI marketing automation, growth engineering, and digital transformation.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahmansleem/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-068",
     order       : 16,
+    name        : "Mohamed Farouk",
+    title       : "Chief Learning and Innovation Officer",
+    company     : "Sprints",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-068.png",
+    bio         : "Consultant, researcher, and entrepreneur passionate about people and technology, dedicated to solving community problems through IoT, data science, and AI. As Founder and CEO of WAI Technologies, he leads the development of innovative technologies tackling environmental challenges, with a focus on sustainable solutions for water scarcity. Previously part of the ITI team, he empowered youth with technology education and skills. With a longstanding career in education and research, he has managed several funded projects bridging academia and industry. Passionate about mentoring future innovators and leveraging technology to build a sustainable, inclusive future.",
+    linkedin    : "https://www.linkedin.com/in/mohamed-farouk-abdelkader-08618912/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-059",
+    order       : 17,
     name        : "Asif Shahriar",
     title       : "AI Learning Strategist & Associate Research Fellow",
     company     : "Constructor University",
@@ -285,7 +319,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-058",
-    order       : 17,
+    order       : 18,
     name        : "Ahmed ElKayesh",
     title       : "Founder & AI/ML Engineer",
     company     : "RoboPhi",
@@ -302,7 +336,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-056",
-    order       : 18,
+    order       : 20,
     name        : "Margreet Magdy",
     title       : "Founder",
     company     : "You Are س",
@@ -319,7 +353,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 19,
+    order       : 21,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -336,7 +370,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-027",
-    order       : 20,
+    order       : 22,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "Noor Edtech",
@@ -353,7 +387,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-005",
-    order       : 21,
+    order       : 23,
     name        : "Youssef Hosni",
     title       : "AI/ML Engeineer",
     company     : "Solita",
@@ -370,16 +404,16 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-063",
-    order       : 22,
+    order       : 24,
     name        : "Ahmed Fakhry",
     title       : "Co-founder & CEO",
     company     : "Scale by AI",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-063.png",
-    bio         : "Builder and operator of commercial and business systems at the intersection of AI, B2B tech, and enterprise sales. Currently leads Scale by AI, an AI marketing technology platform serving marketing agencies and enterprise clients across MENA.",
+    bio         : "Co-founder and CEO of Scale by AI, an Egyptian AI startup helping businesses adopt and scale artificial intelligence through practical products and transformation programs. He leads strategy, partnerships, and AI commercialization, working with startups, SMEs, and organizations across the MENA region. His work focuses on turning emerging AI capabilities into solutions that solve real business problems and create measurable value. Actively engaged in the regional AI ecosystem, he brings a founder's perspective to conversations on responsible AI, entrepreneurship, and what makes AI startups scalable.",
     linkedin    : "https://www.linkedin.com/in/ahmedfakhry/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed6506",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
@@ -387,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-065",
-    order       : 23,
+    order       : 25,
     name        : "Islam Mostafa",
     title       : "Senior Software Engineer",
     company     : "Tebi",
@@ -404,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-031",
-    order       : 24,
+    order       : 26,
     name        : "Shaimaa Emam",
     title       : "Senior Program Manager",
     company     : "Ascendra",
@@ -421,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 25,
+    order       : 27,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -438,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-018",
-    order       : 26,
+    order       : 28,
     name        : "Abdallah Amer",
     title       : "Founder & CEO",
     company     : "Capsules Group",
@@ -734,7 +768,7 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-033.png",
-    bio         : "Senior Engineering Manager with 13+ years of experience across DevOps, infrastructure, and engineering leadership. Former CTO at Zyda and Head of SRE at Nana, with previous roles at Instabug, Swvl, and Crowd Analyzer. Started in cybersecurity as a Malware Hunter at EG-CERT. Passionate about building high-performing engineering teams that ship products with real business impact.",
+    bio         : "Senior Engineering Manager with 15+ years of experience across DevOps, infrastructure, and engineering leadership. Former CTO at Zyda and Head of SRE at Nana, with previous roles at Instabug, Swvl, and Crowd Analyzer. Started in cybersecurity as a Malware Hunter at EG-CERT. Passionate about building high-performing engineering teams that ship products with real business impact.",
     linkedin    : "https://www.linkedin.com/in/ahmadaabed/",
     bmProfile   : null,
     featured    : false,
