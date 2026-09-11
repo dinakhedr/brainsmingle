@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-11 15:42 · 64 speakers.
+ * Generated 2026-09-11 19:03 · 63 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -332,23 +332,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-056",
-    order       : 20,
-    name        : "Margreet Magdy",
-    title       : "Founder",
-    company     : "You Are س",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-056.png",
-    bio         : "An award winning cross-sector strategist and ecosystem builder with 16+ years across MENA, working at the intersection of entrepreneurship, inclusive innovation, gender equity, and digital transformation.",
-    linkedin    : "https://www.linkedin.com/in/margreet-magdy/",
-    bmProfile   : "https://brainsmingle.com/margreetmagd2131",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {

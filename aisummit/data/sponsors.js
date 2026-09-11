@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-09-10 15:04 · 58 sponsors, 45 partners.
+ * Generated 2026-09-11 19:04 · 58 sponsors, 44 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -62,7 +62,6 @@ const SIGNAL_PARTNER_TYPES = [
   "Recruitment Partner",
   "Career Partner",
   "Ecosystem Partner",
-  "Women in Tech Partner",
   "Germany",
   "Syria",
   "AI Startup",
@@ -146,7 +145,6 @@ const SIGNAL_PARTNERS = [
   { id: "prt-003", order: 102, name: "Startup Egypt", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-003.png", logoURL: "x", website: "https://startupegypt.org.eg/", bmCommunityLink: null, tagline: "We Empower Egyptian Founders to Build the Future" },
   { id: "prt-002", order: 103, name: "MEmpire", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-002.png", logoURL: "x", website: "https://www.mempireangels.com/", bmCommunityLink: null, tagline: "Where MENA's most ambitious operators find their first believer." },
   { id: "prt-016", order: 104, name: "Wrk+", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
-  { id: "prt-024", order: 105, name: "You are س", tier: "community", icon: "spotlight", title: "Women in Tech Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-024.png", logoURL: "x", website: "https://www.youareseen.net", bmCommunityLink: null, tagline: "You Are س (You Are Seen) is a MENA women's initiative providing holistic, life-stage support to Arab women. It works to ensure women have access to the guidance, resources, and community required to progress on their own terms." },
   { id: "prt-001", order: 200, name: "AI Global", tier: "community", icon: "globe", title: "Germany", country: "Germany", countryCode: "DE", confirmed: true, group: "regional", logo: "prt-001.png", logoURL: "x", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
   { id: "prt-015", order: 201, name: "Doroob", tier: "community", icon: "globe", title: "Syria", country: "Syria", countryCode: "SY", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." },
   { id: "prt-041", order: 300, name: "Brono AI", tier: "community", icon: "trackTech", title: "AI Startup", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-041.png", logoURL: "x", website: "https://brono.ai/", bmCommunityLink: null, tagline: "Empower your design workflow with Brono. Transform text prompts into editable Figma UI, generate production-ready code, run UX audits, and analyze heatmaps instantly." },
