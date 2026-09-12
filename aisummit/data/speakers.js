@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-12 05:06 · 63 speakers.
+ * Generated 2026-09-12 18:58 · 64 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -348,7 +348,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/realElShamy",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s1-t4", timeSlot: "18:00" }]
   },
 
   {
@@ -1097,6 +1097,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-069",
+    order       : null,
+    name        : "Nourah Mahamed",
+    title       : "AI Cinematic Ads & Branding designer",
+    company     : "Nourah Studio",
+    country     : "Libya",
+    countryCode : "LY",
+    photo       : "spk-069.png",
+    bio         : "Senior Graphic Designer with over 5 years of experience specialized in Branding, Visual Identity, and Social Media. I am  proficient in the art of Visual Storytelling, Manipulation, and Video Editing.",
+    linkedin    : "https://www.facebook.com/noura.mahamed.399",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   }
 
 ];
