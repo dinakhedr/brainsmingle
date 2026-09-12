@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-11 19:03 · 63 speakers.
+ * Generated 2026-09-12 05:06 · 63 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -729,12 +729,12 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-032",
     order       : null,
     name        : "Mahmoud Abdelhamed",
-    title       : "Senior Computer Vision Engineer",
-    company     : "",
+    title       : "Senior AI Engineer",
+    company     : "Confidential",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-032.png",
-    bio         : "Senior Computer Vision Engineer with 7+ years of experience building AI systems for real-world applications. Specializes in 3D Vision, Visual SLAM, deep learning, and multimodal systems combining images, engineering documents, and language models. Recently designing agentic workflows for engineering applications including design review and compliance verification. Holds an Erasmus Mundus M.Sc. in Computer Vision and Medical Imaging, with a publication at SPIE Medical Imaging 2023. Passionate about where computer vision, multimodal AI, and production engineering converge.",
+    bio         : "Senior Computer Vision Engineer with 7+ years of experience building production AI systems across computer vision, 3D vision, and multimodal AI. His work spans scalable AI deployment, 3D reconstruction, agentic workflows, and technical leadership, with a focus on turning advanced AI research into practical engineering solutions.",
     linkedin    : "https://www.linkedin.com/in/mahmoud-khaled-nasr/",
     bmProfile   : null,
     featured    : false,
