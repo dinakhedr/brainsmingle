@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-14 13:48 · 68 speakers.
+ * Generated 2026-09-14 16:20 · 68 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1164,7 +1164,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/nourhan3857",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 2, day: 6, sessionId: "ses-d6-s1-t2", timeSlot: "18:00" }]
   },
 
   {
