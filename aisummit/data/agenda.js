@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-14 16:20 · 75 sessions, 0 with a sign-up link.
+ * Generated 2026-09-14 23:32 · 78 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -40,6 +40,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "Fireside Chat", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "Session", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d2-s2-t2", title: null, type: "Session", trackNumber: 2, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-074"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "Session", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t4", title: "Build or Buy Odoo use Case integrated with AI", type: "Session", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t5", title: "Building Through the Bubble: Telecom's Lessons for the AI Buildout", type: "Session", trackNumber: 5, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-011"], bmUrl: null, description: null, special: null, status: "closed" },
@@ -97,6 +98,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d5-s2-t3", title: "AI in Startups & Entrepreneurship", type: "Session", trackNumber: 3, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-063"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t4", title: "Beyond the Benchmark: Evaluating AI in Healthcare and Beyond", type: "Session", trackNumber: 4, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-058"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t5", title: "RTG Session", type: "Session", trackNumber: 5, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d5-s3-t1", title: null, type: "Session", trackNumber: 1, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-076"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t2", title: "Digital Twins for Education: Turn Expertise into Scalable Content", type: "Session", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s3-t4", title: null, type: "Session", trackNumber: 4, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-012"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t5", title: "RTG Session", type: "Session", trackNumber: 5, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
@@ -109,12 +111,13 @@ const SIGNAL_AGENDA = [
   { id: "ses-d6-s1-t2", title: "From Prompt to Screen: AI Filmmaking & Creative Direction", type: "Workshop", trackNumber: 2, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-069"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s1-t3", title: "WUZZUF Session", type: "Session", trackNumber: 3, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s1-t4", title: "Beyond Copilots: Governed Agentic AI for Enterprise Decisions", type: "Session", trackNumber: 4, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-008"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d6-s1-t5", title: "Software Development in AI era", type: "Panel Discussion", trackNumber: 5, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-032"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d6-s1-t5", title: "Software Development in AI era", type: "Fireside Chat", trackNumber: 5, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-032"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s2-t1", title: "Building Your Personal Brand in the Age of AI", type: "Session", trackNumber: 1, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-039"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s2-t2", title: "Design with, and for AI", type: "Session", trackNumber: 2, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-052"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s2-t3", title: "WUZZUF Session", type: "Session", trackNumber: 3, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s2-t4", title: null, type: "Session", trackNumber: 4, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-072"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d6-s2-t5", title: null, type: "Session", trackNumber: 5, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d6-s2-t5", title: "AI Use Cases for Business", type: "Session", trackNumber: 5, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d6-s3-t1", title: null, type: "Session", trackNumber: 1, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-076"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s3-t2", title: null, type: "Session", trackNumber: 2, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-044"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s3-t3", title: "WUZZUF Session", type: "Session", trackNumber: 3, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s3-t4", title: "The proven process to enhance your marketing decision", type: "Session", trackNumber: 4, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-029"], bmUrl: null, description: null, special: null, status: "closed" },
