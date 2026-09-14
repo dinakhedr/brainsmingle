@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-14 16:20 · 68 speakers.
+ * Generated 2026-09-14 19:48 · 68 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -131,8 +131,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-050",
+    id          : "spk-005",
     order       : 7,
+    name        : "Youssef Hosni",
+    title       : "AI/ML Engeineer",
+    company     : "Solita",
+    country     : "Finland",
+    countryCode : "FI",
+    photo       : "spk-005.png",
+    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
+    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
+    bmProfile   : "https://brainsmingle.com/youssef9740",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-050",
+    order       : 8,
     name        : "Karim Nabil",
     title       : "AI Engineer",
     company     : "FPT Software",
@@ -149,7 +166,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-042",
-    order       : 8,
+    order       : 9,
     name        : "Shereen Badr",
     title       : "Founder & CEO",
     company     : "Medrara Digitals",
@@ -166,7 +183,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-011",
-    order       : 9,
+    order       : 10,
     name        : "Hani Elmalky",
     title       : "Head of AI & Innovation, GFiber",
     company     : "Google",
@@ -183,7 +200,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-024",
-    order       : 10,
+    order       : 11,
     name        : "Sami AlAhmed",
     title       : "Founder & CEO",
     company     : "Doroob",
@@ -200,7 +217,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-014",
-    order       : 11,
+    order       : 12,
     name        : "Hend El Damaty",
     title       : "AI & Digital Transformation Strategist",
     company     : "AI Global",
@@ -217,7 +234,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-057",
-    order       : 12,
+    order       : 13,
     name        : "Ahmed Elsherbeeny",
     title       : "AI/GenAI Lead Specialist SA (MENAT)",
     company     : "Amazon Web Services (AWS)",
@@ -234,7 +251,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 13,
+    order       : 14,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -247,23 +264,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
-  },
-
-  {
-    id          : "spk-005",
-    order       : 14,
-    name        : "Youssef Hosni",
-    title       : "AI/ML Engeineer",
-    company     : "Solita",
-    country     : "Finland",
-    countryCode : "FI",
-    photo       : "spk-005.png",
-    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
-    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
-    bmProfile   : "https://brainsmingle.com/youssef9740",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
   },
 
   {
@@ -331,7 +331,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s2-t5", timeSlot: "19:00" }]
   },
 
   {
