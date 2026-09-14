@@ -9,7 +9,7 @@
  */
 
 const SPEAKER_PHOTO_BASE = "assets/speakers/";
-const HOME_SPEAKER_LIMIT = 18;
+const HOME_SPEAKER_LIMIT = 16;
 
 function getSpeakerPhoto(speaker) {
   if (!speaker) return null;
