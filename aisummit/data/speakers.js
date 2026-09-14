@@ -2,14 +2,14 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-14 23:53 · 71 speakers.
+ * Generated 2026-09-15 00:00 · 71 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
  */
 
 const SPEAKER_PHOTO_BASE = "assets/speakers/";
-const HOME_SPEAKER_LIMIT = 16;
+const HOME_SPEAKER_LIMIT = 20;
 
 function getSpeakerPhoto(speaker) {
   if (!speaker) return null;
@@ -313,30 +313,64 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
     bmProfile   : "https://brainsmingle.com/MohamedElsherif",
     featured    : false,
-    showOnHome  : false,
+    showOnHome  : true,
     appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
   },
 
   {
-    id          : "spk-022",
+    id          : "spk-028",
     order       : 18,
-    name        : "Ebrahem Anwar",
-    title       : "Founder",
-    company     : "ICCY",
+    name        : "Abdelrahman Osama",
+    title       : "Head of Design",
+    company     : "Mal",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-022.png",
-    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
-    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    photo       : "spk-028.png",
+    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
+    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-019",
+    order       : 19,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-075",
+    order       : 20,
+    name        : "Mohamed Ali",
+    title       : "Co- Founder & Chief Commercial officer",
+    company     : "LemonAI LLC",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-075.png",
+    bio         : "Host of the \"Business With Mo\" podcast, where he explores what actually works in business today. A growth strategist with 17+ years across marketing, business development, and growth, he helps startups, founders, and businesses shift from chasing clients to building sustainable growth engines. Creator of the TLG Framework (Trust-Led Growth), built on personal trust, capability trust, and system trust. Rather than short-term tactics, he focuses on building ecosystems that generate opportunities, designing scalable business development systems, and turning relationships into long-term growth.",
+    linkedin    : "https://www.linkedin.com/in/moali85/",
     bmProfile   : null,
     featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+    showOnHome  : true,
+    appearances : []
   },
 
   {
     id          : "spk-068",
-    order       : 19,
+    order       : 21,
     name        : "Mohamed Farouk",
     title       : "Professor",
     company     : "Zewail Univeristy",
@@ -352,8 +386,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-022",
+    order       : 22,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
     id          : "spk-018",
-    order       : 20,
+    order       : 24,
     name        : "Abdallah Amer",
     title       : "Founder & CEO",
     company     : "Capsules Group",
@@ -366,57 +417,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-019",
-    order       : 21,
-    name        : "Ahmed AbouZaid",
-    title       : "Senior Product Engineer",
-    company     : "Camunda",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-019.png",
-    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
-    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
-    bmProfile   : "https://brainsmingle.com/aabouzaid",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-028",
-    order       : 22,
-    name        : "Abdelrahman Osama",
-    title       : "Head of Design",
-    company     : "Mal",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-028.png",
-    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
-    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
-    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-075",
-    order       : 24,
-    name        : "Mohamed Ali",
-    title       : "Co- Founder & Chief Commercial officer",
-    company     : "LemonAI LLC",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-075.png",
-    bio         : "Host of the \"Business With Mo\" podcast, where he explores what actually works in business today. A growth strategist with 17+ years across marketing, business development, and growth, he helps startups, founders, and businesses shift from chasing clients to building sustainable growth engines. Creator of the TLG Framework (Trust-Led Growth), built on personal trust, capability trust, and system trust. Rather than short-term tactics, he focuses on building ecosystems that generate opportunities, designing scalable business development systems, and turning relationships into long-term growth.",
-    linkedin    : "https://www.linkedin.com/in/moali85/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
