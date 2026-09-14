@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-13 17:06 · 73 sessions, 0 with a sign-up link.
+ * Generated 2026-09-14 03:29 · 75 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -61,6 +61,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s2-t2", title: "Creative & AI:  [Vs. or Ft.]?", type: "Session", trackNumber: 2, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-016"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s2-t3", title: "3 Skills needed to build your Startup or Side Business- AI is one of them", type: "Session", trackNumber: 3, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-038"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s2-t4", title: "AI in Marketing", type: "Session", trackNumber: 4, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-007"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d3-s2-t5", title: null, type: "Session", trackNumber: 5, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s3-t2", title: null, type: "Session", trackNumber: 2, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-070"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s3-t3", title: "How to design your app ideas in minutes with AI", type: "Session", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-051"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "Session", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: null, description: null, special: null, status: "closed" },
@@ -77,6 +78,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s2-t1", title: "The Human Edge", type: "Fireside Chat", trackNumber: 1, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t3", title: "How the best founders use AI", type: "Session", trackNumber: 3, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-053"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Session", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d4-s3-t1", title: null, type: "Session", trackNumber: 1, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-073"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s3-t2", title: "How AI is changing the creative role", type: "Session", trackNumber: 2, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-048"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "Session", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t5", title: "Software Architecture After Cheap Code", type: "Session", trackNumber: 5, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-065"], bmUrl: null, description: null, special: null, status: "closed" },

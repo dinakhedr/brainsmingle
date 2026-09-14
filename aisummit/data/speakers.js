@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-13 17:17 · 67 speakers.
+ * Generated 2026-09-14 03:43 · 68 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -743,8 +743,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-020",
+    id          : "spk-073",
     order       : 44,
+    name        : "Omar Nasr",
+    title       : "Founder",
+    company     : "AI-Proctor",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-073.png",
+    bio         : "Lifelong learner and systems builder from Suez. After graduating from Cairo University in 2003, he completed his PhD at UCLA, gaining hands-on experience building real-world wireless systems. He returned to Egypt as an assistant professor at Cairo University and joined the R&D department at the National Telecom Regulatory Authority, leading the evaluation of hundreds of funded research projects. He later spent two years as a Principal Systems Engineer at Goodix, working on advanced wireless chip design. In 2020, he co-founded AI-Proctor, an AI solution safeguarding the integrity of online exams, now used in tens of thousands of assessments and backed by Flat6labs.",
+    linkedin    : "https://www.linkedin.com/in/omaranasr-ai/",
+    bmProfile   : "https://brainsmingle.com/omar2145",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-020",
+    order       : 45,
     name        : "Nader Sayed",
     title       : "Founder",
     company     : "Tawasul for AI transformation",
@@ -760,8 +777,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-072",
+    order       : 46,
+    name        : "Ahmed Ramy",
+    title       : "Co-Founder & CEO",
+    company     : "FastAutomate",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-072.png",
+    bio         : "Technology and operations leader with 20+ years of experience across IT management, operations management, and project management. Brings deep experience across the Gulf region and a strong customer-oriented perspective, with a proven record in channel management, business development, and process improvement (QMS, KPIs, HR, and talent management). Has delivered cutting-edge projects including mobile applications and HTML5 experiences, working across outsourcing models in markets spanning the USA, Canada, Egypt, UAE, Saudi Arabia, and Qatar. Specializes in enterprise architecture, application life cycle management, account management, and presales.",
+    linkedin    : "https://www.linkedin.com/in/wdeveloper/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
     id          : "spk-021",
-    order       : 45,
+    order       : 47,
     name        : "Moustafa Eshra",
     title       : "Data & AI Enterprise Architect",
     company     : "IBM",
@@ -778,7 +812,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-023",
-    order       : 46,
+    order       : 48,
     name        : "Alaa Mukhtar",
     title       : "Sales Development Representative",
     company     : "Opentext",
@@ -795,7 +829,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-025",
-    order       : 47,
+    order       : 49,
     name        : "Mohamed Zahran",
     title       : "Head of AI/ML",
     company     : "Adam ai",
@@ -812,7 +846,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 48,
+    order       : 50,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -829,7 +863,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 49,
+    order       : 51,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "Ninos",
@@ -846,7 +880,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-030",
-    order       : 50,
+    order       : 52,
     name        : "Ahmed Elzoghby",
     title       : "UX Research Lead",
     company     : "UX Labs",
@@ -863,7 +897,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-032",
-    order       : 51,
+    order       : 53,
     name        : "Mahmoud Abdelhamed",
     title       : "Senior AI Engineer",
     company     : "Confidential",
@@ -872,7 +906,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-032.png",
     bio         : "Senior Computer Vision Engineer with 7+ years of experience building production AI systems across computer vision, 3D vision, and multimodal AI. His work spans scalable AI deployment, 3D reconstruction, agentic workflows, and technical leadership, with a focus on turning advanced AI research into practical engineering solutions.",
     linkedin    : "https://www.linkedin.com/in/mahmoud-khaled-nasr/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/mahmoud9199",
     featured    : false,
     showOnHome  : false,
     appearances : []
@@ -880,7 +914,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-033",
-    order       : 52,
+    order       : 54,
     name        : "Ahmed Aabed",
     title       : "Senior Engineering Manger",
     company     : "Yassir",
@@ -897,7 +931,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-038",
-    order       : 53,
+    order       : 55,
     name        : "Bassem Ahmed",
     title       : "CEO",
     company     : "Premier Rank",
@@ -914,7 +948,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-039",
-    order       : 54,
+    order       : 56,
     name        : "Ahmed Esmail",
     title       : "Business Development Engineer",
     company     : "EVRAID",
@@ -931,7 +965,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-040",
-    order       : 55,
+    order       : 57,
     name        : "Fady Fouad",
     title       : "Art Director & AI Film Maker",
     company     : "Fndmntl Labs",
@@ -948,7 +982,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-041",
-    order       : 56,
+    order       : 58,
     name        : "Eyad Eldomairy",
     title       : "Art Director",
     company     : "Six10 Ventures",
@@ -965,7 +999,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-043",
-    order       : 57,
+    order       : 59,
     name        : "Ezzat Essam",
     title       : "AI Animator",
     company     : "TPP",
@@ -982,7 +1016,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-045",
-    order       : 58,
+    order       : 60,
     name        : "Mohamed Shokry",
     title       : "AI Consultant",
     company     : "Freelancer",
@@ -999,7 +1033,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-046",
-    order       : 59,
+    order       : 61,
     name        : "Anwar Aly",
     title       : "Founder & CEO",
     company     : "Zaher.ai",
@@ -1016,7 +1050,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-048",
-    order       : 60,
+    order       : 62,
     name        : "Yasser Abdellateef",
     title       : "Creative Director",
     company     : "Andalusia Group",
@@ -1033,7 +1067,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-049",
-    order       : 61,
+    order       : 63,
     name        : "Aya Abdelkader",
     title       : "Product Marketing Lead",
     company     : "Intalio",
@@ -1050,7 +1084,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-051",
-    order       : 62,
+    order       : 64,
     name        : "Oun Alazam",
     title       : "Founder",
     company     : "brono.ai",
@@ -1067,7 +1101,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-052",
-    order       : 63,
+    order       : 65,
     name        : "Hassan Gad",
     title       : "Founder",
     company     : "Fgimawya",
@@ -1084,7 +1118,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-053",
-    order       : 64,
+    order       : 66,
     name        : "Mo Fattah",
     title       : "Founder & CEO",
     company     : "KeepUp & MIT VAP Finalist",
@@ -1101,7 +1135,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-064",
-    order       : 65,
+    order       : 67,
     name        : "Mahmoud Abdellahi",
     title       : "Researcher and Lecturer",
     company     : "Cairo University",
@@ -1118,16 +1152,16 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-069",
-    order       : 66,
+    order       : 68,
     name        : "Nourah Mahamed",
     title       : "AI Cinematic Ads & Branding designer",
     company     : "Nourah Studio",
-    country     : "Libya",
-    countryCode : "LY",
+    country     : "Egypt",
+    countryCode : "EG",
     photo       : "spk-069.png",
     bio         : "Senior Graphic Designer with over 5 years of experience specialized in Branding, Visual Identity, and Social Media. I am  proficient in the art of Visual Storytelling, Manipulation, and Video Editing.",
-    linkedin    : "https://www.facebook.com/noura.mahamed.399",
-    bmProfile   : null,
+    linkedin    : "https://www.linkedin.com/in/nourhanmohamednmma",
+    bmProfile   : "https://brainsmingle.com/nourhan3857",
     featured    : false,
     showOnHome  : false,
     appearances : []
@@ -1135,7 +1169,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-070",
-    order       : 67,
+    order       : 69,
     name        : "Sherif Shalaby",
     title       : "Co-Founder & Chief Marketing Officer",
     company     : "Big Move Agency",
@@ -1144,23 +1178,6 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-070.png",
     bio         : "Founder and Chief Marketing Officer at Big Move Agency, leveraging 13+ years of expertise in advertising and marketing to drive business growth and brand development, with operations expanded across Dubai and Saudi Arabia. He has collaborated with top multinational companies including PepsiCo, Mars, Vodafone, and Danone. His background as a physician sharpens his analytical thinking, attention to detail, and empathetic communication, shaping his data-driven approach to marketing. Passionate about AI and its marketing applications, he continuously drives excellence across the MENA region.",
     linkedin    : "https://www.linkedin.com/in/sherif-shalaby-72bb5861/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-072",
-    order       : 68,
-    name        : "Ahmed Ramy",
-    title       : "Co-Founder & CEO",
-    company     : "FastAutomate",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-072.png",
-    bio         : "Technology and operations leader with 20+ years of experience across IT management, operations management, and project management. Brings deep experience across the Gulf region and a strong customer-oriented perspective, with a proven record in channel management, business development, and process improvement (QMS, KPIs, HR, and talent management). Has delivered cutting-edge projects including mobile applications and HTML5 experiences, working across outsourcing models in markets spanning the USA, Canada, Egypt, UAE, Saudi Arabia, and Qatar. Specializes in enterprise architecture, application life cycle management, account management, and presales.",
-    linkedin    : "https://www.linkedin.com/in/wdeveloper/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
