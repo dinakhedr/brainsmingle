@@ -2,14 +2,14 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-15 00:00 · 71 speakers.
+ * Generated 2026-09-15 17:00 · 71 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
  */
 
 const SPEAKER_PHOTO_BASE = "assets/speakers/";
-const HOME_SPEAKER_LIMIT = 20;
+const HOME_SPEAKER_LIMIT = 16;
 
 function getSpeakerPhoto(speaker) {
   if (!speaker) return null;
@@ -117,12 +117,12 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-067",
     order       : 6,
     name        : "Abdelrahman Seleem",
-    title       : "CEO & AI Systems Architect",
+    title       : "CEO & Founder",
     company     : "Oligence AI",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-067.png",
-    bio         : "Growth strategist helping companies, executives, and institutions scale through AI-powered decision systems, growth engineering, and intelligent automation. With 20+ years of experience in digital growth, business transformation, and AI innovation, he builds systems that help organizations operate smarter and achieve scalable growth. Has worked with enterprise brands, government entities, and fast-growing businesses across MENA, including Ford, Vodafone UK, Jumia, and Namshi. Through IMFND and executive education programs, he has trained 200,000+ professionals in AI marketing automation, growth engineering, and digital transformation.",
+    bio         : "AI Growth Systems Builder with 18+ years of experience across AI, digital marketing, marketing intelligence, and growth. As Founder of IMFND Academy and CEO of Oligence AI, he helps organizations turn AI, automation, and data into practical systems that drive measurable business growth.",
     linkedin    : "https://www.linkedin.com/in/abdelrahmansleem/",
     bmProfile   : null,
     featured    : false,
