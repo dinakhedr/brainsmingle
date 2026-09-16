@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-15 16:47 · 78 sessions, 0 with a sign-up link.
+ * Generated 2026-09-16 12:23 · 77 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -98,7 +98,6 @@ const SIGNAL_AGENDA = [
   { id: "ses-d5-s2-t3", title: "AI in Startups & Entrepreneurship", type: "Talk", trackNumber: 3, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-063"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t4", title: "Beyond the Benchmark: Evaluating AI in Healthcare and Beyond", type: "Talk", trackNumber: 4, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-058"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s2-t5", title: "RTG Session", type: "Talk", trackNumber: 5, day: 5, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d5-s3-t1", title: null, type: "Talk", trackNumber: 1, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-076"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t2", title: "Digital Twins for Education: Turn Expertise into Scalable Content", type: "Talk", trackNumber: 2, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-035"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d5-s3-t4", title: null, type: "Talk", trackNumber: 4, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-012"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d5-s3-t5", title: "RTG Session", type: "Talk", trackNumber: 5, day: 5, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
@@ -117,7 +116,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d6-s2-t3", title: "WUZZUF Session", type: "Talk", trackNumber: 3, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s2-t4", title: null, type: "Talk", trackNumber: 4, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-072"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s2-t5", title: "AI Use Cases for Business", type: "Talk", trackNumber: 5, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-067"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d6-s3-t1", title: null, type: "Talk", trackNumber: 1, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-076"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d6-s3-t1", title: "AI in Research", type: "Talk", trackNumber: 1, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-076"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s3-t2", title: null, type: "Talk", trackNumber: 2, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-044"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s3-t3", title: "WUZZUF Session", type: "Talk", trackNumber: 3, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s3-t4", title: "The proven process to enhance your marketing decision", type: "Talk", trackNumber: 4, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-029"], bmUrl: null, description: null, special: null, status: "closed" },
