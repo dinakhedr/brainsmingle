@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 19:55 · 79 speakers.
+ * Generated 2026-09-17 20:08 · 79 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -107,7 +107,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-084.png",
     bio         : "Veteran technologist with 27+ years of technical, management, and business experience across semiconductors, wireless telecom, and software/internet. He has worked for top technology companies in the USA, Malaysia, Dubai, the UK, and Egypt, designing microchips for the likes of Intel, Apple, Alcatel, and Siemens. He founded and led the Digital Circuit Design business unit for four companies, co-founded three tech startups, executed one spinoff, and mentored over 100 startups. Holds a BSc and MSc in Electronics and Communications Engineering from the University of Alexandria. Specializes in integrated circuit design, technology management, and entrepreneurship.",
     linkedin    : "https://www.linkedin.com/in/mohammadomara/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/mohammad1937",
     featured    : false,
     showOnHome  : true,
     appearances : []
