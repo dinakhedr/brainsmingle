@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-17 14:04 · 76 sessions, 0 with a sign-up link.
+ * Generated 2026-09-17 14:55 · 76 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -81,7 +81,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s3-t1", title: null, type: "Talk", trackNumber: 1, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-073"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s3-t2", title: "How AI is changing the creative role", type: "Talk", trackNumber: 2, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-048"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d4-s3-t3", title: "Innovation programs / AI Hackathons", type: "Talk", trackNumber: 3, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-078"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d4-s3-t3", title: "Open Innovation in the Age of AI", type: "Talk", trackNumber: 3, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-078"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "Talk", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t5", title: "Software Architecture After Cheap Code", type: "Talk", trackNumber: 5, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-065"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-spotlight", title: "Dorob Panel", type: "Panel Discussion", trackNumber: null, day: 4, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
