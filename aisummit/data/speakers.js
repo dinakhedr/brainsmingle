@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-16 18:48 · 72 speakers.
+ * Generated 2026-09-17 03:48 · 72 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -527,10 +527,10 @@ const SIGNAL_SPEAKERS = [
     name        : "Mostafa Hassan",
     title       : "Marketing Director",
     company     : "BasharSoft",
-    country     : "Egypt",
-    countryCode : "EG",
+    country     : "Malta",
+    countryCode : "MT",
     photo       : "spk-077.png",
-    bio         : "Marketing leader with 13+ years of experience driving go-to-market strategy, product positioning, and growth across recruitment, e-commerce, fintech, and international shipping. He has built and scaled products from the ground up, translating business objectives into clear marketing strategies, leading high-performing teams, and executing launches that deliver measurable impact across Egypt, MENA, and the US. Experienced in both scale-ups and established organizations, he brings a structured, data-driven approach to product launches, market expansion, demand generation, and brand transformation. He believes great marketing sits at the intersection of strategy, storytelling, and execution, and that sustainable growth starts with understanding the market gap before jumping into tactics.",
+    bio         : "A marketing professional with 15 years of hands-on experience leading marketing and product marketing functions across Egypt, the US, Saudi Arabia, and the UAE. He holds an MBA from the University of Suffolk, UK, and combines strategic thinking with practical, results-driven execution.",
     linkedin    : "https://www.linkedin.com/in/mostafa-elsayd-885a2b58/",
     bmProfile   : "https://brainsmingle.com/mostafa3075",
     featured    : false,
@@ -763,14 +763,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-074",
     order       : 45,
     name        : "Abdelrahman Diaa",
-    title       : "Senior Business Development Manager",
-    company     : "Sahl",
+    title       : "Co-Founder & CEO",
+    company     : "Mntiq Studios",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-074.png",
-    bio         : "Senior Business Development Manager at Sahl, driving growth at the intersection of telecom, fintech, and digital commerce through scalable partnerships and data-driven commercial strategy. Currently manages B2B partnerships with fintech aggregators, leading API integrations, partner onboarding, and revenue growth. Previously held regional commercial roles at tpay Mobile across Qatar, Oman, and Tunisia, and sales roles at Fawry. Started his career in the Oil and Gas industry before shifting to financial services. Holds an MBA from the Arab Academy and a B.Eng. in Mechanical Engineering from Helwan University.",
+    bio         : "Co-Founder and CEO of Mntiq Studios, an AI-powered edutainment company, and Senior Business Development Manager at Sahl. He leads the development of YouDetective, combining artificial intelligence, interactive storytelling and structured thinking to create engaging learning experiences.",
     linkedin    : "https://www.linkedin.com/in/abdelrahman-diaa-afifi-14920157/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/abdelrahman6385",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s2-t2", timeSlot: "19:00" }]

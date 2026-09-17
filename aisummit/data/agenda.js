@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-16 18:46 · 78 sessions, 0 with a sign-up link.
+ * Generated 2026-09-17 03:43 · 78 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -77,7 +77,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s1-t4", title: "AI for Product Marketers: What Actually Changes in the Work", type: "Talk", trackNumber: 4, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-049"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t5", title: "AI automation with n8n: Build smarter, faster workflows", type: "Talk", trackNumber: 5, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-050"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t1", title: "The Human Edge", type: "Fireside Chat", trackNumber: 1, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d4-s2-t2", title: null, type: "Talk", trackNumber: 2, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-074"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d4-s2-t2", title: "Beyond the Script: How AI Is Reshaping Gaming", type: "Talk", trackNumber: 2, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-074"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t3", title: "How the best founders use AI", type: "Talk", trackNumber: 3, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-053"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s3-t1", title: null, type: "Talk", trackNumber: 1, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-073"], bmUrl: null, description: null, special: null, status: "in-progress" },
