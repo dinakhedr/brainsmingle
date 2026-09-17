@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 03:48 · 72 speakers.
+ * Generated 2026-09-17 13:40 · 73 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -366,6 +366,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : true,
     appearances : []
+  },
+
+  {
+    id          : "spk-078",
+    order       : 20,
+    name        : "Sabrine Assem",
+    title       : "Founder & CEO",
+    company     : "UnTap",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-078.png",
+    bio         : "Founder and entrepreneur working across innovation, awards, and talent programs in the Middle East and Africa. She leads a platform that gives organizations one infrastructure to run their innovation, awards, grants, and talent programs, turning fragmented tools into lasting communities. Her background spans open innovation, entrepreneurship consulting, and research supporting Egypt's startup ecosystem. A Chevening Scholar, she holds a Master's in Digital Innovation from Warwick Business School and a bachelor's in Innovation Management and Information Systems. She is passionate about building infrastructure that helps organizations discover and grow talent.",
+    linkedin    : "https://www.linkedin.com/in/sabrineassem/",
+    bmProfile   : "https://brainsmingle.com/sabrine6580",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
   },
 
   {
