@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 20:08 · 79 speakers.
+ * Generated 2026-09-17 20:23 · 79 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1210,12 +1210,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-046.png",
-    bio         : "Digital growth strategist empowering Arabic brands to stay visible in the AI-driven search landscape, with a focus on closing the $25B visibility gap across AI platforms like ChatGPT and Gemini. Brings a background in Business Informatics and deep expertise in conversion rate optimization, behavioral marketing, and AI-driven strategies. A seasoned CRO consultant and trainer passionate about designing frameworks that drive measurable digital growth.",
+    bio         : "Founder & CEO of Zaher.AI, an Arabic-first AI visibility platform helping brands get discovered and recommended by AI engines like ChatGPT, Gemini, and Perplexity. He is a UNDP Global Winner with 10+ years in startups, CRO, and behavioral science.",
     linkedin    : "https://www.linkedin.com/in/anwaraly/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/anwar8554",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s3-t3", timeSlot: "20:00" }]
   },
 
   {
