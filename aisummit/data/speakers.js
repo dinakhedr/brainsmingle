@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 20:23 · 79 speakers.
+ * Generated 2026-09-17 21:39 · 79 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -352,8 +352,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-028",
+    id          : "spk-079",
     order       : 20,
+    name        : "Hany Ahmed",
+    title       : "CEO",
+    company     : "Jobrex",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-079.png",
+    bio         : "VP of Generative AI at BeyondAI with 16+ years in AI, including 13 years leading research and development of Arabic AI products. He partners with executive and technology teams to define AI strategies and deliver enterprise-scale, production-ready systems that drive measurable impact. His expertise spans GenAI, LLMs, deep learning, NLP, MLOps, and enterprise RAG systems, having led AI platforms including BeyondSearch, BeyondOCR, Kateb, Sotoor, and Natiq. Published at international AI conferences, he is passionate about advancing responsible, human-centered AI that helps organizations move from pilots to scalable AI ecosystems.",
+    linkedin    : "https://www.linkedin.com/in/hany-ahmed-phd-81a8a282/",
+    bmProfile   : "https://brainsmingle.com/hany4024",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-028",
+    order       : 21,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -364,13 +381,13 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/abdelrahman/",
     bmProfile   : "https://brainsmingle.com/abdelrahman4372",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
   },
 
   {
     id          : "spk-019",
-    order       : 21,
+    order       : 22,
     name        : "Ahmed AbouZaid",
     title       : "Senior Product Engineer",
     company     : "Camunda",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-075",
-    order       : 22,
+    order       : 23,
     name        : "Mohamed Ali",
     title       : "Co- Founder & Chief Commercial officer",
     company     : "LemonAI LLC",
@@ -404,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-068",
-    order       : 23,
+    order       : 24,
     name        : "Mohamed Farouk",
     title       : "Professor",
     company     : "Zewail Univeristy",
@@ -421,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 24,
+    order       : 25,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -438,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-062",
-    order       : 25,
+    order       : 26,
     name        : "Ahmed Samir",
     title       : "CEO",
     company     : "ASSET",
@@ -455,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-081",
-    order       : 26,
+    order       : 27,
     name        : "⁠Hossam Elberry",
     title       : "CTO",
     company     : "BasharSoft",
@@ -472,7 +489,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-077",
-    order       : 27,
+    order       : 28,
     name        : "Mostafa Hassan",
     title       : "Marketing Director",
     company     : "BasharSoft",
@@ -489,7 +506,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-082",
-    order       : 28,
+    order       : 29,
     name        : "Heba Abdelfattah",
     title       : "Head of Product",
     company     : "BasharSoft",
@@ -499,23 +516,6 @@ const SIGNAL_SPEAKERS = [
     bio         : "Head of Product at WUZZUF and Forasna (Basharsoft), with 7 years growing product across Egypt's leading recruitment platforms. She has led core and growth areas serving job seekers and built WUZZUF Learning from the ground up to product-market fit. Earlier, she worked in venture capital at EdVentures, supporting 10+ portfolio startups, and held roles at Microsoft. She co-founded CampUs, a student career-readiness platform, and TEDxGUC. Holds a bachelor's in Business Informatics from the German University in Cairo.",
     linkedin    : "https://www.linkedin.com/in/hebaabdelfattah/",
     bmProfile   : "https://brainsmingle.com/heba7025",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-079",
-    order       : 29,
-    name        : "Hany Ahmed",
-    title       : "CEO",
-    company     : "Jobrex",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-079.png",
-    bio         : "VP of Generative AI at BeyondAI with 16+ years in AI, including 13 years leading research and development of Arabic AI products. He partners with executive and technology teams to define AI strategies and deliver enterprise-scale, production-ready systems that drive measurable impact. His expertise spans GenAI, LLMs, deep learning, NLP, MLOps, and enterprise RAG systems, having led AI platforms including BeyondSearch, BeyondOCR, Kateb, Sotoor, and Natiq. Published at international AI conferences, he is passionate about advancing responsible, human-centered AI that helps organizations move from pilots to scalable AI ecosystems.",
-    linkedin    : "https://www.linkedin.com/in/hany-ahmed-phd-81a8a282/",
-    bmProfile   : "https://brainsmingle.com/hany4024",
     featured    : false,
     showOnHome  : false,
     appearances : []
