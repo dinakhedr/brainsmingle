@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-17 23:57 · 80 sessions, 0 with a sign-up link.
+ * Generated 2026-09-18 00:32 · 80 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -124,7 +124,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d6-s3-t3", title: "WUZZUF App: A Real-World Case Study in AI-Driven Development", type: "Panel Discussion", trackNumber: 3, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-081","spk-082","spk-083"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s3-t4", title: "The proven process to enhance your marketing decision", type: "Talk", trackNumber: 4, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-029"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s3-t5", title: "AI and the Big Infrastructure Shift", type: "Talk", trackNumber: 5, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-060"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d6-spotlight", title: "Women In Tech", type: "Panel Discussion", trackNumber: null, day: 6, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
+  { id: "ses-d6-spotlight", title: "Women In Tech", type: "Panel Discussion", trackNumber: null, day: 6, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014","spk-078"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d6-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 6, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
