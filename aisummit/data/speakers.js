@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 21:39 · 79 speakers.
+ * Generated 2026-09-17 21:43 · 79 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -484,7 +484,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/hossam2811",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -513,12 +513,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-082.png",
-    bio         : "Head of Product at WUZZUF and Forasna (Basharsoft), with 7 years growing product across Egypt's leading recruitment platforms. She has led core and growth areas serving job seekers and built WUZZUF Learning from the ground up to product-market fit. Earlier, she worked in venture capital at EdVentures, supporting 10+ portfolio startups, and held roles at Microsoft. She co-founded CampUs, a student career-readiness platform, and TEDxGUC. Holds a bachelor's in Business Informatics from the German University in Cairo.",
+    bio         : "Product-focused technology leader with 17+ years of experience building scalable products, high-performance systems, and strong engineering teams. Currently CTO at Basharsoft, leading technology across a portfolio of platforms. Previously held senior engineering roles at Instabug, Speakol, Schneider Electric, and leading health-tech and fitness companies in Egypt.",
     linkedin    : "https://www.linkedin.com/in/hebaabdelfattah/",
     bmProfile   : "https://brainsmingle.com/heba7025",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -532,10 +532,10 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-083.png",
     bio         : "Product designer with 10+ years of experience building digital products across Egypt and the region, from early-stage startups to scaled platforms. Currently leads design at BasharSoft across products like Wuzzuf, Forasna, iCareer, and Recruitera, overseeing the design team, shaping product strategy with senior leadership, and building design systems that connect Figma directly to development. Across roles at Holo, Convertedin, ElCoach, and Bosta, the focus has stayed the same: turning complex problems into clean, scalable product experiences. He also integrates AI into daily design operations, automating workflows for faster, higher-quality output at scale.",
     linkedin    : "https://www.linkedin.com/in/mahmoud-ash0/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/mahmoudash",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
   },
 
   {
