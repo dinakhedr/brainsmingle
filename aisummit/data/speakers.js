@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 14:25 · 73 speakers.
+ * Generated 2026-09-17 14:57 · 72 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1246,23 +1246,6 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-070.png",
     bio         : "Founder and Chief Marketing Officer at Big Move Agency, leveraging 13+ years of expertise in advertising and marketing to drive business growth and brand development, with operations expanded across Dubai and Saudi Arabia. He has collaborated with top multinational companies including PepsiCo, Mars, Vodafone, and Danone. His background as a physician sharpens his analytical thinking, attention to detail, and empathetic communication, shaping his data-driven approach to marketing. Passionate about AI and its marketing applications, he continuously drives excellence across the MENA region.",
     linkedin    : "https://www.linkedin.com/in/sherif-shalaby-72bb5861/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
-    id          : "spk-016",
-    order       : 74,
-    name        : "Ehab Khaled Fawzi",
-    title       : "Creative Director",
-    company     : "Develovent Network",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-016.png",
-    bio         : "Creative Director with 10+ years in advertising, blending a musician's eye for detail with strategic creativity. Evolved from copywriter to Creative Director across top agencies including Kijamii, Media Hub, Hive Analytics, and Mint & Co. Expert in strategy, copywriting, digital activations, and campaign production. Passionate about nurturing ideas into products that attract and linger in minds.",
-    linkedin    : "https://www.linkedin.com/in/ehab-khaled-fawzi-65809697/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
