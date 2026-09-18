@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-17 23:39 · 80 speakers.
+ * Generated 2026-09-18 15:13 · 79 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -679,13 +679,13 @@ const SIGNAL_SPEAKERS = [
     order       : 39,
     name        : "Manar Mansour",
     title       : "Founder & Managing Director",
-    company     : "TIK TEN",
+    company     : "TIK TEN Consulting",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-066.png",
-    bio         : "Partnership and growth strategist with 15+ years of experience helping organizations unlock new opportunities through strategic partnerships, go-to-market strategies, and commercial growth initiatives across fintech, financial services, insurance, and technology. Has worked with startups, enterprises, banks, and solution providers to identify growth opportunities and turn ideas into successful business outcomes. Founder of Tik Ten, a strategic partnership advisory helping organizations identify, evaluate, and connect with the right partners. Driven by the belief that the best business opportunities happen when the right organizations find each other.",
+    bio         : "Growth and Partnership Strategist with 15+ years of experience helping organizations unlock new opportunities through strategic partnerships, go-to-market strategies, and commercial growth initiatives across fintech, financial services, insurance, and technology. Has worked with startups, enterprises, banks, and solution providers to identify growth opportunities and turn ideas into successful business outcomes. Founder of Tik Ten Consulting, a strategic partnership advisory helping organizations identify, evaluate, and connect with the right partners. Driven by the belief that the best business opportunities happen when the right organizations find each other.",
     linkedin    : "https://www.linkedin.com/in/manar-mansour/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/manar6143",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s1-t4", timeSlot: "18:00" }]
@@ -1015,25 +1015,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-025",
-    order       : 59,
-    name        : "Mohamed Zahran",
-    title       : "Head of AI/ML",
-    company     : "Adam ai",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-025.png",
-    bio         : "Head of AI/ML, author, researcher, and co-inventor of 4 patent publications with 9+ years of experience delivering AI solutions across autonomous vehicles, ed-tech, and digital marketing. Leverages Generative AI, deep learning, computer vision, and data science to develop innovative, award-winning products. Passionate about turning cutting-edge research into real-world impact.",
-    linkedin    : "https://www.linkedin.com/in/mohzahran/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-026",
-    order       : 60,
+    order       : 59,
     name        : "Ziad Elaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -1050,7 +1033,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 61,
+    order       : 60,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "Ninos",
@@ -1067,7 +1050,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-030",
-    order       : 62,
+    order       : 61,
     name        : "Ahmed Elzoghby",
     title       : "UX Research Lead",
     company     : "UX Labs",
@@ -1084,7 +1067,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-032",
-    order       : 63,
+    order       : 62,
     name        : "Mahmoud Abdelhamed",
     title       : "Senior AI Engineer",
     company     : "Confidential",
@@ -1101,7 +1084,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-033",
-    order       : 64,
+    order       : 63,
     name        : "Ahmed Aabed",
     title       : "Senior Engineering Manger",
     company     : "Yassir",
@@ -1118,7 +1101,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-038",
-    order       : 65,
+    order       : 64,
     name        : "Bassem Ahmed",
     title       : "CEO",
     company     : "Premier Rank",
@@ -1135,7 +1118,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-039",
-    order       : 66,
+    order       : 65,
     name        : "Ahmed Esmail",
     title       : "Business Development Engineer",
     company     : "EVRAID",
@@ -1152,7 +1135,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-040",
-    order       : 67,
+    order       : 66,
     name        : "Fady Fouad",
     title       : "Art Director & AI Film Maker",
     company     : "Fndmntl Labs",
@@ -1169,7 +1152,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-041",
-    order       : 68,
+    order       : 67,
     name        : "Eyad Eldomairy",
     title       : "Art Director",
     company     : "Six10 Ventures",
@@ -1186,7 +1169,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-043",
-    order       : 69,
+    order       : 68,
     name        : "Ezzat Essam",
     title       : "AI Animator",
     company     : "TPP",
@@ -1203,7 +1186,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-045",
-    order       : 70,
+    order       : 69,
     name        : "Mohamed Shokry",
     title       : "AI Consultant",
     company     : "Freelancer",
@@ -1220,7 +1203,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-046",
-    order       : 71,
+    order       : 70,
     name        : "Anwar Aly",
     title       : "Founder & CEO",
     company     : "Zaher.ai",
@@ -1237,7 +1220,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-048",
-    order       : 72,
+    order       : 71,
     name        : "Yasser Abdellateef",
     title       : "Creative Director",
     company     : "Andalusia Group",
@@ -1254,7 +1237,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-049",
-    order       : 73,
+    order       : 72,
     name        : "Aya Abdelkader",
     title       : "Product Marketing Lead",
     company     : "Intalio",
@@ -1271,7 +1254,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-051",
-    order       : 74,
+    order       : 73,
     name        : "Oun Alazam",
     title       : "Founder",
     company     : "brono.ai",
@@ -1288,7 +1271,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-020",
-    order       : 75,
+    order       : 74,
     name        : "Nader Sayed",
     title       : "Founder",
     company     : "Tawasul for AI transformation",
@@ -1305,7 +1288,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-052",
-    order       : 76,
+    order       : 75,
     name        : "Hassan Gad",
     title       : "Founder",
     company     : "Fgimawya",
@@ -1322,7 +1305,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-053",
-    order       : 77,
+    order       : 76,
     name        : "Mo Fattah",
     title       : "Founder & CEO",
     company     : "KeepUp & MIT VAP Finalist",
@@ -1339,7 +1322,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-064",
-    order       : 78,
+    order       : 77,
     name        : "Mahmoud Abdellahi",
     title       : "Researcher and Lecturer",
     company     : "Cairo University",
@@ -1356,7 +1339,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-069",
-    order       : 79,
+    order       : 78,
     name        : "Nourah Mahamed",
     title       : "AI Cinematic Ads & Branding designer",
     company     : "Nourah Studio",
@@ -1373,7 +1356,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-070",
-    order       : 80,
+    order       : 79,
     name        : "Sherif Shalaby",
     title       : "Co-Founder & Chief Marketing Officer",
     company     : "Big Move Agency",

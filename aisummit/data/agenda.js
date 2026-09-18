@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-18 00:32 · 80 sessions, 0 with a sign-up link.
+ * Generated 2026-09-18 15:12 · 80 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -56,7 +56,7 @@ const SIGNAL_AGENDA = [
   // DAY 3
   // ======================================
   { id: "ses-d3-s1-t3", title: "From Idea to AI Startup: Building an MVP in Days, Not Months", type: "Talk", trackNumber: 3, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-022"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d3-s1-t4", title: "AI in Insurance & Finance", type: "Talk", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-066"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d3-s1-t4", title: "Winning GTM Strategies for Financial Services: From First Approach to Winning the Deal", type: "Talk", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-066"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t5", title: "Your AI agent works. Now what?", type: "Talk", trackNumber: 5, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-057"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s2-t1", title: "Redesigning L&D Offer for an AI-Native Workforce", type: "Talk", trackNumber: 1, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-027"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s2-t3", title: "ICEALEX", type: "Talk", trackNumber: 3, day: 3, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-085"], bmUrl: null, description: null, special: null, status: "in-progress" },
