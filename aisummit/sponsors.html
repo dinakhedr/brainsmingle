@@ -257,6 +257,7 @@
                 _speedNetworkingDailyRow() +
                 _spotlightRow() +
                 _sessionRow() +
+                _governmentPartnerRow() +
                 _strategicPartnerRow() +
                 _regionalPartnerRow() +
                 _partnerRow();
@@ -431,7 +432,8 @@
 
             return _wallSection(meta.label || group, cols, "sp-col-row sp-col-row--partner", "var(--text-muted)");
         }
-
+        
+        function _governmentPartnerRow() { return _partnerColumnRow("government"); }
         function _strategicPartnerRow() { return _partnerColumnRow("strategic"); }
         function _regionalPartnerRow()  { return _partnerColumnRow("regional"); }
 
