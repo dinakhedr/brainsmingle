@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-09-19 01:00 · 38 sponsors, 42 partners.
+ * Generated 2026-09-19 16:53 · 38 sponsors, 43 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -65,6 +65,7 @@ const SIGNAL_PARTNER_TYPES = [
   "Innovation Partner",
   "Partner in Germany",
   "Partner in Syria",
+  "Partner in Algeria",
   "AI Startup",
   "EdTech Partner",
   "Tech Partner",
@@ -133,6 +134,7 @@ const SIGNAL_PARTNERS = [
   { id: "prt-016", order: 106, name: "Wrk+", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
   { id: "prt-001", order: 200, name: "AI Global", tier: "community", icon: "globe", title: "Partner in Germany", country: "Germany", countryCode: "DE", confirmed: true, group: "regional", logo: "prt-001.png", logoURL: "x", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
   { id: "prt-015", order: 201, name: "Doroob", tier: "community", icon: "globe", title: "Partner in Syria", country: "Syria", countryCode: "SY", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." },
+  { id: "prt-044", order: 202, name: "The Algerian Developer", tier: "community", icon: "globe", title: "Partner in Algeria", country: "Algeria", countryCode: "DZ", confirmed: true, group: "regional", logo: "prt-044.png", logoURL: "x", website: "https://www.facebook.com/TADeveloper1", bmCommunityLink: null, tagline: "The Algerian Developer is a digital hub and social media community dedicated to technology, AI, software engineering, and digital skills. Active across Facebook, Instagram, and Telegram, it serves as both an educational content engine and a go-to space for Algerian and Arab tech enthusiasts, students, and engineers looking to sharpen their skills and stay ahead in the industry." },
   { id: "prt-035", order: 300, name: "Wessam AI", tier: "community", icon: "trackTech", title: "AI Startup", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-035.png", logoURL: "x", website: "https://www.wesam.ai/", bmCommunityLink: null, tagline: "We’re building the Upwork for AI agents — a marketplace where businesses can find and hire specialized AI agents for specific jobs, and experts can build, package, and sell agents based on their real-world knowledge and experience." },
   { id: "prt-034", order: 301, name: "Zaher AI", tier: "community", icon: "trackTech", title: "AI Startup", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-034.png", logoURL: "x", website: "https://zaher.ai/", bmCommunityLink: null, tagline: "Zaher is a visibility and conversion AI copilot that leverages Generative Engine Optimization (GEO) strategies to help brands measure, simulate, and improve how they appear across the world’s leading LLMs." },
   { id: "prt-032", order: 302, name: "Brono AI", tier: "community", icon: "trackTech", title: "AI Startup", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-032.png", logoURL: "x", website: "https://brono.ai/", bmCommunityLink: null, tagline: "Empower your design workflow with Brono. Transform text prompts into editable Figma UI, generate production-ready code, run UX audits, and analyze heatmaps instantly." },
