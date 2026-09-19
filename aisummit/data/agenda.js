@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-18 15:12 · 80 sessions, 0 with a sign-up link.
+ * Generated 2026-09-19 19:13 · 82 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -27,9 +27,11 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 1
   // ======================================
-  { id: "ses-d1-p2", title: "Dorob Panel", type: "Panel Discussion", trackNumber: null, day: 1, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p3", title: "Gov.AI Panel", type: "Panel Discussion", trackNumber: null, day: 1, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p4", title: "TBD", type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-047","spk-057"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p0", title: "Guest Keynote: Amr Awadallah", type: "Fireside Chat", trackNumber: null, day: 1, slot: 1, timeSlot: "17:00", durationMinutes: 60, speakerIds: ["spk-001","spk-002"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p1", title: "From Policy to Practice: Egypt's National AI Strategy in Motion (Ahmed Elzaher,  Maged Ghoneima, Suzanne El Akabaoui)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-001","spk-010"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p2", title: "Talent in the AI Era: Startups Rewiring MENA's Future (WUZZUF, Sprints, Nancy AI, iCareer)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-087"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p3", title: null, type: "Panel Discussion", trackNumber: null, day: 1, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p4", title: "From Diaspora to Damascus: Powering Syria's AI Transformation", type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d1-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 1, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
@@ -75,7 +77,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s1-t3", title: "AI context building challenges for ops heavy startups", type: "Fireside Chat", trackNumber: 3, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-055"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t4", title: "AI for Product Marketers: What Actually Changes in the Work", type: "Talk", trackNumber: 4, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-049"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t5", title: "AI automation with n8n: Build smarter, faster workflows", type: "Talk", trackNumber: 5, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-050"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d4-s2-t1", title: "The Human Edge", type: "Fireside Chat", trackNumber: 1, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d4-s2-t1", title: "The Human Edge", type: "Talk", trackNumber: 1, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t2", title: "Beyond the Script: How AI Is Reshaping Gaming", type: "Talk", trackNumber: 2, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-074"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t3", title: "How the best founders use AI", type: "Talk", trackNumber: 3, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-053"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
