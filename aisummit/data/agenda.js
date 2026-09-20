@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-20 03:41 · 82 sessions, 0 with a sign-up link.
+ * Generated 2026-09-20 04:27 · 81 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -42,7 +42,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "Fireside Chat", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "Talk", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d2-s2-t2", title: "The AI Revolution in Ad Campaigns: How Wuzzuf Built a Full Campaign with AI", type: "Fireside Chat", trackNumber: 2, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-077"], bmUrl: null, description: null, special: null, status: "closed" },
+  { id: "ses-d2-s2-t2", title: "The AI Revolution in Ad Campaigns: How WUZZUF Built a Full Campaign with AI", type: "Fireside Chat", trackNumber: 2, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-077"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "Talk", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t4", title: "Transformation-Led Growth Framework for Companies", type: "Talk", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-020"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t5", title: "Building Through the Bubble: Telecom's Lessons for the AI Buildout", type: "Talk", trackNumber: 5, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-011"], bmUrl: null, description: null, special: null, status: "closed" },
@@ -51,7 +51,6 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s3-t3", title: "How to build your GenAI application", type: "Talk", trackNumber: 3, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-021"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s3-t4", title: "Designing Trust: What AI-Ready UX Looks Like When It Ships", type: "Fireside Chat", trackNumber: 4, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-028","spk-030"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d2-s3-t5", title: "Building Deep Search Agent from Scratch", type: "Talk", trackNumber: 5, day: 2, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-005"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d2-spotlight", title: "⁠AI Across Continents: From Global Ambition to Local Impact", type: "Panel Discussion", trackNumber: null, day: 2, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d2-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 2, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
@@ -87,7 +86,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s3-t3", title: "Open Innovation in the Age of AI", type: "Talk", trackNumber: 3, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-078"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "Talk", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t5", title: "Software Architecture After Cheap Code", type: "Talk", trackNumber: 5, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-065"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d4-spotlight", title: "Dorob Panel", type: "Panel Discussion", trackNumber: null, day: 4, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
+  { id: "ses-d4-spotlight", title: "The On-Ramp: How Social Media Brings AI to the Mainstream", type: "Panel Discussion", trackNumber: null, day: 4, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d4-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 4, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
