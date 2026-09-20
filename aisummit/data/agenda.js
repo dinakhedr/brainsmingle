@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-21 00:22 · 59 sessions, 59 with a sign-up link.
+ * Generated 2026-09-21 00:28 · 59 sessions, 59 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -28,7 +28,7 @@ const SIGNAL_AGENDA = [
   // DAY 2
   // ======================================
   { id: "ses-d2-s1-t1", title: "If You Can't Delegate to AI, You Can't Delegate to People", type: "Talk", trackNumber: 1, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-018"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=4c9fd602-ea63-4cdc-a84f-b52ef7ace61e", description: null, special: null, status: "closed" },
-  { id: "ses-d2-s1-t2", title: "AI filmmaking and the transformation of creative workflows", type: "Talk", trackNumber: 2, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-040"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=3976e85a-7b13-4019-9304-f0e49e7e4e0a&inviteCode=belal5335", description: null, special: null, status: "closed" },
+  { id: "ses-d2-s1-t2", title: "AI filmmaking and the transformation of creative workflows", type: "Talk", trackNumber: 2, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-040"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=3976e85a-7b13-4019-9304-f0e49e7e4e0a", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "Fireside Chat", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=1b2932fc-3cec-464b-9680-57fe5229a0b7", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "Talk", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=4e47e9be-d113-47d6-a07f-edd02beded76", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=3a3ea2af-feb7-4287-af03-5e9dd0d9cfa3", description: null, special: null, status: "closed" },
