@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-19 19:24 · 82 sessions, 0 with a sign-up link.
+ * Generated 2026-09-20 03:41 · 82 sessions, 0 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -28,10 +28,10 @@ const SIGNAL_AGENDA = [
   // DAY 1
   // ======================================
   { id: "ses-d1-p0", title: "Guest Keynote: Amr Awadallah", type: "Fireside Chat", trackNumber: null, day: 1, slot: 1, timeSlot: "17:00", durationMinutes: 60, speakerIds: ["spk-001","spk-002"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p1", title: "From Policy to Practice: Egypt's National AI Strategy in Motion (Ahmed Elzaher,  Maged Ghoneima, Suzanne El Akabaoui)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 2, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-001","spk-010"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p2", title: "Talent in the AI Era: Startups Rewiring MENA's Future (WUZZUF, Sprints, Nancy AI, iCareer)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 3, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-087"], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p3", title: null, type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "20:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
-  { id: "ses-d1-p4", title: "From Diaspora to Damascus: Powering Syria's AI Transformation", type: "Panel Discussion", trackNumber: null, day: 1, slot: 5, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p1", title: "From Policy to Practice: Egypt's National AI Strategy in Motion (Ahmed Elzaher,  Dr. Maged Ghoneima, Dr. Heba Zaki, Suzanne El Akabaoui)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 2, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-001","spk-010"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p2", title: "Startups Rewiring MENA's Talent in the AI Era (WUZZUF, Sprints, Nancy AI, iCareer)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 3, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-087"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p3", title: "Egyptians Powering AI at Global Giants (Meta, HelloFresh, Tesla)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-014","spk-088","spk-089","spk-090"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d1-p4", title: "From Diaspora to Damascus: Powering Syria's AI Transformation", type: "Panel Discussion", trackNumber: null, day: 1, slot: 5, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-024","spk-086"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d1-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 1, slot: 6, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
@@ -68,7 +68,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s3-t3", title: "How to design your app ideas in minutes with AI", type: "Talk", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-051"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "Talk", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t5", title: "Achilles' heel", type: "Talk", trackNumber: 5, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-061"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d3-spotlight", title: "Startups without Borders (Yassir)", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
+  { id: "ses-d3-spotlight", title: "Crossing Borders: What It Takes to Expand Beyond Your Home Market", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014","spk-092"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d3-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
@@ -113,7 +113,7 @@ const SIGNAL_AGENDA = [
   // DAY 6
   // ======================================
   { id: "ses-d6-s1-t2", title: "From Prompt to Screen: AI Filmmaking & Creative Direction", type: "Workshop", trackNumber: 2, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-069"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d6-s1-t3", title: "60 years of AI in 60 minutes: Past, Present and the Future", type: "Talk", trackNumber: 3, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-079"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d6-s1-t3", title: "60 years of AI in 60 minutes: Past, Present and the Future", type: "Talk", trackNumber: 3, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-079"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s1-t4", title: "Beyond Copilots: Governed Agentic AI for Enterprise Decisions", type: "Talk", trackNumber: 4, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-008"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s1-t5", title: "Software Development in AI era", type: "Fireside Chat", trackNumber: 5, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-032","spk-080"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s2-t1", title: "Building Your Personal Brand in the Age of AI", type: "Talk", trackNumber: 1, day: 6, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-039"], bmUrl: null, description: null, special: null, status: "closed" },
@@ -126,7 +126,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d6-s3-t3", title: "WUZZUF App: A Real-World Case Study in AI-Driven Development", type: "Panel Discussion", trackNumber: 3, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-081","spk-082","spk-083"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s3-t4", title: "The proven process to enhance your marketing decision", type: "Talk", trackNumber: 4, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-029"], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d6-s3-t5", title: "AI and the Big Infrastructure Shift", type: "Talk", trackNumber: 5, day: 6, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-060"], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d6-spotlight", title: "Women In Tech", type: "Panel Discussion", trackNumber: null, day: 6, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014","spk-078"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
+  { id: "ses-d6-spotlight", title: "Women In Tech", type: "Panel Discussion", trackNumber: null, day: 6, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-014","spk-091","spk-078"], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
   { id: "ses-d6-networking", title: "Daily Speed Networking", type: "Speed Networking", trackNumber: null, day: 6, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "networking", status: "closed" },
 
   // ======================================
