@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-09-21 00:23 · 38 sponsors, 46 partners.
+ * Generated 2026-09-21 18:26 · 38 sponsors, 47 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -63,12 +63,12 @@ const SIGNAL_PARTNER_TYPES = [
   "Career Partner",
   "Ecosystem Partner",
   "Innovation Partner",
+  "Tech Partner",
   "Partner in Germany",
   "Partner in Syria",
   "Partner in Algeria",
   "AI Startup",
   "EdTech Partner",
-  "Tech Partner",
   "Tech Partner in Syria",
   "Community Partner",
   "Community Partner in Syria",
@@ -133,6 +133,7 @@ const SIGNAL_PARTNERS = [
   { id: "prt-030", order: 104, name: "ICEALEX", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-030.png", logoURL: "x", website: "https://icealex.com/", bmCommunityLink: null, tagline: "An innovation consultancy hub. A leading platform for sector specific incubation and entrepreneurship support programs." },
   { id: "prt-031", order: 105, name: "UnTap", tier: "community", icon: "founder", title: "Innovation Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-031.png", logoURL: "x", website: "https://untap.tech/", bmCommunityLink: "https://brainsmingle.com/spaces/agents-at-work", tagline: "Untap is your all-in-one solution for innovation and talent discovery. Easily launch platforms, set up program landing pages, and manage competitions, awards, and ongoing innovation and hiring initiatives. From submissions and judging to participant engagement and expert collaboration, Untap streamlines every step." },
   { id: "prt-016", order: 106, name: "Wrk+", tier: "community", icon: "grid", title: "Ecosystem Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-016.png", logoURL: "x", website: "https://www.wrk.plus/", bmCommunityLink: null, tagline: "Born from Early-Movers. Built for the Future." },
+  { id: "prt-048", order: 107, name: "Robusta Technology Group (RTG)", tier: "community", icon: "developer", title: "Tech Partner", country: null, countryCode: null, confirmed: true, group: "strategic", logo: "prt-048.png", logoURL: "x", website: "https://robustagroup.com/", bmCommunityLink: null, tagline: "A regional technology group serving 350+ clients across MENA and EMEA. Combining specialized AI talent, proprietary platforms, and transformation frameworks to help governments and enterprises build for what comes next." },
   { id: "prt-001", order: 200, name: "AI Global", tier: "community", icon: "globe", title: "Partner in Germany", country: "Germany", countryCode: "DE", confirmed: true, group: "regional", logo: "prt-001.png", logoURL: "x", website: "https://www.linkedin.com/company/ai_global/", bmCommunityLink: null, tagline: "Turning Data Into Direction. Turning AI Into Impact." },
   { id: "prt-015", order: 201, name: "Doroob", tier: "community", icon: "globe", title: "Partner in Syria", country: "Syria", countryCode: "SY", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." },
   { id: "prt-044", order: 202, name: "The Algerian Developer", tier: "community", icon: "globe", title: "Partner in Algeria", country: "Algeria", countryCode: "DZ", confirmed: true, group: "regional", logo: "prt-044.png", logoURL: "x", website: "https://www.facebook.com/TADeveloper1", bmCommunityLink: null, tagline: "The Algerian Developer is a digital hub and social media community dedicated to technology, AI, software engineering, and digital skills. Active across Facebook, Instagram, and Telegram, it serves as both an educational content engine and a go-to space for Algerian and Arab tech enthusiasts, students, and engineers looking to sharpen their skills and stay ahead in the industry." },
