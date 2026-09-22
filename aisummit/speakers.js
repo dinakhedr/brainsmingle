@@ -1,0 +1,1488 @@
+/**
+ * speakers.js — AI Summit 2026
+ * GENERATED FILE. Do not edit by hand.
+ * Source: the Validated tab, rows with readyToPublish ticked.
+ * Generated 2026-09-22 15:10 · 83 speakers.
+ *
+ * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
+ * null = Opening Day, no track.
+ */
+
+const SPEAKER_PHOTO_BASE = "assets/speakers/";
+const HOME_SPEAKER_LIMIT = 24;
+
+function getSpeakerPhoto(speaker) {
+  if (!speaker) return null;
+  if (speaker.photo === null) return null;
+  if (speaker.photo) return SPEAKER_PHOTO_BASE + speaker.photo;
+  return SPEAKER_PHOTO_BASE + speaker.id + ".png";
+}
+
+function getCountryFlag(speaker) {
+  const code = speaker && speaker.countryCode;
+  if (!code || code.length !== 2) return "";
+  return String.fromCodePoint(
+    ...[...code.toUpperCase()].map(c => 0x1F1E6 + c.charCodeAt(0) - 65)
+  );
+}
+
+const SIGNAL_SPEAKERS = [
+
+  {
+    id          : "spk-002",
+    order       : 1,
+    name        : "Amr Awadallah",
+    title       : "Tech Entrepreneur",
+    company     : "Vectara, Cloudera, and Aptivia.",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-002.png",
+    bio         : "Tech entrepreneur and AI builder with 30 years in entrepreneurship, large-scale systems, and AI. Founding CEO of Vectara, building the Trusted Agent Operating System with $54M raised and Gartner recognition. Former VP Developer Relations at Google Cloud, founder/global CTO of Cloudera, and VP Eng at Yahoo!. PhD EE from Stanford. Passionate about bridging technology, product, and business.",
+    linkedin    : "https://www.linkedin.com/in/awadallah/",
+    bmProfile   : null,
+    featured    : true,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-010",
+    order       : 2,
+    name        : "Maged Ghoneima",
+    title       : "Angel Investor",
+    company     : "M-Empire Angels",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-010.png",
+    bio         : "Angel investor and technology commercialization expert. Co-founded 10+ startups with multiple successful exits and led an angel group investing in 80+ startups. PhD in Computer Engineering from Northwestern, former Intel and NVIDIA engineer. Associate Professor at Ain Shams University with 2,000+ hours mentoring 400+ startups. Advisor to 50+ startups, SMEs, and corporates across the region.",
+    linkedin    : "https://www.linkedin.com/in/mghoneima/",
+    bmProfile   : null,
+    featured    : true,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-001",
+    order       : 3,
+    name        : "Ameer Sherif",
+    title       : "Founder & Chairman",
+    company     : "BasharSoft",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-001.png",
+    bio         : "Founder and Chairman of BasharSoft, the company behind WUZZUF and Forasna, Egypt's #1 recruitment platforms for white and blue collar jobs. 7M+ users, 1M+ hires, and $10M raised from global VCs including 500 Startups and EBRD. Board Member at ITIDA, VC with Khwarizmi Ventures. World Economic Forum Young Global Leader and Endeavor Entrepreneur. Passionate about AI, marketplaces, and ecosystems.",
+    linkedin    : "https://www.linkedin.com/in/ameersherif/",
+    bmProfile   : "https://brainsmingle.com/ameer",
+    featured    : true,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-094",
+    order       : 4,
+    name        : "Omar El-Shenety",
+    title       : "Economist & Financial Advisor",
+    company     : "Zilla Capital",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-094.png",
+    bio         : "Managing Partner at Zilla Capital, a leading investment bank in the MENA region, with 20 years of experience in investment banking and strategy consulting. He leads a team of seasoned bankers delivering value-added solutions to clients across sectors and markets. He holds a Global Executive MBA from Columbia Business School and London Business School, a Master of Laws from King's College London, and a bachelor's in economics from the American University in Cairo, where he also serves as Adjunct Faculty teaching finance and economics. A Research Consultant at the Egyptian Center for Economic Studies, he is passionate about analyzing the key economic issues facing the Middle East and regularly publishes articles and reports across media outlets.",
+    linkedin    : "https://www.linkedin.com/in/omarshenety/",
+    bmProfile   : "https://brainsmingle.com/omarshenety",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-071",
+    order       : 5,
+    name        : "Khaled Elashmony",
+    title       : "Founder & CEO",
+    company     : "AIDAChip Inc",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-071.png",
+    bio         : "Engineer, founder, and investor working at the intersection of deep technology, engineering workflows, and leadership. Over the past decade, he has built and led teams on complex, high-impact systems, from analog/mixed-signal IC design and silicon platforms to applied research across hardware, signal processing, and AI. Most recently, he founded AIDAChip, an AI-native platform focused on preserving intent, context, and causality across semiconductor and engineering workflows. Alongside his technical work, he co-founded and scaled Egypt Scholars Inc., a nonprofit supporting students pursuing advanced education abroad, leading global volunteer coordination across 17+ countries. An angel and impact investor since 2016, he supports early-stage founders building in healthcare, clean tech, AI, semiconductors, and security.",
+    linkedin    : "https://www.linkedin.com/in/khaledalashmouny/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-061",
+    order       : 6,
+    name        : "Abu Bakr Soliman",
+    title       : "CTO",
+    company     : "SignalMatrix",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-061.png",
+    bio         : "Talented engineer with 11+ years of experience in Machine Learning and Data Science. Holds a master's degree in Machine Learning and NLP, following two years as a Research Assistant at Nile University. Currently leading the development of SignalMatrix, the intelligence infrastructure for the multilingual, regulated world.",
+    linkedin    : "https://www.linkedin.com/in/bakrianoo/",
+    bmProfile   : "https://brainsmingle.com/abubakr9988",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-084",
+    order       : 7,
+    name        : "Mohamed Omara",
+    title       : "Founder & CEO/CTO",
+    company     : "Hoopoe Digital",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-084.png",
+    bio         : "Veteran technologist with 27+ years of technical, management, and business experience across semiconductors, wireless telecom, and software/internet. He has worked for top technology companies in the USA, Malaysia, Dubai, the UK, and Egypt, designing microchips for the likes of Intel, Apple, Alcatel, and Siemens. He founded and led the Digital Circuit Design business unit for four companies, co-founded three tech startups, executed one spinoff, and mentored over 100 startups. Holds a BSc and MSc in Electronics and Communications Engineering from the University of Alexandria. Specializes in integrated circuit design, technology management, and entrepreneurship.",
+    linkedin    : "https://www.linkedin.com/in/mohammadomara/",
+    bmProfile   : "https://brainsmingle.com/mohammad1937",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s2-t5", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-067",
+    order       : 8,
+    name        : "Abdelrahman Seleem",
+    title       : "CEO & Founder",
+    company     : "Oligence AI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-067.png",
+    bio         : "AI Growth Systems Builder with 18+ years of experience across AI, digital marketing, marketing intelligence, and growth. As Founder of IMFND Academy and CEO of Oligence AI, he helps organizations turn AI, automation, and data into practical systems that drive measurable business growth.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahmansleem/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s2-t5", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-005",
+    order       : 9,
+    name        : "Youssef Hosni",
+    title       : "AI/ML Engeineer",
+    company     : "Solita",
+    country     : "Finland",
+    countryCode : "FI",
+    photo       : "spk-005.png",
+    bio         : "Data scientist and ML researcher with 5+ years in AI. AI Engineer at Solita and Applied Researcher at Aalto University, working on AI agents for smart predictive maintenance. Previously applied deep learning and computer vision to medical imaging. Passionate educator leading a data science blog, newsletter, and eBooks on machine learning and AI.",
+    linkedin    : "https://www.linkedin.com/in/youssef-hosni-b2960b135/",
+    bmProfile   : "https://brainsmingle.com/youssef9740",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-050",
+    order       : 10,
+    name        : "Karim Nabil",
+    title       : "AI Engineer",
+    company     : "FPT Software",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-050.png",
+    bio         : "AI Engineer building agentic AI systems for a $100B+ enterprise client across finance, procurement, and customer support. Former Head of GenAI and founding employee at an AI startup, where he architected systems that boosted report generation by 80% and cut costs by 70%. TEDx speaker, n8n expert, and two-time NASA Space Apps Global Nominee, with experience spanning product management, business development, and AI automation. Mechanical Engineering graduate driven by the belief that light can be found even in the darkest places through trust in Allah.",
+    linkedin    : "https://www.linkedin.com/in/kariim-nabiil/",
+    bmProfile   : "https://brainsmingle.com/karim3423",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-042",
+    order       : 11,
+    name        : "Shereen Badr",
+    title       : "Founder & CEO",
+    company     : "Medrara Digitals",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-042.png",
+    bio         : "Inbound Marketing expert with 15+ years of digital experience across SEO, PPC, social media, and digital strategy. Helps companies boost search rankings, grow organic traffic, and strengthen brand reputation and ROI. Specializes in integrated marketing solutions, web analytics, competitive analysis, and market research. Also a marketing consultant and trainer with a passion for creative, imaginative marketing.",
+    linkedin    : "https://www.linkedin.com/in/shereenbadreldeen/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-014",
+    order       : 12,
+    name        : "Hend El Damaty",
+    title       : "AI & Digital Transformation Strategist",
+    company     : "AI Global",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-014.png",
+    bio         : "Digital Transformation and AI Strategy Consultant based in Germany with a background in Electrical and Systems Engineering. Has worked with organizations including DFKI, Microsoft, Bosch, Amazon, and the International Olympic Committee across AI strategy, product management, and Industry 4.0/5.0. Co-founded tech ventures spanning AI, education, and real estate. Passionate about connecting European, Egyptian, and MENA innovation ecosystems and building bridges between technology, people, and business.",
+    linkedin    : "https://www.linkedin.com/in/hend-eldamaty/",
+    bmProfile   : "https://brainsmingle.com/hend6987",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-086",
+    order       : 13,
+    name        : "Fadi Amroush",
+    title       : "Digital Transformation and Artificial Intelligence Consultant",
+    company     : "HIAST-CIE",
+    country     : "Syria",
+    countryCode : "SY",
+    photo       : "spk-086.png",
+    bio         : "Dr. Fadi Amroush is a digital transformation and AI consultant with expertise in behavioral economics, generative AI, and technology-enabled education. He holds a PhD in Economics and Business and brings more than 20 years of experience across academia, consulting, and professional learning.",
+    linkedin    : "https://www.linkedin.com/in/fadiamroush/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-024",
+    order       : 14,
+    name        : "Sami AlAhmed",
+    title       : "Founder & CEO",
+    company     : "Doroob",
+    country     : "Syria",
+    countryCode : "SY",
+    photo       : "spk-024.png",
+    bio         : "Syrian Entrepreneur and technical founder with 10+ years building ventures that connect MENA youth to opportunity. Founder of Emonovo (formerly MARJ3), the region's leading study-abroad platform with 2.5M+ monthly users and 350+ university partners, which began with Khatwa, a volunteer network founded in 2013. Currently CEO & Co-Founder of Doroob, building education-to-employment pathways in Syria as the country rebuilds. Stanford AMENDS fellow, WEF Global Shaper, and TEDx speaker. Passionate about AI, automation, and helping youth go from learning to earning.",
+    linkedin    : "https://www.linkedin.com/in/samialahmad/",
+    bmProfile   : "https://brainsmingle.com/sami9921",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-011",
+    order       : 15,
+    name        : "Hani Elmalky",
+    title       : "Head of AI & Innovation, GFiber",
+    company     : "Google",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-011.png",
+    bio         : "Product and technology executive with 20+ years at the intersection of large-scale infrastructure, AI, and connectivity. Currently leads AI strategy across an enterprise stack, embedding intelligence into operations and customer experience at scale. Pioneered the industry's first commercially deployable virtualization framework and helped shape cloud-native architectures that redefined how networks are built. Contributor to global networking standards, patent holder, and published author in distributed systems. Holds an entrepreneurship and finance degree from The Wharton School. Passionate about AI infrastructure economics, agentic workloads, and the lessons of prior technology cycles.",
+    linkedin    : "https://www.linkedin.com/in/helmalky/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s2-t5", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-057",
+    order       : 16,
+    name        : "Ahmed Elsherbeeny",
+    title       : "AI/GenAI Lead Specialist SA (MENAT)",
+    company     : "Amazon Web Services (AWS)",
+    country     : "Canada",
+    countryCode : "CA",
+    photo       : "spk-057.png",
+    bio         : "GenAI and Agentic AI leader with 20+ years of experience across Canada and the Gulf. After nearly 10 years in Canada, including leadership at Microsoft, he returned to the region and now works at AWS across MENAT, helping enterprises and startups build secure, scalable AI systems.",
+    linkedin    : "https://www.linkedin.com/in/elsherbeeny",
+    bmProfile   : "https://brainsmingle.com/Elsherbeeny",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 3, sessionId: "ses-d3-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-034",
+    order       : 17,
+    name        : "Ahmed Elfakharany",
+    title       : "AWS Platform Engineer",
+    company     : "Schuberg Phillis",
+    country     : "Netherlands",
+    countryCode : "NL",
+    photo       : "spk-034.png",
+    bio         : "Infrastructure and platform engineer with 25 years of experience across Kubernetes, OpenShift, Linux/RHEL, AWS, Terraform, and HashiCorp Vault, most recently at SWIFT. In 2026, he left to teach full-time. Under the DevCloudLab name, he produces Arabic-language DevOps and Linux certification courses for learners across MENA, running the entire operation himself — writing, recording, editing, and publishing each course. Holds RHCSA, RHCE, CKA, AWS, and Vault certifications.",
+    linkedin    : "https://www.linkedin.com/in/aelfakharany/",
+    bmProfile   : "https://brainsmingle.com/ahmed9799",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : 18,
+    name        : "Taha Ali",
+    title       : "CEO",
+    company     : "GroHub",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-012.png",
+    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
+    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-047",
+    order       : 19,
+    name        : "Ahmed Maher",
+    title       : "Cofounder & CEO",
+    company     : "Wessam.ai",
+    country     : "USA",
+    countryCode : "US",
+    photo       : "spk-047.png",
+    bio         : "CEO at Wessam AI, co-founder of SuperCommerce EMEA, former Managing Director at  Soleek Lab, product leader with 15+ years of experience in product, technology, and leadership.",
+    linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
+    bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-085",
+    order       : 20,
+    name        : "Ahmed Bastawy",
+    title       : "Managing Director",
+    company     : "ICEALEX",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-085.png",
+    bio         : "Managing Director and Founding Partner of ICEALEX, a leading innovation and entrepreneurship platform shaping venture creation and impact-driven growth in Egypt and across Africa. With over a decade at the intersection of entrepreneurship, innovation systems, and impact investing, he designs and scales programs that help startups and SMEs move from ideas to sustainable impact across Egypt, Africa, the Mediterranean, and Europe. He has advised international organizations, development partners, and corporates on venture building, investment readiness, and circular economy, and previously contributed to the founding of iceHubs Global CIC in the UK.",
+    linkedin    : "https://www.linkedin.com/in/ahmedbastawy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-078",
+    order       : 21,
+    name        : "Sabrine Assem",
+    title       : "Founder & CEO",
+    company     : "UnTap",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-078.png",
+    bio         : "Founder and entrepreneur working across innovation, awards, and talent programs in the Middle East and Africa. She leads a platform that gives organizations one infrastructure to run their innovation, awards, grants, and talent programs, turning fragmented tools into lasting communities. Her background spans open innovation, entrepreneurship consulting, and research supporting Egypt's startup ecosystem. A Chevening Scholar, she holds a Master's in Digital Innovation from Warwick Business School and a bachelor's in Innovation Management and Information Systems. She is passionate about building infrastructure that helps organizations discover and grow talent.",
+    linkedin    : "https://www.linkedin.com/in/sabrineassem/",
+    bmProfile   : "https://brainsmingle.com/sabrine6580",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-009",
+    order       : 22,
+    name        : "Mohamed Elsherif",
+    title       : "CEO",
+    company     : "ASaaSI Middle East",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-009.png",
+    bio         : "Lecturer at EUI teaching entrepreneurship and founder of ASaaSI Middle East, an ecosystem enabling SaaS founders and SMEs. With 15+ years of hands-on experience, 1,000+ experts trained globally on SaaS, AI, and Marketing, and consultations with 126+ SaaS companies. Former COO of Crowd Analyzer, an AI Media Intelligence SaaS. Recognized by LinkedIn as the top 1% globally in SaaS.",
+    linkedin    : "https://www.linkedin.com/in/elsherifmohamed",
+    bmProfile   : "https://brainsmingle.com/MohamedElsherif",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-079",
+    order       : 23,
+    name        : "Hany Ahmed",
+    title       : "VP, Generative AI & Unstructured Data Science",
+    company     : "BeyondAI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-079.png",
+    bio         : "VP of Generative AI at BeyondAI with 16+ years in AI, including 13 years leading research and development of Arabic AI products. He partners with executive and technology teams to define AI strategies and deliver enterprise-scale, production-ready systems that drive measurable impact. His expertise spans GenAI, LLMs, deep learning, NLP, MLOps, and enterprise RAG systems, having led AI platforms including BeyondSearch, BeyondOCR, Kateb, Sotoor, and Natiq. Published at international AI conferences, he is passionate about advancing responsible, human-centered AI that helps organizations move from pilots to scalable AI ecosystems.",
+    linkedin    : "https://www.linkedin.com/in/hany-ahmed-phd-81a8a282/",
+    bmProfile   : "https://brainsmingle.com/hany4024",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-028",
+    order       : 24,
+    name        : "Abdelrahman Osama",
+    title       : "Head of Design",
+    company     : "Mal",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-028.png",
+    bio         : "Product design leader with 20+ years of experience building trust-centered products across fintech, government, and AI. Currently Head of Design at Mal, the AI-native Islamic digital bank behind the largest fintech seed round in MEA. Previously shipped applied AI into high-stakes government programs at Scale AI, including Qatar's national AI workforce platform. Co-founded a mobility startup as CPO, scaling it to 20,000+ trips. Writes and speaks about agentic interfaces, explainability, and designing AI products people actually trust.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahman/",
+    bmProfile   : "https://brainsmingle.com/abdelrahman4372",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-019",
+    order       : 25,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-075",
+    order       : 26,
+    name        : "Mohamed Ali",
+    title       : "Founder",
+    company     : "Business With Mo Podcast",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-075.png",
+    bio         : "Entrepreneur, business coach, and creator of the Trust-Led Growth Framework. Drawing on more than 16 years of international experience, he helps founders build sustainable growth systems rooted in trust, authority, and community. He is also the founder and host of the Business With Mo podcast.",
+    linkedin    : "https://www.linkedin.com/in/moali85/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-087",
+    order       : 27,
+    name        : "Akram Marwan",
+    title       : "Founder & CEO",
+    company     : "iCareer",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-087.png",
+    bio         : "Serial EdTech entrepreneur with over 12 years of experience across employability, career development, and youth empowerment. In 2012 he founded iCareer, a platform bridging the gap between education and employment by connecting employers, universities, and early talent, growing it into a network of 1,000+ employers with training, coaching, assessment, and Egypt's first applicant tracking software. He began his career in business development at Procter & Gamble and later worked with the United Nations on sustainable development before turning to entrepreneurship. He holds an M.Sc. in Sustainable Development from the American University in Cairo, and is passionate about enhancing the employability of youth and creating impact in job creation at scale.",
+    linkedin    : "https://www.linkedin.com/in/akram-marwan/",
+    bmProfile   : "https://brainsmingle.com/akram-marwan",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-090",
+    order       : 30,
+    name        : "Ola Yousry",
+    title       : "Senior BIM/VDC Manager",
+    company     : "Ex-Tesla",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-090.png",
+    bio         : "An architect by education and a BIM and Digital Delivery professional with 18+ years of experience in the AEC industry. Having worked with organizations including Dar Al-Handasah and Tesla, she focuses on BIM management, digital transformation, and bridging technology with real-world project delivery.",
+    linkedin    : "https://www.linkedin.com/in/ola-yousry/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-022",
+    order       : 33,
+    name        : "Ebrahem Anwar",
+    title       : "Founder",
+    company     : "ICCY",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-022.png",
+    bio         : "Entrepreneur, product leader, and angel investor with 15+ years building tech companies across Egypt and Saudi Arabia. Founder of ICCY, an AI-powered platform helping experts earn from their knowledge, and Raed ElBusiness, a leading Arabic entrepreneurship platform. Mentored 100+ startups, trained 50,000+ professionals. Passionate about making AI accessible for entrepreneurs.",
+    linkedin    : "https://www.linkedin.com/in/ebrahemanwar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-081",
+    order       : 35,
+    name        : "Hossam Elbery",
+    title       : "CTO",
+    company     : "BasharSoft",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-081.png",
+    bio         : "Technology executive and current CTO with 15+ years of experience leading engineering strategy and building scalable SaaS platforms across MENA, Europe, and North America. Deep expertise in regulatory-compliant system design (SOC 2, ISO 27001, GDPR) and cloud-native infrastructure (AWS, Kubernetes, serverless). He builds high-performing, remote-first engineering teams and partners with boards and investors to align technical roadmaps with business KPIs. Passionate about bridging business vision with execution to deliver secure, resilient, globally scalable platforms.",
+    linkedin    : "https://www.linkedin.com/in/helbery/",
+    bmProfile   : "https://brainsmingle.com/hossam2811",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-077",
+    order       : 36,
+    name        : "Mostafa Hassan",
+    title       : "Marketing Director",
+    company     : "BasharSoft",
+    country     : "Malta",
+    countryCode : "MT",
+    photo       : "spk-077.png",
+    bio         : "A marketing professional with 15 years of hands-on experience leading marketing and product marketing functions across Egypt, the US, Saudi Arabia, and the UAE. He holds an MBA from the University of Suffolk, UK, and combines strategic thinking with practical, results-driven execution.",
+    linkedin    : "https://www.linkedin.com/in/mostafa-elsayd-885a2b58/",
+    bmProfile   : "https://brainsmingle.com/mostafa3075",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s2-t2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-082",
+    order       : 37,
+    name        : "Heba Abdelfattah",
+    title       : "Head of Product",
+    company     : "BasharSoft",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-082.png",
+    bio         : "Head of Product at WUZZUF and Forasna, Egypt's leading job platforms. Previously at Microsoft and in venture capital, Heba brings ten years across product, investing and entrepreneurship to building products that help millions of people find work and employers hire faster.",
+    linkedin    : "https://www.linkedin.com/in/hebaabdelfattah/",
+    bmProfile   : "https://brainsmingle.com/heba7025",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-083",
+    order       : 38,
+    name        : "Mahmoud Ashraf",
+    title       : "Product Design Lead",
+    company     : "BasharSoft",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-083.png",
+    bio         : "Product designer with 10+ years of experience building digital products across Egypt and the region, from early-stage startups to scaled platforms. Currently leads design at BasharSoft across products like Wuzzuf, Forasna, iCareer, and Recruitera, overseeing the design team, shaping product strategy with senior leadership, and building design systems that connect Figma directly to development. Across roles at Holo, Convertedin, ElCoach, and Bosta, the focus has stayed the same: turning complex problems into clean, scalable product experiences. He also integrates AI into daily design operations, automating workflows for faster, higher-quality output at scale.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-ash0/",
+    bmProfile   : "https://brainsmingle.com/mahmoudash",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-018",
+    order       : 39,
+    name        : "Abdallah Amer",
+    title       : "Founder & CEO",
+    company     : "Capsules Group",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-018.png",
+    bio         : "Founder and CEO of Capsules Group, an education holding company in Cairo encompassing English Capsules Academy (4 branches), SML European language institute, and Executive Mastery Camp (EMC). Clients include Banque Misr, Carrefour, and Misr Insurance. Through EMC, he helps founders and senior leaders build delegation systems and organizational design to shift from operating a business to owning one. Currently pursuing a Doctorate of Business Administration. Speaks and writes in Arabic and English on execution, systems, and organizational discipline.",
+    linkedin    : "https://www.linkedin.com/in/amership9/",
+    bmProfile   : "https://brainsmingle.com/AbdullahAmer",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s1-t1", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-044",
+    order       : 40,
+    name        : "Ahmed Gohary",
+    title       : "AI Digital Content Creator",
+    company     : "Freelancer",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-044.png",
+    bio         : "AI Digital Content Creator",
+    linkedin    : "https://www.facebook.com/Farouk1881",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-059",
+    order       : 41,
+    name        : "Asif Shahriar",
+    title       : "AI Learning Strategist & Associate Research Fellow",
+    company     : "Constructor University",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-059.png",
+    bio         : "Learning strategist with 14+ years in academic leadership and corporate learning, helping institutions use Generative AI to design smarter learning systems and lead meaningful change. Currently leads an international GenAI initiative transforming higher education across Europe and Asia. Specializes in turning research into strategy, applying AI, behavioral science, and inclusive design frameworks like UDL and the Community of Inquiry. Previously built advising systems that doubled student intake and developed AI-enhanced LMS platforms. Passionate about aligning people, platforms, and pedagogy to solve real-world learning challenges.",
+    linkedin    : "https://www.linkedin.com/in/asif-shahriar/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s3-t1", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-008",
+    order       : 42,
+    name        : "Ahmed El-Shamy",
+    title       : "Dean of Education",
+    company     : "Digisoul",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-008.png",
+    bio         : "AI decisioning and fraud-risk product leader with experience at Network International, Mastercard, and CIB Egypt. Founder and CEO of Digisoul AI Agency, leading AI education and enterprise enablement across finance, HR, and supply chain. DBA candidate researching agentic AI decisioning in banking, focused on human oversight and responsible AI deployment. Expert in RegTech, payments, and governance.",
+    linkedin    : "https://www.linkedin.com/in/realelshamy/",
+    bmProfile   : "https://brainsmingle.com/realElShamy",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-037",
+    order       : 43,
+    name        : "Mohamed ElAswad",
+    title       : "AI Trainer and Consultant",
+    company     : "Aswad AI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-037.png",
+    bio         : "AI & Digital Marketing Consultant and Trainer with 10+ years of experience. He specializes in Generative AI, AI-powered content and video production, and digital strategy, delivering professional training and consulting for academic institutions, national initiatives, and businesses across Egypt, the Gulf, and international markets.",
+    linkedin    : "https://www.linkedin.com/in/mohamad-elaswad/",
+    bmProfile   : "https://brainsmingle.com/mohamad2976",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s2-t2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-065",
+    order       : 44,
+    name        : "Islam Mostafa",
+    title       : "Engineer & Founder",
+    company     : "Tebi",
+    country     : "Netherlands",
+    countryCode : "NL",
+    photo       : "spk-065.png",
+    bio         : "Cairo-born, Amsterdam-based engineer and founder who has spent thirteen years building things people keep, across three very different materials. In Cairo, he was CTO of two hardware startups, leading a product that shipped tens of thousands of units to 120+ countries after a crowdfunding campaign that raised 8x its goal, and later open-source hardware for connected devices. In Amsterdam, he led treasury engineering at a global payments company, on systems settling billions of dollars a year across 90+ currencies, then led the backend team at a payments infrastructure company serving enterprise merchants across MENA. Since 2025, he has been building a consumer AI product on a platform that runs across several AI providers.",
+    linkedin    : "https://www.linkedin.com/in/imelnaggar/",
+    bmProfile   : "https://brainsmingle.com/islam",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-015",
+    order       : 45,
+    name        : "Amr Helal",
+    title       : "Founder",
+    company     : "DotPy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-015.png",
+    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
+    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
+    bmProfile   : "https://brainsmingle.com/hend6987",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-066",
+    order       : 46,
+    name        : "Manar Mansour",
+    title       : "Founder & Managing Director",
+    company     : "TIK TEN Consulting",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-066.png",
+    bio         : "Growth and Partnership Strategist with 15+ years of experience helping organizations unlock new opportunities through strategic partnerships, go-to-market strategies, and commercial growth initiatives across fintech, financial services, insurance, and technology. Has worked with startups, enterprises, banks, and solution providers to identify growth opportunities and turn ideas into successful business outcomes. Founder of Tik Ten Consulting, a strategic partnership advisory helping organizations identify, evaluate, and connect with the right partners. Driven by the belief that the best business opportunities happen when the right organizations find each other.",
+    linkedin    : "https://www.linkedin.com/in/manar-mansour/",
+    bmProfile   : "https://brainsmingle.com/manar6143",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-054",
+    order       : 47,
+    name        : "Mohamed Sabry",
+    title       : "Co-founder & CEO",
+    company     : "LinkOut & Nabta",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-054.png",
+    bio         : "Business management leader with 19+ years of experience, having previously led regional HR across Africa and the Middle East at Koch Industries. An instructor at SCE-BUE and Co-founder and CEO of LinkOut and NABTA, he has coached 20,000+ leaders across 15+ nationalities. Specializes in change management, human capital architecture, and organizational psychology.",
+    linkedin    : "https://www.linkedin.com/in/dr-msabry",
+    bmProfile   : "https://brainsmingle.com/drmohamed8551",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-068",
+    order       : 48,
+    name        : "Mohamed Farouk",
+    title       : "Professor",
+    company     : "Zewail Univeristy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-068.png",
+    bio         : "Professor of Engineering at Zewail University and Chief AI Officer at Sprints.ai, with 20+ years of experience across academia, artificial intelligence, workforce development, and digital transformation. At Sprints.ai, he leads AI strategy and the development of AI-powered learning and workforce solutions designed to improve employability and scale personalized learning. His academic work spans AI, machine learning, signal processing, curriculum development, and technology-enabled education. He has also contributed to national digital transformation initiatives and led large-scale professional training and innovation programs. His current focus is on how generative AI is transforming learning, how organizations should rethink skills in an AI-driven economy, and how to strengthen the uniquely human capabilities that remain critical as AI advances.",
+    linkedin    : "https://www.linkedin.com/in/mohamed-farouk-abdelkader-08618912/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 4, sessionId: "ses-d4-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-035",
+    order       : 49,
+    name        : "Ahmed El Sisi",
+    title       : "AI Video Director & Creative Systems Builder",
+    company     : "Bridges Foundation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-035.png",
+    bio         : "AI Video Director and creative systems builder who helps educators, experts, and thought leaders transform their knowledge into professional video content using AI avatars, digital twins, and end-to-end production workflows.",
+    linkedin    : "https://www.linkedin.com/in/ahmed-sysy/",
+    bmProfile   : "https://brainsmingle.com/ahmed6113",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-060",
+    order       : 50,
+    name        : "Mohamed Kelany",
+    title       : "Co-Founder and CTO",
+    company     : "NtegralOne Solutions",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-060.png",
+    bio         : "Technology strategist working at the intersection of AI, high-performance computing, and enterprise transformation, with a decade of business experience across different roles. As a certified NVIDIA Partner Expert, he specializes in configuring GPU-powered workstations, AI servers, and simulation-ready setups for industries like digital twins, robotics, and smart cities. He advises businesses, research labs, and digital pioneers on the infrastructure they need to accelerate innovation. Passionate about making state-of-the-art hardware accessible, understandable, and practical, bridging ambitious ideas with the computing power to bring them to life.",
+    linkedin    : "https://www.linkedin.com/in/kelanymo/",
+    bmProfile   : "https://brainsmingle.com/Kelanymo",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s3-t5", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-004",
+    order       : 51,
+    name        : "Ashraf Bacheet",
+    title       : "Founder",
+    company     : "O7 Therapy",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-004.png",
+    bio         : "Tech executive and serial entrepreneur with 20+ years building and scaling ventures across MENA. Led O7 Therapy from idea to regional scale as the Middle East's leading digital mental health platform. Google Health AI Academy graduate and 500 Global ScaleUp alumnus. Active startup mentor and speaker focused on where AI genuinely earns its place in products—in healthcare and beyond.",
+    linkedin    : "https://www.linkedin.com/in/bacheet",
+    bmProfile   : "https://brainsmingle.com/ashraf3370",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-055",
+    order       : 52,
+    name        : "Mostafa Elganainy",
+    title       : "Head of AI",
+    company     : "Nowlun",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-055.png",
+    bio         : "Head of AI at Nowlun.com, with 20 years of experience building products and leading engineering teams. He has founded and led multiple startups in executive roles across product and engineering.",
+    linkedin    : "https://www.linkedin.com/in/mostafaalielganainy/",
+    bmProfile   : "https://brainsmingle.com/mostafa4876",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-076",
+    order       : 53,
+    name        : "Yomna Abdelrahman",
+    title       : "Postdoctoral Researcher",
+    company     : "Bundeswehr University Munich",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-076.png",
+    bio         : "Postdoctoral researcher at the Bundeswehr University Munich, working at the intersection of Human-Computer Interaction (HCI) and Usable Security. She earned her PhD in HCI from the University of Stuttgart, following a master's in Computer Engineering and a bachelor's from the German University in Cairo. She has held a research fellowship at the Microsoft Research Centre for Social Natural User Interfaces in Melbourne and interned at Philips Healthcare. Her honors include a DAAD Scholarship and an honorable mention (top 4%) at CHI 2017.",
+    linkedin    : "https://www.linkedin.com/in/dr-yomna-abdelrahman-846b44a1/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-027",
+    order       : 54,
+    name        : "Sherouk Ghallab",
+    title       : "Founder & Digital Learning Strategist",
+    company     : "Noor Edtech",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-027.png",
+    bio         : "Digital Learning Consultant with 13+ years of experience across Egypt, the Gulf, the UK, and Europe. She is the Founder of Noor, an AI-powered career guidance platform for students, and holds an MBA and MSc in Smart EdTech from Université Côte d'Azur.",
+    linkedin    : "https://www.linkedin.com/in/sherouk-ghallab/",
+    bmProfile   : "https://brainsmingle.com/sherouk1278",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 3, sessionId: "ses-d3-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-063",
+    order       : 55,
+    name        : "Ahmed Fakhry",
+    title       : "Co-founder & CEO",
+    company     : "Scale by AI",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-063.png",
+    bio         : "Co-founder and CEO of Scale by AI, an Egyptian AI startup helping businesses adopt and scale artificial intelligence through practical products and transformation programs. He leads strategy, partnerships, and AI commercialization, working with startups, SMEs, and organizations across the MENA region. His work focuses on turning emerging AI capabilities into solutions that solve real business problems and create measurable value. Actively engaged in the regional AI ecosystem, he brings a founder's perspective to conversations on responsible AI, entrepreneurship, and what makes AI startups scalable.",
+    linkedin    : "https://www.linkedin.com/in/ahmedfakhry/",
+    bmProfile   : "https://brainsmingle.com/ahmed6506",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-093",
+    order       : 56,
+    name        : "Khaled Hesham",
+    title       : "AI Manager",
+    company     : "Robusta Technology Group (RTG)",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-093.png",
+    bio         : "AI Manager at Robusta, leading GenAI and ML teams to build systems that don't just demo well but operate reliably in production. With a foundation in engineering, he built scalable backend systems for top Egyptian companies and mentored students as a Teaching Assistant at Ain Shams Faculty of Engineering. He works across Classical ML, MLOps, LLMs, RAG, and GenAI agents, but his real focus is systems thinking: connecting research, infrastructure, and business value. He believes not all problems need GenAI, but when it's the right tool, it can transform a business, and that the difference between hype and impact is engineering discipline. His mission is to help teams build AI that is useful, reliable, and worth paying for.",
+    linkedin    : "https://www.linkedin.com/in/khaled-hesham-fathallah-083802122/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 5, sessionId: "ses-d5-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-058",
+    order       : 57,
+    name        : "Ahmed ElKayesh",
+    title       : "Founder & AI/ML Engineer",
+    company     : "RoboPhi",
+    country     : "Belgium",
+    countryCode : "BE",
+    photo       : "spk-058.png",
+    bio         : "Senior AI/ML Engineer and founder of RoboPhi, with 18 years of software and AI experience, including nine years at Nuance Communications and Microsoft. He focuses on healthcare AI, reliable language models, and evaluating whether AI systems are ready for real-world use.",
+    linkedin    : "https://www.linkedin.com/in/aelkayesh/",
+    bmProfile   : "https://brainsmingle.com/aelkayesh",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-006",
+    order       : 58,
+    name        : "Yasmine Aguib",
+    title       : "co-Chief, Research & Innovation Officer",
+    company     : "Magdi Yacoub Heart Foundation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-006.png",
+    bio         : "Technology and innovation strategist leading the Research & Innovation Centre at the Magdi Yacoub Heart Foundation. She builds AI-enabled health ecosystems integrating genomics, digital twins, and precision medicine. A Technical University of Munich graduate and Honorary Senior Research Fellow at Imperial College London, her work spans Germany, the UK, and Egypt driving equitable healthcare innovation.",
+    linkedin    : "https://www.linkedin.com/in/yasmine-aguib-464776184/",
+    bmProfile   : "https://brainsmingle.com/yasmine7704",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-031",
+    order       : 59,
+    name        : "Shaimaa Emam",
+    title       : "Senior Program Manager",
+    company     : "Ascendra",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-031.png",
+    bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
+    linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-080",
+    order       : 60,
+    name        : "Mahmoud Elrefaey",
+    title       : "Software Engineer",
+    company     : "Saudi Confidential Company",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-080.png",
+    bio         : "3D Lead Developer focused on building complex web applications and developer tools. He enjoys exploring practical ways to use AI in software development and improving how developers work with modern coding tools.",
+    linkedin    : "https://www.linkedin.com/in/m-elrefaey/",
+    bmProfile   : "https://brainsmingle.com/mahmoud1835",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-003",
+    order       : 61,
+    name        : "Kate Barker",
+    title       : "Chief Futurist",
+    company     : "NEOM",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-003.png",
+    bio         : "TIME100 AI Impact Award honouree and world's No.1-ranked Chief Futurist. Advises heads of state, boards, and global CEOs on AI transformation and leadership. Doctoral research on AI, leadership, and trust spanning 6,000+ executives worldwide. MIT faculty, Forbes contributor, and author of Hidden Power. Featured on CNN, BBC, and CNBC, with keynotes at Davos, the UN, SXSW, and London Business School.",
+    linkedin    : "https://www.linkedin.com/in/drkatebarker/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-074",
+    order       : 62,
+    name        : "Abdelrahman Diaa",
+    title       : "Co-Founder & CEO",
+    company     : "Mntiq Studios",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-074.png",
+    bio         : "Co-Founder and CEO of Mntiq Studios, an AI-powered edutainment company, and Senior Business Development Manager at Sahl. He leads the development of YouDetective, combining artificial intelligence, interactive storytelling and structured thinking to create engaging learning experiences.",
+    linkedin    : "https://www.linkedin.com/in/abdelrahman-diaa-afifi-14920157/",
+    bmProfile   : "https://brainsmingle.com/abdelrahman6385",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s2-t2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-007",
+    order       : 63,
+    name        : "Yehya Othman",
+    title       : "CEO & Founder",
+    company     : "Business Lobby & Marketing Terrace",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-007.png",
+    bio         : "Marketing strategist and entrepreneur with 15+ years of experience across Egypt and the Gulf. Founder of Marketing Terrace, a growth-focused marketing agency, and Business Lobby, a networking platform for founders, CEOs, and investors. MBA holder and DBA candidate researching tech startup success factors in Egypt. Experienced instructor and speaker on marketing strategy, digital growth, and AI.",
+    linkedin    : "https://www.linkedin.com/in/yehya-othman?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    bmProfile   : "https://brainsmingle.com/yehya8879",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-073",
+    order       : 64,
+    name        : "Omar Nasr",
+    title       : "Founder",
+    company     : "AI-Proctor",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-073.png",
+    bio         : "Lifelong learner and systems builder from Suez. After graduating from Cairo University in 2003, he completed his PhD at UCLA, gaining hands-on experience building real-world wireless systems. He returned to Egypt as an assistant professor at Cairo University and joined the R&D department at the National Telecom Regulatory Authority, leading the evaluation of hundreds of funded research projects. He later spent two years as a Principal Systems Engineer at Goodix, working on advanced wireless chip design. In 2020, he co-founded AI-Proctor, an AI solution safeguarding the integrity of online exams, now used in tens of thousands of assessments and backed by Flat6labs.",
+    linkedin    : "https://www.linkedin.com/in/omaranasr-ai/",
+    bmProfile   : "https://brainsmingle.com/omar2145",
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-072",
+    order       : 65,
+    name        : "Ahmed Ramy",
+    title       : "Co-Founder & CEO",
+    company     : "FastAutomate",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-072.png",
+    bio         : "Technology and operations leader with 20+ years of experience across IT management, operations management, and project management. Brings deep experience across the Gulf region and a strong customer-oriented perspective, with a proven record in channel management, business development, and process improvement (QMS, KPIs, HR, and talent management). Has delivered cutting-edge projects including mobile applications and HTML5 experiences, working across outsourcing models in markets spanning the USA, Canada, Egypt, UAE, Saudi Arabia, and Qatar. Specializes in enterprise architecture, application life cycle management, account management, and presales.",
+    linkedin    : "https://www.linkedin.com/in/wdeveloper/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-021",
+    order       : 66,
+    name        : "Moustafa Eshra",
+    title       : "Data & AI Enterprise Architect",
+    company     : "IBM",
+    country     : "France",
+    countryCode : "FR",
+    photo       : "spk-021.png",
+    bio         : "Data & AI Architect with 15+ years of experience helping organizations solve complex data and digital challenges. Specializes in guiding developers into GenAI, with deep expertise in machine learning, enterprise architecture, and creative problem-solving. Passionate about coding and turning data into real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/moustafa-eshra/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 2, sessionId: "ses-d2-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-023",
+    order       : 67,
+    name        : "Alaa Mukhtar",
+    title       : "Sales Development Representative",
+    company     : "Opentext",
+    country     : "UAE",
+    countryCode : "AE",
+    photo       : "spk-023.png",
+    bio         : "Tech sales professional at OpenText, specializing in B2B enterprise software solutions and outbound prospecting. Previously at SleekFlow. Passionate about engaging business leaders and driving growth through technology.",
+    linkedin    : "https://www.linkedin.com/in/alaamukhtar/",
+    bmProfile   : "https://brainsmingle.com/alaa3964",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-026",
+    order       : 68,
+    name        : "Ziad Elalaily",
+    title       : "AI Practice & Business Lead",
+    company     : "PwC ETIC",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-026.png",
+    bio         : "AI engineering leader at PwC, focused on turning generative AI and machine learning into scalable, production-ready solutions. He combines deep technical expertise with business strategy, team leadership, and solution architecture, helping organizations move from AI experimentation to measurable real-world impact.",
+    linkedin    : "https://www.linkedin.com/in/ziad-elalaily-195a44140/",
+    bmProfile   : "https://brainsmingle.com/ziad6252",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 3, sessionId: "ses-d3-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-029",
+    order       : 69,
+    name        : "Kamal Ghamry",
+    title       : "Marketing Manager",
+    company     : "Ninos",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-029.png",
+    bio         : "Commercial Marketing and Growth Advisor helping CEOs turn marketing data, customer behavior, and business economics into better commercial decisions. Experience spans e-commerce, fintech, retail, SaaS, B2B, and service businesses, with a focus on growth strategy, customer economics, and marketing effectiveness. Passionate about building decision systems that connect marketing activity to real business outcomes.",
+    linkedin    : "https://www.linkedin.com/in/kamal-ghamry/",
+    bmProfile   : "https://brainsmingle.com/kamal1544",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-030",
+    order       : 70,
+    name        : "Ahmed El Zoughby",
+    title       : "UX Research Lead",
+    company     : "UX Labs",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-030.png",
+    bio         : "A Product Design Expert with 13 years of hand-on experience focused on Product Strategy, User Research, and Interaction Design, with an educational background in Architecture. Enjoys maximizing the value of Human Centered Design for the people interacting with products of over 50+ entities that I’ve crossed path with through direct work or mentorship capacity.",
+    linkedin    : "https://www.linkedin.com/in/azoughby/",
+    bmProfile   : "https://brainsmingle.com/azoughby",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-032",
+    order       : 71,
+    name        : "Mahmoud Abdelhamed",
+    title       : "Senior AI Engineer",
+    company     : "Confidential",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-032.png",
+    bio         : "Senior Computer Vision Engineer with 7+ years of experience building production AI systems across computer vision, 3D vision, and multimodal AI. His work spans scalable AI deployment, 3D reconstruction, agentic workflows, and technical leadership, with a focus on turning advanced AI research into practical engineering solutions.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-khaled-nasr/",
+    bmProfile   : "https://brainsmingle.com/mahmoud9199",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-033",
+    order       : 72,
+    name        : "Ahmed Aabed",
+    title       : "Senior Engineering Manger",
+    company     : "Yassir",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-033.png",
+    bio         : "Senior Engineering Manager with 15+ years of experience across DevOps, infrastructure, and engineering leadership. Former CTO at Zyda and Head of SRE at Nana, with previous roles at Instabug, Swvl, and Crowd Analyzer. Started in cybersecurity as a Malware Hunter at EG-CERT. Passionate about building high-performing engineering teams that ship products with real business impact.",
+    linkedin    : "https://www.linkedin.com/in/ahmadaabed/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-038",
+    order       : 73,
+    name        : "Bassem Ahmed",
+    title       : "CEO",
+    company     : "Premier Rank",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-038.png",
+    bio         : "CEO and E-Commerce Strategist at Premier Rank E-Business Solutions, a leading agency across Egypt and Saudi Arabia. With 14+ years in MENA e-commerce, Bassem has worked on 1M+ product pages and trained 1,400+ professionals. Specializes in catalog engineering, marketplace operations (Amazon, Noon, Shopify), and e-commerce automation. Ranked top 10 among Arabic-speaking e-commerce creators on LinkedIn by Favikon.",
+    linkedin    : "https://www.linkedin.com/in/bassem-ahmed7/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-039",
+    order       : 74,
+    name        : "Ahmed Esmail",
+    title       : "Business Development Engineer",
+    company     : "EVRAID",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-039.png",
+    bio         : "Business Development Engineer blending an engineering background with a passion for technology, business, and personal branding. Experienced in sales, partnerships, and the Electric Vehicle industry. Also an educator and content creator, helping students and professionals build their skills, strengthen their personal brand, and access real opportunities.",
+    linkedin    : "https://www.linkedin.com/in/esmaillab/",
+    bmProfile   : "https://brainsmingle.com/esmaillab",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 6, sessionId: "ses-d6-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-040",
+    order       : 75,
+    name        : "Fady Fouad",
+    title       : "Art Director & AI Film Maker",
+    company     : "Fndmntl Labs",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-040.png",
+    bio         : "Art Director and AI Specialist focused on visual storytelling, filmmaking, and the evolving relationship between creativity and artificial intelligence. His work explores how art direction and emerging AI technologies come together to shape cinematic worlds and visual narratives. From concept development and character creation to cinematography and final execution, he integrates AI throughout the creative and filmmaking process.",
+    linkedin    : "https://www.linkedin.com/in/fady-fouad-a57b53203/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-041",
+    order       : 76,
+    name        : "Eyad Eldomairy",
+    title       : "Art Director",
+    company     : "Six10 Ventures",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-041.png",
+    bio         : "Seven years of experience as an art director, plus two years using Al to create video ads, static campaigns, UGC content, product shoots, and branding for e-commerce teams. He's worked with brands like Audi, SEAT, and Burger King, and in his session, he'll focus on where Al meets design, advertising, and marketing",
+    linkedin    : "https://www.linkedin.com/in/eyadaldomairy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-043",
+    order       : 77,
+    name        : "Ezzat Essam",
+    title       : "AI Animator",
+    company     : "TPP",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-043.png",
+    bio         : "Egyptian Art Director, AI Visualizer, and Stand-up Comedian with over 9 years of experience in visual communication and creative direction. His work explores the intersection of design, storytelling, humor, and artificial intelligence, with a strong focus on using AI as a tool for creative thinking, art direction, and visual experimentation. @TPP_Ai Visual Artisit",
+    linkedin    : "https://www.linkedin.com/in/ezzat-essam-355190189/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-045",
+    order       : 78,
+    name        : "Mohamed Shokry",
+    title       : "AI Consultant",
+    company     : "Freelancer",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-045.png",
+    bio         : "Lead Architect and Design Manager with 17+ years of professional experience, including 5+ years in the GCC. His portfolio spans 100+ executed projects worth over $2 billion, ranging from medium-scale to mega-scale across diverse building types. Specializes in architectural design, design management, and project management, with a focus on value engineering and green digital approaches. Passionate about formulating unique architectural character for iconic, innovative projects.",
+    linkedin    : "https://www.linkedin.com/in/mohamed-shokry-el-kholy-a20a3468/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
+    id          : "spk-046",
+    order       : 79,
+    name        : "Anwar Aly",
+    title       : "Founder & CEO",
+    company     : "Zaher.ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-046.png",
+    bio         : "Founder & CEO of Zaher.AI, an Arabic-first AI visibility platform helping brands get discovered and recommended by AI engines like ChatGPT, Gemini, and Perplexity. He is a UNDP Global Winner with 10+ years in startups, CRO, and behavioral science.",
+    linkedin    : "https://www.linkedin.com/in/anwaraly/",
+    bmProfile   : "https://brainsmingle.com/anwar8554",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 5, sessionId: "ses-d5-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-048",
+    order       : 80,
+    name        : "Yasser Abdellateif",
+    title       : "Creative Director",
+    company     : "Andalusia Group",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-048.png",
+    bio         : "Creative Director with 18+ years in advertising, working across ideas, disciplines, markets, and cultures. Has spent his career building work, leading creative teams, and chasing the idea that makes everything else click. Today, his focus is on how creativity is evolving, where new tools make execution easier, and taste, judgment, and original thinking matter more than ever. Alongside his creative work, he teaches and mentors emerging creatives, sharing what the industry truly demands beyond the brief and the polished case study.",
+    linkedin    : "https://www.linkedin.com/in/yasser-abdellateif-1369766b/",
+    bmProfile   : "https://brainsmingle.com/yasser7941",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 4, sessionId: "ses-d4-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-049",
+    order       : 81,
+    name        : "Aya Abdelkader",
+    title       : "Product Marketing Lead",
+    company     : "Intalio",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-049.png",
+    bio         : "Product marketer and brand builder with 12 years across enterprise AI, software, and consumer technology in MENA. Product Marketing Lead at Intalio, taking enterprise AI and automation products to market across MEA, North Africa, Europe, and the Levant. Former Product Marketing Manager at Gotrah Ventures in Saudi Arabia, Strategic Marketing Supervisor for NilePreneurs at Nile University, and Marketing Manager for e-commerce and consumer brands across Egypt. MBA in Marketing & Luxury Management. Recipient of the Top 25 Emerging Marketing Innovators Award. Passionate about turning complex technology into stories buyers understand and sales teams can sell.",
+    linkedin    : "https://www.linkedin.com/in/ayaabdelkader/",
+    bmProfile   : "https://brainsmingle.com/aya8122",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s1-t4", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-051",
+    order       : 82,
+    name        : "Oun Alazam",
+    title       : "Founder",
+    company     : "brono.ai",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-051.png",
+    bio         : "Enthusiastic full stack developer with a knack for crafting creative solutions across web, mobile, and game development. Adept in a comprehensive tech stack encompassing React, React Native, Node.js, JavaScript, TypeScript, Astro.js, PHP, SQL, Java, Figma, and more, with a keen eye for staying ahead of the curve (e.g., Go, UX). Possesses a strong work ethic and thrives in fast-paced environments. Continuously expanding skillset through self-directed learning.",
+    linkedin    : "https://www.linkedin.com/in/aoun-alazzam",
+    bmProfile   : "https://brainsmingle.com/aoun4432",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-020",
+    order       : 83,
+    name        : "Nader Sayed",
+    title       : "Founder",
+    company     : "Tawasul for AI transformation",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-020.png",
+    bio         : "Enterprise Architect and Digital Transformation Expert with 12+ years of experience turning complex operations into scalable digital products. Sits at the intersection of business, technology, and product — designing smart systems powered by automation, AI/ML, and IoT. Combines product thinking with solution architecture to deliver and scale real impact.",
+    linkedin    : "https://www.linkedin.com/in/nader-sayed-y/",
+    bmProfile   : "https://brainsmingle.com/nader2tawasol",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-052",
+    order       : 84,
+    name        : "Hassan Gad",
+    title       : "Founder",
+    company     : "Fgimawya",
+    country     : "KSA",
+    countryCode : "SA",
+    photo       : "spk-052.png",
+    bio         : "UX Engineering specialist with 14+ years of experience, now focused on UX leadership and management. Aligns user needs with business objectives and stakeholder expectations, providing clarity, reducing friction, and guiding teams toward user-centered, strategically effective outcomes. Collaborates across product, engineering, and stakeholders to translate strategic goals into scalable design systems and efficient workflows. Passionate about advancing UX maturity, strengthening cross-functional collaboration, and connecting vision to execution.",
+    linkedin    : "https://www.linkedin.com/in/hasangadux/",
+    bmProfile   : "https://brainsmingle.com/hasangad",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 6, sessionId: "ses-d6-s2-t2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-053",
+    order       : 85,
+    name        : "Mo Fattah",
+    title       : "Founder & CEO",
+    company     : "KeepUp & MIT VAP Finalist",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-053.png",
+    bio         : "Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
+    linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-064",
+    order       : 86,
+    name        : "Mahmoud Abdellahi",
+    title       : "Researcher and Lecturer",
+    company     : "Cairo University",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-064.png",
+    bio         : "Computer scientist and neuroscience researcher applying machine learning to decode memory processing during sleep from EEG brain signals. Founder of Aibdaya, an Arabic-language platform teaching AI from its mathematical foundations to thousands of learners. Also a lecturer at the Faculty of Computers and AI, Cairo University.",
+    linkedin    : "https://www.linkedin.com/in/mahmoud-abdellahi-phd-5bb81110b/",
+    bmProfile   : "https://brainsmingle.com/mahmoud1446",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s1-t1", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-069",
+    order       : 87,
+    name        : "Nourah Mahamed",
+    title       : "AI Cinematic Ads & Branding designer",
+    company     : "Nourah Studio",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-069.png",
+    bio         : "Senior Graphic Designer with over 5 years of experience specialized in Branding, Visual Identity, and Social Media. I am  proficient in the art of Visual Storytelling, Manipulation, and Video Editing.",
+    linkedin    : "https://www.linkedin.com/in/nourhanmohamednmma",
+    bmProfile   : "https://brainsmingle.com/nourhan3857",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 6, sessionId: "ses-d6-s1-t2", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-070",
+    order       : 88,
+    name        : "Sherif Shalaby",
+    title       : "Co-Founder & Chief Marketing Officer",
+    company     : "Big Move Agency",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-070.png",
+    bio         : "Founder and Chief Marketing Officer at Big Move Agency, leveraging 13+ years of expertise in advertising and marketing to drive business growth and brand development, with operations expanded across Dubai and Saudi Arabia. He has collaborated with top multinational companies including PepsiCo, Mars, Vodafone, and Danone. His background as a physician sharpens his analytical thinking, attention to detail, and empathetic communication, shaping his data-driven approach to marketing. Passionate about AI and its marketing applications, he continuously drives excellence across the MENA region.",
+    linkedin    : "https://www.linkedin.com/in/sherif-shalaby-72bb5861/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  }
+
+];
+
+SIGNAL_SPEAKERS.sort((a, b) =>
+  (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER)
+);
+
+const SIGNAL_SPEAKERS_MAP = SIGNAL_SPEAKERS.reduce((map, speaker) => {
+  map[speaker.id] = speaker;
+  return map;
+}, {});
+
+function getSpeakersOrdered(limit) {
+  return typeof limit === "number"
+    ? SIGNAL_SPEAKERS.slice(0, limit) : SIGNAL_SPEAKERS.slice();
+}
+
+function getHomepageSpeakers(limit) {
+  const picked = SIGNAL_SPEAKERS.filter(s => s.showOnHome === true);
+  const list = picked.length ? picked : SIGNAL_SPEAKERS.slice();
+  const cap = typeof limit === "number" ? limit : HOME_SPEAKER_LIMIT;
+  return cap > 0 ? list.slice(0, cap) : list;
+}
+
+function getSpeakersByTrack(trackNumber) {
+  return SIGNAL_SPEAKERS.filter(s =>
+    s.appearances.some(a => a.trackNumber === trackNumber));
+}
+
+function getSpeakersByDay(day) {
+  return SIGNAL_SPEAKERS.filter(s => s.appearances.some(a => a.day === day));
+}
+
+function getSpeakersBySession(sessionId) {
+  return SIGNAL_SPEAKERS.filter(s =>
+    s.appearances.some(a => a.sessionId === sessionId));
+}
+
+function getFeaturedSpeakers() {
+  return SIGNAL_SPEAKERS.filter(s => s.featured === true);
+}
+
+function getSpeakerTrackNumbers(speaker) {
+  const nums = speaker.appearances
+    .map(a => a.trackNumber)
+    .filter(n => n !== null);
+  return [...new Set(nums)];
+}
