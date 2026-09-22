@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-21 18:36 · 81 speakers.
+ * Generated 2026-09-22 03:28 · 82 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -471,6 +471,23 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-090",
+    order       : 29,
+    name        : "Ola Yousry",
+    title       : "Senior BIM/VDC Manager",
+    company     : "Ex-Tesla",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-090.png",
+    bio         : "An architect by education and a BIM and Digital Delivery professional with 18+ years of experience in the AEC industry. Having worked with organizations including Dar Al-Handasah and Tesla, she focuses on BIM management, digital transformation, and bridging technology with real-world project delivery.",
+    linkedin    : "https://www.linkedin.com/in/ola-yousry/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
+  },
+
+  {
     id          : "spk-022",
     order       : 32,
     name        : "Ebrahem Anwar",
@@ -858,7 +875,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 5, day: 5, sessionId: "ses-d5-s1-t5", timeSlot: "18:00" }, { trackNumber: 5, day: 5, sessionId: "ses-d5-s2-t5", timeSlot: "19:00" }, { trackNumber: 5, day: 5, sessionId: "ses-d5-s3-t5", timeSlot: "20:00" }]
+    appearances : [{ trackNumber: 5, day: 5, sessionId: "ses-d5-s1-t5", timeSlot: "18:00" }]
   },
 
   {
