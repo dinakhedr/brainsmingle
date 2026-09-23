@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-22 20:33 · 83 speakers.
+ * Generated 2026-09-23 03:20 · 83 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -63,25 +63,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-001",
-    order       : 3,
-    name        : "Ameer Sherif",
-    title       : "Founder & Chairman",
-    company     : "BasharSoft",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-001.png",
-    bio         : "Founder and Chairman of BasharSoft, the company behind WUZZUF and Forasna, Egypt's #1 recruitment platforms for white and blue collar jobs. 7M+ users, 1M+ hires, and $10M raised from global VCs including 500 Startups and EBRD. Board Member at ITIDA, VC with Khwarizmi Ventures. World Economic Forum Young Global Leader and Endeavor Entrepreneur. Passionate about AI, marketplaces, and ecosystems.",
-    linkedin    : "https://www.linkedin.com/in/ameersherif/",
-    bmProfile   : "https://brainsmingle.com/ameer",
-    featured    : true,
-    showOnHome  : true,
-    appearances : []
-  },
-
-  {
     id          : "spk-094",
-    order       : 4,
+    order       : 3,
     name        : "Omar El-Shenety",
     title       : "Economist & Financial Advisor",
     company     : "Zilla Capital",
@@ -94,6 +77,23 @@ const SIGNAL_SPEAKERS = [
     featured    : true,
     showOnHome  : true,
     appearances : [{ trackNumber: null, day: 2, sessionId: "ses-d2-spotlight", timeSlot: "21:00" }]
+  },
+
+  {
+    id          : "spk-001",
+    order       : 4,
+    name        : "Ameer Sherif",
+    title       : "Founder & Chairman",
+    company     : "BasharSoft",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-001.png",
+    bio         : "Founder and Chairman of BasharSoft, the company behind WUZZUF and Forasna, Egypt's #1 recruitment platforms for white and blue collar jobs. 7M+ users, 1M+ hires, and $10M raised from global VCs including 500 Startups and EBRD. Board Member at ITIDA, VC with Khwarizmi Ventures. World Economic Forum Young Global Leader and Endeavor Entrepreneur. Passionate about AI, marketplaces, and ecosystems.",
+    linkedin    : "https://www.linkedin.com/in/ameersherif/",
+    bmProfile   : "https://brainsmingle.com/ameer",
+    featured    : true,
+    showOnHome  : true,
+    appearances : []
   },
 
   {
@@ -627,14 +627,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-059",
     order       : 41,
     name        : "Asif Shahriar",
-    title       : "AI Learning Strategist & Associate Research Fellow",
-    company     : "Constructor University",
+    title       : "AI Learning Specialist",
+    company     : "Constructor University Bremen",
     country     : "Germany",
     countryCode : "DE",
     photo       : "spk-059.png",
     bio         : "Learning strategist with 14+ years in academic leadership and corporate learning, helping institutions use Generative AI to design smarter learning systems and lead meaningful change. Currently leads an international GenAI initiative transforming higher education across Europe and Asia. Specializes in turning research into strategy, applying AI, behavioral science, and inclusive design frameworks like UDL and the Community of Inquiry. Previously built advising systems that doubled student intake and developed AI-enhanced LMS platforms. Passionate about aligning people, platforms, and pedagogy to solve real-world learning challenges.",
     linkedin    : "https://www.linkedin.com/in/asif-shahriar/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/asif9220",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s3-t1", timeSlot: "20:00" }]
