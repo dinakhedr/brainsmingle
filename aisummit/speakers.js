@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-22 15:10 · 83 speakers.
+ * Generated 2026-09-23 19:34 · 85 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -63,8 +63,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-001",
+    id          : "spk-094",
     order       : 3,
+    name        : "Omar El-Shenety",
+    title       : "Economist & Financial Advisor",
+    company     : "Zilla Capital",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-094.png",
+    bio         : "Managing Partner at Zilla Capital, a leading investment bank in the MENA region, with 20 years of experience in investment banking and strategy consulting. He leads a team of seasoned bankers delivering value-added solutions to clients across sectors and markets. He holds a Global Executive MBA from Columbia Business School and London Business School, a Master of Laws from King's College London, and a bachelor's in economics from the American University in Cairo, where he also serves as Adjunct Faculty teaching finance and economics. A Research Consultant at the Egyptian Center for Economic Studies, he is passionate about analyzing the key economic issues facing the Middle East and regularly publishes articles and reports across media outlets.",
+    linkedin    : "https://www.linkedin.com/in/omarshenety/",
+    bmProfile   : "https://brainsmingle.com/omarshenety",
+    featured    : true,
+    showOnHome  : true,
+    appearances : [{ trackNumber: null, day: 2, sessionId: "ses-d2-spotlight", timeSlot: "21:00" }]
+  },
+
+  {
+    id          : "spk-001",
+    order       : 4,
     name        : "Ameer Sherif",
     title       : "Founder & Chairman",
     company     : "BasharSoft",
@@ -75,23 +92,6 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/ameersherif/",
     bmProfile   : "https://brainsmingle.com/ameer",
     featured    : true,
-    showOnHome  : true,
-    appearances : []
-  },
-
-  {
-    id          : "spk-094",
-    order       : 4,
-    name        : "Omar El-Shenety",
-    title       : "Economist & Financial Advisor",
-    company     : "Zilla Capital",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-094.png",
-    bio         : "Managing Partner at Zilla Capital, a leading investment bank in the MENA region, with 20 years of experience in investment banking and strategy consulting. He leads a team of seasoned bankers delivering value-added solutions to clients across sectors and markets. He holds a Global Executive MBA from Columbia Business School and London Business School, a Master of Laws from King's College London, and a bachelor's in economics from the American University in Cairo, where he also serves as Adjunct Faculty teaching finance and economics. A Research Consultant at the Egyptian Center for Economic Studies, he is passionate about analyzing the key economic issues facing the Middle East and regularly publishes articles and reports across media outlets.",
-    linkedin    : "https://www.linkedin.com/in/omarshenety/",
-    bmProfile   : "https://brainsmingle.com/omarshenety",
-    featured    : false,
     showOnHome  : true,
     appearances : []
   },
@@ -108,7 +108,7 @@ const SIGNAL_SPEAKERS = [
     bio         : "Engineer, founder, and investor working at the intersection of deep technology, engineering workflows, and leadership. Over the past decade, he has built and led teams on complex, high-impact systems, from analog/mixed-signal IC design and silicon platforms to applied research across hardware, signal processing, and AI. Most recently, he founded AIDAChip, an AI-native platform focused on preserving intent, context, and causality across semiconductor and engineering workflows. Alongside his technical work, he co-founded and scaled Egypt Scholars Inc., a nonprofit supporting students pursuing advanced education abroad, leading global volunteer coordination across 17+ countries. An angel and impact investor since 2016, he supports early-stage founders building in healthcare, clean tech, AI, semiconductors, and security.",
     linkedin    : "https://www.linkedin.com/in/khaledalashmouny/",
     bmProfile   : null,
-    featured    : false,
+    featured    : true,
     showOnHome  : true,
     appearances : []
   },
@@ -142,7 +142,7 @@ const SIGNAL_SPEAKERS = [
     bio         : "Veteran technologist with 27+ years of technical, management, and business experience across semiconductors, wireless telecom, and software/internet. He has worked for top technology companies in the USA, Malaysia, Dubai, the UK, and Egypt, designing microchips for the likes of Intel, Apple, Alcatel, and Siemens. He founded and led the Digital Circuit Design business unit for four companies, co-founded three tech startups, executed one spinoff, and mentored over 100 startups. Holds a BSc and MSc in Electronics and Communications Engineering from the University of Alexandria. Specializes in integrated circuit design, technology management, and entrepreneurship.",
     linkedin    : "https://www.linkedin.com/in/mohammadomara/",
     bmProfile   : "https://brainsmingle.com/mohammad1937",
-    featured    : false,
+    featured    : true,
     showOnHome  : true,
     appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s2-t5", timeSlot: "19:00" }]
   },
@@ -318,25 +318,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-012",
+    id          : "spk-095",
     order       : 18,
-    name        : "Taha Ali",
-    title       : "CEO",
-    company     : "GroHub",
+    name        : "Moe Ash",
+    title       : "Founder & Learning Architect",
+    company     : "The Catalyst",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-012.png",
-    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
-    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    photo       : "spk-095.png",
+    bio         : "Founder of The Catalyst, an instructional design consultancy focused on creating impeccable learning experiences. With a background spanning the BPO industry, business development, a managerial post at the UN, and 16 years in training, Moe has dedicated his career to youth empowerment and development through training programs and applied workshops. As a human development consultant, he has delivered sessions, workshops, and seminars to over 50,000 trainees, from university students to the top management of governmental institutions and corporates. He specializes in designing synchronous and asynchronous learning experiences for organizations regionally and internationally, using microlearning, AR, e-learning, and gamification. He is passionate about blending L&D, gamification, and performance management into cohesive, productive learning.",
+    linkedin    : "https://www.linkedin.com/in/moeash7/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+    appearances : []
+  },
+
+  {
+    id          : "spk-096",
+    order       : 19,
+    name        : "Islam Elsaadny",
+    title       : "Managing Director",
+    company     : "Forefront Consulting",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-096.png",
+    bio         : "Strategy Consultant and Managing Director of Forefront Consulting, with deep experience in strategy and management consulting. He has worked with over 75 companies of various sizes, including multinationals, large local corporations, SMEs, and scale-ups, spanning more than 30 industries. His expertise centers on guiding clients and partners in developing strategic plans for the future and ensuring effective execution through a range of deployment support approaches.",
+    linkedin    : "https://www.linkedin.com/in/isaadany/",
+    bmProfile   : "https://brainsmingle.com/islam5866",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
   },
 
   {
     id          : "spk-047",
-    order       : 19,
+    order       : 20,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -352,25 +369,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-085",
-    order       : 20,
-    name        : "Ahmed Bastawy",
-    title       : "Managing Director",
-    company     : "ICEALEX",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-085.png",
-    bio         : "Managing Director and Founding Partner of ICEALEX, a leading innovation and entrepreneurship platform shaping venture creation and impact-driven growth in Egypt and across Africa. With over a decade at the intersection of entrepreneurship, innovation systems, and impact investing, he designs and scales programs that help startups and SMEs move from ideas to sustainable impact across Egypt, Africa, the Mediterranean, and Europe. He has advised international organizations, development partners, and corporates on venture building, investment readiness, and circular economy, and previously contributed to the founding of iceHubs Global CIC in the UK.",
-    linkedin    : "https://www.linkedin.com/in/ahmedbastawy/",
-    bmProfile   : null,
+    id          : "spk-019",
+    order       : 21,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
     id          : "spk-078",
-    order       : 21,
+    order       : 22,
     name        : "Sabrine Assem",
     title       : "Founder & CEO",
     company     : "UnTap",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 22,
+    order       : 23,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -404,14 +421,14 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-079",
-    order       : 23,
+    order       : 24,
     name        : "Hany Ahmed",
     title       : "VP, Generative AI & Unstructured Data Science",
     company     : "BeyondAI",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-079.png",
-    bio         : "VP of Generative AI at BeyondAI with 16+ years in AI, including 13 years leading research and development of Arabic AI products. He partners with executive and technology teams to define AI strategies and deliver enterprise-scale, production-ready systems that drive measurable impact. His expertise spans GenAI, LLMs, deep learning, NLP, MLOps, and enterprise RAG systems, having led AI platforms including BeyondSearch, BeyondOCR, Kateb, Sotoor, and Natiq. Published at international AI conferences, he is passionate about advancing responsible, human-centered AI that helps organizations move from pilots to scalable AI ecosystems.",
+    bio         : "Dr. Hany is Vice President of Generative AI at BeyondAI, transforming complex AI technologies into scalable, enterprise-grade business value. With 16+ years of experience, he partners with executive leaders to turn AI from hype into practical, production-ready solutions that drive operational excellence, competitive advantage, and measurable ROI. A visionary corporate and entrepreneurial leader, he champions responsible AI adoption to fuel sustainable growth and create meaningful impact for communities.",
     linkedin    : "https://www.linkedin.com/in/hany-ahmed-phd-81a8a282/",
     bmProfile   : "https://brainsmingle.com/hany4024",
     featured    : false,
@@ -421,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 24,
+    order       : 25,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -434,23 +451,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-019",
-    order       : 25,
-    name        : "Ahmed AbouZaid",
-    title       : "Senior Product Engineer",
-    company     : "Camunda",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-019.png",
-    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
-    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
-    bmProfile   : "https://brainsmingle.com/aabouzaid",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -468,6 +468,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-085",
+    order       : 26,
+    name        : "Ahmed Bastawy",
+    title       : "Managing Director",
+    company     : "ICEALEX",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-085.png",
+    bio         : "Managing Director and Founding Partner of ICEALEX, a leading innovation and entrepreneurship platform shaping venture creation and impact-driven growth in Egypt and across Africa. With over a decade at the intersection of entrepreneurship, innovation systems, and impact investing, he designs and scales programs that help startups and SMEs move from ideas to sustainable impact across Egypt, Africa, the Mediterranean, and Europe. He has advised international organizations, development partners, and corporates on venture building, investment readiness, and circular economy, and previously contributed to the founding of iceHubs Global CIC in the UK.",
+    linkedin    : "https://www.linkedin.com/in/ahmedbastawy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   },
 
   {
@@ -519,6 +536,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : 34,
+    name        : "Taha Ali",
+    title       : "CEO",
+    company     : "GroHub",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-012.png",
+    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
+    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
   },
 
   {
@@ -627,14 +661,14 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-059",
     order       : 41,
     name        : "Asif Shahriar",
-    title       : "AI Learning Strategist & Associate Research Fellow",
-    company     : "Constructor University",
+    title       : "AI Learning Specialist",
+    company     : "Constructor University Bremen",
     country     : "Germany",
     countryCode : "DE",
     photo       : "spk-059.png",
     bio         : "Learning strategist with 14+ years in academic leadership and corporate learning, helping institutions use Generative AI to design smarter learning systems and lead meaningful change. Currently leads an international GenAI initiative transforming higher education across Europe and Asia. Specializes in turning research into strategy, applying AI, behavioral science, and inclusive design frameworks like UDL and the Community of Inquiry. Previously built advising systems that doubled student intake and developed AI-enhanced LMS platforms. Passionate about aligning people, platforms, and pedagogy to solve real-world learning challenges.",
     linkedin    : "https://www.linkedin.com/in/asif-shahriar/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/asif9220",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 1, day: 2, sessionId: "ses-d2-s3-t1", timeSlot: "20:00" }]
@@ -1019,16 +1053,16 @@ const SIGNAL_SPEAKERS = [
     order       : 64,
     name        : "Omar Nasr",
     title       : "Founder",
-    company     : "AI-Proctor",
+    company     : "GlobalAssess360",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-073.png",
-    bio         : "Lifelong learner and systems builder from Suez. After graduating from Cairo University in 2003, he completed his PhD at UCLA, gaining hands-on experience building real-world wireless systems. He returned to Egypt as an assistant professor at Cairo University and joined the R&D department at the National Telecom Regulatory Authority, leading the evaluation of hundreds of funded research projects. He later spent two years as a Principal Systems Engineer at Goodix, working on advanced wireless chip design. In 2020, he co-founded AI-Proctor, an AI solution safeguarding the integrity of online exams, now used in tens of thousands of assessments and backed by Flat6labs.",
+    bio         : "System Architect, AI Specialist, and Professor at Cairo University, with over two decades of research and industrial experience and a publication record of 50+ papers in international conferences and journals. His work spans AI, cloud technologies, and system architecture, and he holds a PhD from UCLA. In 2017, he founded TechiBees Inc., where he developed products including GlobalAssess360, AI-Proctor, and ThePowerGrader, enhancing online and educational assessments through AI, cloud computing, and image processing across web, mobile, and desktop interfaces. Since 2022, he has served as a Senior Manager at Si-Vision Technologies, collaborating with Synopsys Inc. on computer vision, machine learning, processor simulations, and safety products.",
     linkedin    : "https://www.linkedin.com/in/omaranasr-ai/",
     bmProfile   : "https://brainsmingle.com/omar2145",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 1, day: 4, sessionId: "ses-d4-s3-t1", timeSlot: "20:00" }]
   },
 
   {
@@ -1042,10 +1076,10 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-072.png",
     bio         : "Technology and operations leader with 20+ years of experience across IT management, operations management, and project management. Brings deep experience across the Gulf region and a strong customer-oriented perspective, with a proven record in channel management, business development, and process improvement (QMS, KPIs, HR, and talent management). Has delivered cutting-edge projects including mobile applications and HTML5 experiences, working across outsourcing models in markets spanning the USA, Canada, Egypt, UAE, Saudi Arabia, and Qatar. Specializes in enterprise architecture, application life cycle management, account management, and presales.",
     linkedin    : "https://www.linkedin.com/in/wdeveloper/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed7393",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
   },
 
   {
@@ -1351,7 +1385,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/nader2tawasol",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s2-t4", timeSlot: "19:00" }]
   },
 
   {
