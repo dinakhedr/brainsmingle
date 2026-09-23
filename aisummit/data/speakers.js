@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-23 19:34 · 85 speakers.
+ * Generated 2026-09-23 20:50 · 84 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -472,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-085",
-    order       : 26,
+    order       : 27,
     name        : "Ahmed Bastawy",
     title       : "Managing Director",
     company     : "ICEALEX",
@@ -489,7 +489,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-087",
-    order       : 27,
+    order       : 28,
     name        : "Akram Marwan",
     title       : "Founder & CEO",
     company     : "iCareer",
@@ -506,7 +506,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-090",
-    order       : 30,
+    order       : 31,
     name        : "Ola Yousry",
     title       : "Senior BIM/VDC Manager",
     company     : "Ex-Tesla",
@@ -523,7 +523,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 33,
+    order       : 34,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -540,7 +540,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 34,
+    order       : 35,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -557,7 +557,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-081",
-    order       : 35,
+    order       : 36,
     name        : "Hossam Elbery",
     title       : "CTO",
     company     : "BasharSoft",
@@ -574,7 +574,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-077",
-    order       : 36,
+    order       : 37,
     name        : "Mostafa Hassan",
     title       : "Marketing Director",
     company     : "BasharSoft",
@@ -591,7 +591,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-082",
-    order       : 37,
+    order       : 38,
     name        : "Heba Abdelfattah",
     title       : "Head of Product",
     company     : "BasharSoft",
@@ -608,7 +608,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-083",
-    order       : 38,
+    order       : 39,
     name        : "Mahmoud Ashraf",
     title       : "Product Design Lead",
     company     : "BasharSoft",
@@ -625,7 +625,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-018",
-    order       : 39,
+    order       : 40,
     name        : "Abdallah Amer",
     title       : "Founder & CEO",
     company     : "Capsules Group",
@@ -642,7 +642,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-044",
-    order       : 40,
+    order       : 41,
     name        : "Ahmed Gohary",
     title       : "AI Digital Content Creator",
     company     : "Freelancer",
@@ -659,7 +659,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-059",
-    order       : 41,
+    order       : 42,
     name        : "Asif Shahriar",
     title       : "AI Learning Specialist",
     company     : "Constructor University Bremen",
@@ -676,7 +676,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 42,
+    order       : 43,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -693,7 +693,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-037",
-    order       : 43,
+    order       : 44,
     name        : "Mohamed ElAswad",
     title       : "AI Trainer and Consultant",
     company     : "Aswad AI",
@@ -710,7 +710,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-065",
-    order       : 44,
+    order       : 45,
     name        : "Islam Mostafa",
     title       : "Engineer & Founder",
     company     : "Tebi",
@@ -723,23 +723,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 4, sessionId: "ses-d4-s3-t5", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-015",
-    order       : 45,
-    name        : "Amr Helal",
-    title       : "Founder",
-    company     : "DotPy",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-015.png",
-    bio         : "CEO, Founder, and Data Scientist at DotPy, delivering online and offline courses in AI and data analysis. AWS Certified Machine Learning Specialist with an Advanced Diploma in AI from MIT. Holds a Bachelor's in Mechanical Engineering. Passionate about innovation and knowledge sharing, actively contributing to AI-driven solutions and fostering growth in the AI and data science community.",
-    linkedin    : "https://www.linkedin.com/in/amr-helal-0061a0183/",
-    bmProfile   : "https://brainsmingle.com/hend6987",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
