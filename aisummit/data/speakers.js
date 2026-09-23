@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-23 03:20 · 83 speakers.
+ * Generated 2026-09-23 14:04 · 84 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -318,20 +318,20 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-012",
+    id          : "spk-095",
     order       : 18,
-    name        : "Taha Ali",
-    title       : "CEO",
-    company     : "GroHub",
+    name        : "Moe Ash",
+    title       : "Founder & Learning Architect",
+    company     : "The Catalyst",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-012.png",
-    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
-    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    photo       : "spk-095.png",
+    bio         : "Founder of The Catalyst, an instructional design consultancy focused on creating impeccable learning experiences. With a background spanning the BPO industry, business development, a managerial post at the UN, and 16 years in training, Moe has dedicated his career to youth empowerment and development through training programs and applied workshops. As a human development consultant, he has delivered sessions, workshops, and seminars to over 50,000 trainees, from university students to the top management of governmental institutions and corporates. He specializes in designing synchronous and asynchronous learning experiences for organizations regionally and internationally, using microlearning, AR, e-learning, and gamification. He is passionate about blending L&D, gamification, and performance management into cohesive, productive learning.",
+    linkedin    : "https://www.linkedin.com/in/moeash7/",
     bmProfile   : null,
     featured    : false,
     showOnHome  : true,
-    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+    appearances : []
   },
 
   {
@@ -519,6 +519,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s1-t3", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-012",
+    order       : 34,
+    name        : "Taha Ali",
+    title       : "CEO",
+    company     : "GroHub",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-012.png",
+    bio         : "B2B growth strategist with 10+ years of commercial experience, helping 70+ companies build go-to-market strategies and expand into the Saudi market. Host of GroHub Podcast, where he shares growth tactics and scaling insights for B2B founders and revenue leaders.",
+    linkedin    : "https://www.linkedin.com/in/eng-taha-ali/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
   },
 
   {
@@ -1019,16 +1036,16 @@ const SIGNAL_SPEAKERS = [
     order       : 64,
     name        : "Omar Nasr",
     title       : "Founder",
-    company     : "AI-Proctor",
+    company     : "GlobalAssess360",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-073.png",
-    bio         : "Lifelong learner and systems builder from Suez. After graduating from Cairo University in 2003, he completed his PhD at UCLA, gaining hands-on experience building real-world wireless systems. He returned to Egypt as an assistant professor at Cairo University and joined the R&D department at the National Telecom Regulatory Authority, leading the evaluation of hundreds of funded research projects. He later spent two years as a Principal Systems Engineer at Goodix, working on advanced wireless chip design. In 2020, he co-founded AI-Proctor, an AI solution safeguarding the integrity of online exams, now used in tens of thousands of assessments and backed by Flat6labs.",
+    bio         : "System Architect, AI Specialist, and Professor at Cairo University, with over two decades of research and industrial experience and a publication record of 50+ papers in international conferences and journals. His work spans AI, cloud technologies, and system architecture, and he holds a PhD from UCLA. In 2017, he founded TechiBees Inc., where he developed products including GlobalAssess360, AI-Proctor, and ThePowerGrader, enhancing online and educational assessments through AI, cloud computing, and image processing across web, mobile, and desktop interfaces. Since 2022, he has served as a Senior Manager at Si-Vision Technologies, collaborating with Synopsys Inc. on computer vision, machine learning, processor simulations, and safety products.",
     linkedin    : "https://www.linkedin.com/in/omaranasr-ai/",
     bmProfile   : "https://brainsmingle.com/omar2145",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 1, day: 4, sessionId: "ses-d4-s3-t1", timeSlot: "20:00" }]
   },
 
   {

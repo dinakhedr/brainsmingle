@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-23 03:20 · 80 sessions, 62 with a sign-up link.
+ * Generated 2026-09-23 13:57 · 81 sessions, 63 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -80,9 +80,9 @@ const SIGNAL_AGENDA = [
   { id: "ses-d4-s2-t1", title: "The Human Edge", type: "Talk", trackNumber: 1, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-068"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=d5ab265f-6114-49bb-a1e0-f118b3f45072", description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t2", title: "Beyond the Script: How AI Is Reshaping Gaming", type: "Talk", trackNumber: 2, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-074"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=eb0c5a4f-277e-4799-b789-740f342c8022", description: null, special: null, status: "closed" },
   { id: "ses-d4-s2-t3", title: "How the best founders use AI", type: "Talk", trackNumber: 3, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-053"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=f201aa7a-c9b0-4bad-8636-2f59aba1667d", description: null, special: null, status: "closed" },
-  { id: "ses-d4-s2-t4", title: "AI in Politics", type: "Talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-062"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d4-s2-t4", title: null, type: "Talk", trackNumber: 4, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s2-t5", title: "Spatial Intelligence", type: "Talk", trackNumber: 5, day: 4, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-084"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=6a78dbfd-e838-4a0c-ab2f-5190944e759c", description: null, special: null, status: "closed" },
-  { id: "ses-d4-s3-t1", title: null, type: "Talk", trackNumber: 1, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-073"], bmUrl: null, description: null, special: null, status: "in-progress" },
+  { id: "ses-d4-s3-t1", title: "The Science of Smarter AI-Assisted Learning", type: "Talk", trackNumber: 1, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-073"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=bda232e6-35fd-45f4-b965-2cb45da77eb5&inviteCode=belal5335", description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t2", title: "How AI is changing the creative role", type: "Talk", trackNumber: 2, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-048"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=9c1fafc7-f8fa-4ea0-9dc7-2960f6ae7636", description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t3", title: "Open Innovation in the Age of AI", type: "Talk", trackNumber: 3, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-078"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=f5888ba0-6b36-4f91-a0ce-8969516f2d2e", description: null, special: null, status: "closed" },
   { id: "ses-d4-s3-t4", title: "AI Employees in Action", type: "Talk", trackNumber: 4, day: 4, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-047"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=03409e11-dba1-4493-bc52-177ff1ba1fda", description: null, special: null, status: "closed" },
@@ -110,6 +110,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 6
   // ======================================
+  { id: "ses-d6-s1-t1", title: "TBD", type: "Talk", trackNumber: 1, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-095"], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d6-s1-t2", title: "From Prompt to Screen: AI Filmmaking & Creative Direction", type: "Workshop", trackNumber: 2, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-069"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=5c7d5cbc-3fad-4ac9-9572-ed4fecc18d07", description: null, special: null, status: "closed" },
   { id: "ses-d6-s1-t3", title: "Survival Challenge: 60 Years of AI in 60 Minutes", type: "Talk", trackNumber: 3, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-079"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=c1a68dd5-575e-482b-82ca-4fd9ac1bfd61", description: null, special: null, status: "closed" },
   { id: "ses-d6-s1-t4", title: "Beyond Copilots: Governed Agentic AI for Enterprise Decisions", type: "Talk", trackNumber: 4, day: 6, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-008"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=348e4af2-d0cf-40fa-b46c-23d2fca71cf4", description: null, special: null, status: "closed" },
