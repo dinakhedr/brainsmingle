@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-23 14:04 · 84 speakers.
+ * Generated 2026-09-23 19:34 · 85 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -335,8 +335,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-047",
+    id          : "spk-096",
     order       : 19,
+    name        : "Islam Elsaadny",
+    title       : "Managing Director",
+    company     : "Forefront Consulting",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-096.png",
+    bio         : "Strategy Consultant and Managing Director of Forefront Consulting, with deep experience in strategy and management consulting. He has worked with over 75 companies of various sizes, including multinationals, large local corporations, SMEs, and scale-ups, spanning more than 30 industries. His expertise centers on guiding clients and partners in developing strategic plans for the future and ensuring effective execution through a range of deployment support approaches.",
+    linkedin    : "https://www.linkedin.com/in/isaadany/",
+    bmProfile   : "https://brainsmingle.com/islam5866",
+    featured    : false,
+    showOnHome  : true,
+    appearances : []
+  },
+
+  {
+    id          : "spk-047",
+    order       : 20,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -352,25 +369,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-085",
-    order       : 20,
-    name        : "Ahmed Bastawy",
-    title       : "Managing Director",
-    company     : "ICEALEX",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-085.png",
-    bio         : "Managing Director and Founding Partner of ICEALEX, a leading innovation and entrepreneurship platform shaping venture creation and impact-driven growth in Egypt and across Africa. With over a decade at the intersection of entrepreneurship, innovation systems, and impact investing, he designs and scales programs that help startups and SMEs move from ideas to sustainable impact across Egypt, Africa, the Mediterranean, and Europe. He has advised international organizations, development partners, and corporates on venture building, investment readiness, and circular economy, and previously contributed to the founding of iceHubs Global CIC in the UK.",
-    linkedin    : "https://www.linkedin.com/in/ahmedbastawy/",
-    bmProfile   : null,
+    id          : "spk-019",
+    order       : 21,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
     id          : "spk-078",
-    order       : 21,
+    order       : 22,
     name        : "Sabrine Assem",
     title       : "Founder & CEO",
     company     : "UnTap",
@@ -387,7 +404,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 22,
+    order       : 23,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -404,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-079",
-    order       : 23,
+    order       : 24,
     name        : "Hany Ahmed",
     title       : "VP, Generative AI & Unstructured Data Science",
     company     : "BeyondAI",
@@ -421,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 24,
+    order       : 25,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -434,23 +451,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-019",
-    order       : 25,
-    name        : "Ahmed AbouZaid",
-    title       : "Senior Product Engineer",
-    company     : "Camunda",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-019.png",
-    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
-    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
-    bmProfile   : "https://brainsmingle.com/aabouzaid",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -468,6 +468,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 5, sessionId: "ses-d5-s3-t4", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-085",
+    order       : 26,
+    name        : "Ahmed Bastawy",
+    title       : "Managing Director",
+    company     : "ICEALEX",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-085.png",
+    bio         : "Managing Director and Founding Partner of ICEALEX, a leading innovation and entrepreneurship platform shaping venture creation and impact-driven growth in Egypt and across Africa. With over a decade at the intersection of entrepreneurship, innovation systems, and impact investing, he designs and scales programs that help startups and SMEs move from ideas to sustainable impact across Egypt, Africa, the Mediterranean, and Europe. He has advised international organizations, development partners, and corporates on venture building, investment readiness, and circular economy, and previously contributed to the founding of iceHubs Global CIC in the UK.",
+    linkedin    : "https://www.linkedin.com/in/ahmedbastawy/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : []
   },
 
   {
@@ -1059,10 +1076,10 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-072.png",
     bio         : "Technology and operations leader with 20+ years of experience across IT management, operations management, and project management. Brings deep experience across the Gulf region and a strong customer-oriented perspective, with a proven record in channel management, business development, and process improvement (QMS, KPIs, HR, and talent management). Has delivered cutting-edge projects including mobile applications and HTML5 experiences, working across outsourcing models in markets spanning the USA, Canada, Egypt, UAE, Saudi Arabia, and Qatar. Specializes in enterprise architecture, application life cycle management, account management, and presales.",
     linkedin    : "https://www.linkedin.com/in/wdeveloper/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ahmed7393",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
   },
 
   {
@@ -1368,7 +1385,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/nader2tawasol",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s2-t4", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 4, day: 6, sessionId: "ses-d6-s2-t4", timeSlot: "19:00" }]
   },
 
   {
