@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-09-25 01:10 · 32 sponsors, 49 partners.
+ * Generated 2026-09-25 11:34 · 29 sponsors, 49 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -21,8 +21,8 @@
  * group splits partners into wall sections: strategic, regional,
  * community. Sponsors carry group: null. Render the sections in
  * SIGNAL_PARTNER_GROUPS order via getPartnersByGroup().
- * Session sponsors (tier "session", group null) render as a flat logo
- * grid before the strategic partners; their title is carried in the
+ * General sponsors (tier "sponsor", group null) render as a flat logo
+ * grid before the government partners; their title is carried in the
  * data but never shown. Logos live in assets/sponsors/.
  */
 
@@ -54,7 +54,7 @@ const SIGNAL_SPONSOR_TIERS = {
   track: { label: "Track Sponsor", slots: 5, cssClass: "tier-track", color: "var(--accent)" },
   speednetworking: { label: "Speed Networking Sponsor", slots: 7, cssClass: "tier-speednetworking", color: "#6723FF" },
   spotlight: { label: "Day Spotlight Sponsor", slots: 5, cssClass: "tier-spotlight", color: "#F53E9F" },
-  session: { label: "Session Sponsors", slots: null, cssClass: "tier-session", color: "var(--accent)" },
+  sponsor: { label: "Sponsors", slots: null, cssClass: "tier-sponsor", color: "var(--accent)" },
   community: { label: "Community Partners", slots: null, cssClass: "tier-community", color: "#4A4A6A" }
 };
 
@@ -114,10 +114,7 @@ const SIGNAL_SPONSORS = [
   { id: "spt-003", order: 26, name: null, tier: "spotlight", icon: null, title: "Day 4", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "spt-004", order: 27, name: null, tier: "spotlight", icon: null, title: "Day 5", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
   { id: "spt-005", order: 28, name: null, tier: "spotlight", icon: null, title: "Day 6", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "ses-007", order: 1006, name: null, tier: "session", icon: "liveSession", title: "Session Sponsor", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "ses-008", order: 1007, name: null, tier: "session", icon: "liveSession", title: "Session Sponsor", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "ses-009", order: 1008, name: null, tier: "session", icon: "liveSession", title: "Session Sponsor", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null },
-  { id: "ses-010", order: 1009, name: null, tier: "session", icon: "liveSession", title: "Session Sponsor", country: null, countryCode: null, confirmed: true, group: null, logo: "comingsoon.png", logoURL: null, website: null, bmCommunityLink: null, tagline: null }
+  { id: "spn-001", order: 1000, name: "DevOps Hive", tier: "sponsor", icon: "spotlight", title: "Sponsor", country: null, countryCode: null, confirmed: true, group: null, logo: "spn-001.png", logoURL: "x", website: "https://devopshive.com/", bmCommunityLink: null, tagline: "We provide DevOps Consulting starting with the human side of the Golden Triangle (People, Process, and Technology). We can help in all DevOps aspects like best practices assessment, transformation, training, workshops, and career coaching/mentorship. We also provide hiring services by conducting interviews to find the best DevOps engineers for your company." }
 ];
 
 const SIGNAL_PARTNERS = [
@@ -197,11 +194,11 @@ function getSpotlights() {
   return SIGNAL_SPONSORS.filter(s => s.tier === "spotlight");
 }
 
-/* Session sponsors: unlimited, confirmed-only, rendered as a flat logo
-   grid before the strategic partners. group is null and the title is
+/* General sponsors: unlimited, confirmed-only, rendered as a flat logo
+   grid before the government partners. group is null and the title is
    carried in the data but never shown. Logos live in assets/sponsors/. */
-function getSessionSponsors() {
-  return SIGNAL_SPONSORS.filter(s => s.tier === "session");
+function getGeneralSponsors() {
+  return SIGNAL_SPONSORS.filter(s => s.tier === "sponsor");
 }
 
 /* Speed Networking splits by title: the full-day slot has none, the
