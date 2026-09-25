@@ -194,7 +194,7 @@
             "Track Sponsor",
             "Speed Networking Sponsor",
             "Spotlight Sponsor",
-            "Session Sponsor",
+            "Sponsor",
             "Community Partner"
         ];
 
@@ -204,7 +204,7 @@
             { key: "track",           iconKey: "grid",       label: "Track Sponsor",      interest: "Track Sponsor" },
             { key: "speednetworking", iconKey: "networking", label: "Speed Networking",   interest: "Speed Networking Sponsor" },
             { key: "spotlight",       iconKey: "spotlight",  label: "Spotlight Sponsor",  interest: "Spotlight Sponsor" },
-            { key: "session",         iconKey: "calendar",   label: "Session Sponsor",    interest: "Session Sponsor" },
+            { key: "sponsor",         iconKey: "calendar",   label: "Sponsor",            interest: "Sponsor" },
             { key: "community",       iconKey: "community",  label: "Community Partner",  interest: "Community Partner" }
         ];
 
@@ -256,7 +256,7 @@
                 _speedNetworkingFullRow() +
                 _speedNetworkingDailyRow() +
                 _spotlightRow() +
-                _sessionRow() +
+                _sponsorRow() +
                 _governmentPartnerRow() +
                 _strategicPartnerRow() +
                 _regionalPartnerRow() +
@@ -359,25 +359,25 @@
             return _wallSection("Spotlight Sponsors", cols, "sp-col-row sp-col-row--spotlight", "var(--track-2)");
         }
 
-        // Session Sponsors: a flat logo grid in the community-partner
+        // General Sponsors: a flat logo grid in the community-partner
         // style, but with no per-type card headers and no group. The
-        // title is carried in the data (getSessionSponsors) yet never
+        // title is carried in the data (getGeneralSponsors) yet never
         // shown. Unlimited and confirmed-only, so the section appears
-        // only once a session sponsor is live. Cyan section square
+        // only once a sponsor is live. Cyan section square
         // (meta.color, fixed across the theme toggle); the label text
         // follows the theme normally. Logos come from assets/sponsors/.
-        function _sessionRow() {
-            const meta = SIGNAL_SPONSOR_TIERS.session || {};
-            const list = getSessionSponsors().filter(_isConfirmed);
+        function _sponsorRow() {
+            const meta = SIGNAL_SPONSOR_TIERS.sponsor || {};
+            const list = getGeneralSponsors().filter(_isConfirmed);
             if (!list.length) return "";
 
             const tiles = list.map(s => `
       <button type="button" class="sponsor-logo-box slb-partner" title="${s.name || ""}"
-              aria-label="${s.name || "Session Sponsor"}" onclick="openSponsorPopup('${s.id}')">
+              aria-label="${s.name || "Sponsor"}" onclick="openSponsorPopup('${s.id}')">
         <img src="${s.logoPath}" alt="${s.name || ""}" loading="lazy" />
       </button>`).join("");
 
-            return _wallSection(meta.label || "Session Sponsors",
+            return _wallSection(meta.label || "Sponsors",
                 `<div class="sp-partner-grid">${tiles}</div>`,
                 "sp-partner-groups", meta.color);
         }
