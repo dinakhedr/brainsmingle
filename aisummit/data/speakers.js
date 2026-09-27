@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-27 18:27 · 92 speakers.
+ * Generated 2026-09-27 23:56 · 91 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1155,7 +1155,7 @@ const SIGNAL_SPEAKERS = [
     order       : 69,
     name        : "Abdelrahman Diaa",
     title       : "AI Consultant",
-    company     : "",
+    company     : "Freelancer",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-074.png",
@@ -1471,23 +1471,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s1-t4", timeSlot: "18:00" }]
-  },
-
-  {
-    id          : "spk-051",
-    order       : 88,
-    name        : "Oun Alazam",
-    title       : "Founder",
-    company     : "brono.ai",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-051.png",
-    bio         : "Enthusiastic full stack developer with a knack for crafting creative solutions across web, mobile, and game development. Adept in a comprehensive tech stack encompassing React, React Native, Node.js, JavaScript, TypeScript, Astro.js, PHP, SQL, Java, Figma, and more, with a keen eye for staying ahead of the curve (e.g., Go, UX). Possesses a strong work ethic and thrives in fast-paced environments. Continuously expanding skillset through self-directed learning.",
-    linkedin    : "https://www.linkedin.com/in/aoun-alazzam",
-    bmProfile   : "https://brainsmingle.com/aoun4432",
-    featured    : false,
-    showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s3-t3", timeSlot: "20:00" }]
   },
 
   {
