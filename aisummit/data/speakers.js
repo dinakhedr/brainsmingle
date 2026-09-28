@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-28 17:16 · 92 speakers.
+ * Generated 2026-09-28 18:56 · 92 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -224,12 +224,12 @@ const SIGNAL_SPEAKERS = [
     country     : "Netherlands",
     countryCode : "NL",
     photo       : "spk-103.png",
-    bio         : "Co-Founder and CTO of Dark Entry, a Netherlands-based Digital Risk Protection platform, and a cybersecurity executive, security researcher, and public speaker with over 17 years of experience helping governments, Fortune 500 companies, and critical infrastructure organizations strengthen their security posture. His expertise spans offensive security, Red Teaming, penetration testing, security engineering, and ICS security. He has held senior cybersecurity leadership and consulting roles with organizations including Visa, Deloitte, QatarGas, EG-CERT, QCERT, and HackerOne. A frequent speaker at international conferences and a trainer to security professionals worldwide, he has appeared as a cybersecurity expert on television 11 times and was twice honored as the Middle East Cybersecurity Social Media Influencer.",
+    bio         : "Co-Founder & CTO of Dark Entry, a Netherlands-based Digital Risk Protection Platform, and a cybersecurity executive, security researcher, and public speaker with over 17 years of experience helping governments, Fortune 500 companies, and critical infrastructure organizations strengthen their security posture. My expertise spans offensive security, cybersecurity leadership, Red Teaming, Penetration Testing, Security Engineering, Industrial Control Systems (ICS) security, network security, and the development of cybersecurity products and tools.",
     linkedin    : "https://www.linkedin.com/in/ebrahimhegazy/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ebrahemhegazy",
     featured    : true,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 5, day: 5, sessionId: "ses-d5-s3-t5", timeSlot: "20:00" }]
   },
 
   {
