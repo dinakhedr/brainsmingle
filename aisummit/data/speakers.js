@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-27 23:56 · 91 speakers.
+ * Generated 2026-09-28 14:35 · 92 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -1338,8 +1338,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-039",
+    id          : "spk-106",
     order       : 80,
+    name        : "Asmaa Saad",
+    title       : "M&E Specialist & Researcher",
+    company     : "General Authority for Investment and Free Zones (GAFI)",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-106.png",
+    bio         : "Monitoring & Evaluation Specialist and Business Matchmaker at GAFI (Egypt's General Authority for Investment), where she bridges data insights and high-value investment, turning complex data into strategic partnerships that drive measurable growth. With over nine years in GAFI's strategic department, her expertise spans investment promotion, business analysis, and international relations. Earlier, she held performance and international account roles at Vodafone across Ireland and the UK. She holds a master's in International Relations from Kobe University and a degree from the Faculty of Economics and Political Sciences at Cairo University.",
+    linkedin    : "https://www.linkedin.com/in/asmaa-saad-talha-5b681b1bb/",
+    bmProfile   : null,
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 6, sessionId: "ses-d6-s2-t3", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-039",
+    order       : 81,
     name        : "Ahmed Esmail",
     title       : "Business Development Engineer",
     company     : "EVRAID",
