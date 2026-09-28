@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-28 14:35 · 92 speakers.
+ * Generated 2026-09-28 17:16 · 92 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -192,7 +192,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-067.png",
     bio         : "AI Growth Systems Builder with 18+ years of experience across AI, digital marketing, marketing intelligence, and growth. As Founder of IMFND Academy and CEO of Oligence AI, he helps organizations turn AI, automation, and data into practical systems that drive measurable business growth.",
     linkedin    : "https://www.linkedin.com/in/abdelrahmansleem/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/abdelrahman6080",
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 5, day: 6, sessionId: "ses-d6-s2-t5", timeSlot: "19:00" }]
@@ -1117,25 +1117,8 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-031",
-    order       : 67,
-    name        : "Shaimaa Emam",
-    title       : "Senior Program Manager",
-    company     : "Ascendra",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-031.png",
-    bio         : "Program leader with 8+ years of experience at the intersection of entrepreneurship, innovation, and ecosystem building across Egypt, Africa, and beyond. At enpact, manages end-to-end programs across med-tech, green tech, and creative industries, supporting 300+ businesses across 5 countries. Has partnered with international donors including GIZ, DROSOS Foundation, and UNHCR. Co-founded Mishkah Art School and built a 400+ green startup database across MENA. Passionate about nurturing talent, mentoring early-stage founders, and creating lasting partnerships.",
-    linkedin    : "https://www.linkedin.com/in/shaimaa-emam/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-080",
-    order       : 68,
+    order       : 67,
     name        : "Mahmoud Elrefaey",
     title       : "Software Engineer",
     company     : "Saudi Confidential Company",
@@ -1152,7 +1135,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-074",
-    order       : 69,
+    order       : 68,
     name        : "Abdelrahman Diaa",
     title       : "AI Consultant",
     company     : "Freelancer",
@@ -1169,7 +1152,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-007",
-    order       : 70,
+    order       : 69,
     name        : "Yehya Othman",
     title       : "CEO & Founder",
     company     : "Business Lobby & Marketing Terrace",
@@ -1186,7 +1169,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-073",
-    order       : 71,
+    order       : 70,
     name        : "Omar Nasr",
     title       : "Founder",
     company     : "GlobalAssess360",
@@ -1203,7 +1186,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-072",
-    order       : 72,
+    order       : 71,
     name        : "Ahmed Ramy",
     title       : "Co-Founder & CEO",
     company     : "FastAutomate",
@@ -1220,7 +1203,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-021",
-    order       : 73,
+    order       : 72,
     name        : "Moustafa Eshra",
     title       : "Data & AI Enterprise Architect",
     company     : "IBM",
@@ -1237,7 +1220,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-023",
-    order       : 74,
+    order       : 73,
     name        : "Alaa Mukhtar",
     title       : "Sales Development Representative",
     company     : "Opentext",
@@ -1254,7 +1237,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 75,
+    order       : 74,
     name        : "Ziad Elalaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -1271,7 +1254,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 76,
+    order       : 75,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "Ninos",
@@ -1288,7 +1271,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-030",
-    order       : 77,
+    order       : 76,
     name        : "Ahmed El Zoughby",
     title       : "UX Research Lead",
     company     : "UX Labs",
@@ -1305,7 +1288,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-032",
-    order       : 78,
+    order       : 77,
     name        : "Mahmoud Abdelhamed",
     title       : "Senior AI Engineer",
     company     : "Confidential",
@@ -1322,7 +1305,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-033",
-    order       : 79,
+    order       : 78,
     name        : "Ahmed Aabed",
     title       : "Senior Engineering Manger",
     company     : "Yassir",
@@ -1339,10 +1322,10 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-106",
-    order       : 80,
+    order       : 79,
     name        : "Asmaa Saad",
     title       : "M&E Specialist & Researcher",
-    company     : "General Authority for Investment and Free Zones (GAFI)",
+    company     : "GAFI",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-106.png",
@@ -1356,7 +1339,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-039",
-    order       : 81,
+    order       : 80,
     name        : "Ahmed Esmail",
     title       : "Business Development Engineer",
     company     : "EVRAID",
@@ -1492,7 +1475,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-020",
-    order       : 89,
+    order       : 88,
     name        : "Nader Sayed",
     title       : "Founder",
     company     : "Tawasul for AI transformation",
@@ -1509,7 +1492,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-052",
-    order       : 90,
+    order       : 89,
     name        : "Hassan Gad",
     title       : "Founder",
     company     : "Fgimawya",
@@ -1526,7 +1509,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-053",
-    order       : 91,
+    order       : 90,
     name        : "Mo Fattah",
     title       : "Founder & CEO",
     company     : "KeepUp & MIT VAP Finalist",
@@ -1543,7 +1526,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-064",
-    order       : 92,
+    order       : 91,
     name        : "Mahmoud Abdellahi",
     title       : "Researcher and Lecturer",
     company     : "Cairo University",
@@ -1560,7 +1543,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-069",
-    order       : 93,
+    order       : 92,
     name        : "Nourah Mahamed",
     title       : "AI Cinematic Ads & Branding designer",
     company     : "Nourah Studio",
@@ -1577,7 +1560,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-070",
-    order       : 94,
+    order       : 93,
     name        : "Sherif Shalaby",
     title       : "Co-Founder & CMO",
     company     : "Big Move Agency",
@@ -1590,6 +1573,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 3, sessionId: "ses-d3-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-107",
+    order       : 94,
+    name        : "Mostafa Zeky",
+    title       : "Film Director & Creative Director",
+    company     : "Zeky Films",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-107.png",
+    bio         : "Egyptian commercial director and multidisciplinary creative working across live-action and AI filmmaking. His background in sound, voice-over, and post-production shapes his approach to storytelling, combining a clear directing vision with close collaboration across creative and production teams.",
+    linkedin    : "https://www.linkedin.com/in/mostafazeky",
+    bmProfile   : "https://brainsmingle.com/zeky8895",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s2-t2", timeSlot: "19:00" }]
   }
 
 ];

@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-28 14:37 · 80 sessions, 71 with a sign-up link.
+ * Generated 2026-09-28 16:58 · 80 sessions, 71 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -39,7 +39,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d2-s1-t3", title: "Beyond the AI Hype: Where Does AI Really Create Value in Health?", type: "Fireside Chat", trackNumber: 3, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-004","spk-006"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=1b2932fc-3cec-464b-9680-57fe5229a0b7", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t4", title: "More and better conversations with AI", type: "Talk", trackNumber: 4, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-023"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=4e47e9be-d113-47d6-a07f-edd02beded76", description: null, special: null, status: "closed" },
   { id: "ses-d2-s1-t5", title: "DevOps in the AI Era", type: "Panel Discussion", trackNumber: 5, day: 2, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-019","spk-033","spk-034"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=3a3ea2af-feb7-4287-af03-5e9dd0d9cfa3", description: null, special: null, status: "closed" },
-  { id: "ses-d2-s2-t2", title: "The AI Revolution in Ad Campaigns: How WUZZUF Built a Full Campaign with AI", type: "Fireside Chat", trackNumber: 2, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-077"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=7a7707f3-b2d0-4163-8208-b74993d56064", description: null, special: null, status: "closed" },
+  { id: "ses-d2-s2-t2", title: "The AI Revolution in Ad Campaigns: How WUZZUF Built a Full Campaign with AI", type: "Fireside Chat", trackNumber: 2, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-077","spk-107"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=7a7707f3-b2d0-4163-8208-b74993d56064", description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t3", title: "MENA SaaS 7-Stage Growth Roadmap", type: "Talk", trackNumber: 3, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-009"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=af20a819-7155-4c21-8c55-2736c59f21a0", description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t4", title: "AI That Actually Works: Building Engines That Matter", type: "Talk", trackNumber: 4, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-072"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=c754704f-c41b-45ee-b705-c7755e64e02e", description: null, special: null, status: "closed" },
   { id: "ses-d2-s2-t5", title: "Building Through the Bubble: Telecom's Lessons for the AI Buildout", type: "Talk", trackNumber: 5, day: 2, slot: 2, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-011"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=fb68c8c0-e9cf-4220-b286-63994b16edb3", description: null, special: null, status: "closed" },
