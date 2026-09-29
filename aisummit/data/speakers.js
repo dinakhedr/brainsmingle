@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-28 18:56 · 92 speakers.
+ * Generated 2026-09-29 14:54 · 93 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -93,7 +93,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : true,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 1, day: 4, sessionId: "ses-d4-s1-t1", timeSlot: "18:00" }]
   },
 
   {
@@ -1508,25 +1508,42 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-053",
+    id          : "spk-108",
     order       : 90,
-    name        : "Mo Fattah",
+    name        : "Hazem Salim",
     title       : "Founder & CEO",
-    company     : "KeepUp & MIT VAP Finalist",
+    company     : "Dameg",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-053.png",
-    bio         : "Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
-    linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
-    bmProfile   : null,
+    photo       : "spk-108.png",
+    bio         : "Global award-winning entrepreneur, Founder of Dameg and CEO of Outline-IT, specializing in digital accessibility, assistive technology, and inclusive innovation. He has presented Dameg on Shark Tank Egypt, serves as a Digital Marketing Consultant at TIEC, and is an experienced speaker, mentor, and judge in entrepreneurship and technology.",
+    linkedin    : "https://www.linkedin.com/in/hazem-salim",
+    bmProfile   : "https://brainsmingle.com/hazem3560",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s2-t3", timeSlot: "19:00" }]
+    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s2-t1", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-070",
+    order       : 91,
+    name        : "Sherif Shalaby",
+    title       : "Co-Founder & CMO",
+    company     : "Big Move Agency",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-070.png",
+    bio         : "Entrepreneur, marketing and creative strategist, and Co-Founder & CMO of Big Move Agency, an integrated marketing and creative agency he co-founded in 2013. With more than a decade of experience, he has worked across marketing strategy, brand building, creative direction, and filmmaking for leading local, regional, and multinational brands across Egypt and the Middle East. A Generative AI specialist and filmmaker, he integrates AI into real-world marketing and production workflows, and is an active speaker and trainer on marketing, creativity, and how emerging technology is reshaping the way brands and creative teams work.",
+    linkedin    : "https://www.linkedin.com/in/sherif-shalaby-72bb5861/",
+    bmProfile   : "https://brainsmingle.com/sherif5030",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 2, day: 3, sessionId: "ses-d3-s3-t2", timeSlot: "20:00" }]
   },
 
   {
     id          : "spk-064",
-    order       : 91,
+    order       : 92,
     name        : "Mahmoud Abdellahi",
     title       : "Researcher and Lecturer",
     company     : "Cairo University",
@@ -1543,7 +1560,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-069",
-    order       : 92,
+    order       : 93,
     name        : "Nourah Mahamed",
     title       : "AI Cinematic Ads & Branding designer",
     company     : "Nourah Studio",
@@ -1559,25 +1576,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-070",
-    order       : 93,
-    name        : "Sherif Shalaby",
-    title       : "Co-Founder & CMO",
-    company     : "Big Move Agency",
+    id          : "spk-053",
+    order       : 94,
+    name        : "Mo Fattah",
+    title       : "Founder & CEO",
+    company     : "KeepUp & MIT VAP Finalist",
     country     : "Egypt",
     countryCode : "EG",
-    photo       : "spk-070.png",
-    bio         : "Entrepreneur, marketing and creative strategist, and Co-Founder & CMO of Big Move Agency, an integrated marketing and creative agency he co-founded in 2013. With more than a decade of experience, he has worked across marketing strategy, brand building, creative direction, and filmmaking for leading local, regional, and multinational brands across Egypt and the Middle East. A Generative AI specialist and filmmaker, he integrates AI into real-world marketing and production workflows, and is an active speaker and trainer on marketing, creativity, and how emerging technology is reshaping the way brands and creative teams work.",
-    linkedin    : "https://www.linkedin.com/in/sherif-shalaby-72bb5861/",
-    bmProfile   : "https://brainsmingle.com/sherif5030",
+    photo       : "spk-053.png",
+    bio         : "Founder and CEO of KeepUp, where he is building a new platform for playable, interactive content. He is a product-focused founder with experience across AI, consumer technology, startup strategy, pitching, and founder coaching, with past recognition from MIT and Draper University.",
+    linkedin    : "https://www.linkedin.com/in/mo-fattah-bb1234160/",
+    bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 2, day: 3, sessionId: "ses-d3-s3-t2", timeSlot: "20:00" }]
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s2-t3", timeSlot: "19:00" }]
   },
 
   {
     id          : "spk-107",
-    order       : 94,
+    order       : 95,
     name        : "Mostafa Zeky",
     title       : "Film Director & Creative Director",
     company     : "Zeky Films",
