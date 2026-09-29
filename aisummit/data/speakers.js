@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-29 14:54 · 93 speakers.
+ * Generated 2026-09-29 20:50 · 92 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -90,7 +90,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-102.png",
     bio         : "Co-Founder and CEO of EduSofx, enabling impactful digital transformation in education by leveraging cutting-edge technologies and scalable solutions. With over two years in this role, he focuses on fostering growth, empowering organizations, and advancing the ed-tech sector through innovation, collaboration, and strategic leadership. His previous experience as CDO and Education Principal Transformation Architect at Microsoft sharpened his expertise in digital transformation and enterprise architecture. He is passionate about creating value for educational institutions through tailored technology strategies that promote access, efficiency, and innovation.",
     linkedin    : "https://www.linkedin.com/in/hsallam/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/hatem1118",
     featured    : true,
     showOnHome  : true,
     appearances : [{ trackNumber: 1, day: 4, sessionId: "ses-d4-s1-t1", timeSlot: "18:00" }]
@@ -484,7 +484,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/sabrine6580",
     featured    : false,
     showOnHome  : false,
-    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
+    appearances : []
   },
 
   {
@@ -1406,23 +1406,6 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-045",
-    order       : 84,
-    name        : "Mohamed Shokry",
-    title       : "AI Consultant",
-    company     : "Freelancer",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-045.png",
-    bio         : "Lead Architect and Design Manager with 17+ years of professional experience, including 5+ years in the GCC. His portfolio spans 100+ executed projects worth over $2 billion, ranging from medium-scale to mega-scale across diverse building types. Specializes in architectural design, design management, and project management, with a focus on value engineering and green digital approaches. Passionate about formulating unique architectural character for iconic, innovative projects.",
-    linkedin    : "https://www.linkedin.com/in/mohamed-shokry-el-kholy-a20a3468/",
-    bmProfile   : null,
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
-  },
-
-  {
     id          : "spk-046",
     order       : 85,
     name        : "Anwar Aly",
@@ -1511,8 +1494,8 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-108",
     order       : 90,
     name        : "Hazem Salim",
-    title       : "Founder & CEO",
-    company     : "Dameg",
+    title       : "CEO & Founder",
+    company     : "Outline-IT & Dameg",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-108.png",

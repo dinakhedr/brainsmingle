@@ -120,7 +120,7 @@ var LAYOUT_CONFIG = {
    wording before scripts run.
    ───────────────────────────────────────── */
 
-var REGISTRATION_MODE = "waitlist";   // set as "waitlist" | "register"
+var REGISTRATION_MODE = "register";   // set as "waitlist" | "register"
 
 var REGISTRATION_MODES = {
 
@@ -207,7 +207,7 @@ var COMING_SOON_PAGE = "coming-soon.html";
    Preview the other state without deploying by adding ?wall=full or
    ?wall=confirmed to the URL.
    ───────────────────────────────────────── */
-var SHOW_EMPTY_SLOTS = true;
+var SHOW_EMPTY_SLOTS = false;
 
 /* Resolves the switch through the ?wall= preview override. */
 function showEmptySlots() {
