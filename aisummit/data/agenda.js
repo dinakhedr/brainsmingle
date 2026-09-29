@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-09-29 15:04 · 82 sessions, 74 with a sign-up link.
+ * Generated 2026-09-29 15:45 · 84 sessions, 74 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -54,6 +54,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 3
   // ======================================
+  { id: "ses-d3-s1-t2", title: "GenZ Influencers", type: "Talk", trackNumber: 2, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s1-t3", title: "From Idea to AI Startup: Building an MVP in Days, Not Months", type: "Talk", trackNumber: 3, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-022"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=6210f795-61ba-4939-a8ca-7eb88047cc76", description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t4", title: "Winning GTM Strategies for Financial Services: From First Approach to Winning the Deal", type: "Talk", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-066"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=7d4161c7-be72-4367-a005-424f686805d8", description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t5", title: "Your AI agent works. Now what?", type: "Talk", trackNumber: 5, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-057"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=fcd97326-8bfe-4eac-b04f-df2827a4aede", description: null, special: null, status: "closed" },
@@ -74,6 +75,7 @@ const SIGNAL_AGENDA = [
   // DAY 4
   // ======================================
   { id: "ses-d4-s1-t1", title: "Learning Industry in the AI Era", type: "Talk", trackNumber: 1, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-102"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=2be4a9a8-8e43-4a31-b744-c37ee94d34c8", description: null, special: null, status: "closed" },
+  { id: "ses-d4-s1-t2", title: "AI in Music Production", type: "Talk", trackNumber: 2, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d4-s1-t3", title: "AI context building challenges for ops heavy startups", type: "Talk", trackNumber: 3, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-055"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=fe6c6fc4-16db-4bea-89fa-6ea1de1e16c5", description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t4", title: "AI for Product Marketers: What Actually Changes in the Work", type: "Talk", trackNumber: 4, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-049"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=4289e985-f21c-4aaf-b70e-16e58f15e5d5", description: null, special: null, status: "closed" },
   { id: "ses-d4-s1-t5", title: "AI automation with n8n: Build smarter, faster workflows", type: "Talk", trackNumber: 5, day: 4, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-050"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=81619867-34e0-4f4c-b3d2-caa68a62474b", description: null, special: null, status: "closed" },
