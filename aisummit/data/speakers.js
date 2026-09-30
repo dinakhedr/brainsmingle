@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-29 20:50 · 92 speakers.
+ * Generated 2026-09-30 09:53 · 93 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -403,8 +403,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-047",
+    id          : "spk-109",
     order       : 23,
+    name        : "Ehab Darwish",
+    title       : "Founder",
+    company     : "GTMENA",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-109.png",
+    bio         : "Founder of iSkala and GTMENA, helping B2B companies build scalable go-to-market and outbound systems. He has worked with Fawry, Swvl, and YC-backed startups, and has trained thousands of professionals in sales, lead generation, and GTM engineering.",
+    linkedin    : "https://www.linkedin.com/in/ehab-darwish",
+    bmProfile   : "https://brainsmingle.com/ehabdarwish",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 3, day: 3, sessionId: "ses-d3-s3-t3", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-047",
+    order       : 24,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -421,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-019",
-    order       : 24,
+    order       : 25,
     name        : "Ahmed AbouZaid",
     title       : "Senior Product Engineer",
     company     : "Camunda",
@@ -438,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 25,
+    order       : 26,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -455,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-104",
-    order       : 26,
+    order       : 27,
     name        : "Hany Saad",
     title       : "Senior Software Engineering Manager",
     company     : "ITWorx",
@@ -472,7 +489,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-078",
-    order       : 27,
+    order       : 28,
     name        : "Sabrine Assem",
     title       : "Founder & CEO",
     company     : "UnTap",
@@ -489,7 +506,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-095",
-    order       : 28,
+    order       : 29,
     name        : "Moe Ash",
     title       : "Founder & Learning Architect",
     company     : "The Catalyst",
@@ -506,7 +523,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 29,
+    order       : 30,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -523,7 +540,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-075",
-    order       : 30,
+    order       : 31,
     name        : "Mohamed Ali",
     title       : "Founder",
     company     : "Business With Mo Podcast",
@@ -540,7 +557,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-085",
-    order       : 31,
+    order       : 32,
     name        : "Ahmed Bastawy",
     title       : "Managing Director",
     company     : "ICEALEX",
@@ -557,7 +574,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-087",
-    order       : 32,
+    order       : 33,
     name        : "Akram Marwan",
     title       : "Founder & CEO",
     company     : "iCareer",
@@ -574,7 +591,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-089",
-    order       : 34,
+    order       : 35,
     name        : "Mustafa Ali",
     title       : "AI Hardware Co-design",
     company     : "Meta",
@@ -591,7 +608,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-090",
-    order       : 35,
+    order       : 36,
     name        : "Ola Yousry",
     title       : "Senior BIM/VDC Manager",
     company     : "Ex-Tesla",
@@ -608,7 +625,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-092",
-    order       : 37,
+    order       : 38,
     name        : "Yassir El Ismaili",
     title       : "Serial Entrepreneur & Investor",
     company     : "1MoreThing Ventures",
@@ -625,7 +642,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 38,
+    order       : 39,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -642,7 +659,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 39,
+    order       : 40,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -659,7 +676,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-097",
-    order       : 40,
+    order       : 41,
     name        : "Mohamed AboElKheir",
     title       : "Application Security Engineer",
     company     : "Ironclad",
@@ -676,7 +693,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-100",
-    order       : 41,
+    order       : 42,
     name        : "Ahmed Faris",
     title       : "Senior Product Designer - UX",
     company     : "Teracloud",
@@ -693,7 +710,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-081",
-    order       : 42,
+    order       : 43,
     name        : "Hossam Elbery",
     title       : "CTO",
     company     : "BasharSoft",
@@ -710,7 +727,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-077",
-    order       : 43,
+    order       : 44,
     name        : "Mostafa Hassan",
     title       : "Marketing Director",
     company     : "BasharSoft",
@@ -727,7 +744,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-101",
-    order       : 44,
+    order       : 45,
     name        : "Mohamed Hatem",
     title       : "Chief AI Officer",
     company     : "URCA",
@@ -744,7 +761,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-105",
-    order       : 45,
+    order       : 46,
     name        : "Awad Bekhet",
     title       : "Chief Operation Officer",
     company     : "URCA",
@@ -761,7 +778,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-082",
-    order       : 46,
+    order       : 47,
     name        : "Heba Abdelfattah",
     title       : "Head of Product",
     company     : "BasharSoft",
@@ -778,7 +795,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-083",
-    order       : 47,
+    order       : 48,
     name        : "Mahmoud Ashraf",
     title       : "Product Design Lead",
     company     : "BasharSoft",
@@ -795,7 +812,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-018",
-    order       : 48,
+    order       : 49,
     name        : "Abdallah Amer",
     title       : "Founder & CEO",
     company     : "Capsules Group",
@@ -812,7 +829,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-059",
-    order       : 49,
+    order       : 50,
     name        : "Asif Shahriar",
     title       : "AI Learning Specialist",
     company     : "Constructor University Bremen",
@@ -829,7 +846,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-008",
-    order       : 50,
+    order       : 51,
     name        : "Ahmed El-Shamy",
     title       : "Dean of Education",
     company     : "Digisoul",
@@ -846,7 +863,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-037",
-    order       : 51,
+    order       : 52,
     name        : "Mohamed ElAswad",
     title       : "AI Trainer and Consultant",
     company     : "Aswad AI",
@@ -863,7 +880,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-065",
-    order       : 52,
+    order       : 53,
     name        : "Islam Mostafa",
     title       : "Engineer & Founder",
     company     : "Tebi",
@@ -880,7 +897,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-066",
-    order       : 53,
+    order       : 54,
     name        : "Manar Mansour",
     title       : "Founder & Managing Director",
     company     : "TIK TEN Consulting",
@@ -897,7 +914,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-054",
-    order       : 54,
+    order       : 55,
     name        : "Mohamed Sabry",
     title       : "Co-founder & CEO",
     company     : "LinkOut & Nabta",
@@ -914,7 +931,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-068",
-    order       : 55,
+    order       : 56,
     name        : "Mohamed Farouk",
     title       : "Professor",
     company     : "Zewail Univeristy",
@@ -931,7 +948,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-035",
-    order       : 56,
+    order       : 57,
     name        : "Ahmed El Sisi",
     title       : "AI Video Director & Creative Systems Builder",
     company     : "Bridges Foundation",
@@ -948,7 +965,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-060",
-    order       : 57,
+    order       : 58,
     name        : "Mohamed Kelany",
     title       : "Co-Founder and CTO",
     company     : "NtegralOne Solutions",
@@ -965,7 +982,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-004",
-    order       : 58,
+    order       : 59,
     name        : "Ashraf Bacheet",
     title       : "Founder",
     company     : "O7 Therapy",
@@ -982,7 +999,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-055",
-    order       : 59,
+    order       : 60,
     name        : "Mostafa Elganainy",
     title       : "Head of AI",
     company     : "Nowlun",
@@ -999,7 +1016,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-076",
-    order       : 60,
+    order       : 61,
     name        : "Yomna Abdelrahman",
     title       : "Postdoctoral Researcher",
     company     : "Bundeswehr University Munich",
@@ -1016,7 +1033,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-027",
-    order       : 61,
+    order       : 62,
     name        : "Sherouk Ghallab",
     title       : "Founder & Digital Learning Strategist",
     company     : "Noor Edtech",
@@ -1033,7 +1050,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-063",
-    order       : 62,
+    order       : 63,
     name        : "Ahmed Fakhry",
     title       : "Co-founder & CEO",
     company     : "Scale by AI",
@@ -1050,7 +1067,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-093",
-    order       : 63,
+    order       : 64,
     name        : "Khaled Hesham",
     title       : "AI Manager",
     company     : "Robusta Technology Group (RTG)",
@@ -1067,7 +1084,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-058",
-    order       : 64,
+    order       : 65,
     name        : "Ahmed ElKayesh",
     title       : "Founder & AI/ML Engineer",
     company     : "RoboPhi",
@@ -1084,7 +1101,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-006",
-    order       : 65,
+    order       : 66,
     name        : "Yasmine Aguib",
     title       : "co-Chief, Research & Innovation Officer",
     company     : "Magdi Yacoub Heart Foundation",
@@ -1101,7 +1118,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-098",
-    order       : 66,
+    order       : 67,
     name        : "Ehsan Sayed",
     title       : "Founder & Program Director",
     company     : "Sales Techies",
@@ -1118,7 +1135,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-080",
-    order       : 67,
+    order       : 68,
     name        : "Mahmoud Elrefaey",
     title       : "Software Engineer",
     company     : "Saudi Confidential Company",
@@ -1135,7 +1152,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-074",
-    order       : 68,
+    order       : 69,
     name        : "Abdelrahman Diaa",
     title       : "AI Consultant",
     company     : "Freelancer",
@@ -1152,7 +1169,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-007",
-    order       : 69,
+    order       : 70,
     name        : "Yehya Othman",
     title       : "CEO & Founder",
     company     : "Business Lobby & Marketing Terrace",
@@ -1169,7 +1186,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-073",
-    order       : 70,
+    order       : 71,
     name        : "Omar Nasr",
     title       : "Founder",
     company     : "GlobalAssess360",
@@ -1186,7 +1203,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-072",
-    order       : 71,
+    order       : 72,
     name        : "Ahmed Ramy",
     title       : "Co-Founder & CEO",
     company     : "FastAutomate",
@@ -1203,7 +1220,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-021",
-    order       : 72,
+    order       : 73,
     name        : "Moustafa Eshra",
     title       : "Data & AI Enterprise Architect",
     company     : "IBM",
@@ -1220,7 +1237,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-023",
-    order       : 73,
+    order       : 74,
     name        : "Alaa Mukhtar",
     title       : "Sales Development Representative",
     company     : "Opentext",
@@ -1237,7 +1254,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-026",
-    order       : 74,
+    order       : 75,
     name        : "Ziad Elalaily",
     title       : "AI Practice & Business Lead",
     company     : "PwC ETIC",
@@ -1254,7 +1271,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-029",
-    order       : 75,
+    order       : 76,
     name        : "Kamal Ghamry",
     title       : "Marketing Manager",
     company     : "Ninos",
@@ -1271,7 +1288,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-030",
-    order       : 76,
+    order       : 77,
     name        : "Ahmed El Zoughby",
     title       : "UX Research Lead",
     company     : "UX Labs",
@@ -1288,7 +1305,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-032",
-    order       : 77,
+    order       : 78,
     name        : "Mahmoud Abdelhamed",
     title       : "Senior AI Engineer",
     company     : "Confidential",
@@ -1305,7 +1322,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-033",
-    order       : 78,
+    order       : 79,
     name        : "Ahmed Aabed",
     title       : "Senior Engineering Manger",
     company     : "Yassir",
@@ -1322,7 +1339,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-106",
-    order       : 79,
+    order       : 80,
     name        : "Asmaa Saad",
     title       : "M&E Specialist & Researcher",
     company     : "GAFI",
@@ -1339,7 +1356,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-039",
-    order       : 80,
+    order       : 81,
     name        : "Ahmed Esmail",
     title       : "Business Development Engineer",
     company     : "EVRAID",
@@ -1356,7 +1373,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-040",
-    order       : 81,
+    order       : 82,
     name        : "Fady Fouad",
     title       : "Art Director & AI Film Maker",
     company     : "Fndmntl Labs",
@@ -1373,7 +1390,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-041",
-    order       : 82,
+    order       : 83,
     name        : "Eyad Eldomairy",
     title       : "Art Director",
     company     : "Six10 Ventures",
@@ -1390,7 +1407,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-043",
-    order       : 83,
+    order       : 84,
     name        : "Ezzat Essam",
     title       : "AI Animator",
     company     : "TPP",
