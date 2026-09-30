@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-09-30 09:53 · 93 speakers.
+ * Generated 2026-09-30 17:43 · 94 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -294,15 +294,32 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-086.png",
     bio         : "Dr. Fadi Amroush is a digital transformation and AI consultant with expertise in behavioral economics, generative AI, and technology-enabled education. He holds a PhD in Economics and Business and brings more than 20 years of experience across academia, consulting, and professional learning.",
     linkedin    : "https://www.linkedin.com/in/fadiamroush/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/fadi8789",
     featured    : false,
-    showOnHome  : false,
-    appearances : []
+    showOnHome  : true,
+    appearances : [{ trackNumber: null, day: 1, sessionId: "ses-d1-p4", timeSlot: "21:00" }]
+  },
+
+  {
+    id          : "spk-110",
+    order       : 17,
+    name        : "Maher Kalash",
+    title       : "Director of Technology and Digital Transformation",
+    company     : "Syrian Ministry of Health",
+    country     : "Syria",
+    countryCode : "SY",
+    photo       : "spk-110.png",
+    bio         : "Director of Technology and Digital Transformation at the Syrian Ministry of Health, where he leads national digital health initiatives aimed at modernizing healthcare services and building an integrated digital health ecosystem. With more than 10 years of experience in software, product development, digital transformation, and innovation, he is currently focused on establishing the foundations for data-driven and AI-enabled healthcare, including unified patient identity, electronic health systems, interoperability, and national health information infrastructure. His work centers on how countries rebuilding their health systems can move pragmatically from paper-based processes toward connected, scalable, and AI-ready healthcare.",
+    linkedin    : "https://www.linkedin.com/in/maher-kalash",
+    bmProfile   : "https://brainsmingle.com/maher2633",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: null, day: 1, sessionId: "ses-d1-p4", timeSlot: "21:00" }]
   },
 
   {
     id          : "spk-024",
-    order       : 17,
+    order       : 18,
     name        : "Sami AlAhmed",
     title       : "Founder & CEO",
     company     : "Doroob",
@@ -311,10 +328,10 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-024.png",
     bio         : "Syrian Entrepreneur and technical founder with 10+ years building ventures that connect MENA youth to opportunity. Founder of Emonovo (formerly MARJ3), the region's leading study-abroad platform with 2.5M+ monthly users and 350+ university partners, which began with Khatwa, a volunteer network founded in 2013. Currently CEO & Co-Founder of Doroob, building education-to-employment pathways in Syria as the country rebuilds. Stanford AMENDS fellow, WEF Global Shaper, and TEDx speaker. Passionate about AI, automation, and helping youth go from learning to earning.",
     linkedin    : "https://www.linkedin.com/in/samialahmad/",
-    bmProfile   : "https://brainsmingle.com/sami9921",
+    bmProfile   : "https://brainsmingle.com/Sami_ala7mad",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: null, day: 1, sessionId: "ses-d1-p4", timeSlot: "21:00" }]
   },
 
   {
@@ -371,18 +388,18 @@ const SIGNAL_SPEAKERS = [
   {
     id          : "spk-096",
     order       : 21,
-    name        : "Islam Elsaadny",
+    name        : "Islam Saadany",
     title       : "Managing Director",
     company     : "Forefront Consulting",
     country     : "Egypt",
     countryCode : "EG",
     photo       : "spk-096.png",
-    bio         : "Strategy Consultant and Managing Director of Forefront Consulting, with deep experience in strategy and management consulting. He has worked with over 75 companies of various sizes, including multinationals, large local corporations, SMEs, and scale-ups, spanning more than 30 industries. His expertise centers on guiding clients and partners in developing strategic plans for the future and ensuring effective execution through a range of deployment support approaches.",
+    bio         : "Strategy Consultant and the Managing Director of Forefront Consulting. With experience in Strategy & Management Consulting, I have worked with over 75 companies of various sizes, including Multinationals, large local corporations, SMEs & Scale-Ups spanning more than 20 industries.",
     linkedin    : "https://www.linkedin.com/in/isaadany/",
     bmProfile   : "https://brainsmingle.com/islam5866",
     featured    : false,
     showOnHome  : true,
-    appearances : []
+    appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s2-t4", timeSlot: "19:00" }]
   },
 
   {
@@ -403,8 +420,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-109",
+    id          : "spk-019",
     order       : 23,
+    name        : "Ahmed AbouZaid",
+    title       : "Senior Product Engineer",
+    company     : "Camunda",
+    country     : "Germany",
+    countryCode : "DE",
+    photo       : "spk-019.png",
+    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
+    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
+    bmProfile   : "https://brainsmingle.com/aabouzaid",
+    featured    : false,
+    showOnHome  : true,
+    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
+  },
+
+  {
+    id          : "spk-109",
+    order       : 24,
     name        : "Ehab Darwish",
     title       : "Founder",
     company     : "GTMENA",
@@ -421,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-047",
-    order       : 24,
+    order       : 25,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -432,25 +466,8 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/ahmedmaherpasha/",
     bmProfile   : "https://brainsmingle.com/ahmedmaherpasha",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 4, sessionId: "ses-d4-s3-t4", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-019",
-    order       : 25,
-    name        : "Ahmed AbouZaid",
-    title       : "Senior Product Engineer",
-    company     : "Camunda",
-    country     : "Germany",
-    countryCode : "DE",
-    photo       : "spk-019.png",
-    bio         : "Solutions Architect and DevOps Engineer based in Berlin with 14+ years of hands-on experience across Cloud-Native, Kubernetes, and DevSecOps. Open-source advocate, book author, and creator of the Dynamic DevOps Roadmap. Holds an M.Sc. in Data Engineering from Edinburgh Napier University and multiple certifications including CKS, CKA, and AWS. Passionate about automation, data, and DevOps transformation.",
-    linkedin    : "https://www.linkedin.com/in/aabouzaid/",
-    bmProfile   : "https://brainsmingle.com/aabouzaid",
-    featured    : false,
-    showOnHome  : true,
-    appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s1-t5", timeSlot: "18:00" }]
   },
 
   {
@@ -466,7 +483,7 @@ const SIGNAL_SPEAKERS = [
     linkedin    : "https://www.linkedin.com/in/abdelrahman/",
     bmProfile   : "https://brainsmingle.com/abdelrahman4372",
     featured    : false,
-    showOnHome  : true,
+    showOnHome  : false,
     appearances : [{ trackNumber: 4, day: 2, sessionId: "ses-d2-s3-t4", timeSlot: "20:00" }]
   },
 
@@ -501,7 +518,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : "https://brainsmingle.com/sabrine6580",
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -569,7 +586,7 @@ const SIGNAL_SPEAKERS = [
     bmProfile   : null,
     featured    : false,
     showOnHome  : false,
-    appearances : []
+    appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
   },
 
   {
@@ -1076,7 +1093,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-093.png",
     bio         : "AI Manager at Robusta, leading GenAI and ML teams to build systems that don't just demo well but operate reliably in production. With a foundation in engineering, he built scalable backend systems for top Egyptian companies and mentored students as a Teaching Assistant at Ain Shams Faculty of Engineering. He works across Classical ML, MLOps, LLMs, RAG, and GenAI agents, but his real focus is systems thinking: connecting research, infrastructure, and business value. He believes not all problems need GenAI, but when it's the right tool, it can transform a business, and that the difference between hype and impact is engineering discipline. His mission is to help teams build AI that is useful, reliable, and worth paying for.",
     linkedin    : "https://www.linkedin.com/in/khaled-hesham-fathallah-083802122/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/khaled9118",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 5, day: 5, sessionId: "ses-d5-s1-t5", timeSlot: "18:00" }]
@@ -1416,7 +1433,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-043.png",
     bio         : "Egyptian Art Director, AI Visualizer, and Stand-up Comedian with over 9 years of experience in visual communication and creative direction. His work explores the intersection of design, storytelling, humor, and artificial intelligence, with a strong focus on using AI as a tool for creative thinking, art direction, and visual experimentation. @TPP_Ai Visual Artisit",
     linkedin    : "https://www.linkedin.com/in/ezzat-essam-355190189/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/ezzat5253",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 2, sessionId: "ses-d2-s3-t2", timeSlot: "20:00" }]

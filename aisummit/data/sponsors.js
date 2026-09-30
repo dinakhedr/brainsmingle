@@ -2,7 +2,7 @@
  * sponsors.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the ValidatedOrg tab, rows with readyToPublish ticked.
- * Generated 2026-09-30 00:21 · 1 sponsors, 57 partners.
+ * Generated 2026-09-30 12:02 · 1 sponsors, 56 partners.
  *
  * Unsold slots are not listed. The wall works out how many are open
  * from SIGNAL_SPONSOR_TIERS[tier].slots minus the confirmed count.
@@ -68,8 +68,8 @@ const SIGNAL_PARTNER_TYPES = [
   "Regional Partner in Syria",
   "Regional Partner in Algeria",
   "Media Partner",
-  "Startup Partner",
   "EdTech Partner",
+  "Startup Partner",
   "Community Partner",
   "Community Partner in Syria",
   "Community Partner in Morocco",
@@ -103,7 +103,6 @@ const SIGNAL_PARTNERS = [
   { id: "prt-015", order: 201, name: "Doroob", tier: "community", icon: "globe", title: "Regional Partner in Syria", country: "Syria", countryCode: "SY", confirmed: true, group: "regional", logo: "prt-015.png", logoURL: "x", website: "https://doroob.work/", bmCommunityLink: null, tagline: "Doroob is a Syrian platform for professional training and qualification. It helps Syrian youth acquire digital and professional skills, discover and apply to training programs." },
   { id: "prt-044", order: 202, name: "The Algerian Developer", tier: "community", icon: "globe", title: "Regional Partner in Algeria", country: "Algeria", countryCode: "DZ", confirmed: true, group: "regional", logo: "prt-044.png", logoURL: "x", website: "https://www.facebook.com/TADeveloper1", bmCommunityLink: null, tagline: "The Algerian Developer is a digital hub and social media community dedicated to technology, AI, software engineering, and digital skills. Active across Facebook, Instagram, and Telegram, it serves as both an educational content engine and a go-to space for Algerian and Arab tech enthusiasts, students, and engineers looking to sharpen their skills and stay ahead in the industry." },
   { id: "prt-054", order: 300, name: "The Event Talks", tier: "community", icon: "media", title: "Media Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-054.png", logoURL: "x", website: "https://www.facebook.com/TheEventTalks", bmCommunityLink: null, tagline: "A platform that gathers all events happening in the MENA regionon  in various fields. It provides detailed information about each event and discusses each event in depth so that we can convey the entire event experience to everyone." },
-  { id: "prt-035", order: 400, name: "Wessam AI", tier: "community", icon: "trackTech", title: "Startup Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-035.png", logoURL: "x", website: "https://www.wesam.ai/", bmCommunityLink: null, tagline: "We’re building the Upwork for AI agents — a marketplace where businesses can find and hire specialized AI agents for specific jobs, and experts can build, package, and sell agents based on their real-world knowledge and experience." },
   { id: "prt-017", order: 401, name: "English Capsules", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-017.png", logoURL: "x", website: "http://englishcapsules.com/", bmCommunityLink: null, tagline: "English Capsules is a leading language academy dedicated to providing individuals with the practical language skills needed to succeed in today’s competitive job market." },
   { id: "prt-018", order: 402, name: "Next Academy", tier: "community", icon: "liveSession", title: "EdTech Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-018.png", logoURL: "x", website: "https://nextacademyedu.com/ar", bmCommunityLink: null, tagline: "Next Academy is where ambitious CEOs and entrepreneurs elevate their leadership, sharpen their business thinking, and navigate challenges with confidence. We equip business leaders with the expertise, insights, and perspective needed to lead with impact and build businesses designed for sustainable growth." },
   { id: "prt-034", order: 403, name: "Zaher AI", tier: "community", icon: "trackTech", title: "Startup Partner", country: null, countryCode: null, confirmed: true, group: "community", logo: "prt-034.png", logoURL: "x", website: "https://zaher.ai/", bmCommunityLink: null, tagline: "Zaher is a visibility and conversion AI copilot that leverages Generative Engine Optimization (GEO) strategies to help brands measure, simulate, and improve how they appear across the world’s leading LLMs." },
