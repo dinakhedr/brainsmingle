@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-10-01 13:01 · 97 speakers.
+ * Generated 2026-10-01 21:33 · 99 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -352,8 +352,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
-    id          : "spk-057",
+    id          : "spk-114",
     order       : 20,
+    name        : "Bassam Sharkawy",
+    title       : "Co-founder",
+    company     : "Sprints",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-114.png",
+    bio         : "Co-Founder of Sprints and HiRemoters, with 15+ years building technology and businesses across HealthTech, EdTech, and HRTech. From engineering FDA-cleared medical devices to scaling Sprints' AI-powered workforce platform across 12 countries, he applies AI to how people learn, get hired, and work.",
+    linkedin    : "https://www.linkedin.com/in/bassam-sharkawy",
+    bmProfile   : "https://brainsmingle.com/bassam6301",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: null, day: 1, sessionId: "ses-d1-p2", timeSlot: "19:00" }]
+  },
+
+  {
+    id          : "spk-057",
+    order       : 21,
     name        : "Ahmed Elsherbeeny",
     title       : "AI/GenAI Lead Specialist SA (MENAT)",
     company     : "Amazon Web Services (AWS)",
@@ -369,8 +386,25 @@ const SIGNAL_SPEAKERS = [
   },
 
   {
+    id          : "spk-087",
+    order       : 22,
+    name        : "Akram Marwan",
+    title       : "Founder & CEO",
+    company     : "iCareer",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-087.png",
+    bio         : "Serial EdTech entrepreneur with over 12 years of experience across employability, career development, and youth empowerment. In 2012 he founded iCareer, a platform bridging the gap between education and employment by connecting employers, universities, and early talent, growing it into a network of 1,000+ employers with training, coaching, assessment, and Egypt's first applicant tracking software. He began his career in business development at Procter & Gamble and later worked with the United Nations on sustainable development before turning to entrepreneurship. He holds an M.Sc. in Sustainable Development from the American University in Cairo, and is passionate about enhancing the employability of youth and creating impact in job creation at scale.",
+    linkedin    : "https://www.linkedin.com/in/akram-marwan/",
+    bmProfile   : "https://brainsmingle.com/akram-marwan",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: null, day: 1, sessionId: "ses-d1-p2", timeSlot: "19:00" }]
+  },
+
+  {
     id          : "spk-034",
-    order       : 21,
+    order       : 23,
     name        : "Ahmed Elfakharany",
     title       : "AWS Platform Engineer",
     company     : "Schuberg Phillis",
@@ -387,7 +421,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-096",
-    order       : 22,
+    order       : 24,
     name        : "Islam Saadany",
     title       : "Managing Director",
     company     : "Forefront Consulting",
@@ -404,7 +438,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-079",
-    order       : 23,
+    order       : 25,
     name        : "Hany Ahmed",
     title       : "VP, Generative AI & Unstructured Data Science",
     company     : "BeyondAI",
@@ -421,7 +455,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-019",
-    order       : 24,
+    order       : 26,
     name        : "Ahmed AbouZaid",
     title       : "Senior Product Engineer",
     company     : "Camunda",
@@ -438,7 +472,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-109",
-    order       : 25,
+    order       : 27,
     name        : "Ehab Darwish",
     title       : "Founder",
     company     : "GTMENA",
@@ -455,7 +489,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-047",
-    order       : 26,
+    order       : 28,
     name        : "Ahmed Maher",
     title       : "Cofounder & CEO",
     company     : "Wessam.ai",
@@ -472,7 +506,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-028",
-    order       : 27,
+    order       : 29,
     name        : "Abdelrahman Osama",
     title       : "Head of Design",
     company     : "Mal",
@@ -489,7 +523,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-104",
-    order       : 28,
+    order       : 30,
     name        : "Hany Saad",
     title       : "Senior Software Engineering Manager",
     company     : "ITWorx",
@@ -506,7 +540,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-078",
-    order       : 29,
+    order       : 31,
     name        : "Sabrine Assem",
     title       : "Founder & CEO",
     company     : "UnTap",
@@ -523,7 +557,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-095",
-    order       : 30,
+    order       : 32,
     name        : "Moe Ash",
     title       : "Founder & Learning Architect",
     company     : "The Catalyst",
@@ -540,7 +574,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-009",
-    order       : 31,
+    order       : 33,
     name        : "Mohamed Elsherif",
     title       : "CEO",
     company     : "ASaaSI Middle East",
@@ -557,7 +591,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-075",
-    order       : 32,
+    order       : 34,
     name        : "Mohamed Ali",
     title       : "Founder",
     company     : "Business With Mo Podcast",
@@ -574,7 +608,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-085",
-    order       : 33,
+    order       : 35,
     name        : "Ahmed Bastawy",
     title       : "Managing Director",
     company     : "ICEALEX",
@@ -587,23 +621,6 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 3, day: 4, sessionId: "ses-d4-s3-t3", timeSlot: "20:00" }]
-  },
-
-  {
-    id          : "spk-087",
-    order       : 34,
-    name        : "Akram Marwan",
-    title       : "Founder & CEO",
-    company     : "iCareer",
-    country     : "Egypt",
-    countryCode : "EG",
-    photo       : "spk-087.png",
-    bio         : "Serial EdTech entrepreneur with over 12 years of experience across employability, career development, and youth empowerment. In 2012 he founded iCareer, a platform bridging the gap between education and employment by connecting employers, universities, and early talent, growing it into a network of 1,000+ employers with training, coaching, assessment, and Egypt's first applicant tracking software. He began his career in business development at Procter & Gamble and later worked with the United Nations on sustainable development before turning to entrepreneurship. He holds an M.Sc. in Sustainable Development from the American University in Cairo, and is passionate about enhancing the employability of youth and creating impact in job creation at scale.",
-    linkedin    : "https://www.linkedin.com/in/akram-marwan/",
-    bmProfile   : "https://brainsmingle.com/akram-marwan",
-    featured    : false,
-    showOnHome  : false,
-    appearances : []
   },
 
   {
@@ -676,7 +693,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-092",
-    order       : 41,
+    order       : 40,
     name        : "Yassir El Ismaili",
     title       : "Serial Entrepreneur & Investor",
     company     : "1MoreThing Ventures",
@@ -693,7 +710,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-022",
-    order       : 42,
+    order       : 41,
     name        : "Ebrahem Anwar",
     title       : "Founder",
     company     : "ICCY",
@@ -710,7 +727,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-012",
-    order       : 43,
+    order       : 42,
     name        : "Taha Ali",
     title       : "CEO",
     company     : "GroHub",
@@ -727,7 +744,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-097",
-    order       : 44,
+    order       : 43,
     name        : "Mohamed AboElKheir",
     title       : "Application Security Engineer",
     company     : "Ironclad",
@@ -744,7 +761,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-112",
-    order       : 45,
+    order       : 44,
     name        : "Wajih Alkhiami",
     title       : "IT Administrator & Tech Content Creator",
     company     : "Wajih Alkhiam",
@@ -761,7 +778,7 @@ const SIGNAL_SPEAKERS = [
 
   {
     id          : "spk-100",
-    order       : 46,
+    order       : 45,
     name        : "Ahmed Faris",
     title       : "Senior Product Designer - UX",
     company     : "Teracloud",
@@ -774,6 +791,23 @@ const SIGNAL_SPEAKERS = [
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 6, sessionId: "ses-d6-s3-t2", timeSlot: "20:00" }]
+  },
+
+  {
+    id          : "spk-115",
+    order       : 46,
+    name        : "Ayman H.",
+    title       : "Founder & CTO",
+    company     : "Homains",
+    country     : "Egypt",
+    countryCode : "EG",
+    photo       : "spk-115.png",
+    bio         : "Founder and CTO of Homains and the creator of Maestro, a platform where companies hire and govern AI employees.  With 17+ years across software engineering and application security at IBM, Citi and g2o, he also founded Praxis, a hands-on tech learning platform, and serves as a fractional CTO in multiple startups.",
+    linkedin    : "https://www.linkedin.com/in/ay-hu/",
+    bmProfile   : "https://brainsmingle.com/ay-hu",
+    featured    : false,
+    showOnHome  : false,
+    appearances : [{ trackNumber: 1, day: 5, sessionId: "ses-d5-s3-t1", timeSlot: "20:00" }]
   },
 
   {
@@ -1409,7 +1443,7 @@ const SIGNAL_SPEAKERS = [
     id          : "spk-106",
     order       : 84,
     name        : "Asmaa Saad",
-    title       : "M&E Specialist & Researcher",
+    title       : "Senior Economic Researcher",
     company     : "GAFI",
     country     : "Egypt",
     countryCode : "EG",
@@ -1467,7 +1501,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-041.png",
     bio         : "Seven years of experience as an art director, plus two years using Al to create video ads, static campaigns, UGC content, product shoots, and branding for e-commerce teams. He's worked with brands like Audi, SEAT, and Burger King, and in his session, he'll focus on where Al meets design, advertising, and marketing",
     linkedin    : "https://www.linkedin.com/in/eyadaldomairy/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/eyad5269",
     featured    : false,
     showOnHome  : false,
     appearances : [{ trackNumber: 2, day: 5, sessionId: "ses-d5-s1-t2", timeSlot: "18:00" }]
