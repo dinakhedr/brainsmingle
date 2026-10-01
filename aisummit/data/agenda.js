@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-10-01 21:33 · 90 sessions, 82 with a sign-up link.
+ * Generated 2026-10-01 22:52 · 91 sessions, 83 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -57,6 +57,7 @@ const SIGNAL_AGENDA = [
   // ======================================
   // DAY 3
   // ======================================
+  { id: "ses-d3-s1-t1", title: "From Customer Insight to Product Strategy with AI", type: "Talk", trackNumber: 1, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-116"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=5fd50f83-d845-482d-99a6-e90e6f408975", description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t2", title: "Tech Influencers", type: "Talk", trackNumber: 2, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "in-progress" },
   { id: "ses-d3-s1-t3", title: "From Idea to AI Startup: Building an MVP in Days, Not Months", type: "Talk", trackNumber: 3, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-022"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=6210f795-61ba-4939-a8ca-7eb88047cc76", description: null, special: null, status: "closed" },
   { id: "ses-d3-s1-t4", title: "Winning GTM Strategies for Financial Services: From First Approach to Winning the Deal", type: "Talk", trackNumber: 4, day: 3, slot: 1, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-066"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=7d4161c7-be72-4367-a005-424f686805d8", description: null, special: null, status: "closed" },
