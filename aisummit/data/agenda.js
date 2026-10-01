@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-10-01 11:08 · 90 sessions, 79 with a sign-up link.
+ * Generated 2026-10-01 13:02 · 90 sessions, 80 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -30,7 +30,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d1-p0", title: "Opening", type: "Panel Discussion", trackNumber: null, day: 1, slot: 1, timeSlot: "17:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d1-p1", title: "Government (Ameer)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 2, timeSlot: "18:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "closed" },
   { id: "ses-d1-p2", title: "Talent & Job Market (Akram)", type: "Panel Discussion", trackNumber: null, day: 1, slot: 3, timeSlot: "19:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: null, status: "closed" },
-  { id: "ses-d1-p3", title: "Inside the Giants: How Global Corporations Really Use AI", type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-014","spk-089","spk-090","spk-111"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=d1d80020-02d1-494b-8aff-61105c6c3a4c", description: null, special: null, status: "closed" },
+  { id: "ses-d1-p3", title: "Inside the Giants: How Global Corporations Really Use AI", type: "Panel Discussion", trackNumber: null, day: 1, slot: 4, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-014","spk-089","spk-090","spk-111","spk-113"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=d1d80020-02d1-494b-8aff-61105c6c3a4c", description: null, special: null, status: "closed" },
   { id: "ses-d1-p4", title: "From Diaspora to Damascus: Powering Syria's AI Transformation", type: "Panel Discussion", trackNumber: null, day: 1, slot: 5, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-086","spk-110","spk-024"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=d90510d1-cb30-4cb3-849f-e8671fc3dc29", description: null, special: null, status: "closed" },
   { id: "ses-d1-networking", title: "Saturday Speed Networking", type: "Speed Networking", trackNumber: null, day: 1, slot: 6, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=1429514e-dba9-4c6e-8e2e-a2ed5e821096", description: null, special: "networking", status: "closed" },
 
@@ -71,7 +71,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d3-s3-t3", title: "Build your AI GTM Stack", type: "Talk", trackNumber: 3, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-109"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=efe0133e-a8bf-4d25-96ff-89b79b2ff15a", description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t4", title: "The Enterprise AI Equation: Scale, Value , ROI", type: "Talk", trackNumber: 4, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-026"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=8868b969-f53a-41b2-b90c-fe2ede12b0e2", description: null, special: null, status: "closed" },
   { id: "ses-d3-s3-t5", title: "Achilles' heel", type: "Talk", trackNumber: 5, day: 3, slot: 3, timeSlot: "20:00", durationMinutes: 60, speakerIds: ["spk-061"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=c8def11e-7de8-4cc0-a547-815404c73652", description: null, special: null, status: "closed" },
-  { id: "ses-d3-spotlight", title: "Crossing Borders: What It Takes to Expand Beyond Your Home Market", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: [], bmUrl: null, description: null, special: "spotlight", status: "in-progress" },
+  { id: "ses-d3-spotlight", title: "Crossing Borders: What It Takes to Expand Beyond Your Home Market", type: "Panel Discussion", trackNumber: null, day: 3, slot: 4, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-092"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=5d4da776-9b1a-4bec-a134-a14036bdac1a", description: null, special: "spotlight", status: "closed" },
   { id: "ses-d3-networking", title: "Monday Speed Networking", type: "Speed Networking", trackNumber: null, day: 3, slot: 5, timeSlot: "22:00", durationMinutes: 60, speakerIds: [], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=ecc48177-40fc-4647-a246-08e056ea1a38", description: null, special: "networking", status: "closed" },
 
   // ======================================
