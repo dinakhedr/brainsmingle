@@ -2,7 +2,7 @@
  * speakers.js — AI Summit 2026
  * GENERATED FILE. Do not edit by hand.
  * Source: the Validated tab, rows with readyToPublish ticked.
- * Generated 2026-10-02 19:57 · 101 speakers.
+ * Generated 2026-10-03 03:09 · 101 speakers.
  *
  * Track numbers: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * null = Opening Day, no track.
@@ -328,7 +328,7 @@ const SIGNAL_SPEAKERS = [
     photo       : "spk-011.png",
     bio         : "Product and technology executive with 20+ years at the intersection of large-scale infrastructure, AI, and connectivity. Currently leads AI strategy across an enterprise stack, embedding intelligence into operations and customer experience at scale. Pioneered the industry's first commercially deployable virtualization framework and helped shape cloud-native architectures that redefined how networks are built. Contributor to global networking standards, patent holder, and published author in distributed systems. Holds an entrepreneurship and finance degree from The Wharton School. Passionate about AI infrastructure economics, agentic workloads, and the lessons of prior technology cycles.",
     linkedin    : "https://www.linkedin.com/in/helmalky/",
-    bmProfile   : null,
+    bmProfile   : "https://brainsmingle.com/helmalky",
     featured    : false,
     showOnHome  : true,
     appearances : [{ trackNumber: 5, day: 2, sessionId: "ses-d2-s2-t5", timeSlot: "19:00" }]
