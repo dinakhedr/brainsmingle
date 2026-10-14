@@ -312,11 +312,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
      The Day Spotlight is the one row where all five tracks merge, so
      it takes brand purple and never a track colour. Speed Networking
      is neutral and needs no token. */
-  --card-tint:       0.13;
-  --card-tint-hover: 0.20;
-  --card-edge:       0.42;
-  --spotlight-tint:  0.20;
-  --spotlight-edge:  0.50;
+  --card-tint:       0.18;
+  --card-tint-hover: 0.26;
+  --card-edge:       0.55;
+  --spotlight-tint:  0.26;
+  --spotlight-edge:  0.62;
   --spotlight-ink:   var(--purple-bright);
 }
 
@@ -1654,6 +1654,204 @@ body.modal-open { overflow: hidden; }
 .ag-sn-title { font-family: var(--font-display); font-size: clamp(32px, 5vw, 56px); font-weight: 900; color: var(--accent); line-height: 1.1; margin-bottom: 16px; }
 .ag-sn-sub   { font-family: var(--font-body); font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.72); max-width: 540px; margin: 0 auto; }
 
+/* ── Closing Day: 30-minute grid (Day 7)
+   Built by renderNetworkingDay in agenda.html. One row per 30 minutes;
+   a card spans as many rows as its duration. Same rail and nodes as
+   the track days. Day 7 has no tracks, so its sessions take brand
+   purple (as Day 1's panels do), the finale takes a deeper purple,
+   and Speed Networking keeps the accent. Every fill is laid over the
+   solid page colour so the 30-minute lines never show through. */
+.ag-cd-legend {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px;
+  margin-bottom: 22px;
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  color: var(--text-secondary);
+}
+.ag-cd-legend > span { display: inline-flex; align-items: center; gap: 8px; }
+.ag-cd-key { display: inline-block; width: 16px; height: 16px; border-radius: 5px; }
+.ag-cd-legend { --ag-cd-net-rgb: 19, 254, 198; --ag-cd-day-rgb: var(--track-4-rgb); }
+.ag-cd-key--net     { background: rgba(var(--ag-cd-net-rgb), 0.30); border: 1.5px solid rgb(var(--ag-cd-net-rgb)); }
+.ag-cd-key--day     { background: rgba(var(--ag-cd-day-rgb), 0.22); border: 1.5px solid rgb(var(--ag-cd-day-rgb)); }
+.ag-cd-key--session { background: rgba(var(--purple-rgb), 0.20); border: 1.5px solid rgba(var(--purple-rgb), 0.65); }
+.ag-cd-key--finale  { background: var(--purple); border: 1.5px solid var(--purple); }
+.ag-cd-legend .ag-cd-legend-note { margin-left: auto; font-size: 13px; }
+
+/* Wide enough for three lanes side by side; narrower screens scroll
+   sideways until the phone layout takes over at 640px. */
+.ag-cd-scroll { overflow-x: auto; }
+.ag-cd-grid {
+  --ag-cd-time: 100px;   /* matches the rail at left: 100px */
+  --ag-cd-net:  210px;
+  --ag-cd-slot: 120px;   /* height of one 30-minute row */
+  --ag-cd-fill: 0.16;    /* session tint */
+  --ag-cd-fill-hover: 0.24;
+  --ag-cd-edge: 0.60;
+  /* Speed Networking: Summit green, fixed in both themes (the site's
+     --accent turns purple on light, which would merge it with the
+     sessions). Afternoon sessions, the ones running alongside
+     networking: amber. Swap either triplet to recolour a group. */
+  --ag-cd-net-rgb: 19, 254, 198;
+  --ag-cd-net-ink: var(--green);
+  --ag-cd-day-rgb: var(--track-4-rgb);
+  --ag-cd-day-ink: var(--track-4);
+  display: grid; column-gap: 12px; min-width: 820px;
+}
+
+/* Hour lines solid, half-hour lines dashed, behind the cards. */
+.ag-cd-line { grid-column: 2 / -1; border-top: 1px solid var(--border-mid); pointer-events: none; }
+.ag-cd-line--half { border-top: 1px dashed var(--border-mid); }
+.ag-cd-label { grid-column: 1; }
+.ag-cd-label--half { font-size: 14px; font-weight: 700; color: var(--text-secondary); }
+.ag-cd-label--half::after { width: 7px; height: 7px; right: -3px; }
+
+/* ── Card: text on the left, speaker circles on the right */
+.ag-cd-session,
+.ag-cd-net {
+  position: relative; min-width: 0; overflow: hidden;
+  margin: 5px 0;
+  border-radius: var(--radius-md); padding: 14px 16px;
+  transition: background .18s ease, border-color .18s ease,
+              transform .18s ease, box-shadow .18s ease;
+}
+.ag-cd-session {
+  display: flex; flex-direction: row; align-items: flex-start; gap: 14px;
+  background: linear-gradient(rgba(var(--purple-rgb), var(--ag-cd-fill)), rgba(var(--purple-rgb), var(--ag-cd-fill))), var(--bg);
+  border: 1.5px solid rgba(var(--purple-rgb), var(--ag-cd-edge));
+}
+.ag-cd-session.is-clickable,
+.ag-cd-net.is-clickable { cursor: pointer; }
+.ag-cd-session.is-clickable:hover,
+.ag-cd-session.is-clickable:focus-visible {
+  background: linear-gradient(rgba(var(--purple-rgb), var(--ag-cd-fill-hover)), rgba(var(--purple-rgb), var(--ag-cd-fill-hover))), var(--bg);
+  border-color: var(--purple);
+  box-shadow: 0 8px 20px rgba(var(--purple-rgb), 0.20);
+  transform: translateY(-2px); outline: none;
+}
+.ag-cd-body { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; gap: 6px; }
+/* Lines never shrink to fit: a squeezed title disappears rather than wraps. */
+.ag-cd-body > * { flex-shrink: 0; }
+.ag-cd-type {
+  font-family: var(--font-body); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.10em; text-transform: uppercase; color: var(--spotlight-ink);
+}
+.ag-cd-title {
+  font-family: var(--font-display); font-size: 16px; font-weight: 800;
+  color: var(--text-primary); line-height: 1.3;
+}
+.ag-cd-time,
+.ag-cd-speakers {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--text-secondary);
+}
+.ag-cd-speakers { margin-top: auto; }
+.ag-cd-session--wip { border-style: dashed; }
+
+/* Speaker circles: one overlapping stack at the card's top right.
+   Full colour, ringed in the card's purple. */
+.ag-cd-chips { display: flex; align-items: center; flex-shrink: 0; }
+.ag-cd-chips .speaker-chip {
+  display: inline-flex; padding: 0; border: none; background: none;
+  border-radius: 50%; margin-left: -10px;
+}
+.ag-cd-chips .speaker-chip:first-child { margin-left: 0; }
+.ag-cd-chips .speaker-chip__photo,
+.ag-cd-chips .speaker-chip__initials {
+  width: 48px; height: 48px; border-radius: 50%; box-sizing: border-box;
+  border: 2.5px solid var(--bg);
+  box-shadow: 0 0 0 1.5px rgba(var(--purple-rgb), 0.75);
+  background: rgba(var(--purple-rgb), 0.22);
+  color: var(--spotlight-ink);
+  font-family: var(--font-display); font-size: 15px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  object-fit: cover; object-position: center 15%;
+}
+
+/* 30 minutes is one row: the circles centre on the card's height,
+   the title keeps two lines, and the time line goes (the type tag
+   already says 30 min). */
+.ag-cd-session--short { align-items: center; padding: 12px 16px; }
+.ag-cd-session--short .ag-cd-body { gap: 4px; justify-content: center; }
+.ag-cd-session--short .ag-cd-type,
+.ag-cd-session--short .ag-cd-speakers { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ag-cd-session--short .ag-cd-title {
+  font-size: 15px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.ag-cd-session--short .ag-cd-time { display: none; }
+.ag-cd-session--short .ag-cd-speakers { margin-top: 0; }
+.ag-cd-session--short .ag-cd-chips .speaker-chip__photo,
+.ag-cd-session--short .ag-cd-chips .speaker-chip__initials { width: 44px; height: 44px; }
+
+/* Finale: the day's last session, solid brand purple */
+.ag-cd-session--finale {
+  align-items: center; gap: 24px; padding: 20px 26px;
+  background: var(--purple); border-color: var(--purple);
+}
+.ag-cd-session--finale.is-clickable:hover,
+.ag-cd-session--finale.is-clickable:focus-visible {
+  background: var(--purple); border-color: var(--purple);
+  box-shadow: 0 10px 28px rgba(var(--purple-rgb), 0.40);
+}
+.ag-cd-session--finale .ag-cd-body { justify-content: center; }
+.ag-cd-session--finale .ag-cd-type     { color: rgba(255,255,255,0.80); font-size: 12px; }
+.ag-cd-session--finale .ag-cd-title    { color: #FFFFFF; font-size: 26px; line-height: 1.2; }
+.ag-cd-session--finale .ag-cd-time,
+.ag-cd-session--finale .ag-cd-speakers { color: rgba(255,255,255,0.88); font-size: 14px; margin-top: 0; }
+.ag-cd-session--finale .ag-cd-chips .speaker-chip { margin-left: 10px; }
+.ag-cd-session--finale .ag-cd-chips .speaker-chip:first-child { margin-left: 0; }
+.ag-cd-session--finale .ag-cd-chips .speaker-chip__photo,
+.ag-cd-session--finale .ag-cd-chips .speaker-chip__initials {
+  width: 64px; height: 64px; font-size: 18px;
+  border: 2.5px solid #FFFFFF; box-shadow: none;
+  background: rgba(255,255,255,0.18); color: #FFFFFF;
+}
+
+/* ── Speed Networking column, in the accent */
+.ag-cd-net {
+  grid-column: 2;
+  display: flex; flex-direction: column; gap: 10px; padding: 18px 16px;
+  background: linear-gradient(180deg, rgba(var(--ag-cd-net-rgb), 0.24) 0%, rgba(var(--ag-cd-net-rgb), 0.10) 100%), var(--bg);
+  border: 1.5px solid rgb(var(--ag-cd-net-rgb));
+}
+.ag-cd-net.is-clickable:hover,
+.ag-cd-net.is-clickable:focus-visible {
+  box-shadow: 0 8px 20px rgba(var(--ag-cd-net-rgb), 0.22);
+  transform: translateY(-2px); outline: none;
+}
+.ag-cd-net--wip { border-style: dashed; }
+.ag-cd-net .ag-special-badge { color: var(--ag-cd-net-ink); margin-bottom: 0; font-size: 11px; font-weight: 800; }
+.ag-cd-net-since {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-body); font-size: 12px; font-weight: 800; color: var(--ag-cd-net-ink);
+}
+.ag-cd-net-since svg { width: 13px; height: 13px; }
+.ag-cd-net-title { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: var(--text-primary); line-height: 1.15; }
+.ag-cd-net-sub   { font-family: var(--font-body); font-size: 14px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); }
+.ag-cd-net-time  { margin-top: auto; font-family: var(--font-body); font-size: 14px; font-weight: 800; color: var(--ag-cd-net-ink); }
+
+/* Light theme: the same alpha reads paler over white, so push it up. */
+[data-theme="light"] .ag-cd-grid,
+[data-theme="light"] .ag-cd-legend { --ag-cd-fill: 0.12; --ag-cd-fill-hover: 0.19; --ag-cd-edge: 0.55; --ag-cd-net-rgb: 0, 122, 95; }
+
+/* Afternoon sessions: same card, amber instead of purple */
+.ag-cd-session--day {
+  background: linear-gradient(rgba(var(--ag-cd-day-rgb), var(--ag-cd-fill)), rgba(var(--ag-cd-day-rgb), var(--ag-cd-fill))), var(--bg);
+  border-color: rgba(var(--ag-cd-day-rgb), var(--ag-cd-edge));
+}
+.ag-cd-session--day.is-clickable:hover,
+.ag-cd-session--day.is-clickable:focus-visible {
+  background: linear-gradient(rgba(var(--ag-cd-day-rgb), var(--ag-cd-fill-hover)), rgba(var(--ag-cd-day-rgb), var(--ag-cd-fill-hover))), var(--bg);
+  border-color: rgb(var(--ag-cd-day-rgb));
+  box-shadow: 0 8px 20px rgba(var(--ag-cd-day-rgb), 0.20);
+}
+.ag-cd-session--day .ag-cd-type { color: var(--ag-cd-day-ink); }
+.ag-cd-session--day .ag-cd-chips .speaker-chip__photo,
+.ag-cd-session--day .ag-cd-chips .speaker-chip__initials {
+  box-shadow: 0 0 0 1.5px rgba(var(--ag-cd-day-rgb), 0.85);
+  background: rgba(var(--ag-cd-day-rgb), 0.22);
+  color: var(--ag-cd-day-ink);
+}
+
 /* Day 7 call to action row */
 .ag-day-cta {
   display: flex; gap: 16px; flex-wrap: wrap;
@@ -2692,11 +2890,11 @@ a.spk-session-item--link:hover { border-color: var(--accent); background: rgba(v
   /* Agenda card tints. Lower than dark: the same alpha over white
      reads stronger. These sit between --w-soft and --w-mid in the
      section 30 ladder. */
-  --card-tint:       0.10;
-  --card-tint-hover: 0.16;
-  --card-edge:       0.40;
-  --spotlight-tint:  0.08;
-  --spotlight-edge:  0.36;
+  --card-tint:       0.15;
+  --card-tint-hover: 0.22;
+  --card-edge:       0.55;
+  --spotlight-tint:  0.14;
+  --spotlight-edge:  0.50;
   --spotlight-ink:   var(--purple-ink);
 
 }
@@ -4791,6 +4989,9 @@ body.glow::after {
   .ag-special-merged  { grid-template-columns: 78px 1fr; gap: 6px; }
   .ag-panel-row       { grid-template-columns: 78px 1fr; gap: 6px; }
   .ag-grid::before    { left: 78px; }
+  .ag-cd-grid         { --ag-cd-time: 78px; --ag-cd-net: 170px; column-gap: 6px; }
+  .ag-cd-title        { font-size: 15px; }
+  .ag-cd-net-title    { font-size: 20px; }
   .ag-track-col-label { font-size: 11px; padding: 0 0 7px; }
   .ag-time-label      { font-size: 14px; padding: 10px 12px 0 0; }
   .ag-time-label::after { top: 15px; }
@@ -5025,6 +5226,21 @@ body.glow::after {
   }
   .ag-time-label::after { display: none; }
   .ag-session        { min-height: 0; }
+  /* Closing Day: the grid becomes a list in time order. Every card
+     shows its own time, since the rail and its labels are gone. */
+  .ag-cd-scroll      { overflow: visible; }
+  .ag-cd-grid        { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .ag-cd-line,
+  .ag-cd-label       { display: none; }
+  .ag-cd-session,
+  .ag-cd-net         { margin: 0; }
+  .ag-cd-session--short { align-items: flex-start; }
+  .ag-cd-session--short .ag-cd-time { display: block; }
+  .ag-cd-session--finale { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .ag-cd-session--finale .ag-cd-title { font-size: 22px; }
+  .ag-cd-session--finale .ag-cd-chips .speaker-chip__photo,
+  .ag-cd-session--finale .ag-cd-chips .speaker-chip__initials { width: 52px; height: 52px; }
+  .ag-cd-legend .ag-cd-legend-note { display: none; }
 
   /* 15. Tracks page */
   .tr-hero { padding: 120px 24px 48px; }

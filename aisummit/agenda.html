@@ -162,29 +162,19 @@
         // promise the site cannot keep.
         var SHOW_SESSION_SIGNUP = true;
 
-        // Opening day panel slots.
-        // so it has its own times rather than using SIGNAL_TIME_SLOTS.
-        var AG_DAY1_SLOTS = [{
-                time: "5:00 PM",
-                sessionId: "ses-d1-p0"
-            },
-            {
-                time: "6:00 PM",
-                sessionId: "ses-d1-p1"
-            },
-            {
-                time: "7:00 PM",
-                sessionId: "ses-d1-p2"
-            },
-            {
-                time: "8:00 PM",
-                sessionId: "ses-d1-p3"
-            },
-            {
-                time: "9:00 PM",
-                sessionId: "ses-d1-p4"
-            }
-        ];
+        /* Opening day panels are read from agenda.js, not listed here.
+           Every session on an opening day with no track and no special
+           key becomes a row, ordered by slot (then time), and its time
+           label comes from its own timeSlot. Adding, removing or moving
+           a panel is a sheet edit only. */
+        function _openingSessions(dayNumber) {
+            return SIGNAL_AGENDA
+                .filter(s => s.day === dayNumber && s.trackNumber === null && !s.special)
+                .sort((a, b) =>
+                    ((a.slot || 0) - (b.slot || 0)) ||
+                    String(a.timeSlot || "").localeCompare(String(b.timeSlot || ""))
+                );
+        }
 
         // The 9 PM Day Spotlight that anchors every evening — one solo
         // panel, all tracks merged into a single room. The per-night topic
@@ -220,7 +210,9 @@
         var AG_SESSION_SURFACES = {
             spotlight:  { cls: "ses-modal--purple",  label: "Day Spotlight" },
             networking: { cls: "ses-modal--neutral", label: "Daily wrap" },
-            opening:    { cls: "ses-modal--purple",  label: "Opening night" }
+            opening:    { cls: "ses-modal--purple",  label: "Opening night" },
+            closing:    { cls: "ses-modal--purple",  label: "Closing Day" },
+            networkingDay: { cls: "ses-modal--neutral", label: "Full day" }
         };
 
         var AG_NETWORKING_BLURB =
@@ -323,32 +315,26 @@
            DAY 1 — Opening panels
            ───────────────────────────────────────── */
         function renderOpeningDay(day, isActive) {
-            const panels = AG_DAY1_SLOTS.map((s, i) => {
-                const session = SIGNAL_AGENDA.find(a => a.id === s.sessionId);
-                const real = _realTitle(session);
-                const title = real || AG_PLACEHOLDER_SESSION;
+            const sessions = _openingSessions(day.day);
 
-                // Nothing scheduled in this slot: the title placeholder alone,
-                // no speaker line and no actions. The time label and the slot
-                // number stay, because those are the day's structure rather
-                // than session content. Same !session test _sessionActions uses
-                // for the info button, so all three disappear together.
-                if (!session) {
-                    return `
+            // No panels published yet: one placeholder row keeps the
+            // day from looking broken.
+            const panels = !sessions.length ? `
       <div class="ag-panel-row">
-        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-time-label"></div>
         <div class="ag-panel ag-panel--empty">
           <div class="ag-panel-title ag-panel-title--placeholder">${AG_PLACEHOLDER_SESSION}</div>
         </div>
-      </div>`;
-                }
+      </div>` : sessions.map(session => {
+                const real = _realTitle(session);
+                const title = real || AG_PLACEHOLDER_SESSION;
+                const time = session.timeSlot ? _time12(session.timeSlot) : "";
 
-                // Status then people at the right-hand end. The 01 to 04
-                // counter is gone: the 6, 7, 8, 9 rail already says it.
+                // Status then people at the right-hand end.
                 const wip = _isWip(session);
                 return `
       <div class="ag-panel-row ag-panel-row--filled">
-        <div class="ag-time-label">${s.time}</div>
+        <div class="ag-time-label">${time}</div>
         <div class="ag-panel is-clickable${wip ? " ag-panel--wip" : ""}"${_cardOpen(session.id)}>
           <div class="ag-panel-content">
             ${_typeTag(session, "ag-panel-type")}
@@ -404,15 +390,172 @@
 
 
         /* ─────────────────────────────────────────
-           DAY 7 — Speed Networking
+           DAY 7 — Closing Day: 30-minute grid
+           Every row is AG_CD_SLOT minutes and each card is as tall as
+           its durationMinutes (30 = 1 row, 60 = 2, 90 = 3, 120 = 4).
+           Sessions that overlap share the hour side by side; a session
+           alone in its time runs full width. The last session of the
+           day is the finale and takes Spotlight purple. Speed
+           Networking is a column beside the sessions for as long as it
+           overlaps the grid. Moving or resizing a session is a sheet
+           edit only (Time + Duration).
            ───────────────────────────────────────── */
+        var AG_CD_SLOT = 30;           // minutes per row
+        var AG_CD_DEFAULT_MIN = 60;    // used when Duration is blank
+
+        function _toMin(hhmm) {
+            const m = /^(\d{1,2}):(\d{2})$/.exec(String(hhmm || "").trim());
+            return m ? parseInt(m[1], 10) * 60 + parseInt(m[2], 10) : null;
+        }
+        function _fromMin(min) {
+            return Math.floor(min / 60) + ":" + String(min % 60).padStart(2, "0");
+        }
+
         function renderNetworkingDay(day, isActive) {
-            // Title is dynamic: it comes from the day's networking session in
-            // agenda.js, falling back to the day label from days.js until the
-            // row is published.
-            const session = SIGNAL_AGENDA.find(s =>
+            const net = SIGNAL_AGENDA.find(s =>
                 s.day === day.day && s.special === "networking" && s.trackNumber === null
             ) || null;
+
+            const items = SIGNAL_AGENDA
+                .filter(s => s.day === day.day && !s.special && _toMin(s.timeSlot) !== null)
+                .map(s => {
+                    const start = _toMin(s.timeSlot);
+                    return { s: s, start: start, end: start + (s.durationMinutes || AG_CD_DEFAULT_MIN) };
+                })
+                .sort((a, b) => (a.start - b.start) || (b.end - a.end));
+
+            // Nothing scheduled yet: the full-day networking hero alone.
+            if (!items.length) return _networkingHero(day, isActive, net);
+
+            const gridStart = Math.floor(Math.min(...items.map(i => i.start)) / AG_CD_SLOT) * AG_CD_SLOT;
+            const gridEnd   = Math.ceil(Math.max(...items.map(i => i.end)) / AG_CD_SLOT) * AG_CD_SLOT;
+            const rows      = (gridEnd - gridStart) / AG_CD_SLOT;
+            const startRow  = min => Math.floor((min - gridStart) / AG_CD_SLOT) + 1;
+            const endRow    = min => Math.ceil((min - gridStart) / AG_CD_SLOT) + 1;
+
+            /* Lanes. Sessions that overlap, directly or through a chain,
+               form a cluster and are packed into lanes left to right. A
+               cluster of one has the hour to itself and runs full width. */
+            let lanes = 1, cluster = [], clusterEnd = 0;
+            const flush = () => {
+                if (cluster.length === 1) {
+                    cluster[0].full = true;
+                } else if (cluster.length) {
+                    const laneEnds = [];
+                    cluster.forEach(i => {
+                        let l = laneEnds.findIndex(e => e <= i.start);
+                        if (l === -1) { l = laneEnds.length; laneEnds.push(0); }
+                        laneEnds[l] = i.end;
+                        i.lane = l;
+                    });
+                    lanes = Math.max(lanes, laneEnds.length);
+                }
+                cluster = [];
+            };
+            items.forEach(i => {
+                if (cluster.length && i.start >= clusterEnd) flush();
+                if (!cluster.length) clusterEnd = i.end;
+                cluster.push(i);
+                clusterEnd = Math.max(clusterEnd, i.end);
+            });
+            flush();
+            items[items.length - 1].finale = true;
+
+            const firstLane = net ? 3 : 2;
+
+            // Rail labels and the 30-minute lines behind the cards.
+            let scaffold = "";
+            for (let r = 0; r < rows; r++) {
+                const min = gridStart + r * AG_CD_SLOT;
+                const onHour = min % 60 === 0;
+                const label = onHour ? _time12(_fromMin(min)) : _time12(_fromMin(min)).replace(/ [AP]M$/, "");
+                scaffold += `
+        <div class="ag-time-label ag-cd-label${onHour ? "" : " ag-cd-label--half"}" style="grid-row: ${r + 1}">${label}</div>
+        <div class="ag-cd-line${onHour ? "" : " ag-cd-line--half"}" style="grid-row: ${r + 1}"></div>`;
+            }
+
+            // Speed Networking column, clipped to the grid it sits beside.
+            let netCard = "", netFrom = null, netTo = null;
+            if (net) {
+                const nStart = _toMin(net.timeSlot);
+                const nEnd = nStart !== null && net.durationMinutes ? nStart + net.durationMinutes : null;
+                const a = nStart !== null ? Math.max(nStart, gridStart) : gridStart;
+                const b = nEnd !== null ? Math.min(nEnd, gridEnd) : gridEnd;
+                if (b > a) {
+                    netFrom = a; netTo = b;
+                    const since = nStart !== null && nStart < gridStart
+                        ? `<div class="ag-cd-net-since">${_agIcon("arrowUp") || "↑"} Open since ${_time12(_fromMin(nStart))}</div>` : "";
+                    const range = nStart !== null && nEnd !== null
+                        ? `${_time12(_fromMin(nStart))} – ${_time12(_fromMin(nEnd))}` : "Full day";
+                    netCard = `
+        <div class="ag-cd-net${net ? " is-clickable" : ""}${_isWip(net) ? " ag-cd-net--wip" : ""}" style="grid-row: ${startRow(a)} / ${endRow(b)}"${_cardOpen(net.id)}>
+          ${since}
+          <div class="ag-special-badge">
+            <span class="ag-badge-icon">${_agIcon("speedNetworking")}</span>
+            Speed Networking${net.durationMinutes ? " · " + net.durationMinutes + " min" : ""}
+          </div>
+          <div class="ag-cd-net-title">${_realTitle(net) || day.displayLabel}</div>
+          <div class="ag-cd-net-sub">Matched one-to-one rounds. Drop in between sessions.</div>
+          <div class="ag-cd-net-time">${range}</div>
+        </div>`;
+                }
+            }
+
+            const cards = items.map(i => {
+                const s = i.s;
+                /* A full-width session clear of the networking hours takes
+                   the networking column too, so it starts at the rail. */
+                const clearOfNet = netFrom === null || i.start >= netTo || i.end <= netFrom;
+                const from = i.full && clearOfNet ? 2 : firstLane;
+                const col = i.full ? `${from} / ${firstLane + lanes}` : `${firstLane + i.lane}`;
+                const dur = i.end - i.start;
+                const type = s.type ? String(s.type).trim() : "";
+                const names = _speakerNames(s);
+                /* Sessions that run while Speed Networking is open are the
+                   afternoon group (amber); from the end of networking on,
+                   the closing night (purple). */
+                const isDay = !i.finale && netTo !== null && i.start < netTo;
+                const cls = "ag-cd-session is-clickable"
+                    + (i.finale ? " ag-cd-session--finale" : "")
+                    + (isDay ? " ag-cd-session--day" : "")
+                    + (dur <= AG_CD_SLOT ? " ag-cd-session--short" : "")
+                    + (_isWip(s) ? " ag-cd-session--wip" : "");
+                return `
+        <div class="${cls}" style="grid-row: ${startRow(i.start)} / ${endRow(i.end)}; grid-column: ${col}"${_cardOpen(s.id)}>
+          <div class="ag-cd-body">
+            <div class="ag-cd-type">${type ? type + " · " : ""}${dur} min</div>
+            <div class="ag-cd-title">${_realTitle(s) || AG_PLACEHOLDER_SESSION}</div>
+            <div class="ag-cd-time">${_time12(_fromMin(i.start))} – ${_time12(_fromMin(i.end))}</div>
+            ${_isWip(s) ? _wipTag() : ""}
+            ${names ? `<div class="ag-cd-speakers">${names}</div>` : ""}
+          </div>
+          ${_speakerChips(s, "ag-cd-chips")}
+        </div>`;
+            }).join("");
+
+            return `
+    <div class="ag-day${isActive ? " active" : ""}" id="${day.domId}">
+      ${_dayHeader(day, day.label + " · Closing Day")}
+      <div class="ag-cd-legend">
+        ${net ? `<span><i class="ag-cd-key ag-cd-key--net"></i>Speed Networking</span>` : ""}
+        ${net ? `<span><i class="ag-cd-key ag-cd-key--day"></i>Sessions</span>` : ""}
+        <span><i class="ag-cd-key ag-cd-key--session"></i>${net ? "Closing night" : "Session"}</span>
+        <span><i class="ag-cd-key ag-cd-key--finale"></i>Summit Closing</span>
+        <span class="ag-cd-legend-note">1 row = ${AG_CD_SLOT} min</span>
+      </div>
+      <div class="ag-cd-scroll">
+        <div class="ag-grid ag-cd-grid" style="grid-template-columns: var(--ag-cd-time) ${net ? "var(--ag-cd-net) " : ""}repeat(${lanes}, minmax(0, 1fr)); grid-template-rows: repeat(${rows}, var(--ag-cd-slot))">
+          ${scaffold}
+          ${netCard}
+          ${cards}
+        </div>
+      </div>
+    </div>`;
+        }
+
+        /* The original full-day hero. Shown only while Day 7 has no
+           timed sessions published. */
+        function _networkingHero(day, isActive, session) {
             const title = _realTitle(session) || day.displayLabel;
 
             return `
@@ -507,7 +650,7 @@
             // that hour's node on the rail with purple.
             return `
       <div class="ag-special-merged ag-special-merged--${specialKey}">
-        <div class="ag-time-label">${config.time}</div>
+        <div class="ag-time-label">${session && session.timeSlot ? _time12(session.timeSlot) : config.time}</div>
         <div class="ag-special-card ${config.cssClass}${session ? " is-clickable" : ""}${wip ? " ag-special-card--wip" : ""}"${_cardOpen(session ? session.id : null)}>
           <div class="ag-special-text">
             <div class="ag-special-badge">
@@ -602,11 +745,17 @@
 
             /* Surface: track colour, purple, or neutral. A session with no
                track that is not a special row is a Day 1 opening panel. */
+            /* Day 7 (type "networking" in days.js) gets its own labels:
+               its sessions are Closing Day, not Opening night, and its
+               networking runs all day rather than as a daily wrap. */
+            const isClosingDay = !!(day && day.type === "networking");
             let surface = null;
-            if (s && s.special && AG_SESSION_SURFACES[s.special]) {
+            if (s && s.special === "networking" && isClosingDay) {
+                surface = AG_SESSION_SURFACES.networkingDay;
+            } else if (s && s.special && AG_SESSION_SURFACES[s.special]) {
                 surface = AG_SESSION_SURFACES[s.special];
             } else if (s && !s.trackNumber) {
-                surface = AG_SESSION_SURFACES.opening;
+                surface = isClosingDay ? AG_SESSION_SURFACES.closing : AG_SESSION_SURFACES.opening;
             }
 
             const box = document.getElementById("ses-box");
