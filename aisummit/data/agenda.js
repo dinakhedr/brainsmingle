@@ -3,7 +3,7 @@
  * GENERATED FILE. Do not edit by hand.
  * Source: the Sessions tab, Publish = With Session or Yes.
  * "Yes" publishes the session but withholds the sign-up link.
- * Generated 2026-10-15 00:45 · 104 sessions, 104 with a sign-up link.
+ * Generated 2026-10-16 15:38 · 100 sessions, 100 with a sign-up link.
  *
  * trackNumber: 1 L&D · 2 Creative · 3 Startups · 4 Business · 5 Tech
  * trackNumber null = Opening Day panels, Day Spotlight, Speed Networking.
@@ -150,11 +150,7 @@ const SIGNAL_AGENDA = [
   { id: "ses-d7-s5-t0", title: "The End of One Size Fits All Software", type: "Talk", trackNumber: null, day: 7, slot: 0, timeSlot: "18:00", durationMinutes: 60, speakerIds: ["spk-157"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=ec6e3300-d7e6-4a21-8835-7b579abe67d0", description: null, special: null, status: "closed" },
   { id: "ses-d7-s6-t0", title: "Build with Intention: What's Worth Building with AI?", type: "Talk", trackNumber: null, day: 7, slot: 0, timeSlot: "19:00", durationMinutes: 60, speakerIds: ["spk-153"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=536dc386-9b6d-4fcf-b437-ae7b7befbe7e", description: null, special: null, status: "closed" },
   { id: "ses-d7-s7-t0", title: "Reshaping Agility? Software Delivery in the Age of Agentic AI", type: "Talk", trackNumber: null, day: 7, slot: 0, timeSlot: "19:00", durationMinutes: 30, speakerIds: ["spk-156"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=c2bc5e63-02e4-4540-b93b-f7a3caa313b7", description: null, special: null, status: "closed" },
-  { id: "ses-d7-s8-t0", title: "Startup Egypt", type: "Fireside Chat", trackNumber: null, day: 7, slot: 0, timeSlot: "19:00", durationMinutes: 30, speakerIds: ["spk-010","spk-078"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=90d235a1-60ba-4815-a9de-a70c9a3c3211", description: null, special: null, status: "closed" },
-  { id: "ses-d7-s9-t0", title: "Vibe Editing Hackathon Winners Announcement", type: "Talk", trackNumber: null, day: 7, slot: 0, timeSlot: "20:00", durationMinutes: 30, speakerIds: ["spk-140"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=1fb4d596-4598-4e3e-beb9-523581d7619c", description: null, special: null, status: "closed" },
-  { id: "ses-d7-s10-t0", title: "AI Global - Women in AI Retreat Announcement", type: "Talk", trackNumber: null, day: 7, slot: 0, timeSlot: "20:30", durationMinutes: 30, speakerIds: ["spk-014"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=ee0d6f4d-e473-40a4-bcc0-f621dc61cfc5", description: null, special: null, status: "closed" },
-  { id: "ses-d7-s11-t0", title: "BrainsMingle AI Summit Closing", type: "Panel Discussion", trackNumber: null, day: 7, slot: 0, timeSlot: "21:00", durationMinutes: 60, speakerIds: ["spk-137","spk-138","spk-001"], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=7f3df996-e552-48b4-86e0-1a1001940f8a", description: null, special: null, status: "closed" },
-  { id: "ses-d7-networking", title: "Speed Networking Day", type: "Speed Networking", trackNumber: null, day: 7, slot: 1, timeSlot: "12:00", durationMinutes: 480, speakerIds: [], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=645cdbd1-4438-41ad-882e-0c84164da178", description: null, special: "networking", status: "closed" }
+  { id: "ses-d7-networking", title: "Speed Networking Day", type: "Speed Networking", trackNumber: null, day: 7, slot: 1, timeSlot: "16:00", durationMinutes: 480, speakerIds: [], bmUrl: "https://brainsmingle.com/programs/brainsmingle-ai-summit-2026?session=645cdbd1-4438-41ad-882e-0c84164da178", description: null, special: "networking", status: "closed" }
 
 ];
 
